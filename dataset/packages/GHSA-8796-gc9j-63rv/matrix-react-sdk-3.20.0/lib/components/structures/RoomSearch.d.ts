@@ -1,0 +1,32 @@
+import * as React from "react";
+interface IProps {
+    isMinimized: boolean;
+    onKeyDown(ev: React.KeyboardEvent): void;
+    /**
+     * @returns true if a room has been selected and the search field should be cleared
+     */
+    onSelectRoom(): boolean;
+}
+interface IState {
+    query: string;
+    focused: boolean;
+    inSpaces: boolean;
+}
+export default class RoomSearch extends React.PureComponent<IProps, IState> {
+    private dispatcherRef;
+    private inputRef;
+    private searchFilter;
+    constructor(props: IProps);
+    componentDidUpdate(prevProps: Readonly<IProps>, prevState: Readonly<IState>): void;
+    componentWillUnmount(): void;
+    private onSpaces;
+    private onAction;
+    private clearInput;
+    private openSearch;
+    private onChange;
+    private onFocus;
+    private onBlur;
+    private onKeyDown;
+    render(): React.ReactNode;
+}
+export {};

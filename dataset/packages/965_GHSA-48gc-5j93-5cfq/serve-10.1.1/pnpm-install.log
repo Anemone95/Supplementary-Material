@@ -1,0 +1,20 @@
+$ corepack pnpm@9.15.9 install --prod --no-frozen-lockfile --reporter=append-only --config.node-linker=hoisted --ignore-workspace --ignore-scripts
+Progress: resolved 1, reused 0, downloaded 0, added 0
+ WARN  deprecated @zeit/git-hooks@0.1.4: Please update to @vercel/git-hooks
+ WARN  deprecated eslint@5.4.0: This version is no longer supported. Please see https://eslint.org/version-support for other options.
+Progress: resolved 166, reused 0, downloaded 0, added 0
+ WARN  4 deprecated subdependencies found: circular-json@0.3.3, glob@7.2.3, inflight@1.0.6, rimraf@2.6.3
+
+devDependencies: skipped
+
+ WARN  Issues with peer dependencies found
+.
+└─┬ eslint 5.4.0
+  └─┬ table 4.0.3
+    └─┬ ajv-keywords 3.5.2
+      └── ✕ unmet peer ajv@^6.9.1: found 6.5.3
+
+Packages: +79
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Progress: resolved 174, reused 75, downloaded 4, added 79, done
+Done in 2.1s using pnpm v9.15.9

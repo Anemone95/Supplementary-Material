@@ -1,0 +1,12 @@
+$ corepack pnpm@9.15.9 install --prod --no-frozen-lockfile --reporter=append-only --config.node-linker=hoisted --ignore-workspace --ignore-scripts
+Progress: resolved 1, reused 0, downloaded 0, added 0
+ WARN  deprecated sinon@6.3.5: 16.1.1
+Progress: resolved 65, reused 0, downloaded 0, added 0
+ WARN  8 deprecated subdependencies found: @sinonjs/text-encoding@0.7.3, clone-buffer@1.0.0, glob@7.1.2, glob@7.2.3, inflight@1.0.6, lodash.get@4.4.2, mkdirp@0.5.1, path-dirname@1.0.2
+
+devDependencies: skipped
+
+Packages: +128
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Progress: resolved 174, reused 125, downloaded 3, added 128, done
+Done in 2s using pnpm v9.15.9

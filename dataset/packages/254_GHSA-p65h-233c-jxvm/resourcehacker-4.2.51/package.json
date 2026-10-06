@@ -1,0 +1,48 @@
+{
+  "name": "resourcehacker",
+  "version": "4.2.51",
+  "description": "Node wrapper of Resource Hacker (windows executable resource editor)",
+  "main": "lib/ResHacker.js",
+  "bin": {
+    "resourcehacker": "./lib/ResHacker"
+  },
+  "homepage": "https://github.com/felicienfrancois/node-resourcehacker",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/felicienfrancois/node-resourcehacker.git"
+  },
+  "author": {
+    "name": "Felicien Francois",
+    "email": "felicien@tweakstyle.com",
+    "url": "http://tweakstyle.com"
+  },
+  "bugs": {
+    "url": "https://github.com/felicienfrancois/node-resourcehacker/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/felicienfrancois/node-resourcehacker/blob/master/LICENSE"
+    }
+  ],
+  "engines": {
+    "node": ">= 0.8.0"
+  },
+  "scripts": {
+    "postinstall": "node scripts/install.js"
+  },
+  "readmeFilename": "README.md",
+  "keywords": [
+    "resource",
+    "hacker",
+    "editor",
+    "windows",
+    "gruntplugin",
+    "node",
+    "cli"
+  ],
+  "dependencies": {
+    "adm-zip": "^0.4.7",
+    "caw": "^1.2.0"
+  }
+}

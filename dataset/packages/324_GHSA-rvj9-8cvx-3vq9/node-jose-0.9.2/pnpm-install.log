@@ -1,0 +1,14 @@
+$ corepack pnpm@9.15.9 install --prod --no-frozen-lockfile --reporter=append-only --config.node-linker=hoisted --ignore-workspace --ignore-scripts
+Progress: resolved 1, reused 0, downloaded 0, added 0
+ WARN  deprecated lodash.pick@4.4.0: This package is deprecated. Use destructuring assignment syntax instead.
+ WARN  deprecated uuid@2.0.3: uuid@10 and below is no longer supported.  For ESM codebases, update to uuid@latest.  For CommonJS codebases, use uuid@11 (but be aware this version will likely be deprecated in 2028).
+ WARN  deprecated lodash.clone@4.5.0: This package is deprecated. Use structuredClone instead.
+ WARN  deprecated istanbul@0.4.5: This module is no longer maintained, try this instead:
+  npm i nyc
+Visit https://istanbul.js.org/integrations for other alternatives.
+ WARN  deprecated gulp-util@3.0.8: gulp-util is deprecated - replace it, following the guidelines at https://medium.com/gulpjs/gulp-util-ca3b1f9f9ac5
+ ERR_PNPM_FETCH_404  GET https://github.com/linuxwolf/forge/archive/browserify.tar.gz: Not Found - 404
+
+This error happened while installing a direct dependency of /home/wenyuan/work/jelly-benchmarks/packages/Supplementary-Material/dataset/packages/324_GHSA-rvj9-8cvx-3vq9/node-jose-0.9.2
+
+No authorization header was set for the request.

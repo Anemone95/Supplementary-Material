@@ -1,0 +1,31 @@
+{
+  "name": "tianma-static",
+  "description": "Serve static files",
+  "version": "1.0.4",
+  "author": "Nanqiao Deng <nqdeng@gmail.com>",
+  "keywords": [
+    "static",
+	"middleware",
+    "tianma"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/tianmajs/tianma-static.git"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "co-fs": "~1.2.0"
+  },
+  "devDependencies": {
+    "mocha": "~2.2.5",
+    "supertest": "^0.15.0",
+    "tianma": "~1.0.0"
+  },
+  "engines": {
+    "node": ">=0.12.0"
+  },
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha --harmony"
+  }
+}

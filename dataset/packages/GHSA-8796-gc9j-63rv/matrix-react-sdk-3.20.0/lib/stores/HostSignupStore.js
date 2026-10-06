@@ -1,0 +1,69 @@
+"use strict";
+
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.HostSignupStore = void 0;
+
+var _defineProperty2 = _interopRequireDefault(require("@babel/runtime/helpers/defineProperty"));
+
+var _dispatcher = _interopRequireDefault(require("../dispatcher/dispatcher"));
+
+var _AsyncStore = require("./AsyncStore");
+
+/*
+Copyright 2021 The Matrix.org Foundation C.I.C.
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+*/
+class HostSignupStore extends _AsyncStore.AsyncStore
+/*:: <IState>*/
+{
+  constructor() {
+    super(_dispatcher.default, {
+      hostSignupActive: false
+    });
+  }
+
+  static get instance()
+  /*: HostSignupStore*/
+  {
+    return HostSignupStore.internalInstance;
+  }
+
+  get isHostSignupActive()
+  /*: boolean*/
+  {
+    return this.state.hostSignupActive;
+  }
+
+  async setHostSignupActive(status
+  /*: boolean*/
+  ) {
+    return this.updateState({
+      hostSignupActive: status
+    });
+  }
+
+  onDispatch(payload
+  /*: ActionPayload*/
+  ) {// Nothing to do
+  }
+
+}
+
+exports.HostSignupStore = HostSignupStore;
+(0, _defineProperty2.default)(HostSignupStore, "internalInstance", new HostSignupStore());
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uL3NyYy9zdG9yZXMvSG9zdFNpZ251cFN0b3JlLnRzIl0sIm5hbWVzIjpbIkhvc3RTaWdudXBTdG9yZSIsIkFzeW5jU3RvcmUiLCJjb25zdHJ1Y3RvciIsImRlZmF1bHREaXNwYXRjaGVyIiwiaG9zdFNpZ251cEFjdGl2ZSIsImluc3RhbmNlIiwiaW50ZXJuYWxJbnN0YW5jZSIsImlzSG9zdFNpZ251cEFjdGl2ZSIsInN0YXRlIiwic2V0SG9zdFNpZ251cEFjdGl2ZSIsInN0YXR1cyIsInVwZGF0ZVN0YXRlIiwib25EaXNwYXRjaCIsInBheWxvYWQiXSwibWFwcGluZ3MiOiI7Ozs7Ozs7Ozs7O0FBZ0JBOztBQUNBOztBQWpCQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFVTyxNQUFNQSxlQUFOLFNBQThCQztBQUE5QjtBQUFpRDtBQUc1Q0MsRUFBQUEsV0FBUixHQUFzQjtBQUNsQixVQUFNQyxtQkFBTixFQUF5QjtBQUFDQyxNQUFBQSxnQkFBZ0IsRUFBRTtBQUFuQixLQUF6QjtBQUNIOztBQUVELGFBQWtCQyxRQUFsQjtBQUFBO0FBQThDO0FBQzFDLFdBQU9MLGVBQWUsQ0FBQ00sZ0JBQXZCO0FBQ0g7O0FBRUQsTUFBV0Msa0JBQVg7QUFBQTtBQUF5QztBQUNyQyxXQUFPLEtBQUtDLEtBQUwsQ0FBV0osZ0JBQWxCO0FBQ0g7O0FBRUQsUUFBYUssbUJBQWIsQ0FBaUNDO0FBQWpDO0FBQUEsSUFBa0Q7QUFDOUMsV0FBTyxLQUFLQyxXQUFMLENBQWlCO0FBQ3BCUCxNQUFBQSxnQkFBZ0IsRUFBRU07QUFERSxLQUFqQixDQUFQO0FBR0g7O0FBRVNFLEVBQUFBLFVBQVYsQ0FBcUJDO0FBQXJCO0FBQUEsSUFBNkMsQ0FDekM7QUFDSDs7QUF2Qm1EOzs7OEJBQTNDYixlLHNCQUN5QixJQUFJQSxlQUFKLEUiLCJzb3VyY2VzQ29udGVudCI6WyIvKlxuQ29weXJpZ2h0IDIwMjEgVGhlIE1hdHJpeC5vcmcgRm91bmRhdGlvbiBDLkkuQy5cblxuTGljZW5zZWQgdW5kZXIgdGhlIEFwYWNoZSBMaWNlbnNlLCBWZXJzaW9uIDIuMCAodGhlIFwiTGljZW5zZVwiKTtcbnlvdSBtYXkgbm90IHVzZSB0aGlzIGZpbGUgZXhjZXB0IGluIGNvbXBsaWFuY2Ugd2l0aCB0aGUgTGljZW5zZS5cbllvdSBtYXkgb2J0YWluIGEgY29weSBvZiB0aGUgTGljZW5zZSBhdFxuXG4gICAgaHR0cDovL3d3dy5hcGFjaGUub3JnL2xpY2Vuc2VzL0xJQ0VOU0UtMi4wXG5cblVubGVzcyByZXF1aXJlZCBieSBhcHBsaWNhYmxlIGxhdyBvciBhZ3JlZWQgdG8gaW4gd3JpdGluZywgc29mdHdhcmVcbmRpc3RyaWJ1dGVkIHVuZGVyIHRoZSBMaWNlbnNlIGlzIGRpc3RyaWJ1dGVkIG9uIGFuIFwiQVMgSVNcIiBCQVNJUyxcbldJVEhPVVQgV0FSUkFOVElFUyBPUiBDT05ESVRJT05TIE9GIEFOWSBLSU5ELCBlaXRoZXIgZXhwcmVzcyBvciBpbXBsaWVkLlxuU2VlIHRoZSBMaWNlbnNlIGZvciB0aGUgc3BlY2lmaWMgbGFuZ3VhZ2UgZ292ZXJuaW5nIHBlcm1pc3Npb25zIGFuZFxubGltaXRhdGlvbnMgdW5kZXIgdGhlIExpY2Vuc2UuXG4qL1xuXG5pbXBvcnQgZGVmYXVsdERpc3BhdGNoZXIgZnJvbSBcIi4uL2Rpc3BhdGNoZXIvZGlzcGF0Y2hlclwiO1xuaW1wb3J0IHtBc3luY1N0b3JlfSBmcm9tIFwiLi9Bc3luY1N0b3JlXCI7XG5pbXBvcnQge0FjdGlvblBheWxvYWR9IGZyb20gXCIuLi9kaXNwYXRjaGVyL3BheWxvYWRzXCI7XG5cbmludGVyZmFjZSBJU3RhdGUge1xuICAgIGhvc3RTaWdudXBBY3RpdmU/OiBib29sZWFuO1xufVxuXG5leHBvcnQgY2xhc3MgSG9zdFNpZ251cFN0b3JlIGV4dGVuZHMgQXN5bmNTdG9yZTxJU3RhdGU+IHtcbiAgICBwcml2YXRlIHN0YXRpYyBpbnRlcm5hbEluc3RhbmNlID0gbmV3IEhvc3RTaWdudXBTdG9yZSgpO1xuXG4gICAgcHJpdmF0ZSBjb25zdHJ1Y3RvcigpIHtcbiAgICAgICAgc3VwZXIoZGVmYXVsdERpc3BhdGNoZXIsIHtob3N0U2lnbnVwQWN0aXZlOiBmYWxzZX0pO1xuICAgIH1cblxuICAgIHB1YmxpYyBzdGF0aWMgZ2V0IGluc3RhbmNlKCk6IEhvc3RTaWdudXBTdG9yZSB7XG4gICAgICAgIHJldHVybiBIb3N0U2lnbnVwU3RvcmUuaW50ZXJuYWxJbnN0YW5jZTtcbiAgICB9XG5cbiAgICBwdWJsaWMgZ2V0IGlzSG9zdFNpZ251cEFjdGl2ZSgpOiBib29sZWFuIHtcbiAgICAgICAgcmV0dXJuIHRoaXMuc3RhdGUuaG9zdFNpZ251cEFjdGl2ZTtcbiAgICB9XG5cbiAgICBwdWJsaWMgYXN5bmMgc2V0SG9zdFNpZ251cEFjdGl2ZShzdGF0dXM6IGJvb2xlYW4pIHtcbiAgICAgICAgcmV0dXJuIHRoaXMudXBkYXRlU3RhdGUoe1xuICAgICAgICAgICAgaG9zdFNpZ251cEFjdGl2ZTogc3RhdHVzLFxuICAgICAgICB9KTtcbiAgICB9XG5cbiAgICBwcm90ZWN0ZWQgb25EaXNwYXRjaChwYXlsb2FkOiBBY3Rpb25QYXlsb2FkKSB7XG4gICAgICAgIC8vIE5vdGhpbmcgdG8gZG9cbiAgICB9XG59XG4iXX0=

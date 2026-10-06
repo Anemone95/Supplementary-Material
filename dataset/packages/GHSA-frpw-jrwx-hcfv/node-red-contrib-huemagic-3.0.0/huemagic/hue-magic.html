@@ -1,0 +1,246 @@
+<script type="text/x-red" data-template-name="hue-magic">
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-tag"></i> <span data-i18n="hue-magic.config.name"></span></label>
+        <input type="text" id="node-input-name" data-i18n="[placeholder]hue-magic.config.input-name">
+    </div>
+    <div class="form-row">
+        <label for="node-input-endless"><i class="fa fa-refresh"></i> <span data-i18n="hue-magic.config.loop"></span></label>
+        <input type="checkbox" id="node-input-endless" style="display:inline-block; width:22px; vertical-align:baseline;"><span data-i18n="hue-magic.config.loop-endless"></span>
+        </label>
+    </div>
+    <div class="form-row">
+        <label for="node-input-restore"><i class="fa fa-undo"></i> <span data-i18n="hue-magic.config.restore"></span></label>
+        <input type="checkbox" id="node-input-restore" style="display:inline-block; width:22px; vertical-align:baseline;"><span data-i18n="hue-magic.config.restore-state"></span>
+        </label>
+    </div>
+    <div class="form-row">
+        <label for="node-input-steps"><i class="fa fa-magic"></i> <span data-i18n="hue-magic.config.animation"></span></label>
+    </div>
+    <div style="display: none;">
+        <div class="form-row">
+            <input type="text" id="node-input-preset" placeholder="...">
+        </div>
+        <div class="form-row">
+            <input type="text" id="node-input-steps" placeholder="...">
+        </div>
+    </div>
+    <div class="form-row form-animations">
+        <div class="animation template">
+            <img src="#" class="color">
+            <div class="info">
+                <span><name>Name</name> <dur>(dur)</dur></span>
+            </div>
+            <img src="hue/assets/huemagic-bulb.png">
+        </div>
+    </div>
+</script>
+
+<style type="text/css">
+.form-animations
+{
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 30% 3.29% 30% 3.29% 30%;
+    grid-template-columns: 30% 30% 30%;
+    grid-gap: 2.29% 3.29%;
+
+    max-width: 40vw;
+    padding-bottom: 85px;
+}
+
+.form-animations .animation
+{
+    position: relative;
+    cursor: pointer;
+
+    border-radius: 20px;
+    overflow: hidden;
+
+    border: 2px solid #fff;
+    -webkit-transition: -webkit-box-shadow 333ms ease-in-out;
+    transition: -webkit-box-shadow 333ms ease-in-out;
+    -o-transition: box-shadow 333ms ease-in-out;
+    transition: box-shadow 333ms ease-in-out;
+    transition: box-shadow 333ms ease-in-out, -webkit-box-shadow 333ms ease-in-out;
+}
+
+.form-animations .animation.template
+{
+    display: none;
+}
+
+.form-animations .animation:active
+{
+    opacity: 0.7;
+}
+
+.form-animations .animation.selected
+{
+    box-shadow: 0 10px 40px rgba(0,0,0,0.1), 0 6px 13px rgba(0,0,0,0.23);
+}
+
+.form-animations .animation .color
+{
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    height: 100%;
+    width: 100%;
+
+    z-index: 1;
+    pointer-events: none;
+}
+
+.form-animations .animation .info
+{
+    position: absolute;
+
+    top: 8%;
+    left: 0;
+    width: 100%;
+
+    text-align: center;
+    z-index: 20;
+    pointer-events: none;
+}
+
+.form-animations .animation .info span
+{
+    display: block;
+    margin: 0 12px;
+    color: #000;
+    background-color: rgba(255,255,255,0.8);
+    font-size: 11px;
+    padding: 2.5px 0;
+    border-radius: 8px;
+}
+
+.form-animations .animation .info span name
+{
+    display: inline-block;
+    vertical-align: middle;
+}
+.form-animations .animation .info span dur
+{
+    display: inline-block;
+    vertical-align: middle;
+    opacity: 0.5;
+    margin-left: 3px;
+    font-size: 9px;
+}
+
+.form-animations .animation img
+{
+    position: relative;
+    pointer-events: none;
+
+    z-index: 10;
+}
+</style>
+
+<script type="text/javascript">
+    RED.nodes.registerType('hue-magic',{
+        category: 'HueMagic',
+        color: '#ff4242',
+        defaults: {
+            name: {value:""},
+            endless: {value: true},
+            restore: {value: false},
+            preset: {value: null},
+            steps: {value: null}
+        },
+        inputs: 1,
+        outputs: 1,
+        inputLabels: function() {
+            return this._("hue-magic.node.input");
+        },
+        outputLabels: function() {
+            return this._("hue-magic.node.output");
+        },
+        align: 'right',
+        icon: "hue-magic.png",
+        paletteLabel: function() {
+            return this._("hue-magic.node.title");
+        },
+        label: function() {
+            return this.name || this._("hue-magic.node.title");
+        },
+        oneditprepare: function()
+        {
+            var scope = this;
+            this.animations = [];
+
+            var preset = $('#node-input-preset').val();
+
+            // LOAD ANIMATIONS
+            $.get('hue/animations?nc=' + Math.random())
+            .done( function(data)
+            {
+                // LOGIC
+                scope.animations = JSON.parse(data);
+                $.each(scope.animations, function(i, animation)
+                {
+                    var animationTemplate = $(".animation.template").clone();
+                    animationTemplate.removeClass("template");
+
+                    // APPLY INFORMATION
+                    animationTemplate.attr("data-id", animation.info.id);
+                    animationTemplate.attr("data-name", animation.info.name);
+                    animationTemplate.attr("data-steps", JSON.stringify(animation.steps));
+                    animationTemplate.find("name").html(animation.info.name);
+                    animationTemplate.find(".color").attr("src", "hue/animations/" + animation.info.id + ".gif");
+
+                    // IS SELECTED?
+                    if(preset == animation.info.id)
+                    {
+                        animationTemplate.addClass("selected");
+                    }
+
+                    // CALC DURATION IN SECONDS AND ANIMATION
+                    var duration = 0;
+                    $.each(animation.steps, function(z, oneStep) { duration += oneStep.delay; });
+
+                    // NORMALIZE DUR IN SECONDS
+                    duration = duration/1000;
+
+                    // HUMAN READABLE DURATION
+                    var suffix = (duration <= 60) ? scope._("hue-magic.config.seconds") : scope._("hue-magic.config.minutes");
+                    duration = (duration <= 60) ? (Math.round(duration * 10) / 10) : (Math.round( (duration/60) * 10 ) / 10);
+                    animationTemplate.find("dur").html("("+duration + " " + suffix + ")");
+
+                    // PUSH TO FRONTEND
+                    animationTemplate.appendTo(".form-animations");
+                });
+            })
+            .fail(function()
+            {
+                RED.notify(scope._("hue-magic.config.unknown-error"), "error");
+            });
+
+            // SELECT ANIMATION
+            $(document).off('click', '.form-animations .animation');
+            $(document).on('click', '.form-animations .animation', function(e)
+            {
+                var selectedAnimation = $(e.currentTarget);
+
+                // RESET SELECTION
+                $(".form-animations .animation").removeClass("selected");
+                selectedAnimation.addClass("selected");
+
+                // SET PRESET ID
+                $('#node-input-preset').val(selectedAnimation.attr("data-id"));
+
+                // RESET NAME
+                $('#node-input-name').val(selectedAnimation.attr("data-name"));
+
+                // SET STEPS
+                var index = selectedAnimation.attr("data-id");
+                var steps = JSON.stringify(JSON.parse(selectedAnimation.attr("data-steps")));
+
+                $('#node-input-steps').val(steps);
+            });
+        }
+    });
+</script>

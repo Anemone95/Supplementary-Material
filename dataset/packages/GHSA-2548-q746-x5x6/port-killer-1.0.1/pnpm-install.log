@@ -1,0 +1,16 @@
+$ corepack pnpm@9.15.9 install --prod --no-frozen-lockfile --reporter=append-only --config.node-linker=hoisted --ignore-workspace --ignore-scripts
+ WARN  deprecated istanbul@0.4.5: This module is no longer maintained, try this instead:
+  npm i nyc
+Visit https://istanbul.js.org/integrations for other alternatives.
+Progress: resolved 1, reused 0, downloaded 0, added 0
+Progress: resolved 85, reused 0, downloaded 0, added 0
+Progress: resolved 274, reused 0, downloaded 0, added 0
+Progress: resolved 437, reused 0, downloaded 0, added 0
+Progress: resolved 466, reused 0, downloaded 0, added 0
+ WARN  9 deprecated subdependencies found: circular-json@0.3.3, core-js@2.6.12, eslint@3.19.0, glob@5.0.15, glob@7.2.3, inflight@1.0.6, lodash.isequal@4.5.0, rimraf@2.6.3, trim@0.0.1
+
+devDependencies: skipped
+
+Already up to date
+Progress: resolved 468, reused 0, downloaded 0, added 0, done
+Done in 5.2s using pnpm v9.15.9

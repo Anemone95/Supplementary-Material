@@ -1,0 +1,14 @@
+$ corepack pnpm@9.15.9 install --prod --no-frozen-lockfile --reporter=append-only --config.node-linker=hoisted --ignore-workspace --ignore-scripts
+ WARN  deprecated mkdirp@0.5.0: Legacy versions of mkdirp are no longer supported. Please update to mkdirp 1.x. (Note that the API surface has changed to use Promises in 1.x.)
+Progress: resolved 1, reused 0, downloaded 0, added 0
+ WARN  deprecated debug@4.1.1: Debug versions >=3.2.0 <3.2.7 || >=4 <4.3.1 have a low-severity ReDos regression when used in a Node.js environment. It is recommended you upgrade to 3.2.7 or 4.3.1. (https://github.com/visionmedia/debug/issues/797)
+Progress: resolved 9, reused 0, downloaded 0, added 0
+Progress: resolved 11, reused 0, downloaded 0, added 0
+ WARN  1 deprecated subdependencies found: mkdirp@0.3.5
+
+devDependencies: skipped
+
+Packages: +12
+++++++++++++
+Progress: resolved 12, reused 12, downloaded 0, added 12, done
+Done in 2.5s using pnpm v9.15.9

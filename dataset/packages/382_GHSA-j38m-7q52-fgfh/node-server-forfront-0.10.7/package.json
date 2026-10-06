@@ -1,0 +1,46 @@
+{
+  "name": "node-server-forfront",
+  "version": "0.10.7",
+  "description": "a nodejs based file-system-server",
+  "main": "node-server.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wangcaifeng/node-server-forfront"
+  },
+  "contributors": [
+    "wangcaifeng <piaoerxiaofeng@126.com>"
+  ],
+  "license": "ISC",
+  "private": false,
+  "script": {
+    "start": "node node-server.js"
+  },
+  "keywords": [
+    "node-server"
+  ],
+  "author": "wangcaifeng",
+  "homepage": "https://github.com/wangcaifeng/node-server-forfront",
+  "_npmVersion": "2.7.4",
+  "_nodeVersion": "0.12.2",
+  "_npmUser": {
+    "name": "wangcaifeng",
+    "email": "piaoerxiaofeng@126.com"
+  },
+  "maintainers": [
+    "wangcaifeng <piaoerxiaofeng@126.com>"
+  ],
+  "dependencies": {
+    "formidable": ">=1.0.15",
+    "less": "*",
+    "marked": "^0.3.3",
+    "mime": "*",
+    "mincss": "^0.4.1",
+    "underscore": ">=1.7.0"
+  },
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-contrib-concat": "^0.5.1",
+    "grunt-contrib-less": "^1.0.1",
+    "grunt-contrib-uglify": "^0.9.1"
+  }
+}

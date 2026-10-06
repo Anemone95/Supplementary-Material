@@ -1,0 +1,38 @@
+{
+  "name": "tencent-server",
+  "version": "0.0.2",
+  "description": "simple-server",
+  "main": "tencent-server.js",
+  "dependencies": {
+    "mime": "*"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": {
+    "name": "shy2850"
+  },
+  "license": "ISC",
+  "_id": "tencent-server@0.0.2",
+  "_shasum": "fdcb1e3ce73a0cedb205bb21a718fae0ac103a00",
+  "_from": "tencent-server@",
+  "_npmVersion": "0.0.2",
+  "_npmUser": {
+    "name": "rainheart",
+    "email": "413842590@qq.com"
+  },
+  "maintainers": [
+    {
+      "name": "rainheart",
+      "email": "413842590@qq.com"
+    }
+  ],
+  "dist": {
+    "shasum": "",
+    "tarball": ""
+  },
+  "directories": {},
+  "_resolved": "",
+  "readme": "ERROR: No README data found!"
+}

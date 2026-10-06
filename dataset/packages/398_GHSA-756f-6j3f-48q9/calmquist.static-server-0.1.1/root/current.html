@@ -1,0 +1,78 @@
+<!Doctype html>
+
+<html>
+<head>
+	<title>Current Weather</title>
+	<link rel="stylesheet" href="css/style.css">
+	<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+</head>
+
+<body>
+<h1>Current Weather</h1>
+	<form>
+		Enter a city: <input type="text" id="cityfield" value=""><br>
+		Suggestions: <span id="suggestion"></span>
+		<input id="button" type="submit" value="submit">
+	</form>
+	<p>City</p>
+	<textarea id="display"></textarea>
+	<div id="weather"></div>
+	<br>
+
+</body>
+<script>
+	$("#cityfield").keyup(function() {
+        console.log($("#cityfield").val());
+		var url = "http://52.11.84.230/getcity?q="+$("#cityfield").val(); 
+        console.log(url);
+		$.getJSON(url, function(data) {
+			var citiesList = "<ul>";
+			$.each(data, function(i,item) {
+				citiesList+= "<li> " +data[i].city;
+			});
+			citiesList += "</ul>";
+			$("#suggestion").html(citiesList);
+		})
+		.done(function() {console.log("getJSON request succeeded!"); })
+		.fail(function(jqXHR, textStatus, err) {
+			console.log('getJSON request failed! ' + textStatus);
+			console.log("incoming " + jqXHR.responseText);
+		})
+		.always(function() { console.log("getJSON request ended");
+		})
+		.complete(function(){console.log("complete");});
+	});
+	$("#button").click(function(e) {
+		var wuurl = "https://api.wunderground.com/api/e2743602a0234553/geolookup/conditions/q/UT/";
+		var city = $("#cityfield").val();
+		$("#display").text(city);
+		wuurl += city + ".json";
+		console.log(wuurl);
+		$.ajax({
+			url: wuurl,
+			dataType: "jsonp",
+			success: function(data) {
+				console.log(data);
+				var weatherList = "<ul>";
+				if(data['response']['error']) {
+					weatherList += "<li> " + data['response']['error']['description'];	
+				}	
+				else {
+					var loc = data['location']['city'];
+					var temp = data['current_observation']['temperature_string'];
+					var weather = data['current_observation']['weather'];
+					console.log(loc);
+					console.log(temp);
+					console.log(weather);
+					weatherList += "<li> " + loc;
+					weatherList += "<li> " + temp;
+					weatherList += "<li> " + weather;
+				}
+				weatherList += "</ul>";
+				$("#weather").html(weatherList);
+			}
+		});
+		e.preventDefault();
+	});
+</script>
+</html>

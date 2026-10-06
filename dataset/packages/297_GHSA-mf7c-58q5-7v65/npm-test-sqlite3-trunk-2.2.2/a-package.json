@@ -1,0 +1,27 @@
+{
+  "name": "useconfig",
+  "version": "0.0.2",
+  "description": "Use a specified JSON file for global configuration.",
+  "main": "lib/useconfig",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/adambrault/useconfig.git"
+  },
+  "keywords": [
+    "config",
+    "useconfig"
+  ],
+  "author": {
+    "name": "Adam Brault",
+    "url": "http://adambrault.com"
+  },
+  "license": "MIT",
+  "readmeFilename": "README.md",
+  "gitHead": "466ea39301e67623f1d96db2b0b65422de636af9",
+  "bugs": {
+    "url": "https://github.com/adambrault/useconfig/issues"
+  },
+  "homepage": "https://github.com/adambrault/useconfig",
+  "dependencies": {}
+}

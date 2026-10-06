@@ -1,0 +1,19 @@
+$ corepack pnpm@9.15.9 install --prod --no-frozen-lockfile --reporter=append-only --config.node-linker=hoisted --ignore-workspace --ignore-scripts
+Progress: resolved 1, reused 0, downloaded 0, added 0
+ WARN  deprecated rimraf@2.7.1: Rimraf versions prior to v4 are no longer supported
+ WARN  deprecated request@2.88.2: request has been deprecated, see https://github.com/request/request/issues/3142
+Progress: resolved 7, reused 0, downloaded 0, added 0
+Packages are hard linked from the content-addressable store to the virtual store.
+  Content-addressable store is at: /home/wenyuan/pkg-cache/pnpm/v3
+  Virtual store is at:             node_modules/.pnpm
+ WARN  The git-hosted package fetched from "https://codeload.github.com/Yannicked/node-ffi/tar.gz/fa13ce1b3c660661ada99f5e945efd0a0dd0f9de" has to be built but the build scripts were ignored.
+Progress: resolved 7, reused 0, downloaded 1, added 0
+ WARN  6 deprecated subdependencies found: fstream@0.1.31, glob@7.2.3, har-validator@5.1.5, inflight@1.0.6, natives@1.1.6, uuid@3.4.0
+
+devDependencies: skipped
+
+Packages: +100
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Progress: resolved 100, reused 94, downloaded 2, added 96
+Progress: resolved 100, reused 94, downloaded 6, added 100, done
+Done in 6.6s using pnpm v9.15.9

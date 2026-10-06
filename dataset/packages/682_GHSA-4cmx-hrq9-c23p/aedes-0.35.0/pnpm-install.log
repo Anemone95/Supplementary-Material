@@ -1,0 +1,22 @@
+$ corepack pnpm@9.15.9 install --prod --no-frozen-lockfile --reporter=append-only --config.node-linker=hoisted --ignore-workspace --ignore-scripts
+Progress: resolved 1, reused 0, downloaded 0, added 0
+ WARN  deprecated uuid@3.4.0: uuid@10 and below is no longer supported.  For ESM codebases, update to uuid@latest.  For CommonJS codebases, use uuid@11 (but be aware this version will likely be deprecated in 2028).
+ WARN  deprecated istanbul@0.4.5: This module is no longer maintained, try this instead:
+  npm i nyc
+Visit https://istanbul.js.org/integrations for other alternatives.
+ WARN  deprecated tslint-config-standard@7.1.0: TSLint is deprecated, please move to ESLint: https://github.com/blakeembrey/tslint-config-standard/issues/61
+Progress: resolved 33, reused 0, downloaded 0, added 0
+Progress: resolved 34, reused 0, downloaded 0, added 0
+Progress: resolved 149, reused 0, downloaded 0, added 0
+Progress: resolved 317, reused 0, downloaded 0, added 0
+Progress: resolved 468, reused 0, downloaded 0, added 0
+Progress: resolved 469, reused 0, downloaded 0, added 0
+ WARN  10 deprecated subdependencies found: circular-json@0.3.3, eslint@4.18.2, glob@5.0.15, glob@7.2.3, har-validator@5.1.5, inflight@1.0.6, path-dirname@1.0.2, request@2.88.2, rimraf@2.6.3, sprintf@0.1.5
+
+devDependencies: skipped
+
+Packages: +33
++++++++++++++++++++++++++++++++++
+Progress: resolved 470, reused 22, downloaded 9, added 32
+Progress: resolved 470, reused 22, downloaded 10, added 33, done
+Done in 8.2s using pnpm v9.15.9

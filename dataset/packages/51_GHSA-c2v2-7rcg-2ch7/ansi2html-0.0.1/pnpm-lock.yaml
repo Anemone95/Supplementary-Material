@@ -1,0 +1,32 @@
+lockfileVersion: '9.0'
+
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
+
+importers:
+
+  .:
+    devDependencies:
+      vows:
+        specifier: ~0.5.8
+        version: 0.5.13
+
+packages:
+
+  eyes@0.1.8:
+    resolution: {integrity: sha512-GipyPsXO1anza0AOZdy69Im7hGFCNB7Y/NGjDlZGJ3GJJLtwNSb2vrzYrTYJRrRloVx7pl+bhUaTB8yiccPvFQ==}
+    engines: {node: '> 0.1.90'}
+
+  vows@0.5.13:
+    resolution: {integrity: sha512-m2+3s/ITbI95b7uzsBnA7oZg7/bJZFb+sKp2TUvomrIQxjtuNOivf/yOxAAyhEAX8gkIogoXfBJRmj9ys8r3gQ==}
+    engines: {node: '>=0.2.6'}
+    hasBin: true
+
+snapshots:
+
+  eyes@0.1.8: {}
+
+  vows@0.5.13:
+    dependencies:
+      eyes: 0.1.8

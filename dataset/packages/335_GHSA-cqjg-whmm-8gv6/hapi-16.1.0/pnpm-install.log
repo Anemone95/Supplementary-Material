@@ -1,0 +1,36 @@
+$ corepack pnpm@9.15.9 install --prod --no-frozen-lockfile --reporter=append-only --config.node-linker=hoisted --ignore-workspace --ignore-scripts
+ WARN  deprecated boom@4.3.1: This version has been deprecated in accordance with the hapi support policy (hapi.im/support). Please upgrade to the latest version to get the best features, bug fixes, and security patches. If you are unable to upgrade at this time, paid support is available for older versions (hapi.im/commercial).
+Progress: resolved 1, reused 0, downloaded 0, added 0
+ WARN  deprecated statehood@5.1.1: This module has moved and is now available at @hapi/statehood. Please update your dependencies as this version is no longer maintained and may contain bugs and security issues.
+ WARN  deprecated topo@2.1.1: This module has moved and is now available at @hapi/topo. Please update your dependencies as this version is no longer maintained and may contain bugs and security issues.
+ WARN  deprecated subtext@4.4.1: This version has been deprecated in accordance with the hapi support policy (hapi.im/support). Please upgrade to the latest version to get the best features, bug fixes, and security patches. If you are unable to upgrade at this time, paid support is available for older versions (hapi.im/commercial).
+ WARN  deprecated code@4.1.0: This version has been deprecated in accordance with the hapi support policy (hapi.im/support). Please upgrade to the latest version to get the best features, bug fixes, and security patches. If you are unable to upgrade at this time, paid support is available for older versions (hapi.im/commercial).
+ WARN  deprecated ammo@2.1.2: This module has moved and is now available at @hapi/ammo. Please update your dependencies as this version is no longer maintained and may contain bugs and security issues.
+ WARN  deprecated lab@11.2.2: This version has been deprecated in accordance with the hapi support policy (hapi.im/support). Please upgrade to the latest version to get the best features, bug fixes, and security patches. If you are unable to upgrade at this time, paid support is available for older versions (hapi.im/commercial).
+ WARN  deprecated podium@1.4.1: This module has moved and is now available at @hapi/podium. Please update your dependencies as this version is no longer maintained and may contain bugs and security issues.
+ WARN  deprecated vision@4.1.1: This version has been deprecated in accordance with the hapi support policy (hapi.im/support). Please upgrade to the latest version to get the best features, bug fixes, and security patches. If you are unable to upgrade at this time, paid support is available for older versions (hapi.im/commercial).
+ WARN  deprecated call@4.1.2: This module has moved and is now available at @hapi/call. Please update your dependencies as this version is no longer maintained and may contain bugs and security issues.
+ WARN  deprecated catbox-memory@2.1.1: This module has moved and is now available at @hapi/catbox-memory. Please update your dependencies as this version is no longer maintained and may contain bugs and security issues.
+ WARN  deprecated mimos@3.1.1: This module has moved and is now available at @hapi/mimos. Please update your dependencies as this version is no longer maintained and may contain bugs and security issues.
+ WARN  deprecated items@2.2.1: This module has been deprecated. It's not used by modern hapi versions anymore. Please refer to https://hapi.dev for migration to latest versions.
+ WARN  deprecated wreck@10.0.0: This version has been deprecated in accordance with the hapi support policy (hapi.im/support). Please upgrade to the latest version to get the best features, bug fixes, and security patches. If you are unable to upgrade at this time, paid support is available for older versions (hapi.im/commercial).
+ WARN  deprecated catbox@7.2.1: This module has moved and is now available at @hapi/catbox. Please update your dependencies as this version is no longer maintained and may contain bugs and security issues.
+ WARN  deprecated cryptiles@3.2.1: This module has moved and is now available at @hapi/cryptiles. Please update your dependencies as this version is no longer maintained and may contain bugs and security issues.
+ WARN  deprecated heavy@4.1.1: This module has moved and is now available at @hapi/heavy. Please update your dependencies as this version is no longer maintained and may contain bugs and security issues.
+ WARN  deprecated accept@2.2.3: This module has moved and is now available at @hapi/accept. Please update your dependencies as this version is no longer maintained and may contain bugs and security issues.
+ WARN  deprecated joi@10.6.0: This version has been deprecated in accordance with the hapi support policy (hapi.im/support). Please upgrade to the latest version to get the best features, bug fixes, and security patches. If you are unable to upgrade at this time, paid support is available for older versions (hapi.im/commercial).
+ WARN  deprecated shot@3.5.2: This module has moved and is now available at @hapi/shot. Please update your dependencies as this version is no longer maintained and may contain bugs and security issues.
+ WARN  deprecated hoek@4.3.1: This module has moved and is now available at @hapi/hoek. Please update your dependencies as this version is no longer maintained an may contain bugs and security issues.
+ WARN  deprecated inert@4.2.1: This version has been deprecated in accordance with the hapi support policy (hapi.im/support). Please upgrade to the latest version to get the best features, bug fixes, and security patches. If you are unable to upgrade at this time, paid support is available for older versions (hapi.im/commercial).
+ WARN  deprecated iron@4.1.1: This module has moved and is now available at @hapi/iron. Please update your dependencies as this version is no longer maintained and may contain bugs and security issues.
+Progress: resolved 37, reused 0, downloaded 0, added 0
+Progress: resolved 102, reused 0, downloaded 0, added 0
+Progress: resolved 206, reused 0, downloaded 0, added 0
+ WARN  23 deprecated subdependencies found: @hapi/address@1.0.1, b64@3.1.1, boom@5.3.3, bossy@3.0.4, bourne@1.3.3, circular-json@0.3.3, content@3.1.2, eslint-config-hapi@10.1.0, eslint-plugin-hapi@4.1.0, eslint@3.13.1, glob@7.2.3, hapi-capitalize-modules@1.1.6, hapi-for-you@1.0.0, hapi-no-var@1.0.1, hapi-scope-start@2.1.1, inflight@1.0.6, joi@12.1.1, nigel@2.1.1, no-arrowception@1.0.0, pez@2.2.2, rimraf@2.6.3, vise@2.1.1, wreck@12.6.2
+
+devDependencies: skipped
+
+Packages: +45
++++++++++++++++++++++++++++++++++++++++++++++
+Progress: resolved 211, reused 10, downloaded 20, added 45, done
+Done in 4.3s using pnpm v9.15.9

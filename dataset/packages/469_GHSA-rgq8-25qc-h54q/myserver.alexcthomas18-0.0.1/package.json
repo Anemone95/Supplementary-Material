@@ -1,0 +1,21 @@
+{
+	"author" : "Alex Thomas",
+	"name" : "myserver.alexcthomas18",
+	"version" : "0.0.1",
+	"description": "My first server",
+	"main": "static",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/alexcthomas18/amazonServer"
+	},
+	"keywords": [
+		"BYU",
+		"cs360",
+		"Alex Thomas",
+		"alexcthomas18"
+	],
+	"dependencies": {},
+	"engines": {
+		"node": "*"
+	}
+}

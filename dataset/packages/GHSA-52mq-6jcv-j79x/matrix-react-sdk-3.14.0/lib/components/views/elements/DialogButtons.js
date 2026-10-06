@@ -1,0 +1,117 @@
+"use strict";
+
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _defineProperty2 = _interopRequireDefault(require("@babel/runtime/helpers/defineProperty"));
+
+var _react = _interopRequireDefault(require("react"));
+
+var _propTypes = _interopRequireDefault(require("prop-types"));
+
+var _languageHandler = require("../../../languageHandler");
+
+/*
+Copyright 2017 Aidan Gauland
+Copyright 2018 New Vector Ltd.
+Copyright 2019 The Matrix.org Foundation C.I.C.
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+*/
+
+/**
+ * Basic container for buttons in modal dialogs.
+ */
+class DialogButtons extends _react.default.Component {
+  constructor(...args) {
+    super(...args);
+    (0, _defineProperty2.default)(this, "_onCancelClick", () => {
+      this.props.onCancel();
+    });
+  }
+
+  render() {
+    let primaryButtonClassName = "mx_Dialog_primary";
+
+    if (this.props.primaryButtonClass) {
+      primaryButtonClassName += " " + this.props.primaryButtonClass;
+    }
+
+    let cancelButton;
+
+    if (this.props.cancelButton || this.props.hasCancel) {
+      cancelButton = /*#__PURE__*/_react.default.createElement("button", {
+        // important: the default type is 'submit' and this button comes before the
+        // primary in the DOM so will get form submissions unless we make it not a submit.
+        type: "button",
+        onClick: this._onCancelClick,
+        className: this.props.cancelButtonClass,
+        disabled: this.props.disabled
+      }, this.props.cancelButton || (0, _languageHandler._t)("Cancel"));
+    }
+
+    let additive = null;
+
+    if (this.props.additive) {
+      additive = /*#__PURE__*/_react.default.createElement("div", {
+        className: "mx_Dialog_buttons_additive"
+      }, this.props.additive);
+    }
+
+    return /*#__PURE__*/_react.default.createElement("div", {
+      className: "mx_Dialog_buttons"
+    }, additive, cancelButton, this.props.children, /*#__PURE__*/_react.default.createElement("button", {
+      type: this.props.primaryIsSubmit ? 'submit' : 'button',
+      className: primaryButtonClassName,
+      onClick: this.props.onPrimaryButtonClick,
+      autoFocus: this.props.focus,
+      disabled: this.props.disabled || this.props.primaryDisabled
+    }, this.props.primaryButton));
+  }
+
+}
+
+exports.default = DialogButtons;
+(0, _defineProperty2.default)(DialogButtons, "propTypes", {
+  // The primary button which is styled differently and has default focus.
+  primaryButton: _propTypes.default.node.isRequired,
+  // A node to insert into the cancel button instead of default "Cancel"
+  cancelButton: _propTypes.default.node,
+  // If true, make the primary button a form submit button (input type="submit")
+  primaryIsSubmit: _propTypes.default.bool,
+  // onClick handler for the primary button.
+  onPrimaryButtonClick: _propTypes.default.func,
+  // should there be a cancel button? default: true
+  hasCancel: _propTypes.default.bool,
+  // The class of the cancel button, only used if a cancel button is
+  // enabled
+  cancelButtonClass: _propTypes.default.node,
+  // onClick handler for the cancel button.
+  onCancel: _propTypes.default.func,
+  focus: _propTypes.default.bool,
+  // disables the primary and cancel buttons
+  disabled: _propTypes.default.bool,
+  // disables only the primary button
+  primaryDisabled: _propTypes.default.bool,
+  // something to stick next to the buttons, optionally
+  additive: _propTypes.default.element
+});
+(0, _defineProperty2.default)(DialogButtons, "defaultProps", {
+  hasCancel: true,
+  disabled: false
+});
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uLy4uLy4uL3NyYy9jb21wb25lbnRzL3ZpZXdzL2VsZW1lbnRzL0RpYWxvZ0J1dHRvbnMuanMiXSwibmFtZXMiOlsiRGlhbG9nQnV0dG9ucyIsIlJlYWN0IiwiQ29tcG9uZW50IiwicHJvcHMiLCJvbkNhbmNlbCIsInJlbmRlciIsInByaW1hcnlCdXR0b25DbGFzc05hbWUiLCJwcmltYXJ5QnV0dG9uQ2xhc3MiLCJjYW5jZWxCdXR0b24iLCJoYXNDYW5jZWwiLCJfb25DYW5jZWxDbGljayIsImNhbmNlbEJ1dHRvbkNsYXNzIiwiZGlzYWJsZWQiLCJhZGRpdGl2ZSIsImNoaWxkcmVuIiwicHJpbWFyeUlzU3VibWl0Iiwib25QcmltYXJ5QnV0dG9uQ2xpY2siLCJmb2N1cyIsInByaW1hcnlEaXNhYmxlZCIsInByaW1hcnlCdXR0b24iLCJQcm9wVHlwZXMiLCJub2RlIiwiaXNSZXF1aXJlZCIsImJvb2wiLCJmdW5jIiwiZWxlbWVudCJdLCJtYXBwaW5ncyI6Ijs7Ozs7Ozs7Ozs7QUFrQkE7O0FBQ0E7O0FBQ0E7O0FBcEJBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7O0FBTUE7QUFDQTtBQUNBO0FBQ2UsTUFBTUEsYUFBTixTQUE0QkMsZUFBTUMsU0FBbEMsQ0FBNEM7QUFBQTtBQUFBO0FBQUEsMERBeUN0QyxNQUFNO0FBQ25CLFdBQUtDLEtBQUwsQ0FBV0MsUUFBWDtBQUNILEtBM0NzRDtBQUFBOztBQTZDdkRDLEVBQUFBLE1BQU0sR0FBRztBQUNMLFFBQUlDLHNCQUFzQixHQUFHLG1CQUE3Qjs7QUFDQSxRQUFJLEtBQUtILEtBQUwsQ0FBV0ksa0JBQWYsRUFBbUM7QUFDL0JELE1BQUFBLHNCQUFzQixJQUFJLE1BQU0sS0FBS0gsS0FBTCxDQUFXSSxrQkFBM0M7QUFDSDs7QUFDRCxRQUFJQyxZQUFKOztBQUVBLFFBQUksS0FBS0wsS0FBTCxDQUFXSyxZQUFYLElBQTJCLEtBQUtMLEtBQUwsQ0FBV00sU0FBMUMsRUFBcUQ7QUFDakRELE1BQUFBLFlBQVksZ0JBQUc7QUFDWDtBQUNBO0FBQ0EsUUFBQSxJQUFJLEVBQUMsUUFITTtBQUlYLFFBQUEsT0FBTyxFQUFFLEtBQUtFLGNBSkg7QUFLWCxRQUFBLFNBQVMsRUFBRSxLQUFLUCxLQUFMLENBQVdRLGlCQUxYO0FBTVgsUUFBQSxRQUFRLEVBQUUsS0FBS1IsS0FBTCxDQUFXUztBQU5WLFNBUVQsS0FBS1QsS0FBTCxDQUFXSyxZQUFYLElBQTJCLHlCQUFHLFFBQUgsQ0FSbEIsQ0FBZjtBQVVIOztBQUVELFFBQUlLLFFBQVEsR0FBRyxJQUFmOztBQUNBLFFBQUksS0FBS1YsS0FBTCxDQUFXVSxRQUFmLEVBQXlCO0FBQ3JCQSxNQUFBQSxRQUFRLGdCQUFHO0FBQUssUUFBQSxTQUFTLEVBQUM7QUFBZixTQUE2QyxLQUFLVixLQUFMLENBQVdVLFFBQXhELENBQVg7QUFDSDs7QUFFRCx3QkFDSTtBQUFLLE1BQUEsU0FBUyxFQUFDO0FBQWYsT0FDTUEsUUFETixFQUVNTCxZQUZOLEVBR00sS0FBS0wsS0FBTCxDQUFXVyxRQUhqQixlQUlJO0FBQVEsTUFBQSxJQUFJLEVBQUUsS0FBS1gsS0FBTCxDQUFXWSxlQUFYLEdBQTZCLFFBQTdCLEdBQXdDLFFBQXREO0FBQ0ksTUFBQSxTQUFTLEVBQUVULHNCQURmO0FBRUksTUFBQSxPQUFPLEVBQUUsS0FBS0gsS0FBTCxDQUFXYSxvQkFGeEI7QUFHSSxNQUFBLFNBQVMsRUFBRSxLQUFLYixLQUFMLENBQVdjLEtBSDFCO0FBSUksTUFBQSxRQUFRLEVBQUUsS0FBS2QsS0FBTCxDQUFXUyxRQUFYLElBQXVCLEtBQUtULEtBQUwsQ0FBV2U7QUFKaEQsT0FNTSxLQUFLZixLQUFMLENBQVdnQixhQU5qQixDQUpKLENBREo7QUFlSDs7QUFyRnNEOzs7OEJBQXRDbkIsYSxlQUNFO0FBQ2Y7QUFDQW1CLEVBQUFBLGFBQWEsRUFBRUMsbUJBQVVDLElBQVYsQ0FBZUMsVUFGZjtBQUlmO0FBQ0FkLEVBQUFBLFlBQVksRUFBRVksbUJBQVVDLElBTFQ7QUFPZjtBQUNBTixFQUFBQSxlQUFlLEVBQUVLLG1CQUFVRyxJQVJaO0FBVWY7QUFDQVAsRUFBQUEsb0JBQW9CLEVBQUVJLG1CQUFVSSxJQVhqQjtBQWFmO0FBQ0FmLEVBQUFBLFNBQVMsRUFBRVcsbUJBQVVHLElBZE47QUFnQmY7QUFDQTtBQUNBWixFQUFBQSxpQkFBaUIsRUFBRVMsbUJBQVVDLElBbEJkO0FBb0JmO0FBQ0FqQixFQUFBQSxRQUFRLEVBQUVnQixtQkFBVUksSUFyQkw7QUF1QmZQLEVBQUFBLEtBQUssRUFBRUcsbUJBQVVHLElBdkJGO0FBeUJmO0FBQ0FYLEVBQUFBLFFBQVEsRUFBRVEsbUJBQVVHLElBMUJMO0FBNEJmO0FBQ0FMLEVBQUFBLGVBQWUsRUFBRUUsbUJBQVVHLElBN0JaO0FBK0JmO0FBQ0FWLEVBQUFBLFFBQVEsRUFBRU8sbUJBQVVLO0FBaENMLEM7OEJBREZ6QixhLGtCQW9DSztBQUNsQlMsRUFBQUEsU0FBUyxFQUFFLElBRE87QUFFbEJHLEVBQUFBLFFBQVEsRUFBRTtBQUZRLEMiLCJzb3VyY2VzQ29udGVudCI6WyIvKlxuQ29weXJpZ2h0IDIwMTcgQWlkYW4gR2F1bGFuZFxuQ29weXJpZ2h0IDIwMTggTmV3IFZlY3RvciBMdGQuXG5Db3B5cmlnaHQgMjAxOSBUaGUgTWF0cml4Lm9yZyBGb3VuZGF0aW9uIEMuSS5DLlxuXG5MaWNlbnNlZCB1bmRlciB0aGUgQXBhY2hlIExpY2Vuc2UsIFZlcnNpb24gMi4wICh0aGUgXCJMaWNlbnNlXCIpO1xueW91IG1heSBub3QgdXNlIHRoaXMgZmlsZSBleGNlcHQgaW4gY29tcGxpYW5jZSB3aXRoIHRoZSBMaWNlbnNlLlxuWW91IG1heSBvYnRhaW4gYSBjb3B5IG9mIHRoZSBMaWNlbnNlIGF0XG5cbiAgICBodHRwOi8vd3d3LmFwYWNoZS5vcmcvbGljZW5zZXMvTElDRU5TRS0yLjBcblxuVW5sZXNzIHJlcXVpcmVkIGJ5IGFwcGxpY2FibGUgbGF3IG9yIGFncmVlZCB0byBpbiB3cml0aW5nLCBzb2Z0d2FyZVxuZGlzdHJpYnV0ZWQgdW5kZXIgdGhlIExpY2Vuc2UgaXMgZGlzdHJpYnV0ZWQgb24gYW4gXCJBUyBJU1wiIEJBU0lTLFxuV0lUSE9VVCBXQVJSQU5USUVTIE9SIENPTkRJVElPTlMgT0YgQU5ZIEtJTkQsIGVpdGhlciBleHByZXNzIG9yIGltcGxpZWQuXG5TZWUgdGhlIExpY2Vuc2UgZm9yIHRoZSBzcGVjaWZpYyBsYW5ndWFnZSBnb3Zlcm5pbmcgcGVybWlzc2lvbnMgYW5kXG5saW1pdGF0aW9ucyB1bmRlciB0aGUgTGljZW5zZS5cbiovXG5cbmltcG9ydCBSZWFjdCBmcm9tIFwicmVhY3RcIjtcbmltcG9ydCBQcm9wVHlwZXMgZnJvbSBcInByb3AtdHlwZXNcIjtcbmltcG9ydCB7IF90IH0gZnJvbSAnLi4vLi4vLi4vbGFuZ3VhZ2VIYW5kbGVyJztcblxuLyoqXG4gKiBCYXNpYyBjb250YWluZXIgZm9yIGJ1dHRvbnMgaW4gbW9kYWwgZGlhbG9ncy5cbiAqL1xuZXhwb3J0IGRlZmF1bHQgY2xhc3MgRGlhbG9nQnV0dG9ucyBleHRlbmRzIFJlYWN0LkNvbXBvbmVudCB7XG4gICAgc3RhdGljIHByb3BUeXBlcyA9IHtcbiAgICAgICAgLy8gVGhlIHByaW1hcnkgYnV0dG9uIHdoaWNoIGlzIHN0eWxlZCBkaWZmZXJlbnRseSBhbmQgaGFzIGRlZmF1bHQgZm9jdXMuXG4gICAgICAgIHByaW1hcnlCdXR0b246IFByb3BUeXBlcy5ub2RlLmlzUmVxdWlyZWQsXG5cbiAgICAgICAgLy8gQSBub2RlIHRvIGluc2VydCBpbnRvIHRoZSBjYW5jZWwgYnV0dG9uIGluc3RlYWQgb2YgZGVmYXVsdCBcIkNhbmNlbFwiXG4gICAgICAgIGNhbmNlbEJ1dHRvbjogUHJvcFR5cGVzLm5vZGUsXG5cbiAgICAgICAgLy8gSWYgdHJ1ZSwgbWFrZSB0aGUgcHJpbWFyeSBidXR0b24gYSBmb3JtIHN1Ym1pdCBidXR0b24gKGlucHV0IHR5cGU9XCJzdWJtaXRcIilcbiAgICAgICAgcHJpbWFyeUlzU3VibWl0OiBQcm9wVHlwZXMuYm9vbCxcblxuICAgICAgICAvLyBvbkNsaWNrIGhhbmRsZXIgZm9yIHRoZSBwcmltYXJ5IGJ1dHRvbi5cbiAgICAgICAgb25QcmltYXJ5QnV0dG9uQ2xpY2s6IFByb3BUeXBlcy5mdW5jLFxuXG4gICAgICAgIC8vIHNob3VsZCB0aGVyZSBiZSBhIGNhbmNlbCBidXR0b24/IGRlZmF1bHQ6IHRydWVcbiAgICAgICAgaGFzQ2FuY2VsOiBQcm9wVHlwZXMuYm9vbCxcblxuICAgICAgICAvLyBUaGUgY2xhc3Mgb2YgdGhlIGNhbmNlbCBidXR0b24sIG9ubHkgdXNlZCBpZiBhIGNhbmNlbCBidXR0b24gaXNcbiAgICAgICAgLy8gZW5hYmxlZFxuICAgICAgICBjYW5jZWxCdXR0b25DbGFzczogUHJvcFR5cGVzLm5vZGUsXG5cbiAgICAgICAgLy8gb25DbGljayBoYW5kbGVyIGZvciB0aGUgY2FuY2VsIGJ1dHRvbi5cbiAgICAgICAgb25DYW5jZWw6IFByb3BUeXBlcy5mdW5jLFxuXG4gICAgICAgIGZvY3VzOiBQcm9wVHlwZXMuYm9vbCxcblxuICAgICAgICAvLyBkaXNhYmxlcyB0aGUgcHJpbWFyeSBhbmQgY2FuY2VsIGJ1dHRvbnNcbiAgICAgICAgZGlzYWJsZWQ6IFByb3BUeXBlcy5ib29sLFxuXG4gICAgICAgIC8vIGRpc2FibGVzIG9ubHkgdGhlIHByaW1hcnkgYnV0dG9uXG4gICAgICAgIHByaW1hcnlEaXNhYmxlZDogUHJvcFR5cGVzLmJvb2wsXG5cbiAgICAgICAgLy8gc29tZXRoaW5nIHRvIHN0aWNrIG5leHQgdG8gdGhlIGJ1dHRvbnMsIG9wdGlvbmFsbHlcbiAgICAgICAgYWRkaXRpdmU6IFByb3BUeXBlcy5lbGVtZW50LFxuICAgIH07XG5cbiAgICBzdGF0aWMgZGVmYXVsdFByb3BzID0ge1xuICAgICAgICBoYXNDYW5jZWw6IHRydWUsXG4gICAgICAgIGRpc2FibGVkOiBmYWxzZSxcbiAgICB9O1xuXG4gICAgX29uQ2FuY2VsQ2xpY2sgPSAoKSA9PiB7XG4gICAgICAgIHRoaXMucHJvcHMub25DYW5jZWwoKTtcbiAgICB9O1xuXG4gICAgcmVuZGVyKCkge1xuICAgICAgICBsZXQgcHJpbWFyeUJ1dHRvbkNsYXNzTmFtZSA9IFwibXhfRGlhbG9nX3ByaW1hcnlcIjtcbiAgICAgICAgaWYgKHRoaXMucHJvcHMucHJpbWFyeUJ1dHRvbkNsYXNzKSB7XG4gICAgICAgICAgICBwcmltYXJ5QnV0dG9uQ2xhc3NOYW1lICs9IFwiIFwiICsgdGhpcy5wcm9wcy5wcmltYXJ5QnV0dG9uQ2xhc3M7XG4gICAgICAgIH1cbiAgICAgICAgbGV0IGNhbmNlbEJ1dHRvbjtcblxuICAgICAgICBpZiAodGhpcy5wcm9wcy5jYW5jZWxCdXR0b24gfHwgdGhpcy5wcm9wcy5oYXNDYW5jZWwpIHtcbiAgICAgICAgICAgIGNhbmNlbEJ1dHRvbiA9IDxidXR0b25cbiAgICAgICAgICAgICAgICAvLyBpbXBvcnRhbnQ6IHRoZSBkZWZhdWx0IHR5cGUgaXMgJ3N1Ym1pdCcgYW5kIHRoaXMgYnV0dG9uIGNvbWVzIGJlZm9yZSB0aGVcbiAgICAgICAgICAgICAgICAvLyBwcmltYXJ5IGluIHRoZSBET00gc28gd2lsbCBnZXQgZm9ybSBzdWJtaXNzaW9ucyB1bmxlc3Mgd2UgbWFrZSBpdCBub3QgYSBzdWJtaXQuXG4gICAgICAgICAgICAgICAgdHlwZT1cImJ1dHRvblwiXG4gICAgICAgICAgICAgICAgb25DbGljaz17dGhpcy5fb25DYW5jZWxDbGlja31cbiAgICAgICAgICAgICAgICBjbGFzc05hbWU9e3RoaXMucHJvcHMuY2FuY2VsQnV0dG9uQ2xhc3N9XG4gICAgICAgICAgICAgICAgZGlzYWJsZWQ9e3RoaXMucHJvcHMuZGlzYWJsZWR9XG4gICAgICAgICAgICA+XG4gICAgICAgICAgICAgICAgeyB0aGlzLnByb3BzLmNhbmNlbEJ1dHRvbiB8fCBfdChcIkNhbmNlbFwiKSB9XG4gICAgICAgICAgICA8L2J1dHRvbj47XG4gICAgICAgIH1cblxuICAgICAgICBsZXQgYWRkaXRpdmUgPSBudWxsO1xuICAgICAgICBpZiAodGhpcy5wcm9wcy5hZGRpdGl2ZSkge1xuICAgICAgICAgICAgYWRkaXRpdmUgPSA8ZGl2IGNsYXNzTmFtZT1cIm14X0RpYWxvZ19idXR0b25zX2FkZGl0aXZlXCI+e3RoaXMucHJvcHMuYWRkaXRpdmV9PC9kaXY+O1xuICAgICAgICB9XG5cbiAgICAgICAgcmV0dXJuIChcbiAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwibXhfRGlhbG9nX2J1dHRvbnNcIj5cbiAgICAgICAgICAgICAgICB7IGFkZGl0aXZlIH1cbiAgICAgICAgICAgICAgICB7IGNhbmNlbEJ1dHRvbiB9XG4gICAgICAgICAgICAgICAgeyB0aGlzLnByb3BzLmNoaWxkcmVuIH1cbiAgICAgICAgICAgICAgICA8YnV0dG9uIHR5cGU9e3RoaXMucHJvcHMucHJpbWFyeUlzU3VibWl0ID8gJ3N1Ym1pdCcgOiAnYnV0dG9uJ31cbiAgICAgICAgICAgICAgICAgICAgY2xhc3NOYW1lPXtwcmltYXJ5QnV0dG9uQ2xhc3NOYW1lfVxuICAgICAgICAgICAgICAgICAgICBvbkNsaWNrPXt0aGlzLnByb3BzLm9uUHJpbWFyeUJ1dHRvbkNsaWNrfVxuICAgICAgICAgICAgICAgICAgICBhdXRvRm9jdXM9e3RoaXMucHJvcHMuZm9jdXN9XG4gICAgICAgICAgICAgICAgICAgIGRpc2FibGVkPXt0aGlzLnByb3BzLmRpc2FibGVkIHx8IHRoaXMucHJvcHMucHJpbWFyeURpc2FibGVkfVxuICAgICAgICAgICAgICAgID5cbiAgICAgICAgICAgICAgICAgICAgeyB0aGlzLnByb3BzLnByaW1hcnlCdXR0b24gfVxuICAgICAgICAgICAgICAgIDwvYnV0dG9uPlxuICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICk7XG4gICAgfVxufVxuIl19

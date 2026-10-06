@@ -1,0 +1,40 @@
+lockfileVersion: '9.0'
+
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
+
+importers:
+
+  .:
+    dependencies:
+      bufferstream:
+        specifier: '>= 0.6.2'
+        version: 0.6.2
+
+packages:
+
+  bufferjs@3.0.1:
+    resolution: {integrity: sha512-qrCIGPcd9ODawCNyqR2o55zgaC/r7XHZ7oUh2s99uk+NVBS3SjIHigxS1S2KXpt8wsoQxAN55iPi8GIH8TGMRg==}
+    engines: {node: '>=0.2.0'}
+
+  bufferstream@0.6.2:
+    resolution: {integrity: sha512-isI8n1h1VGBzaLF2frXS50RIWaCSBEVo/U5C3SZFJgbl3AL1CVWHHrRpFt93VTViT6X5nJ9KjRY0neF+afhggg==}
+    engines: {node: '>= 0.4.x'}
+
+  buffertools@2.1.6:
+    resolution: {integrity: sha512-qPLf2TQir/ITCZXLG6nj8J2A2ntAefeReXzFzF9hyDLd7+nHFI6fnd7dRuQF+hY3etA7mSezRkUuWXMH1eMJOg==}
+    engines: {node: '>=0.3.0'}
+
+snapshots:
+
+  bufferjs@3.0.1: {}
+
+  bufferstream@0.6.2:
+    dependencies:
+      bufferjs: 3.0.1
+    optionalDependencies:
+      buffertools: 2.1.6
+
+  buffertools@2.1.6:
+    optional: true

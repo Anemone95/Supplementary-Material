@@ -1,0 +1,13 @@
+{
+  "name": "serverxxx",
+  "version": "1.0.0",
+  "description": "servers",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {},
+  "scripts": {
+    "test": "server"
+  },
+  "author": "qwe",
+  "license": "ISC"
+}

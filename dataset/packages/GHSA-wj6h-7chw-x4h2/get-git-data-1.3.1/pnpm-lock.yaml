@@ -1,0 +1,22 @@
+lockfileVersion: '9.0'
+
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
+
+importers:
+
+  .:
+    dependencies:
+      ramda.pipe:
+        specifier: 0.25.0
+        version: 0.25.0
+
+packages:
+
+  ramda.pipe@0.25.0:
+    resolution: {integrity: sha512-ZE6A7cLQOTqIu9dJsdLeKh+7qh4XLO/8mOA//cy9MoAeEBDm6mghrG0+6x49pMD76scxJC/Wmau2hAVjudpJKQ==}
+
+snapshots:
+
+  ramda.pipe@0.25.0: {}

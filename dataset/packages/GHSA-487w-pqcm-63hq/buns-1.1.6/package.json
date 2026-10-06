@@ -1,0 +1,36 @@
+{
+  "author": {
+    "name": "Laegel"
+  },
+  "bin": {
+    "buns": "bin/module.js"
+  },
+  "dependencies": {
+    "babel-core": "^6.7.6",
+    "babel-plugin-transform-decorators-legacy": "^1.3.4",
+    "babel-preset-es2015": "^6.6.0",
+    "babel-preset-stage-0": "^6.5.0",
+    "browser-sync": "^2.12.8",
+    "esprima": "^2.7.2",
+    "esprima-walk": "^0.1.0",
+    "uglify-js": "^2.6.2"
+  },
+  "description": "JavaScript (ES6) client-side framework.",
+  "keywords": [
+    "framework",
+    "es6",
+    "javascript",
+    "MVC"
+  ],
+  "license": "ISC",
+  "main": "./lib/index.js",
+  "name": "buns",
+  "optionalDependencies": {},
+  "readme": "",
+  "readmeFilename": "readme.md",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "deprecatedVersion": "1.0.16",
+  "version": "1.1.6"
+}

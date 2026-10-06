@@ -1,0 +1,15 @@
+$ corepack pnpm@9.15.9 install --prod --no-frozen-lockfile --reporter=append-only --config.node-linker=hoisted --ignore-workspace --ignore-scripts
+Progress: resolved 1, reused 0, downloaded 0, added 0
+ WARN  deprecated code@4.1.0: This version has been deprecated in accordance with the hapi support policy (hapi.im/support). Please upgrade to the latest version to get the best features, bug fixes, and security patches. If you are unable to upgrade at this time, paid support is available for older versions (hapi.im/commercial).
+Progress: resolved 7, reused 0, downloaded 0, added 0
+ WARN  deprecated lab@14.3.4: This version has been deprecated in accordance with the hapi support policy (hapi.im/support). Please upgrade to the latest version to get the best features, bug fixes, and security patches. If you are unable to upgrade at this time, paid support is available for older versions (hapi.im/commercial).
+Progress: resolved 74, reused 0, downloaded 0, added 0
+Progress: resolved 191, reused 0, downloaded 0, added 0
+ WARN  17 deprecated subdependencies found: bossy@3.0.4, circular-json@0.3.3, eslint-config-hapi@10.1.0, eslint-plugin-hapi@4.1.0, eslint@4.19.1, glob@7.2.3, hapi-capitalize-modules@1.1.6, hapi-for-you@1.0.0, hapi-no-var@1.0.1, hapi-scope-start@2.1.1, hoek@4.3.1, inflight@1.0.6, items@2.2.1, joi@10.6.0, no-arrowception@1.0.0, rimraf@2.6.3, topo@2.1.1
+
+devDependencies: skipped
+
+Packages: +9
++++++++++
+Progress: resolved 194, reused 9, downloaded 0, added 9, done
+Done in 3.5s using pnpm v9.15.9

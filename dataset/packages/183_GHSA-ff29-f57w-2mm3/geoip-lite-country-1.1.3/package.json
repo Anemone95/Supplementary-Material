@@ -1,0 +1,33 @@
+{
+	"name"        :  "geoip-lite-country",
+	"version"     :  "1.1.3",
+	"description" :  "Stripped down version of geoip-lite, supporting only country lookup.",
+	"keywords"    :  ["geo", "geoip", "ip", "ipv4", "geolookup", "maxmind", "geolite", "country"],
+	"homepage"    :  "https://github.com/arve0/node-geoip-country",
+	"author"      :  "Philip Tellis <philip@bluesmoon.info> (http://bluesmoon.info/)",
+	"files"       :  ["lib/", "data/", "test/","scripts/"],
+	"main"        :  "lib/geoip.js",
+	"repository"  :  { "type": "git", "url": "git://github.com/arve0/node-geoip-country.git" },
+	"engines"     :  { "node": ">=0.6.3" },
+	"scripts": {
+		"test": "nodeunit --reporter=minimal test/tests.js",
+		"updatedb": "node scripts/updatedb.js",
+		"updatedb-debug": "node scripts/updatedb.js debug",
+		"postinstall": "npm run-script updatedb"
+	},
+	"dependencies": {
+		"async": "~0.1.22",
+		"colors": "0.6.0-1",
+		"glob": "~3.2.1",
+		"iconv-lite": "~0.2.11",
+		"lazy": "~1.0.11",
+		"rimraf": "~2.0.2",
+		"unzip": "~0.0.4"
+	},
+	"config": {
+		"update": true
+	},
+	"devDependencies": {
+		"nodeunit": "~0.7.4"
+	}
+}

@@ -1,0 +1,71 @@
+"use strict";
+
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _defineProperty2 = _interopRequireDefault(require("@babel/runtime/helpers/defineProperty"));
+
+var _react = _interopRequireDefault(require("react"));
+
+var _propTypes = _interopRequireDefault(require("prop-types"));
+
+/*
+Copyright 2017 New Vector Ltd
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+*/
+
+/*
+ * This component can be used to display generic HTML content in a contextual
+ * menu.
+ */
+class GenericElementContextMenu extends _react.default.Component {
+  constructor(props) {
+    super(props);
+    this.resize = this.resize.bind(this);
+  }
+
+  componentDidMount() {
+    this.resize = this.resize.bind(this);
+    window.addEventListener("resize", this.resize);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener("resize", this.resize);
+  }
+
+  resize() {
+    if (this.props.onResize) {
+      this.props.onResize();
+    }
+  }
+
+  render() {
+    return /*#__PURE__*/_react.default.createElement("div", null, this.props.element);
+  }
+
+}
+
+exports.default = GenericElementContextMenu;
+(0, _defineProperty2.default)(GenericElementContextMenu, "propTypes", {
+  element: _propTypes.default.element.isRequired,
+  // Function to be called when the parent window is resized
+  // This can be used to reposition or close the menu on resize and
+  // ensure that it is not displayed in a stale position.
+  onResize: _propTypes.default.func
+});
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uLy4uLy4uL3NyYy9jb21wb25lbnRzL3ZpZXdzL2NvbnRleHRfbWVudXMvR2VuZXJpY0VsZW1lbnRDb250ZXh0TWVudS5qcyJdLCJuYW1lcyI6WyJHZW5lcmljRWxlbWVudENvbnRleHRNZW51IiwiUmVhY3QiLCJDb21wb25lbnQiLCJjb25zdHJ1Y3RvciIsInByb3BzIiwicmVzaXplIiwiYmluZCIsImNvbXBvbmVudERpZE1vdW50Iiwid2luZG93IiwiYWRkRXZlbnRMaXN0ZW5lciIsImNvbXBvbmVudFdpbGxVbm1vdW50IiwicmVtb3ZlRXZlbnRMaXN0ZW5lciIsIm9uUmVzaXplIiwicmVuZGVyIiwiZWxlbWVudCIsIlByb3BUeXBlcyIsImlzUmVxdWlyZWQiLCJmdW5jIl0sIm1hcHBpbmdzIjoiOzs7Ozs7Ozs7OztBQWdCQTs7QUFDQTs7QUFqQkE7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBOztBQUtBO0FBQ0E7QUFDQTtBQUNBO0FBR2UsTUFBTUEseUJBQU4sU0FBd0NDLGVBQU1DLFNBQTlDLENBQXdEO0FBU25FQyxFQUFBQSxXQUFXLENBQUNDLEtBQUQsRUFBUTtBQUNmLFVBQU1BLEtBQU47QUFDQSxTQUFLQyxNQUFMLEdBQWMsS0FBS0EsTUFBTCxDQUFZQyxJQUFaLENBQWlCLElBQWpCLENBQWQ7QUFDSDs7QUFFREMsRUFBQUEsaUJBQWlCLEdBQUc7QUFDaEIsU0FBS0YsTUFBTCxHQUFjLEtBQUtBLE1BQUwsQ0FBWUMsSUFBWixDQUFpQixJQUFqQixDQUFkO0FBQ0FFLElBQUFBLE1BQU0sQ0FBQ0MsZ0JBQVAsQ0FBd0IsUUFBeEIsRUFBa0MsS0FBS0osTUFBdkM7QUFDSDs7QUFFREssRUFBQUEsb0JBQW9CLEdBQUc7QUFDbkJGLElBQUFBLE1BQU0sQ0FBQ0csbUJBQVAsQ0FBMkIsUUFBM0IsRUFBcUMsS0FBS04sTUFBMUM7QUFDSDs7QUFFREEsRUFBQUEsTUFBTSxHQUFHO0FBQ0wsUUFBSSxLQUFLRCxLQUFMLENBQVdRLFFBQWYsRUFBeUI7QUFDckIsV0FBS1IsS0FBTCxDQUFXUSxRQUFYO0FBQ0g7QUFDSjs7QUFFREMsRUFBQUEsTUFBTSxHQUFHO0FBQ0wsd0JBQU8sMENBQU8sS0FBS1QsS0FBTCxDQUFXVSxPQUFsQixDQUFQO0FBQ0g7O0FBL0JrRTs7OzhCQUFsRGQseUIsZUFDRTtBQUNmYyxFQUFBQSxPQUFPLEVBQUVDLG1CQUFVRCxPQUFWLENBQWtCRSxVQURaO0FBRWY7QUFDQTtBQUNBO0FBQ0FKLEVBQUFBLFFBQVEsRUFBRUcsbUJBQVVFO0FBTEwsQyIsInNvdXJjZXNDb250ZW50IjpbIi8qXG5Db3B5cmlnaHQgMjAxNyBOZXcgVmVjdG9yIEx0ZFxuXG5MaWNlbnNlZCB1bmRlciB0aGUgQXBhY2hlIExpY2Vuc2UsIFZlcnNpb24gMi4wICh0aGUgXCJMaWNlbnNlXCIpO1xueW91IG1heSBub3QgdXNlIHRoaXMgZmlsZSBleGNlcHQgaW4gY29tcGxpYW5jZSB3aXRoIHRoZSBMaWNlbnNlLlxuWW91IG1heSBvYnRhaW4gYSBjb3B5IG9mIHRoZSBMaWNlbnNlIGF0XG5cbiAgICBodHRwOi8vd3d3LmFwYWNoZS5vcmcvbGljZW5zZXMvTElDRU5TRS0yLjBcblxuVW5sZXNzIHJlcXVpcmVkIGJ5IGFwcGxpY2FibGUgbGF3IG9yIGFncmVlZCB0byBpbiB3cml0aW5nLCBzb2Z0d2FyZVxuZGlzdHJpYnV0ZWQgdW5kZXIgdGhlIExpY2Vuc2UgaXMgZGlzdHJpYnV0ZWQgb24gYW4gXCJBUyBJU1wiIEJBU0lTLFxuV0lUSE9VVCBXQVJSQU5USUVTIE9SIENPTkRJVElPTlMgT0YgQU5ZIEtJTkQsIGVpdGhlciBleHByZXNzIG9yIGltcGxpZWQuXG5TZWUgdGhlIExpY2Vuc2UgZm9yIHRoZSBzcGVjaWZpYyBsYW5ndWFnZSBnb3Zlcm5pbmcgcGVybWlzc2lvbnMgYW5kXG5saW1pdGF0aW9ucyB1bmRlciB0aGUgTGljZW5zZS5cbiovXG5cbmltcG9ydCBSZWFjdCBmcm9tICdyZWFjdCc7XG5pbXBvcnQgUHJvcFR5cGVzIGZyb20gJ3Byb3AtdHlwZXMnO1xuXG4vKlxuICogVGhpcyBjb21wb25lbnQgY2FuIGJlIHVzZWQgdG8gZGlzcGxheSBnZW5lcmljIEhUTUwgY29udGVudCBpbiBhIGNvbnRleHR1YWxcbiAqIG1lbnUuXG4gKi9cblxuXG5leHBvcnQgZGVmYXVsdCBjbGFzcyBHZW5lcmljRWxlbWVudENvbnRleHRNZW51IGV4dGVuZHMgUmVhY3QuQ29tcG9uZW50IHtcbiAgICBzdGF0aWMgcHJvcFR5cGVzID0ge1xuICAgICAgICBlbGVtZW50OiBQcm9wVHlwZXMuZWxlbWVudC5pc1JlcXVpcmVkLFxuICAgICAgICAvLyBGdW5jdGlvbiB0byBiZSBjYWxsZWQgd2hlbiB0aGUgcGFyZW50IHdpbmRvdyBpcyByZXNpemVkXG4gICAgICAgIC8vIFRoaXMgY2FuIGJlIHVzZWQgdG8gcmVwb3NpdGlvbiBvciBjbG9zZSB0aGUgbWVudSBvbiByZXNpemUgYW5kXG4gICAgICAgIC8vIGVuc3VyZSB0aGF0IGl0IGlzIG5vdCBkaXNwbGF5ZWQgaW4gYSBzdGFsZSBwb3NpdGlvbi5cbiAgICAgICAgb25SZXNpemU6IFByb3BUeXBlcy5mdW5jLFxuICAgIH07XG5cbiAgICBjb25zdHJ1Y3Rvcihwcm9wcykge1xuICAgICAgICBzdXBlcihwcm9wcyk7XG4gICAgICAgIHRoaXMucmVzaXplID0gdGhpcy5yZXNpemUuYmluZCh0aGlzKTtcbiAgICB9XG5cbiAgICBjb21wb25lbnREaWRNb3VudCgpIHtcbiAgICAgICAgdGhpcy5yZXNpemUgPSB0aGlzLnJlc2l6ZS5iaW5kKHRoaXMpO1xuICAgICAgICB3aW5kb3cuYWRkRXZlbnRMaXN0ZW5lcihcInJlc2l6ZVwiLCB0aGlzLnJlc2l6ZSk7XG4gICAgfVxuXG4gICAgY29tcG9uZW50V2lsbFVubW91bnQoKSB7XG4gICAgICAgIHdpbmRvdy5yZW1vdmVFdmVudExpc3RlbmVyKFwicmVzaXplXCIsIHRoaXMucmVzaXplKTtcbiAgICB9XG5cbiAgICByZXNpemUoKSB7XG4gICAgICAgIGlmICh0aGlzLnByb3BzLm9uUmVzaXplKSB7XG4gICAgICAgICAgICB0aGlzLnByb3BzLm9uUmVzaXplKCk7XG4gICAgICAgIH1cbiAgICB9XG5cbiAgICByZW5kZXIoKSB7XG4gICAgICAgIHJldHVybiA8ZGl2PnsgdGhpcy5wcm9wcy5lbGVtZW50IH08L2Rpdj47XG4gICAgfVxufVxuIl19

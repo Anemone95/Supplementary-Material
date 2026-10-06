@@ -1,0 +1,12 @@
+$ corepack pnpm@9.15.9 install --prod --no-frozen-lockfile --reporter=append-only --config.node-linker=hoisted --ignore-workspace --ignore-scripts
+Progress: resolved 1, reused 0, downloaded 0, added 0
+Progress: resolved 27, reused 0, downloaded 0, added 0
+Progress: resolved 61, reused 0, downloaded 0, added 0
+
+devDependencies: skipped
+
+Packages: +62
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Progress: resolved 62, reused 52, downloaded 9, added 61
+Progress: resolved 62, reused 52, downloaded 10, added 62, done
+Done in 3.6s using pnpm v9.15.9

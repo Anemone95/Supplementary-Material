@@ -1,0 +1,94 @@
+<template for="status-checker" data-source-template="/api/statusOf/?url={{data-url}}{{#if data-contains}}&contains={{data-contains}}{{/if}}&method={{data-method}}" refresh-time="25">
+    <div class="alert alert-{{alertType}}" role="alert">
+        <div class="row">
+            <div class="col-md-6">
+                <a href="{{linkUrl}}" title="{{urlProvided}}">
+                    <button type="button" class="btn btn-{{alertType}} status-checker">
+                        <icon>{{glyphIcon}}</icon>
+                    </button>
+                </a>
+                <span class="status-description">{{content}} ({{summary.statusCode}})</span>
+            </div>
+            <div class="col-md-6">
+                <p><b>{{summary.message}}</b></p>
+                {{#if error}}
+                <p><a href="{{data-url}}">{{data-url}}</a></p>{{/if}}
+            </div>
+        </div>
+    </div>
+</template>
+
+<style for="status-checker">
+    span.status-description {
+        font-size: 150%;
+        font-weight: bold;
+        vertical-align: middle;
+    }
+
+    button.status-checker {
+        margin-right: 5px;
+    }
+
+    status-checker div > a {
+        text-decoration: none;
+    }
+</style>
+
+<script type="text/javascript">
+    $(function() {
+        var StatusChecker = Component.configure("status-checker");
+
+        function rd(number) {
+            return Math.round(number / 100) * 100;
+        }
+
+        function selectAlertType(statusCode, error) {
+            var result = false;
+            var severity = rd(statusCode);
+            if (error) {
+                result = ({
+                    "510": 'default',
+                    "400": 'warning',
+                    "404": 'danger'
+                })[severity] || 'danger';
+            } else {
+                result = ({
+                    "0": 'info',
+                    "100": 'primary',
+                    "200": 'success',
+                    "300": 'info',
+                    "400": 'danger',
+                    "404": 'danger',
+                    "500": 'warning'
+                })[severity] || 'danger';
+            }
+            return result;
+        }
+
+        function selectGlyphIcon(statusCode, error) {
+            return ({
+                "0": 'time',
+                "100": 'tint',
+                "200": 'heart',
+                "300": 'random',
+                "400": 'cog',
+                "404": 'fire',
+                "500": 'cloud',
+                "502": 'unchecked',
+                "5000": 'warning-sign'
+            })[statusCode] || false;
+        }
+
+        function selectDisplayState(instance) {
+            var statusCode = (instance.summary && instance.summary.statusCode) || 5000;
+            var errorState = (instance.summary && instance.summary.error) || null;
+            instance.glyphIcon = selectGlyphIcon(statusCode, errorState) || selectGlyphIcon(rd(statusCode), errorState) || "question-sign";
+            instance.alertType = selectAlertType(statusCode, errorState);
+        }
+
+        StatusChecker.on('preRenderStep', function() {
+            selectDisplayState(this);
+            this.linkUrl = '/docs/status-details?url=' + encodeURIComponent(this.dataSourceUrl) + '&content=' + encodeURIComponent(this.content);
+        });
+    });
+</script>

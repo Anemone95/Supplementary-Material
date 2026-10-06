@@ -1,0 +1,65 @@
+lockfileVersion: '9.0'
+
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
+
+importers:
+
+  .:
+    devDependencies:
+      markdown:
+        specifier: '*'
+        version: 0.5.0
+      robotskirt:
+        specifier: '*'
+        version: 2.7.1
+      showdown:
+        specifier: '*'
+        version: 2.1.0
+
+packages:
+
+  abbrev@1.1.1:
+    resolution: {integrity: sha512-nne9/IiQ/hzIhY6pdDnbBtz7DjPTKrY00P/zvPSm5pOFkl6xuGrGnXn/VtTNNfNtAfZ9/1RtehkszU9qcTii0Q==}
+
+  commander@9.5.0:
+    resolution: {integrity: sha512-KRs7WVDKg86PWiuAqhDrAQnTXZKraVcCc6vFdL14qrZ/DcWwuRo7VoiYXalXO7S5GKpqYiVEwCbgFDfxNHKJBQ==}
+    engines: {node: ^12.20.0 || >=14}
+
+  markdown@0.5.0:
+    resolution: {integrity: sha512-ctGPIcuqsYoJ493sCtFK7H4UEgMWAUdXeBhPbdsg1W0LsV9yJELAHRsMmWfTgao6nH0/x5gf9FmsbxiXnrgaIQ==}
+    hasBin: true
+
+  nopt@2.1.2:
+    resolution: {integrity: sha512-x8vXm7BZ2jE1Txrxh/hO74HTuYZQEbo8edoRcANgdZ4+PCV+pbjd/xdummkmjjC7LU5EjPzlu8zEq/oxWylnKA==}
+    hasBin: true
+
+  robotskirt@2.7.1:
+    resolution: {integrity: sha512-A51JmFja9UTrkv85VVQ30WhJAkKikkMFNjEvLSmP4rTkYpHVT054/wHVD9ZH8eZbgFDOgWGelbPCxJ+u104Tfg==}
+    engines: {node: '>= 0.6'}
+    hasBin: true
+
+  showdown@2.1.0:
+    resolution: {integrity: sha512-/6NVYu4U819R2pUIk79n67SYgJHWCce0a5xTP979WbNp0FL9MN1I1QK662IDU1b6JzKTvmhgI7T7JYIxBi3kMQ==}
+    hasBin: true
+
+snapshots:
+
+  abbrev@1.1.1: {}
+
+  commander@9.5.0: {}
+
+  markdown@0.5.0:
+    dependencies:
+      nopt: 2.1.2
+
+  nopt@2.1.2:
+    dependencies:
+      abbrev: 1.1.1
+
+  robotskirt@2.7.1: {}
+
+  showdown@2.1.0:
+    dependencies:
+      commander: 9.5.0

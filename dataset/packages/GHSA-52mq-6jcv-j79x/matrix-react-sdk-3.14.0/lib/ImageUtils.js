@@ -1,0 +1,69 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.thumbHeight = thumbHeight;
+
+/*
+Copyright 2015, 2016, 2020 Copyright 2020 The Matrix.org Foundation C.I.C.
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+*/
+
+/**
+ * Returns the actual height that an image of dimensions (fullWidth, fullHeight)
+ * will occupy if resized to fit inside a thumbnail bounding box of size
+ * (thumbWidth, thumbHeight).
+ *
+ * If the aspect ratio of the source image is taller than the aspect ratio of
+ * the thumbnail bounding box, then we return the thumbHeight parameter unchanged.
+ * Otherwise we return the thumbHeight parameter scaled down appropriately to
+ * reflect the actual height the scaled thumbnail occupies.
+ *
+ * This is very useful for calculating how much height a thumbnail will actually
+ * consume in the timeline, when performing scroll offset calcuations
+ * (e.g. scroll locking)
+ */
+function thumbHeight(fullWidth
+/*: number*/
+, fullHeight
+/*: number*/
+, thumbWidth
+/*: number*/
+, thumbHeight
+/*: number*/
+) {
+  if (!fullWidth || !fullHeight) {
+    // Cannot calculate thumbnail height for image: missing w/h in metadata. We can't even
+    // log this because it's spammy
+    return null;
+  }
+
+  if (fullWidth < thumbWidth && fullHeight < thumbHeight) {
+    // no scaling needs to be applied
+    return fullHeight;
+  }
+
+  const widthMulti = thumbWidth / fullWidth;
+  const heightMulti = thumbHeight / fullHeight;
+
+  if (widthMulti < heightMulti) {
+    // width is the dominant dimension so scaling will be fixed on that
+    return Math.floor(widthMulti * fullHeight);
+  } else {
+    // height is the dominant dimension so scaling will be fixed on that
+    return Math.floor(heightMulti * fullHeight);
+  }
+}
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uL3NyYy9JbWFnZVV0aWxzLnRzIl0sIm5hbWVzIjpbInRodW1iSGVpZ2h0IiwiZnVsbFdpZHRoIiwiZnVsbEhlaWdodCIsInRodW1iV2lkdGgiLCJ3aWR0aE11bHRpIiwiaGVpZ2h0TXVsdGkiLCJNYXRoIiwiZmxvb3IiXSwibWFwcGluZ3MiOiI7Ozs7Ozs7QUFBQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7O0FBRUE7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNPLFNBQVNBLFdBQVQsQ0FBcUJDO0FBQXJCO0FBQUEsRUFBd0NDO0FBQXhDO0FBQUEsRUFBNERDO0FBQTVEO0FBQUEsRUFBZ0ZIO0FBQWhGO0FBQUEsRUFBcUc7QUFDeEcsTUFBSSxDQUFDQyxTQUFELElBQWMsQ0FBQ0MsVUFBbkIsRUFBK0I7QUFDM0I7QUFDQTtBQUNBLFdBQU8sSUFBUDtBQUNIOztBQUNELE1BQUlELFNBQVMsR0FBR0UsVUFBWixJQUEwQkQsVUFBVSxHQUFHRixXQUEzQyxFQUF3RDtBQUNwRDtBQUNBLFdBQU9FLFVBQVA7QUFDSDs7QUFDRCxRQUFNRSxVQUFVLEdBQUdELFVBQVUsR0FBR0YsU0FBaEM7QUFDQSxRQUFNSSxXQUFXLEdBQUdMLFdBQVcsR0FBR0UsVUFBbEM7O0FBQ0EsTUFBSUUsVUFBVSxHQUFHQyxXQUFqQixFQUE4QjtBQUMxQjtBQUNBLFdBQU9DLElBQUksQ0FBQ0MsS0FBTCxDQUFXSCxVQUFVLEdBQUdGLFVBQXhCLENBQVA7QUFDSCxHQUhELE1BR087QUFDSDtBQUNBLFdBQU9JLElBQUksQ0FBQ0MsS0FBTCxDQUFXRixXQUFXLEdBQUdILFVBQXpCLENBQVA7QUFDSDtBQUNKIiwic291cmNlc0NvbnRlbnQiOlsiLypcbkNvcHlyaWdodCAyMDE1LCAyMDE2LCAyMDIwIENvcHlyaWdodCAyMDIwIFRoZSBNYXRyaXgub3JnIEZvdW5kYXRpb24gQy5JLkMuXG5cbkxpY2Vuc2VkIHVuZGVyIHRoZSBBcGFjaGUgTGljZW5zZSwgVmVyc2lvbiAyLjAgKHRoZSBcIkxpY2Vuc2VcIik7XG55b3UgbWF5IG5vdCB1c2UgdGhpcyBmaWxlIGV4Y2VwdCBpbiBjb21wbGlhbmNlIHdpdGggdGhlIExpY2Vuc2UuXG5Zb3UgbWF5IG9idGFpbiBhIGNvcHkgb2YgdGhlIExpY2Vuc2UgYXRcblxuICAgIGh0dHA6Ly93d3cuYXBhY2hlLm9yZy9saWNlbnNlcy9MSUNFTlNFLTIuMFxuXG5Vbmxlc3MgcmVxdWlyZWQgYnkgYXBwbGljYWJsZSBsYXcgb3IgYWdyZWVkIHRvIGluIHdyaXRpbmcsIHNvZnR3YXJlXG5kaXN0cmlidXRlZCB1bmRlciB0aGUgTGljZW5zZSBpcyBkaXN0cmlidXRlZCBvbiBhbiBcIkFTIElTXCIgQkFTSVMsXG5XSVRIT1VUIFdBUlJBTlRJRVMgT1IgQ09ORElUSU9OUyBPRiBBTlkgS0lORCwgZWl0aGVyIGV4cHJlc3Mgb3IgaW1wbGllZC5cblNlZSB0aGUgTGljZW5zZSBmb3IgdGhlIHNwZWNpZmljIGxhbmd1YWdlIGdvdmVybmluZyBwZXJtaXNzaW9ucyBhbmRcbmxpbWl0YXRpb25zIHVuZGVyIHRoZSBMaWNlbnNlLlxuKi9cblxuLyoqXG4gKiBSZXR1cm5zIHRoZSBhY3R1YWwgaGVpZ2h0IHRoYXQgYW4gaW1hZ2Ugb2YgZGltZW5zaW9ucyAoZnVsbFdpZHRoLCBmdWxsSGVpZ2h0KVxuICogd2lsbCBvY2N1cHkgaWYgcmVzaXplZCB0byBmaXQgaW5zaWRlIGEgdGh1bWJuYWlsIGJvdW5kaW5nIGJveCBvZiBzaXplXG4gKiAodGh1bWJXaWR0aCwgdGh1bWJIZWlnaHQpLlxuICpcbiAqIElmIHRoZSBhc3BlY3QgcmF0aW8gb2YgdGhlIHNvdXJjZSBpbWFnZSBpcyB0YWxsZXIgdGhhbiB0aGUgYXNwZWN0IHJhdGlvIG9mXG4gKiB0aGUgdGh1bWJuYWlsIGJvdW5kaW5nIGJveCwgdGhlbiB3ZSByZXR1cm4gdGhlIHRodW1iSGVpZ2h0IHBhcmFtZXRlciB1bmNoYW5nZWQuXG4gKiBPdGhlcndpc2Ugd2UgcmV0dXJuIHRoZSB0aHVtYkhlaWdodCBwYXJhbWV0ZXIgc2NhbGVkIGRvd24gYXBwcm9wcmlhdGVseSB0b1xuICogcmVmbGVjdCB0aGUgYWN0dWFsIGhlaWdodCB0aGUgc2NhbGVkIHRodW1ibmFpbCBvY2N1cGllcy5cbiAqXG4gKiBUaGlzIGlzIHZlcnkgdXNlZnVsIGZvciBjYWxjdWxhdGluZyBob3cgbXVjaCBoZWlnaHQgYSB0aHVtYm5haWwgd2lsbCBhY3R1YWxseVxuICogY29uc3VtZSBpbiB0aGUgdGltZWxpbmUsIHdoZW4gcGVyZm9ybWluZyBzY3JvbGwgb2Zmc2V0IGNhbGN1YXRpb25zXG4gKiAoZS5nLiBzY3JvbGwgbG9ja2luZylcbiAqL1xuZXhwb3J0IGZ1bmN0aW9uIHRodW1iSGVpZ2h0KGZ1bGxXaWR0aDogbnVtYmVyLCBmdWxsSGVpZ2h0OiBudW1iZXIsIHRodW1iV2lkdGg6IG51bWJlciwgdGh1bWJIZWlnaHQ6IG51bWJlcikge1xuICAgIGlmICghZnVsbFdpZHRoIHx8ICFmdWxsSGVpZ2h0KSB7XG4gICAgICAgIC8vIENhbm5vdCBjYWxjdWxhdGUgdGh1bWJuYWlsIGhlaWdodCBmb3IgaW1hZ2U6IG1pc3Npbmcgdy9oIGluIG1ldGFkYXRhLiBXZSBjYW4ndCBldmVuXG4gICAgICAgIC8vIGxvZyB0aGlzIGJlY2F1c2UgaXQncyBzcGFtbXlcbiAgICAgICAgcmV0dXJuIG51bGw7XG4gICAgfVxuICAgIGlmIChmdWxsV2lkdGggPCB0aHVtYldpZHRoICYmIGZ1bGxIZWlnaHQgPCB0aHVtYkhlaWdodCkge1xuICAgICAgICAvLyBubyBzY2FsaW5nIG5lZWRzIHRvIGJlIGFwcGxpZWRcbiAgICAgICAgcmV0dXJuIGZ1bGxIZWlnaHQ7XG4gICAgfVxuICAgIGNvbnN0IHdpZHRoTXVsdGkgPSB0aHVtYldpZHRoIC8gZnVsbFdpZHRoO1xuICAgIGNvbnN0IGhlaWdodE11bHRpID0gdGh1bWJIZWlnaHQgLyBmdWxsSGVpZ2h0O1xuICAgIGlmICh3aWR0aE11bHRpIDwgaGVpZ2h0TXVsdGkpIHtcbiAgICAgICAgLy8gd2lkdGggaXMgdGhlIGRvbWluYW50IGRpbWVuc2lvbiBzbyBzY2FsaW5nIHdpbGwgYmUgZml4ZWQgb24gdGhhdFxuICAgICAgICByZXR1cm4gTWF0aC5mbG9vcih3aWR0aE11bHRpICogZnVsbEhlaWdodCk7XG4gICAgfSBlbHNlIHtcbiAgICAgICAgLy8gaGVpZ2h0IGlzIHRoZSBkb21pbmFudCBkaW1lbnNpb24gc28gc2NhbGluZyB3aWxsIGJlIGZpeGVkIG9uIHRoYXRcbiAgICAgICAgcmV0dXJuIE1hdGguZmxvb3IoaGVpZ2h0TXVsdGkgKiBmdWxsSGVpZ2h0KTtcbiAgICB9XG59XG5cbiJdfQ==

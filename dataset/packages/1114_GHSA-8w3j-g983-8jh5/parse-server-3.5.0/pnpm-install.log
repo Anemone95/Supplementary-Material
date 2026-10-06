@@ -1,0 +1,59 @@
+$ corepack pnpm@9.15.9 install --prod --no-frozen-lockfile --reporter=append-only --config.node-linker=hoisted --ignore-workspace --ignore-scripts
+Progress: resolved 1, reused 0, downloaded 0, added 0
+ WARN  deprecated uuid@3.3.2: uuid@10 and below is no longer supported.  For ESM codebases, update to uuid@latest.  For CommonJS codebases, use uuid@11 (but be aware this version will likely be deprecated in 2028).
+ WARN  deprecated deepcopy@2.0.0: No longer maintained. Use structuredClone instead.
+ WARN  deprecated bcrypt@3.0.6: versions < v5.0.0 do not handle NUL in passwords properly
+ WARN  deprecated uws@10.148.1: New code is available at github.com/uNetworking/uWebSockets.js
+ WARN  deprecated @babel/plugin-proposal-object-rest-spread@7.4.4: This proposal has been merged to the ECMAScript standard and thus this plugin is no longer maintained. Please use @babel/plugin-transform-object-rest-spread instead.
+ WARN  deprecated @parse/simple-mailgun-adapter@1.1.0: Package no longer supported. Use at your own risk. Find a list of supported e-mail adapters at https://github.com/parse-community/parse-server#email-verification-and-password-reset
+ WARN  deprecated apollo-server-express@2.6.7: The `apollo-server-express` package is part of Apollo Server v2 and v3, which are now end-of-life (as of October 22nd 2023 and October 22nd 2024, respectively). This package's functionality is now found in the `@apollo/server` package. See https://www.apollographql.com/docs/apollo-server/previous-versions/ for more details.
+ WARN  deprecated babel-eslint@10.0.2: babel-eslint is now @babel/eslint-parser. This package will no longer receive updates.
+ WARN  deprecated bcrypt-nodejs@0.0.3: bcrypt-nodejs is no longer actively maintained. Please use bcrypt or bcryptjs. See https://github.com/kelektiv/node.bcrypt.js/wiki/bcrypt-vs-brypt.js to learn more about these two options
+ WARN  deprecated deep-diff@1.0.2: Package no longer supported. Contact Support at https://www.npmjs.com/support for more info.
+ WARN  deprecated eslint@6.0.1: This version is no longer supported. Please see https://eslint.org/version-support for other options.
+ WARN  deprecated mongodb-runner@4.3.2: This package is not maintained anymore. Please use @mongodb-js/mongodb-runner instead
+ WARN  deprecated graphql@14.4.1: No longer supported; please update to a newer version. Details: https://github.com/graphql/graphql-js#version-support
+ WARN  deprecated pg-promise@8.7.2: This version of pg-promise is obsolete. You should update to a newer version.
+ WARN  deprecated subscriptions-transport-ws@0.9.16: The `subscriptions-transport-ws` package is no longer maintained. We recommend you use `graphql-ws` instead. For help migrating Apollo software to `graphql-ws`, see https://www.apollographql.com/docs/apollo-server/data/subscriptions/#switching-from-subscriptions-transport-ws    For general help using `graphql-ws`, see https://github.com/enisdenjo/graphql-ws/blob/master/README.md
+Progress: resolved 66, reused 0, downloaded 0, added 0
+Progress: resolved 169, reused 0, downloaded 0, added 0
+Progress: resolved 250, reused 0, downloaded 0, added 0
+Progress: resolved 415, reused 0, downloaded 0, added 0
+Progress: resolved 458, reused 0, downloaded 0, added 0
+Packages are hard linked from the content-addressable store to the virtual store.
+  Content-addressable store is at: /home/wenyuan/pkg-cache/pnpm/v3
+  Virtual store is at:             node_modules/.pnpm
+ WARN  The git-hosted package fetched from "https://codeload.github.com/mongodb-js/mongodb-tools/tar.gz/194bdd6ac7922f8dcf3853de1aece0b0fdda93cf" has to be built but the build scripts were ignored.
+Progress: resolved 496, reused 0, downloaded 1, added 0
+Progress: resolved 582, reused 0, downloaded 1, added 0
+Progress: resolved 684, reused 0, downloaded 1, added 0
+Progress: resolved 736, reused 0, downloaded 1, added 0
+Progress: resolved 799, reused 0, downloaded 1, added 0
+Progress: resolved 866, reused 0, downloaded 1, added 0
+Progress: resolved 937, reused 0, downloaded 1, added 0
+Progress: resolved 1035, reused 0, downloaded 1, added 0
+Progress: resolved 1137, reused 0, downloaded 1, added 0
+Progress: resolved 1185, reused 0, downloaded 1, added 0
+Progress: resolved 1197, reused 0, downloaded 1, added 0
+Progress: resolved 1214, reused 0, downloaded 1, added 0
+Progress: resolved 1238, reused 0, downloaded 1, added 0
+Progress: resolved 1318, reused 0, downloaded 1, added 0
+Progress: resolved 1359, reused 0, downloaded 1, added 0
+Progress: resolved 1366, reused 0, downloaded 1, added 0
+ WARN  50 deprecated subdependencies found: @babel/plugin-proposal-async-generator-functions@7.20.7, @babel/plugin-proposal-json-strings@7.18.6, @babel/plugin-proposal-optional-catch-binding@7.18.6, @babel/plugin-proposal-unicode-property-regex@7.18.6, @types/minimatch@6.0.0, apollo-cache-control@0.7.4, apollo-datasource@0.5.0, apollo-server-caching@0.4.0, apollo-server-core@2.6.7, apollo-server-env@2.4.0, apollo-server-errors@2.3.0, apollo-server-plugin-base@0.5.6, apollo-tracing@0.7.3, are-we-there-yet@1.1.7, aws-sdk@2.1693.0, bson@1.0.9, core-js@2.6.12, fsevents@1.2.13, gauge@1.2.7, gauge@2.7.4, glob@7.1.7, glob@7.2.3, graphql-extensions@0.7.4, graphql-extensions@0.7.6, graphql-tools@4.0.8, har-validator@5.1.5, inflight@1.0.6, lodash.get@4.4.2, lodash.pick@4.4.0, lsof@0.1.0, mailgun-js@0.18.0, mkdirp@0.5.0, node-pre-gyp@0.12.0, npmlog@2.0.4, npmlog@4.1.2, osenv@0.1.5, path-dirname@1.0.2, q@1.5.1, querystring@0.2.0, request@2.88.0, request@2.88.2, resolve-url@0.2.1, rimraf@2.2.6, rimraf@2.6.3, rimraf@2.7.1, source-map-resolve@0.5.3, source-map-url@0.4.1, tar@4.4.19, urix@0.1.0, uuid@8.0.0
+
+devDependencies: skipped
+
+Packages: +563
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Progress: resolved 1378, reused 335, downloaded 8, added 322
+Progress: resolved 1378, reused 335, downloaded 49, added 383
+Progress: resolved 1378, reused 335, downloaded 93, added 438
+Progress: resolved 1378, reused 335, downloaded 178, added 534
+Progress: resolved 1378, reused 335, downloaded 197, added 559
+Progress: resolved 1378, reused 335, downloaded 198, added 559
+Progress: resolved 1378, reused 335, downloaded 198, added 560
+Progress: resolved 1378, reused 335, downloaded 199, added 561
+Progress: resolved 1378, reused 335, downloaded 200, added 561
+Progress: resolved 1378, reused 335, downloaded 200, added 563, done
+Done in 37.9s using pnpm v9.15.9

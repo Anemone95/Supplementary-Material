@@ -1,0 +1,161 @@
+lockfileVersion: '9.0'
+
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
+
+importers:
+
+  .:
+    dependencies:
+      bcryptjs:
+        specifier: 2.1.0
+        version: 2.1.0
+      ldapjs:
+        specifier: 0.7.1
+        version: 0.7.1
+      lru-cache:
+        specifier: 2.5.0
+        version: 2.5.0
+
+packages:
+
+  abbrev@1.1.1:
+    resolution: {integrity: sha512-nne9/IiQ/hzIhY6pdDnbBtz7DjPTKrY00P/zvPSm5pOFkl6xuGrGnXn/VtTNNfNtAfZ9/1RtehkszU9qcTii0Q==}
+
+  asn1@0.2.1:
+    resolution: {integrity: sha512-Qlt6MN3lOQjpHxlh49dTHVV3ankYp3udK35Aw0bxHMAAVYaa7m+csXAdzdS/t3HJn0eG+o81PTAifeFoCNJCmg==}
+
+  assert-plus@0.1.5:
+    resolution: {integrity: sha512-brU24g7ryhRwGCI2y+1dGQmQXiZF7TtIj583S96y0jjdajIe6wn8BuXyELYhvD22dtIxDQVFk04YTJwwdwOYJw==}
+    engines: {node: '>=0.8'}
+
+  bcryptjs@2.1.0:
+    resolution: {integrity: sha512-6QrBwXTjIXjMvo61TjUwPYpD1Hpiqu/CJURzh/FHYdv5VWuISFbObZe+i/3FF8A1oZGDxfLzjqy1frttBY6Eig==}
+
+  bunyan@0.22.1:
+    resolution: {integrity: sha512-EhCfulriDkDnbOOalzfmj3w0JjQND3Z3KOOSHHUJaQqH1TI3aYRHofd0UGCUrKqr+yAK5ZFb6egwvtpW7sDe9w==}
+    engines: {'0': node >=0.6.0}
+    hasBin: true
+
+  dtrace-provider@0.2.8:
+    resolution: {integrity: sha512-wufYnYt4ISHnT9MEiRgQ3trXuolt7mICTa/ckT+KYHR667K9H82lmI8KM7zKUJ8l5I343A34wJnvL++1TJn1iA==}
+    engines: {node: '>=0.6'}
+
+  extsprintf@1.0.0:
+    resolution: {integrity: sha512-AtBFy+ysvNodhorg/XoW8l+3VtfhILEWc53shEOsAuyDQTnQoXDfI2x9c93QY+RMdCQWAbL0XqpidgJe3BOCFA==}
+    engines: {'0': node >=0.6.0}
+
+  json-schema@0.2.2:
+    resolution: {integrity: sha512-DFzwwaFNKI+cfMyHtcyGA6N9d8jOWEtLc9IrT7WbpZc1V8M5S/HMBjJ3aM2Fx40bcTL2xTuIX/bBr8Zj2soGyg==}
+
+  jsprim@0.3.0:
+    resolution: {integrity: sha512-lPLTWfTELEgTAY3mphlaIjYa5j6n1XFB3ju+nqFGNXTvX1ZXArW8fwEzq+i+ggILHaBRQkhzeMiQ+M56FbWU6A==}
+    engines: {'0': node >=0.6.0}
+
+  ldapjs@0.7.1:
+    resolution: {integrity: sha512-DJRyIlwH9jo7OLfubL4o0wCc9KIM6V6tXTDFaT8YJQxvq5+Bukl5HAKa9A5o62TGemjjYkBhHAOs6jQIyy4HgQ==}
+    engines: {node: '>=0.8'}
+    deprecated: This package has been decomissioned. See https://github.com/ldapjs/node-ldapjs/blob/8ffd0bc9c149088a10ec4c1ec6a18450f76ad05d/README.md
+    hasBin: true
+
+  lru-cache@2.5.0:
+    resolution: {integrity: sha512-dVmQmXPBlTgFw77hm60ud//l2bCuDKkqC2on1EBoM7s9Urm9IQDrnujwZ93NFnAq0dVZ0HBXTS7PwEG+YE7+EQ==}
+
+  mv@0.0.5:
+    resolution: {integrity: sha512-8j4wV8oJDjvDE4dHIOMwP5a0zjsUXy06PPtEtIdjwOduF4jAaLCWGn3qiZmu+6kODeMeO+nHucL2DIm2hHDanA==}
+    engines: {node: '>=0.8.0'}
+
+  nopt@2.1.1:
+    resolution: {integrity: sha512-iKfahTKYJbKlv1JeIV0UFT5kzNdbeKe6AY69GQWm9feJEs3/fZQkjs2fDw3T7494PDXf5U1nu1hoqwkRcLycAw==}
+    hasBin: true
+
+  once@1.3.0:
+    resolution: {integrity: sha512-A31oqbdEQnnhkjIXJ6QKcgO9eN8Xe+dVAQqlFLAmri0Y5s11pUadCihT2popU2WLd5CbbnD2ZVkbEJsR/8JHvA==}
+
+  pooling@0.4.6:
+    resolution: {integrity: sha512-ZI8OZmK76Lm2gYIqn5NkTlZ5GAxJvIZkzqCHifZRRufbSd7xoO1r1GicUUAYH+keAdJ1WNuBICLMnsuKxlvoog==}
+    engines: {node: '>=0.8'}
+
+  vasync@1.4.0:
+    resolution: {integrity: sha512-hFAwwPN+VYEjFm56tbWcl1E+lcWfNXfb8q/XmSWGh3onk/aOo1bG5jbQCLigAeHPeMDAqh5GkgRPAYyo3wrzlg==}
+    engines: {'0': node >=0.6.0}
+
+  verror@1.1.0:
+    resolution: {integrity: sha512-5X/HjC1yBdrpYrQvjUC55HB1CuRPyk1b+Fz0Rpp60fhQR9aE4hcjnRwFfPNF7SNwoCb5fMrjGHr7Gla0zUerXA==}
+    engines: {'0': node >=0.6.0}
+
+  verror@1.3.3:
+    resolution: {integrity: sha512-FRyhVjZX8Hy5Mlmvo4YbbN3V8KaagA6W6Xc3kNOtIQqd3DohGqQzqie1NDVfZbZuWZjCTF0E5PNUqQZ5BVqdew==}
+    engines: {'0': node >=0.6.0}
+
+snapshots:
+
+  abbrev@1.1.1: {}
+
+  asn1@0.2.1: {}
+
+  assert-plus@0.1.5: {}
+
+  bcryptjs@2.1.0: {}
+
+  bunyan@0.22.1:
+    optionalDependencies:
+      dtrace-provider: 0.2.8
+      mv: 0.0.5
+
+  dtrace-provider@0.2.8:
+    optional: true
+
+  extsprintf@1.0.0: {}
+
+  json-schema@0.2.2: {}
+
+  jsprim@0.3.0:
+    dependencies:
+      extsprintf: 1.0.0
+      json-schema: 0.2.2
+      verror: 1.3.3
+
+  ldapjs@0.7.1:
+    dependencies:
+      asn1: 0.2.1
+      assert-plus: 0.1.5
+      bunyan: 0.22.1
+      nopt: 2.1.1
+      pooling: 0.4.6
+    optionalDependencies:
+      dtrace-provider: 0.2.8
+
+  lru-cache@2.5.0: {}
+
+  mv@0.0.5:
+    optional: true
+
+  nopt@2.1.1:
+    dependencies:
+      abbrev: 1.1.1
+
+  once@1.3.0: {}
+
+  pooling@0.4.6:
+    dependencies:
+      assert-plus: 0.1.5
+      bunyan: 0.22.1
+      once: 1.3.0
+      vasync: 1.4.0
+    optionalDependencies:
+      dtrace-provider: 0.2.8
+
+  vasync@1.4.0:
+    dependencies:
+      jsprim: 0.3.0
+      verror: 1.1.0
+
+  verror@1.1.0:
+    dependencies:
+      extsprintf: 1.0.0
+
+  verror@1.3.3:
+    dependencies:
+      extsprintf: 1.0.0

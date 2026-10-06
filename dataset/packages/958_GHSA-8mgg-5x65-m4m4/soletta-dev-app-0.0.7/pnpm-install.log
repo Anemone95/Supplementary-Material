@@ -1,0 +1,17 @@
+$ corepack pnpm@9.15.9 install --prod --no-frozen-lockfile --reporter=append-only --config.node-linker=hoisted --ignore-workspace --ignore-scripts
+Progress: resolved 1, reused 0, downloaded 0, added 0
+ WARN  deprecated protractor@2.1.0: We have news to share - Protractor is deprecated and will reach end-of-life by Summer 2023. To learn more and find out about other options please refer to this post on the Angular blog. Thank you for using and contributing to Protractor. https://goo.gle/state-of-e2e-in-angular
+ WARN  deprecated mocha@2.2.5: Mocha v2.2.x is no longer supported.
+ WARN  deprecated node-uuid@1.4.8: Use uuid module instead
+Progress: resolved 166, reused 0, downloaded 0, added 0
+Progress: resolved 228, reused 0, downloaded 0, added 0
+Progress: resolved 229, reused 0, downloaded 0, added 0
+ WARN  22 deprecated subdependencies found: boom@0.4.2, cryptiles@0.2.2, glob@3.2.11, glob@3.2.3, glob@7.2.3, graceful-fs@2.0.3, har-validator@5.1.5, hawk@1.0.0, hoek@0.9.1, inflight@1.0.6, jade@0.26.3, minimatch@0.2.14, minimatch@0.3.0, mkdirp@0.3.0, mkdirp@0.5.0, node-uuid@1.3.3, q@1.0.0, request@2.36.0, request@2.88.2, rimraf@2.7.1, sntp@0.2.4, uuid@3.4.0
+
+devDependencies: skipped
+
+Packages: +155
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Progress: resolved 230, reused 142, downloaded 11, added 153
+Progress: resolved 230, reused 142, downloaded 13, added 155, done
+Done in 4.9s using pnpm v9.15.9

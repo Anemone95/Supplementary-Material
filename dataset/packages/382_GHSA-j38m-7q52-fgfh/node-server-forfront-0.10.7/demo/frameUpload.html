@@ -1,0 +1,75 @@
+﻿<!DOCTYPE html>
+<html>
+<script src = "../static/js/jquery.min.js"></script>
+<script src = "../static/js/require.js"></script>
+<script src = "../static/js/require-config.js"></script>
+<style>
+html,body,div{
+	margin: 0px; 
+	padding: 0px;
+	border: 0px;
+} 
+#select{
+	display:inline-block;
+	padding: 0px 15px;
+	height: 30px;
+	line-height: 30px;
+	text-align: center;
+	color: #fff;
+	background: #148f77;
+	border-radius: 4px;
+}
+iframe{
+	position: absolute;
+	opacity: 0;
+}
+.pic-list{
+	display: block;
+	margin-top: 10px;
+	width: 200px;
+	height: auto;
+}
+.pic-list img{width: 100%}
+</style>
+<body>
+	<a id='select'>上传</a>
+</body>
+<script>
+	require(['frameUpload'],function(FrameUpload){
+			var select = $('#select');
+			new FrameUpload({
+				el: select[0],
+				ajax: true,
+				src: "../static/js/module/frame-upload/upload.html",
+				action: "../static/js/module/frame-upload/upload.html",//上传图片地址
+				onchange: function(){
+					this.submit();
+
+					/**html5本地预览功能*/
+					var file = this.files[0], url;
+					var img = new Image(), url = img.src = URL.createObjectURL(file);
+			        img.onload = function() {
+			        	URL.revokeObjectURL(url);
+			        }
+				},
+				ready:function(){
+
+				},
+				afterUpload: function(data,xhr){//data是返回数据格式[{imgURL:url},{imgURL:url}]
+					var html='',
+					    preview = $('#select').next();
+					for(var i = 0; i< data.length; i++){
+						for(var key in data[i]){
+							html +=  '<a class="pic-list">'+
+										'<i class="delete"></i>'+
+										'<img src="'+data[i][key]+'">'+
+									'</a>';
+						}
+					}
+					preview.hasClass('pic-list') && preview.remove();
+					$('#select').after(html);
+				}
+			});
+		});
+</script>
+</html> 

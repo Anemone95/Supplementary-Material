@@ -1,0 +1,359 @@
+#!/usr/bin/env node
+
+var fs = require('fs');
+var path = require('path');
+var _ = require('underscore');
+var async = require('async');
+var express = require('express');
+var middleware = require('../src/middleware.js');
+var Controller = require('../src/controller.js');
+var bodyParser = require('body-parser');
+var socket = require('socket.io');
+var priestSocket = require('../src/connection.js');
+var parseArgv = require('../src/argv');
+
+
+var args = process.argv.slice(2);
+var dir, port;
+
+if (args[0] && args[0].match(/^[^-]/)) {
+    port = parseInt(args.shift(), 10);
+}
+
+if (args[0] && args[0].match(/^[^-]/)) {
+    dir = args.shift();
+}
+
+var params = parseArgv(args);
+var priestfile = path.resolve(dir||process.cwd(), params.config || process.env.PRIESTFILE || 'priest.json');
+var config = {
+    init:[],
+    socket: false,
+    realtime: true
+};
+
+if (fs.existsSync(priestfile)) {
+    config = _.extend(config, readConfig(priestfile));
+}
+
+_.extend(config, params);
+
+if (port) {
+    config.port = port;
+}
+
+if (dir) {
+    config.dir = dir;
+}
+
+runServer(config);
+
+function runServer(options) {
+    var port = options.port || 8080;
+
+    var priest = new Controller(_.extend({
+        dir: process.cwd(),
+        logs: '../logs',
+    }, options));
+
+    var prefix = options.prefix || '/process';
+
+    var app = express()
+        .use(bodyParser.json())
+        .use(prefix + '/exit', function (req, res, next) {
+            priest.stopAll('SIGINT', function (error) {
+                if (error) {
+                    console.error(error);
+                    res.json(false);
+                    process.exit(1);
+                } else {
+                    res.json(true);
+                    process.exit(0);
+                }
+            });
+        })
+        .use(prefix, middleware(priest))
+        .get('/config', function (req, res) {
+            res.json(config);
+        })
+        .use(function (req, res, next) {
+            res.status(404)
+                .type('text/plain')
+                .send('Not found: ' + req.url);
+        })
+        .use(function (error, req, res, next) {
+            res.status(500)
+                .type('text/plain')
+                .send('Error:\n' + error.stack);
+        })
+        .listen(port, function(){
+            console.log("listening localhost:%d", port);
+
+            async.forEachSeries(config.init, function (params, done) {
+                priest.startProcess(params, done);
+            }, function (error) {
+                if (error) {
+                    console.error(error);
+                    process.exit(1);
+                }
+           });
+        });
+
+    if (config.realtime) {
+        var io = socket(app);
+
+        io.on('connection', function (socket) {
+            function exec(params, callback) {
+                priest.startProcess(params, function (error, child) {
+                    if (error) {
+                        return callback(error);
+                    }
+
+                    child.process.stdout.on('data', function (chunk) {
+                        socket.emit('stdout', chunk);
+                    });
+
+                    child.process.stderr.on('data', function (chunk) {
+                        socket.emit('stderr', chunk);
+                    });
+
+                    child.process.on('exit', function (code) {
+                        socket.emit('exit', {status:code});
+                        socket.disconnect();
+                    });
+
+                    socket.on('kill', function (signal) {
+                        priest.stopProcess(child.id, signal, function (error) {
+                            if (error) {
+                                return socket.emit('exit', {status: 1, error: error});
+                            }
+
+                            socket.emit('exit', {status: 0});
+                        });
+                    });
+
+                    callback(null, child);
+                });
+            }
+
+            socket.on('run', function (params) {
+                exec(params, function (error, child) {
+                    if (error) {
+                        return socket.emit('exit', {status: 1, error: error});
+                    }
+                });
+            });
+
+            socket.on('exec', function (params) {
+                exec(params, function (error, child) {
+                    if (error) {
+                        return socket.emit('exit', {status: 1, error: error});
+                    }
+
+                    socket.on('disconnect', function () {
+                        if (child.stopped) return;
+
+                        priest.stopProcess(child.id, 0, function (error) {
+                            if (error) {
+                                console.error(error);
+                            }
+                        });
+                    });
+                });
+            });
+        });
+
+        if (config.socket) {
+
+            var priestSock = config.socket;
+            var server = priestSocket.server({
+                port: priestSock
+            });
+
+            server.on('connection', function (socket) {
+                priestSocket.wrap(socket);
+
+                socket.on('error', function (error) {
+                    console.error(error);
+                });
+
+                function exec(params, callback) {
+                    priest.startProcess(params, function (error, child) {
+                        if (error) {
+                            return callback(error);
+                        }
+
+                        if (child.stopped) {
+                            child.log.forEach(function (item) {
+                                var event = (item.channel === 1)
+                                    ? 'stdout'
+                                    : 'stderr';
+
+                                socket.event(event, item.data);
+                            });
+
+                            socket.event('exit', {status: child.code});
+                            return callback(null, child);
+                        }
+
+                        var onStdout = function (chunk) {
+                            socket.event('stdout', chunk.toString());
+                        };
+
+                        var onStderr = function (chunk) {
+                            socket.event('stderr', chunk.toString());
+                        };
+
+                        var onExit = function (code) {
+                            socket.event('exit', {status:code});
+                            socket.end();
+                        };
+
+                        child.process.stdout.on('data', onStdout);
+                        child.process.stderr.on('data', onStderr);
+                        child.process.on('exit', onExit);
+
+                        socket.on('event:kill', function (signal) {
+                            priest.stopProcess(child.id, signal, function (error) {
+                                if (error) {
+                                    return socket.event('exit', {
+                                        status: 1,
+                                        error: error
+                                    });
+                                }
+
+                                socket.event('exit', {
+                                    status: 0
+                                });
+                            });
+                        });
+
+                        socket.on('end', function () {
+                            if (child.process) {
+                                child.process.stdout.removeListener('data', onStdout);
+                                child.process.stderr.removeListener('data', onStderr);
+                                child.process.removeListener('exit', onExit);
+                            }
+                        })
+
+                        callback(null, child);
+                    });
+                }
+
+                socket.on('event:run', function (params) {
+                    exec(params, function (error) {
+                        if (error) {
+                            return socket.emit('exit', {status: 1, error: error});
+                        }
+                    });
+                });
+
+                socket.on('event:exec', function (params) {
+                    exec(params, function (error, child) {
+                        if (child.stopped) return;
+
+                        if (error) {
+                            return socket.emit('exit', {status: 1, error: error});
+                        }
+
+                        socket.on('end', function () {
+                            priest.stopProcess(child.id, 0, function (error) {
+                                if (error) {
+                                    console.error(error);
+                                }
+                            });
+                        });
+                    });
+                });
+            });
+
+            fs.chmod(priestSock, 0777);
+        }
+    }
+
+    if (config.log) {
+        var log = config.log;
+        if (log === true) log = 'priest.log';
+        var out = fs.createWriteStream(log, {flags: 'a'});
+
+        process.stdout.write = (function(write) {
+            return function(string, encoding, fd) {
+                write.apply(process.stdout, arguments)
+                out.write(string, encoding, fd);
+                setTimeout(new Function, 500);
+            };
+        })(process.stdout.write);
+
+        process.stderr.write = (function(write) {
+            return function(string, encoding, fd) {
+                write.apply(process.stderr, arguments)
+                out.write(string, encoding, fd);
+                setTimeout(new Function, 500);
+            };
+        })(process.stderr.write);
+    }
+
+    var timeout = params.timeout || config.timeout || 10;
+
+    process.on('SIGINT', onSignal('SIGINT', timeout));
+    process.on('SIGTERM', onSignal('SIGTERM', timeout));
+    process.on('SIGQIUT', onSignal('SIGQIUT', timeout));
+    process.on('SIGHUP', onSignal('SIGHUP', timeout));
+    process.on('exit', function () {
+        onExit();
+    });
+
+    var isStopped = false;
+
+    function onExit() {
+        if (config.socket && fs.existsSync(priestSock)) {
+            fs.unlinkSync(priestSock);
+        }
+        process.exit();
+    }
+
+    function onSignal(signal, timeout) {
+        return function () {
+            if (isStopped) return;
+
+            priest.stopAll(signal, function(){
+                onExit();
+            });
+
+            setTimeout(function(){
+                onExit();
+            }, timeout * 1000);
+
+            isStopped = true;
+        };
+    }
+}
+
+/**
+ * Read configuration.
+ *
+ * @param  {string} filepath Priest file path with JSON data.
+ * @return {{}} Result parsed result.
+ * @throws
+ */
+function readConfig(filepath) {
+    var content = fs.readFileSync(filepath, 'utf8');
+    try {
+        var config = JSON.parse(content);
+    } catch (err) {
+        throw new Error('Priest file is corrupt');
+    }
+
+    if (! _.isObject(config)) {
+        throw new Error('Priest config is not an object');
+    }
+
+    return config.guest;
+}
+
+process.on('uncaughtException', function (error) {
+    console.error(error.stack || error);
+    setTimeout(function () {
+        process.exit(1);
+    }, 500);
+});

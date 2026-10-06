@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <Title>Current Weather Page</Title>
+        <link rel="stylesheet" type="text/css" href="currentstyle.css">
+        <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    </head>
+
+
+    <body>
+        <form>
+            Enter a City: <input id="cityField" type="text" value=""><br>
+            Suggestion: <span id="textHint">Empty</span>            
+            <input id='button' type="submit" value="Submit">
+            <p>City</p>
+            <textarea id="dispcity">No City</textarea>
+            <p>Current Weather</p>
+            <div id="weather">No weather</div>        
+        </form>
+
+        <script>
+            $("#button").click(function (e) {
+                var value;
+                value = $("#cityField").val();
+                console.log(value);
+                e.preventDefault();
+                $("#dispcity").text(value);
+                var myurl = "https://api.wunderground.com/api/432b9f26a3aa0966/geolookup/conditions/q/UT/";
+                myurl += value;
+                myurl += ".json";
+                console.log(myurl);
+                $.ajax({url: myurl,
+                    dataType: "jsonp",
+                    success: function (parsed_json) {
+                        var location = parsed_json['location']['city'];
+                        var temp_string = parsed_json['current_observation']['temperature_string'];
+                        var current_weather = parsed_json['current_observation']['weather'];
+                        everything = "<ul>";
+                        everything += "<li>Location: " + location;
+                        everything += "<li>Temperature: " + temp_string;
+                        everything += "<li>Weather: " + current_weather;
+                        everything += "</ul>";
+                        $("#weather").html(everything);
+                    }});
+            });
+        </script>
+
+        <script>
+            $("#cityField").keyup(function () {
+                var url;
+                url = "http://54.152.208.122/getcity?q=";
+                url = url + $("#cityField").val();
+
+                $.getJSON(url, function (data) {
+        //                $("#textHint").text("HEY1!");
+                    var everything;
+                    everything = "<ul>";
+                    $.each(data, function (i, item) {
+                        everything += "<li>" + data[i].city + "</li>";
+                    });
+                    everything += "</ul>";
+                    $("#textHint").html(everything);
+        //                console.log("Got "+data);
+        //                console.log("Got "+data[0]);
+        //                console.log("Got "+data[0].city);
+        //
+                }).fail(function (jqXHR, textStatus, errorThrown) {
+                    console.log(jqXHR);
+                    console.log(textStatus);
+                    console.log(errorThrown);
+
+                });
+        //            .done(function(){alert("HEYDONE");})
+        //            .fail(function(jqXHR,textStatus, errorThrown) {
+        //                alert("Failed "+textStatus);
+        //                alert("incoming "+jqXHR.responseText);
+        //    });
+        //            .always(function() {alert("always");})
+        //            .complete(function() {alert("complete");});
+
+        //        $("#textHint").text($("#cityField").val());    
+            });
+        //        );
+
+
+        </script>
+
+        <br>
+
+
+
+        Click&nbsp;<a href="weather.html">here</a>&nbsp;to go back.
+    </body>
+</html>

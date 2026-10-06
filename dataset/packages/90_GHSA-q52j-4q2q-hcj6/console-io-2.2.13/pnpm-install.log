@@ -1,0 +1,14 @@
+$ corepack pnpm@9.15.9 install --prod --no-frozen-lockfile --reporter=append-only --config.node-linker=hoisted --ignore-workspace --ignore-scripts
+Progress: resolved 1, reused 0, downloaded 0, added 0
+ WARN  deprecated gulp-recess@1.1.2: Deprecated as RECESS is unmaintained
+Progress: resolved 199, reused 0, downloaded 0, added 0
+Progress: resolved 346, reused 1, downloaded 1, added 0
+ WARN  18 deprecated subdependencies found: glob@3.1.21, glob@4.5.3, glob@7.0.6, glob@7.2.3, graceful-fs@1.2.3, gulp-util@3.0.8, inflight@1.0.6, json3@3.2.6, lodash.template@3.6.2, minimatch@0.2.14, minimatch@2.0.10, natives@1.1.6, rcloader@0.1.2, rcloader@0.1.4, resolve-url@0.2.1, source-map-resolve@0.5.3, source-map-url@0.4.1, urix@0.1.0
+
+devDependencies: skipped
+
+Packages: +156
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Progress: resolved 398, reused 124, downloaded 16, added 133
+Progress: resolved 398, reused 124, downloaded 25, added 156, done
+Done in 4.4s using pnpm v9.15.9

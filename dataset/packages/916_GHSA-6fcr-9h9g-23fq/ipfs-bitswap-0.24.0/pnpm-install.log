@@ -1,0 +1,36 @@
+$ corepack pnpm@9.15.9 install --prod --no-frozen-lockfile --reporter=append-only --config.node-linker=hoisted --ignore-workspace --ignore-scripts
+Progress: resolved 1, reused 0, downloaded 0, added 0
+ WARN  deprecated multihashing-async@0.5.2: This module has been superseded by the multiformats module
+ WARN  deprecated cids@0.7.5: This module has been superseded by the multiformats module
+ WARN  deprecated multicodec@0.5.7: This module has been superseded by the multiformats module
+ WARN  deprecated protons@1.2.1: This module is no longer maintained
+ WARN  deprecated peer-book@0.9.2: peer-books is now included in libp2p and renamed into peer-store
+ WARN  deprecated peer-info@0.15.1: No longer supported for js-libp2p0.28.0 or later
+ WARN  deprecated rimraf@2.7.1: Rimraf versions prior to v4 are no longer supported
+ WARN  deprecated uuid@3.4.0: uuid@10 and below is no longer supported.  For ESM codebases, update to uuid@latest.  For CommonJS codebases, use uuid@11 (but be aware this version will likely be deprecated in 2028).
+Progress: resolved 98, reused 0, downloaded 0, added 0
+Progress: resolved 212, reused 0, downloaded 0, added 0
+Progress: resolved 419, reused 1, downloaded 0, added 0
+Progress: resolved 545, reused 2, downloaded 0, added 0
+ WARN  GET https://registry.npmjs.org/@babel%2Fplugin-transform-unicode-escapes error (ECONNRESET). Will retry in 10 seconds. 2 retries left.
+Progress: resolved 722, reused 3, downloaded 0, added 0
+Progress: resolved 868, reused 3, downloaded 0, added 0
+Progress: resolved 1038, reused 3, downloaded 0, added 0
+Progress: resolved 1226, reused 3, downloaded 0, added 0
+Progress: resolved 1392, reused 3, downloaded 0, added 0
+Progress: resolved 1527, reused 3, downloaded 0, added 0
+Progress: resolved 1740, reused 3, downloaded 0, added 0
+Progress: resolved 1914, reused 3, downloaded 0, added 0
+Progress: resolved 1942, reused 3, downloaded 0, added 0
+Progress: resolved 1967, reused 3, downloaded 0, added 0
+Progress: resolved 2063, reused 3, downloaded 0, added 0
+ WARN  111 deprecated subdependencies found: @babel/plugin-proposal-class-properties@7.18.6, @babel/plugin-proposal-export-namespace-from@7.18.9, @babel/plugin-proposal-json-strings@7.18.6, @babel/plugin-proposal-logical-assignment-operators@7.20.7, @babel/plugin-proposal-nullish-coalescing-operator@7.18.6, @babel/plugin-proposal-numeric-separator@7.18.6, @babel/plugin-proposal-optional-chaining@7.21.0, @types/minimatch@6.0.0, abab@2.0.6, abstract-leveldown@2.4.1, abstract-leveldown@6.2.3, abstract-leveldown@6.3.0, are-we-there-yet@1.1.7, argv@0.0.2, axios@0.18.1, cids@0.6.0, cids@0.8.3, circular-json@0.5.9, clone-buffer@1.0.0, codecov@3.8.3, conventional-changelog-atom@0.2.8, conventional-changelog-atom@2.0.8, conventional-changelog-codemirror@0.3.8, conventional-changelog-codemirror@2.0.8, conventional-changelog-core@2.0.11, conventional-changelog-core@3.2.3, conventional-changelog-ember@0.3.12, conventional-changelog-ember@2.0.9, conventional-changelog-eslint@1.0.9, conventional-changelog-eslint@3.0.9, conventional-changelog-express@0.3.6, conventional-changelog-express@2.0.6, conventional-changelog-jquery@0.1.0, conventional-changelog-jshint@0.3.8, conventional-changelog-jshint@2.0.9, copy-concurrently@1.0.5, core-js@1.2.7, core-js@2.6.12, datastore-fs@0.8.1, date-format@1.2.0, deferred-leveldown@5.3.0, dependency-check@3.4.1, domexception@1.0.1, encoding-down@6.3.0, eslint@5.16.0, figgy-pudding@3.5.2, fs-write-stream-atomic@1.0.10, fsevents@1.2.13, gauge@2.7.4, git-raw-commits@1.3.6, git-raw-commits@2.0.0, git-semver-tags@1.3.6, git-semver-tags@2.0.3, glob@5.0.15, glob@7.1.2, glob@7.2.3, har-validator@5.1.5, highlight.js@9.18.5, hoek@6.1.3, iltorb@2.4.5, inflight@1.0.6, interface-connection@0.3.3, joi@14.3.1, left-pad@1.3.0, level-codec@9.0.2, level-concat-iterator@2.0.1, level-errors@2.0.1, leveldown@5.6.0, levelup@4.4.0, libp2p-circuit@0.3.7, libp2p-connection-manager@0.0.2, libp2p-crypto-secp256k1@0.3.1, libp2p-identify@0.7.6, libp2p-ping@0.8.5, libp2p-switch@0.41.7, lodash.isequal@4.5.0, lodash.template@4.18.1, log4js@3.0.6, mkdirp@0.5.1, move-concurrently@1.0.1, multiaddr-to-uri@5.1.0, multiaddr@6.1.1, multiaddr@7.5.0, multibase@0.6.1, multibase@0.7.0, multibase@1.0.1, multicodec@1.0.4, multihashing-async@0.6.0, native-or-bluebird@1.2.0, npmlog@4.1.2, path-dirname@1.0.2, prebuild-install@5.3.6, q@1.5.1, radium-bootstrap-grid@0.1.8, raw-body@1.1.7, read-package-json@2.1.2, request-promise-native@1.0.9, request@2.88.2, resolve-url@0.2.1, rimraf@2.6.3, sane@4.1.0, source-map-resolve@0.5.3, source-map-url@0.4.1, streamroller@0.7.0, topo@3.0.3, trim@0.0.1, uglify-es@3.3.9, urix@0.1.0, uuid@8.3.2, w3c-hr-time@1.0.2, whatwg-encoding@1.0.5
+
+devDependencies: skipped
+
+Packages: +37
++++++++++++++++++++++++++++++++++++++
+Progress: resolved 2074, reused 27, downloaded 12, added 35
+Progress: resolved 2074, reused 27, downloaded 13, added 35
+Progress: resolved 2074, reused 27, downloaded 13, added 37, done
+Done in 17.6s using pnpm v9.15.9

@@ -1,0 +1,19 @@
+{
+  "name": "frames-compiler",
+  "version": "1.0.8",
+  "description": "Frames Compiler for NodeJS",
+  "compiler": "1.5.1",
+  "main": "./lib/compiler",
+  "scripts": {
+    "install": "node bin/post-install.js"
+  },
+  "bin": {
+    "framesc": "./bin/frames-compiler"
+  },
+  "dependencies": {
+    "buffered-spawn": "^3.0.0",
+    "mkdirp": "^0.5.1",
+    "npmconf": "^2.1.2",
+    "request": "^2.61.0"
+  }
+}

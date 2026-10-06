@@ -1,0 +1,16 @@
+$ corepack pnpm@9.15.9 install --prod --no-frozen-lockfile --reporter=append-only --config.node-linker=hoisted --ignore-workspace --ignore-scripts
+Progress: resolved 1, reused 0, downloaded 0, added 0
+ WARN  deprecated phantomjs-prebuilt@2.1.16: this package is now deprecated
+ WARN  deprecated rimraf@3.0.2: Rimraf versions prior to v4 are no longer supported
+ WARN  deprecated q@1.5.1: You or someone you depend on is using Q, the JavaScript Promise library that gave JavaScript developers strong feelings about promises. They can almost certainly migrate to the native JavaScript promise now. Thank you literally everyone for joining me in this bet against the odds. Be excellent to each other.
+
+(For a CapTP with native promises, see @endo/eventual-send and @endo/captp)
+Progress: resolved 91, reused 0, downloaded 0, added 0
+ WARN  13 deprecated subdependencies found: electron-download@4.1.1, formidable@1.0.17, glob@7.1.1, glob@7.1.7, glob@7.2.3, har-validator@5.1.5, inflight@1.0.6, json3@3.3.2, mkdirp@0.5.1, request@2.88.2, superagent@1.8.5, uuid@3.4.0, xmldom@0.1.31
+
+devDependencies: skipped
+
+Packages: +31
++++++++++++++++++++++++++++++++
+Progress: resolved 295, reused 27, downloaded 4, added 31, done
+Done in 2.2s using pnpm v9.15.9

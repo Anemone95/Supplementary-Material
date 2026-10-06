@@ -1,0 +1,16 @@
+$ corepack pnpm@9.15.9 install --prod --no-frozen-lockfile --reporter=append-only --config.node-linker=hoisted --ignore-workspace --ignore-scripts
+Progress: resolved 1, reused 0, downloaded 0, added 0
+ WARN  deprecated request@2.12.0: request has been deprecated, see https://github.com/request/request/issues/3142
+ WARN  deprecated tap@0.4.13: Versions of tap before v18 are no longer maintained. Please upgrade.
+ WARN  deprecated mocha@0.3.6: Mocha v0.x is no longer supported.
+ WARN  deprecated express@3.0.6: No longer maintained. Please upgrade to a stable version.
+ WARN  deprecated mkdirp@0.3.5: Legacy versions of mkdirp are no longer supported. Please update to mkdirp 1.x. (Note that the API surface has changed to use Promises in 1.x.)
+Progress: resolved 76, reused 0, downloaded 0, added 0
+ WARN  9 deprecated subdependencies found: charm@0.1.2, connect@2.7.2, formidable@1.0.11, glob@3.2.11, glob@7.2.3, inflight@1.0.6, minimatch@0.3.0, mkdirp@0.3.3, rimraf@2.6.3
+
+devDependencies: skipped
+
+Packages: +18
+++++++++++++++++++
+Progress: resolved 292, reused 18, downloaded 0, added 18, done
+Done in 2.3s using pnpm v9.15.9

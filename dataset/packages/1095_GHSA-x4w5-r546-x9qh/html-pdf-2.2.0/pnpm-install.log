@@ -1,0 +1,16 @@
+$ corepack pnpm@9.15.9 install --prod --no-frozen-lockfile --reporter=append-only --config.node-linker=hoisted --ignore-workspace --ignore-scripts
+Progress: resolved 1, reused 0, downloaded 0, added 0
+ WARN  deprecated phantomjs-prebuilt@2.1.16: this package is now deprecated
+Progress: resolved 59, reused 0, downloaded 0, added 0
+Progress: resolved 199, reused 0, downloaded 0, added 0
+Progress: resolved 348, reused 0, downloaded 0, added 0
+Progress: resolved 451, reused 0, downloaded 0, added 0
+Progress: resolved 503, reused 0, downloaded 0, added 0
+ WARN  34 deprecated subdependencies found: babel-plugin-constant-folding@1.0.1, babel-plugin-dead-code-elimination@1.0.2, babel-plugin-eval@1.0.1, babel-plugin-inline-environment-variables@1.0.1, babel-plugin-jscript@1.0.4, babel-plugin-member-expression-literals@1.0.1, babel-plugin-property-literals@1.0.1, babel-plugin-proto-to-assign@1.0.4, babel-plugin-react-constant-elements@1.0.3, babel-plugin-react-display-name@1.0.3, babel-plugin-remove-console@1.0.1, babel-plugin-remove-debugger@1.0.1, babel-plugin-runtime@1.0.7, babel-plugin-undefined-to-void@1.1.6, circular-json@0.3.3, core-js@1.2.7, core-js@2.6.12, eslint@1.9.0, glob@10.5.0, glob@3.2.11, glob@5.0.15, glob@7.2.3, har-validator@5.1.5, inflight@1.0.6, lodash.omit@3.1.0, minimatch@0.3.0, minimatch@2.0.10, q@1.5.1, request@2.88.2, rimraf@2.6.3, stable@0.1.8, standard-format@1.6.10, try-resolve@1.0.1, uuid@3.4.0
+
+devDependencies: skipped
+
+Packages: +85
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Progress: resolved 504, reused 79, downloaded 5, added 85, done
+Done in 5.9s using pnpm v9.15.9

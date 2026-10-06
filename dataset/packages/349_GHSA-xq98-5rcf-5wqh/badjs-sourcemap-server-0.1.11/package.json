@@ -1,0 +1,30 @@
+{
+  "name": "badjs-sourcemap-server",
+  "version": "0.1.11",
+  "main": "./index.js",
+  "preferGlobal": true,
+  "bin": {
+    "bserver": "./index.js"
+  },
+  "engines": {
+    "node": "*"
+  },
+  "author": "kael",
+  "homepage": "https://github.com/BetterJS/badjs-sourcemap-server",
+  "repository": {
+    "url": "https://github.com/BetterJS/badjs-sourcemap-server.git"
+  },
+  "bugs": "https://github.com/BetterJS/badjs-sourcemap-server.git/issues",
+  "license": "MIT",
+  "keywords": [
+    "badjs",
+    "sourcemap"
+  ],
+  "dependencies": {
+    "commander": "^2.9.0",
+    "dateformat": "*",
+    "formidable": "*",
+    "querystring": "^0.2.0",
+    "unzip": "*"
+  }
+}

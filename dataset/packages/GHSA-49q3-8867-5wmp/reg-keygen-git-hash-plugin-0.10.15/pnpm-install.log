@@ -1,0 +1,19 @@
+$ corepack pnpm@9.15.9 install --prod --no-frozen-lockfile --reporter=append-only --config.node-linker=hoisted --ignore-workspace --ignore-scripts
+Progress: resolved 1, reused 0, downloaded 0, added 0
+ WARN  deprecated rimraf@3.0.2: Rimraf versions prior to v4 are no longer supported
+ WARN  deprecated glob@7.1.6: Old versions of glob are not supported, and contain widely publicized security vulnerabilities, which have been fixed in the current version. Please update. Support for old versions may be purchased (at exorbitant rates) by contacting i@izs.me
+Progress: resolved 59, reused 0, downloaded 0, added 0
+Progress: resolved 115, reused 0, downloaded 0, added 0
+Progress: resolved 190, reused 0, downloaded 0, added 0
+Progress: resolved 320, reused 0, downloaded 0, added 0
+Progress: resolved 455, reused 0, downloaded 0, added 0
+Progress: resolved 476, reused 0, downloaded 0, added 0
+ WARN  12 deprecated subdependencies found: @types/minimatch@6.0.0, abab@2.0.6, domexception@2.0.1, inflight@1.0.6, resolve-url@0.2.1, sane@4.1.0, source-map-resolve@0.5.3, source-map-url@0.4.1, urix@0.1.0, uuid@8.3.2, w3c-hr-time@1.0.2, whatwg-encoding@1.0.5
+
+devDependencies: skipped
+
+Packages: +41
++++++++++++++++++++++++++++++++++++++++++
+Progress: resolved 478, reused 34, downloaded 6, added 40
+Progress: resolved 478, reused 34, downloaded 7, added 41, done
+Done in 7.4s using pnpm v9.15.9

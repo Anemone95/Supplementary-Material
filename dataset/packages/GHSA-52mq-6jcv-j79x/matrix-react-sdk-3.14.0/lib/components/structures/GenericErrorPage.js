@@ -1,0 +1,49 @@
+"use strict";
+
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _defineProperty2 = _interopRequireDefault(require("@babel/runtime/helpers/defineProperty"));
+
+var _react = _interopRequireDefault(require("react"));
+
+var _propTypes = _interopRequireDefault(require("prop-types"));
+
+/*
+Copyright 2019 New Vector Ltd
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+*/
+class GenericErrorPage extends _react.default.PureComponent {
+  render() {
+    return /*#__PURE__*/_react.default.createElement("div", {
+      className: "mx_GenericErrorPage"
+    }, /*#__PURE__*/_react.default.createElement("div", {
+      className: "mx_GenericErrorPage_box"
+    }, /*#__PURE__*/_react.default.createElement("h1", null, this.props.title), /*#__PURE__*/_react.default.createElement("p", null, this.props.message)));
+  }
+
+}
+
+exports.default = GenericErrorPage;
+(0, _defineProperty2.default)(GenericErrorPage, "propTypes", {
+  title: _propTypes.default.object.isRequired,
+  // jsx for title
+  message: _propTypes.default.object.isRequired // jsx to display
+
+});
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uLy4uL3NyYy9jb21wb25lbnRzL3N0cnVjdHVyZXMvR2VuZXJpY0Vycm9yUGFnZS5qcyJdLCJuYW1lcyI6WyJHZW5lcmljRXJyb3JQYWdlIiwiUmVhY3QiLCJQdXJlQ29tcG9uZW50IiwicmVuZGVyIiwicHJvcHMiLCJ0aXRsZSIsIm1lc3NhZ2UiLCJQcm9wVHlwZXMiLCJvYmplY3QiLCJpc1JlcXVpcmVkIl0sIm1hcHBpbmdzIjoiOzs7Ozs7Ozs7OztBQWdCQTs7QUFDQTs7QUFqQkE7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBS2UsTUFBTUEsZ0JBQU4sU0FBK0JDLGVBQU1DLGFBQXJDLENBQW1EO0FBTTlEQyxFQUFBQSxNQUFNLEdBQUc7QUFDTCx3QkFBTztBQUFLLE1BQUEsU0FBUyxFQUFDO0FBQWYsb0JBQ0g7QUFBSyxNQUFBLFNBQVMsRUFBQztBQUFmLG9CQUNJLHlDQUFLLEtBQUtDLEtBQUwsQ0FBV0MsS0FBaEIsQ0FESixlQUVJLHdDQUFJLEtBQUtELEtBQUwsQ0FBV0UsT0FBZixDQUZKLENBREcsQ0FBUDtBQU1IOztBQWI2RDs7OzhCQUE3Q04sZ0IsZUFDRTtBQUNmSyxFQUFBQSxLQUFLLEVBQUVFLG1CQUFVQyxNQUFWLENBQWlCQyxVQURUO0FBQ3FCO0FBQ3BDSCxFQUFBQSxPQUFPLEVBQUVDLG1CQUFVQyxNQUFWLENBQWlCQyxVQUZYLENBRXVCOztBQUZ2QixDIiwic291cmNlc0NvbnRlbnQiOlsiLypcbkNvcHlyaWdodCAyMDE5IE5ldyBWZWN0b3IgTHRkXG5cbkxpY2Vuc2VkIHVuZGVyIHRoZSBBcGFjaGUgTGljZW5zZSwgVmVyc2lvbiAyLjAgKHRoZSBcIkxpY2Vuc2VcIik7XG55b3UgbWF5IG5vdCB1c2UgdGhpcyBmaWxlIGV4Y2VwdCBpbiBjb21wbGlhbmNlIHdpdGggdGhlIExpY2Vuc2UuXG5Zb3UgbWF5IG9idGFpbiBhIGNvcHkgb2YgdGhlIExpY2Vuc2UgYXRcblxuICAgIGh0dHA6Ly93d3cuYXBhY2hlLm9yZy9saWNlbnNlcy9MSUNFTlNFLTIuMFxuXG5Vbmxlc3MgcmVxdWlyZWQgYnkgYXBwbGljYWJsZSBsYXcgb3IgYWdyZWVkIHRvIGluIHdyaXRpbmcsIHNvZnR3YXJlXG5kaXN0cmlidXRlZCB1bmRlciB0aGUgTGljZW5zZSBpcyBkaXN0cmlidXRlZCBvbiBhbiBcIkFTIElTXCIgQkFTSVMsXG5XSVRIT1VUIFdBUlJBTlRJRVMgT1IgQ09ORElUSU9OUyBPRiBBTlkgS0lORCwgZWl0aGVyIGV4cHJlc3Mgb3IgaW1wbGllZC5cblNlZSB0aGUgTGljZW5zZSBmb3IgdGhlIHNwZWNpZmljIGxhbmd1YWdlIGdvdmVybmluZyBwZXJtaXNzaW9ucyBhbmRcbmxpbWl0YXRpb25zIHVuZGVyIHRoZSBMaWNlbnNlLlxuKi9cblxuaW1wb3J0IFJlYWN0IGZyb20gJ3JlYWN0JztcbmltcG9ydCBQcm9wVHlwZXMgZnJvbSAncHJvcC10eXBlcyc7XG5cbmV4cG9ydCBkZWZhdWx0IGNsYXNzIEdlbmVyaWNFcnJvclBhZ2UgZXh0ZW5kcyBSZWFjdC5QdXJlQ29tcG9uZW50IHtcbiAgICBzdGF0aWMgcHJvcFR5cGVzID0ge1xuICAgICAgICB0aXRsZTogUHJvcFR5cGVzLm9iamVjdC5pc1JlcXVpcmVkLCAvLyBqc3ggZm9yIHRpdGxlXG4gICAgICAgIG1lc3NhZ2U6IFByb3BUeXBlcy5vYmplY3QuaXNSZXF1aXJlZCwgLy8ganN4IHRvIGRpc3BsYXlcbiAgICB9O1xuXG4gICAgcmVuZGVyKCkge1xuICAgICAgICByZXR1cm4gPGRpdiBjbGFzc05hbWU9J214X0dlbmVyaWNFcnJvclBhZ2UnPlxuICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9J214X0dlbmVyaWNFcnJvclBhZ2VfYm94Jz5cbiAgICAgICAgICAgICAgICA8aDE+e3RoaXMucHJvcHMudGl0bGV9PC9oMT5cbiAgICAgICAgICAgICAgICA8cD57dGhpcy5wcm9wcy5tZXNzYWdlfTwvcD5cbiAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICA8L2Rpdj47XG4gICAgfVxufVxuIl19

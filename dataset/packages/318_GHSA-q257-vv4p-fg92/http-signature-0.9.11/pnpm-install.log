@@ -1,0 +1,13 @@
+$ corepack pnpm@9.15.9 install --prod --no-frozen-lockfile --reporter=append-only --config.node-linker=hoisted --ignore-workspace --ignore-scripts
+Progress: resolved 1, reused 0, downloaded 0, added 0
+ WARN  deprecated node-uuid@1.4.0: Use uuid module instead
+ WARN  deprecated tap@0.3.1: Versions of tap before v18 are no longer maintained. Please upgrade.
+Progress: resolved 88, reused 0, downloaded 0, added 0
+ WARN  2 deprecated subdependencies found: charm@0.1.2, mkdirp@0.3.5
+
+devDependencies: skipped
+
+Packages: +3
++++
+Progress: resolved 112, reused 3, downloaded 0, added 3, done
+Done in 1.5s using pnpm v9.15.9

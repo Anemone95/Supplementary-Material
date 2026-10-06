@@ -1,0 +1,89 @@
+{
+    "name": "forms",
+    "description": "An easy way to create, parse, and validate forms",
+    "main": "./index",
+    "author": "Caolan McMahon",
+    "contributors": [
+        {
+            "name": "Caolan McMahon",
+            "email": "caolan.mcmahon@gmail.com"
+        },
+        {
+            "name": "Jordan Harband",
+            "email": "ljharb@gmail.com",
+            "url": "http://ljharb.codes"
+        }
+    ],
+    "version": "1.2.1",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/caolan/forms.git"
+    },
+    "bugs": {
+        "url": "https://github.com/caolan/forms/issues"
+    },
+    "scripts": {
+        "prepublish": "safe-publish-latest",
+        "tests-only": "tape test/*.js",
+        "pretest": "npm run lint",
+        "test": "npm run tests-only",
+        "posttest": "npx aud --production",
+        "test-browser": "testling",
+        "coverage": "covert test/*.js",
+        "coverage-quiet": "covert --quiet test/*.js",
+        "prelint": "evalmd *.md",
+        "lint": "eslint test/*.js lib/*.js example/simple.js example/complex.js"
+    },
+    "dependencies": {
+        "array.prototype.every": "^1.0.0",
+        "array.prototype.some": "^1.0.0",
+        "async": "^2.6.3",
+        "email-addresses": "^3.1.0",
+        "formidable": "^1.2.2",
+        "is": "^3.3.0",
+        "object.assign": "^4.1.0",
+        "object-keys": "^1.0.11",
+        "qs": "^6.9.4",
+        "string.prototype.trim": "^1.2.1",
+        "reduce": "^1.0.1"
+    },
+    "devDependencies": {
+        "@ljharb/eslint-config": "^17.1.0",
+        "aud": "^1.1.2",
+        "covert": "^1.1.1",
+        "eslint": "^7.2.0",
+        "evalmd": "^0.0.19",
+        "safe-publish-latest": "^1.1.4",
+        "tape": "^4.13.3",
+        "tape-dom": "^0.0.12",
+        "testling": "^1.7.3"
+    },
+    "license": "MIT",
+    "licenses": [
+        {
+            "type": "MIT",
+            "url": "https://github.com/caolan/forms/raw/master/LICENSE"
+        }
+    ],
+    "testling": {
+        "files": "test-browser.js",
+        "browsers": [
+            "iexplore/6..latest",
+            "firefox/3..10",
+            "firefox/15..latest",
+            "firefox/nightly",
+            "chrome/4..10",
+            "chrome/23..latest",
+            "chrome/canary",
+            "opera/10..latest",
+            "opera/next",
+            "safari/5.0.5..latest",
+            "ipad/6.0..latest",
+            "iphone/6.0..latest",
+            "android-browser/4.2"
+        ]
+    },
+    "engines": {
+        "node": ">= 0.4"
+    }
+}

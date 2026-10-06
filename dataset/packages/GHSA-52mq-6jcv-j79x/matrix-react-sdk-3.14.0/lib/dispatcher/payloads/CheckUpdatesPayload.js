@@ -1,0 +1,31 @@
+/*
+Copyright 2020 The Matrix.org Foundation C.I.C.
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+*/
+
+/*:: export interface CheckUpdatesPayload extends ActionPayload {
+    action: Action.CheckUpdates;
+
+    /**
+     * The current phase of the manual update check.
+     *-/
+    status: UpdateCheckStatus;
+
+    /**
+     * Detail string relating to the current status, typically for error details.
+     *-/
+    detail?: string;
+}*/
+"use strict";
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uLy4uL3NyYy9kaXNwYXRjaGVyL3BheWxvYWRzL0NoZWNrVXBkYXRlc1BheWxvYWQudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBOzs7QUFkQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0EiLCJzb3VyY2VzQ29udGVudCI6WyIvKlxuQ29weXJpZ2h0IDIwMjAgVGhlIE1hdHJpeC5vcmcgRm91bmRhdGlvbiBDLkkuQy5cblxuTGljZW5zZWQgdW5kZXIgdGhlIEFwYWNoZSBMaWNlbnNlLCBWZXJzaW9uIDIuMCAodGhlIFwiTGljZW5zZVwiKTtcbnlvdSBtYXkgbm90IHVzZSB0aGlzIGZpbGUgZXhjZXB0IGluIGNvbXBsaWFuY2Ugd2l0aCB0aGUgTGljZW5zZS5cbllvdSBtYXkgb2J0YWluIGEgY29weSBvZiB0aGUgTGljZW5zZSBhdFxuXG4gICAgaHR0cDovL3d3dy5hcGFjaGUub3JnL2xpY2Vuc2VzL0xJQ0VOU0UtMi4wXG5cblVubGVzcyByZXF1aXJlZCBieSBhcHBsaWNhYmxlIGxhdyBvciBhZ3JlZWQgdG8gaW4gd3JpdGluZywgc29mdHdhcmVcbmRpc3RyaWJ1dGVkIHVuZGVyIHRoZSBMaWNlbnNlIGlzIGRpc3RyaWJ1dGVkIG9uIGFuIFwiQVMgSVNcIiBCQVNJUyxcbldJVEhPVVQgV0FSUkFOVElFUyBPUiBDT05ESVRJT05TIE9GIEFOWSBLSU5ELCBlaXRoZXIgZXhwcmVzcyBvciBpbXBsaWVkLlxuU2VlIHRoZSBMaWNlbnNlIGZvciB0aGUgc3BlY2lmaWMgbGFuZ3VhZ2UgZ292ZXJuaW5nIHBlcm1pc3Npb25zIGFuZFxubGltaXRhdGlvbnMgdW5kZXIgdGhlIExpY2Vuc2UuXG4qL1xuXG5pbXBvcnQgeyBBY3Rpb25QYXlsb2FkIH0gZnJvbSBcIi4uL3BheWxvYWRzXCI7XG5pbXBvcnQgeyBBY3Rpb24gfSBmcm9tIFwiLi4vYWN0aW9uc1wiO1xuaW1wb3J0IHtVcGRhdGVDaGVja1N0YXR1c30gZnJvbSBcIi4uLy4uL0Jhc2VQbGF0Zm9ybVwiO1xuXG5leHBvcnQgaW50ZXJmYWNlIENoZWNrVXBkYXRlc1BheWxvYWQgZXh0ZW5kcyBBY3Rpb25QYXlsb2FkIHtcbiAgICBhY3Rpb246IEFjdGlvbi5DaGVja1VwZGF0ZXM7XG5cbiAgICAvKipcbiAgICAgKiBUaGUgY3VycmVudCBwaGFzZSBvZiB0aGUgbWFudWFsIHVwZGF0ZSBjaGVjay5cbiAgICAgKi9cbiAgICBzdGF0dXM6IFVwZGF0ZUNoZWNrU3RhdHVzO1xuXG4gICAgLyoqXG4gICAgICogRGV0YWlsIHN0cmluZyByZWxhdGluZyB0byB0aGUgY3VycmVudCBzdGF0dXMsIHR5cGljYWxseSBmb3IgZXJyb3IgZGV0YWlscy5cbiAgICAgKi9cbiAgICBkZXRhaWw/OiBzdHJpbmc7XG59XG4iXX0=

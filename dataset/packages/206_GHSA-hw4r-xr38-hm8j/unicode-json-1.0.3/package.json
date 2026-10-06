@@ -1,0 +1,25 @@
+{
+  "name": "unicode-json",
+  "description": "unicode lookup table",
+  "version": "1.0.3",
+  "author": "Zertz (https://github.com/Zertz)",
+  "homepage": "http://github.com/Zertz/unicode-json",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/Zertz/unicode-json.git"
+  },
+  "engines": {
+    "node": ">=0.12"
+  },
+  "scripts": {
+    "postinstall": "node install.js",
+    "update": "node install.js",
+    "lint": "standard install.js",
+    "pretest": "npm run lint",
+    "test": "node test.js"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "standard": "^8.0.0"
+  }
+}

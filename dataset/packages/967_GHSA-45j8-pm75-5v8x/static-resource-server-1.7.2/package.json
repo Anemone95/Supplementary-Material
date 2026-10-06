@@ -1,0 +1,41 @@
+{
+  "name": "static-resource-server",
+  "version": "1.7.2",
+  "description": "a static resource server written by Node.js",
+  "main": "src/app.js",
+  "bin":{
+    "static-resource-server":"bin/static-resource-server"
+  },
+  "scripts": {
+    "test": "npm run test",
+    "lint": "eslint .",
+    "fix": "eslint --fix ."
+  },
+  "pre-commit": [
+    "fix",
+    "lint"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Hfimy/staticfile-server.git"
+  },
+  "keywords": [
+    "node.js"
+  ],
+  "author": "hfimy",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Hfimy/staticfile-server/issues"
+  },
+  "homepage": "https://github.com/Hfimy/staticfile-server#readme",
+  "devDependencies": {
+    "babel-eslint": "^8.1.2",
+    "eslint": "^4.14.0",
+    "pre-commit": "^1.2.2"
+  },
+  "dependencies": {
+    "chalk": "^2.3.0",
+    "handlebars": "^4.0.11",
+    "yargs": "^10.0.3"
+  }
+}

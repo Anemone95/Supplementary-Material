@@ -1,0 +1,34 @@
+{
+  "name": "seeftl",
+  "version": "0.1.1",
+  "description": "Run static file server seeftl",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin": {
+    "seeftl": "./bin/seeftl"
+  },
+  "keywords": [
+    "Static",
+    "file",
+    "server",
+    "Assets"
+  ],
+  "author": {
+    "name": "xiangpaopao"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "connect": "3.1.1",
+    "serve-index": "1.2.0",
+    "serve-static": "1.5.3",
+    "path": "0.12.7",
+    "fs": "0.0.2",
+    "minimist": "~0.1.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/xiangpaopao/seeftl.git"
+  },
+  "homepage": "https://github.com/xiangpaopao/seeftl"
+}

@@ -1,0 +1,24 @@
+import PropTypes from 'prop-types';
+import React from 'react';
+import { Button } from 'react-bootstrap';
+
+import UserPreferencesModal from 'components/users/UserPreferencesModal';
+
+const UserPreferencesButton = React.createClass({
+  propTypes: {
+    userName: PropTypes.string.isRequired,
+  },
+  onClick() {
+    this.refs.userPreferencesModal.openModal();
+  },
+  render() {
+    return (
+      <span>
+        <Button onClick={this.onClick} bsStyle="success">用户首选项</Button>
+        <UserPreferencesModal ref="userPreferencesModal" userName={this.props.userName} />
+      </span>
+    );
+  },
+});
+
+export default UserPreferencesButton;

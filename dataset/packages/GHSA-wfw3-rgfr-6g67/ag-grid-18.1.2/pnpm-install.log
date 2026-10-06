@@ -1,0 +1,25 @@
+$ corepack pnpm@9.15.9 install --prod --no-frozen-lockfile --reporter=append-only --config.node-linker=hoisted --ignore-workspace --ignore-scripts
+ WARN  deprecated gulp-clean@0.3.1: use gulp-rimraf instead
+Progress: resolved 1, reused 0, downloaded 0, added 0
+ WARN  deprecated gulp-header@1.7.0: Removed event-stream from gulp-header
+ WARN  deprecated node-sass@4.14.1: Node Sass is no longer supported. Please use `sass` or `sass-embedded` instead.
+ WARN  deprecated extract-text-webpack-plugin@3.0.2: Deprecated. Please use https://github.com/webpack-contrib/mini-css-extract-plugin
+ WARN  deprecated gulp-foreach@0.1.0: Either use gulp-tap or gulp-flatmap, depending on your needs
+Progress: resolved 59, reused 0, downloaded 0, added 0
+Progress: resolved 177, reused 0, downloaded 0, added 0
+Progress: resolved 274, reused 0, downloaded 0, added 0
+Progress: resolved 374, reused 0, downloaded 0, added 0
+Progress: resolved 504, reused 0, downloaded 0, added 0
+Progress: resolved 684, reused 0, downloaded 0, added 0
+Progress: resolved 832, reused 0, downloaded 0, added 0
+Progress: resolved 986, reused 0, downloaded 0, added 0
+Progress: resolved 1159, reused 0, downloaded 0, added 0
+Progress: resolved 1161, reused 0, downloaded 0, added 0
+Progress: resolved 1162, reused 0, downloaded 0, added 0
+ WARN  50 deprecated subdependencies found: acorn-dynamic-import@2.0.2, are-we-there-yet@1.1.7, browserslist@1.7.7, browserslist@2.11.3, clone-buffer@1.0.0, flatten@1.0.3, fsevents@1.2.13, fstream@1.0.12, gauge@2.7.4, glob@3.1.21, glob@3.2.11, glob@4.5.3, glob@5.0.15, glob@7.1.7, glob@7.2.3, graceful-fs@1.2.3, gulp-util@2.2.20, gulp-util@3.0.8, har-validator@5.1.5, hoek@2.16.3, inflight@1.0.6, joi@4.9.0, lodash.clone@4.5.0, lodash.isequal@4.5.0, lodash.template@2.4.1, lodash.template@3.6.2, minimatch@0.2.14, minimatch@0.3.0, minimatch@1.0.0, minimatch@2.0.10, mkdirp@0.3.5, natives@1.1.6, node-uuid@1.4.8, npmlog@4.1.2, osenv@0.1.5, path-dirname@1.0.2, q@1.5.1, rcloader@0.1.4, request@2.88.2, resolve-url@0.2.1, rimraf@2.2.8, rimraf@2.7.1, source-map-resolve@0.5.3, source-map-url@0.4.1, svgo@0.7.2, tar@2.2.2, topo@1.1.0, urix@0.1.0, uuid@2.0.3, uuid@3.4.0
+
+devDependencies: skipped
+
+Already up to date
+Progress: resolved 1164, reused 0, downloaded 0, added 0, done
+Done in 13.9s using pnpm v9.15.9

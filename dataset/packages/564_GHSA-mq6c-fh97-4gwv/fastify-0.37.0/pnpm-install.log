@@ -1,0 +1,15 @@
+$ corepack pnpm@9.15.9 install --prod --no-frozen-lockfile --reporter=append-only --config.node-linker=hoisted --ignore-workspace --ignore-scripts
+Progress: resolved 1, reused 0, downloaded 0, added 0
+ WARN  deprecated tap@11.1.5: Versions of tap before v18 are no longer maintained. Please upgrade.
+ WARN  deprecated joi@11.3.4: This version has been deprecated in accordance with the hapi support policy (hapi.im/support). Please upgrade to the latest version to get the best features, bug fixes, and security patches. If you are unable to upgrade at this time, paid support is available for older versions (hapi.im/commercial).
+Progress: resolved 39, reused 0, downloaded 0, added 0
+Progress: resolved 155, reused 0, downloaded 0, added 0
+Progress: resolved 526, reused 0, downloaded 0, added 0
+ WARN  28 deprecated subdependencies found: are-we-there-yet@1.1.7, boom@2.10.1, circular-json@0.3.3, cryptiles@2.0.5, eslint@3.19.0, fstream-ignore@1.0.5, fstream@1.0.12, gauge@2.7.4, glob@7.2.3, har-validator@4.2.1, har-validator@5.1.5, hawk@3.1.3, hoek@2.16.3, hoek@4.3.1, inflight@1.0.6, native-or-bluebird@1.2.0, node-pre-gyp@0.6.39, npmlog@4.1.2, osenv@0.1.5, request@2.81.0, request@2.88.2, rimraf@2.6.3, rimraf@2.7.1, sntp@1.0.9, tar@2.2.2, topo@2.1.1, uid-number@0.0.6, uuid@3.4.0
+
+devDependencies: skipped
+
+Packages: +54
+++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Progress: resolved 571, reused 41, downloaded 13, added 54, done
+Done in 4s using pnpm v9.15.9

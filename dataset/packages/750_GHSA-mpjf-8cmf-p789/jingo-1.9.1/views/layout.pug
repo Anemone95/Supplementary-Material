@@ -1,0 +1,77 @@
+include mixins/links
+
+- if (!isAjax)
+  doctype html
+  html
+    head(profile=hasFavicon() ? "http://www.w3.org/2005/10/profile" : "")
+      meta(charset="utf-8")
+      if hasFavicon()
+        link(rel="icon", type=faviconMimeType, href=faviconUrl)
+      meta(name="generator", content="jingo " + jingoVersion)
+      meta(name="viewport", content="width=device-width, initial-scale=1")
+      title= title
+      +asset("/vendor/bootstrap/css/bootstrap.min.css")
+      link(rel="stylesheet", href="https://fonts.googleapis.com/css?family=Ubuntu|Ubuntu+Condensed")
+      +asset("/css/style.css")
+      +asset("/css/ionicons.min.css")
+      +asset("/css/shCoreDefault.css")
+      block styles
+      if hasCustomStyle()
+        style.
+          !{_style}
+    body
+      -var term_ph = (typeof term == "undefined" ? "" : term)
+      .navbar.navbar-inverse.navbar-fixed-top
+        .container-fluid
+          .navbar-header
+            +anchor("/", appBrand).navbar-brand
+            if canSearch()
+              form(action=`${proxyPath}/search`).navbar-form.search.navbar-left
+                .input-group.input-group-sm.search
+                  input.form-control(type="text", value=term_ph, data-i-search-input="true",name="term",placeholder="Search the wiki")
+                  span.input-group-btn
+                    button.btn.btn-primary(type="submit") Search
+            .navbar-right
+              if isAnonymous()
+                p.user You're not&nbsp;
+                  +anchor('/login?destination', 'logged in')#js--login(title='Access login page')
+              else
+                p.user
+                  if hasGravatar()
+                    img(src=gravatar().url(user.email, {s:24}))
+                  b &nbsp;#{user.displayName}&nbsp;
+                  +anchor('/logout')(title='Become anonymous')
+                    i.icon.ion-power
+
+      .tools
+        block tools
+
+      .container
+
+        .row
+          if hasSidebar()
+            .col-md-2.with-sidebar
+              .content !{_sidebar}
+          else
+            .col-md-2
+
+          #main.hide-tools.col-md-8
+            block content
+
+        if hasFooter()
+          .row
+            .col-md-2
+            .col-md-8.with-footer
+              .content !{_footer}
+
+      script(src=proxyPath + "/vendor/jquery.min.js")
+      +asset("/vendor/bootstrap/js/bootstrap.min.js")
+      +asset("/js/app.js")
+      script.
+        Jingo.init("#{proxyPath}");
+      block scripts
+      if hasCustomScript()
+        script.
+          !{_script}
+- else
+  block content

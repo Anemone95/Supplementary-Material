@@ -1,0 +1,43 @@
+{
+  "name": "exxxxxxxxxxx",
+  "version": "1.0.2",
+  "description": "Http eX  Frame Google Style JavaScript Guide",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FySuper/eX.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/FySuper/eX/issues"
+  },
+  "homepage": "https://github.com/FySuper/eX#readme",
+  "gitHead": "b6f0f39e6c1e110e0fe71ccf5b18dc87b5638f6b",
+  "_id": "exxxxxxxxxxx@1.0.0",
+  "_shasum": "f553913b14950e4dbcbf7e69623c105cd02ec5b5",
+  "_from": "exxxxxxxxxxx@*",
+  "_npmVersion": "2.11.2",
+  "_nodeVersion": "0.11.16",
+  "_npmUser": {
+    "name": "qv",
+    "email": "foru.fy@gmail.com"
+  },
+  "dist": {
+    "shasum": "f553913b14950e4dbcbf7e69623c105cd02ec5b5",
+    "tarball": "http://registry.npmjs.org/exxxxxxxxxxx/-/exxxxxxxxxxx-1.0.0.tgz"
+  },
+  "maintainers": [
+    {
+      "name": "qv",
+      "email": "foru.fy@gmail.com"
+    }
+  ],
+  "_resolved": "https://registry.npmjs.org/exxxxxxxxxxx/-/exxxxxxxxxxx-1.0.0.tgz"
+}

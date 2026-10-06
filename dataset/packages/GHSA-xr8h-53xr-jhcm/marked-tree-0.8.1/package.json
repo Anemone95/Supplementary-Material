@@ -1,0 +1,22 @@
+{
+  "name": "marked-tree",
+  "version": "0.8.1",
+  "description": "development markdown viewer",
+  "main": "index.js",
+  "dependencies": {
+    "marked": "0.3.6",
+    "opn": "5.0.0"
+  },
+  "devDependencies": {
+    "es6-import": "1.1.0"
+  },
+  "scripts": {
+    "start": "node index.js"
+  },
+  "keywords": [
+    "markdown",
+    "documentation"
+  ],
+  "author": "alan@theprices.us",
+  "license": "MIT"
+}

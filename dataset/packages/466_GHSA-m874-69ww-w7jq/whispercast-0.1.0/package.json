@@ -1,0 +1,32 @@
+{
+  "name": "whispercast",
+  "version": "0.1.0",
+  "author": "Manas Tungare <manas@tungare.name>",
+  "description": "Serves media files and other static files from a source directory over HTTP.",
+  "scripts": {
+    "start": "node whispercast.js"
+  },
+  "preferGlobal": "true",
+  "keywords": [
+    "http",
+    "media",
+    "server",
+    "static",
+    "whispercast"
+  ],
+  "dependencies": {
+    "mime": "*",
+    "path": "*",
+    "util": "*"
+  },
+  "license": "BSD",
+  "engine": {
+    "node": ">=0.6"
+  },
+  "main": "whispercast.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/manastungare/whispercast.git"
+  }
+}

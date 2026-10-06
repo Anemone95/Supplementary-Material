@@ -1,0 +1,85 @@
+lockfileVersion: '9.0'
+
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
+
+importers:
+
+  .:
+    dependencies:
+      colors:
+        specifier: 0.x.x
+        version: 0.6.2
+      optimist:
+        specifier: 0.2.x
+        version: 0.2.8
+      pkginfo:
+        specifier: 0.2.x
+        version: 0.2.3
+    devDependencies:
+      request:
+        specifier: 1.9.x
+        version: 1.9.9
+      socket.io:
+        specifier: 0.6.x
+        version: 0.6.18
+      vows:
+        specifier: 0.5.x
+        version: 0.5.13
+
+packages:
+
+  colors@0.6.2:
+    resolution: {integrity: sha512-OsSVtHK8Ir8r3+Fxw/b4jS1ZLPXkV6ZxDRJQzeD7qo0SqMXWrHDM71DgYzPMHY8SFJ0Ao+nNU2p1MmwdzKqPrw==}
+    engines: {node: '>=0.1.90'}
+
+  eyes@0.1.8:
+    resolution: {integrity: sha512-GipyPsXO1anza0AOZdy69Im7hGFCNB7Y/NGjDlZGJ3GJJLtwNSb2vrzYrTYJRrRloVx7pl+bhUaTB8yiccPvFQ==}
+    engines: {node: '> 0.1.90'}
+
+  optimist@0.2.8:
+    resolution: {integrity: sha512-Wy7E3cQDpqsTIFyW7m22hSevyTLxw850ahYv7FWsw4G6MIKVTZ8NSA95KBrQ95a4SMsMr1UGUUnwEFKhVaSzIg==}
+
+  pkginfo@0.2.3:
+    resolution: {integrity: sha512-7W7wTrE/NsY8xv/DTGjwNIyNah81EQH0MWcTzrHL6pOpMocOGZc0Mbdz9aXxSrp+U0mSmkU8jrNCDCfUs3sOBg==}
+    engines: {node: '>= 0.4.0'}
+
+  request@1.9.9:
+    resolution: {integrity: sha512-YVWSKYdBolxLllo8GVK24jnf0ck+P4XeBEkFPz5jdVZzZ2L8jXzDJPaZ+DrIrc89S1c4fDBgu3hsluxe4X9nqQ==}
+    engines: {'0': node >= 0.3.6}
+    deprecated: request has been deprecated, see https://github.com/request/request/issues/3142
+
+  socket.io@0.6.18:
+    resolution: {integrity: sha512-kwkSX5m1m0xKXG73cM85M8zPnVpXk/wyg28/YevUloRn93KtQ4igXIbLPedk4keOPVaSteH7z/Dh0Cu1msGovQ==}
+
+  vows@0.5.13:
+    resolution: {integrity: sha512-m2+3s/ITbI95b7uzsBnA7oZg7/bJZFb+sKp2TUvomrIQxjtuNOivf/yOxAAyhEAX8gkIogoXfBJRmj9ys8r3gQ==}
+    engines: {node: '>=0.2.6'}
+    hasBin: true
+
+  wordwrap@0.0.3:
+    resolution: {integrity: sha512-1tMA907+V4QmxV7dbRvb4/8MaRALK6q9Abid3ndMYnbyo8piisCmeONVqVSXqQA3KaP4SLt5b7ud6E2sqP8TFw==}
+    engines: {node: '>=0.4.0'}
+
+snapshots:
+
+  colors@0.6.2: {}
+
+  eyes@0.1.8: {}
+
+  optimist@0.2.8:
+    dependencies:
+      wordwrap: 0.0.3
+
+  pkginfo@0.2.3: {}
+
+  request@1.9.9: {}
+
+  socket.io@0.6.18: {}
+
+  vows@0.5.13:
+    dependencies:
+      eyes: 0.1.8
+
+  wordwrap@0.0.3: {}

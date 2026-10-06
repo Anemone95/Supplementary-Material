@@ -1,0 +1,11 @@
+$ corepack pnpm@9.15.9 install --prod --no-frozen-lockfile --reporter=append-only --config.node-linker=hoisted --ignore-workspace --ignore-scripts
+ WARN  deprecated mocha@1.17.1: Mocha v1.x is no longer supported.
+Progress: resolved 1, reused 0, downloaded 0, added 0
+ WARN  6 deprecated subdependencies found: glob@3.2.3, graceful-fs@2.0.3, jade@0.26.3, minimatch@0.2.14, mkdirp@0.3.0, mkdirp@0.3.5
+
+devDependencies: skipped
+
+Packages: +2
+++
+Progress: resolved 18, reused 2, downloaded 0, added 2, done
+Done in 832ms using pnpm v9.15.9

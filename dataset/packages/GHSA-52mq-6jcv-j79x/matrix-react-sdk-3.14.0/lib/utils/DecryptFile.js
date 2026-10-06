@@ -1,0 +1,123 @@
+"use strict";
+
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.decryptFile = decryptFile;
+
+var _browserEncryptAttachment = _interopRequireDefault(require("browser-encrypt-attachment"));
+
+var _MatrixClientPeg = require("../MatrixClientPeg");
+
+/*
+Copyright 2016 OpenMarket Ltd
+Copyright 2018 New Vector Ltd
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+*/
+// Pull in the encryption lib so that we can decrypt attachments.
+// Grab the client so that we can turn mxc:// URLs into https:// URLS.
+// WARNING: We have to be very careful about what mime-types we allow into blobs,
+// as for performance reasons these are now rendered via URL.createObjectURL()
+// rather than by converting into data: URIs.
+//
+// This means that the content is rendered using the origin of the script which
+// called createObjectURL(), and so if the content contains any scripting then it
+// will pose a XSS vulnerability when the browser renders it.  This is particularly
+// bad if the user right-clicks the URI and pastes it into a new window or tab,
+// as the blob will then execute with access to Element's full JS environment(!)
+//
+// See https://github.com/matrix-org/matrix-react-sdk/pull/1820#issuecomment-385210647
+// for details.
+//
+// We mitigate this by only allowing mime-types into blobs which we know don't
+// contain any scripting, and instantiate all others as application/octet-stream
+// regardless of what mime-type the event claimed.  Even if the payload itself
+// is some malicious HTML, the fact we instantiate it with a media mimetype or
+// application/octet-stream means the browser doesn't try to render it as such.
+//
+// One interesting edge case is image/svg+xml, which empirically *is* rendered
+// correctly if the blob is set to the src attribute of an img tag (for thumbnails)
+// *even if the mimetype is application/octet-stream*.  However, empirically JS
+// in the SVG isn't executed in this scenario, so we seem to be okay.
+//
+// Tested on Chrome 65 and Firefox 60
+//
+// The list below is taken mainly from
+// https://developer.mozilla.org/en-US/docs/Web/HTML/Supported_media_formats
+// N.B. Matrix doesn't currently specify which mimetypes are valid in given
+// events, so we pick the ones which HTML5 browsers should be able to display
+//
+// For the record, mime-types which must NEVER enter this list below include:
+//   text/html, text/xhtml, image/svg, image/svg+xml, image/pdf, and similar.
+const ALLOWED_BLOB_MIMETYPES = {
+  'image/jpeg': true,
+  'image/gif': true,
+  'image/png': true,
+  'video/mp4': true,
+  'video/webm': true,
+  'video/ogg': true,
+  'audio/mp4': true,
+  'audio/webm': true,
+  'audio/aac': true,
+  'audio/mpeg': true,
+  'audio/ogg': true,
+  'audio/wave': true,
+  'audio/wav': true,
+  'audio/x-wav': true,
+  'audio/x-pn-wav': true,
+  'audio/flac': true,
+  'audio/x-flac': true
+};
+/**
+ * Decrypt a file attached to a matrix event.
+ * @param {Object} file The json taken from the matrix event.
+ *   This passed to [link]{@link https://github.com/matrix-org/browser-encrypt-attachments}
+ *   as the encryption info object, so will also have the those keys in addition to
+ *   the keys below.
+ * @param {string} file.url An mxc:// URL for the encrypted file.
+ * @param {string} file.mimetype The MIME-type of the plaintext file.
+ * @returns {Promise}
+ */
+
+function decryptFile(file) {
+  const url = _MatrixClientPeg.MatrixClientPeg.get().mxcUrlToHttp(file.url); // Download the encrypted file as an array buffer.
+
+
+  return Promise.resolve(fetch(url)).then(function (response) {
+    return response.arrayBuffer();
+  }).then(function (responseData) {
+    // Decrypt the array buffer using the information taken from
+    // the event content.
+    return _browserEncryptAttachment.default.decryptAttachment(responseData, file);
+  }).then(function (dataArray) {
+    // Turn the array into a Blob and give it the correct MIME-type.
+    // IMPORTANT: we must not allow scriptable mime-types into Blobs otherwise
+    // they introduce XSS attacks if the Blob URI is viewed directly in the
+    // browser (e.g. by copying the URI into a new tab or window.)
+    // See warning at top of file.
+    let mimetype = file.mimetype ? file.mimetype.split(";")[0].trim() : '';
+
+    if (!ALLOWED_BLOB_MIMETYPES[mimetype]) {
+      mimetype = 'application/octet-stream';
+    }
+
+    const blob = new Blob([dataArray], {
+      type: mimetype
+    });
+    return blob;
+  });
+}
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uL3NyYy91dGlscy9EZWNyeXB0RmlsZS5qcyJdLCJuYW1lcyI6WyJBTExPV0VEX0JMT0JfTUlNRVRZUEVTIiwiZGVjcnlwdEZpbGUiLCJmaWxlIiwidXJsIiwiTWF0cml4Q2xpZW50UGVnIiwiZ2V0IiwibXhjVXJsVG9IdHRwIiwiUHJvbWlzZSIsInJlc29sdmUiLCJmZXRjaCIsInRoZW4iLCJyZXNwb25zZSIsImFycmF5QnVmZmVyIiwicmVzcG9uc2VEYXRhIiwiZW5jcnlwdCIsImRlY3J5cHRBdHRhY2htZW50IiwiZGF0YUFycmF5IiwibWltZXR5cGUiLCJzcGxpdCIsInRyaW0iLCJibG9iIiwiQmxvYiIsInR5cGUiXSwibWFwcGluZ3MiOiI7Ozs7Ozs7OztBQWtCQTs7QUFFQTs7QUFwQkE7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFFQTtBQUVBO0FBR0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBRUEsTUFBTUEsc0JBQXNCLEdBQUc7QUFDM0IsZ0JBQWMsSUFEYTtBQUUzQixlQUFhLElBRmM7QUFHM0IsZUFBYSxJQUhjO0FBSzNCLGVBQWEsSUFMYztBQU0zQixnQkFBYyxJQU5hO0FBTzNCLGVBQWEsSUFQYztBQVMzQixlQUFhLElBVGM7QUFVM0IsZ0JBQWMsSUFWYTtBQVczQixlQUFhLElBWGM7QUFZM0IsZ0JBQWMsSUFaYTtBQWEzQixlQUFhLElBYmM7QUFjM0IsZ0JBQWMsSUFkYTtBQWUzQixlQUFhLElBZmM7QUFnQjNCLGlCQUFlLElBaEJZO0FBaUIzQixvQkFBa0IsSUFqQlM7QUFrQjNCLGdCQUFjLElBbEJhO0FBbUIzQixrQkFBZ0I7QUFuQlcsQ0FBL0I7QUFzQkE7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7O0FBQ08sU0FBU0MsV0FBVCxDQUFxQkMsSUFBckIsRUFBMkI7QUFDOUIsUUFBTUMsR0FBRyxHQUFHQyxpQ0FBZ0JDLEdBQWhCLEdBQXNCQyxZQUF0QixDQUFtQ0osSUFBSSxDQUFDQyxHQUF4QyxDQUFaLENBRDhCLENBRTlCOzs7QUFDQSxTQUFPSSxPQUFPLENBQUNDLE9BQVIsQ0FBZ0JDLEtBQUssQ0FBQ04sR0FBRCxDQUFyQixFQUE0Qk8sSUFBNUIsQ0FBaUMsVUFBU0MsUUFBVCxFQUFtQjtBQUN2RCxXQUFPQSxRQUFRLENBQUNDLFdBQVQsRUFBUDtBQUNILEdBRk0sRUFFSkYsSUFGSSxDQUVDLFVBQVNHLFlBQVQsRUFBdUI7QUFDM0I7QUFDQTtBQUNBLFdBQU9DLGtDQUFRQyxpQkFBUixDQUEwQkYsWUFBMUIsRUFBd0NYLElBQXhDLENBQVA7QUFDSCxHQU5NLEVBTUpRLElBTkksQ0FNQyxVQUFTTSxTQUFULEVBQW9CO0FBQ3hCO0FBRUE7QUFDQTtBQUNBO0FBQ0E7QUFDQSxRQUFJQyxRQUFRLEdBQUdmLElBQUksQ0FBQ2UsUUFBTCxHQUFnQmYsSUFBSSxDQUFDZSxRQUFMLENBQWNDLEtBQWQsQ0FBb0IsR0FBcEIsRUFBeUIsQ0FBekIsRUFBNEJDLElBQTVCLEVBQWhCLEdBQXFELEVBQXBFOztBQUNBLFFBQUksQ0FBQ25CLHNCQUFzQixDQUFDaUIsUUFBRCxDQUEzQixFQUF1QztBQUNuQ0EsTUFBQUEsUUFBUSxHQUFHLDBCQUFYO0FBQ0g7O0FBRUQsVUFBTUcsSUFBSSxHQUFHLElBQUlDLElBQUosQ0FBUyxDQUFDTCxTQUFELENBQVQsRUFBc0I7QUFBQ00sTUFBQUEsSUFBSSxFQUFFTDtBQUFQLEtBQXRCLENBQWI7QUFDQSxXQUFPRyxJQUFQO0FBQ0gsR0FwQk0sQ0FBUDtBQXFCSCIsInNvdXJjZXNDb250ZW50IjpbIi8qXG5Db3B5cmlnaHQgMjAxNiBPcGVuTWFya2V0IEx0ZFxuQ29weXJpZ2h0IDIwMTggTmV3IFZlY3RvciBMdGRcblxuTGljZW5zZWQgdW5kZXIgdGhlIEFwYWNoZSBMaWNlbnNlLCBWZXJzaW9uIDIuMCAodGhlIFwiTGljZW5zZVwiKTtcbnlvdSBtYXkgbm90IHVzZSB0aGlzIGZpbGUgZXhjZXB0IGluIGNvbXBsaWFuY2Ugd2l0aCB0aGUgTGljZW5zZS5cbllvdSBtYXkgb2J0YWluIGEgY29weSBvZiB0aGUgTGljZW5zZSBhdFxuXG4gICAgaHR0cDovL3d3dy5hcGFjaGUub3JnL2xpY2Vuc2VzL0xJQ0VOU0UtMi4wXG5cblVubGVzcyByZXF1aXJlZCBieSBhcHBsaWNhYmxlIGxhdyBvciBhZ3JlZWQgdG8gaW4gd3JpdGluZywgc29mdHdhcmVcbmRpc3RyaWJ1dGVkIHVuZGVyIHRoZSBMaWNlbnNlIGlzIGRpc3RyaWJ1dGVkIG9uIGFuIFwiQVMgSVNcIiBCQVNJUyxcbldJVEhPVVQgV0FSUkFOVElFUyBPUiBDT05ESVRJT05TIE9GIEFOWSBLSU5ELCBlaXRoZXIgZXhwcmVzcyBvciBpbXBsaWVkLlxuU2VlIHRoZSBMaWNlbnNlIGZvciB0aGUgc3BlY2lmaWMgbGFuZ3VhZ2UgZ292ZXJuaW5nIHBlcm1pc3Npb25zIGFuZFxubGltaXRhdGlvbnMgdW5kZXIgdGhlIExpY2Vuc2UuXG4qL1xuXG4vLyBQdWxsIGluIHRoZSBlbmNyeXB0aW9uIGxpYiBzbyB0aGF0IHdlIGNhbiBkZWNyeXB0IGF0dGFjaG1lbnRzLlxuaW1wb3J0IGVuY3J5cHQgZnJvbSAnYnJvd3Nlci1lbmNyeXB0LWF0dGFjaG1lbnQnO1xuLy8gR3JhYiB0aGUgY2xpZW50IHNvIHRoYXQgd2UgY2FuIHR1cm4gbXhjOi8vIFVSTHMgaW50byBodHRwczovLyBVUkxTLlxuaW1wb3J0IHtNYXRyaXhDbGllbnRQZWd9IGZyb20gJy4uL01hdHJpeENsaWVudFBlZyc7XG5cbi8vIFdBUk5JTkc6IFdlIGhhdmUgdG8gYmUgdmVyeSBjYXJlZnVsIGFib3V0IHdoYXQgbWltZS10eXBlcyB3ZSBhbGxvdyBpbnRvIGJsb2JzLFxuLy8gYXMgZm9yIHBlcmZvcm1hbmNlIHJlYXNvbnMgdGhlc2UgYXJlIG5vdyByZW5kZXJlZCB2aWEgVVJMLmNyZWF0ZU9iamVjdFVSTCgpXG4vLyByYXRoZXIgdGhhbiBieSBjb252ZXJ0aW5nIGludG8gZGF0YTogVVJJcy5cbi8vXG4vLyBUaGlzIG1lYW5zIHRoYXQgdGhlIGNvbnRlbnQgaXMgcmVuZGVyZWQgdXNpbmcgdGhlIG9yaWdpbiBvZiB0aGUgc2NyaXB0IHdoaWNoXG4vLyBjYWxsZWQgY3JlYXRlT2JqZWN0VVJMKCksIGFuZCBzbyBpZiB0aGUgY29udGVudCBjb250YWlucyBhbnkgc2NyaXB0aW5nIHRoZW4gaXRcbi8vIHdpbGwgcG9zZSBhIFhTUyB2dWxuZXJhYmlsaXR5IHdoZW4gdGhlIGJyb3dzZXIgcmVuZGVycyBpdC4gIFRoaXMgaXMgcGFydGljdWxhcmx5XG4vLyBiYWQgaWYgdGhlIHVzZXIgcmlnaHQtY2xpY2tzIHRoZSBVUkkgYW5kIHBhc3RlcyBpdCBpbnRvIGEgbmV3IHdpbmRvdyBvciB0YWIsXG4vLyBhcyB0aGUgYmxvYiB3aWxsIHRoZW4gZXhlY3V0ZSB3aXRoIGFjY2VzcyB0byBFbGVtZW50J3MgZnVsbCBKUyBlbnZpcm9ubWVudCghKVxuLy9cbi8vIFNlZSBodHRwczovL2dpdGh1Yi5jb20vbWF0cml4LW9yZy9tYXRyaXgtcmVhY3Qtc2RrL3B1bGwvMTgyMCNpc3N1ZWNvbW1lbnQtMzg1MjEwNjQ3XG4vLyBmb3IgZGV0YWlscy5cbi8vXG4vLyBXZSBtaXRpZ2F0ZSB0aGlzIGJ5IG9ubHkgYWxsb3dpbmcgbWltZS10eXBlcyBpbnRvIGJsb2JzIHdoaWNoIHdlIGtub3cgZG9uJ3Rcbi8vIGNvbnRhaW4gYW55IHNjcmlwdGluZywgYW5kIGluc3RhbnRpYXRlIGFsbCBvdGhlcnMgYXMgYXBwbGljYXRpb24vb2N0ZXQtc3RyZWFtXG4vLyByZWdhcmRsZXNzIG9mIHdoYXQgbWltZS10eXBlIHRoZSBldmVudCBjbGFpbWVkLiAgRXZlbiBpZiB0aGUgcGF5bG9hZCBpdHNlbGZcbi8vIGlzIHNvbWUgbWFsaWNpb3VzIEhUTUwsIHRoZSBmYWN0IHdlIGluc3RhbnRpYXRlIGl0IHdpdGggYSBtZWRpYSBtaW1ldHlwZSBvclxuLy8gYXBwbGljYXRpb24vb2N0ZXQtc3RyZWFtIG1lYW5zIHRoZSBicm93c2VyIGRvZXNuJ3QgdHJ5IHRvIHJlbmRlciBpdCBhcyBzdWNoLlxuLy9cbi8vIE9uZSBpbnRlcmVzdGluZyBlZGdlIGNhc2UgaXMgaW1hZ2Uvc3ZnK3htbCwgd2hpY2ggZW1waXJpY2FsbHkgKmlzKiByZW5kZXJlZFxuLy8gY29ycmVjdGx5IGlmIHRoZSBibG9iIGlzIHNldCB0byB0aGUgc3JjIGF0dHJpYnV0ZSBvZiBhbiBpbWcgdGFnIChmb3IgdGh1bWJuYWlscylcbi8vICpldmVuIGlmIHRoZSBtaW1ldHlwZSBpcyBhcHBsaWNhdGlvbi9vY3RldC1zdHJlYW0qLiAgSG93ZXZlciwgZW1waXJpY2FsbHkgSlNcbi8vIGluIHRoZSBTVkcgaXNuJ3QgZXhlY3V0ZWQgaW4gdGhpcyBzY2VuYXJpbywgc28gd2Ugc2VlbSB0byBiZSBva2F5LlxuLy9cbi8vIFRlc3RlZCBvbiBDaHJvbWUgNjUgYW5kIEZpcmVmb3ggNjBcbi8vXG4vLyBUaGUgbGlzdCBiZWxvdyBpcyB0YWtlbiBtYWlubHkgZnJvbVxuLy8gaHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvZW4tVVMvZG9jcy9XZWIvSFRNTC9TdXBwb3J0ZWRfbWVkaWFfZm9ybWF0c1xuLy8gTi5CLiBNYXRyaXggZG9lc24ndCBjdXJyZW50bHkgc3BlY2lmeSB3aGljaCBtaW1ldHlwZXMgYXJlIHZhbGlkIGluIGdpdmVuXG4vLyBldmVudHMsIHNvIHdlIHBpY2sgdGhlIG9uZXMgd2hpY2ggSFRNTDUgYnJvd3NlcnMgc2hvdWxkIGJlIGFibGUgdG8gZGlzcGxheVxuLy9cbi8vIEZvciB0aGUgcmVjb3JkLCBtaW1lLXR5cGVzIHdoaWNoIG11c3QgTkVWRVIgZW50ZXIgdGhpcyBsaXN0IGJlbG93IGluY2x1ZGU6XG4vLyAgIHRleHQvaHRtbCwgdGV4dC94aHRtbCwgaW1hZ2Uvc3ZnLCBpbWFnZS9zdmcreG1sLCBpbWFnZS9wZGYsIGFuZCBzaW1pbGFyLlxuXG5jb25zdCBBTExPV0VEX0JMT0JfTUlNRVRZUEVTID0ge1xuICAgICdpbWFnZS9qcGVnJzogdHJ1ZSxcbiAgICAnaW1hZ2UvZ2lmJzogdHJ1ZSxcbiAgICAnaW1hZ2UvcG5nJzogdHJ1ZSxcblxuICAgICd2aWRlby9tcDQnOiB0cnVlLFxuICAgICd2aWRlby93ZWJtJzogdHJ1ZSxcbiAgICAndmlkZW8vb2dnJzogdHJ1ZSxcblxuICAgICdhdWRpby9tcDQnOiB0cnVlLFxuICAgICdhdWRpby93ZWJtJzogdHJ1ZSxcbiAgICAnYXVkaW8vYWFjJzogdHJ1ZSxcbiAgICAnYXVkaW8vbXBlZyc6IHRydWUsXG4gICAgJ2F1ZGlvL29nZyc6IHRydWUsXG4gICAgJ2F1ZGlvL3dhdmUnOiB0cnVlLFxuICAgICdhdWRpby93YXYnOiB0cnVlLFxuICAgICdhdWRpby94LXdhdic6IHRydWUsXG4gICAgJ2F1ZGlvL3gtcG4td2F2JzogdHJ1ZSxcbiAgICAnYXVkaW8vZmxhYyc6IHRydWUsXG4gICAgJ2F1ZGlvL3gtZmxhYyc6IHRydWUsXG59O1xuXG4vKipcbiAqIERlY3J5cHQgYSBmaWxlIGF0dGFjaGVkIHRvIGEgbWF0cml4IGV2ZW50LlxuICogQHBhcmFtIHtPYmplY3R9IGZpbGUgVGhlIGpzb24gdGFrZW4gZnJvbSB0aGUgbWF0cml4IGV2ZW50LlxuICogICBUaGlzIHBhc3NlZCB0byBbbGlua117QGxpbmsgaHR0cHM6Ly9naXRodWIuY29tL21hdHJpeC1vcmcvYnJvd3Nlci1lbmNyeXB0LWF0dGFjaG1lbnRzfVxuICogICBhcyB0aGUgZW5jcnlwdGlvbiBpbmZvIG9iamVjdCwgc28gd2lsbCBhbHNvIGhhdmUgdGhlIHRob3NlIGtleXMgaW4gYWRkaXRpb24gdG9cbiAqICAgdGhlIGtleXMgYmVsb3cuXG4gKiBAcGFyYW0ge3N0cmluZ30gZmlsZS51cmwgQW4gbXhjOi8vIFVSTCBmb3IgdGhlIGVuY3J5cHRlZCBmaWxlLlxuICogQHBhcmFtIHtzdHJpbmd9IGZpbGUubWltZXR5cGUgVGhlIE1JTUUtdHlwZSBvZiB0aGUgcGxhaW50ZXh0IGZpbGUuXG4gKiBAcmV0dXJucyB7UHJvbWlzZX1cbiAqL1xuZXhwb3J0IGZ1bmN0aW9uIGRlY3J5cHRGaWxlKGZpbGUpIHtcbiAgICBjb25zdCB1cmwgPSBNYXRyaXhDbGllbnRQZWcuZ2V0KCkubXhjVXJsVG9IdHRwKGZpbGUudXJsKTtcbiAgICAvLyBEb3dubG9hZCB0aGUgZW5jcnlwdGVkIGZpbGUgYXMgYW4gYXJyYXkgYnVmZmVyLlxuICAgIHJldHVybiBQcm9taXNlLnJlc29sdmUoZmV0Y2godXJsKSkudGhlbihmdW5jdGlvbihyZXNwb25zZSkge1xuICAgICAgICByZXR1cm4gcmVzcG9uc2UuYXJyYXlCdWZmZXIoKTtcbiAgICB9KS50aGVuKGZ1bmN0aW9uKHJlc3BvbnNlRGF0YSkge1xuICAgICAgICAvLyBEZWNyeXB0IHRoZSBhcnJheSBidWZmZXIgdXNpbmcgdGhlIGluZm9ybWF0aW9uIHRha2VuIGZyb21cbiAgICAgICAgLy8gdGhlIGV2ZW50IGNvbnRlbnQuXG4gICAgICAgIHJldHVybiBlbmNyeXB0LmRlY3J5cHRBdHRhY2htZW50KHJlc3BvbnNlRGF0YSwgZmlsZSk7XG4gICAgfSkudGhlbihmdW5jdGlvbihkYXRhQXJyYXkpIHtcbiAgICAgICAgLy8gVHVybiB0aGUgYXJyYXkgaW50byBhIEJsb2IgYW5kIGdpdmUgaXQgdGhlIGNvcnJlY3QgTUlNRS10eXBlLlxuXG4gICAgICAgIC8vIElNUE9SVEFOVDogd2UgbXVzdCBub3QgYWxsb3cgc2NyaXB0YWJsZSBtaW1lLXR5cGVzIGludG8gQmxvYnMgb3RoZXJ3aXNlXG4gICAgICAgIC8vIHRoZXkgaW50cm9kdWNlIFhTUyBhdHRhY2tzIGlmIHRoZSBCbG9iIFVSSSBpcyB2aWV3ZWQgZGlyZWN0bHkgaW4gdGhlXG4gICAgICAgIC8vIGJyb3dzZXIgKGUuZy4gYnkgY29weWluZyB0aGUgVVJJIGludG8gYSBuZXcgdGFiIG9yIHdpbmRvdy4pXG4gICAgICAgIC8vIFNlZSB3YXJuaW5nIGF0IHRvcCBvZiBmaWxlLlxuICAgICAgICBsZXQgbWltZXR5cGUgPSBmaWxlLm1pbWV0eXBlID8gZmlsZS5taW1ldHlwZS5zcGxpdChcIjtcIilbMF0udHJpbSgpIDogJyc7XG4gICAgICAgIGlmICghQUxMT1dFRF9CTE9CX01JTUVUWVBFU1ttaW1ldHlwZV0pIHtcbiAgICAgICAgICAgIG1pbWV0eXBlID0gJ2FwcGxpY2F0aW9uL29jdGV0LXN0cmVhbSc7XG4gICAgICAgIH1cblxuICAgICAgICBjb25zdCBibG9iID0gbmV3IEJsb2IoW2RhdGFBcnJheV0sIHt0eXBlOiBtaW1ldHlwZX0pO1xuICAgICAgICByZXR1cm4gYmxvYjtcbiAgICB9KTtcbn1cbiJdfQ==

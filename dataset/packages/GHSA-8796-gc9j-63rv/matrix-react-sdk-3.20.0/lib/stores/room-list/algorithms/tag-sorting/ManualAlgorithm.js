@@ -1,0 +1,49 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.ManualAlgorithm = void 0;
+
+/*
+Copyright 2020 The Matrix.org Foundation C.I.C.
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+*/
+
+/**
+ * Sorts rooms according to the tag's `order` property on the room.
+ */
+class ManualAlgorithm
+/*:: implements IAlgorithm*/
+{
+  async sortRooms(rooms
+  /*: Room[]*/
+  , tagId
+  /*: TagID*/
+  )
+  /*: Promise<Room[]>*/
+  {
+    const getOrderProp = (r
+    /*: Room*/
+    ) => r.tags[tagId].order || 0;
+
+    return rooms.sort((a, b) => {
+      return getOrderProp(a) - getOrderProp(b);
+    });
+  }
+
+}
+
+exports.ManualAlgorithm = ManualAlgorithm;
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uLy4uLy4uLy4uL3NyYy9zdG9yZXMvcm9vbS1saXN0L2FsZ29yaXRobXMvdGFnLXNvcnRpbmcvTWFudWFsQWxnb3JpdGhtLnRzIl0sIm5hbWVzIjpbIk1hbnVhbEFsZ29yaXRobSIsInNvcnRSb29tcyIsInJvb21zIiwidGFnSWQiLCJnZXRPcmRlclByb3AiLCJyIiwidGFncyIsIm9yZGVyIiwic29ydCIsImEiLCJiIl0sIm1hcHBpbmdzIjoiOzs7Ozs7O0FBQUE7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBOztBQU1BO0FBQ0E7QUFDQTtBQUNPLE1BQU1BO0FBQU47QUFBNEM7QUFDL0MsUUFBYUMsU0FBYixDQUF1QkM7QUFBdkI7QUFBQSxJQUFzQ0M7QUFBdEM7QUFBQTtBQUFBO0FBQXFFO0FBQ2pFLFVBQU1DLFlBQVksR0FBRyxDQUFDQztBQUFEO0FBQUEsU0FBYUEsQ0FBQyxDQUFDQyxJQUFGLENBQU9ILEtBQVAsRUFBY0ksS0FBZCxJQUF1QixDQUF6RDs7QUFDQSxXQUFPTCxLQUFLLENBQUNNLElBQU4sQ0FBVyxDQUFDQyxDQUFELEVBQUlDLENBQUosS0FBVTtBQUN4QixhQUFPTixZQUFZLENBQUNLLENBQUQsQ0FBWixHQUFrQkwsWUFBWSxDQUFDTSxDQUFELENBQXJDO0FBQ0gsS0FGTSxDQUFQO0FBR0g7O0FBTjhDIiwic291cmNlc0NvbnRlbnQiOlsiLypcbkNvcHlyaWdodCAyMDIwIFRoZSBNYXRyaXgub3JnIEZvdW5kYXRpb24gQy5JLkMuXG5cbkxpY2Vuc2VkIHVuZGVyIHRoZSBBcGFjaGUgTGljZW5zZSwgVmVyc2lvbiAyLjAgKHRoZSBcIkxpY2Vuc2VcIik7XG55b3UgbWF5IG5vdCB1c2UgdGhpcyBmaWxlIGV4Y2VwdCBpbiBjb21wbGlhbmNlIHdpdGggdGhlIExpY2Vuc2UuXG5Zb3UgbWF5IG9idGFpbiBhIGNvcHkgb2YgdGhlIExpY2Vuc2UgYXRcblxuICAgIGh0dHA6Ly93d3cuYXBhY2hlLm9yZy9saWNlbnNlcy9MSUNFTlNFLTIuMFxuXG5Vbmxlc3MgcmVxdWlyZWQgYnkgYXBwbGljYWJsZSBsYXcgb3IgYWdyZWVkIHRvIGluIHdyaXRpbmcsIHNvZnR3YXJlXG5kaXN0cmlidXRlZCB1bmRlciB0aGUgTGljZW5zZSBpcyBkaXN0cmlidXRlZCBvbiBhbiBcIkFTIElTXCIgQkFTSVMsXG5XSVRIT1VUIFdBUlJBTlRJRVMgT1IgQ09ORElUSU9OUyBPRiBBTlkgS0lORCwgZWl0aGVyIGV4cHJlc3Mgb3IgaW1wbGllZC5cblNlZSB0aGUgTGljZW5zZSBmb3IgdGhlIHNwZWNpZmljIGxhbmd1YWdlIGdvdmVybmluZyBwZXJtaXNzaW9ucyBhbmRcbmxpbWl0YXRpb25zIHVuZGVyIHRoZSBMaWNlbnNlLlxuKi9cblxuaW1wb3J0IHsgUm9vbSB9IGZyb20gXCJtYXRyaXgtanMtc2RrL3NyYy9tb2RlbHMvcm9vbVwiO1xuaW1wb3J0IHsgVGFnSUQgfSBmcm9tIFwiLi4vLi4vbW9kZWxzXCI7XG5pbXBvcnQgeyBJQWxnb3JpdGhtIH0gZnJvbSBcIi4vSUFsZ29yaXRobVwiO1xuXG4vKipcbiAqIFNvcnRzIHJvb21zIGFjY29yZGluZyB0byB0aGUgdGFnJ3MgYG9yZGVyYCBwcm9wZXJ0eSBvbiB0aGUgcm9vbS5cbiAqL1xuZXhwb3J0IGNsYXNzIE1hbnVhbEFsZ29yaXRobSBpbXBsZW1lbnRzIElBbGdvcml0aG0ge1xuICAgIHB1YmxpYyBhc3luYyBzb3J0Um9vbXMocm9vbXM6IFJvb21bXSwgdGFnSWQ6IFRhZ0lEKTogUHJvbWlzZTxSb29tW10+IHtcbiAgICAgICAgY29uc3QgZ2V0T3JkZXJQcm9wID0gKHI6IFJvb20pID0+IHIudGFnc1t0YWdJZF0ub3JkZXIgfHwgMDtcbiAgICAgICAgcmV0dXJuIHJvb21zLnNvcnQoKGEsIGIpID0+IHtcbiAgICAgICAgICAgIHJldHVybiBnZXRPcmRlclByb3AoYSkgLSBnZXRPcmRlclByb3AoYik7XG4gICAgICAgIH0pO1xuICAgIH1cbn1cbiJdfQ==

@@ -1,0 +1,26 @@
+$ corepack pnpm@9.15.9 install --prod --no-frozen-lockfile --reporter=append-only --config.node-linker=hoisted --ignore-workspace --ignore-scripts
+Progress: resolved 1, reused 0, downloaded 0, added 0
+ WARN  deprecated codeclimate-test-reporter@0.5.1: codeclimate-test-reporter has been deprecated in favor of our new unified test-reporter. Please visit https://docs.codeclimate.com/docs/configuring-test-coverage for details on setting up the new test-reporter.
+ WARN  deprecated eslint@7.32.0: This version is no longer supported. Please see https://eslint.org/version-support for other options.
+ WARN  deprecated rollup-plugin-node-resolve@5.2.0: This package has been deprecated and is no longer maintained. Please use @rollup/plugin-node-resolve.
+ WARN  deprecated rollup-plugin-commonjs@10.1.0: This package has been deprecated and is no longer maintained. Please use @rollup/plugin-commonjs.
+ WARN  deprecated rollup-plugin-terser@6.1.0: This package has been deprecated and is no longer maintained. Please use @rollup/plugin-terser
+Progress: resolved 52, reused 0, downloaded 0, added 0
+Progress: resolved 56, reused 0, downloaded 0, added 0
+Progress: resolved 96, reused 0, downloaded 0, added 0
+Progress: resolved 243, reused 0, downloaded 0, added 0
+Progress: resolved 371, reused 0, downloaded 0, added 0
+Progress: resolved 496, reused 0, downloaded 0, added 0
+Progress: resolved 660, reused 0, downloaded 0, added 0
+Progress: resolved 792, reused 0, downloaded 0, added 0
+Progress: resolved 915, reused 0, downloaded 0, added 0
+Progress: resolved 1038, reused 0, downloaded 0, added 0
+ WARN  15 deprecated subdependencies found: @humanwhocodes/config-array@0.5.0, @humanwhocodes/object-schema@1.2.1, @types/puppeteer@7.0.4, boolean@3.2.0, debug@4.1.1, glob@7.2.3, har-validator@5.1.5, inflight@1.0.6, node-version-matches@2.0.1, request@2.88.2, rimraf@3.0.2, sourcemap-codec@1.4.8, ua-parser-js@0.7.21, uuid@3.4.0, uuid@8.3.2
+Progress: resolved 1068, reused 0, downloaded 0, added 0
+
+devDependencies: skipped
+
+Packages: +19
++++++++++++++++++++
+Progress: resolved 1068, reused 18, downloaded 1, added 19, done
+Done in 12.3s using pnpm v9.15.9

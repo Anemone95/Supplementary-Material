@@ -1,0 +1,53 @@
+"use strict";
+
+var _interopRequireWildcard = require("@babel/runtime/helpers/interopRequireWildcard");
+
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _defineProperty2 = _interopRequireDefault(require("@babel/runtime/helpers/defineProperty"));
+
+var _react = _interopRequireDefault(require("react"));
+
+var _propTypes = _interopRequireDefault(require("prop-types"));
+
+var sdk = _interopRequireWildcard(require("../../../index"));
+
+/*
+Copyright 2015, 2016 OpenMarket Ltd
+Copyright 2019 New Vector Ltd
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+*/
+class AuthHeader extends _react.default.Component {
+  render() {
+    const AuthHeaderLogo = sdk.getComponent('auth.AuthHeaderLogo');
+    const LanguageSelector = sdk.getComponent('views.auth.LanguageSelector');
+    return /*#__PURE__*/_react.default.createElement("div", {
+      className: "mx_AuthHeader"
+    }, /*#__PURE__*/_react.default.createElement(AuthHeaderLogo, null), /*#__PURE__*/_react.default.createElement(LanguageSelector, {
+      disabled: this.props.disableLanguageSelector
+    }));
+  }
+
+}
+
+exports.default = AuthHeader;
+(0, _defineProperty2.default)(AuthHeader, "propTypes", {
+  disableLanguageSelector: _propTypes.default.bool
+});
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uLy4uLy4uL3NyYy9jb21wb25lbnRzL3ZpZXdzL2F1dGgvQXV0aEhlYWRlci5qcyJdLCJuYW1lcyI6WyJBdXRoSGVhZGVyIiwiUmVhY3QiLCJDb21wb25lbnQiLCJyZW5kZXIiLCJBdXRoSGVhZGVyTG9nbyIsInNkayIsImdldENvbXBvbmVudCIsIkxhbmd1YWdlU2VsZWN0b3IiLCJwcm9wcyIsImRpc2FibGVMYW5ndWFnZVNlbGVjdG9yIiwiUHJvcFR5cGVzIiwiYm9vbCJdLCJtYXBwaW5ncyI6Ijs7Ozs7Ozs7Ozs7OztBQWlCQTs7QUFDQTs7QUFDQTs7QUFuQkE7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFNZSxNQUFNQSxVQUFOLFNBQXlCQyxlQUFNQyxTQUEvQixDQUF5QztBQUtwREMsRUFBQUEsTUFBTSxHQUFHO0FBQ0wsVUFBTUMsY0FBYyxHQUFHQyxHQUFHLENBQUNDLFlBQUosQ0FBaUIscUJBQWpCLENBQXZCO0FBQ0EsVUFBTUMsZ0JBQWdCLEdBQUdGLEdBQUcsQ0FBQ0MsWUFBSixDQUFpQiw2QkFBakIsQ0FBekI7QUFFQSx3QkFDSTtBQUFLLE1BQUEsU0FBUyxFQUFDO0FBQWYsb0JBQ0ksNkJBQUMsY0FBRCxPQURKLGVBRUksNkJBQUMsZ0JBQUQ7QUFBa0IsTUFBQSxRQUFRLEVBQUUsS0FBS0UsS0FBTCxDQUFXQztBQUF2QyxNQUZKLENBREo7QUFNSDs7QUFmbUQ7Ozs4QkFBbkNULFUsZUFDRTtBQUNmUyxFQUFBQSx1QkFBdUIsRUFBRUMsbUJBQVVDO0FBRHBCLEMiLCJzb3VyY2VzQ29udGVudCI6WyIvKlxuQ29weXJpZ2h0IDIwMTUsIDIwMTYgT3Blbk1hcmtldCBMdGRcbkNvcHlyaWdodCAyMDE5IE5ldyBWZWN0b3IgTHRkXG5cbkxpY2Vuc2VkIHVuZGVyIHRoZSBBcGFjaGUgTGljZW5zZSwgVmVyc2lvbiAyLjAgKHRoZSBcIkxpY2Vuc2VcIik7XG55b3UgbWF5IG5vdCB1c2UgdGhpcyBmaWxlIGV4Y2VwdCBpbiBjb21wbGlhbmNlIHdpdGggdGhlIExpY2Vuc2UuXG5Zb3UgbWF5IG9idGFpbiBhIGNvcHkgb2YgdGhlIExpY2Vuc2UgYXRcblxuICAgIGh0dHA6Ly93d3cuYXBhY2hlLm9yZy9saWNlbnNlcy9MSUNFTlNFLTIuMFxuXG5Vbmxlc3MgcmVxdWlyZWQgYnkgYXBwbGljYWJsZSBsYXcgb3IgYWdyZWVkIHRvIGluIHdyaXRpbmcsIHNvZnR3YXJlXG5kaXN0cmlidXRlZCB1bmRlciB0aGUgTGljZW5zZSBpcyBkaXN0cmlidXRlZCBvbiBhbiBcIkFTIElTXCIgQkFTSVMsXG5XSVRIT1VUIFdBUlJBTlRJRVMgT1IgQ09ORElUSU9OUyBPRiBBTlkgS0lORCwgZWl0aGVyIGV4cHJlc3Mgb3IgaW1wbGllZC5cblNlZSB0aGUgTGljZW5zZSBmb3IgdGhlIHNwZWNpZmljIGxhbmd1YWdlIGdvdmVybmluZyBwZXJtaXNzaW9ucyBhbmRcbmxpbWl0YXRpb25zIHVuZGVyIHRoZSBMaWNlbnNlLlxuKi9cblxuaW1wb3J0IFJlYWN0IGZyb20gJ3JlYWN0JztcbmltcG9ydCBQcm9wVHlwZXMgZnJvbSAncHJvcC10eXBlcyc7XG5pbXBvcnQgKiBhcyBzZGsgZnJvbSAnLi4vLi4vLi4vaW5kZXgnO1xuXG5leHBvcnQgZGVmYXVsdCBjbGFzcyBBdXRoSGVhZGVyIGV4dGVuZHMgUmVhY3QuQ29tcG9uZW50IHtcbiAgICBzdGF0aWMgcHJvcFR5cGVzID0ge1xuICAgICAgICBkaXNhYmxlTGFuZ3VhZ2VTZWxlY3RvcjogUHJvcFR5cGVzLmJvb2wsXG4gICAgfTtcblxuICAgIHJlbmRlcigpIHtcbiAgICAgICAgY29uc3QgQXV0aEhlYWRlckxvZ28gPSBzZGsuZ2V0Q29tcG9uZW50KCdhdXRoLkF1dGhIZWFkZXJMb2dvJyk7XG4gICAgICAgIGNvbnN0IExhbmd1YWdlU2VsZWN0b3IgPSBzZGsuZ2V0Q29tcG9uZW50KCd2aWV3cy5hdXRoLkxhbmd1YWdlU2VsZWN0b3InKTtcblxuICAgICAgICByZXR1cm4gKFxuICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJteF9BdXRoSGVhZGVyXCI+XG4gICAgICAgICAgICAgICAgPEF1dGhIZWFkZXJMb2dvIC8+XG4gICAgICAgICAgICAgICAgPExhbmd1YWdlU2VsZWN0b3IgZGlzYWJsZWQ9e3RoaXMucHJvcHMuZGlzYWJsZUxhbmd1YWdlU2VsZWN0b3J9IC8+XG4gICAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgKTtcbiAgICB9XG59XG4iXX0=

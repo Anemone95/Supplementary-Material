@@ -1,0 +1,28 @@
+{
+  "name": "serc.js",
+  "description": "Selenium RC process wrapper",
+  "version": "0.0.1",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "devDependencies": {
+    "horaa": "~0.1.2-alpha",
+    "sinon": "~1.7.3",
+    "soda": "~0.2.5"
+  },
+  "dependencies": {},
+  "scripts": {
+    "postinstall": "scripts/install.js",
+    "test": "mocha test/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/nowk/serc.js.git"
+  },
+  "author": "Yung Hwa Kwon <yung.kwon@damncarousel.com> (http://damncarousel.com/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nowk/serc.js/issues"
+  }
+}

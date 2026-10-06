@@ -1,0 +1,131 @@
+div.jumbotron .col-xs-12{
+    width: 350px;
+    float: none;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 1%;
+}
+
+
+
+/*
+.btn{
+margin-top: px;
+}
+*/
+
+.jumbotron{
+    margin-top: 100px;
+    background-color: rgba(56, 153, 208, 0.59);
+    padding: 150px;
+}
+
+div.home h1{
+    font-size: 80px;
+
+}
+
+.background-box{
+
+}
+
+.section-title{
+    float: left;
+    text-align: right;
+
+}
+
+div#experience span.date{
+    float: right;
+}
+
+div#experience .middle-col{
+    
+margin-left: auto;
+    margin-right: auto;
+    float: none;
+}
+
+
+.job-title{
+    font-size: 20px;
+    font-weight: 500;
+}
+
+
+.article{
+    margin-top: 20px;
+}
+
+
+div.resume{
+    margin-bottom: 200px;
+
+}
+
+ul#recent-courses{
+    margin-left: 20px;
+    font-style: italic;
+}
+
+#contact-info{
+    margin-bottom: 5px;
+}
+
+
+#resume-name{
+    font-size: 70px;
+}
+
+.btn{
+    float: right;
+}
+
+.glyphicon{
+    font-size: 20px;
+}
+
+
+.media-body{
+    padding-left: 40px;
+
+}
+
+
+.media-body .row{
+    padding-bottom: 10px;
+
+}
+
+div.container ul {
+    padding-left: 0px;
+
+}
+
+#social-buttons li {
+    float: left;
+    display: inline-block;
+    font-size: 40px;
+    padding-right: 20px;
+}
+
+.job-location{
+    font-style: italic;
+}
+
+.job-content ul{
+    list-style-type: none;
+}
+
+div.job-info{
+    margin-bottom: 5px;
+}
+
+#footer{
+    padding-top: 200px;
+}
+
+div#textHint{
+    padding: 10px;
+    margin-left: 20px;
+}

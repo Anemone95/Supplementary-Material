@@ -1,0 +1,179 @@
+lockfileVersion: '9.0'
+
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
+
+importers:
+
+  .:
+    dependencies:
+      gedi-paths:
+        specifier: ^1.0.0
+        version: 1.0.4
+      gel-js:
+        specifier: ^1.5.0
+        version: 1.11.8
+      lang-js:
+        specifier: ^2.0.0
+        version: 2.2.1
+      leak-map:
+        specifier: ^1.0.0
+        version: 1.0.2
+      spec-js:
+        specifier: ^1.0.0
+        version: 1.0.0
+      weak-map:
+        specifier: ^1.0.3
+        version: 1.0.8
+    devDependencies:
+      grape:
+        specifier: ^1.0.2
+        version: 1.0.3
+      ieify:
+        specifier: ^1.1.0
+        version: 1.2.0
+
+packages:
+
+  amdefine@1.0.1:
+    resolution: {integrity: sha512-S2Hw0TtNkMJhIabBwIojKL9YHO5T0n5eNqWJ7Lrlel/zDbftQpxpapi8tZs3X1HWa+u+QeydGmzzNU0m09+Rcg==}
+    engines: {node: '>=0.4.2'}
+
+  ast-types@0.4.13:
+    resolution: {integrity: sha512-+tA8pW4NlayGf2IcsutY2xz3PDa8o5uGi+KF82zHJBUmqodXRNI7iq7ReP9qN0l/LkA9WLoNYO2Y7qeIKV3Dmw==}
+    engines: {node: '>= 0.6'}
+
+  clean-merge@1.0.0:
+    resolution: {integrity: sha512-/47XGaK1zHjRRGX3/I0XzVbnI9rCEpyUhYSw8VBb4rQsM5n2qrxulkNZAw+iZBYADjTr7pD+0+z1g3XPPhMIbQ==}
+
+  clone@0.1.19:
+    resolution: {integrity: sha512-IO78I0y6JcSpEPHzK4obKdsL7E7oLdRVDVOLwr2Hkbjsb+Eoz0dxW6tef0WizoKu0gLC4oZSZuEF4U2K6w1WQw==}
+
+  cls@0.1.5:
+    resolution: {integrity: sha512-l5BPpQaNDud5DtmzvPrs6/XmsK0Rsp+xhhNTGLtUPb2x3zrEYOb2alBkVw3YyzKMf3v6py+i9LBE22b2vgGO7Q==}
+    engines: {node: '>= 0.6'}
+
+  deep-equal@0.1.2:
+    resolution: {integrity: sha512-rUCt39nKM7s6qUyYgp/reJmtXjgkOS/JbLO24DioMZaBNkD3b7C7cD3zJjSyjclEElNTpetAIRD6fMIbBIbX1Q==}
+
+  depd@1.0.1:
+    resolution: {integrity: sha512-OEWAMbCkK9IWQ8pfTvHBhCSqHgR+sk5pbiYqq0FqfARG4Cy+cRsCbITx6wh5pcsmfBPiJAcbd98tfdz5fnBbag==}
+    engines: {node: '>= 0.6'}
+
+  esprima-fb@6001.1001.0-dev-harmony-fb:
+    resolution: {integrity: sha512-xrpXXwngKi447eKWS4J8sP+pldUdHd+XrEjHv3FQg4e9CkwiY1DPvHlQCW2L+/Ol+BYXuBAg4jrkJBD5w+3qew==}
+    engines: {node: '>=0.4.0'}
+    hasBin: true
+
+  gedi-paths@1.0.4:
+    resolution: {integrity: sha512-Rm80qUIRXY1sJER79Bt1Qcsl4DukQ1cUyr6NFEcaZ8Vor/BxKRrCHlBgCXhq7ITK8Y7Rg8FnH8lqLCmTUG8gIA==}
+
+  gel-js@1.11.8:
+    resolution: {integrity: sha512-2b4yJAJfvZfZ0tmKLNcQXirazJh1pxhpTq3VNSdsJOV8LPQrq1Xj+O8T5wLL8n0zgrOdWYmG+S/U9c9YK9MeAQ==}
+    engines: {node: '>=0.6'}
+
+  grape@1.0.3:
+    resolution: {integrity: sha512-MW880lYycF8zXKpzQIiO2kIAa9vlDCoZAyFdoFOdE+F1Ls67uDdzZ3rRvbw1zwql4vG/Qjq+AH/w5K0QfbR6MA==}
+
+  ieify@1.2.0:
+    resolution: {integrity: sha512-+0c17etabkWgPLyI9xYpz6A23fkNLUJVgAqShxcXHee5fwiHBq3A8HSZXPJg6fTJNqeJ7O9aui6TleG2RuLCnA==}
+    hasBin: true
+
+  lang-js@2.2.1:
+    resolution: {integrity: sha512-90RmSNBaGrCjFER7MlytBUbF9XnIhJilfdJep2SRVa1jttadsq4ri4wvx33hP+BurrS48ORGtwmGodx6jbTEHQ==}
+
+  leak-map@1.0.2:
+    resolution: {integrity: sha512-roxR8Lt2Yl7wB2+LXrHPxjDwsWoajVRiCPyn4PGXr0JSYk1ENLDlK31ouMXp0w+8My9x6P8HOhZCuf4EKNFJ0w==}
+
+  merge@1.2.1:
+    resolution: {integrity: sha512-VjFo4P5Whtj4vsLzsYBu5ayHhoHJ0UqNm7ibvShmbmoz7tGi0vXaoJbGdB+GmDMLUdg8DpQXEIeVDAe8MaABvQ==}
+
+  private@0.1.8:
+    resolution: {integrity: sha512-VvivMrbvd2nKkiG38qjULzlc+4Vx4wm/whI9pQD35YrARNnhxeiRktSOhSukRLFNlzg6Br/cJPet5J/u19r/mg==}
+    engines: {node: '>= 0.6'}
+
+  recast@0.7.5:
+    resolution: {integrity: sha512-6UVUaB0NjlWN2fd1JD2tbYfTP24AERYYSRfeJD8hFkExa4hYIQUeqJrAZ8AnQwpIYsKxGhfs7h/DYNuJ7D5uAA==}
+    engines: {node: '>= 0.8'}
+
+  source-map@0.1.32:
+    resolution: {integrity: sha512-htQyLrrRLkQ87Zfrir4/yN+vAUd6DNjVayEjTSHXu29AYQJw57I4/xEL/M6p6E/woPNJwvZt6rVlzc7gFEJccQ==}
+    engines: {node: '>=0.8.0'}
+
+  spec-js@1.0.0:
+    resolution: {integrity: sha512-LP57aczVwrG4JCDabmw3pVnSlNv15RYCL6/2KJ1N4uw1go2371ew+TQAn64HtrRAW+3Qi1vH3BfmY1vCQBWBwQ==}
+
+  through@2.3.8:
+    resolution: {integrity: sha512-w89qg7PI8wAdvX60bMDP+bFoD5Dvhm9oLheFp5O4a2QF0cSBGsBX4qZmadPMvVqlLJBBci+WqGGOAPvcDeNSVg==}
+
+  weak-map@1.0.8:
+    resolution: {integrity: sha512-lNR9aAefbGPpHO7AEnY0hCFjz1eTkWCXYvkTRrTHs9qv8zJp+SkVYpzfLIFXQQiG3tVvbNFQgVg2bQS8YGgxyw==}
+
+snapshots:
+
+  amdefine@1.0.1: {}
+
+  ast-types@0.4.13:
+    dependencies:
+      depd: 1.0.1
+
+  clean-merge@1.0.0: {}
+
+  clone@0.1.19: {}
+
+  cls@0.1.5: {}
+
+  deep-equal@0.1.2: {}
+
+  depd@1.0.1: {}
+
+  esprima-fb@6001.1001.0-dev-harmony-fb: {}
+
+  gedi-paths@1.0.4: {}
+
+  gel-js@1.11.8:
+    dependencies:
+      clean-merge: 1.0.0
+      gedi-paths: 1.0.4
+      lang-js: 2.2.1
+      merge: 1.2.1
+      spec-js: 1.0.0
+
+  grape@1.0.3:
+    dependencies:
+      clone: 0.1.19
+      deep-equal: 0.1.2
+
+  ieify@1.2.0:
+    dependencies:
+      recast: 0.7.5
+      through: 2.3.8
+
+  lang-js@2.2.1:
+    dependencies:
+      spec-js: 1.0.0
+
+  leak-map@1.0.2: {}
+
+  merge@1.2.1: {}
+
+  private@0.1.8: {}
+
+  recast@0.7.5:
+    dependencies:
+      ast-types: 0.4.13
+      cls: 0.1.5
+      esprima-fb: 6001.1001.0-dev-harmony-fb
+      private: 0.1.8
+      source-map: 0.1.32
+
+  source-map@0.1.32:
+    dependencies:
+      amdefine: 1.0.1
+
+  spec-js@1.0.0: {}
+
+  through@2.3.8: {}
+
+  weak-map@1.0.8: {}

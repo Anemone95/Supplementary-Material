@@ -1,0 +1,18 @@
+$ corepack pnpm@9.15.9 install --prod --no-frozen-lockfile --reporter=append-only --config.node-linker=hoisted --ignore-workspace --ignore-scripts
+Progress: resolved 1, reused 0, downloaded 0, added 0
+ WARN  deprecated rimraf@2.2.8: Rimraf versions prior to v4 are no longer supported
+ WARN  deprecated mkdirp@0.5.1: Legacy versions of mkdirp are no longer supported. Please update to mkdirp 1.x. (Note that the API surface has changed to use Promises in 1.x.)
+ WARN  deprecated istanbul@0.4.5: This module is no longer maintained, try this instead:
+  npm i nyc
+Visit https://istanbul.js.org/integrations for other alternatives.
+ WARN  deprecated eslint@3.13.1: This version is no longer supported. Please see https://eslint.org/version-support for other options.
+Progress: resolved 61, reused 0, downloaded 0, added 0
+Progress: resolved 182, reused 0, downloaded 0, added 0
+ WARN  5 deprecated subdependencies found: circular-json@0.3.3, glob@5.0.15, glob@7.2.3, inflight@1.0.6, rimraf@2.6.3
+
+devDependencies: skipped
+
+Packages: +7
++++++++
+Progress: resolved 187, reused 5, downloaded 2, added 7, done
+Done in 2.9s using pnpm v9.15.9

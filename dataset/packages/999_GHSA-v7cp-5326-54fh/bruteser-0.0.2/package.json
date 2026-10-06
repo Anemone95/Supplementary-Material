@@ -1,0 +1,22 @@
+{
+  "name": "bruteser",
+  "version": "0.0.2",
+  "description": "simple server for static files",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [
+    "static",
+    "server"
+  ],
+  "author": "dmitry tinitilov",
+  "license": "MIT",
+  "repository" :
+  {
+    "type" : "git",
+    "url" : "https://github.com/dmitrytinitilov/bruteser.git"
+  }
+  
+}

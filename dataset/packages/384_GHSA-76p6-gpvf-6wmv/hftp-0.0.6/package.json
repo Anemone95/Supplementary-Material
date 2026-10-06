@@ -1,0 +1,15 @@
+{
+  "name"          : "hftp",
+  "description"   : "a simple static http or ftp server.",
+  "homepage"      : "http://www.runjf.com",
+  "keywords"      : ["http", "static", "server", "ftp", "browser"],
+  "author"        : "ruanjiefeng <ruanjiefeng@gmail.com>",
+  "repository"    : {"type": "git", "url": "git@github.com:ruanjf/hftp.git"},
+  "dependencies": {
+    "mime": "~1.2.11"
+  },
+  "main"          : "./lib/static_server.js",
+  "bin"           : {"hftp": "./bin/hftp"},
+  "version"       : "0.0.6",
+  "licenses"      : "MIT"
+}

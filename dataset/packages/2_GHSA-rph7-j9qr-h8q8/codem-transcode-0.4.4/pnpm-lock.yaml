@@ -1,0 +1,93 @@
+lockfileVersion: '9.0'
+
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
+
+importers:
+
+  .:
+    dependencies:
+      argsparser:
+        specifier: ~0.0.6
+        version: 0.0.7
+      express:
+        specifier: ~2.5.11
+        version: 2.5.11
+      mkdirp:
+        specifier: ~0.3.4
+        version: 0.3.5
+      sqlite3:
+        specifier: ~2.1.5
+        version: 2.1.19
+
+packages:
+
+  argsparser@0.0.7:
+    resolution: {integrity: sha512-jWiKKi8EwhvFhtyY+2x5Y4zOa2Wp93mhQ++0MxcLF/SJNlmf5kro81o/3juM9iQOa6pE/poHAGKl5vP7Cbn8Dg==}
+    engines: {node: '>= 0.2.0'}
+
+  connect@1.9.2:
+    resolution: {integrity: sha512-6Z9RPjQOHjaI47gK385djHVv7SEkRm1Y9AAvBhiI7gSXpO5sFktTkAD+dkbcaiEo2xaNlS1KIJU3XRxqbPLx6w==}
+    deprecated: connect 1.x series is deprecated
+
+  express@2.5.11:
+    resolution: {integrity: sha512-gc3jJ0P3Bh1Zjkxe0ICSNmjhDvYWKiXfQIdDWuRPr8S4IZAZexzJHjrzNz56LsRKHTL0OiXQq602GfwZjZ8xPQ==}
+    deprecated: express 2.x series is deprecated
+    hasBin: true
+
+  formidable@1.0.17:
+    resolution: {integrity: sha512-95MFT5qipMvUiesmuvGP1BI4hh5XWCzyTapiNJ/k8JBQda7rPy7UCWYItz2uZEdTgGNy1eInjzlL9Wx1O9fedg==}
+    engines: {node: '>=0.8.0'}
+    deprecated: 'Please upgrade to latest, formidable@v2 or formidable@v3! Check these notes: https://bit.ly/2ZEqIau'
+
+  mime@1.2.4:
+    resolution: {integrity: sha512-u4y8WFj7SnfbHxyzCMSV2nL/GKbfZ+lidPf1V4/XUKCJ49N6ttQWp/xnqpbMQEx3naBSt93i2qtPLFj/mjPDaA==}
+
+  mkdirp@0.3.0:
+    resolution: {integrity: sha512-OHsdUcVAQ6pOtg5JYWpCBo9W/GySVuwvP9hueRMW7UqshC0tbfzLv8wjySTPm3tfUZ/21CE9E1pJagOA91Pxew==}
+    deprecated: Legacy versions of mkdirp are no longer supported. Please update to mkdirp 1.x. (Note that the API surface has changed to use Promises in 1.x.)
+
+  mkdirp@0.3.5:
+    resolution: {integrity: sha512-8OCq0De/h9ZxseqzCH8Kw/Filf5pF/vMI6+BH7Lu0jXz2pqYCjTAQRolSxRIi+Ax+oCCjlxoJMP0YQ4XlrQNHg==}
+    deprecated: Legacy versions of mkdirp are no longer supported. Please update to mkdirp 1.x. (Note that the API surface has changed to use Promises in 1.x.)
+
+  qs@0.4.2:
+    resolution: {integrity: sha512-VAtfWeUtlBOnGiWFok2vOIMmwumiLmpqXDcXQcAEIQmLYgDbjrkHrcFBfth+YVDeRsz7jX44dhJr7IBJR0t/FQ==}
+
+  sqlite3@2.1.19:
+    resolution: {integrity: sha512-22/4SDskX5CCNnP8C4r/6FsgfXCQDQpwjw/Xw8FNTaHNx4tfiqX0RX16MQSE2GncWG5sLTrGKp2O7yg+TCDVxQ==}
+    engines: {node: '>= 0.6.13 < 0.11.0'}
+    bundledDependencies:
+      - mkdirp
+      - tar.gz
+      - progress
+
+snapshots:
+
+  argsparser@0.0.7: {}
+
+  connect@1.9.2:
+    dependencies:
+      formidable: 1.0.17
+      mime: 1.2.4
+      qs: 0.4.2
+
+  express@2.5.11:
+    dependencies:
+      connect: 1.9.2
+      mime: 1.2.4
+      mkdirp: 0.3.0
+      qs: 0.4.2
+
+  formidable@1.0.17: {}
+
+  mime@1.2.4: {}
+
+  mkdirp@0.3.0: {}
+
+  mkdirp@0.3.5: {}
+
+  qs@0.4.2: {}
+
+  sqlite3@2.1.19: {}

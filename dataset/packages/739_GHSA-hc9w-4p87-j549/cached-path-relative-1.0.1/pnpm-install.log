@@ -1,0 +1,10 @@
+$ corepack pnpm@9.15.9 install --prod --no-frozen-lockfile --reporter=append-only --config.node-linker=hoisted --ignore-workspace --ignore-scripts
+Progress: resolved 1, reused 0, downloaded 0, added 0
+Progress: resolved 203, reused 0, downloaded 0, added 0
+ WARN  26 deprecated subdependencies found: babel-plugin-constant-folding@1.0.1, babel-plugin-dead-code-elimination@1.0.2, babel-plugin-eval@1.0.1, babel-plugin-inline-environment-variables@1.0.1, babel-plugin-jscript@1.0.4, babel-plugin-member-expression-literals@1.0.1, babel-plugin-property-literals@1.0.1, babel-plugin-proto-to-assign@1.0.4, babel-plugin-react-constant-elements@1.0.3, babel-plugin-react-display-name@1.0.3, babel-plugin-remove-console@1.0.1, babel-plugin-remove-debugger@1.0.1, babel-plugin-runtime@1.0.7, babel-plugin-undefined-to-void@1.1.6, core-js@1.2.7, core-js@2.6.12, eslint@0.24.1, glob@10.5.0, glob@5.0.15, glob@7.2.3, inflight@1.0.6, minimatch@2.0.10, q@1.5.1, stable@0.1.8, standard-format@1.6.10, try-resolve@1.0.1
+
+devDependencies: skipped
+
+Already up to date
+Progress: resolved 412, reused 0, downloaded 0, added 0, done
+Done in 2.1s using pnpm v9.15.9

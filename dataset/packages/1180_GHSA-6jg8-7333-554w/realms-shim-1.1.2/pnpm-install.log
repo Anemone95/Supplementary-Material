@@ -1,0 +1,20 @@
+$ corepack pnpm@9.15.9 install --prod --no-frozen-lockfile --reporter=append-only --config.node-linker=hoisted --ignore-workspace --ignore-scripts
+Progress: resolved 1, reused 0, downloaded 0, added 0
+ WARN  deprecated rollup-plugin-strip-code@0.2.8: Package is unmaintained. It may still work, but no updates or security fixes are planned.
+ WARN  deprecated rollup-plugin-babel-minify@9.1.1: Please use rollup-plugin-terser instead.
+ WARN  deprecated sinon@7.5.0: 16.1.1
+ WARN  deprecated eslint@6.8.0: This version is no longer supported. Please see https://eslint.org/version-support for other options.
+Progress: resolved 72, reused 0, downloaded 0, added 0
+Progress: resolved 180, reused 0, downloaded 0, added 0
+Progress: resolved 282, reused 0, downloaded 0, added 0
+Progress: resolved 420, reused 0, downloaded 0, added 0
+Progress: resolved 461, reused 0, downloaded 0, added 0
+Progress: resolved 471, reused 0, downloaded 0, added 0
+Progress: resolved 472, reused 0, downloaded 0, added 0
+ WARN  9 deprecated subdependencies found: @sinonjs/text-encoding@0.7.3, glob@7.2.3, har-validator@5.1.5, inflight@1.0.6, request@2.88.2, rimraf@2.6.3, rimraf@2.7.1, sourcemap-codec@1.4.8, uuid@3.4.0
+
+devDependencies: skipped
+
+Already up to date
+Progress: resolved 473, reused 0, downloaded 0, added 0, done
+Done in 7.4s using pnpm v9.15.9

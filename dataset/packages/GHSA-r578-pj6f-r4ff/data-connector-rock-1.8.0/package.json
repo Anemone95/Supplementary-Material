@@ -1,0 +1,57 @@
+{
+  "name": "@apollosproject/data-connector-rock",
+  "repository": "git://github.com/apollosproject/apollos-apps.git",
+  "version": "1.8.0",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "TZ=UTC jest",
+    "build": "NODE_ENV=production rm -rf ./lib && mkdir -p lib && babel ./src -d ./lib -s",
+    "lint": "eslint ./src --ext .js"
+  },
+  "jest": {
+    "collectCoverage": true,
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx}"
+    ],
+    "testMatch": [
+      "<rootDir>/src/**/__tests__/**/*.{js,jsx,mjs}",
+      "<rootDir>/src/**/?(*.)(spec|test|tests).{js,jsx,mjs}"
+    ],
+    "setupFiles": [
+      "jest-date-mock"
+    ],
+    "testEnvironment": "node"
+  },
+  "dependencies": {
+    "@apollosproject/server-core": "^1.8.0",
+    "awesome-phonenumber": "^2.4.2",
+    "form-data": "^2.3.3",
+    "hyphenation.en-us": "^0.2.1",
+    "hypher": "^0.2.5",
+    "jest": "^23.6.0",
+    "jsonwebtoken": "^8.5.1",
+    "lodash": "^4.17.11",
+    "moment": "^2.22.2",
+    "moment-timezone": "^0.5.23",
+    "natural": "^0.6.2",
+    "sanitize-html": "^1.19.3"
+  },
+  "peerDependencies": {
+    "@apollosproject/config": "*",
+    "@apollosproject/data-schema": "*",
+    "@apollosproject/rock-apollo-data-source": "*"
+  },
+  "devDependencies": {
+    "@apollosproject/apollo-server-env-mock": "^1.8.0",
+    "@apollosproject/babel-preset-apollos": "^1.8.0",
+    "apollo-server": "^2.11.0",
+    "apollo-server-env": "^2.3.0",
+    "graphql": "14.6.0",
+    "jest": "^23.6.0",
+    "jest-date-mock": "^1.0.8"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "gitHead": "84eac346b4d986a773a06bb8a9cca2c3ddc54245"
+}

@@ -1,0 +1,82 @@
+"use strict";
+
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _defineProperty2 = _interopRequireDefault(require("@babel/runtime/helpers/defineProperty"));
+
+var _consts = require("./consts");
+
+var _numbers = require("../utils/numbers");
+
+/*
+Copyright 2021 The Matrix.org Foundation C.I.C.
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+*/
+// declare const currentFrame: number;
+// declare const sampleRate: number;
+class MxVoiceWorklet extends AudioWorkletProcessor {
+  constructor(...args) {
+    super(...args);
+    (0, _defineProperty2.default)(this, "nextAmplitudeSecond", 0);
+  }
+
+  process(inputs, outputs, parameters) {
+    // We only fire amplitude updates once a second to avoid flooding the recording instance
+    // with useless data. Much of the data would end up discarded, so we ratelimit ourselves
+    // here.
+    const currentSecond = Math.round(currentTime);
+
+    if (currentSecond === this.nextAmplitudeSecond) {
+      // We're expecting exactly one mono input source, so just grab the very first frame of
+      // samples for the analysis.
+      const monoChan = inputs[0][0]; // The amplitude of the frame's samples is effectively the loudness of the frame. This
+      // translates into a bar which can be rendered as part of the whole recording clip's
+      // waveform.
+      //
+      // We translate the amplitude down to 0-1 for sanity's sake.
+
+      const minVal = Math.min(...monoChan);
+      const maxVal = Math.max(...monoChan);
+      const amplitude = (0, _numbers.percentageOf)(maxVal, -1, 1) - (0, _numbers.percentageOf)(minVal, -1, 1);
+      this.port.postMessage({
+        ev: _consts.PayloadEvent.AmplitudeMark,
+        amplitude: amplitude,
+        forSecond: currentSecond
+      });
+      this.nextAmplitudeSecond++;
+    } // We mostly use this worklet to fire regular clock updates through to components
+
+
+    this.port.postMessage({
+      ev: _consts.PayloadEvent.Timekeep,
+      timeSeconds: currentTime
+    }); // We're supposed to return false when we're "done" with the audio clip, but seeing as
+    // we are acting as a passive processor we are never truly "done". The browser will clean
+    // us up when it is done with us.
+
+    return true;
+  }
+
+}
+
+registerProcessor(_consts.WORKLET_NAME, MxVoiceWorklet);
+var _default = null; // to appease module loaders (we never use the export)
+
+exports.default = _default;
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uL3NyYy92b2ljZS9SZWNvcmRlcldvcmtsZXQudHMiXSwibmFtZXMiOlsiTXhWb2ljZVdvcmtsZXQiLCJBdWRpb1dvcmtsZXRQcm9jZXNzb3IiLCJwcm9jZXNzIiwiaW5wdXRzIiwib3V0cHV0cyIsInBhcmFtZXRlcnMiLCJjdXJyZW50U2Vjb25kIiwiTWF0aCIsInJvdW5kIiwiY3VycmVudFRpbWUiLCJuZXh0QW1wbGl0dWRlU2Vjb25kIiwibW9ub0NoYW4iLCJtaW5WYWwiLCJtaW4iLCJtYXhWYWwiLCJtYXgiLCJhbXBsaXR1ZGUiLCJwb3J0IiwicG9zdE1lc3NhZ2UiLCJldiIsIlBheWxvYWRFdmVudCIsIkFtcGxpdHVkZU1hcmsiLCJmb3JTZWNvbmQiLCJUaW1la2VlcCIsInRpbWVTZWNvbmRzIiwicmVnaXN0ZXJQcm9jZXNzb3IiLCJXT1JLTEVUX05BTUUiXSwibWFwcGluZ3MiOiI7Ozs7Ozs7Ozs7O0FBZ0JBOztBQUNBOztBQWpCQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFPQTtBQUNBO0FBRUEsTUFBTUEsY0FBTixTQUE2QkMscUJBQTdCLENBQW1EO0FBQUE7QUFBQTtBQUFBLCtEQUNqQixDQURpQjtBQUFBOztBQUcvQ0MsRUFBQUEsT0FBTyxDQUFDQyxNQUFELEVBQVNDLE9BQVQsRUFBa0JDLFVBQWxCLEVBQThCO0FBQ2pDO0FBQ0E7QUFDQTtBQUNBLFVBQU1DLGFBQWEsR0FBR0MsSUFBSSxDQUFDQyxLQUFMLENBQVdDLFdBQVgsQ0FBdEI7O0FBQ0EsUUFBSUgsYUFBYSxLQUFLLEtBQUtJLG1CQUEzQixFQUFnRDtBQUM1QztBQUNBO0FBQ0EsWUFBTUMsUUFBUSxHQUFHUixNQUFNLENBQUMsQ0FBRCxDQUFOLENBQVUsQ0FBVixDQUFqQixDQUg0QyxDQUs1QztBQUNBO0FBQ0E7QUFDQTtBQUNBOztBQUNBLFlBQU1TLE1BQU0sR0FBR0wsSUFBSSxDQUFDTSxHQUFMLENBQVMsR0FBR0YsUUFBWixDQUFmO0FBQ0EsWUFBTUcsTUFBTSxHQUFHUCxJQUFJLENBQUNRLEdBQUwsQ0FBUyxHQUFHSixRQUFaLENBQWY7QUFDQSxZQUFNSyxTQUFTLEdBQUcsMkJBQWFGLE1BQWIsRUFBcUIsQ0FBQyxDQUF0QixFQUF5QixDQUF6QixJQUE4QiwyQkFBYUYsTUFBYixFQUFxQixDQUFDLENBQXRCLEVBQXlCLENBQXpCLENBQWhEO0FBRUEsV0FBS0ssSUFBTCxDQUFVQyxXQUFWLENBQXlDO0FBQ3JDQyxRQUFBQSxFQUFFLEVBQUVDLHFCQUFhQyxhQURvQjtBQUVyQ0wsUUFBQUEsU0FBUyxFQUFFQSxTQUYwQjtBQUdyQ00sUUFBQUEsU0FBUyxFQUFFaEI7QUFIMEIsT0FBekM7QUFLQSxXQUFLSSxtQkFBTDtBQUNILEtBekJnQyxDQTJCakM7OztBQUNBLFNBQUtPLElBQUwsQ0FBVUMsV0FBVixDQUFzQztBQUFDQyxNQUFBQSxFQUFFLEVBQUVDLHFCQUFhRyxRQUFsQjtBQUE0QkMsTUFBQUEsV0FBVyxFQUFFZjtBQUF6QyxLQUF0QyxFQTVCaUMsQ0E4QmpDO0FBQ0E7QUFDQTs7QUFDQSxXQUFPLElBQVA7QUFDSDs7QUFyQzhDOztBQXdDbkRnQixpQkFBaUIsQ0FBQ0Msb0JBQUQsRUFBZTFCLGNBQWYsQ0FBakI7ZUFFZSxJLEVBQU0iLCJzb3VyY2VzQ29udGVudCI6WyIvKlxuQ29weXJpZ2h0IDIwMjEgVGhlIE1hdHJpeC5vcmcgRm91bmRhdGlvbiBDLkkuQy5cblxuTGljZW5zZWQgdW5kZXIgdGhlIEFwYWNoZSBMaWNlbnNlLCBWZXJzaW9uIDIuMCAodGhlIFwiTGljZW5zZVwiKTtcbnlvdSBtYXkgbm90IHVzZSB0aGlzIGZpbGUgZXhjZXB0IGluIGNvbXBsaWFuY2Ugd2l0aCB0aGUgTGljZW5zZS5cbllvdSBtYXkgb2J0YWluIGEgY29weSBvZiB0aGUgTGljZW5zZSBhdFxuXG4gICAgaHR0cDovL3d3dy5hcGFjaGUub3JnL2xpY2Vuc2VzL0xJQ0VOU0UtMi4wXG5cblVubGVzcyByZXF1aXJlZCBieSBhcHBsaWNhYmxlIGxhdyBvciBhZ3JlZWQgdG8gaW4gd3JpdGluZywgc29mdHdhcmVcbmRpc3RyaWJ1dGVkIHVuZGVyIHRoZSBMaWNlbnNlIGlzIGRpc3RyaWJ1dGVkIG9uIGFuIFwiQVMgSVNcIiBCQVNJUyxcbldJVEhPVVQgV0FSUkFOVElFUyBPUiBDT05ESVRJT05TIE9GIEFOWSBLSU5ELCBlaXRoZXIgZXhwcmVzcyBvciBpbXBsaWVkLlxuU2VlIHRoZSBMaWNlbnNlIGZvciB0aGUgc3BlY2lmaWMgbGFuZ3VhZ2UgZ292ZXJuaW5nIHBlcm1pc3Npb25zIGFuZFxubGltaXRhdGlvbnMgdW5kZXIgdGhlIExpY2Vuc2UuXG4qL1xuXG5pbXBvcnQge0lBbXBsaXR1ZGVQYXlsb2FkLCBJVGltaW5nUGF5bG9hZCwgUGF5bG9hZEV2ZW50LCBXT1JLTEVUX05BTUV9IGZyb20gXCIuL2NvbnN0c1wiO1xuaW1wb3J0IHtwZXJjZW50YWdlT2Z9IGZyb20gXCIuLi91dGlscy9udW1iZXJzXCI7XG5cbi8vIGZyb20gQXVkaW9Xb3JrbGV0R2xvYmFsU2NvcGU6IGh0dHBzOi8vZGV2ZWxvcGVyLm1vemlsbGEub3JnL2VuLVVTL2RvY3MvV2ViL0FQSS9BdWRpb1dvcmtsZXRHbG9iYWxTY29wZVxuZGVjbGFyZSBjb25zdCBjdXJyZW50VGltZTogbnVtYmVyO1xuLy8gZGVjbGFyZSBjb25zdCBjdXJyZW50RnJhbWU6IG51bWJlcjtcbi8vIGRlY2xhcmUgY29uc3Qgc2FtcGxlUmF0ZTogbnVtYmVyO1xuXG5jbGFzcyBNeFZvaWNlV29ya2xldCBleHRlbmRzIEF1ZGlvV29ya2xldFByb2Nlc3NvciB7XG4gICAgcHJpdmF0ZSBuZXh0QW1wbGl0dWRlU2Vjb25kID0gMDtcblxuICAgIHByb2Nlc3MoaW5wdXRzLCBvdXRwdXRzLCBwYXJhbWV0ZXJzKSB7XG4gICAgICAgIC8vIFdlIG9ubHkgZmlyZSBhbXBsaXR1ZGUgdXBkYXRlcyBvbmNlIGEgc2Vjb25kIHRvIGF2b2lkIGZsb29kaW5nIHRoZSByZWNvcmRpbmcgaW5zdGFuY2VcbiAgICAgICAgLy8gd2l0aCB1c2VsZXNzIGRhdGEuIE11Y2ggb2YgdGhlIGRhdGEgd291bGQgZW5kIHVwIGRpc2NhcmRlZCwgc28gd2UgcmF0ZWxpbWl0IG91cnNlbHZlc1xuICAgICAgICAvLyBoZXJlLlxuICAgICAgICBjb25zdCBjdXJyZW50U2Vjb25kID0gTWF0aC5yb3VuZChjdXJyZW50VGltZSk7XG4gICAgICAgIGlmIChjdXJyZW50U2Vjb25kID09PSB0aGlzLm5leHRBbXBsaXR1ZGVTZWNvbmQpIHtcbiAgICAgICAgICAgIC8vIFdlJ3JlIGV4cGVjdGluZyBleGFjdGx5IG9uZSBtb25vIGlucHV0IHNvdXJjZSwgc28ganVzdCBncmFiIHRoZSB2ZXJ5IGZpcnN0IGZyYW1lIG9mXG4gICAgICAgICAgICAvLyBzYW1wbGVzIGZvciB0aGUgYW5hbHlzaXMuXG4gICAgICAgICAgICBjb25zdCBtb25vQ2hhbiA9IGlucHV0c1swXVswXTtcblxuICAgICAgICAgICAgLy8gVGhlIGFtcGxpdHVkZSBvZiB0aGUgZnJhbWUncyBzYW1wbGVzIGlzIGVmZmVjdGl2ZWx5IHRoZSBsb3VkbmVzcyBvZiB0aGUgZnJhbWUuIFRoaXNcbiAgICAgICAgICAgIC8vIHRyYW5zbGF0ZXMgaW50byBhIGJhciB3aGljaCBjYW4gYmUgcmVuZGVyZWQgYXMgcGFydCBvZiB0aGUgd2hvbGUgcmVjb3JkaW5nIGNsaXAnc1xuICAgICAgICAgICAgLy8gd2F2ZWZvcm0uXG4gICAgICAgICAgICAvL1xuICAgICAgICAgICAgLy8gV2UgdHJhbnNsYXRlIHRoZSBhbXBsaXR1ZGUgZG93biB0byAwLTEgZm9yIHNhbml0eSdzIHNha2UuXG4gICAgICAgICAgICBjb25zdCBtaW5WYWwgPSBNYXRoLm1pbiguLi5tb25vQ2hhbik7XG4gICAgICAgICAgICBjb25zdCBtYXhWYWwgPSBNYXRoLm1heCguLi5tb25vQ2hhbik7XG4gICAgICAgICAgICBjb25zdCBhbXBsaXR1ZGUgPSBwZXJjZW50YWdlT2YobWF4VmFsLCAtMSwgMSkgLSBwZXJjZW50YWdlT2YobWluVmFsLCAtMSwgMSk7XG5cbiAgICAgICAgICAgIHRoaXMucG9ydC5wb3N0TWVzc2FnZSg8SUFtcGxpdHVkZVBheWxvYWQ+e1xuICAgICAgICAgICAgICAgIGV2OiBQYXlsb2FkRXZlbnQuQW1wbGl0dWRlTWFyayxcbiAgICAgICAgICAgICAgICBhbXBsaXR1ZGU6IGFtcGxpdHVkZSxcbiAgICAgICAgICAgICAgICBmb3JTZWNvbmQ6IGN1cnJlbnRTZWNvbmQsXG4gICAgICAgICAgICB9KTtcbiAgICAgICAgICAgIHRoaXMubmV4dEFtcGxpdHVkZVNlY29uZCsrO1xuICAgICAgICB9XG5cbiAgICAgICAgLy8gV2UgbW9zdGx5IHVzZSB0aGlzIHdvcmtsZXQgdG8gZmlyZSByZWd1bGFyIGNsb2NrIHVwZGF0ZXMgdGhyb3VnaCB0byBjb21wb25lbnRzXG4gICAgICAgIHRoaXMucG9ydC5wb3N0TWVzc2FnZSg8SVRpbWluZ1BheWxvYWQ+e2V2OiBQYXlsb2FkRXZlbnQuVGltZWtlZXAsIHRpbWVTZWNvbmRzOiBjdXJyZW50VGltZX0pO1xuXG4gICAgICAgIC8vIFdlJ3JlIHN1cHBvc2VkIHRvIHJldHVybiBmYWxzZSB3aGVuIHdlJ3JlIFwiZG9uZVwiIHdpdGggdGhlIGF1ZGlvIGNsaXAsIGJ1dCBzZWVpbmcgYXNcbiAgICAgICAgLy8gd2UgYXJlIGFjdGluZyBhcyBhIHBhc3NpdmUgcHJvY2Vzc29yIHdlIGFyZSBuZXZlciB0cnVseSBcImRvbmVcIi4gVGhlIGJyb3dzZXIgd2lsbCBjbGVhblxuICAgICAgICAvLyB1cyB1cCB3aGVuIGl0IGlzIGRvbmUgd2l0aCB1cy5cbiAgICAgICAgcmV0dXJuIHRydWU7XG4gICAgfVxufVxuXG5yZWdpc3RlclByb2Nlc3NvcihXT1JLTEVUX05BTUUsIE14Vm9pY2VXb3JrbGV0KTtcblxuZXhwb3J0IGRlZmF1bHQgbnVsbDsgLy8gdG8gYXBwZWFzZSBtb2R1bGUgbG9hZGVycyAod2UgbmV2ZXIgdXNlIHRoZSBleHBvcnQpXG4iXX0=

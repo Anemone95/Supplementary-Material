@@ -1,0 +1,16 @@
+{
+  "name": "caolilinode",
+  "version": "1.0.0",
+  "description": "aaaaa",
+  "main": "caolili.js",
+  "dependencies": {},
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "caolilinode"
+  ],
+  "author": "",
+  "license": "ISC"
+}

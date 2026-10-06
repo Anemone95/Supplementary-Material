@@ -1,0 +1,23 @@
+import { Constructable } from '../constructable';
+import { EntityBase, EntityIdentifiable } from '../entity';
+declare type OrderType = 'asc' | 'desc';
+/**
+ * OData queries take this to determine the order of results.
+ *
+ * @typeparam EntityT -
+ */
+export declare class Order<EntityT extends EntityBase> implements EntityIdentifiable<EntityT> {
+    _fieldName: string;
+    orderType: OrderType;
+    readonly _entityConstructor: Constructable<EntityT>;
+    readonly _entity: EntityT;
+    /**
+     * Creates an instance of Order.
+     *
+     * @param _fieldName - Field to order by
+     * @param orderType - Type of ordering, can be 'asc' for ascending or 'desc' for descending
+     */
+    constructor(_fieldName: string, orderType?: OrderType);
+}
+export {};
+//# sourceMappingURL=order.d.ts.map

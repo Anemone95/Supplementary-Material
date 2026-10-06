@@ -1,0 +1,73 @@
+1e0bb87c7ef54d7d0b062a75ff343067
+'use strict';Object.defineProperty(exports, "__esModule", { value: true });var _createClass = function () {function defineProperties(target, props) {for (var i = 0; i < props.length; i++) {var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);}}return function (Constructor, protoProps, staticProps) {if (protoProps) defineProperties(Constructor.prototype, protoProps);if (staticProps) defineProperties(Constructor, staticProps);return Constructor;};}();var _propTypes = require('prop-types');var _propTypes2 = _interopRequireDefault(_propTypes);
+var _react = require('react');var _react2 = _interopRequireDefault(_react);
+var _reactBootstrap = require('react-bootstrap');function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function _classCallCheck(instance, Constructor) {if (!(instance instanceof Constructor)) {throw new TypeError("Cannot call a class as a function");}}function _possibleConstructorReturn(self, call) {if (!self) {throw new ReferenceError("this hasn't been initialised - super() hasn't been called");}return call && (typeof call === "object" || typeof call === "function") ? call : self;}function _inherits(subClass, superClass) {if (typeof superClass !== "function" && superClass !== null) {throw new TypeError("Super expression must either be null or a function, not " + typeof superClass);}subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } });if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;}
+
+/**
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        * Encapsulates a react-bootstrap modal, hiding the state handling for the modal
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        */var
+BootstrapModalWrapper = function (_Component) {_inherits(BootstrapModalWrapper, _Component);
+  function BootstrapModalWrapper(props) {_classCallCheck(this, BootstrapModalWrapper);var _this = _possibleConstructorReturn(this, (BootstrapModalWrapper.__proto__ || Object.getPrototypeOf(BootstrapModalWrapper)).call(this,
+    props));
+
+    _this.open = _this.open.bind(_this);
+    _this.close = _this.close.bind(_this);
+    _this._hide = _this._hide.bind(_this);
+
+    _this.state = {
+      showModal: props.showModal || false };return _this;
+
+  }_createClass(BootstrapModalWrapper, [{ key: 'onOpen', value: function onOpen()
+
+    {
+      if (typeof this.props.onOpen === 'function') {
+        this.props.onOpen();
+      }
+    } }, { key: 'onClose', value: function onClose()
+
+    {
+      if (typeof this.props.onClose === 'function') {
+        this.props.onClose();
+      }
+    } }, { key: 'onHide', value: function onHide()
+
+    {
+      if (typeof this.props.onHide === 'function') {
+        this.props.onHide();
+      }
+    } }, { key: 'open', value: function open()
+
+    {
+      this.setState({ showModal: true }, this.onOpen);
+    } }, { key: 'close', value: function close()
+
+    {
+      this.setState({ showModal: false }, this.onClose);
+    } }, { key: '_hide', value: function _hide()
+
+    {
+      this.setState({ showModal: false }, this.onHide);
+    } }, { key: 'render', value: function render()
+
+    {
+      return (
+        _react2.default.createElement(_reactBootstrap.Modal, { show: this.state.showModal, onHide: this._hide },
+          this.props.children));
+
+
+    } }]);return BootstrapModalWrapper;}(_react.Component);
+
+
+BootstrapModalWrapper.propTypes = {
+  showModal: _propTypes2.default.bool,
+  children: _propTypes2.default.oneOfType([
+  _propTypes2.default.arrayOf(_propTypes2.default.element),
+  _propTypes2.default.element]).
+  isRequired,
+  onOpen: _propTypes2.default.func,
+  onClose: _propTypes2.default.func,
+  onHide: _propTypes2.default.func };var _default =
+
+
+BootstrapModalWrapper;exports.default = _default;module.exports = exports['default'];;var _temp = function () {if (typeof __REACT_HOT_LOADER__ === 'undefined') {return;}__REACT_HOT_LOADER__.register(BootstrapModalWrapper, 'BootstrapModalWrapper', '/root/graylog2-server-2.4.3/graylog2-web-interface/src/components/bootstrap/BootstrapModalWrapper.jsx');__REACT_HOT_LOADER__.register(_default, 'default', '/root/graylog2-server-2.4.3/graylog2-web-interface/src/components/bootstrap/BootstrapModalWrapper.jsx');}();;
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIkJvb3RzdHJhcE1vZGFsV3JhcHBlci5qc3giXSwibmFtZXMiOlsiQm9vdHN0cmFwTW9kYWxXcmFwcGVyIiwicHJvcHMiLCJvcGVuIiwiYmluZCIsImNsb3NlIiwiX2hpZGUiLCJzdGF0ZSIsInNob3dNb2RhbCIsIm9uT3BlbiIsIm9uQ2xvc2UiLCJvbkhpZGUiLCJzZXRTdGF0ZSIsImNoaWxkcmVuIiwicHJvcFR5cGVzIiwiYm9vbCIsIm9uZU9mVHlwZSIsImFycmF5T2YiLCJlbGVtZW50IiwiaXNSZXF1aXJlZCIsImZ1bmMiXSwibWFwcGluZ3MiOiJnbkJBQUEsdUM7QUFDQSw4QjtBQUNBLGlEOztBQUVBOzs7QUFHTUEscUI7QUFDSixpQ0FBWUMsS0FBWixFQUFtQjtBQUNYQSxTQURXOztBQUdqQixVQUFLQyxJQUFMLEdBQVksTUFBS0EsSUFBTCxDQUFVQyxJQUFWLE9BQVo7QUFDQSxVQUFLQyxLQUFMLEdBQWEsTUFBS0EsS0FBTCxDQUFXRCxJQUFYLE9BQWI7QUFDQSxVQUFLRSxLQUFMLEdBQWEsTUFBS0EsS0FBTCxDQUFXRixJQUFYLE9BQWI7O0FBRUEsVUFBS0csS0FBTCxHQUFhO0FBQ1hDLGlCQUFXTixNQUFNTSxTQUFOLElBQW1CLEtBRG5CLEVBQWIsQ0FQaUI7O0FBVWxCLEc7O0FBRVE7QUFDUCxVQUFJLE9BQU8sS0FBS04sS0FBTCxDQUFXTyxNQUFsQixLQUE2QixVQUFqQyxFQUE2QztBQUMzQyxhQUFLUCxLQUFMLENBQVdPLE1BQVg7QUFDRDtBQUNGLEs7O0FBRVM7QUFDUixVQUFJLE9BQU8sS0FBS1AsS0FBTCxDQUFXUSxPQUFsQixLQUE4QixVQUFsQyxFQUE4QztBQUM1QyxhQUFLUixLQUFMLENBQVdRLE9BQVg7QUFDRDtBQUNGLEs7O0FBRVE7QUFDUCxVQUFJLE9BQU8sS0FBS1IsS0FBTCxDQUFXUyxNQUFsQixLQUE2QixVQUFqQyxFQUE2QztBQUMzQyxhQUFLVCxLQUFMLENBQVdTLE1BQVg7QUFDRDtBQUNGLEs7O0FBRU07QUFDTCxXQUFLQyxRQUFMLENBQWMsRUFBRUosV0FBVyxJQUFiLEVBQWQsRUFBbUMsS0FBS0MsTUFBeEM7QUFDRCxLOztBQUVPO0FBQ04sV0FBS0csUUFBTCxDQUFjLEVBQUVKLFdBQVcsS0FBYixFQUFkLEVBQW9DLEtBQUtFLE9BQXpDO0FBQ0QsSzs7QUFFTztBQUNOLFdBQUtFLFFBQUwsQ0FBYyxFQUFFSixXQUFXLEtBQWIsRUFBZCxFQUFvQyxLQUFLRyxNQUF6QztBQUNELEs7O0FBRVE7QUFDUDtBQUNFLCtEQUFPLE1BQU0sS0FBS0osS0FBTCxDQUFXQyxTQUF4QixFQUFtQyxRQUFRLEtBQUtGLEtBQWhEO0FBQ0csZUFBS0osS0FBTCxDQUFXVyxRQURkLENBREY7OztBQUtELEs7OztBQUdIWixzQkFBc0JhLFNBQXRCLEdBQWtDO0FBQ2hDTixhQUFXLG9CQUFVTyxJQURXO0FBRWhDRixZQUFVLG9CQUFVRyxTQUFWLENBQW9CO0FBQzVCLHNCQUFVQyxPQUFWLENBQWtCLG9CQUFVQyxPQUE1QixDQUQ0QjtBQUU1QixzQkFBVUEsT0FGa0IsQ0FBcEI7QUFHUEMsWUFMNkI7QUFNaENWLFVBQVEsb0JBQVVXLElBTmM7QUFPaENWLFdBQVMsb0JBQVVVLElBUGE7QUFRaENULFVBQVEsb0JBQVVTLElBUmMsRUFBbEMsQzs7O0FBV2VuQixxQixrTEEvRFRBLHFCIiwiZmlsZSI6IkJvb3RzdHJhcE1vZGFsV3JhcHBlci5qc3giLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgUHJvcFR5cGVzIGZyb20gJ3Byb3AtdHlwZXMnO1xuaW1wb3J0IFJlYWN0LCB7IENvbXBvbmVudCB9IGZyb20gJ3JlYWN0JztcbmltcG9ydCB7IE1vZGFsIH0gZnJvbSAncmVhY3QtYm9vdHN0cmFwJztcblxuLyoqXG4gKiBFbmNhcHN1bGF0ZXMgYSByZWFjdC1ib290c3RyYXAgbW9kYWwsIGhpZGluZyB0aGUgc3RhdGUgaGFuZGxpbmcgZm9yIHRoZSBtb2RhbFxuICovXG5jbGFzcyBCb290c3RyYXBNb2RhbFdyYXBwZXIgZXh0ZW5kcyBDb21wb25lbnQge1xuICBjb25zdHJ1Y3Rvcihwcm9wcykge1xuICAgIHN1cGVyKHByb3BzKTtcblxuICAgIHRoaXMub3BlbiA9IHRoaXMub3Blbi5iaW5kKHRoaXMpO1xuICAgIHRoaXMuY2xvc2UgPSB0aGlzLmNsb3NlLmJpbmQodGhpcyk7XG4gICAgdGhpcy5faGlkZSA9IHRoaXMuX2hpZGUuYmluZCh0aGlzKTtcblxuICAgIHRoaXMuc3RhdGUgPSB7XG4gICAgICBzaG93TW9kYWw6IHByb3BzLnNob3dNb2RhbCB8fCBmYWxzZSxcbiAgICB9O1xuICB9XG5cbiAgb25PcGVuKCkge1xuICAgIGlmICh0eXBlb2YgdGhpcy5wcm9wcy5vbk9wZW4gPT09ICdmdW5jdGlvbicpIHtcbiAgICAgIHRoaXMucHJvcHMub25PcGVuKCk7XG4gICAgfVxuICB9XG5cbiAgb25DbG9zZSgpIHtcbiAgICBpZiAodHlwZW9mIHRoaXMucHJvcHMub25DbG9zZSA9PT0gJ2Z1bmN0aW9uJykge1xuICAgICAgdGhpcy5wcm9wcy5vbkNsb3NlKCk7XG4gICAgfVxuICB9XG5cbiAgb25IaWRlKCkge1xuICAgIGlmICh0eXBlb2YgdGhpcy5wcm9wcy5vbkhpZGUgPT09ICdmdW5jdGlvbicpIHtcbiAgICAgIHRoaXMucHJvcHMub25IaWRlKCk7XG4gICAgfVxuICB9XG5cbiAgb3BlbigpIHtcbiAgICB0aGlzLnNldFN0YXRlKHsgc2hvd01vZGFsOiB0cnVlIH0sIHRoaXMub25PcGVuKTtcbiAgfVxuXG4gIGNsb3NlKCkge1xuICAgIHRoaXMuc2V0U3RhdGUoeyBzaG93TW9kYWw6IGZhbHNlIH0sIHRoaXMub25DbG9zZSk7XG4gIH1cblxuICBfaGlkZSgpIHtcbiAgICB0aGlzLnNldFN0YXRlKHsgc2hvd01vZGFsOiBmYWxzZSB9LCB0aGlzLm9uSGlkZSk7XG4gIH1cblxuICByZW5kZXIoKSB7XG4gICAgcmV0dXJuIChcbiAgICAgIDxNb2RhbCBzaG93PXt0aGlzLnN0YXRlLnNob3dNb2RhbH0gb25IaWRlPXt0aGlzLl9oaWRlfT5cbiAgICAgICAge3RoaXMucHJvcHMuY2hpbGRyZW59XG4gICAgICA8L01vZGFsPlxuICAgICk7XG4gIH1cbn1cblxuQm9vdHN0cmFwTW9kYWxXcmFwcGVyLnByb3BUeXBlcyA9IHtcbiAgc2hvd01vZGFsOiBQcm9wVHlwZXMuYm9vbCxcbiAgY2hpbGRyZW46IFByb3BUeXBlcy5vbmVPZlR5cGUoW1xuICAgIFByb3BUeXBlcy5hcnJheU9mKFByb3BUeXBlcy5lbGVtZW50KSxcbiAgICBQcm9wVHlwZXMuZWxlbWVudCxcbiAgXSkuaXNSZXF1aXJlZCxcbiAgb25PcGVuOiBQcm9wVHlwZXMuZnVuYyxcbiAgb25DbG9zZTogUHJvcFR5cGVzLmZ1bmMsXG4gIG9uSGlkZTogUHJvcFR5cGVzLmZ1bmMsXG59O1xuXG5leHBvcnQgZGVmYXVsdCBCb290c3RyYXBNb2RhbFdyYXBwZXI7XG4iXX0=

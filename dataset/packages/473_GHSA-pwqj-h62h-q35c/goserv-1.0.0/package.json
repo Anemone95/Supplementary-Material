@@ -1,0 +1,24 @@
+{
+  "name": "goserv",
+  "version": "1.0.0",
+  "description": "Quick and simple http server.",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:ablankenship10/goserv.git"
+  },
+  "keywords": [
+    "server",
+    "http",
+    "fileshare"
+  ],
+  "author": "Aaron Blankenship",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ablankenship10/goserv/issues"
+  },
+  "homepage": "https://github.com/ablankenship10/goserv",
+  "bin": {
+    "goserv": "bin/goserv"
+  }
+}

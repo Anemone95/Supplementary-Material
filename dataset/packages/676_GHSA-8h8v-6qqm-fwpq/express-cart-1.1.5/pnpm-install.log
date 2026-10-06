@@ -1,0 +1,27 @@
+$ corepack pnpm@9.15.9 install --prod --no-frozen-lockfile --reporter=append-only --config.node-linker=hoisted --ignore-workspace --ignore-scripts
+ WARN  deprecated bcrypt-nodejs@0.0.3: bcrypt-nodejs is no longer actively maintained. Please use bcrypt or bcryptjs. See https://github.com/kelektiv/node.bcrypt.js/wiki/bcrypt-vs-brypt.js to learn more about these two options
+Progress: resolved 1, reused 0, downloaded 0, added 0
+ WARN  deprecated rimraf@2.7.1: Rimraf versions prior to v4 are no longer supported
+ WARN  deprecated axios@0.17.1: Critical security vulnerability fixed in v0.21.1. For more information, see https://github.com/axios/axios/pull/3410
+ WARN  deprecated eslint@3.19.0: This version is no longer supported. Please see https://eslint.org/version-support for other options.
+ WARN  deprecated glob@7.2.3: Old versions of glob are not supported, and contain widely publicized security vulnerabilities, which have been fixed in the current version. Please update. Support for old versions may be purchased (at exorbitant rates) by contacting i@izs.me
+ WARN  deprecated paypal-rest-sdk@1.8.1: Package no longer supported. The author suggests using the @paypal/paypal-server-sdk package instead: https://www.npmjs.com/package/@paypal/paypal-server-sdk. Contact Support at https://www.npmjs.com/support for more info.
+ WARN  deprecated multer@1.4.4: Multer 1.x is affected by CVE-2022-24434. This is fixed in v1.4.4-lts.1 which drops support for versions of Node.js before 6. Please upgrade to at least Node.js 6 and version 1.4.4-lts.1 of Multer. If you need support for older versions of Node.js, we are open to accepting patches that would fix the CVE on the main 1.x release line, whilst maintaining compatibility with Node.js 0.10.
+Progress: resolved 43, reused 0, downloaded 0, added 0
+Progress: resolved 187, reused 0, downloaded 0, added 0
+Progress: resolved 389, reused 0, downloaded 0, added 0
+Progress: resolved 552, reused 0, downloaded 0, added 0
+ WARN  8 deprecated subdependencies found: bson@1.0.9, circular-json@0.3.3, gulp-util@2.2.20, inflight@1.0.6, lodash.pick@4.4.0, lodash.template@2.4.1, rimraf@2.6.3, uglify-es@3.3.9
+
+devDependencies: skipped
+
+ WARN  Issues with peer dependencies found
+.
+└─┬ eslint-config-airbnb-base 12.1.0
+  └── ✕ unmet peer eslint@^4.9.0: found 3.19.0
+
+Packages: +223
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Progress: resolved 648, reused 198, downloaded 11, added 208
+Progress: resolved 648, reused 198, downloaded 20, added 223, done
+Done in 5.8s using pnpm v9.15.9

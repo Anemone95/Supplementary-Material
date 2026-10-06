@@ -1,0 +1,30 @@
+export declare function open(path: string, ref?: string): Promise<FSGit>;
+export declare class FSGit {
+    path: string;
+    ref: string;
+    constructor(path: string, ref?: string);
+    file(path: string): Promise<FileInfo>;
+    fileList(): Promise<FileInfo[]>;
+    showRef(): Promise<RefInfo[]>;
+    readFile(path: string): Promise<Buffer>;
+    readFile(path: string, opts: {
+        encoding: string;
+    }): Promise<string>;
+    exists(path: string): Promise<boolean>;
+    revParse(ref: string): Promise<string>;
+    _lsTree(ref?: string, path?: string): Promise<FileInfo[]>;
+    _buildCommand(...args: string[]): string;
+}
+export interface FileInfo {
+    gitDir: string;
+    ref: string;
+    permission: string;
+    type: string;
+    hash: string;
+    path: string;
+}
+export interface RefInfo {
+    gitDir: string;
+    ref: string;
+    name: string;
+}

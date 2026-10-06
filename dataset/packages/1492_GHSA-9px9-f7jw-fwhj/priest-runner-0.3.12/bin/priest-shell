@@ -1,0 +1,575 @@
+#!/usr/bin/env node
+
+var fs = require('fs');
+var path = require('path');
+var _ = require('underscore');
+var program = require('commander');
+var childProcess = require('child_process');
+var uuid = require('uuid');
+var priestSocket = require('../src/connection.js');
+var PriestError = require('../src/error.js');
+var parseArgv = require('../src/argv.js');
+var util = require('../src/util.js');
+var inspect = require('util').inspect;
+var crypto = require('crypto');
+
+var defaultPriestData = {
+  vm : {},
+  priest: {}
+}
+
+var nameFile = '.priest/cname';
+var runFile = '.priest/runopts';
+var hashFile = '.priest/hash-id';
+
+program
+  .command('init')
+  .description('Initialize priest.')
+  .action(function () {
+    var priestDir = path.resolve(process.cwd(), '.priest');
+    if (! fs.existsSync(priestDir)) {
+      fs.mkdirSync(priestDir);
+    }
+
+    var priestFile = path.resolve(process.cwd(), 'priest.json');
+    if (! fs.existsSync(priestFile)) {
+      fs.writeFileSync(priestFile, JSON.stringify(defaultPriestData, null, 2));
+    }
+  });
+
+program
+  .command('start')
+  .description('Start container\'s vm.')
+  .option('-i,--id <name>', 'Container ID')
+  .option('-p,--port <port>', 'Default port host:guest')
+  .option('-m,--memory <limit>', 'Memory limit')
+  .option('-c,--config <path>', 'Config file path')
+  .option('-v,--verbose', 'Verbose output')
+  .option('-C,--container <container>', 'Container image')
+  .option('-D,--debug', 'Run in debug mode (no daemon)')
+  .action(function (options) {
+    var config = require(path.resolve(process.cwd(), options.config || 'priest.json')).vm;
+
+    var cachedOptions = {};
+    [
+      'id',
+      'port',
+      'memory',
+      'container'
+    ].forEach(function (name) {
+      if (! options[name]) return;
+
+      config[name] = options[name];
+      cachedOptions[name] = options[name];
+    });
+
+    var name = options.id;
+
+    if (! name) {
+      if (config.id) {
+        name = config.id;
+      } else {
+        if (! fs.existsSync(nameFile)) {
+          name = 'priest-' + uuid.v1();
+          fs.writeFileSync(nameFile, name, 'utf8');
+        } else {
+          name = fs.readFileSync(nameFile, 'utf8');
+        }
+      }
+    }
+    var result;
+
+
+    fs.writeFileSync(runFile, JSON.stringify(cachedOptions, null, 2), 'utf8');
+
+    var args = [
+      'run', options.debug ? '--rm':'-d',  '--name', name
+    ];
+
+    if (config.memory) {
+      args.push('-m', config.memory);
+    }
+
+    args.push('-v', process.cwd() + ':/app');
+
+    if (_.isObject(config.fs)) {
+      // Add .priest dir
+      args.push('-v', path.resolve(process.cwd(), '.priest') + ':/app/.priest');
+
+      Object.getOwnPropertyNames(config.fs).forEach(function (host) {
+        var hostDir = path.resolve(process.cwd(), host);
+        var guestDir = path.resolve('/app', config.fs[host]);
+
+        args.push('-v', hostDir + ':' + guestDir);
+      });
+    } else if (config.fs) {
+      // Remove .priest system directory from list, because it's already added
+      fs.readdirSync(process.cwd())
+      .reduce(function (result, file) {
+        var stat = fs.lstatSync(file);
+        if (stat.isFile()) return result;
+        if (file === '.priest') return result;
+
+        if (stat.isSymbolicLink()) {
+          file = fs.readlinkSync(file);
+        }
+
+        return result;
+      }, []).forEach(function (dir) {
+
+        var fullpath = path.resolve(process.cwd(), dir);
+        args.push('-v', fullpath + ':' + path.resolve('/app', dir));
+      });
+    }
+
+    if (config.hasOwnProperty('port')) {
+      if (_.isObject(config.port)) {
+        Object.getOwnPropertyNames(config.port).forEach(function (host) {
+          args.push('-p', host + ':' + config.port[host]);
+        });
+      } else if (_.isString(config.port)) {
+        var port = config.port.split(':');
+        if (port.length > 1) {
+          args.push('-p', port[0] + ':' + port[1]);
+        } else {
+          args.push('-p', port[0] + ':' + port[0]);
+        }
+      } else if (_.isNumber(config.port)) {
+        args.push('-p', config.port + ':' + config.port);
+      }
+    }
+
+    if (config.hasOwnProperty('link') && _.isObject(config.link)) {
+      Object.getOwnPropertyNames(config.link).forEach(function (image) {
+        args.push('--link', image + ':' + config.link[image]);
+      });
+    }
+
+    if (config.hasOwnProperty('env') && _.isObject(config.env)) {
+      Object.getOwnPropertyNames(config.env).forEach(function (name) {
+        args.push('-e', name + '=' + config.env[name]);
+      });
+    }
+
+    args.push(
+      '-w', '/app',
+      config.container || 'alpine-node',
+      '/app/priest/bin/priest', config.port
+    );
+
+    if (fs.existsSync('.priest/priest.sock')) {
+      fs.unlink('.priest/priest.sock');
+    }
+
+    var result;
+    var hashId = md5json(args);
+    var currentHash;
+
+    if (fs.existsSync(hashFile)) {
+      currentHash = fs.readFileSync(hashFile, 'utf8');
+      if (hashId !== currentHash) {
+        result = getContainerStatus(name);
+        if (result) {
+          stopContainer(name, 0);
+        }
+      } else if (checkContainerExists(name)) {
+        result = getContainerStatus(name);
+        if (result) {
+          stopContainer(name, 0);
+        }
+        removeContainer(name);
+      }
+      fs.unlinkSync(hashFile);
+    }
+
+    fs.writeFileSync(hashFile, hashId);
+
+
+    options.verbose && console.log('Run: docker', args.join(' '));
+    result = childProcess.spawnSync('docker', args);
+
+    if (result.status !== 0) {
+      console.error('Container was not created:\n', result.stderr.toString());
+      process.exit(1);
+    } else if (options.verbose || options.debug) {
+      result.output.forEach((chunk) => {
+        if (! chunk) return;
+        process.stdout.write(chunk);
+      });
+    }
+  });
+
+program
+  .command('stop [delay]')
+  .description('Stop container')
+  .option('-i,--id [id]', 'Container ID')
+  .action(function (delay, options) {
+    var name = options.id;
+    var args = ['stop'];
+
+    if (! name) {
+      if (! fs.existsSync(nameFile)) {
+        console.error('Container ID not specified or container is already stopped');
+        process.exit(1);
+      } else {
+        name = fs.readFileSync(nameFile, 'utf8');
+      }
+    }
+
+    if (delay) {
+      if (delay === 'now') {
+        args.push('-t', '0');
+      } else {
+        args.push('-t', delay);
+      }
+    }
+
+    args.push(name);
+
+    var result = childProcess.spawnSync('docker', args);
+
+    if (result.status !== 0) {
+      console.error('Container could not be stopped:\n', result.stderr.toString());
+      process.exit(1);
+    }
+
+    var result = childProcess.spawnSync('docker', ['rm', name]);
+
+    if (result.status !== 0) {
+      console.error('Container could not be removed:\n', result.stderr.toString());
+      process.exit(1);
+    }
+
+    if (fs.existsSync('.priest/priest.sock')) {
+      fs.unlink('.priest/priest.sock');
+    }
+  });
+
+program
+  .command('remove')
+  .alias('rm')
+  .description('Remove docker container')
+  .option('-i,--id <id>', 'Container ID')
+  .action(function (options) {
+    var name = options.id;
+    var args = ['rm'];
+    if (! name) {
+      if (! fs.existsSync(nameFile)) {
+        console.error('Container ID not specified or container is already stopped');
+        process.exit(1);
+      } else {
+        name = fs.readFileSync(nameFile, 'utf8');
+      }
+    }
+
+    args.push(name);
+
+    var result = childProcess.spawnSync('docker', args);
+
+    if (result.status !== 0) {
+      console.error('Container could not be stopped:\n', result.stderr.toString());
+      process.exit(1);
+    }
+
+    if (fs.existsSync('.priest/priest.sock')) {
+      fs.unlink('.priest/priest.sock');
+    }
+  });
+
+program
+  .command('exec [args...]')
+  .description('Execute command inside of container')
+  .action(function (args) {
+    var priestSocket = require('../src/connection.js');
+    var socket = priestSocket.client({
+      port: '.priest/priest.sock'
+    });
+
+    socket.on('connect', function () {
+      var params = {
+        name : (args[0].charAt(0) === '@')
+          ? args.shift().slice(1)
+          : undefined,
+        cmd: args.shift(),
+        args: args
+      };
+
+      socket.event('exec', params);
+
+      socket.on('event:stdout', function (data) {
+        process.stdout.write(data);
+      });
+
+      socket.on('event:stderr', function (data) {
+        process.stderr.write(data);
+      });
+
+      socket.on('event:exit', function (data) {
+        if (data.error) {
+          console.error(data.error);
+        }
+        process.exit(data.status);
+      });
+
+      process.on('SIGINT', function () {
+        socket.event('kill');
+      });
+    });
+  });
+
+program
+  .command('run [args...]')
+  .description('Run command inside of container')
+  .action(function (args) {
+    var priestSocket = require('../src/connection.js');
+    var socket = priestSocket.client({
+      port: '.priest/priest.sock'
+    });
+
+    socket.on('connect', function () {
+      var params = {
+        name : (args[0].charAt(0) === '@')
+          ? args.shift().slice(1)
+          : undefined,
+        cmd: args.shift(),
+        args: args
+      };
+
+      socket.event('run', params);
+
+      socket.on('event:stdout', function (data) {
+        process.stdout.write(data);
+      });
+
+      socket.on('event:stderr', function (data) {
+        process.stderr.write(data);
+      });
+
+      socket.on('event:exit', function (data) {
+        if (data.error) {
+          console.error(data.error);
+        }
+        process.exit(data.status);
+      });
+    });
+  });
+
+program
+  .command('set <name> [value]')
+  .description('Set priest file config value')
+  .option('-c,--config <path>', 'Priest file path')
+  .action(function (name, value, options) {
+    var filepath = path.resolve(options.config || './priest.json');
+    if (! fs.existsSync(filepath)) {
+      throw new PriestError('Priest file not found');
+    }
+
+    var config = require(filepath);
+    if (! _.isObject(config)) {
+      throw new PriestError('Config should be an object');
+    }
+
+    var parts = name.split('.');
+    var target = config;
+    var part;
+
+    while(parts.length > 1) {
+      part = parts.shift();
+      if (target.hasOwnProperty(part) && _.isObject(target[part])) {
+        target = target[part];
+      } else {
+        target[part] = {};
+        target = target[part];
+      }
+    }
+
+    // TODO (rumkin) Add special path modifiers for vm.port and vm.fs.
+    var modifiers = [
+      [
+        /^vm\.fs\.$/,
+        function (config, name, value) {
+          var fs = config[name];
+          if (! _.isObject(fs)) {
+            fs = config[name] = {};
+          }
+
+          value = value.split(':');
+
+          if (value.length === 1) {
+            delete fs[value[0]];
+          } else {
+            fs[value[0]] = value[1];
+          }
+        }
+      ],[
+        /^vm\.port\.$/,
+        function (config, name, value) {
+          var net = config[name];
+          if (! _.isObject(net)) {
+            net = config[name] = {};
+          }
+
+          value = value.split(':');
+
+          if (value.length === 1) {
+            delete net[value[0]];
+          } else {
+            net[value[0]] = value[1];
+          }
+        }
+      ],[
+        /^vm\.env\.$/,
+        function (config, name, value) {
+          var env = config[name];
+          if (! _.isObject(env)) {
+            env = config[name] = {};
+          }
+
+          value = value.split(':');
+
+          if (value.length === 1) {
+            delete env[value[0]];
+          } else {
+            net[value[0]] = value[1];
+          }
+        }
+      ]
+    ];
+
+    part = parts.shift();
+
+    var i = -1;
+    var l = modifiers.length;
+    var isModified = false;
+    var modifier;
+    while(++i < l) {
+      modifier = modifiers[i];
+      if (modifier[0].test(name)) {
+        modifier[1](target, part, value);
+        isModified = true;
+        break;
+      }
+    }
+
+    if (! isModified) {
+      if (typeof value === 'undefined') {
+        delete target[part];
+      } else {
+        target[part] = parseArgv.convertValue(value);
+      }
+    }
+
+    fs.writeFileSync(filepath, JSON.stringify(config, null, 2));
+  });
+
+program
+  .command('get <name>')
+  .description('Get priest file config value')
+  .option('-c,--config <path>', 'Priest file path')
+  .action(function (name, options) {
+    var filepath = path.resolve(options.config || './priest.json');
+    if (! fs.existsSync(filepath)) {
+      throw new PriestError('Priest file not found');
+    }
+
+    var config = require(filepath);
+    if (! _.isObject(config)) {
+      throw new PriestError('Config should be an object');
+    }
+
+    var parts = name.split('.');
+    var target = config;
+    var part;
+
+    while(parts.length > 1) {
+      part = parts.shift();
+      if (! target.hasOwnProperty(part) || ! _.isObject(target[part])) {
+        process.exit(1);
+      } else {
+        target = target[part];
+      }
+    }
+
+    part = parts.shift();
+    if (target.hasOwnProperty(part)) {
+      // TODO (rumkin) Stringify objects
+      console.log(target[part]);
+    } else {
+      process.exit(1);
+    }
+  });
+
+process.on('uncaughtException', function (error) {
+  if (error instanceof PriestError) {
+    console.error(error.message);
+  } else {
+    console.error(error.stack);
+  }
+  process.exit(1);
+})
+
+program.parse(process.argv);
+
+function md5json(value) {
+  var hash = crypto.createHash('md5');
+  Array.prototype.slice.call(arguments).forEach(function () {
+    hash.update(JSON.stringify(value, null));
+  });
+  return hash.digest('hex');
+}
+
+function stopContainer(name, delay) {
+  var result = childProcess.spawnSync('docker', [
+    'stop', '-t', _.isNumber(delay) ? delay : 10, name
+  ]);
+
+  if (result.status !== 0) {
+    console.error('Container was not created:\n', result.stderr.toString());
+    process.exit(1);
+  }
+
+  return result;
+}
+
+function removeContainer(name) {
+  var result = childProcess.spawnSync('docker', [
+    'rm', name
+  ]);
+
+  if (result.status !== 0) {
+    console.error('Container was not removed:\n', result.stderr.toString());
+    process.exit(1);
+  }
+
+  return result;
+}
+
+function restartContainer(name) {
+  var result = childProcess.spawnSync('docker', [
+    'restart', name
+  ]);
+
+  if (result.status !== 0) {
+    console.error('Container was not restarted:\n', result.stderr.toString());
+    process.exit(1);
+  }
+
+  return result;
+}
+
+function checkContainerExists(name) {
+  var result = childProcess.spawnSync('docker', ['stats', '--no-stream', name]);
+  return !result.status;
+}
+
+function getContainerStatus(name, delay) {
+  var result = childProcess.spawnSync('docker', [
+    'inspect', '--format={{ .State.IsRunning }}', name
+  ]);
+
+  if (result.status !== 0) {
+    return false;
+  }
+
+  return true;
+}

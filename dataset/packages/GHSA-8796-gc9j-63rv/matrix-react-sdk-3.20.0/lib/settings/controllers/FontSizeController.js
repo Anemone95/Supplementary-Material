@@ -1,0 +1,53 @@
+"use strict";
+
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _SettingController = _interopRequireDefault(require("./SettingController"));
+
+var _dispatcher = _interopRequireDefault(require("../../dispatcher/dispatcher"));
+
+var _actions = require("../../dispatcher/actions");
+
+/*
+Copyright 2020 The Matrix.org Foundation C.I.C.
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+*/
+class FontSizeController extends _SettingController.default {
+  constructor() {
+    super();
+  }
+
+  onChange(level
+  /*: SettingLevel*/
+  , roomId
+  /*: string*/
+  , newValue
+  /*: any*/
+  ) {
+    // Dispatch font size change so that everything open responds to the change.
+    _dispatcher.default.dispatch({
+      action: _actions.Action.UpdateFontSize,
+      size: newValue
+    });
+  }
+
+}
+
+exports.default = FontSizeController;
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uLy4uL3NyYy9zZXR0aW5ncy9jb250cm9sbGVycy9Gb250U2l6ZUNvbnRyb2xsZXIudHMiXSwibmFtZXMiOlsiRm9udFNpemVDb250cm9sbGVyIiwiU2V0dGluZ0NvbnRyb2xsZXIiLCJjb25zdHJ1Y3RvciIsIm9uQ2hhbmdlIiwibGV2ZWwiLCJyb29tSWQiLCJuZXdWYWx1ZSIsImRpcyIsImRpc3BhdGNoIiwiYWN0aW9uIiwiQWN0aW9uIiwiVXBkYXRlRm9udFNpemUiLCJzaXplIl0sIm1hcHBpbmdzIjoiOzs7Ozs7Ozs7QUFnQkE7O0FBQ0E7O0FBRUE7O0FBbkJBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQVFlLE1BQU1BLGtCQUFOLFNBQWlDQywwQkFBakMsQ0FBbUQ7QUFDOURDLEVBQUFBLFdBQVcsR0FBRztBQUNWO0FBQ0g7O0FBRU1DLEVBQUFBLFFBQVAsQ0FBZ0JDO0FBQWhCO0FBQUEsSUFBcUNDO0FBQXJDO0FBQUEsSUFBcURDO0FBQXJEO0FBQUEsSUFBb0U7QUFDaEU7QUFDQUMsd0JBQUlDLFFBQUosQ0FBb0M7QUFDaENDLE1BQUFBLE1BQU0sRUFBRUMsZ0JBQU9DLGNBRGlCO0FBRWhDQyxNQUFBQSxJQUFJLEVBQUVOO0FBRjBCLEtBQXBDO0FBSUg7O0FBWDZEIiwic291cmNlc0NvbnRlbnQiOlsiLypcbkNvcHlyaWdodCAyMDIwIFRoZSBNYXRyaXgub3JnIEZvdW5kYXRpb24gQy5JLkMuXG5cbkxpY2Vuc2VkIHVuZGVyIHRoZSBBcGFjaGUgTGljZW5zZSwgVmVyc2lvbiAyLjAgKHRoZSBcIkxpY2Vuc2VcIik7XG55b3UgbWF5IG5vdCB1c2UgdGhpcyBmaWxlIGV4Y2VwdCBpbiBjb21wbGlhbmNlIHdpdGggdGhlIExpY2Vuc2UuXG5Zb3UgbWF5IG9idGFpbiBhIGNvcHkgb2YgdGhlIExpY2Vuc2UgYXRcblxuICAgIGh0dHA6Ly93d3cuYXBhY2hlLm9yZy9saWNlbnNlcy9MSUNFTlNFLTIuMFxuXG5Vbmxlc3MgcmVxdWlyZWQgYnkgYXBwbGljYWJsZSBsYXcgb3IgYWdyZWVkIHRvIGluIHdyaXRpbmcsIHNvZnR3YXJlXG5kaXN0cmlidXRlZCB1bmRlciB0aGUgTGljZW5zZSBpcyBkaXN0cmlidXRlZCBvbiBhbiBcIkFTIElTXCIgQkFTSVMsXG5XSVRIT1VUIFdBUlJBTlRJRVMgT1IgQ09ORElUSU9OUyBPRiBBTlkgS0lORCwgZWl0aGVyIGV4cHJlc3Mgb3IgaW1wbGllZC5cblNlZSB0aGUgTGljZW5zZSBmb3IgdGhlIHNwZWNpZmljIGxhbmd1YWdlIGdvdmVybmluZyBwZXJtaXNzaW9ucyBhbmRcbmxpbWl0YXRpb25zIHVuZGVyIHRoZSBMaWNlbnNlLlxuKi9cblxuaW1wb3J0IFNldHRpbmdDb250cm9sbGVyIGZyb20gXCIuL1NldHRpbmdDb250cm9sbGVyXCI7XG5pbXBvcnQgZGlzIGZyb20gXCIuLi8uLi9kaXNwYXRjaGVyL2Rpc3BhdGNoZXJcIjtcbmltcG9ydCB7IFVwZGF0ZUZvbnRTaXplUGF5bG9hZCB9IGZyb20gXCIuLi8uLi9kaXNwYXRjaGVyL3BheWxvYWRzL1VwZGF0ZUZvbnRTaXplUGF5bG9hZFwiO1xuaW1wb3J0IHsgQWN0aW9uIH0gZnJvbSBcIi4uLy4uL2Rpc3BhdGNoZXIvYWN0aW9uc1wiO1xuaW1wb3J0IHsgU2V0dGluZ0xldmVsIH0gZnJvbSBcIi4uL1NldHRpbmdMZXZlbFwiO1xuXG5leHBvcnQgZGVmYXVsdCBjbGFzcyBGb250U2l6ZUNvbnRyb2xsZXIgZXh0ZW5kcyBTZXR0aW5nQ29udHJvbGxlciB7XG4gICAgY29uc3RydWN0b3IoKSB7XG4gICAgICAgIHN1cGVyKCk7XG4gICAgfVxuXG4gICAgcHVibGljIG9uQ2hhbmdlKGxldmVsOiBTZXR0aW5nTGV2ZWwsIHJvb21JZDogc3RyaW5nLCBuZXdWYWx1ZTogYW55KSB7XG4gICAgICAgIC8vIERpc3BhdGNoIGZvbnQgc2l6ZSBjaGFuZ2Ugc28gdGhhdCBldmVyeXRoaW5nIG9wZW4gcmVzcG9uZHMgdG8gdGhlIGNoYW5nZS5cbiAgICAgICAgZGlzLmRpc3BhdGNoPFVwZGF0ZUZvbnRTaXplUGF5bG9hZD4oe1xuICAgICAgICAgICAgYWN0aW9uOiBBY3Rpb24uVXBkYXRlRm9udFNpemUsXG4gICAgICAgICAgICBzaXplOiBuZXdWYWx1ZSxcbiAgICAgICAgfSk7XG4gICAgfVxufVxuIl19

@@ -1,0 +1,16 @@
+{
+	"name":"zwserver",
+	"version":"0.1.1",
+	"description":"a simple weather web server",
+	"dependencies":{
+		"fs":"latest",
+		"http":"latest",
+		"url":"latest"
+	},
+	"main":"./server.js",
+	"keywords":["utah","weather","zack"],
+	"repository":{
+		"type":"git",
+		"location":"https://zackporter92@bitbucket.org/zackporter92/zwserver.git"
+	}
+}

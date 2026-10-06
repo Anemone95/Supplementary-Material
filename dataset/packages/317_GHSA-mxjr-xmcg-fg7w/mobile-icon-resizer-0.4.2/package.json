@@ -1,0 +1,28 @@
+{
+  "name": "mobile-icon-resizer",
+  "version": "0.4.2",
+  "description": "Batch iOS and Android icon resizing tool.",
+  "main": "index.js",
+  "bin": {
+    "mobile-icon-resizer": "./resize.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/muzzley/mobile-icon-resizer.git"
+  },
+  "author": "Tiago Alves",
+  "license": "ISC",
+  "dependencies": {
+    "async": "~0.2.10",
+    "optimist": "~0.6.1",
+    "mkdirp": "~0.3.5",
+    "image-size": "~0.2.3"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.4",
+    "muzzley-grunt-commons": "git+https://github.com/muzzley/grunt-commons.git#master"
+  }
+}

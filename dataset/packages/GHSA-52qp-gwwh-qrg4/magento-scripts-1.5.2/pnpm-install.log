@@ -1,0 +1,19 @@
+$ corepack pnpm@9.15.9 install --prod --no-frozen-lockfile --reporter=append-only --config.node-linker=hoisted --ignore-workspace --ignore-scripts
+Progress: resolved 1, reused 0, downloaded 0, added 0
+Progress: resolved 28, reused 0, downloaded 0, added 0
+Progress: resolved 97, reused 0, downloaded 0, added 0
+Progress: resolved 295, reused 0, downloaded 0, added 0
+Progress: resolved 370, reused 0, downloaded 0, added 0
+Progress: resolved 377, reused 0, downloaded 0, added 0
+Progress: resolved 378, reused 0, downloaded 0, added 0
+Progress: resolved 413, reused 0, downloaded 0, added 0
+Progress: resolved 414, reused 0, downloaded 0, added 0
+ WARN  10 deprecated subdependencies found: @types/minimatch@6.0.0, clone-buffer@1.0.0, glob@7.2.3, inflight@1.0.6, path-dirname@1.0.2, resolve-url@0.2.1, rimraf@3.0.2, source-map-resolve@0.5.3, source-map-url@0.4.1, urix@0.1.0
+
+devDependencies: skipped
+
+Packages: +447
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Progress: resolved 449, reused 360, downloaded 23, added 389
+Progress: resolved 449, reused 360, downloaded 69, added 447, done
+Done in 13.3s using pnpm v9.15.9

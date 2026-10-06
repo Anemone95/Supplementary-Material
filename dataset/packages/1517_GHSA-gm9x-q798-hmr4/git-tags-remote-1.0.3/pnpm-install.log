@@ -1,0 +1,24 @@
+$ corepack pnpm@9.15.9 install --prod --no-frozen-lockfile --reporter=append-only --config.node-linker=hoisted --ignore-workspace --ignore-scripts
+Progress: resolved 1, reused 0, downloaded 0, added 0
+ WARN  deprecated standard-version@8.0.2: standard-version is deprecated. If you're a GitHub user, I recommend https://github.com/googleapis/release-please as an alternative.
+ WARN  deprecated rollup-plugin-terser@6.1.0: This package has been deprecated and is no longer maintained. Please use @rollup/plugin-terser
+Progress: resolved 11, reused 0, downloaded 0, added 0
+Progress: resolved 13, reused 0, downloaded 0, added 0
+ WARN  deprecated eslint@7.32.0: This version is no longer supported. Please see https://eslint.org/version-support for other options.
+Progress: resolved 65, reused 0, downloaded 0, added 0
+Progress: resolved 172, reused 0, downloaded 0, added 0
+Progress: resolved 287, reused 0, downloaded 0, added 0
+Progress: resolved 405, reused 0, downloaded 0, added 0
+Progress: resolved 502, reused 0, downloaded 0, added 0
+Progress: resolved 616, reused 0, downloaded 0, added 0
+Progress: resolved 667, reused 0, downloaded 0, added 0
+Progress: resolved 672, reused 0, downloaded 0, added 0
+Progress: resolved 673, reused 0, downloaded 0, added 0
+ WARN  20 deprecated subdependencies found: @humanwhocodes/config-array@0.5.0, @humanwhocodes/object-schema@1.2.1, conventional-changelog-atom@2.0.8, conventional-changelog-codemirror@2.0.8, conventional-changelog-core@4.2.4, conventional-changelog-ember@2.0.9, conventional-changelog-eslint@3.0.9, conventional-changelog-express@2.0.6, conventional-changelog-jquery@3.0.11, conventional-changelog-jshint@2.0.9, git-raw-commits@2.0.0, git-raw-commits@2.0.11, git-semver-tags@4.1.1, glob@7.2.3, inflight@1.0.6, lodash.template@4.18.1, q@1.5.1, rimraf@3.0.2, stringify-package@1.0.1, uuid@8.3.2
+
+devDependencies: skipped
+
+Packages: +1
++
+Progress: resolved 674, reused 1, downloaded 0, added 1, done
+Done in 11.9s using pnpm v9.15.9

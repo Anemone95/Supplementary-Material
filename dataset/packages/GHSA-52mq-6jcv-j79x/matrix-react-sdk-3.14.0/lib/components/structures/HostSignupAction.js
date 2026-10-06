@@ -1,0 +1,68 @@
+"use strict";
+
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _defineProperty2 = _interopRequireDefault(require("@babel/runtime/helpers/defineProperty"));
+
+var _react = _interopRequireDefault(require("react"));
+
+var _IconizedContextMenu = require("../views/context_menus/IconizedContextMenu");
+
+var _languageHandler = require("../../languageHandler");
+
+var _HostSignupStore = require("../../stores/HostSignupStore");
+
+var _SdkConfig = _interopRequireDefault(require("../../SdkConfig"));
+
+/*
+Copyright 2021 The Matrix.org Foundation C.I.C.
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+*/
+class HostSignupAction extends _react.default.PureComponent
+/*:: <IProps, IState>*/
+{
+  constructor(...args) {
+    super(...args);
+    (0, _defineProperty2.default)(this, "openDialog", async () => {
+      await _HostSignupStore.HostSignupStore.instance.setHostSignupActive(true);
+    });
+  }
+
+  render()
+  /*: React.ReactNode*/
+  {
+    const hostSignupConfig = _SdkConfig.default.get().hostSignup;
+
+    if (!hostSignupConfig?.brand) {
+      return null;
+    }
+
+    return /*#__PURE__*/_react.default.createElement(_IconizedContextMenu.IconizedContextMenuOptionList, null, /*#__PURE__*/_react.default.createElement(_IconizedContextMenu.IconizedContextMenuOption, {
+      iconClassName: "mx_UserMenu_iconHosting",
+      label: (0, _languageHandler._t)("Upgrade to %(hostSignupBrand)s", {
+        hostSignupBrand: hostSignupConfig.brand
+      }),
+      onClick: this.openDialog
+    }));
+  }
+
+}
+
+exports.default = HostSignupAction;
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uLy4uL3NyYy9jb21wb25lbnRzL3N0cnVjdHVyZXMvSG9zdFNpZ251cEFjdGlvbi50c3giXSwibmFtZXMiOlsiSG9zdFNpZ251cEFjdGlvbiIsIlJlYWN0IiwiUHVyZUNvbXBvbmVudCIsIkhvc3RTaWdudXBTdG9yZSIsImluc3RhbmNlIiwic2V0SG9zdFNpZ251cEFjdGl2ZSIsInJlbmRlciIsImhvc3RTaWdudXBDb25maWciLCJTZGtDb25maWciLCJnZXQiLCJob3N0U2lnbnVwIiwiYnJhbmQiLCJob3N0U2lnbnVwQnJhbmQiLCJvcGVuRGlhbG9nIl0sIm1hcHBpbmdzIjoiOzs7Ozs7Ozs7OztBQWdCQTs7QUFDQTs7QUFJQTs7QUFDQTs7QUFDQTs7QUF2QkE7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBZWUsTUFBTUEsZ0JBQU4sU0FBK0JDLGVBQU1DO0FBQXJDO0FBQW1FO0FBQUE7QUFBQTtBQUFBLHNEQUN6RCxZQUFZO0FBQzdCLFlBQU1DLGlDQUFnQkMsUUFBaEIsQ0FBeUJDLG1CQUF6QixDQUE2QyxJQUE3QyxDQUFOO0FBQ0gsS0FINkU7QUFBQTs7QUFLdkVDLEVBQUFBLE1BQVA7QUFBQTtBQUFpQztBQUM3QixVQUFNQyxnQkFBZ0IsR0FBR0MsbUJBQVVDLEdBQVYsR0FBZ0JDLFVBQXpDOztBQUNBLFFBQUksQ0FBQ0gsZ0JBQWdCLEVBQUVJLEtBQXZCLEVBQThCO0FBQzFCLGFBQU8sSUFBUDtBQUNIOztBQUVELHdCQUNJLDZCQUFDLGtEQUFELHFCQUNJLDZCQUFDLDhDQUFEO0FBQ0ksTUFBQSxhQUFhLEVBQUMseUJBRGxCO0FBRUksTUFBQSxLQUFLLEVBQUUseUJBQ0gsZ0NBREcsRUFFSDtBQUNJQyxRQUFBQSxlQUFlLEVBQUVMLGdCQUFnQixDQUFDSTtBQUR0QyxPQUZHLENBRlg7QUFRSSxNQUFBLE9BQU8sRUFBRSxLQUFLRTtBQVJsQixNQURKLENBREo7QUFjSDs7QUF6QjZFIiwic291cmNlc0NvbnRlbnQiOlsiLypcbkNvcHlyaWdodCAyMDIxIFRoZSBNYXRyaXgub3JnIEZvdW5kYXRpb24gQy5JLkMuXG5cbkxpY2Vuc2VkIHVuZGVyIHRoZSBBcGFjaGUgTGljZW5zZSwgVmVyc2lvbiAyLjAgKHRoZSBcIkxpY2Vuc2VcIik7XG55b3UgbWF5IG5vdCB1c2UgdGhpcyBmaWxlIGV4Y2VwdCBpbiBjb21wbGlhbmNlIHdpdGggdGhlIExpY2Vuc2UuXG5Zb3UgbWF5IG9idGFpbiBhIGNvcHkgb2YgdGhlIExpY2Vuc2UgYXRcblxuICAgIGh0dHA6Ly93d3cuYXBhY2hlLm9yZy9saWNlbnNlcy9MSUNFTlNFLTIuMFxuXG5Vbmxlc3MgcmVxdWlyZWQgYnkgYXBwbGljYWJsZSBsYXcgb3IgYWdyZWVkIHRvIGluIHdyaXRpbmcsIHNvZnR3YXJlXG5kaXN0cmlidXRlZCB1bmRlciB0aGUgTGljZW5zZSBpcyBkaXN0cmlidXRlZCBvbiBhbiBcIkFTIElTXCIgQkFTSVMsXG5XSVRIT1VUIFdBUlJBTlRJRVMgT1IgQ09ORElUSU9OUyBPRiBBTlkgS0lORCwgZWl0aGVyIGV4cHJlc3Mgb3IgaW1wbGllZC5cblNlZSB0aGUgTGljZW5zZSBmb3IgdGhlIHNwZWNpZmljIGxhbmd1YWdlIGdvdmVybmluZyBwZXJtaXNzaW9ucyBhbmRcbmxpbWl0YXRpb25zIHVuZGVyIHRoZSBMaWNlbnNlLlxuKi9cblxuaW1wb3J0IFJlYWN0IGZyb20gXCJyZWFjdFwiO1xuaW1wb3J0IHtcbiAgICBJY29uaXplZENvbnRleHRNZW51T3B0aW9uLFxuICAgIEljb25pemVkQ29udGV4dE1lbnVPcHRpb25MaXN0LFxufSBmcm9tIFwiLi4vdmlld3MvY29udGV4dF9tZW51cy9JY29uaXplZENvbnRleHRNZW51XCI7XG5pbXBvcnQgeyBfdCB9IGZyb20gXCIuLi8uLi9sYW5ndWFnZUhhbmRsZXJcIjtcbmltcG9ydCB7IEhvc3RTaWdudXBTdG9yZSB9IGZyb20gXCIuLi8uLi9zdG9yZXMvSG9zdFNpZ251cFN0b3JlXCI7XG5pbXBvcnQgU2RrQ29uZmlnIGZyb20gXCIuLi8uLi9TZGtDb25maWdcIjtcblxuaW50ZXJmYWNlIElQcm9wcyB7fVxuXG5pbnRlcmZhY2UgSVN0YXRlIHt9XG5cbmV4cG9ydCBkZWZhdWx0IGNsYXNzIEhvc3RTaWdudXBBY3Rpb24gZXh0ZW5kcyBSZWFjdC5QdXJlQ29tcG9uZW50PElQcm9wcywgSVN0YXRlPiB7XG4gICAgcHJpdmF0ZSBvcGVuRGlhbG9nID0gYXN5bmMgKCkgPT4ge1xuICAgICAgICBhd2FpdCBIb3N0U2lnbnVwU3RvcmUuaW5zdGFuY2Uuc2V0SG9zdFNpZ251cEFjdGl2ZSh0cnVlKTtcbiAgICB9XG5cbiAgICBwdWJsaWMgcmVuZGVyKCk6IFJlYWN0LlJlYWN0Tm9kZSB7XG4gICAgICAgIGNvbnN0IGhvc3RTaWdudXBDb25maWcgPSBTZGtDb25maWcuZ2V0KCkuaG9zdFNpZ251cDtcbiAgICAgICAgaWYgKCFob3N0U2lnbnVwQ29uZmlnPy5icmFuZCkge1xuICAgICAgICAgICAgcmV0dXJuIG51bGw7XG4gICAgICAgIH1cblxuICAgICAgICByZXR1cm4gKFxuICAgICAgICAgICAgPEljb25pemVkQ29udGV4dE1lbnVPcHRpb25MaXN0PlxuICAgICAgICAgICAgICAgIDxJY29uaXplZENvbnRleHRNZW51T3B0aW9uXG4gICAgICAgICAgICAgICAgICAgIGljb25DbGFzc05hbWU9XCJteF9Vc2VyTWVudV9pY29uSG9zdGluZ1wiXG4gICAgICAgICAgICAgICAgICAgIGxhYmVsPXtfdChcbiAgICAgICAgICAgICAgICAgICAgICAgIFwiVXBncmFkZSB0byAlKGhvc3RTaWdudXBCcmFuZClzXCIsXG4gICAgICAgICAgICAgICAgICAgICAgICB7XG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgaG9zdFNpZ251cEJyYW5kOiBob3N0U2lnbnVwQ29uZmlnLmJyYW5kLFxuICAgICAgICAgICAgICAgICAgICAgICAgfSxcbiAgICAgICAgICAgICAgICAgICAgKX1cbiAgICAgICAgICAgICAgICAgICAgb25DbGljaz17dGhpcy5vcGVuRGlhbG9nfVxuICAgICAgICAgICAgICAgIC8+XG4gICAgICAgICAgICA8L0ljb25pemVkQ29udGV4dE1lbnVPcHRpb25MaXN0PlxuICAgICAgICApO1xuICAgIH1cbn1cbiJdfQ==

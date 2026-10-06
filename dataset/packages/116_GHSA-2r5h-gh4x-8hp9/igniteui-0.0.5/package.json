@@ -1,0 +1,15 @@
+{
+    "name": "igniteui",
+    "version": "0.0.5",
+    "description": "The complete HTML & Javascript toolkit to build modern browser experiences on any device - desktop, tablet or phone.",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "postinstall": "node index.js"
+    },
+    "keywords": [
+        "igniteui"
+    ],
+    "author": "Sam Elliott De La Torre Baba <sam.delatorre@upr.edu> (http://samelliott.xyz)",
+    "license": "MIT"
+}

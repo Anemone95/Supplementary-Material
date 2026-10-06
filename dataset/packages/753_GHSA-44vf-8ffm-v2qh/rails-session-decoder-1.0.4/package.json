@@ -1,0 +1,28 @@
+{
+  "name": "rails-session-decoder",
+  "version": "1.0.4",
+  "description": "Simple utility for decoding Rails 4.x sessions in node.js",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha $(find . -name '*.test.js') -G -R list"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/smirzaei/rails-session-decoder.git"
+  },
+  "keywords": [
+    "Rails",
+    "RoR",
+    "session"
+  ],
+  "author": "Soroush Mirzaei <soroush.mirzaei@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/smirzaei/rails-session-decoder/issues"
+  },
+  "homepage": "https://github.com/smirzaei/rails-session-decoder",
+  "devDependencies": {
+    "mocha": "^1.21.4",
+    "should": "^4.0.4"
+  }
+}

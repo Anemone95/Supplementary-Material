@@ -1,0 +1,15 @@
+$ corepack pnpm@9.15.9 install --prod --no-frozen-lockfile --reporter=append-only --config.node-linker=hoisted --ignore-workspace --ignore-scripts
+ WARN  deprecated glob@7.2.3: Old versions of glob are not supported, and contain widely publicized security vulnerabilities, which have been fixed in the current version. Please update. Support for old versions may be purchased (at exorbitant rates) by contacting i@izs.me
+Progress: resolved 1, reused 0, downloaded 0, added 0
+ WARN  deprecated chromedriver@2.46.0: Chromedriver download url has changed. Use version 114.0.2 or newer.
+Progress: resolved 168, reused 0, downloaded 0, added 0
+Progress: resolved 209, reused 0, downloaded 0, added 0
+ WARN  11 deprecated subdependencies found: glob@7.0.5, har-validator@5.1.5, inflight@1.0.6, json3@3.3.2, lodash.clone@3.0.3, mkdirp@0.5.1, q@1.4.1, request@2.88.2, rimraf@2.7.1, socks@1.1.10, uuid@3.4.0
+
+devDependencies: skipped
+
+Packages: +15
++++++++++++++++
+Progress: resolved 213, reused 14, downloaded 0, added 14
+Progress: resolved 213, reused 14, downloaded 1, added 15, done
+Done in 3.9s using pnpm v9.15.9

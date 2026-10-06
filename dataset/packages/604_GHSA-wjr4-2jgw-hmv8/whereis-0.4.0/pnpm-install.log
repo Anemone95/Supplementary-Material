@@ -1,0 +1,11 @@
+$ corepack pnpm@9.15.9 install --prod --no-frozen-lockfile --reporter=append-only --config.node-linker=hoisted --ignore-workspace --ignore-scripts
+ WARN  deprecated tap@0.4.13: Versions of tap before v18 are no longer maintained. Please upgrade.
+Progress: resolved 1, reused 0, downloaded 0, added 0
+Progress: resolved 42, reused 0, downloaded 0, added 0
+ WARN  3 deprecated subdependencies found: charm@0.1.2, glob@3.2.11, minimatch@0.3.0
+
+devDependencies: skipped
+
+Already up to date
+Progress: resolved 115, reused 0, downloaded 0, added 0, done
+Done in 2.2s using pnpm v9.15.9

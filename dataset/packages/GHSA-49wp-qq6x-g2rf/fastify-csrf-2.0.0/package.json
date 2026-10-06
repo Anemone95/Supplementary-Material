@@ -1,0 +1,45 @@
+{
+  "name": "fastify-csrf",
+  "version": "2.0.0",
+  "description": "A plugin for adding CSRF protection to Fastify.",
+  "main": "index.js",
+  "types": "index.d.ts",
+  "scripts": {
+    "test": "standard && tap --100 test/*.test.js && tsd"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fastify/fastify-csrf.git"
+  },
+  "author": "",
+  "contributors": [
+    {
+      "name": "Martin Jurča",
+      "email": "mjurca@centrum.cz",
+      "url": "https://github.com/jurca"
+    }
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/fastify/fastify-csrf/issues"
+  },
+  "homepage": "https://github.com/fastify/fastify-csrf#readme",
+  "tsd": {
+    "directory": "./test"
+  },
+  "dependencies": {
+    "csrf": "^3.1.0",
+    "fastify-plugin": "^2.3.4",
+    "http-errors": "^1.8.0"
+  },
+  "devDependencies": {
+    "@types/node": "^14.11.8",
+    "fastify": "^3.5.1",
+    "fastify-cookie": "^4.1.0",
+    "fastify-secure-session": "^2.3.0",
+    "fastify-session": "^5.2.0",
+    "standard": "^14.3.4",
+    "tap": "^14.10.8",
+    "tsd": "^0.13.1"
+  }
+}

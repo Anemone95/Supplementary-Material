@@ -1,0 +1,73 @@
+lockfileVersion: '9.0'
+
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
+
+importers:
+
+  .:
+    dependencies:
+      colors:
+        specifier: ^1.1.2
+        version: 1.4.0
+      mime:
+        specifier: ^2.0.3
+        version: 2.6.0
+      nutty:
+        specifier: ^0.2.3
+        version: 0.2.3
+      utily:
+        specifier: ^0.2.0
+        version: 0.2.4
+
+packages:
+
+  colors@1.1.2:
+    resolution: {integrity: sha512-ENwblkFQpqqia6b++zLD/KUWafYlVY/UNnAp7oz7LY7E924wmpye416wBOmvv/HMWzl8gL1kJlfvId/1Dg176w==}
+    engines: {node: '>=0.1.90'}
+
+  colors@1.4.0:
+    resolution: {integrity: sha512-a+UqTh4kgZg/SlGvfbzDHpgRu7AAQOmmqRHJnxhRZICKFUT91brVhNNt58CMWU9PsBbv3PDCZUHbVxuDiH2mtA==}
+    engines: {node: '>=0.1.90'}
+
+  keue@0.0.3:
+    resolution: {integrity: sha512-SniyamkCP4YdraYctfk0r9p2StdKdIxPpvZdNSXRCqh12xq5MiO1AZBg5RbqxXEnQEgzpXJQmj1TQgcb+/kbmw==}
+    deprecated: Package no longer supported. Contact Support at https://www.npmjs.com/support for more info.
+
+  mime@2.6.0:
+    resolution: {integrity: sha512-USPkMeET31rOMiarsBNIHZKLGgvKc/LrjofAnBlOttf5ajRvqiRA8QsenbcooctK6d6Ts6aqZXBA+XbkKthiQg==}
+    engines: {node: '>=4.0.0'}
+    hasBin: true
+
+  nutty-log@0.0.6:
+    resolution: {integrity: sha512-YJ5ofV4iZrjY3q1JsWXrioYRD+Zt2EQr5tmW+qIIbxdvGDr428fHAm8lOHcGIvt8sJh40ckPpzlM/Nx5cqaquQ==}
+    deprecated: Package no longer supported. Contact Support at https://www.npmjs.com/support for more info.
+
+  nutty@0.2.3:
+    resolution: {integrity: sha512-cnBGNNfK1I8F4s77it9LwQHsWyBp+75p+0We+aXghX7W4y4x8SJkntmcV07yUyCgaGItGemZ3tutRGIbbVCJfw==}
+    deprecated: Package no longer supported. Contact Support at https://www.npmjs.com/support for more info.
+
+  utily@0.2.4:
+    resolution: {integrity: sha512-hnzg4B36quOGxjOnQa6fKIsXnCpxe/kNCH1r+5kaP9eCO5CcbdiFXQxQDYu15ZlWia4dIWBa3Lbvd94armAFig==}
+
+snapshots:
+
+  colors@1.1.2: {}
+
+  colors@1.4.0: {}
+
+  keue@0.0.3: {}
+
+  mime@2.6.0: {}
+
+  nutty-log@0.0.6:
+    dependencies:
+      colors: 1.1.2
+
+  nutty@0.2.3:
+    dependencies:
+      keue: 0.0.3
+      nutty-log: 0.0.6
+
+  utily@0.2.4: {}

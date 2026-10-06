@@ -1,0 +1,15 @@
+$ corepack pnpm@9.15.9 install --prod --no-frozen-lockfile --reporter=append-only --config.node-linker=hoisted --ignore-workspace --ignore-scripts
+Progress: resolved 1, reused 0, downloaded 0, added 0
+ WARN  deprecated formidable@1.2.6: Please upgrade to latest, formidable@v2 or formidable@v3! Check these notes: https://bit.ly/2ZEqIau
+ WARN  deprecated multer@1.4.4: Multer 1.x is affected by CVE-2022-24434. This is fixed in v1.4.4-lts.1 which drops support for versions of Node.js before 6. Please upgrade to at least Node.js 6 and version 1.4.4-lts.1 of Multer. If you need support for older versions of Node.js, we are open to accepting patches that would fix the CVE on the main 1.x release line, whilst maintaining compatibility with Node.js 0.10.
+Progress: resolved 218, reused 0, downloaded 0, added 0
+Progress: resolved 468, reused 0, downloaded 0, added 0
+Progress: resolved 644, reused 0, downloaded 0, added 0
+ WARN  41 deprecated subdependencies found: boom@0.4.2, connect@2.12.0, cryptiles@0.2.2, express@3.4.8, forEachAsync@2.2.1, formidable@1.0.14, fsevents@1.2.13, glob@3.2.11, glob@4.0.6, glob@4.3.5, glob@5.0.15, glob@7.1.1, glob@7.2.3, hawk@1.1.1, highlight.js@7.5.0, hoek@0.9.1, inflight@1.0.6, istanbul@0.2.16, istanbul@0.4.5, json3@3.3.2, minimatch@0.2.14, minimatch@0.3.0, minimatch@1.0.0, minimatch@2.0.10, mkdirp@0.3.5, mkdirp@0.5.1, natives@1.1.6, node-uuid@1.4.8, osenv@0.0.3, q@1.0.1, raw-body@1.1.2, request@2.11.4, request@2.46.0, resolve-url@0.2.1, rimraf@2.2.8, sntp@0.2.4, source-map-resolve@0.5.3, source-map-url@0.4.1, superagent@0.15.7, urix@0.1.0, wrench@1.5.9
+
+devDependencies: skipped
+
+Packages: +44
+++++++++++++++++++++++++++++++++++++++++++++
+Progress: resolved 645, reused 44, downloaded 0, added 44, done
+Done in 4s using pnpm v9.15.9

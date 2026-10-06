@@ -1,0 +1,16 @@
+{
+  "name": "serveryaozeyan",
+  "version": "1.0.4",
+  "description": "server",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "yaozeyan"
+  ],
+  "author": "yao",
+  "license": "ISC"
+}

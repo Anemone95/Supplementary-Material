@@ -1,0 +1,18 @@
+{
+  "vm": {
+    "name": "test",
+    "socket": "./.priest/priest.sock",
+    "network":{
+      "7000": "8080"
+    },
+    "fs": {
+      "content/src": "./src",
+      "content/tests": "./tests"
+    }
+  },
+  "guest": {
+    "init" : [
+      {"args": ["timer.js"]}
+    ]
+  }
+}

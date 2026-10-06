@@ -1,0 +1,19 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8" >
+    <link rel="stylesheet" href="<%=util%>/static/css/folder.css">
+</head>
+<body>
+	<ul>
+		<%for(var i = 0; i < fileList.length; i++){
+			var reg = /\.([^\.\/]+$)/;
+			var t = fileList[i];
+			var test = reg.exec(t.file);
+			test ? t.name = test[1] : t.name='folder';
+		%>
+			<li class=<%=t.name%>  ><a href="<%=t.base+t.file%>"><%=t.file%></a></li>
+        <%}%>
+	</ul>
+</body>
+</html>

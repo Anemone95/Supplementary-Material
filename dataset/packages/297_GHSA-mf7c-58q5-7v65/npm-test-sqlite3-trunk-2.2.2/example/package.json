@@ -1,0 +1,21 @@
+{
+  "name": "example",
+  "version": "0.0.1",
+  "main": "index.js",
+  "description": "useconfig example",
+  "dependencies": {
+    "useconfig": ""
+  },
+  "author": {
+    "name": "Adam Brault",
+    "url": "http://adambrault.com"
+  },
+  "license": "MIT",
+  "engines": {
+    "node": "0.10.x"
+  },
+  "scripts": {
+    "postinstall": "npm link ../../useconfig",
+    "postupdate": "npm link ../../useconfig"
+  }
+}

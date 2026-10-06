@@ -1,0 +1,12 @@
+$ corepack pnpm@9.15.9 install --prod --no-frozen-lockfile --reporter=append-only --config.node-linker=hoisted --ignore-workspace --ignore-scripts
+Progress: resolved 1, reused 0, downloaded 0, added 0
+ WARN  deprecated supertest@3.0.0: Please upgrade to supertest v7.1.3+, see release notes at https://github.com/forwardemail/supertest/releases/tag/v7.1.3 - maintenance is supported by Forward Email @ https://forwardemail.net
+Progress: resolved 210, reused 0, downloaded 0, added 0
+ WARN  11 deprecated subdependencies found: formidable@1.2.6, glob@5.0.15, glob@7.0.6, glob@7.1.1, glob@7.1.7, glob@7.2.3, inflight@1.0.6, json3@3.3.2, mkdirp@0.5.1, rimraf@2.6.3, superagent@3.8.3
+
+devDependencies: skipped
+
+Packages: +4
+++++
+Progress: resolved 260, reused 1, downloaded 3, added 4, done
+Done in 2.1s using pnpm v9.15.9

@@ -1,0 +1,34 @@
+{
+  "name": "selenium-chromedriver",
+  "version": "0.0.2",
+  "description": "Simple utility for downloading the Selenium Webdriver for Google Chrome",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "install": "node install"
+  },
+  "author": "Mike Pennisi",
+  "license": "MIT-Expat",
+  "dependencies": {
+    "adm-zip": "~0.4.3",
+    "which": "~1.0.5",
+    "kew": "~0.3.2",
+    "npmconf": "~0.1.12",
+    "temp": "~0.8.1",
+    "mkdirp": "~0.3.5",
+    "semver": "~2.2.1"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:jugglinmike/selenium-chromedriver.git"
+  },
+  "keywords": [
+    "selenium",
+    "chromedriver",
+    "automation",
+    "download"
+  ],
+  "bugs": {
+    "url": "https://github.com/jugglinmike/selenium-chromedriver/issues"
+  }
+}

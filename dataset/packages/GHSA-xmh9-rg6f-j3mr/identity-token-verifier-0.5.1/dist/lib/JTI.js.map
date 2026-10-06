@@ -1,0 +1,1 @@
+{"version":3,"file":"JTI.js","sourceRoot":"","sources":["../../src/lib/JTI.ts"],"names":[],"mappings":";;;AAAA,SAAgB,WAAW;IACzB,OAAO,KAAK,CAAC;AACf,CAAC;AAFD,kCAEC","sourcesContent":["export function isDuplicate() {\n  return false;\n}\n"]}

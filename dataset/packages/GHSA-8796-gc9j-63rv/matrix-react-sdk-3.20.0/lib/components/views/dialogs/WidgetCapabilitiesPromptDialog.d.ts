@@ -1,0 +1,27 @@
+import React from 'react';
+import { IDialogProps } from "./IDialogProps";
+import { Capability, Widget, WidgetKind } from "matrix-widget-api";
+export declare function getRememberedCapabilitiesForWidget(widget: Widget): Capability[];
+interface IProps extends IDialogProps {
+    requestedCapabilities: Set<Capability>;
+    widget: Widget;
+    widgetKind: WidgetKind;
+}
+interface IBooleanStates {
+    [capability: Capability]: boolean;
+}
+interface IState {
+    booleanStates: IBooleanStates;
+    rememberSelection: boolean;
+}
+export default class WidgetCapabilitiesPromptDialog extends React.PureComponent<IProps, IState> {
+    private eventPermissionsMap;
+    constructor(props: IProps);
+    private onToggle;
+    private onRememberSelectionChange;
+    private onSubmit;
+    private onReject;
+    private closeAndTryRemember;
+    render(): JSX.Element;
+}
+export {};

@@ -1,0 +1,15 @@
+$ corepack pnpm@9.15.9 install --prod --no-frozen-lockfile --reporter=append-only --config.node-linker=hoisted --ignore-workspace --ignore-scripts
+Progress: resolved 1, reused 0, downloaded 0, added 0
+ WARN  deprecated request-promise@0.4.3: request-promise has been deprecated because it extends the now deprecated request package, see https://github.com/request/request/issues/3142
+ WARN  deprecated istanbul@0.3.22: This module is no longer maintained, try this instead:
+  npm i nyc
+Visit https://istanbul.js.org/integrations for other alternatives.
+Progress: resolved 112, reused 0, downloaded 0, added 0
+ WARN  15 deprecated subdependencies found: formidable@1.2.6, glob@3.2.11, glob@5.0.15, glob@6.0.4, har-validator@5.1.5, inflight@1.0.6, jade@0.26.3, minimatch@0.3.0, minimatch@2.0.10, mkdirp@0.3.0, mkdirp@0.5.1, request@2.88.2, rimraf@2.4.5, to-iso-string@0.0.2, uuid@3.4.0
+
+devDependencies: skipped
+
+Packages: +1
++
+Progress: resolved 200, reused 1, downloaded 0, added 1, done
+Done in 1.9s using pnpm v9.15.9

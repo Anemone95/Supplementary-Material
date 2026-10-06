@@ -1,0 +1,49 @@
+$ corepack pnpm@9.15.9 install --prod --no-frozen-lockfile --reporter=append-only --config.node-linker=hoisted --ignore-workspace --ignore-scripts
+Progress: resolved 1, reused 0, downloaded 0, added 0
+ WARN  deprecated uuid@3.3.2: uuid@10 and below is no longer supported.  For ESM codebases, update to uuid@latest.  For CommonJS codebases, use uuid@11 (but be aware this version will likely be deprecated in 2028).
+ WARN  deprecated uws@10.148.1: New code is available at github.com/uNetworking/uWebSockets.js
+ WARN  deprecated babel-eslint@10.0.0: babel-eslint is now @babel/eslint-parser. This package will no longer receive updates.
+ WARN  deprecated @babel/plugin-proposal-object-rest-spread@7.4.4: This proposal has been merged to the ECMAScript standard and thus this plugin is no longer maintained. Please use @babel/plugin-transform-object-rest-spread instead.
+ WARN  deprecated eslint@5.16.0: This version is no longer supported. Please see https://eslint.org/version-support for other options.
+ WARN  deprecated bcrypt@3.0.6: versions < v5.0.0 do not handle NUL in passwords properly
+ WARN  deprecated deep-diff@1.0.2: Package no longer supported. Contact Support at https://www.npmjs.com/support for more info.
+ WARN  deprecated @parse/simple-mailgun-adapter@1.1.0: Package no longer supported. Use at your own risk. Find a list of supported e-mail adapters at https://github.com/parse-community/parse-server#email-verification-and-password-reset
+ WARN  deprecated deepcopy@2.0.0: No longer maintained. Use structuredClone instead.
+ WARN  deprecated pg-promise@8.7.2: This version of pg-promise is obsolete. You should update to a newer version.
+ WARN  deprecated mongodb-runner@4.3.2: This package is not maintained anymore. Please use @mongodb-js/mongodb-runner instead
+ WARN  deprecated bcrypt-nodejs@0.0.3: bcrypt-nodejs is no longer actively maintained. Please use bcrypt or bcryptjs. See https://github.com/kelektiv/node.bcrypt.js/wiki/bcrypt-vs-brypt.js to learn more about these two options
+Progress: resolved 49, reused 0, downloaded 0, added 0
+Progress: resolved 128, reused 0, downloaded 0, added 0
+Progress: resolved 192, reused 0, downloaded 0, added 0
+Progress: resolved 359, reused 0, downloaded 0, added 0
+Progress: resolved 471, reused 0, downloaded 0, added 0
+Progress: resolved 534, reused 0, downloaded 0, added 0
+Progress: resolved 622, reused 0, downloaded 0, added 0
+Packages are hard linked from the content-addressable store to the virtual store.
+  Content-addressable store is at: /home/wenyuan/pkg-cache/pnpm/v3
+  Virtual store is at:             node_modules/.pnpm
+ WARN  The git-hosted package fetched from "https://codeload.github.com/mongodb-js/mongodb-tools/tar.gz/194bdd6ac7922f8dcf3853de1aece0b0fdda93cf" has to be built but the build scripts were ignored.
+Progress: resolved 729, reused 0, downloaded 1, added 0
+Progress: resolved 834, reused 0, downloaded 1, added 0
+Progress: resolved 960, reused 0, downloaded 1, added 0
+Progress: resolved 1023, reused 0, downloaded 1, added 0
+Progress: resolved 1025, reused 0, downloaded 1, added 0
+Progress: resolved 1026, reused 0, downloaded 1, added 0
+Progress: resolved 1027, reused 0, downloaded 1, added 0
+Progress: resolved 1044, reused 0, downloaded 1, added 0
+Progress: resolved 1156, reused 0, downloaded 1, added 0
+Progress: resolved 1219, reused 0, downloaded 1, added 0
+ WARN  39 deprecated subdependencies found: @babel/plugin-proposal-async-generator-functions@7.20.7, @babel/plugin-proposal-json-strings@7.18.6, @babel/plugin-proposal-optional-catch-binding@7.18.6, @babel/plugin-proposal-unicode-property-regex@7.18.6, @types/minimatch@6.0.0, are-we-there-yet@1.1.7, aws-sdk@2.1693.0, bson@1.0.9, core-js@2.6.12, fsevents@1.2.13, gauge@1.2.7, gauge@2.7.4, glob@7.1.7, glob@7.2.3, har-validator@5.1.5, inflight@1.0.6, lodash.get@4.4.2, lodash.pick@4.4.0, lsof@0.1.0, mailgun-js@0.18.0, mkdirp@0.5.0, node-pre-gyp@0.12.0, npmlog@2.0.4, npmlog@4.1.2, osenv@0.1.5, path-dirname@1.0.2, q@1.5.1, querystring@0.2.0, request@2.88.0, request@2.88.2, resolve-url@0.2.1, rimraf@2.2.6, rimraf@2.6.3, rimraf@2.7.1, source-map-resolve@0.5.3, source-map-url@0.4.1, tar@4.4.19, urix@0.1.0, uuid@8.0.0
+
+devDependencies: skipped
+
+Packages: +408
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Progress: resolved 1231, reused 275, downloaded 7, added 276
+Progress: resolved 1231, reused 275, downloaded 75, added 363
+Progress: resolved 1231, reused 275, downloaded 108, added 405
+Progress: resolved 1231, reused 275, downloaded 109, added 405
+Progress: resolved 1231, reused 275, downloaded 109, added 406
+Progress: resolved 1231, reused 275, downloaded 110, added 406
+Progress: resolved 1231, reused 275, downloaded 110, added 408, done
+Done in 39.4s using pnpm v9.15.9

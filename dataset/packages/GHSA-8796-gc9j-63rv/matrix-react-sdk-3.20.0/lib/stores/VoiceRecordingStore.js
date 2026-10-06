@@ -1,0 +1,111 @@
+"use strict";
+
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.VoiceRecordingStore = void 0;
+
+var _defineProperty2 = _interopRequireDefault(require("@babel/runtime/helpers/defineProperty"));
+
+var _AsyncStoreWithClient = require("./AsyncStoreWithClient");
+
+var _dispatcher = _interopRequireDefault(require("../dispatcher/dispatcher"));
+
+var _VoiceRecording = require("../voice/VoiceRecording");
+
+/*
+Copyright 2021 The Matrix.org Foundation C.I.C.
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+*/
+class VoiceRecordingStore extends _AsyncStoreWithClient.AsyncStoreWithClient
+/*:: <IState>*/
+{
+  constructor() {
+    super(_dispatcher.default, {});
+  }
+  /**
+   * Gets the active recording instance, if any.
+   */
+
+
+  get activeRecording()
+  /*: VoiceRecording | null*/
+  {
+    return this.state.recording;
+  }
+
+  static get instance()
+  /*: VoiceRecordingStore*/
+  {
+    if (!VoiceRecordingStore.internalInstance) {
+      VoiceRecordingStore.internalInstance = new VoiceRecordingStore();
+    }
+
+    return VoiceRecordingStore.internalInstance;
+  }
+
+  async onAction(payload
+  /*: ActionPayload*/
+  )
+  /*: Promise<void>*/
+  {
+    // Nothing to do, but we're required to override the function
+    return;
+  }
+  /**
+   * Starts a new recording if one isn't already in progress. Note that this simply
+   * creates a recording instance - whether or not recording is actively in progress
+   * can be seen via the VoiceRecording class.
+   * @returns {VoiceRecording} The recording.
+   */
+
+
+  startRecording()
+  /*: VoiceRecording*/
+  {
+    if (!this.matrixClient) throw new Error("Cannot start a recording without a MatrixClient");
+    if (this.state.recording) throw new Error("A recording is already in progress");
+    const recording = new _VoiceRecording.VoiceRecording(this.matrixClient); // noinspection JSIgnoredPromiseFromCall - we can safely run this async
+
+    this.updateState({
+      recording
+    });
+    return recording;
+  }
+  /**
+   * Disposes of the current recording, no matter the state of it.
+   * @returns {Promise<void>} Resolves when complete.
+   */
+
+
+  disposeRecording()
+  /*: Promise<void>*/
+  {
+    if (this.state.recording) {
+      this.state.recording.destroy(); // stops internally
+    }
+
+    return this.updateState({
+      recording: null
+    });
+  }
+
+}
+
+exports.VoiceRecordingStore = VoiceRecordingStore;
+(0, _defineProperty2.default)(VoiceRecordingStore, "internalInstance", void 0);
+window.mxVoiceRecordingStore = VoiceRecordingStore.instance;
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uL3NyYy9zdG9yZXMvVm9pY2VSZWNvcmRpbmdTdG9yZS50cyJdLCJuYW1lcyI6WyJWb2ljZVJlY29yZGluZ1N0b3JlIiwiQXN5bmNTdG9yZVdpdGhDbGllbnQiLCJjb25zdHJ1Y3RvciIsImRlZmF1bHREaXNwYXRjaGVyIiwiYWN0aXZlUmVjb3JkaW5nIiwic3RhdGUiLCJyZWNvcmRpbmciLCJpbnN0YW5jZSIsImludGVybmFsSW5zdGFuY2UiLCJvbkFjdGlvbiIsInBheWxvYWQiLCJzdGFydFJlY29yZGluZyIsIm1hdHJpeENsaWVudCIsIkVycm9yIiwiVm9pY2VSZWNvcmRpbmciLCJ1cGRhdGVTdGF0ZSIsImRpc3Bvc2VSZWNvcmRpbmciLCJkZXN0cm95Iiwid2luZG93IiwibXhWb2ljZVJlY29yZGluZ1N0b3JlIl0sIm1hcHBpbmdzIjoiOzs7Ozs7Ozs7OztBQWdCQTs7QUFDQTs7QUFFQTs7QUFuQkE7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBV08sTUFBTUEsbUJBQU4sU0FBa0NDO0FBQWxDO0FBQStEO0FBRzNEQyxFQUFBQSxXQUFQLEdBQXFCO0FBQ2pCLFVBQU1DLG1CQUFOLEVBQXlCLEVBQXpCO0FBQ0g7QUFFRDtBQUNKO0FBQ0E7OztBQUNJLE1BQVdDLGVBQVg7QUFBQTtBQUFvRDtBQUNoRCxXQUFPLEtBQUtDLEtBQUwsQ0FBV0MsU0FBbEI7QUFDSDs7QUFFRCxhQUFrQkMsUUFBbEI7QUFBQTtBQUFrRDtBQUM5QyxRQUFJLENBQUNQLG1CQUFtQixDQUFDUSxnQkFBekIsRUFBMkM7QUFDdkNSLE1BQUFBLG1CQUFtQixDQUFDUSxnQkFBcEIsR0FBdUMsSUFBSVIsbUJBQUosRUFBdkM7QUFDSDs7QUFDRCxXQUFPQSxtQkFBbUIsQ0FBQ1EsZ0JBQTNCO0FBQ0g7O0FBRUQsUUFBZ0JDLFFBQWhCLENBQXlCQztBQUF6QjtBQUFBO0FBQUE7QUFBZ0U7QUFDNUQ7QUFDQTtBQUNIO0FBRUQ7QUFDSjtBQUNBO0FBQ0E7QUFDQTtBQUNBOzs7QUFDV0MsRUFBQUEsY0FBUDtBQUFBO0FBQXdDO0FBQ3BDLFFBQUksQ0FBQyxLQUFLQyxZQUFWLEVBQXdCLE1BQU0sSUFBSUMsS0FBSixDQUFVLGlEQUFWLENBQU47QUFDeEIsUUFBSSxLQUFLUixLQUFMLENBQVdDLFNBQWYsRUFBMEIsTUFBTSxJQUFJTyxLQUFKLENBQVUsb0NBQVYsQ0FBTjtBQUUxQixVQUFNUCxTQUFTLEdBQUcsSUFBSVEsOEJBQUosQ0FBbUIsS0FBS0YsWUFBeEIsQ0FBbEIsQ0FKb0MsQ0FNcEM7O0FBQ0EsU0FBS0csV0FBTCxDQUFpQjtBQUFDVCxNQUFBQTtBQUFELEtBQWpCO0FBRUEsV0FBT0EsU0FBUDtBQUNIO0FBRUQ7QUFDSjtBQUNBO0FBQ0E7OztBQUNXVSxFQUFBQSxnQkFBUDtBQUFBO0FBQXlDO0FBQ3JDLFFBQUksS0FBS1gsS0FBTCxDQUFXQyxTQUFmLEVBQTBCO0FBQ3RCLFdBQUtELEtBQUwsQ0FBV0MsU0FBWCxDQUFxQlcsT0FBckIsR0FEc0IsQ0FDVTtBQUNuQzs7QUFDRCxXQUFPLEtBQUtGLFdBQUwsQ0FBaUI7QUFBQ1QsTUFBQUEsU0FBUyxFQUFFO0FBQVosS0FBakIsQ0FBUDtBQUNIOztBQXJEaUU7Ozs4QkFBekROLG1CO0FBd0Ria0IsTUFBTSxDQUFDQyxxQkFBUCxHQUErQm5CLG1CQUFtQixDQUFDTyxRQUFuRCIsInNvdXJjZXNDb250ZW50IjpbIi8qXG5Db3B5cmlnaHQgMjAyMSBUaGUgTWF0cml4Lm9yZyBGb3VuZGF0aW9uIEMuSS5DLlxuXG5MaWNlbnNlZCB1bmRlciB0aGUgQXBhY2hlIExpY2Vuc2UsIFZlcnNpb24gMi4wICh0aGUgXCJMaWNlbnNlXCIpO1xueW91IG1heSBub3QgdXNlIHRoaXMgZmlsZSBleGNlcHQgaW4gY29tcGxpYW5jZSB3aXRoIHRoZSBMaWNlbnNlLlxuWW91IG1heSBvYnRhaW4gYSBjb3B5IG9mIHRoZSBMaWNlbnNlIGF0XG5cbiAgICBodHRwOi8vd3d3LmFwYWNoZS5vcmcvbGljZW5zZXMvTElDRU5TRS0yLjBcblxuVW5sZXNzIHJlcXVpcmVkIGJ5IGFwcGxpY2FibGUgbGF3IG9yIGFncmVlZCB0byBpbiB3cml0aW5nLCBzb2Z0d2FyZVxuZGlzdHJpYnV0ZWQgdW5kZXIgdGhlIExpY2Vuc2UgaXMgZGlzdHJpYnV0ZWQgb24gYW4gXCJBUyBJU1wiIEJBU0lTLFxuV0lUSE9VVCBXQVJSQU5USUVTIE9SIENPTkRJVElPTlMgT0YgQU5ZIEtJTkQsIGVpdGhlciBleHByZXNzIG9yIGltcGxpZWQuXG5TZWUgdGhlIExpY2Vuc2UgZm9yIHRoZSBzcGVjaWZpYyBsYW5ndWFnZSBnb3Zlcm5pbmcgcGVybWlzc2lvbnMgYW5kXG5saW1pdGF0aW9ucyB1bmRlciB0aGUgTGljZW5zZS5cbiovXG5cbmltcG9ydCB7QXN5bmNTdG9yZVdpdGhDbGllbnR9IGZyb20gXCIuL0FzeW5jU3RvcmVXaXRoQ2xpZW50XCI7XG5pbXBvcnQgZGVmYXVsdERpc3BhdGNoZXIgZnJvbSBcIi4uL2Rpc3BhdGNoZXIvZGlzcGF0Y2hlclwiO1xuaW1wb3J0IHtBY3Rpb25QYXlsb2FkfSBmcm9tIFwiLi4vZGlzcGF0Y2hlci9wYXlsb2Fkc1wiO1xuaW1wb3J0IHtWb2ljZVJlY29yZGluZ30gZnJvbSBcIi4uL3ZvaWNlL1ZvaWNlUmVjb3JkaW5nXCI7XG5cbmludGVyZmFjZSBJU3RhdGUge1xuICAgIHJlY29yZGluZz86IFZvaWNlUmVjb3JkaW5nO1xufVxuXG5leHBvcnQgY2xhc3MgVm9pY2VSZWNvcmRpbmdTdG9yZSBleHRlbmRzIEFzeW5jU3RvcmVXaXRoQ2xpZW50PElTdGF0ZT4ge1xuICAgIHByaXZhdGUgc3RhdGljIGludGVybmFsSW5zdGFuY2U6IFZvaWNlUmVjb3JkaW5nU3RvcmU7XG5cbiAgICBwdWJsaWMgY29uc3RydWN0b3IoKSB7XG4gICAgICAgIHN1cGVyKGRlZmF1bHREaXNwYXRjaGVyLCB7fSk7XG4gICAgfVxuXG4gICAgLyoqXG4gICAgICogR2V0cyB0aGUgYWN0aXZlIHJlY29yZGluZyBpbnN0YW5jZSwgaWYgYW55LlxuICAgICAqL1xuICAgIHB1YmxpYyBnZXQgYWN0aXZlUmVjb3JkaW5nKCk6IFZvaWNlUmVjb3JkaW5nIHwgbnVsbCB7XG4gICAgICAgIHJldHVybiB0aGlzLnN0YXRlLnJlY29yZGluZztcbiAgICB9XG5cbiAgICBwdWJsaWMgc3RhdGljIGdldCBpbnN0YW5jZSgpOiBWb2ljZVJlY29yZGluZ1N0b3JlIHtcbiAgICAgICAgaWYgKCFWb2ljZVJlY29yZGluZ1N0b3JlLmludGVybmFsSW5zdGFuY2UpIHtcbiAgICAgICAgICAgIFZvaWNlUmVjb3JkaW5nU3RvcmUuaW50ZXJuYWxJbnN0YW5jZSA9IG5ldyBWb2ljZVJlY29yZGluZ1N0b3JlKCk7XG4gICAgICAgIH1cbiAgICAgICAgcmV0dXJuIFZvaWNlUmVjb3JkaW5nU3RvcmUuaW50ZXJuYWxJbnN0YW5jZTtcbiAgICB9XG5cbiAgICBwcm90ZWN0ZWQgYXN5bmMgb25BY3Rpb24ocGF5bG9hZDogQWN0aW9uUGF5bG9hZCk6IFByb21pc2U8dm9pZD4ge1xuICAgICAgICAvLyBOb3RoaW5nIHRvIGRvLCBidXQgd2UncmUgcmVxdWlyZWQgdG8gb3ZlcnJpZGUgdGhlIGZ1bmN0aW9uXG4gICAgICAgIHJldHVybjtcbiAgICB9XG5cbiAgICAvKipcbiAgICAgKiBTdGFydHMgYSBuZXcgcmVjb3JkaW5nIGlmIG9uZSBpc24ndCBhbHJlYWR5IGluIHByb2dyZXNzLiBOb3RlIHRoYXQgdGhpcyBzaW1wbHlcbiAgICAgKiBjcmVhdGVzIGEgcmVjb3JkaW5nIGluc3RhbmNlIC0gd2hldGhlciBvciBub3QgcmVjb3JkaW5nIGlzIGFjdGl2ZWx5IGluIHByb2dyZXNzXG4gICAgICogY2FuIGJlIHNlZW4gdmlhIHRoZSBWb2ljZVJlY29yZGluZyBjbGFzcy5cbiAgICAgKiBAcmV0dXJucyB7Vm9pY2VSZWNvcmRpbmd9IFRoZSByZWNvcmRpbmcuXG4gICAgICovXG4gICAgcHVibGljIHN0YXJ0UmVjb3JkaW5nKCk6IFZvaWNlUmVjb3JkaW5nIHtcbiAgICAgICAgaWYgKCF0aGlzLm1hdHJpeENsaWVudCkgdGhyb3cgbmV3IEVycm9yKFwiQ2Fubm90IHN0YXJ0IGEgcmVjb3JkaW5nIHdpdGhvdXQgYSBNYXRyaXhDbGllbnRcIik7XG4gICAgICAgIGlmICh0aGlzLnN0YXRlLnJlY29yZGluZykgdGhyb3cgbmV3IEVycm9yKFwiQSByZWNvcmRpbmcgaXMgYWxyZWFkeSBpbiBwcm9ncmVzc1wiKTtcblxuICAgICAgICBjb25zdCByZWNvcmRpbmcgPSBuZXcgVm9pY2VSZWNvcmRpbmcodGhpcy5tYXRyaXhDbGllbnQpO1xuXG4gICAgICAgIC8vIG5vaW5zcGVjdGlvbiBKU0lnbm9yZWRQcm9taXNlRnJvbUNhbGwgLSB3ZSBjYW4gc2FmZWx5IHJ1biB0aGlzIGFzeW5jXG4gICAgICAgIHRoaXMudXBkYXRlU3RhdGUoe3JlY29yZGluZ30pO1xuXG4gICAgICAgIHJldHVybiByZWNvcmRpbmc7XG4gICAgfVxuXG4gICAgLyoqXG4gICAgICogRGlzcG9zZXMgb2YgdGhlIGN1cnJlbnQgcmVjb3JkaW5nLCBubyBtYXR0ZXIgdGhlIHN0YXRlIG9mIGl0LlxuICAgICAqIEByZXR1cm5zIHtQcm9taXNlPHZvaWQ+fSBSZXNvbHZlcyB3aGVuIGNvbXBsZXRlLlxuICAgICAqL1xuICAgIHB1YmxpYyBkaXNwb3NlUmVjb3JkaW5nKCk6IFByb21pc2U8dm9pZD4ge1xuICAgICAgICBpZiAodGhpcy5zdGF0ZS5yZWNvcmRpbmcpIHtcbiAgICAgICAgICAgIHRoaXMuc3RhdGUucmVjb3JkaW5nLmRlc3Ryb3koKTsgLy8gc3RvcHMgaW50ZXJuYWxseVxuICAgICAgICB9XG4gICAgICAgIHJldHVybiB0aGlzLnVwZGF0ZVN0YXRlKHtyZWNvcmRpbmc6IG51bGx9KTtcbiAgICB9XG59XG5cbndpbmRvdy5teFZvaWNlUmVjb3JkaW5nU3RvcmUgPSBWb2ljZVJlY29yZGluZ1N0b3JlLmluc3RhbmNlO1xuIl19

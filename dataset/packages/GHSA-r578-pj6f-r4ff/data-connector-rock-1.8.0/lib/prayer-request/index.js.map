@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../src/prayer-request/index.js"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;;;;;;;AACA","sourcesContent":["export dataSource from './data-source';\nexport { prayerSchema as schema } from '@apollosproject/data-schema';\nexport resolver from './resolver';\n"],"file":"index.js"}

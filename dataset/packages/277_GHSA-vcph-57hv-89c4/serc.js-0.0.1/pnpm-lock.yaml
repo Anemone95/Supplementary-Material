@@ -1,0 +1,56 @@
+lockfileVersion: '9.0'
+
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
+
+importers:
+
+  .:
+    devDependencies:
+      horaa:
+        specifier: ~0.1.2-alpha
+        version: 0.1.2alpha
+      sinon:
+        specifier: ~1.7.3
+        version: 1.7.3
+      soda:
+        specifier: ~0.2.5
+        version: 0.2.5
+
+packages:
+
+  buster-core@0.6.4:
+    resolution: {integrity: sha512-WxitPqvzr2J7AA2eLEddv72XYaunQUDI0ICZhd1ucT/HhQI6JqfA7WQtoBoVZSgUn1+7uf9r7Plhh8PdO2+Kjg==}
+    deprecated: No longer maintained
+
+  buster-format@0.5.6:
+    resolution: {integrity: sha512-AiH2uZZSwyhgtM7l8/A/7HaqUBJnXwcj9oUPIrSvTKTOo/Go0KJiqnGnRRl4zGqIf3IK3pC/KfkgJMgn6lpyzw==}
+
+  horaa@0.1.2alpha:
+    resolution: {integrity: sha512-RnAzJSLnkfuZcHVMapglfHLgvsnkze8goOrXYDAaBLfNV7TjCDjn5QfB9sQWBOX5Tkjpo05yj11Hgp3n7sdp2g==}
+
+  sinon@1.7.3:
+    resolution: {integrity: sha512-p/xC39NGh/+o+IZNwP/u1e+VQZ1Qcv2r8IwrEU4o0rvo2yHTosHTxVhEpKSAjSzcEK43u5Bn3dsQUj4TrbXZ/g==}
+    engines: {node: '>=0.1.103'}
+    deprecated: 16.1.1
+
+  soda@0.2.5:
+    resolution: {integrity: sha512-QcP0QfpH29j/ShHZBiOyNWFHEyoA2jYrLSt4ZjtudZAYZHrpPGO7/yS6GtaBSGZoEYatpBIxONa3GGyglSbJHg==}
+    engines: {node: '>= 0.2.0'}
+
+snapshots:
+
+  buster-core@0.6.4: {}
+
+  buster-format@0.5.6:
+    dependencies:
+      buster-core: 0.6.4
+
+  horaa@0.1.2alpha: {}
+
+  sinon@1.7.3:
+    dependencies:
+      buster-format: 0.5.6
+
+  soda@0.2.5: {}

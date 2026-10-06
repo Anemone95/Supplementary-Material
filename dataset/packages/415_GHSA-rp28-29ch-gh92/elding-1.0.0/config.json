@@ -1,0 +1,29 @@
+{
+	"port": 8888,
+
+	"index": "index.html",
+
+	"css": "markdown.css",
+
+	"parse": {
+		"default": "elding.js",
+		"md": "markdown.js"
+	},
+
+	"deny":[
+		".*",
+		"server.js",
+		"*.json",
+		"modules"
+	],
+
+	"allow":[],
+
+	"log_file": "dev/log.txt",
+
+	"error": {
+		"e_403": {"type":"text/html", "content":"Error 403: Access Denied"},
+		"e_404": {"type":"text/html", "content":"Error 404: File Not Found"},
+		"e_500": {"type":"text/html", "content":"Error 500: Internal Server Error"}
+	}
+}

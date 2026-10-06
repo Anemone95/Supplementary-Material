@@ -1,0 +1,39 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+/*
+Copyright 2020 The Matrix.org Foundation C.I.C.
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+*/
+function onLoggedOutAndStorageCleared()
+/*: void*/
+{// E.g. redirect user or call other APIs after logout
+} // This interface summarises all available customisation points and also marks
+// them all as optional. This allows customisers to only define and export the
+// customisations they need while still maintaining type safety.
+
+/*:: export interface ILifecycleCustomisations {
+    onLoggedOutAndStorageCleared?: typeof onLoggedOutAndStorageCleared;
+}*/
+
+
+// A real customisation module will define and export one or more of the
+// customisation points that make up `ILifecycleCustomisations`.
+var _default = {};
+exports.default = _default;
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uL3NyYy9jdXN0b21pc2F0aW9ucy9MaWZlY3ljbGUudHMiXSwibmFtZXMiOlsib25Mb2dnZWRPdXRBbmRTdG9yYWdlQ2xlYXJlZCJdLCJtYXBwaW5ncyI6Ijs7Ozs7OztBQUFBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUVBLFNBQVNBLDRCQUFUO0FBQUE7QUFBOEMsQ0FDMUM7QUFDSCxDLENBRUQ7QUFDQTtBQUNBOzs7QUF0QkE7QUFDQTs7O0FBMEJBO0FBQ0E7ZUFDZSxFIiwic291cmNlc0NvbnRlbnQiOlsiLypcbkNvcHlyaWdodCAyMDIwIFRoZSBNYXRyaXgub3JnIEZvdW5kYXRpb24gQy5JLkMuXG5cbkxpY2Vuc2VkIHVuZGVyIHRoZSBBcGFjaGUgTGljZW5zZSwgVmVyc2lvbiAyLjAgKHRoZSBcIkxpY2Vuc2VcIik7XG55b3UgbWF5IG5vdCB1c2UgdGhpcyBmaWxlIGV4Y2VwdCBpbiBjb21wbGlhbmNlIHdpdGggdGhlIExpY2Vuc2UuXG5Zb3UgbWF5IG9idGFpbiBhIGNvcHkgb2YgdGhlIExpY2Vuc2UgYXRcblxuICAgIGh0dHA6Ly93d3cuYXBhY2hlLm9yZy9saWNlbnNlcy9MSUNFTlNFLTIuMFxuXG5Vbmxlc3MgcmVxdWlyZWQgYnkgYXBwbGljYWJsZSBsYXcgb3IgYWdyZWVkIHRvIGluIHdyaXRpbmcsIHNvZnR3YXJlXG5kaXN0cmlidXRlZCB1bmRlciB0aGUgTGljZW5zZSBpcyBkaXN0cmlidXRlZCBvbiBhbiBcIkFTIElTXCIgQkFTSVMsXG5XSVRIT1VUIFdBUlJBTlRJRVMgT1IgQ09ORElUSU9OUyBPRiBBTlkgS0lORCwgZWl0aGVyIGV4cHJlc3Mgb3IgaW1wbGllZC5cblNlZSB0aGUgTGljZW5zZSBmb3IgdGhlIHNwZWNpZmljIGxhbmd1YWdlIGdvdmVybmluZyBwZXJtaXNzaW9ucyBhbmRcbmxpbWl0YXRpb25zIHVuZGVyIHRoZSBMaWNlbnNlLlxuKi9cblxuZnVuY3Rpb24gb25Mb2dnZWRPdXRBbmRTdG9yYWdlQ2xlYXJlZCgpOiB2b2lkIHtcbiAgICAvLyBFLmcuIHJlZGlyZWN0IHVzZXIgb3IgY2FsbCBvdGhlciBBUElzIGFmdGVyIGxvZ291dFxufVxuXG4vLyBUaGlzIGludGVyZmFjZSBzdW1tYXJpc2VzIGFsbCBhdmFpbGFibGUgY3VzdG9taXNhdGlvbiBwb2ludHMgYW5kIGFsc28gbWFya3Ncbi8vIHRoZW0gYWxsIGFzIG9wdGlvbmFsLiBUaGlzIGFsbG93cyBjdXN0b21pc2VycyB0byBvbmx5IGRlZmluZSBhbmQgZXhwb3J0IHRoZVxuLy8gY3VzdG9taXNhdGlvbnMgdGhleSBuZWVkIHdoaWxlIHN0aWxsIG1haW50YWluaW5nIHR5cGUgc2FmZXR5LlxuZXhwb3J0IGludGVyZmFjZSBJTGlmZWN5Y2xlQ3VzdG9taXNhdGlvbnMge1xuICAgIG9uTG9nZ2VkT3V0QW5kU3RvcmFnZUNsZWFyZWQ/OiB0eXBlb2Ygb25Mb2dnZWRPdXRBbmRTdG9yYWdlQ2xlYXJlZDtcbn1cblxuLy8gQSByZWFsIGN1c3RvbWlzYXRpb24gbW9kdWxlIHdpbGwgZGVmaW5lIGFuZCBleHBvcnQgb25lIG9yIG1vcmUgb2YgdGhlXG4vLyBjdXN0b21pc2F0aW9uIHBvaW50cyB0aGF0IG1ha2UgdXAgYElMaWZlY3ljbGVDdXN0b21pc2F0aW9uc2AuXG5leHBvcnQgZGVmYXVsdCB7fSBhcyBJTGlmZWN5Y2xlQ3VzdG9taXNhdGlvbnM7XG4iXX0=

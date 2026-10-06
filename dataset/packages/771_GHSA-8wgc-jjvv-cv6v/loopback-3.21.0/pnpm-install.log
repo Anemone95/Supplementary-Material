@@ -1,0 +1,28 @@
+$ corepack pnpm@9.15.9 install --prod --no-frozen-lockfile --reporter=append-only --config.node-linker=hoisted --ignore-workspace --ignore-scripts
+Progress: resolved 1, reused 0, downloaded 0, added 0
+ WARN  deprecated stable@0.1.8: Modern JS already guarantees Array#sort() is a stable sort, so this library is deprecated. See the compatibility table on MDN: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort#browser_compatibility
+ WARN  GET https://registry.npmjs.org/eslint error (ECONNRESET). Will retry in 10 seconds. 2 retries left.
+ WARN  deprecated karma-phantomjs-launcher@1.0.4: PhantomJS development have stopped, use puppeteer or similar
+ WARN  deprecated babel-preset-es2015@6.24.1: 🙌  Thanks for using Babel: we recommend using babel-preset-env now: please read https://babeljs.io/env to update!
+ WARN  deprecated phantomjs-prebuilt@2.1.16: this package is now deprecated
+ WARN  deprecated sinon@1.17.7: 16.1.1
+ WARN  deprecated supertest@3.4.2: Please upgrade to supertest v7.1.3+, see release notes at https://github.com/forwardemail/supertest/releases/tag/v7.1.3 - maintenance is supported by Forward Email @ https://forwardemail.net
+Progress: resolved 60, reused 0, downloaded 0, added 0
+ WARN  deprecated loopback-boot@2.28.0: This version is no longer supported, please upgrade to 3.x
+Progress: resolved 62, reused 0, downloaded 0, added 0
+ WARN  deprecated eslint@4.19.1: This version is no longer supported. Please see https://eslint.org/version-support for other options.
+Progress: resolved 63, reused 0, downloaded 0, added 0
+Progress: resolved 316, reused 0, downloaded 0, added 0
+Progress: resolved 560, reused 0, downloaded 0, added 0
+Progress: resolved 913, reused 0, downloaded 0, added 0
+Progress: resolved 1087, reused 0, downloaded 0, added 0
+ WARN  33 deprecated subdependencies found: boom@2.10.1, circular-json@0.3.3, core-js@2.6.12, cryptiles@2.0.5, formatio@1.1.1, formidable@1.2.6, fsevents@1.2.13, glob@7.1.1, glob@7.1.7, glob@7.2.3, har-validator@2.0.6, har-validator@5.1.5, hawk@3.1.3, hoek@2.16.3, inflight@1.0.6, json3@3.3.2, log4js@0.6.38, mkdirp@0.5.1, path-dirname@1.0.2, raw-body@1.1.7, request@2.79.0, request@2.88.2, resolve-url@0.2.1, rimraf@2.6.3, rimraf@2.7.1, samsam@1.1.2, sntp@1.0.9, source-map-resolve@0.5.3, source-map-url@0.4.1, superagent@3.8.3, urix@0.1.0, uuid@3.4.0, uuid@7.0.3
+
+devDependencies: skipped
+
+Packages: +370
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Progress: resolved 1113, reused 310, downloaded 41, added 355
+Progress: resolved 1113, reused 310, downloaded 46, added 369
+Progress: resolved 1113, reused 310, downloaded 47, added 370, done
+Done in 17.7s using pnpm v9.15.9

@@ -1,0 +1,40 @@
+e35b87112c3e6002d9a5c53033cdf926
+'use strict';Object.defineProperty(exports, "__esModule", { value: true });var _propTypes = require('prop-types');var _propTypes2 = _interopRequireDefault(_propTypes);
+var _react = require('react');var _react2 = _interopRequireDefault(_react);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+
+var BootstrapAccordionGroup = _react2.default.createClass({ displayName: 'BootstrapAccordionGroup',
+  propTypes: {
+    name: _propTypes2.default.string,
+    children: _propTypes2.default.oneOfType([
+    _propTypes2.default.arrayOf(_propTypes2.default.element),
+    _propTypes2.default.element]).
+    isRequired },
+
+  render: function render() {
+    var name = void 0;
+    var id = void 0;
+
+    if (this.props.name) {
+      name = this.props.name;
+      id = name.replace(/[^0-9a-zA-Z]/g, '-').toLowerCase();
+    }
+
+    return (
+      _react2.default.createElement('div', { className: 'panel panel-default' },
+        _react2.default.createElement('div', { className: 'panel-heading' },
+          _react2.default.createElement('h4', { className: 'panel-title' },
+            _react2.default.createElement('a', { href: '#' + id, 'data-parent': '#bundles', 'data-toggle': 'collapse', className: 'collapsed' }, name))),
+
+
+        _react2.default.createElement('div', { className: 'panel-collapse collapse', id: id },
+          _react2.default.createElement('div', { className: 'panel-body' },
+            this.props.children))));
+
+
+
+
+  } });var _default =
+
+
+BootstrapAccordionGroup;exports.default = _default;module.exports = exports['default'];;var _temp = function () {if (typeof __REACT_HOT_LOADER__ === 'undefined') {return;}__REACT_HOT_LOADER__.register(BootstrapAccordionGroup, 'BootstrapAccordionGroup', '/root/graylog2-server-2.4.3/graylog2-web-interface/src/components/bootstrap/BootstrapAccordionGroup.jsx');__REACT_HOT_LOADER__.register(_default, 'default', '/root/graylog2-server-2.4.3/graylog2-web-interface/src/components/bootstrap/BootstrapAccordionGroup.jsx');}();;
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIkJvb3RzdHJhcEFjY29yZGlvbkdyb3VwLmpzeCJdLCJuYW1lcyI6WyJCb290c3RyYXBBY2NvcmRpb25Hcm91cCIsImNyZWF0ZUNsYXNzIiwicHJvcFR5cGVzIiwibmFtZSIsInN0cmluZyIsImNoaWxkcmVuIiwib25lT2ZUeXBlIiwiYXJyYXlPZiIsImVsZW1lbnQiLCJpc1JlcXVpcmVkIiwicmVuZGVyIiwiaWQiLCJwcm9wcyIsInJlcGxhY2UiLCJ0b0xvd2VyQ2FzZSJdLCJtYXBwaW5ncyI6IjJFQUFBLHVDO0FBQ0EsOEI7O0FBRUEsSUFBTUEsMEJBQTBCLGdCQUFNQyxXQUFOLENBQWtCO0FBQ2hEQyxhQUFXO0FBQ1RDLFVBQU0sb0JBQVVDLE1BRFA7QUFFVEMsY0FBVSxvQkFBVUMsU0FBVixDQUFvQjtBQUM1Qix3QkFBVUMsT0FBVixDQUFrQixvQkFBVUMsT0FBNUIsQ0FENEI7QUFFNUIsd0JBQVVBLE9BRmtCLENBQXBCO0FBR1BDLGNBTE0sRUFEcUM7O0FBUWhEQyxRQVJnRCxvQkFRdkM7QUFDUCxRQUFJUCxhQUFKO0FBQ0EsUUFBSVEsV0FBSjs7QUFFQSxRQUFJLEtBQUtDLEtBQUwsQ0FBV1QsSUFBZixFQUFxQjtBQUNuQkEsYUFBTyxLQUFLUyxLQUFMLENBQVdULElBQWxCO0FBQ0FRLFdBQUtSLEtBQUtVLE9BQUwsQ0FBYSxlQUFiLEVBQThCLEdBQTlCLEVBQW1DQyxXQUFuQyxFQUFMO0FBQ0Q7O0FBRUQ7QUFDRSw2Q0FBSyxXQUFVLHFCQUFmO0FBQ0UsK0NBQUssV0FBVSxlQUFmO0FBQ0UsZ0RBQUksV0FBVSxhQUFkO0FBQ0UsaURBQUcsWUFBVUgsRUFBYixFQUFtQixlQUFZLFVBQS9CLEVBQTBDLGVBQVksVUFBdEQsRUFBaUUsV0FBVSxXQUEzRSxJQUF3RlIsSUFBeEYsQ0FERixDQURGLENBREY7OztBQU1FLCtDQUFLLFdBQVUseUJBQWYsRUFBeUMsSUFBSVEsRUFBN0M7QUFDRSxpREFBSyxXQUFVLFlBQWY7QUFDRyxpQkFBS0MsS0FBTCxDQUFXUCxRQURkLENBREYsQ0FORixDQURGOzs7OztBQWNELEdBL0IrQyxFQUFsQixDQUFoQyxDOzs7QUFrQ2VMLHVCLGtMQWxDVEEsdUIiLCJmaWxlIjoiQm9vdHN0cmFwQWNjb3JkaW9uR3JvdXAuanN4Iiwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IFByb3BUeXBlcyBmcm9tICdwcm9wLXR5cGVzJztcbmltcG9ydCBSZWFjdCBmcm9tICdyZWFjdCc7XG5cbmNvbnN0IEJvb3RzdHJhcEFjY29yZGlvbkdyb3VwID0gUmVhY3QuY3JlYXRlQ2xhc3Moe1xuICBwcm9wVHlwZXM6IHtcbiAgICBuYW1lOiBQcm9wVHlwZXMuc3RyaW5nLFxuICAgIGNoaWxkcmVuOiBQcm9wVHlwZXMub25lT2ZUeXBlKFtcbiAgICAgIFByb3BUeXBlcy5hcnJheU9mKFByb3BUeXBlcy5lbGVtZW50KSxcbiAgICAgIFByb3BUeXBlcy5lbGVtZW50LFxuICAgIF0pLmlzUmVxdWlyZWQsXG4gIH0sXG4gIHJlbmRlcigpIHtcbiAgICBsZXQgbmFtZTtcbiAgICBsZXQgaWQ7XG5cbiAgICBpZiAodGhpcy5wcm9wcy5uYW1lKSB7XG4gICAgICBuYW1lID0gdGhpcy5wcm9wcy5uYW1lO1xuICAgICAgaWQgPSBuYW1lLnJlcGxhY2UoL1teMC05YS16QS1aXS9nLCAnLScpLnRvTG93ZXJDYXNlKCk7XG4gICAgfVxuXG4gICAgcmV0dXJuIChcbiAgICAgIDxkaXYgY2xhc3NOYW1lPVwicGFuZWwgcGFuZWwtZGVmYXVsdFwiPlxuICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cInBhbmVsLWhlYWRpbmdcIj5cbiAgICAgICAgICA8aDQgY2xhc3NOYW1lPVwicGFuZWwtdGl0bGVcIj5cbiAgICAgICAgICAgIDxhIGhyZWY9e2AjJHtpZH1gfSBkYXRhLXBhcmVudD1cIiNidW5kbGVzXCIgZGF0YS10b2dnbGU9XCJjb2xsYXBzZVwiIGNsYXNzTmFtZT1cImNvbGxhcHNlZFwiPntuYW1lfTwvYT5cbiAgICAgICAgICA8L2g0PlxuICAgICAgICA8L2Rpdj5cbiAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJwYW5lbC1jb2xsYXBzZSBjb2xsYXBzZVwiIGlkPXtpZH0+XG4gICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJwYW5lbC1ib2R5XCI+XG4gICAgICAgICAgICB7dGhpcy5wcm9wcy5jaGlsZHJlbn1cbiAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgPC9kaXY+XG4gICAgICA8L2Rpdj5cbiAgICApO1xuICB9LFxufSk7XG5cbmV4cG9ydCBkZWZhdWx0IEJvb3RzdHJhcEFjY29yZGlvbkdyb3VwO1xuIl19

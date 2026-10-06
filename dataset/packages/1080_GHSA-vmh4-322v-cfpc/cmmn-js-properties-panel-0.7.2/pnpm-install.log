@@ -1,0 +1,30 @@
+$ corepack pnpm@9.15.9 install --prod --no-frozen-lockfile --reporter=append-only --config.node-linker=hoisted --ignore-workspace --ignore-scripts
+Progress: resolved 1, reused 0, downloaded 0, added 0
+ WARN  deprecated karma-phantomjs-launcher@1.0.4: PhantomJS development have stopped, use puppeteer or similar
+ WARN  deprecated eslint@5.16.0: This version is no longer supported. Please see https://eslint.org/version-support for other options.
+ WARN  deprecated phantomjs-prebuilt@2.1.16: this package is now deprecated
+ WARN  deprecated sinon@6.3.5: 16.1.1
+Progress: resolved 29, reused 0, downloaded 0, added 0
+ WARN  deprecated puppeteer@1.20.0: < 24.15.0 is no longer supported
+Progress: resolved 61, reused 0, downloaded 0, added 0
+Progress: resolved 166, reused 0, downloaded 0, added 0
+Progress: resolved 313, reused 0, downloaded 0, added 0
+Progress: resolved 509, reused 0, downloaded 0, added 0
+Progress: resolved 692, reused 0, downloaded 0, added 0
+Progress: resolved 817, reused 0, downloaded 0, added 0
+Progress: resolved 915, reused 0, downloaded 0, added 0
+Progress: resolved 922, reused 0, downloaded 0, added 0
+Progress: resolved 923, reused 0, downloaded 0, added 0
+ WARN  42 deprecated subdependencies found: @sinonjs/text-encoding@0.7.3, axios@0.15.3, babel-eslint@8.2.6, boom@2.10.1, buildmail@4.0.1, circular-json@0.5.9, copy-concurrently@1.0.5, core-js@2.6.12, cryptiles@2.0.5, date-format@1.2.0, figgy-pudding@3.5.2, fs-write-stream-atomic@1.0.10, fsevents@1.2.13, glob@7.1.2, glob@7.2.3, har-validator@2.0.6, har-validator@5.1.5, hawk@3.1.3, hoek@2.16.3, inflight@1.0.6, lodash.get@4.4.2, log4js@2.11.0, mailcomposer@4.0.1, mailgun-js@0.18.1, mkdirp@0.5.1, move-concurrently@1.0.1, node-uuid@1.4.8, nodemailer@2.7.2, path-dirname@1.0.2, request@2.75.0, request@2.88.2, resolve-url@0.2.1, rimraf@2.6.3, rimraf@2.7.1, sntp@1.0.9, socks@1.1.9, source-map-resolve@0.5.3, source-map-url@0.4.1, streamroller@0.7.0, urix@0.1.0, uuid@3.4.0, uws@9.14.0
+
+devDependencies: skipped
+
+ WARN  Issues with peer dependencies found
+.
+└─┬ karma-webpack 3.0.5
+  └── ✕ unmet peer webpack@"^2.0.0 || ^3.0.0": found 4.47.0
+
+Packages: +13
++++++++++++++
+Progress: resolved 923, reused 13, downloaded 0, added 13, done
+Done in 15.3s using pnpm v9.15.9

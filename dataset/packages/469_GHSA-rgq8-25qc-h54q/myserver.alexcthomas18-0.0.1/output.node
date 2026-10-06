@@ -1,0 +1,19 @@
+nohup: ignoring input
+{ protocol: null,
+  slashes: null,
+  auth: null,
+  host: null,
+  port: null,
+  hostname: null,
+  hash: null,
+  search: '?q=Pr',
+  query: { q: 'Pr' },
+  pathname: '/getcity',
+  path: '/getcity?q=Pr',
+  href: '/getcity?q=Pr' }
+In GetCity
+Price
+Providence
+Provo
+[ { city: 'Price' }, { city: 'Providence' }, { city: 'Provo' } ]
+[{"city":"Price"},{"city":"Providence"},{"city":"Provo"}]

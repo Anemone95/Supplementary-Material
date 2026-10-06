@@ -1,0 +1,18 @@
+$ corepack pnpm@9.15.9 install --prod --no-frozen-lockfile --reporter=append-only --config.node-linker=hoisted --ignore-workspace --ignore-scripts
+Progress: resolved 1, reused 0, downloaded 0, added 0
+ WARN  deprecated coffee-script@1.12.7: CoffeeScript on NPM has moved to "coffeescript" (no hyphen)
+ WARN  deprecated babel-preset-es2015@6.24.1: 🙌  Thanks for using Babel: we recommend using babel-preset-env now: please read https://babeljs.io/env to update!
+ WARN  deprecated jade@1.11.0: Jade has been renamed to pug, please install the latest version of pug instead of jade
+ WARN  deprecated node-sass@9.0.0: Node Sass is no longer supported. Please use `sass` or `sass-embedded` instead.
+ WARN  deprecated highlight@0.2.4: Not maintained anymore
+Progress: resolved 158, reused 0, downloaded 0, added 0
+ WARN  18 deprecated subdependencies found: @npmcli/move-file@1.1.2, @npmcli/move-file@2.0.1, are-we-there-yet@3.0.1, browserslist@1.0.1, coffee-script@1.7.1, constantinople@3.0.2, core-js@2.6.12, gauge@4.0.4, glob@7.1.7, glob@7.2.3, glob@8.1.0, inflight@1.0.6, mkdirp@0.3.5, node-uuid@1.4.8, npmlog@6.0.2, rimraf@3.0.2, tar@6.2.1, transformers@2.1.0
+Progress: resolved 402, reused 0, downloaded 0, added 0
+
+devDependencies: skipped
+
+Packages: +82
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Progress: resolved 402, reused 75, downloaded 6, added 80
+Progress: resolved 402, reused 75, downloaded 7, added 82, done
+Done in 3.9s using pnpm v9.15.9

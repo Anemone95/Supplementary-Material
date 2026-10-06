@@ -1,0 +1,17 @@
+$ corepack pnpm@9.15.9 install --prod --no-frozen-lockfile --reporter=append-only --config.node-linker=hoisted --ignore-workspace --ignore-scripts
+Progress: resolved 1, reused 0, downloaded 0, added 0
+ WARN  deprecated rimraf@2.0.3: Rimraf versions prior to v4 are no longer supported
+ WARN  deprecated nodeunit@0.7.4: you are strongly encouraged to use other testing options
+ WARN  deprecated glob@3.2.11: Old versions of glob are not supported, and contain widely publicized security vulnerabilities, which have been fixed in the current version. Please update. Support for old versions may be purchased (at exorbitant rates) by contacting i@izs.me
+Progress: resolved 88, reused 0, downloaded 0, added 0
+Progress: resolved 238, reused 0, downloaded 0, added 0
+Progress: resolved 281, reused 0, downloaded 0, added 0
+ WARN  4 deprecated subdependencies found: fstream@0.1.31, graceful-fs@1.1.14, minimatch@0.3.0, natives@1.1.6
+
+devDependencies: skipped
+
+Packages: +24
+++++++++++++++++++++++++
+Progress: resolved 284, reused 24, downloaded 0, added 24
+Progress: resolved 284, reused 24, downloaded 0, added 24, done
+Done in 4.2s using pnpm v9.15.9

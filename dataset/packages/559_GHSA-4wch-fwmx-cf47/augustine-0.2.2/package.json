@@ -1,0 +1,32 @@
+{
+  "name": "augustine",
+  "version": "0.2.2",
+  "description": "Another very simple HTTP server for serving static resources.",
+  "bin": {
+    "augustine": "./bin/augustine.js"
+  },
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": "princetoad/augustine",
+  "bugs": {
+    "url": "https://github.com/princetoad/augustine/issues"
+  },
+  "homepage": "https://github.com/princetoad/augustine#readme",
+  "keywords": [
+    "http-server",
+    "web-server",
+    "javascript",
+    "node.js"
+  ],
+  "author": "fanshenggang <tom@tfan.org>",
+  "license": "MIT",
+  "dependencies": {
+    "debug": "^2.6.6",
+    "optionator": "^0.8.2"
+  },
+  "engines": {
+    "node": ">=4"
+  }
+}

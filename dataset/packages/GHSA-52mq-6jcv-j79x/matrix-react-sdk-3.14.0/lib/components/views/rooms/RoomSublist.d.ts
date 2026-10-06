@@ -1,0 +1,76 @@
+import * as React from "react";
+import { Room } from "matrix-js-sdk/src/models/room";
+import { TagID } from "../../../stores/room-list/models";
+import TemporaryTile from "./TemporaryTile";
+export declare const HEADER_HEIGHT = 32;
+interface IProps {
+    forRooms: boolean;
+    startAsHidden: boolean;
+    label: string;
+    onAddRoom?: () => void;
+    addRoomContextMenu?: (onFinished: () => void) => React.ReactNode;
+    addRoomLabel: string;
+    isMinimized: boolean;
+    tagId: TagID;
+    onResize: () => void;
+    showSkeleton?: boolean;
+    extraBadTilesThatShouldntExist?: TemporaryTile[];
+}
+declare type PartialDOMRect = Pick<DOMRect, "left" | "top" | "height">;
+interface IState {
+    contextMenuPosition: PartialDOMRect;
+    addRoomContextMenuPosition: PartialDOMRect;
+    isResizing: boolean;
+    isExpanded: boolean;
+    height: number;
+    rooms: Room[];
+    filteredExtraTiles?: TemporaryTile[];
+}
+export default class RoomSublist extends React.Component<IProps, IState> {
+    private headerButton;
+    private sublistRef;
+    private dispatcherRef;
+    private layout;
+    private heightAtStart;
+    private isBeingFiltered;
+    private notificationState;
+    constructor(props: IProps);
+    private calculateInitialHeight;
+    private get padding();
+    private get extraTiles();
+    private get numTiles();
+    private static calcNumTiles;
+    private get numVisibleTiles();
+    componentDidUpdate(prevProps: Readonly<IProps>, prevState: Readonly<IState>): void;
+    shouldComponentUpdate(nextProps: Readonly<IProps>, nextState: Readonly<IState>): boolean;
+    componentWillUnmount(): void;
+    private onListsUpdated;
+    private onAction;
+    private onAddRoom;
+    private applyHeightChange;
+    private onResize;
+    private onResizeStart;
+    private onResizeStop;
+    private onShowAllClick;
+    private onShowLessClick;
+    private focusRoomTile;
+    private onOpenMenuClick;
+    private onContextMenu;
+    private onAddRoomContextMenu;
+    private onCloseMenu;
+    private onCloseAddRoomMenu;
+    private onUnreadFirstChanged;
+    private onTagSortChanged;
+    private onMessagePreviewChanged;
+    private onBadgeClick;
+    private onHeaderClick;
+    private toggleCollapsed;
+    private onHeaderKeyDown;
+    private onKeyDown;
+    private renderVisibleTiles;
+    private renderMenu;
+    private renderHeader;
+    private onScrollPrevent;
+    render(): React.ReactElement;
+}
+export {};

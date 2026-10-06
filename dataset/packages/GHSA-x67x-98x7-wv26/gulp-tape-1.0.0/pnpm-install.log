@@ -1,0 +1,20 @@
+$ corepack pnpm@9.15.9 install --prod --no-frozen-lockfile --reporter=append-only --config.node-linker=hoisted --ignore-workspace --ignore-scripts
+Progress: resolved 1, reused 0, downloaded 0, added 0
+ WARN  deprecated prettier-standard@8.0.1: Thank you for using prettier-standard, you are awesome :-) A new version is available with features like built-in linting, formatting staged files, changed files, changed lines and more, please upgrade! You might also like https://github.com/sheerun/modern-node for all-in-one development toolkit that incorporates prettier-standard and Jest. Please tweet if you like it :-)
+Progress: resolved 84, reused 0, downloaded 0, added 0
+Progress: resolved 207, reused 0, downloaded 0, added 0
+Progress: resolved 335, reused 0, downloaded 0, added 0
+Progress: resolved 516, reused 0, downloaded 0, added 0
+Progress: resolved 622, reused 0, downloaded 0, added 0
+Progress: resolved 655, reused 0, downloaded 0, added 0
+Progress: resolved 656, reused 0, downloaded 0, added 0
+Progress: resolved 657, reused 0, downloaded 0, added 0
+ WARN  21 deprecated subdependencies found: babel-eslint@10.1.0, circular-json@0.3.3, core-js@2.6.12, eslint@4.18.2, eslint@4.19.1, glob@3.1.21, glob@4.5.3, glob@7.0.6, glob@7.2.3, graceful-fs@1.2.3, gulp-util@3.0.8, inflight@1.0.6, lodash.template@3.6.2, minimatch@0.2.14, minimatch@2.0.10, natives@1.1.6, resolve-url@0.2.1, rimraf@2.6.3, source-map-resolve@0.5.3, source-map-url@0.4.1, urix@0.1.0
+
+devDependencies: skipped
+
+Packages: +290
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Progress: resolved 659, reused 252, downloaded 0, added 37
+Progress: resolved 659, reused 254, downloaded 32, added 290, done
+Done in 10.1s using pnpm v9.15.9

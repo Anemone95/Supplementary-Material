@@ -1,0 +1,28 @@
+{
+  "name": "unicorn-list",
+  "version": "1.0.3",
+  "description": "Simple web framework",
+  "main": "app/server.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "start": "node app/server.js",
+    "postinstall": "bash makefile.sh"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vannio/unicorn-framework.git"
+  },
+  "keywords": [
+    "node",
+    "http",
+    "template"
+  ],
+  "author": "Team Unicorn",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vannio/unicorn-framework/issues"
+  },
+  "homepage": "https://github.com/vannio/unicorn-framework#readme"
+}

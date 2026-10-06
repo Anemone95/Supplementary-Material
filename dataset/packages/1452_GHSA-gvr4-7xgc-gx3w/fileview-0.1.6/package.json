@@ -1,0 +1,21 @@
+{
+  "name": "fileview",
+  "version": "0.1.6",
+  "description": "File browsers on web. It's easy to browser your local file.",
+  "main": "index.js",
+  "bin":{
+    "fileview": "index.js"
+  },
+  "engines": {
+    "node": ">=0.12"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lygoods/fileview.git"
+  },
+  "keywords": [
+    "fileview"
+  ],
+  "author": "Carl Liu",
+  "license": "ISC"
+}

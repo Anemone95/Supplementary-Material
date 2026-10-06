@@ -1,0 +1,13 @@
+$ corepack pnpm@9.15.9 install --prod --no-frozen-lockfile --reporter=append-only --config.node-linker=hoisted --ignore-workspace --ignore-scripts
+Progress: resolved 1, reused 0, downloaded 0, added 0
+ WARN  deprecated jscs@3.0.7: JSCS has merged with ESLint! See - https://medium.com/@markelog/jscs-end-of-the-line-bc9bf0b3fdb2
+ WARN  deprecated eslint@3.19.0: This version is no longer supported. Please see https://eslint.org/version-support for other options.
+Progress: resolved 220, reused 0, downloaded 0, added 0
+Progress: resolved 385, reused 0, downloaded 0, added 0
+ WARN  10 deprecated subdependencies found: circular-json@0.3.3, core-js@2.6.12, glob@5.0.15, glob@7.2.3, inflight@1.0.6, jscs-preset-wikimedia@1.0.1, nomnom@1.8.1, rimraf@2.6.3, rimraf@2.7.1, uuid@2.0.3
+
+devDependencies: skipped
+
+Already up to date
+Progress: resolved 428, reused 0, downloaded 0, added 0, done
+Done in 2.7s using pnpm v9.15.9

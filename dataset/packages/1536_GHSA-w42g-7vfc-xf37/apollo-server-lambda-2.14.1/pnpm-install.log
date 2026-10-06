@@ -1,0 +1,22 @@
+$ corepack pnpm@9.15.9 install --prod --no-frozen-lockfile --reporter=append-only --config.node-linker=hoisted --ignore-workspace --ignore-scripts
+Progress: resolved 1, reused 0, downloaded 0, added 0
+ WARN  deprecated apollo-server-types@0.5.1: The `apollo-server-types` package is part of Apollo Server v2 and v3, which are now end-of-life (as of October 22nd 2023 and October 22nd 2024, respectively). This package's functionality is now found in the `@apollo/server` package. See https://www.apollographql.com/docs/apollo-server/previous-versions/ for more details.
+ WARN  deprecated apollo-server-env@2.4.5: The `apollo-server-env` package is part of Apollo Server v2 and v3, which are now end-of-life (as of October 22nd 2023 and October 22nd 2024, respectively). This package's functionality is now found in the `@apollo/utils.fetcher` package. See https://www.apollographql.com/docs/apollo-server/previous-versions/ for more details.
+ WARN  deprecated apollo-server-core@2.26.2: The `apollo-server-core` package is part of Apollo Server v2 and v3, which are now end-of-life (as of October 22nd 2023 and October 22nd 2024, respectively). This package's functionality is now found in the `@apollo/server` package. See https://www.apollographql.com/docs/apollo-server/previous-versions/ for more details.
+Progress: resolved 7, reused 0, downloaded 0, added 0
+ WARN  deprecated graphql-tools@4.0.8: This package has been deprecated and now it only exports makeExecutableSchema.
+And it will no longer receive updates.
+We recommend you to migrate to scoped packages such as @graphql-tools/schema, @graphql-tools/utils and etc.
+Check out https://www.graphql-tools.com to learn what package you should use instead
+Progress: resolved 10, reused 0, downloaded 0, added 0
+Progress: resolved 133, reused 0, downloaded 0, added 0
+Progress: resolved 199, reused 0, downloaded 0, added 0
+Progress: resolved 200, reused 0, downloaded 0, added 0
+ WARN  14 deprecated subdependencies found: apollo-cache-control@0.15.0, apollo-datasource@0.10.0, apollo-reporting-protobuf@0.8.0, apollo-server-caching@0.5.3, apollo-server-caching@0.7.0, apollo-server-env@3.2.0, apollo-server-errors@2.5.0, apollo-server-plugin-base@0.14.0, apollo-server-types@0.10.0, apollo-tracing@0.16.0, graphql-extensions@0.16.0, subscriptions-transport-ws@0.9.19, uuid@3.4.0, uuid@8.3.2
+
+devDependencies: skipped
+
+Packages: +208
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Progress: resolved 202, reused 200, downloaded 1, added 208, done
+Done in 7.7s using pnpm v9.15.9

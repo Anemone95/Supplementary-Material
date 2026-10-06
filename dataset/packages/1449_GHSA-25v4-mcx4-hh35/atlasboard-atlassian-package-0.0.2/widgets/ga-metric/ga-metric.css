@@ -1,0 +1,16 @@
+.content {
+    color: gray;
+    font-weight: bold;
+    text-align: center;
+}
+
+.metric {
+    font-size:15em;
+    line-height: 1.3em;
+}
+
+.subtitle {
+    display: none;
+    font-size:3em;
+    line-height: 1.3em;
+}

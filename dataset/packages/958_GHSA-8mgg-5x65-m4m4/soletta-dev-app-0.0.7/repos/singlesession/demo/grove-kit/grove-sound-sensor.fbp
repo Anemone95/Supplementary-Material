@@ -1,0 +1,10 @@
+#!/usr/bin/env sol-fbp-runner
+#
+# Our range is 0-4096 for sound sensor's analog reading, so the
+# original 50 value maps to ~200
+
+threshold(constant/int:value=200)
+
+sensor(SoundSensor) OUT -> IN[0] compare(int/greater-or-equal)
+threshold OUT -> IN[1] compare
+compare OUT -> IN led(LED)

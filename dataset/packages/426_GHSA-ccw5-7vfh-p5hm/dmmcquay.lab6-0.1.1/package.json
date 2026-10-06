@@ -1,0 +1,19 @@
+{
+	"author": "Derek McQuay",
+	"name": "dmmcquay.lab6",
+	"version": "0.1.1",
+	"description": "A REST server, allow finding cities in Utah",
+	"main": "simple",
+	"repository": {
+		"type": "git",
+		"location": "https://github.com/dmmcquay/cs360lab6.git"
+	},
+	"keywords": [
+		"lab6",
+		"CS360"
+	],
+	"dependencies": {},
+	"engines": {
+		"node": "*"
+	}
+}

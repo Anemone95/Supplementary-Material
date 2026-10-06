@@ -1,0 +1,161 @@
+May 06 2016 23:36:35> Request /
+May 06 2016 23:36:35> [31mResponded with 404. Could not find ./index.md[39m
+May 06 2016 23:36:35> Request /favicon.ico
+May 06 2016 23:36:35> [31mResponded with 404. Could not find ./favicon.ico[39m
+May 06 2016 23:36:57> Request /
+May 06 2016 23:36:57> [31mResponded with 404. Could not find ./index.html[39m
+May 06 2016 23:36:58> Request /
+May 06 2016 23:36:58> [31mResponded with 404. Could not find ./index.html[39m
+May 06 2016 23:36:59> Request /
+May 06 2016 23:36:59> [31mResponded with 404. Could not find ./index.html[39m
+May 06 2016 23:37:09> Request /test
+May 06 2016 23:37:09> [31mResponded with 500. Something went wrong serving ./test/index.html   See below for error.[39m
+May 06 2016 23:37:09> [34mTypeError: Cannot read property 'indexOf' of undefined[39m
+May 06 2016 23:40:43> Request /test
+May 06 2016 23:40:43> [31mResponded with 500. Something went wrong serving ./test/index.html   See below for error.[39m
+May 06 2016 23:40:43> [34mTypeError: Cannot read property 'indexOf' of undefined[39m
+May 06 2016 23:50:57> Request /test
+May 06 2016 23:50:57> [31mResponded with 500. Something went wrong serving ./test/index.html
+See below for error.[39m
+May 06 2016 23:50:57> [34mTypeError: config.parse.indexOf is not a function[39m
+May 06 2016 23:53:49> Request /test
+May 06 2016 23:53:49> [31mMissing default module undefined[39m
+May 06 2016 23:53:49> Responded with 200
+May 06 2016 23:53:58> Request /test/other.md
+May 06 2016 23:53:58> Responded with 200
+May 06 2016 23:54:30> Request /test
+May 06 2016 23:54:30> [31mMissing default module undefined[39m
+May 06 2016 23:54:30> [31mMissing default module undefined[39m
+May 06 2016 23:54:30> Responded with 200
+May 06 2016 23:54:58> Request /test
+May 06 2016 23:54:58> [31mMissing default module undefined[39m
+May 06 2016 23:54:58> Responded with 200
+May 06 2016 23:55:03> Request /test
+May 06 2016 23:55:03> [31mMissing default module undefined[39m
+May 06 2016 23:55:03> Responded with 200
+May 06 2016 23:55:58> Request /test
+May 06 2016 23:55:58> [31mMissing default module undefined[39m
+May 06 2016 23:55:58> Responded with 200
+May 06 2016 23:56:02> Request /test
+May 06 2016 23:56:02> [31mMissing default module undefined[39m
+May 06 2016 23:56:02> Responded with 200
+May 06 2016 23:56:44> Request /test
+May 06 2016 23:56:44> [31mMissing default module undefined[39m
+May 06 2016 23:56:44> Responded with 200
+May 06 2016 23:56:52> Request /test
+May 06 2016 23:56:52> [31mMissing default module undefined[39m
+May 06 2016 23:56:52> Responded with 200
+May 06 2016 23:57:16> Request /test
+May 06 2016 23:57:16> Responded with 200
+May 06 2016 23:57:30> Request /test
+May 06 2016 23:57:30> Responded with 200
+May 06 2016 23:57:40> Request /test
+May 06 2016 23:57:40> Responded with 200
+May 06 2016 23:57:52> Request /test
+May 06 2016 23:57:52> Responded with 200
+May 07 2016 00:00:19> Request /test
+May 07 2016 00:00:19> Responded with 200
+May 07 2016 00:00:32> Request /test
+May 07 2016 00:00:32> Responded with 200
+May 07 2016 00:00:33> Request /test
+May 07 2016 00:00:33> Responded with 200
+May 07 2016 00:00:33> Request /test
+May 07 2016 00:00:33> Responded with 200
+May 07 2016 00:00:33> Request /test
+May 07 2016 00:00:33> Responded with 200
+May 07 2016 00:00:34> Request /test
+May 07 2016 00:00:34> Responded with 200
+May 07 2016 00:00:34> Request /test
+May 07 2016 00:00:34> Responded with 200
+May 07 2016 00:01:00> Request /test
+May 07 2016 00:01:00> Responded with 200
+May 07 2016 00:01:01> Request /test
+May 07 2016 00:01:01> Responded with 200
+May 07 2016 00:01:12> Request /test
+May 07 2016 00:01:12> Responded with 200
+May 07 2016 00:01:20> Request /test
+May 07 2016 00:01:20> Responded with 200
+May 07 2016 00:01:21> Request /test
+May 07 2016 00:01:21> Responded with 200
+May 07 2016 00:01:21> Request /test
+May 07 2016 00:01:21> Responded with 200
+May 07 2016 00:01:33> Request /test
+May 07 2016 00:01:33> Responded with 200
+May 07 2016 00:01:51> Request /test
+May 07 2016 00:01:51> Responded with 200
+May 07 2016 00:01:52> Request /test
+May 07 2016 00:01:52> Responded with 200
+May 07 2016 00:01:52> Request /test
+May 07 2016 00:01:52> Responded with 200
+May 07 2016 00:01:52> Request /test
+May 07 2016 00:01:52> Responded with 200
+May 07 2016 00:02:26> Request /test
+May 07 2016 00:02:26> Responded with 200
+May 07 2016 00:04:37> Request /test
+May 07 2016 00:04:37> [31mResponded with 500. Something went wrong serving ./test/index.html
+See below for error.[39m
+May 07 2016 00:04:37> [34mReferenceError: include is not defined[39m
+May 07 2016 00:04:45> Request /test
+May 07 2016 00:04:45> Responded with 200
+May 07 2016 00:05:02> Request /test/other.md
+May 07 2016 00:05:02> Responded with 200
+May 07 2016 00:05:08> Request /test/other.md
+May 07 2016 00:05:08> Responded with 200
+May 07 2016 00:05:18> Request /test/other.md
+May 07 2016 00:05:19> Responded with 200
+May 07 2016 00:05:38> Request /test/other.md
+May 07 2016 00:05:38> Responded with 200
+May 07 2016 00:06:07> Request /test/other.md
+May 07 2016 00:06:07> [31mMissing module markdown.js[39m
+May 07 2016 00:06:07> Responded with 200
+May 07 2016 00:08:12> Request /test/other.md
+May 07 2016 00:08:12> Responded with 200
+May 07 2016 00:19:39> Request /test
+May 07 2016 00:19:39> [31mMissing include other.md[39m
+May 07 2016 00:19:39> Responded with 200
+May 07 2016 00:19:40> Request /test
+May 07 2016 00:19:40> [31mMissing include other.md[39m
+May 07 2016 00:19:40> Responded with 200
+May 07 2016 00:19:48> Request /test
+May 07 2016 00:19:48> [31mMissing include ./other.md[39m
+May 07 2016 00:19:48> Responded with 200
+May 07 2016 00:19:53> Request /test
+May 07 2016 00:19:53> [31mMissing include ./other.md[39m
+May 07 2016 00:19:53> Responded with 200
+May 07 2016 00:20:03> Request /test
+May 07 2016 00:20:03> [31mMissing include ~/other.md[39m
+May 07 2016 00:20:03> Responded with 200
+May 07 2016 00:20:50> [32mServer started on port 8888[39m
+May 07 2016 00:21:39> [32mServer started on port 8888[39m
+May 07 2016 00:21:40> Request /test
+May 07 2016 00:21:40> [31mMissing include ~/other.md[39m
+May 07 2016 00:21:40> Responded with 200
+May 07 2016 00:21:50> [32mServer started on port 8888[39m
+May 07 2016 00:22:11> [32mServer started at http://localhost:8888[39m
+May 07 2016 00:22:18> Request /
+May 07 2016 00:22:18> [31mResponded with 404. Could not find ./index.html[39m
+May 07 2016 00:22:21> Request /test
+May 07 2016 00:22:21> [31mMissing include ~/other.md[39m
+May 07 2016 00:22:21> Responded with 200
+May 07 2016 00:36:03> Server started at http://localhost:8888
+May 07 2016 00:36:09> undefined
+May 07 2016 00:36:09> Missing include ~/other.md
+May 07 2016 00:36:09> undefined
+May 07 2016 00:38:16> undefined
+May 07 2016 00:38:22> undefined
+May 07 2016 00:38:28> undefined
+May 07 2016 00:38:53> [32mServer started at http://localhost:8888[0m
+May 07 2016 00:39:15> [32mServer started at http://localhost:8888[0m
+May 07 2016 00:39:17> Request /test
+May 07 2016 00:39:17> [31mMissing include ~/other.md[0m
+May 07 2016 00:39:17> Responded with 200
+May 07 2016 12:31:37> [32mServer started at http://localhost:8888[0m
+May 07 2016 12:31:56> Request /test
+May 07 2016 12:31:56> [31mMissing include ~/other.md[0m
+May 07 2016 12:31:56> Responded with 200
+May 07 2016 12:32:14> Request /test
+May 07 2016 12:32:14> [31mMissing include ./other.md[0m
+May 07 2016 12:32:14> Responded with 200
+May 07 2016 12:32:20> Request /test
+May 07 2016 12:32:20> [31mMissing include ./other.md[0m
+May 07 2016 12:32:20> Responded with 200

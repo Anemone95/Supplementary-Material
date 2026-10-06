@@ -1,0 +1,48 @@
+"use strict";
+
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = FormButton;
+
+var _objectWithoutProperties2 = _interopRequireDefault(require("@babel/runtime/helpers/objectWithoutProperties"));
+
+var _react = _interopRequireDefault(require("react"));
+
+var _AccessibleButton = _interopRequireDefault(require("./AccessibleButton"));
+
+/*
+Copyright 2019 The Matrix.org Foundation C.I.C.
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+*/
+function FormButton(props) {
+  const {
+    className,
+    label,
+    kind
+  } = props,
+        restProps = (0, _objectWithoutProperties2.default)(props, ["className", "label", "kind"]);
+  const newClassName = (className || "") + " mx_FormButton";
+  const allProps = Object.assign({}, restProps, {
+    className: newClassName,
+    kind: kind || "primary",
+    children: [label]
+  });
+  return /*#__PURE__*/_react.default.createElement(_AccessibleButton.default, allProps);
+}
+
+FormButton.propTypes = _AccessibleButton.default.propTypes;
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uLy4uLy4uL3NyYy9jb21wb25lbnRzL3ZpZXdzL2VsZW1lbnRzL0Zvcm1CdXR0b24uanMiXSwibmFtZXMiOlsiRm9ybUJ1dHRvbiIsInByb3BzIiwiY2xhc3NOYW1lIiwibGFiZWwiLCJraW5kIiwicmVzdFByb3BzIiwibmV3Q2xhc3NOYW1lIiwiYWxsUHJvcHMiLCJPYmplY3QiLCJhc3NpZ24iLCJjaGlsZHJlbiIsIlJlYWN0IiwiY3JlYXRlRWxlbWVudCIsIkFjY2Vzc2libGVCdXR0b24iLCJwcm9wVHlwZXMiXSwibWFwcGluZ3MiOiI7Ozs7Ozs7Ozs7O0FBZ0JBOztBQUNBOztBQWpCQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFLZSxTQUFTQSxVQUFULENBQW9CQyxLQUFwQixFQUEyQjtBQUN0QyxRQUFNO0FBQUNDLElBQUFBLFNBQUQ7QUFBWUMsSUFBQUEsS0FBWjtBQUFtQkMsSUFBQUE7QUFBbkIsTUFBeUNILEtBQS9DO0FBQUEsUUFBa0NJLFNBQWxDLDBDQUErQ0osS0FBL0M7QUFDQSxRQUFNSyxZQUFZLEdBQUcsQ0FBQ0osU0FBUyxJQUFJLEVBQWQsSUFBb0IsZ0JBQXpDO0FBQ0EsUUFBTUssUUFBUSxHQUFHQyxNQUFNLENBQUNDLE1BQVAsQ0FBYyxFQUFkLEVBQWtCSixTQUFsQixFQUNiO0FBQUNILElBQUFBLFNBQVMsRUFBRUksWUFBWjtBQUEwQkYsSUFBQUEsSUFBSSxFQUFFQSxJQUFJLElBQUksU0FBeEM7QUFBbURNLElBQUFBLFFBQVEsRUFBRSxDQUFDUCxLQUFEO0FBQTdELEdBRGEsQ0FBakI7QUFFQSxzQkFBT1EsZUFBTUMsYUFBTixDQUFvQkMseUJBQXBCLEVBQXNDTixRQUF0QyxDQUFQO0FBQ0g7O0FBRURQLFVBQVUsQ0FBQ2MsU0FBWCxHQUF1QkQsMEJBQWlCQyxTQUF4QyIsInNvdXJjZXNDb250ZW50IjpbIi8qXG5Db3B5cmlnaHQgMjAxOSBUaGUgTWF0cml4Lm9yZyBGb3VuZGF0aW9uIEMuSS5DLlxuXG5MaWNlbnNlZCB1bmRlciB0aGUgQXBhY2hlIExpY2Vuc2UsIFZlcnNpb24gMi4wICh0aGUgXCJMaWNlbnNlXCIpO1xueW91IG1heSBub3QgdXNlIHRoaXMgZmlsZSBleGNlcHQgaW4gY29tcGxpYW5jZSB3aXRoIHRoZSBMaWNlbnNlLlxuWW91IG1heSBvYnRhaW4gYSBjb3B5IG9mIHRoZSBMaWNlbnNlIGF0XG5cbmh0dHA6Ly93d3cuYXBhY2hlLm9yZy9saWNlbnNlcy9MSUNFTlNFLTIuMFxuXG5Vbmxlc3MgcmVxdWlyZWQgYnkgYXBwbGljYWJsZSBsYXcgb3IgYWdyZWVkIHRvIGluIHdyaXRpbmcsIHNvZnR3YXJlXG5kaXN0cmlidXRlZCB1bmRlciB0aGUgTGljZW5zZSBpcyBkaXN0cmlidXRlZCBvbiBhbiBcIkFTIElTXCIgQkFTSVMsXG5XSVRIT1VUIFdBUlJBTlRJRVMgT1IgQ09ORElUSU9OUyBPRiBBTlkgS0lORCwgZWl0aGVyIGV4cHJlc3Mgb3IgaW1wbGllZC5cblNlZSB0aGUgTGljZW5zZSBmb3IgdGhlIHNwZWNpZmljIGxhbmd1YWdlIGdvdmVybmluZyBwZXJtaXNzaW9ucyBhbmRcbmxpbWl0YXRpb25zIHVuZGVyIHRoZSBMaWNlbnNlLlxuKi9cblxuaW1wb3J0IFJlYWN0IGZyb20gJ3JlYWN0JztcbmltcG9ydCBBY2Nlc3NpYmxlQnV0dG9uIGZyb20gXCIuL0FjY2Vzc2libGVCdXR0b25cIjtcblxuZXhwb3J0IGRlZmF1bHQgZnVuY3Rpb24gRm9ybUJ1dHRvbihwcm9wcykge1xuICAgIGNvbnN0IHtjbGFzc05hbWUsIGxhYmVsLCBraW5kLCAuLi5yZXN0UHJvcHN9ID0gcHJvcHM7XG4gICAgY29uc3QgbmV3Q2xhc3NOYW1lID0gKGNsYXNzTmFtZSB8fCBcIlwiKSArIFwiIG14X0Zvcm1CdXR0b25cIjtcbiAgICBjb25zdCBhbGxQcm9wcyA9IE9iamVjdC5hc3NpZ24oe30sIHJlc3RQcm9wcyxcbiAgICAgICAge2NsYXNzTmFtZTogbmV3Q2xhc3NOYW1lLCBraW5kOiBraW5kIHx8IFwicHJpbWFyeVwiLCBjaGlsZHJlbjogW2xhYmVsXX0pO1xuICAgIHJldHVybiBSZWFjdC5jcmVhdGVFbGVtZW50KEFjY2Vzc2libGVCdXR0b24sIGFsbFByb3BzKTtcbn1cblxuRm9ybUJ1dHRvbi5wcm9wVHlwZXMgPSBBY2Nlc3NpYmxlQnV0dG9uLnByb3BUeXBlcztcbiJdfQ==

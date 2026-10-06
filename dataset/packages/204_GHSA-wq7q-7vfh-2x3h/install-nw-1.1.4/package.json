@@ -1,0 +1,42 @@
+{
+  "name": "install-nw",
+  "version": "1.1.4",
+  "description": "Quickly and robustly install and cache NW.js.",
+  "main": "index.js",
+  "bin": {
+    "install-nw": "cmd.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "David Mark Clements",
+  "license": "MIT",
+  "dependencies": {
+    "fast-download": "^0.3.4",
+    "minimist": "^1.1.1",
+    "progress-stream": "^1.1.0",
+    "semver": "^4.3.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/davidmarkclements/install-nw.git"
+  },
+  "bugs": {
+    "url": "https://github.com/davidmarkclements/install-nw/issues"
+  },
+  "homepage": "https://github.com/davidmarkclements/install-nw",
+  "keywords": [
+    "nw",
+    "nw.js",
+    "nwjs",
+    "chromium",
+    "io.js",
+    "node-webkit",
+    "webkit",
+    "installer",
+    "install",
+    "iojs",
+    "desktop",
+    "application"
+  ]
+}

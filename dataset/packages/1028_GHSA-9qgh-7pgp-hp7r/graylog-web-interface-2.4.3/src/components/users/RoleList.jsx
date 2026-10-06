@@ -1,0 +1,72 @@
+import PropTypes from 'prop-types';
+import React from 'react';
+import Reflux from 'reflux';
+import Immutable from 'immutable';
+import { Button } from 'react-bootstrap';
+
+import StoreProvider from 'injection/StoreProvider';
+
+import PermissionsMixin from 'util/PermissionsMixin';
+const CurrentUserStore = StoreProvider.getStore('CurrentUser');
+
+import { DataTable } from 'components/common';
+
+const RoleList = React.createClass({
+  mixins: [Reflux.connect(CurrentUserStore), PermissionsMixin],
+  propTypes: {
+    roles: PropTypes.instanceOf(Immutable.Set).isRequired,
+    showEditRole: PropTypes.func.isRequired,
+    deleteRole: PropTypes.func.isRequired,
+  },
+
+  _headerCellFormatter(header) {
+    const className = (header === 'Actions' ? 'actions' : '');
+    return <th className={className}>{header}</th>;
+  },
+  _editButton(role) {
+    if (this.isPermitted(this.state.currentUser.permissions, ['roles:edit:' + role.name]) === false || role.read_only) {
+        return null;
+    }
+    return (<Button key="edit" bsSize="xsmall" bsStyle="info" onClick={() => this.props.showEditRole(role)} title="编辑角色">编辑</Button>);
+  },
+  _deleteButton(role) {
+    if (this.isPermitted(this.state.currentUser.permissions, ['roles:delete:' + role.name]) === false || role.read_only) {
+        return null;
+    }
+    return (<Button key="delete" bsSize="xsmall" bsStyle="primary" onClick={() => this.props.deleteRole(role)} title="删除角色">删除</Button>);
+  },
+  _roleInfoFormatter(role) {
+    return (
+      <tr key={role.name}>
+        <td>{role.name}</td>
+        <td className="limited">{role.description}</td>
+        <td>
+          {this._editButton(role)}
+          <span key="space">&nbsp;</span>
+          {this._deleteButton(role)}
+        </td>
+      </tr>
+    );
+  },
+  render() {
+    const filterKeys = ['name', 'description'];
+    const headers = ['名称', '描述', '操作'];
+
+    return (
+      <div>
+        <DataTable id="role-list"
+                   className="table-hover"
+                   headers={headers}
+                   headerCellFormatter={this._headerCellFormatter}
+                   sortByKey={'name'}
+                   rows={this.props.roles.toJS()}
+                   filterBy="Name"
+                   dataRowFormatter={this._roleInfoFormatter}
+                   filterLabel="过滤角色"
+                   filterKeys={filterKeys} />
+      </div>
+    );
+  },
+});
+
+export default RoleList;

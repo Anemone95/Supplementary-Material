@@ -1,0 +1,23 @@
+{
+  "name": "enserver",
+  "version": "1.0.0",
+  "description": "a server powered by node.js. only for experiment!!",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yepbug/enserver.git"
+  },
+  "keywords": [
+    "node.js",
+    "server"
+  ],
+  "author": "yepbug",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yepbug/enserver/issues"
+  },
+  "homepage": "https://github.com/yepbug/enserver#readme"
+}

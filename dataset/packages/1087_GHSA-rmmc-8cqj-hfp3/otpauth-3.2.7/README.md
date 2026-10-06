@@ -1,0 +1,73 @@
+[![Last version](https://img.shields.io/github/tag/hectorm/otpauth.svg)][tags]
+[![Dependencies status](https://img.shields.io/david/hectorm/otpauth.svg)][dependencies]
+[![Dev dependencies status](https://img.shields.io/david/dev/hectorm/otpauth.svg)][devDependencies]
+[![NPM status](https://img.shields.io/npm/dm/otpauth.svg)][npm]
+[![Documentation](https://hectorm.github.io/otpauth/badge.svg)][docs]
+
+***
+
+# OTPAuth
+One Time Password (HOTP/TOTP) library for Node.js and browser.
+
+## Installation
+Install the module via `npm`.
+
+```sh
+npm install otpauth
+```
+
+## Usage
+
+### Node.js
+```javascript
+const OTPAuth = require('otpauth');
+
+let totp = new OTPAuth.TOTP({
+	issuer: 'ACME',
+	label: 'AzureDiamond',
+	algorithm: 'SHA1',
+	digits: 6,
+	period: 30,
+	secret: OTPAuth.Secret.fromB32('NB2W45DFOIZA')
+});
+
+// Generate TOTP token.
+let token = totp.generate();
+
+// Validate TOTP token.
+let delta = totp.validate({
+	token: token,
+	window: 10
+});
+
+// Convert to Google Authenticator key URI:
+//   otpauth://totp/ACME:AzureDiamond?issuer=ACME&secret=NB2W45DFOIZA&algorithm=SHA1&digits=6&period=30
+let uri = totp.toString();
+```
+
+### Browser
+```html
+<script src="otpauth.min.js"></script>
+<script>
+	// Same as above...
+</script>
+```
+
+## Supported hashing algorithms
+In Node.js, the same algorithms as [`Crypto.createHmac`][createHmac] function are supported, since it is used internally.
+In browsers, the `SHA1`, `SHA256` and `SHA512` algorithms are supported by using the [Stanford Javascript Crypto Library][sjcl].
+
+## Documentation
+See the [documentation][docs] page.
+
+## License
+[MIT License][license] © [Héctor Molinero Fernández](https://molinero.dev/).
+
+[docs]: https://hectorm.github.io/otpauth/index.html
+[license]: https://github.com/hectorm/otpauth/blob/master/LICENSE.md
+[tags]: https://github.com/hectorm/otpauth/tags
+[npm]: https://www.npmjs.com/package/otpauth
+[dependencies]: https://david-dm.org/hectorm/otpauth
+[devDependencies]: https://david-dm.org/hectorm/otpauth?type=dev
+[createHmac]: https://nodejs.org/api/crypto.html#crypto_crypto_createhmac_algorithm_key
+[sjcl]: https://github.com/bitwiseshiftleft/sjcl

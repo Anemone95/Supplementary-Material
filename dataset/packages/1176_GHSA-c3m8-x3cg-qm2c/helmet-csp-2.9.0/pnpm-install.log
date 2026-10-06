@@ -1,0 +1,22 @@
+$ corepack pnpm@9.15.9 install --prod --no-frozen-lockfile --reporter=append-only --config.node-linker=hoisted --ignore-workspace --ignore-scripts
+Progress: resolved 1, reused 0, downloaded 0, added 0
+ WARN  deprecated supertest@4.0.2: Please upgrade to supertest v7.1.3+, see release notes at https://github.com/forwardemail/supertest/releases/tag/v7.1.3 - maintenance is supported by Forward Email @ https://forwardemail.net
+ WARN  deprecated eslint@5.16.0: This version is no longer supported. Please see https://eslint.org/version-support for other options.
+Progress: resolved 13, reused 0, downloaded 0, added 0
+Progress: resolved 14, reused 0, downloaded 0, added 0
+Progress: resolved 16, reused 0, downloaded 0, added 0
+Progress: resolved 124, reused 0, downloaded 0, added 0
+Progress: resolved 249, reused 0, downloaded 0, added 0
+Progress: resolved 399, reused 0, downloaded 0, added 0
+Progress: resolved 592, reused 0, downloaded 0, added 0
+Progress: resolved 625, reused 0, downloaded 0, added 0
+Progress: resolved 626, reused 0, downloaded 0, added 0
+Progress: resolved 627, reused 0, downloaded 0, added 0
+ WARN  21 deprecated subdependencies found: abab@2.0.6, domexception@1.0.1, formidable@1.2.6, fsevents@1.2.13, glob@7.2.3, har-validator@5.1.5, inflight@1.0.6, left-pad@1.3.0, request-promise-native@1.0.9, request@2.88.2, resolve-url@0.2.1, rimraf@2.6.3, rimraf@2.7.1, sane@4.1.0, source-map-resolve@0.5.3, source-map-url@0.4.1, superagent@3.8.3, urix@0.1.0, uuid@3.4.0, w3c-hr-time@1.0.2, whatwg-encoding@1.0.5
+
+devDependencies: skipped
+
+Packages: +4
+++++
+Progress: resolved 628, reused 2, downloaded 2, added 4, done
+Done in 13.8s using pnpm v9.15.9

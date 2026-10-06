@@ -1,0 +1,31 @@
+/*
+Copyright 2020 The Matrix.org Foundation C.I.C.
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+*/
+
+/*:: export interface ViewRoomDeltaPayload extends ActionPayload {
+    action: Action.ViewRoomDelta;
+
+    /**
+     * The delta index of the room to view.
+     *-/
+    delta: number;
+
+    /**
+     * Optionally, whether or not to filter to unread (Bold/Grey/Red) rooms only. (Default: false)
+     *-/
+    unread?: boolean;
+}*/
+"use strict";
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uLy4uL3NyYy9kaXNwYXRjaGVyL3BheWxvYWRzL1ZpZXdSb29tRGVsdGFQYXlsb2FkLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTs7O0FBZEE7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBIiwic291cmNlc0NvbnRlbnQiOlsiLypcbkNvcHlyaWdodCAyMDIwIFRoZSBNYXRyaXgub3JnIEZvdW5kYXRpb24gQy5JLkMuXG5cbkxpY2Vuc2VkIHVuZGVyIHRoZSBBcGFjaGUgTGljZW5zZSwgVmVyc2lvbiAyLjAgKHRoZSBcIkxpY2Vuc2VcIik7XG55b3UgbWF5IG5vdCB1c2UgdGhpcyBmaWxlIGV4Y2VwdCBpbiBjb21wbGlhbmNlIHdpdGggdGhlIExpY2Vuc2UuXG5Zb3UgbWF5IG9idGFpbiBhIGNvcHkgb2YgdGhlIExpY2Vuc2UgYXRcblxuICAgIGh0dHA6Ly93d3cuYXBhY2hlLm9yZy9saWNlbnNlcy9MSUNFTlNFLTIuMFxuXG5Vbmxlc3MgcmVxdWlyZWQgYnkgYXBwbGljYWJsZSBsYXcgb3IgYWdyZWVkIHRvIGluIHdyaXRpbmcsIHNvZnR3YXJlXG5kaXN0cmlidXRlZCB1bmRlciB0aGUgTGljZW5zZSBpcyBkaXN0cmlidXRlZCBvbiBhbiBcIkFTIElTXCIgQkFTSVMsXG5XSVRIT1VUIFdBUlJBTlRJRVMgT1IgQ09ORElUSU9OUyBPRiBBTlkgS0lORCwgZWl0aGVyIGV4cHJlc3Mgb3IgaW1wbGllZC5cblNlZSB0aGUgTGljZW5zZSBmb3IgdGhlIHNwZWNpZmljIGxhbmd1YWdlIGdvdmVybmluZyBwZXJtaXNzaW9ucyBhbmRcbmxpbWl0YXRpb25zIHVuZGVyIHRoZSBMaWNlbnNlLlxuKi9cblxuaW1wb3J0IHsgQWN0aW9uUGF5bG9hZCB9IGZyb20gXCIuLi9wYXlsb2Fkc1wiO1xuaW1wb3J0IHsgQWN0aW9uIH0gZnJvbSBcIi4uL2FjdGlvbnNcIjtcblxuZXhwb3J0IGludGVyZmFjZSBWaWV3Um9vbURlbHRhUGF5bG9hZCBleHRlbmRzIEFjdGlvblBheWxvYWQge1xuICAgIGFjdGlvbjogQWN0aW9uLlZpZXdSb29tRGVsdGE7XG5cbiAgICAvKipcbiAgICAgKiBUaGUgZGVsdGEgaW5kZXggb2YgdGhlIHJvb20gdG8gdmlldy5cbiAgICAgKi9cbiAgICBkZWx0YTogbnVtYmVyO1xuXG4gICAgLyoqXG4gICAgICogT3B0aW9uYWxseSwgd2hldGhlciBvciBub3QgdG8gZmlsdGVyIHRvIHVucmVhZCAoQm9sZC9HcmV5L1JlZCkgcm9vbXMgb25seS4gKERlZmF1bHQ6IGZhbHNlKVxuICAgICAqL1xuICAgIHVucmVhZD86IGJvb2xlYW47XG59XG4iXX0=

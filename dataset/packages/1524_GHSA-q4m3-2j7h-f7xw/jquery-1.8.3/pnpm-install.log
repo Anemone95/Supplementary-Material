@@ -1,0 +1,25 @@
+$ corepack pnpm@9.15.9 install --prod --no-frozen-lockfile --reporter=append-only --config.node-linker=hoisted --ignore-workspace --ignore-scripts
+Progress: resolved 1, reused 0, downloaded 0, added 0
+ WARN  deprecated nodeunit@0.7.4: you are strongly encouraged to use other testing options
+Progress: resolved 17, reused 0, downloaded 0, added 0
+Progress: resolved 56, reused 0, downloaded 0, added 0
+Progress: resolved 143, reused 0, downloaded 0, added 0
+Progress: resolved 197, reused 0, downloaded 0, added 0
+Progress: resolved 272, reused 0, downloaded 0, added 0
+Progress: resolved 335, reused 0, downloaded 0, added 0
+ WARN  GET https://registry.npmjs.org/supports-color error (ECONNRESET). Will retry in 10 seconds. 2 retries left.
+Progress: resolved 343, reused 0, downloaded 0, added 0
+Progress: resolved 346, reused 0, downloaded 0, added 0
+Progress: resolved 355, reused 0, downloaded 0, added 0
+Progress: resolved 359, reused 0, downloaded 0, added 0
+Progress: resolved 367, reused 0, downloaded 0, added 0
+Progress: resolved 368, reused 0, downloaded 0, added 0
+Progress: resolved 370, reused 0, downloaded 0, added 0
+ WARN  8 deprecated subdependencies found: connect@2.4.6, formidable@1.0.11, har-validator@5.1.5, minimatch@0.0.5, minimatch@0.2.14, request@2.88.2, request@2.9.203, uuid@3.4.0
+
+devDependencies: skipped
+
+Packages: +70
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Progress: resolved 372, reused 51, downloaded 19, added 70, done
+Done in 18.8s using pnpm v9.15.9

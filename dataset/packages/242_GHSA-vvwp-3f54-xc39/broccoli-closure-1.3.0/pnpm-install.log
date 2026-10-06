@@ -1,0 +1,14 @@
+$ corepack pnpm@9.15.9 install --prod --no-frozen-lockfile --reporter=append-only --config.node-linker=hoisted --ignore-workspace --ignore-scripts
+Progress: resolved 1, reused 0, downloaded 0, added 0
+ WARN  deprecated tar@2.2.2: Old versions of tar are not supported, and contain widely publicized security vulnerabilities, which have been fixed in the current version. Please update. Support for old versions may be purchased (at exorbitant rates) by contacting i@izs.me
+Progress: resolved 22, reused 0, downloaded 0, added 0
+Progress: resolved 43, reused 0, downloaded 0, added 0
+ WARN  6 deprecated subdependencies found: fstream@1.0.12, glob@10.5.0, glob@5.0.15, glob@7.2.3, inflight@1.0.6, rimraf@2.7.1
+
+devDependencies: skipped
+
+Packages: +77
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Progress: resolved 71, reused 54, downloaded 13, added 61
+Progress: resolved 71, reused 54, downloaded 17, added 77, done
+Done in 3.5s using pnpm v9.15.9

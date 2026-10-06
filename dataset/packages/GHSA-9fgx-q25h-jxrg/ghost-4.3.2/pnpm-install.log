@@ -1,0 +1,73 @@
+$ corepack pnpm@9.15.9 install --prod --no-frozen-lockfile --reporter=append-only --config.node-linker=hoisted --ignore-workspace --ignore-scripts
+ WARN  Unsupported engine: wanted: {"node":"^10.13.0 || ^12.10.0 || ^14.15.0"} (current: {"node":"v22.5.1","pnpm":"9.15.9"})
+Progress: resolved 1, reused 0, downloaded 0, added 0
+ WARN  deprecated @tryghost/email-analytics-provider-mailgun@1.0.0: Package no longer supported. Contact Support at https://www.npmjs.com/support for more info.
+ WARN  deprecated @tryghost/bootstrap-socket@0.2.8: Package no longer supported. Contact Support at https://www.npmjs.com/support for more info.
+ WARN  deprecated @tryghost/email-analytics-service@1.0.0: Package no longer supported. Contact Support at https://www.npmjs.com/support for more info.
+ WARN  deprecated @tryghost/kg-mobiledoc-html-renderer@4.0.0: Deprecated: Ghost has moved to the Lexical editor and no longer supports mobiledoc. This package is unmaintained.
+ WARN  deprecated @tryghost/admin-api-schema@2.1.1: This package is now maintained as an internal Ghost workspace package. Existing versions remain available for older Ghost releases; direct use is unsupported.
+ WARN  deprecated @tryghost/kg-default-atoms@2.0.4: Deprecated: Ghost has moved to the Lexical editor and no longer supports mobiledoc. This package is unmaintained.
+ WARN  deprecated @tryghost/adapter-manager@0.2.12: Package no longer supported. Contact Support at https://www.npmjs.com/support for more info.
+Progress: resolved 15, reused 0, downloaded 0, added 0
+ WARN  deprecated @nexes/nql@0.5.2: Package has been moved to @tryghost/nql
+ WARN  deprecated @tryghost/members-csv@1.0.0: This package is now maintained as an internal Ghost workspace package. Existing versions remain available for older Ghost releases; direct use is unsupported.
+ WARN  deprecated @tryghost/members-api@1.3.2: Package no longer supported. Contact Support at https://www.npmjs.com/support for more info.
+ WARN  deprecated @tryghost/members-ssr@1.0.2: Package no longer supported. Contact Support at https://www.npmjs.com/support for more info.
+ WARN  deprecated @tryghost/constants@0.1.7: Package no longer supported. Contact Support at https://www.npmjs.com/support for more info.
+ WARN  deprecated @tryghost/session-service@0.1.20: Package no longer supported. Contact Support at https://www.npmjs.com/support for more info.
+ WARN  deprecated @tryghost/limit-service@0.4.2: This package is now maintained as an internal Ghost workspace package. Existing versions remain available for older Ghost releases; direct use is unsupported.
+ WARN  deprecated glob@7.1.6: Old versions of glob are not supported, and contain widely publicized security vulnerabilities, which have been fixed in the current version. Please update. Support for old versions may be purchased (at exorbitant rates) by contacting i@izs.me
+ WARN  deprecated @tryghost/magic-link@1.0.2: Package no longer supported. Contact Support at https://www.npmjs.com/support for more info.
+ WARN  deprecated @tryghost/mw-session-from-token@0.1.19: Package no longer supported. Contact Support at https://www.npmjs.com/support for more info.
+ WARN  deprecated mailgun-js@0.22.0: Package no longer supported. Contact Support at https://www.npmjs.com/support for more info.
+ WARN  deprecated brute-knex@4.0.1: Package no longer supported. Contact Support at https://www.npmjs.com/support for more info.
+ WARN  deprecated ghost-ignition@4.6.2: Package no longer supported. Contact Support at https://www.npmjs.com/support for more info.
+ WARN  deprecated multer@1.4.2: Multer 1.x is affected by CVE-2022-24434. This is fixed in v1.4.4-lts.1 which drops support for versions of Node.js before 6. Please upgrade to at least Node.js 6 and version 1.4.4-lts.1 of Multer. If you need support for older versions of Node.js, we are open to accepting patches that would fix the CVE on the main 1.x release line, whilst maintaining compatibility with Node.js 0.10.
+Progress: resolved 70, reused 0, downloaded 0, added 0
+ WARN  deprecated nodemailer@0.7.1: All versions below 4.0.1 of Nodemailer are deprecated. See https://nodemailer.com/status/
+ WARN  deprecated uuid@8.3.2: uuid@10 and below is no longer supported.  For ESM codebases, update to uuid@latest.  For CommonJS codebases, use uuid@11 (but be aware this version will likely be deprecated in 2028).
+ WARN  deprecated eslint@7.24.0: This version is no longer supported. Please see https://eslint.org/version-support for other options.
+ WARN  deprecated @tryghost/vhost-middleware@1.0.14: Package no longer supported. Contact Support at https://www.npmjs.com/support for more info.
+ WARN  deprecated sinon@10.0.0: 16.1.1
+ WARN  deprecated supertest@6.1.3: Please upgrade to supertest v7.1.3+, see release notes at https://github.com/forwardemail/supertest/releases/tag/v7.1.3 - maintenance is supported by Forward Email @ https://forwardemail.net
+ WARN  deprecated path-match@1.2.4: This package is archived and no longer maintained. For support, visit https://github.com/expressjs/express/discussions
+ WARN  deprecated @tryghost/html-to-mobiledoc@0.7.15: Deprecated: Ghost has moved to the Lexical editor and no longer supports mobiledoc. Use @tryghost/kg-html-to-lexical instead.
+Progress: resolved 139, reused 0, downloaded 0, added 0
+Progress: resolved 234, reused 0, downloaded 0, added 0
+Progress: resolved 355, reused 0, downloaded 0, added 0
+Progress: resolved 409, reused 0, downloaded 0, added 0
+Progress: resolved 526, reused 0, downloaded 0, added 0
+Progress: resolved 650, reused 0, downloaded 0, added 0
+Progress: resolved 760, reused 0, downloaded 0, added 0
+Progress: resolved 814, reused 0, downloaded 0, added 0
+Progress: resolved 965, reused 0, downloaded 0, added 0
+Progress: resolved 1107, reused 0, downloaded 0, added 0
+Progress: resolved 1216, reused 0, downloaded 0, added 0
+Progress: resolved 1455, reused 0, downloaded 0, added 0
+Progress: resolved 1487, reused 0, downloaded 0, added 0
+Progress: resolved 1488, reused 0, downloaded 0, added 0
+ WARN  60 deprecated subdependencies found: @nexes/mongo-knex@0.4.1, @nexes/mongo-utils@0.3.1, @nexes/nql-lang@0.0.1, @sinonjs/text-encoding@0.7.3, @tryghost/elasticsearch-bunyan@0.1.1, @tryghost/kg-parser-plugins@1.1.8, @tryghost/mobiledoc-kit@0.12.4-ghost.1, @types/express-unless@2.0.3, abab@2.0.6, are-we-there-yet@1.1.7, aws-sdk@2.0.5, boolean@3.2.0, bree@6.5.0, debug@4.1.1, domexception@2.0.1, ee-argv@0.1.4, ee-types@2.2.1, eslint@6.8.0, formidable@1.2.6, fstream@1.0.12, gauge@2.7.4, ghost-ignition@4.1.0, ghost-ignition@4.6.1, glob@10.5.0, glob@5.0.15, glob@6.0.4, har-validator@5.1.5, iltorb@2.4.5, inflight@1.0.6, intl-messageformat-parser@2.1.3, lodash.get@4.4.2, lodash.pick@4.4.0, mailcomposer@0.2.12, mimelib@0.2.19, node-pre-gyp@0.11.0, npmlog@4.1.2, osenv@0.1.5, prebuild-install@5.3.6, raw-body@1.1.7, request-promise@4.2.6, request@2.88.2, resolve-url@0.2.1, rimraf@2.4.5, rimraf@2.6.3, rimraf@2.7.1, rimraf@3.0.2, source-map-resolve@0.5.3, source-map-url@0.4.1, stable@0.1.8, superagent@6.1.0, tar@2.2.2, tar@4.4.19, tar@6.2.1, trim@0.0.1, urix@0.1.0, uuid@3.4.0, uuid@7.0.3, w3c-hr-time@1.0.2, whatwg-encoding@1.0.5, whatwg-encoding@3.1.1
+Progress: resolved 1489, reused 0, downloaded 0, added 0
+
+devDependencies: skipped
+
+ WARN  Issues with peer dependencies found
+.
+├─┬ bookshelf 0.15.2
+│ └── ✕ unmet peer knex@">=0.13.0 <0.18.0": found 0.21.19
+└─┬ brute-knex 4.0.1
+  └─┬ knex 0.20.15
+    └── ✕ unmet peer sqlite3@^4.1.1: found 5.0.2
+
+Packages: +1280
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Progress: resolved 1489, reused 805, downloaded 17, added 821
+Progress: resolved 1489, reused 805, downloaded 75, added 913
+Progress: resolved 1489, reused 805, downloaded 136, added 1008
+Progress: resolved 1489, reused 805, downloaded 200, added 1091
+Progress: resolved 1489, reused 805, downloaded 278, added 1174
+Progress: resolved 1489, reused 805, downloaded 333, added 1250
+Progress: resolved 1489, reused 805, downloaded 336, added 1253
+Progress: resolved 1489, reused 805, downloaded 338, added 1270
+Progress: resolved 1489, reused 805, downloaded 339, added 1280, done
+Done in 25.7s using pnpm v9.15.9

@@ -1,0 +1,35 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+/*
+Copyright 2015, 2016 OpenMarket Ltd
+Copyright 2017 Vector Creations Ltd
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+*/
+
+/** The types of page which can be shown by the LoggedInView */
+var _default = {
+  HomePage: "home_page",
+  RoomView: "room_view",
+  RoomDirectory: "room_directory",
+  UserView: "user_view",
+  GroupView: "group_view",
+  MyGroups: "my_groups"
+};
+exports.default = _default;
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uL3NyYy9QYWdlVHlwZXMuanMiXSwibmFtZXMiOlsiSG9tZVBhZ2UiLCJSb29tVmlldyIsIlJvb21EaXJlY3RvcnkiLCJVc2VyVmlldyIsIkdyb3VwVmlldyIsIk15R3JvdXBzIl0sIm1hcHBpbmdzIjoiOzs7Ozs7O0FBQUE7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7O0FBRUE7ZUFDZTtBQUNYQSxFQUFBQSxRQUFRLEVBQUUsV0FEQztBQUVYQyxFQUFBQSxRQUFRLEVBQUUsV0FGQztBQUdYQyxFQUFBQSxhQUFhLEVBQUUsZ0JBSEo7QUFJWEMsRUFBQUEsUUFBUSxFQUFFLFdBSkM7QUFLWEMsRUFBQUEsU0FBUyxFQUFFLFlBTEE7QUFNWEMsRUFBQUEsUUFBUSxFQUFFO0FBTkMsQyIsInNvdXJjZXNDb250ZW50IjpbIi8qXG5Db3B5cmlnaHQgMjAxNSwgMjAxNiBPcGVuTWFya2V0IEx0ZFxuQ29weXJpZ2h0IDIwMTcgVmVjdG9yIENyZWF0aW9ucyBMdGRcblxuTGljZW5zZWQgdW5kZXIgdGhlIEFwYWNoZSBMaWNlbnNlLCBWZXJzaW9uIDIuMCAodGhlIFwiTGljZW5zZVwiKTtcbnlvdSBtYXkgbm90IHVzZSB0aGlzIGZpbGUgZXhjZXB0IGluIGNvbXBsaWFuY2Ugd2l0aCB0aGUgTGljZW5zZS5cbllvdSBtYXkgb2J0YWluIGEgY29weSBvZiB0aGUgTGljZW5zZSBhdFxuXG4gICAgaHR0cDovL3d3dy5hcGFjaGUub3JnL2xpY2Vuc2VzL0xJQ0VOU0UtMi4wXG5cblVubGVzcyByZXF1aXJlZCBieSBhcHBsaWNhYmxlIGxhdyBvciBhZ3JlZWQgdG8gaW4gd3JpdGluZywgc29mdHdhcmVcbmRpc3RyaWJ1dGVkIHVuZGVyIHRoZSBMaWNlbnNlIGlzIGRpc3RyaWJ1dGVkIG9uIGFuIFwiQVMgSVNcIiBCQVNJUyxcbldJVEhPVVQgV0FSUkFOVElFUyBPUiBDT05ESVRJT05TIE9GIEFOWSBLSU5ELCBlaXRoZXIgZXhwcmVzcyBvciBpbXBsaWVkLlxuU2VlIHRoZSBMaWNlbnNlIGZvciB0aGUgc3BlY2lmaWMgbGFuZ3VhZ2UgZ292ZXJuaW5nIHBlcm1pc3Npb25zIGFuZFxubGltaXRhdGlvbnMgdW5kZXIgdGhlIExpY2Vuc2UuXG4qL1xuXG4vKiogVGhlIHR5cGVzIG9mIHBhZ2Ugd2hpY2ggY2FuIGJlIHNob3duIGJ5IHRoZSBMb2dnZWRJblZpZXcgKi9cbmV4cG9ydCBkZWZhdWx0IHtcbiAgICBIb21lUGFnZTogXCJob21lX3BhZ2VcIixcbiAgICBSb29tVmlldzogXCJyb29tX3ZpZXdcIixcbiAgICBSb29tRGlyZWN0b3J5OiBcInJvb21fZGlyZWN0b3J5XCIsXG4gICAgVXNlclZpZXc6IFwidXNlcl92aWV3XCIsXG4gICAgR3JvdXBWaWV3OiBcImdyb3VwX3ZpZXdcIixcbiAgICBNeUdyb3VwczogXCJteV9ncm91cHNcIixcbn07XG4iXX0=

@@ -1,0 +1,21 @@
+$ corepack pnpm@9.15.9 install --prod --no-frozen-lockfile --reporter=append-only --config.node-linker=hoisted --ignore-workspace --ignore-scripts
+Progress: resolved 1, reused 0, downloaded 0, added 0
+ WARN  deprecated eslint@5.16.0: This version is no longer supported. Please see https://eslint.org/version-support for other options.
+ WARN  deprecated eslint-plugin-markdown@1.0.2: Please use @eslint/markdown instead
+ WARN  deprecated travis-deploy-once@5.0.11: We recommend to use Travis Build Stages instead
+Progress: resolved 28, reused 0, downloaded 0, added 0
+Progress: resolved 145, reused 0, downloaded 0, added 0
+Progress: resolved 284, reused 0, downloaded 0, added 0
+Progress: resolved 386, reused 0, downloaded 0, added 0
+Progress: resolved 511, reused 0, downloaded 0, added 0
+Progress: resolved 682, reused 0, downloaded 0, added 0
+Progress: resolved 811, reused 0, downloaded 0, added 0
+Progress: resolved 841, reused 0, downloaded 0, added 0
+ WARN  11 deprecated subdependencies found: @babel/polyfill@7.12.1, @types/minimatch@6.0.0, core-js@2.6.12, glob@7.1.2, glob@7.2.3, inflight@1.0.6, lodash.get@4.4.2, mkdirp@0.5.1, q@1.5.1, rimraf@2.6.3, trim@0.0.1
+
+devDependencies: skipped
+
+Packages: +8
+++++++++
+Progress: resolved 855, reused 8, downloaded 0, added 8, done
+Done in 8.8s using pnpm v9.15.9

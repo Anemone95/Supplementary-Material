@@ -1,0 +1,15 @@
+$ corepack pnpm@9.15.9 install --prod --no-frozen-lockfile --reporter=append-only --config.node-linker=hoisted --ignore-workspace --ignore-scripts
+Progress: resolved 1, reused 0, downloaded 0, added 0
+ WARN  deprecated core-js@0.9.17: core-js@<3.23.3 is no longer maintained and not recommended for usage due to the number of issues. Because of the V8 engine whims, feature detection in old core-js versions could cause a slowdown up to 100x even if nothing is polyfilled. Some versions have web compatibility issues. Please, upgrade your dependencies to the actual version of core-js.
+ WARN  deprecated sinon@1.10.3: 16.1.1
+ WARN  deprecated win-spawn@2.0.0: use [cross-spawn](https://github.com/IndigoUnited/node-cross-spawn) or [cross-spawn-async](https://github.com/IndigoUnited/node-cross-spawn-async) instead.
+Progress: resolved 88, reused 0, downloaded 0, added 0
+Progress: resolved 304, reused 0, downloaded 0, added 0
+Progress: resolved 449, reused 0, downloaded 0, added 0
+ WARN  42 deprecated subdependencies found: babel-plugin-constant-folding@1.0.1, babel-plugin-dead-code-elimination@1.0.2, babel-plugin-eval@1.0.1, babel-plugin-inline-environment-variables@1.0.1, babel-plugin-jscript@1.0.4, babel-plugin-member-expression-literals@1.0.1, babel-plugin-property-literals@1.0.1, babel-plugin-proto-to-assign@1.0.4, babel-plugin-react-constant-elements@1.0.3, babel-plugin-react-display-name@1.0.3, babel-plugin-remove-console@1.0.1, babel-plugin-remove-debugger@1.0.1, babel-plugin-runtime@1.0.7, babel-plugin-undefined-to-void@1.1.6, coffee-script@1.3.3, core-js@1.2.7, formatio@1.0.2, glob@3.1.21, glob@3.2.11, glob@4.5.3, glob@5.0.15, glob@7.2.3, graceful-fs@1.2.3, har-validator@5.1.5, inflight@1.0.6, jscs@2.1.1, minimatch@0.2.14, minimatch@0.3.0, minimatch@1.0.0, minimatch@2.0.10, nomnom@1.8.1, q@1.5.1, request@2.12.0, request@2.88.2, rimraf@2.2.8, rimraf@2.7.1, samsam@1.1.3, stable@0.1.8, tough-cookie@1.2.0, try-resolve@1.0.1, uuid@2.0.3, uuid@3.4.0
+
+devDependencies: skipped
+
+Already up to date
+Progress: resolved 478, reused 0, downloaded 0, added 0, done
+Done in 3.8s using pnpm v9.15.9

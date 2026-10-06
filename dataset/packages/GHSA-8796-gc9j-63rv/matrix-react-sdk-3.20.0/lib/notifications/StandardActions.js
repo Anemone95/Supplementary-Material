@@ -1,0 +1,59 @@
+"use strict";
+
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.StandardActions = void 0;
+
+var _defineProperty2 = _interopRequireDefault(require("@babel/runtime/helpers/defineProperty"));
+
+var _NotificationUtils = require("./NotificationUtils");
+
+/*
+Copyright 2016 OpenMarket Ltd
+Copyright 2019 The Matrix.org Foundation C.I.C.
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+*/
+const encodeActions = _NotificationUtils.NotificationUtils.encodeActions;
+
+class StandardActions {}
+
+exports.StandardActions = StandardActions;
+(0, _defineProperty2.default)(StandardActions, "ACTION_NOTIFY", encodeActions({
+  notify: true
+}));
+(0, _defineProperty2.default)(StandardActions, "ACTION_NOTIFY_DEFAULT_SOUND", encodeActions({
+  notify: true,
+  sound: "default"
+}));
+(0, _defineProperty2.default)(StandardActions, "ACTION_NOTIFY_RING_SOUND", encodeActions({
+  notify: true,
+  sound: "ring"
+}));
+(0, _defineProperty2.default)(StandardActions, "ACTION_HIGHLIGHT", encodeActions({
+  notify: true,
+  highlight: true
+}));
+(0, _defineProperty2.default)(StandardActions, "ACTION_HIGHLIGHT_DEFAULT_SOUND", encodeActions({
+  notify: true,
+  sound: "default",
+  highlight: true
+}));
+(0, _defineProperty2.default)(StandardActions, "ACTION_DONT_NOTIFY", encodeActions({
+  notify: false
+}));
+(0, _defineProperty2.default)(StandardActions, "ACTION_DISABLED", null);
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uL3NyYy9ub3RpZmljYXRpb25zL1N0YW5kYXJkQWN0aW9ucy50cyJdLCJuYW1lcyI6WyJlbmNvZGVBY3Rpb25zIiwiTm90aWZpY2F0aW9uVXRpbHMiLCJTdGFuZGFyZEFjdGlvbnMiLCJub3RpZnkiLCJzb3VuZCIsImhpZ2hsaWdodCJdLCJtYXBwaW5ncyI6Ijs7Ozs7Ozs7Ozs7QUFpQkE7O0FBakJBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBSUEsTUFBTUEsYUFBYSxHQUFHQyxxQ0FBa0JELGFBQXhDOztBQUVPLE1BQU1FLGVBQU4sQ0FBc0I7Ozs4QkFBaEJBLGUsbUJBQ2NGLGFBQWEsQ0FBQztBQUFDRyxFQUFBQSxNQUFNLEVBQUU7QUFBVCxDQUFELEM7OEJBRDNCRCxlLGlDQUU0QkYsYUFBYSxDQUFDO0FBQUNHLEVBQUFBLE1BQU0sRUFBRSxJQUFUO0FBQWVDLEVBQUFBLEtBQUssRUFBRTtBQUF0QixDQUFELEM7OEJBRnpDRixlLDhCQUd5QkYsYUFBYSxDQUFDO0FBQUNHLEVBQUFBLE1BQU0sRUFBRSxJQUFUO0FBQWVDLEVBQUFBLEtBQUssRUFBRTtBQUF0QixDQUFELEM7OEJBSHRDRixlLHNCQUlpQkYsYUFBYSxDQUFDO0FBQUNHLEVBQUFBLE1BQU0sRUFBRSxJQUFUO0FBQWVFLEVBQUFBLFNBQVMsRUFBRTtBQUExQixDQUFELEM7OEJBSjlCSCxlLG9DQUsrQkYsYUFBYSxDQUFDO0FBQUNHLEVBQUFBLE1BQU0sRUFBRSxJQUFUO0FBQWVDLEVBQUFBLEtBQUssRUFBRSxTQUF0QjtBQUFpQ0MsRUFBQUEsU0FBUyxFQUFFO0FBQTVDLENBQUQsQzs4QkFMNUNILGUsd0JBTW1CRixhQUFhLENBQUM7QUFBQ0csRUFBQUEsTUFBTSxFQUFFO0FBQVQsQ0FBRCxDOzhCQU5oQ0QsZSxxQkFPZ0IsSSIsInNvdXJjZXNDb250ZW50IjpbIi8qXG5Db3B5cmlnaHQgMjAxNiBPcGVuTWFya2V0IEx0ZFxuQ29weXJpZ2h0IDIwMTkgVGhlIE1hdHJpeC5vcmcgRm91bmRhdGlvbiBDLkkuQy5cblxuTGljZW5zZWQgdW5kZXIgdGhlIEFwYWNoZSBMaWNlbnNlLCBWZXJzaW9uIDIuMCAodGhlIFwiTGljZW5zZVwiKTtcbnlvdSBtYXkgbm90IHVzZSB0aGlzIGZpbGUgZXhjZXB0IGluIGNvbXBsaWFuY2Ugd2l0aCB0aGUgTGljZW5zZS5cbllvdSBtYXkgb2J0YWluIGEgY29weSBvZiB0aGUgTGljZW5zZSBhdFxuXG4gICAgaHR0cDovL3d3dy5hcGFjaGUub3JnL2xpY2Vuc2VzL0xJQ0VOU0UtMi4wXG5cblVubGVzcyByZXF1aXJlZCBieSBhcHBsaWNhYmxlIGxhdyBvciBhZ3JlZWQgdG8gaW4gd3JpdGluZywgc29mdHdhcmVcbmRpc3RyaWJ1dGVkIHVuZGVyIHRoZSBMaWNlbnNlIGlzIGRpc3RyaWJ1dGVkIG9uIGFuIFwiQVMgSVNcIiBCQVNJUyxcbldJVEhPVVQgV0FSUkFOVElFUyBPUiBDT05ESVRJT05TIE9GIEFOWSBLSU5ELCBlaXRoZXIgZXhwcmVzcyBvciBpbXBsaWVkLlxuU2VlIHRoZSBMaWNlbnNlIGZvciB0aGUgc3BlY2lmaWMgbGFuZ3VhZ2UgZ292ZXJuaW5nIHBlcm1pc3Npb25zIGFuZFxubGltaXRhdGlvbnMgdW5kZXIgdGhlIExpY2Vuc2UuXG4qL1xuXG5pbXBvcnQge05vdGlmaWNhdGlvblV0aWxzfSBmcm9tIFwiLi9Ob3RpZmljYXRpb25VdGlsc1wiO1xuXG5jb25zdCBlbmNvZGVBY3Rpb25zID0gTm90aWZpY2F0aW9uVXRpbHMuZW5jb2RlQWN0aW9ucztcblxuZXhwb3J0IGNsYXNzIFN0YW5kYXJkQWN0aW9ucyB7XG4gICAgc3RhdGljIEFDVElPTl9OT1RJRlkgPSBlbmNvZGVBY3Rpb25zKHtub3RpZnk6IHRydWV9KTtcbiAgICBzdGF0aWMgQUNUSU9OX05PVElGWV9ERUZBVUxUX1NPVU5EID0gZW5jb2RlQWN0aW9ucyh7bm90aWZ5OiB0cnVlLCBzb3VuZDogXCJkZWZhdWx0XCJ9KTtcbiAgICBzdGF0aWMgQUNUSU9OX05PVElGWV9SSU5HX1NPVU5EID0gZW5jb2RlQWN0aW9ucyh7bm90aWZ5OiB0cnVlLCBzb3VuZDogXCJyaW5nXCJ9KTtcbiAgICBzdGF0aWMgQUNUSU9OX0hJR0hMSUdIVCA9IGVuY29kZUFjdGlvbnMoe25vdGlmeTogdHJ1ZSwgaGlnaGxpZ2h0OiB0cnVlfSk7XG4gICAgc3RhdGljIEFDVElPTl9ISUdITElHSFRfREVGQVVMVF9TT1VORCA9IGVuY29kZUFjdGlvbnMoe25vdGlmeTogdHJ1ZSwgc291bmQ6IFwiZGVmYXVsdFwiLCBoaWdobGlnaHQ6IHRydWV9KTtcbiAgICBzdGF0aWMgQUNUSU9OX0RPTlRfTk9USUZZID0gZW5jb2RlQWN0aW9ucyh7bm90aWZ5OiBmYWxzZX0pO1xuICAgIHN0YXRpYyBBQ1RJT05fRElTQUJMRUQgPSBudWxsO1xufVxuIl19

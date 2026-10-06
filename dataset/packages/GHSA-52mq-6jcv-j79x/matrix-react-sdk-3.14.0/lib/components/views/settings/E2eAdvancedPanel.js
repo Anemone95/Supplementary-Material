@@ -1,0 +1,62 @@
+"use strict";
+
+var _interopRequireWildcard = require("@babel/runtime/helpers/interopRequireWildcard");
+
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.isE2eAdvancedPanelPossible = isE2eAdvancedPanelPossible;
+exports.default = void 0;
+
+var _react = _interopRequireDefault(require("react"));
+
+var sdk = _interopRequireWildcard(require("../../../index"));
+
+var _languageHandler = require("../../../languageHandler");
+
+var _SettingLevel = require("../../../settings/SettingLevel");
+
+var _SettingsStore = _interopRequireDefault(require("../../../settings/SettingsStore"));
+
+/*
+Copyright 2020 The Matrix.org Foundation C.I.C.
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+*/
+const SETTING_MANUALLY_VERIFY_ALL_SESSIONS = "e2ee.manuallyVerifyAllSessions";
+
+const E2eAdvancedPanel = props => {
+  const SettingsFlag = sdk.getComponent('views.elements.SettingsFlag');
+  return /*#__PURE__*/_react.default.createElement("div", {
+    className: "mx_SettingsTab_section"
+  }, /*#__PURE__*/_react.default.createElement("span", {
+    className: "mx_SettingsTab_subheading"
+  }, (0, _languageHandler._t)("Encryption")), /*#__PURE__*/_react.default.createElement(SettingsFlag, {
+    name: SETTING_MANUALLY_VERIFY_ALL_SESSIONS,
+    level: _SettingLevel.SettingLevel.DEVICE
+  }), /*#__PURE__*/_react.default.createElement("div", {
+    className: "mx_E2eAdvancedPanel_settingLongDescription"
+  }, (0, _languageHandler._t)("Individually verify each session used by a user to mark it as trusted, not trusting cross-signed devices.")));
+};
+
+var _default = E2eAdvancedPanel;
+exports.default = _default;
+
+function isE2eAdvancedPanelPossible()
+/*: boolean*/
+{
+  return _SettingsStore.default.isEnabled(SETTING_MANUALLY_VERIFY_ALL_SESSIONS);
+}
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uLy4uLy4uL3NyYy9jb21wb25lbnRzL3ZpZXdzL3NldHRpbmdzL0UyZUFkdmFuY2VkUGFuZWwuanMiXSwibmFtZXMiOlsiU0VUVElOR19NQU5VQUxMWV9WRVJJRllfQUxMX1NFU1NJT05TIiwiRTJlQWR2YW5jZWRQYW5lbCIsInByb3BzIiwiU2V0dGluZ3NGbGFnIiwic2RrIiwiZ2V0Q29tcG9uZW50IiwiU2V0dGluZ0xldmVsIiwiREVWSUNFIiwiaXNFMmVBZHZhbmNlZFBhbmVsUG9zc2libGUiLCJTZXR0aW5nc1N0b3JlIiwiaXNFbmFibGVkIl0sIm1hcHBpbmdzIjoiOzs7Ozs7Ozs7Ozs7QUFnQkE7O0FBRUE7O0FBQ0E7O0FBQ0E7O0FBQ0E7O0FBckJBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQVNBLE1BQU1BLG9DQUFvQyxHQUFHLGdDQUE3Qzs7QUFFQSxNQUFNQyxnQkFBZ0IsR0FBR0MsS0FBSyxJQUFJO0FBQzlCLFFBQU1DLFlBQVksR0FBR0MsR0FBRyxDQUFDQyxZQUFKLENBQWlCLDZCQUFqQixDQUFyQjtBQUNBLHNCQUFPO0FBQUssSUFBQSxTQUFTLEVBQUM7QUFBZixrQkFDSDtBQUFNLElBQUEsU0FBUyxFQUFDO0FBQWhCLEtBQTZDLHlCQUFHLFlBQUgsQ0FBN0MsQ0FERyxlQUdILDZCQUFDLFlBQUQ7QUFBYyxJQUFBLElBQUksRUFBRUwsb0NBQXBCO0FBQ0ksSUFBQSxLQUFLLEVBQUVNLDJCQUFhQztBQUR4QixJQUhHLGVBTUg7QUFBSyxJQUFBLFNBQVMsRUFBQztBQUFmLEtBQTZELHlCQUN6RCwyR0FEeUQsQ0FBN0QsQ0FORyxDQUFQO0FBVUgsQ0FaRDs7ZUFjZU4sZ0I7OztBQUVSLFNBQVNPLDBCQUFUO0FBQUE7QUFBK0M7QUFDbEQsU0FBT0MsdUJBQWNDLFNBQWQsQ0FBd0JWLG9DQUF4QixDQUFQO0FBQ0giLCJzb3VyY2VzQ29udGVudCI6WyIvKlxuQ29weXJpZ2h0IDIwMjAgVGhlIE1hdHJpeC5vcmcgRm91bmRhdGlvbiBDLkkuQy5cblxuTGljZW5zZWQgdW5kZXIgdGhlIEFwYWNoZSBMaWNlbnNlLCBWZXJzaW9uIDIuMCAodGhlIFwiTGljZW5zZVwiKTtcbnlvdSBtYXkgbm90IHVzZSB0aGlzIGZpbGUgZXhjZXB0IGluIGNvbXBsaWFuY2Ugd2l0aCB0aGUgTGljZW5zZS5cbllvdSBtYXkgb2J0YWluIGEgY29weSBvZiB0aGUgTGljZW5zZSBhdFxuXG4gICAgaHR0cDovL3d3dy5hcGFjaGUub3JnL2xpY2Vuc2VzL0xJQ0VOU0UtMi4wXG5cblVubGVzcyByZXF1aXJlZCBieSBhcHBsaWNhYmxlIGxhdyBvciBhZ3JlZWQgdG8gaW4gd3JpdGluZywgc29mdHdhcmVcbmRpc3RyaWJ1dGVkIHVuZGVyIHRoZSBMaWNlbnNlIGlzIGRpc3RyaWJ1dGVkIG9uIGFuIFwiQVMgSVNcIiBCQVNJUyxcbldJVEhPVVQgV0FSUkFOVElFUyBPUiBDT05ESVRJT05TIE9GIEFOWSBLSU5ELCBlaXRoZXIgZXhwcmVzcyBvciBpbXBsaWVkLlxuU2VlIHRoZSBMaWNlbnNlIGZvciB0aGUgc3BlY2lmaWMgbGFuZ3VhZ2UgZ292ZXJuaW5nIHBlcm1pc3Npb25zIGFuZFxubGltaXRhdGlvbnMgdW5kZXIgdGhlIExpY2Vuc2UuXG4qL1xuXG5pbXBvcnQgUmVhY3QgZnJvbSAncmVhY3QnO1xuXG5pbXBvcnQgKiBhcyBzZGsgZnJvbSAnLi4vLi4vLi4vaW5kZXgnO1xuaW1wb3J0IHtfdH0gZnJvbSBcIi4uLy4uLy4uL2xhbmd1YWdlSGFuZGxlclwiO1xuaW1wb3J0IHtTZXR0aW5nTGV2ZWx9IGZyb20gXCIuLi8uLi8uLi9zZXR0aW5ncy9TZXR0aW5nTGV2ZWxcIjtcbmltcG9ydCBTZXR0aW5nc1N0b3JlIGZyb20gXCIuLi8uLi8uLi9zZXR0aW5ncy9TZXR0aW5nc1N0b3JlXCI7XG5cbmNvbnN0IFNFVFRJTkdfTUFOVUFMTFlfVkVSSUZZX0FMTF9TRVNTSU9OUyA9IFwiZTJlZS5tYW51YWxseVZlcmlmeUFsbFNlc3Npb25zXCI7XG5cbmNvbnN0IEUyZUFkdmFuY2VkUGFuZWwgPSBwcm9wcyA9PiB7XG4gICAgY29uc3QgU2V0dGluZ3NGbGFnID0gc2RrLmdldENvbXBvbmVudCgndmlld3MuZWxlbWVudHMuU2V0dGluZ3NGbGFnJyk7XG4gICAgcmV0dXJuIDxkaXYgY2xhc3NOYW1lPVwibXhfU2V0dGluZ3NUYWJfc2VjdGlvblwiPlxuICAgICAgICA8c3BhbiBjbGFzc05hbWU9XCJteF9TZXR0aW5nc1RhYl9zdWJoZWFkaW5nXCI+e190KFwiRW5jcnlwdGlvblwiKX08L3NwYW4+XG5cbiAgICAgICAgPFNldHRpbmdzRmxhZyBuYW1lPXtTRVRUSU5HX01BTlVBTExZX1ZFUklGWV9BTExfU0VTU0lPTlN9XG4gICAgICAgICAgICBsZXZlbD17U2V0dGluZ0xldmVsLkRFVklDRX1cbiAgICAgICAgLz5cbiAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJteF9FMmVBZHZhbmNlZFBhbmVsX3NldHRpbmdMb25nRGVzY3JpcHRpb25cIj57X3QoXG4gICAgICAgICAgICBcIkluZGl2aWR1YWxseSB2ZXJpZnkgZWFjaCBzZXNzaW9uIHVzZWQgYnkgYSB1c2VyIHRvIG1hcmsgaXQgYXMgdHJ1c3RlZCwgbm90IHRydXN0aW5nIGNyb3NzLXNpZ25lZCBkZXZpY2VzLlwiLFxuICAgICAgICApfTwvZGl2PlxuICAgIDwvZGl2Pjtcbn07XG5cbmV4cG9ydCBkZWZhdWx0IEUyZUFkdmFuY2VkUGFuZWw7XG5cbmV4cG9ydCBmdW5jdGlvbiBpc0UyZUFkdmFuY2VkUGFuZWxQb3NzaWJsZSgpOiBib29sZWFuIHtcbiAgICByZXR1cm4gU2V0dGluZ3NTdG9yZS5pc0VuYWJsZWQoU0VUVElOR19NQU5VQUxMWV9WRVJJRllfQUxMX1NFU1NJT05TKTtcbn1cbiJdfQ==

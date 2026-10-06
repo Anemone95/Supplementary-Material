@@ -1,0 +1,47 @@
+{
+  "name": "kindlegen",
+  "description": "Simple Node.js wrapper for official kindlegen program",
+  "main": "index.js",
+  "scripts": {
+    "build": "lsc -co . .",
+    "install": "node install.js",
+    "test": "npm run build && mocha",
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
+  },
+  "files": [
+    "*.js"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hakatashi/kindlegen.git"
+  },
+  "keywords": [
+    "epub",
+    "ebook",
+    "mobi",
+    "kindle",
+    "kindlegen",
+    "wrapper"
+  ],
+  "author": {
+    "name": "Koki Takahashi",
+    "email": "hakatasiloving@gmail.com",
+    "url": "https://hakatashi.com/"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/hakatashi/kindlegen/issues"
+  },
+  "homepage": "https://github.com/hakatashi/kindlegen#readme",
+  "dependencies": {
+    "download": "^5.0.2",
+    "temp": "^0.8.3"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "livescript": "^1.5.0",
+    "mocha": "^2.5.3",
+    "semantic-release": "^4.3.5"
+  },
+  "version": "1.0.1"
+}

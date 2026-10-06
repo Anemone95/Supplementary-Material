@@ -1,0 +1,14 @@
+{
+  "name": "serveryztyzt",
+  "version": "1.4.0",
+  "description": "",
+  "main": "node.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "serveryztyzt"
+  ],
+  "author": "yangzitong",
+  "license": "ISC"
+}

@@ -1,0 +1,9 @@
+import { JSXElementConstructor } from "react";
+export declare type Without<T, U> = {
+    [P in Exclude<keyof T, keyof U>]?: never;
+};
+export declare type XOR<T, U> = (T | U) extends object ? (Without<T, U> & U) | (Without<U, T> & T) : T | U;
+export declare type Writeable<T> = {
+    -readonly [P in keyof T]: T[P];
+};
+export declare type ComponentClass = keyof JSX.IntrinsicElements | JSXElementConstructor<any>;

@@ -1,0 +1,15 @@
+$ corepack pnpm@9.15.9 install --prod --no-frozen-lockfile --reporter=append-only --config.node-linker=hoisted --ignore-workspace --ignore-scripts
+Progress: resolved 1, reused 0, downloaded 0, added 0
+ WARN  deprecated express@2.5.11: express 2.x series is deprecated
+ WARN  deprecated sinon@1.7.3: 16.1.1
+ WARN  deprecated request@2.21.0: request has been deprecated, see https://github.com/request/request/issues/3142
+Progress: resolved 57, reused 0, downloaded 0, added 0
+ WARN  12 deprecated subdependencies found: aws-sign@0.3.0, boom@0.4.2, buster-core@0.6.4, connect@1.9.2, cryptiles@0.2.2, formidable@1.0.17, hawk@0.13.1, hoek@0.8.5, hoek@0.9.1, mkdirp@0.3.0, node-uuid@1.4.8, sntp@0.2.4
+
+devDependencies: skipped
+
+Packages: +120
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Progress: resolved 133, reused 118, downloaded 1, added 119
+Progress: resolved 133, reused 118, downloaded 2, added 120, done
+Done in 2.4s using pnpm v9.15.9

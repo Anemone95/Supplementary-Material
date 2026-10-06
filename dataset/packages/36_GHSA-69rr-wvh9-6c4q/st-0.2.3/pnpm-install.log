@@ -1,0 +1,15 @@
+$ corepack pnpm@9.15.9 install --prod --no-frozen-lockfile --reporter=append-only --config.node-linker=hoisted --ignore-workspace --ignore-scripts
+Progress: resolved 1, reused 0, downloaded 0, added 0
+ WARN  deprecated graceful-fs@1.2.3: please upgrade to graceful-fs 4 for compatibility with current and future versions of Node.js
+ WARN  deprecated tap@0.3.3: Versions of tap before v18 are no longer maintained. Please upgrade.
+ WARN  deprecated request@2.11.4: request has been deprecated, see https://github.com/request/request/issues/3142
+ WARN  deprecated async-cache@0.1.5: No longer maintained. Use [lru-cache](http://npm.im/lru-cache) version 7.6 or higher, and provide an asynchronous `fetchMethod` option.
+Progress: resolved 104, reused 0, downloaded 0, added 0
+ WARN  2 deprecated subdependencies found: charm@0.1.2, mkdirp@0.3.5
+
+devDependencies: skipped
+
+Packages: +6
+++++++
+Progress: resolved 115, reused 3, downloaded 3, added 6, done
+Done in 2s using pnpm v9.15.9

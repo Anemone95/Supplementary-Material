@@ -1,0 +1,19 @@
+{
+  "name": "ltt.js",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "this",
+    "is",
+    "a",
+    "server"
+  ],
+  "author": "ltt",
+  "license": "ISC"
+}

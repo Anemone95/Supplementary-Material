@@ -1,0 +1,16 @@
+$ corepack pnpm@9.15.9 install --prod --no-frozen-lockfile --reporter=append-only --config.node-linker=hoisted --ignore-workspace --ignore-scripts
+Progress: resolved 1, reused 0, downloaded 0, added 0
+ WARN  deprecated eslint@7.32.0: This version is no longer supported. Please see https://eslint.org/version-support for other options.
+Progress: resolved 17, reused 0, downloaded 0, added 0
+Progress: resolved 22, reused 0, downloaded 0, added 0
+Progress: resolved 122, reused 0, downloaded 0, added 0
+Progress: resolved 310, reused 0, downloaded 0, added 0
+Progress: resolved 333, reused 0, downloaded 0, added 0
+ WARN  11 deprecated subdependencies found: @humanwhocodes/config-array@0.5.0, @humanwhocodes/object-schema@1.2.1, @types/glob@9.0.0, fstream@1.0.12, glob@7.2.3, har-validator@5.1.5, inflight@1.0.6, request@2.88.2, rimraf@2.7.1, rimraf@3.0.2, uuid@3.4.0
+
+devDependencies: skipped
+
+Packages: +1
++
+Progress: resolved 334, reused 1, downloaded 0, added 1, done
+Done in 5.7s using pnpm v9.15.9

@@ -1,0 +1,53 @@
+{
+  "name": "freediskspace",
+  "version": "0.1.2",
+  "description": "Get total, free and used diskspace on posix and windows (Windows 7 and up) OSes",
+  "main": "freediskspace.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "free",
+    "disk",
+    "space"
+  ],
+  "author": {
+    "name": "palortoff"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "freedisk": "^0.1.3",
+    "q": "^1.2.0"
+  },
+  "_id": "freediskspace@0.0.3",
+  "_shasum": "bf72b1bc30e6bf641d91d8e87d3e4eeba642062d",
+  "_from": "freediskspace@*",
+  "_npmVersion": "2.5.1",
+  "_nodeVersion": "0.12.0",
+  "_npmUser": {
+    "name": "palortoff",
+    "email": "npm@larsflitter.de"
+  },
+  "maintainers": [
+    {
+      "name": "palortoff",
+      "email": "npm@larsflitter.de"
+    }
+  ],
+  "dist": {
+    "shasum": "157824ee0a61a6820d6406cfb3ebfb1223a5798b",
+    "tarball": "http://registry.npmjs.org/freediskspace/-/freediskspace-0.0.2.tgz"
+  },
+  "directories": {},
+  "_resolved": "https://registry.npmjs.org/freediskspace/-/freediskspace-0.0.2.tgz",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/palortoff/freediskspace"
+  },
+  "readmeFilename": "README.md",
+  "gitHead": "29dfb488697e447021950aa5d4e2fbf9c7008d51",
+  "bugs": {
+    "url": "https://github.com/palortoff/freediskspace/issues"
+  },
+  "homepage": "https://github.com/palortoff/freediskspace"
+}

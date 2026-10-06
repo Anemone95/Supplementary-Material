@@ -1,0 +1,56 @@
+"use strict";
+
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireDefault(require("react"));
+
+var _replaceableComponent = require("../../../utils/replaceableComponent");
+
+var _dec, _class;
+
+let Spoiler = (_dec = (0, _replaceableComponent.replaceableComponent)("views.elements.Spoiler"), _dec(_class = class Spoiler extends _react.default.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      visible: false
+    };
+  }
+
+  toggleVisible(e) {
+    if (!this.state.visible) {
+      // we are un-blurring, we don't want this click to propagate to potential child pills
+      e.preventDefault();
+      e.stopPropagation();
+    }
+
+    this.setState({
+      visible: !this.state.visible
+    });
+  }
+
+  render() {
+    const reason = this.props.reason ? /*#__PURE__*/_react.default.createElement("span", {
+      className: "mx_EventTile_spoiler_reason"
+    }, "(" + this.props.reason + ")") : null; // react doesn't allow appending a DOM node as child.
+    // as such, we pass the this.props.contentHtml instead and then set the raw
+    // HTML content. This is secure as the contents have already been parsed previously
+
+    return /*#__PURE__*/_react.default.createElement("span", {
+      className: "mx_EventTile_spoiler" + (this.state.visible ? " visible" : ""),
+      onClick: this.toggleVisible.bind(this)
+    }, reason, "\xA0", /*#__PURE__*/_react.default.createElement("span", {
+      className: "mx_EventTile_spoiler_content",
+      dangerouslySetInnerHTML: {
+        __html: this.props.contentHtml
+      }
+    }));
+  }
+
+}) || _class);
+exports.default = Spoiler;
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uLy4uLy4uL3NyYy9jb21wb25lbnRzL3ZpZXdzL2VsZW1lbnRzL1Nwb2lsZXIuanMiXSwibmFtZXMiOlsiU3BvaWxlciIsIlJlYWN0IiwiQ29tcG9uZW50IiwiY29uc3RydWN0b3IiLCJwcm9wcyIsInN0YXRlIiwidmlzaWJsZSIsInRvZ2dsZVZpc2libGUiLCJlIiwicHJldmVudERlZmF1bHQiLCJzdG9wUHJvcGFnYXRpb24iLCJzZXRTdGF0ZSIsInJlbmRlciIsInJlYXNvbiIsImJpbmQiLCJfX2h0bWwiLCJjb250ZW50SHRtbCJdLCJtYXBwaW5ncyI6Ijs7Ozs7Ozs7O0FBZ0JBOztBQUNBOzs7O0lBR3FCQSxPLFdBRHBCLGdEQUFxQix3QkFBckIsQyxnQkFBRCxNQUNxQkEsT0FEckIsU0FDcUNDLGVBQU1DLFNBRDNDLENBQ3FEO0FBQ2pEQyxFQUFBQSxXQUFXLENBQUNDLEtBQUQsRUFBUTtBQUNmLFVBQU1BLEtBQU47QUFDQSxTQUFLQyxLQUFMLEdBQWE7QUFDVEMsTUFBQUEsT0FBTyxFQUFFO0FBREEsS0FBYjtBQUdIOztBQUVEQyxFQUFBQSxhQUFhLENBQUNDLENBQUQsRUFBSTtBQUNiLFFBQUksQ0FBQyxLQUFLSCxLQUFMLENBQVdDLE9BQWhCLEVBQXlCO0FBQ3JCO0FBQ0FFLE1BQUFBLENBQUMsQ0FBQ0MsY0FBRjtBQUNBRCxNQUFBQSxDQUFDLENBQUNFLGVBQUY7QUFDSDs7QUFDRCxTQUFLQyxRQUFMLENBQWM7QUFBRUwsTUFBQUEsT0FBTyxFQUFFLENBQUMsS0FBS0QsS0FBTCxDQUFXQztBQUF2QixLQUFkO0FBQ0g7O0FBRURNLEVBQUFBLE1BQU0sR0FBRztBQUNMLFVBQU1DLE1BQU0sR0FBRyxLQUFLVCxLQUFMLENBQVdTLE1BQVgsZ0JBQ1g7QUFBTSxNQUFBLFNBQVMsRUFBQztBQUFoQixPQUErQyxNQUFNLEtBQUtULEtBQUwsQ0FBV1MsTUFBakIsR0FBMEIsR0FBekUsQ0FEVyxHQUVYLElBRkosQ0FESyxDQUlMO0FBQ0E7QUFDQTs7QUFDQSx3QkFDSTtBQUFNLE1BQUEsU0FBUyxFQUFFLDBCQUEwQixLQUFLUixLQUFMLENBQVdDLE9BQVgsR0FBcUIsVUFBckIsR0FBa0MsRUFBNUQsQ0FBakI7QUFBa0YsTUFBQSxPQUFPLEVBQUUsS0FBS0MsYUFBTCxDQUFtQk8sSUFBbkIsQ0FBd0IsSUFBeEI7QUFBM0YsT0FDTUQsTUFETix1QkFHSTtBQUFNLE1BQUEsU0FBUyxFQUFDLDhCQUFoQjtBQUErQyxNQUFBLHVCQUF1QixFQUFFO0FBQUVFLFFBQUFBLE1BQU0sRUFBRSxLQUFLWCxLQUFMLENBQVdZO0FBQXJCO0FBQXhFLE1BSEosQ0FESjtBQU9IOztBQS9CZ0QsQyIsInNvdXJjZXNDb250ZW50IjpbIi8qXG4gQ29weXJpZ2h0IDIwMTkgU29ydW5vbWVcblxuIExpY2Vuc2VkIHVuZGVyIHRoZSBBcGFjaGUgTGljZW5zZSwgVmVyc2lvbiAyLjAgKHRoZSBcIkxpY2Vuc2VcIik7XG4geW91IG1heSBub3QgdXNlIHRoaXMgZmlsZSBleGNlcHQgaW4gY29tcGxpYW5jZSB3aXRoIHRoZSBMaWNlbnNlLlxuIFlvdSBtYXkgb2J0YWluIGEgY29weSBvZiB0aGUgTGljZW5zZSBhdFxuXG4gaHR0cDovL3d3dy5hcGFjaGUub3JnL2xpY2Vuc2VzL0xJQ0VOU0UtMi4wXG5cbiBVbmxlc3MgcmVxdWlyZWQgYnkgYXBwbGljYWJsZSBsYXcgb3IgYWdyZWVkIHRvIGluIHdyaXRpbmcsIHNvZnR3YXJlXG4gZGlzdHJpYnV0ZWQgdW5kZXIgdGhlIExpY2Vuc2UgaXMgZGlzdHJpYnV0ZWQgb24gYW4gXCJBUyBJU1wiIEJBU0lTLFxuIFdJVEhPVVQgV0FSUkFOVElFUyBPUiBDT05ESVRJT05TIE9GIEFOWSBLSU5ELCBlaXRoZXIgZXhwcmVzcyBvciBpbXBsaWVkLlxuIFNlZSB0aGUgTGljZW5zZSBmb3IgdGhlIHNwZWNpZmljIGxhbmd1YWdlIGdvdmVybmluZyBwZXJtaXNzaW9ucyBhbmRcbiBsaW1pdGF0aW9ucyB1bmRlciB0aGUgTGljZW5zZS5cbiAqL1xuXG5pbXBvcnQgUmVhY3QgZnJvbSAncmVhY3QnO1xuaW1wb3J0IHtyZXBsYWNlYWJsZUNvbXBvbmVudH0gZnJvbSBcIi4uLy4uLy4uL3V0aWxzL3JlcGxhY2VhYmxlQ29tcG9uZW50XCI7XG5cbkByZXBsYWNlYWJsZUNvbXBvbmVudChcInZpZXdzLmVsZW1lbnRzLlNwb2lsZXJcIilcbmV4cG9ydCBkZWZhdWx0IGNsYXNzIFNwb2lsZXIgZXh0ZW5kcyBSZWFjdC5Db21wb25lbnQge1xuICAgIGNvbnN0cnVjdG9yKHByb3BzKSB7XG4gICAgICAgIHN1cGVyKHByb3BzKTtcbiAgICAgICAgdGhpcy5zdGF0ZSA9IHtcbiAgICAgICAgICAgIHZpc2libGU6IGZhbHNlLFxuICAgICAgICB9O1xuICAgIH1cblxuICAgIHRvZ2dsZVZpc2libGUoZSkge1xuICAgICAgICBpZiAoIXRoaXMuc3RhdGUudmlzaWJsZSkge1xuICAgICAgICAgICAgLy8gd2UgYXJlIHVuLWJsdXJyaW5nLCB3ZSBkb24ndCB3YW50IHRoaXMgY2xpY2sgdG8gcHJvcGFnYXRlIHRvIHBvdGVudGlhbCBjaGlsZCBwaWxsc1xuICAgICAgICAgICAgZS5wcmV2ZW50RGVmYXVsdCgpO1xuICAgICAgICAgICAgZS5zdG9wUHJvcGFnYXRpb24oKTtcbiAgICAgICAgfVxuICAgICAgICB0aGlzLnNldFN0YXRlKHsgdmlzaWJsZTogIXRoaXMuc3RhdGUudmlzaWJsZSB9KTtcbiAgICB9XG5cbiAgICByZW5kZXIoKSB7XG4gICAgICAgIGNvbnN0IHJlYXNvbiA9IHRoaXMucHJvcHMucmVhc29uID8gKFxuICAgICAgICAgICAgPHNwYW4gY2xhc3NOYW1lPVwibXhfRXZlbnRUaWxlX3Nwb2lsZXJfcmVhc29uXCI+e1wiKFwiICsgdGhpcy5wcm9wcy5yZWFzb24gKyBcIilcIn08L3NwYW4+XG4gICAgICAgICkgOiBudWxsO1xuICAgICAgICAvLyByZWFjdCBkb2Vzbid0IGFsbG93IGFwcGVuZGluZyBhIERPTSBub2RlIGFzIGNoaWxkLlxuICAgICAgICAvLyBhcyBzdWNoLCB3ZSBwYXNzIHRoZSB0aGlzLnByb3BzLmNvbnRlbnRIdG1sIGluc3RlYWQgYW5kIHRoZW4gc2V0IHRoZSByYXdcbiAgICAgICAgLy8gSFRNTCBjb250ZW50LiBUaGlzIGlzIHNlY3VyZSBhcyB0aGUgY29udGVudHMgaGF2ZSBhbHJlYWR5IGJlZW4gcGFyc2VkIHByZXZpb3VzbHlcbiAgICAgICAgcmV0dXJuIChcbiAgICAgICAgICAgIDxzcGFuIGNsYXNzTmFtZT17XCJteF9FdmVudFRpbGVfc3BvaWxlclwiICsgKHRoaXMuc3RhdGUudmlzaWJsZSA/IFwiIHZpc2libGVcIiA6IFwiXCIpfSBvbkNsaWNrPXt0aGlzLnRvZ2dsZVZpc2libGUuYmluZCh0aGlzKX0+XG4gICAgICAgICAgICAgICAgeyByZWFzb24gfVxuICAgICAgICAgICAgICAgICZuYnNwO1xuICAgICAgICAgICAgICAgIDxzcGFuIGNsYXNzTmFtZT1cIm14X0V2ZW50VGlsZV9zcG9pbGVyX2NvbnRlbnRcIiBkYW5nZXJvdXNseVNldElubmVySFRNTD17eyBfX2h0bWw6IHRoaXMucHJvcHMuY29udGVudEh0bWwgfX0gLz5cbiAgICAgICAgICAgIDwvc3Bhbj5cbiAgICAgICAgKTtcbiAgICB9XG59XG4iXX0=

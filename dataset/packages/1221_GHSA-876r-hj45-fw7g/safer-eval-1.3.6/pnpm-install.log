@@ -1,0 +1,20 @@
+$ corepack pnpm@9.15.9 install --prod --no-frozen-lockfile --reporter=append-only --config.node-linker=hoisted --ignore-workspace --ignore-scripts
+Progress: resolved 1, reused 0, downloaded 0, added 0
+ WARN  deprecated eslint@6.8.0: This version is no longer supported. Please see https://eslint.org/version-support for other options.
+ WARN  deprecated rimraf@2.7.1: Rimraf versions prior to v4 are no longer supported
+Progress: resolved 70, reused 0, downloaded 0, added 0
+Progress: resolved 212, reused 0, downloaded 0, added 0
+Progress: resolved 363, reused 0, downloaded 0, added 0
+Progress: resolved 527, reused 0, downloaded 0, added 0
+Progress: resolved 629, reused 0, downloaded 0, added 0
+Progress: resolved 779, reused 0, downloaded 0, added 0
+Progress: resolved 886, reused 0, downloaded 0, added 0
+Progress: resolved 895, reused 0, downloaded 0, added 0
+ WARN  22 deprecated subdependencies found: copy-concurrently@1.0.5, date-format@2.1.0, debug@3.2.6, figgy-pudding@3.5.2, fs-write-stream-atomic@1.0.10, fsevents@1.2.13, glob@7.1.3, glob@7.2.3, har-validator@5.1.5, inflight@1.0.6, log4js@4.5.1, mkdirp@0.5.4, move-concurrently@1.0.1, path-dirname@1.0.2, request@2.88.2, resolve-url@0.2.1, rimraf@2.6.3, source-map-resolve@0.5.3, source-map-url@0.4.1, streamroller@1.0.6, urix@0.1.0, uuid@3.4.0
+
+devDependencies: skipped
+
+Packages: +1
++
+Progress: resolved 896, reused 1, downloaded 0, added 1, done
+Done in 8.7s using pnpm v9.15.9

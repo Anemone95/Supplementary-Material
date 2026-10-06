@@ -1,0 +1,16 @@
+$ corepack pnpm@9.15.9 install --prod --no-frozen-lockfile --reporter=append-only --config.node-linker=hoisted --ignore-workspace --ignore-scripts
+Progress: resolved 1, reused 0, downloaded 0, added 0
+ WARN  deprecated tap@14.11.0: Versions of tap before v18 are no longer maintained. Please upgrade.
+Progress: resolved 47, reused 0, downloaded 0, added 0
+Progress: resolved 141, reused 0, downloaded 0, added 0
+Progress: resolved 252, reused 0, downloaded 0, added 0
+Progress: resolved 371, reused 0, downloaded 0, added 0
+Progress: resolved 546, reused 0, downloaded 0, added 0
+ WARN  10 deprecated subdependencies found: eslint@6.8.0, fastify-cookie@5.7.0, glob@7.2.3, har-validator@5.1.5, inflight@1.0.6, request@2.88.2, rimraf@2.6.3, rimraf@2.7.1, string-similarity@4.0.4, uuid@3.4.0
+
+devDependencies: skipped
+
+Packages: +13
++++++++++++++
+Progress: resolved 647, reused 10, downloaded 3, added 13, done
+Done in 6.2s using pnpm v9.15.9

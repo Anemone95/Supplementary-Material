@@ -1,0 +1,57 @@
+lockfileVersion: '9.0'
+
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
+
+importers:
+
+  .:
+    dependencies:
+      commander:
+        specifier: ^2.5.0
+        version: 2.20.3
+      fast-http:
+        specifier: 0.1.3
+        version: 0.1.3
+      opn:
+        specifier: ^3.0.2
+        version: 3.0.3
+
+packages:
+
+  commander@2.20.3:
+    resolution: {integrity: sha512-GpVkmM8vF2vQUkj2LvZmD35JxeJOLCwJ9cUkugyk2nuhbv3+mJvpLYYt+0+USMxE+oj+ey/lJEnhZw75x/OMcQ==}
+
+  fast-http@0.1.3:
+    resolution: {integrity: sha512-RWM90kwb5bxyBecx3tRh6qNcbT7q9JuPo5k/0ziVzXlqX5+z9jJnc0WJt2ovUI0s5fNcofVCyzwyCLFJ8H/tUQ==}
+    engines: {node: '>=0.10.0'}
+
+  mime@1.6.0:
+    resolution: {integrity: sha512-x0Vn8spI+wuJ1O6S7gnbaQg8Pxh4NNHb7KSINmEWKiPE4RKOplvijn+NkmYmmRgP68mc70j2EbeTFRsrswaQeg==}
+    engines: {node: '>=4'}
+    hasBin: true
+
+  object-assign@4.1.1:
+    resolution: {integrity: sha512-rJgTQnkUnH1sFw8yT6VSU3zD3sWmu6sZhIseY8VX+GRu3P6F7Fu+JNDoXfklElbLJSnc3FUQHVe4cU5hj+BcUg==}
+    engines: {node: '>=0.10.0'}
+
+  opn@3.0.3:
+    resolution: {integrity: sha512-YKyQo/aDk+kLY/ChqYx3DMWW8cbxvZDh+7op1oU60TmLHGWFrn2gPaRWihzDhSwCarAESa9G8dNXzjTGfLx8FQ==}
+    engines: {node: '>=0.10.0'}
+
+snapshots:
+
+  commander@2.20.3: {}
+
+  fast-http@0.1.3:
+    dependencies:
+      mime: 1.6.0
+
+  mime@1.6.0: {}
+
+  object-assign@4.1.1: {}
+
+  opn@3.0.3:
+    dependencies:
+      object-assign: 4.1.1

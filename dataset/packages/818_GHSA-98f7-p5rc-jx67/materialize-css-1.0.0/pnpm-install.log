@@ -1,0 +1,19 @@
+$ corepack pnpm@9.15.9 install --prod --no-frozen-lockfile --reporter=append-only --config.node-linker=hoisted --ignore-workspace --ignore-scripts
+Progress: resolved 1, reused 0, downloaded 0, added 0
+ WARN  deprecated babel-preset-es2015@6.24.1: 🙌  Thanks for using Babel: we recommend using babel-preset-env now: please read https://babeljs.io/env to update!
+ WARN  deprecated node-sass@4.14.1: Node Sass is no longer supported. Please use `sass` or `sass-embedded` instead.
+ WARN  deprecated phantomjs-prebuilt@2.1.16: this package is now deprecated
+Progress: resolved 68, reused 0, downloaded 0, added 0
+Progress: resolved 199, reused 0, downloaded 0, added 0
+Progress: resolved 307, reused 0, downloaded 0, added 0
+Progress: resolved 426, reused 0, downloaded 0, added 0
+Progress: resolved 654, reused 0, downloaded 0, added 0
+Progress: resolved 795, reused 0, downloaded 0, added 0
+Progress: resolved 799, reused 0, downloaded 0, added 0
+ WARN  25 deprecated subdependencies found: are-we-there-yet@1.1.7, browserslist@2.11.3, constantinople@3.0.2, core-js@2.6.12, fstream@1.0.12, gauge@2.7.4, glob@7.1.7, glob@7.2.3, har-validator@5.1.5, iltorb@2.4.5, inflight@1.0.6, jade@1.11.0, npmlog@4.1.2, osenv@0.1.5, prebuild-install@5.3.6, raw-body@1.1.7, request@2.88.2, resolve-url@0.2.1, rimraf@2.7.1, source-map-resolve@0.5.3, source-map-url@0.4.1, tar@2.2.2, transformers@2.1.0, urix@0.1.0, uuid@3.4.0
+
+devDependencies: skipped
+
+Already up to date
+Progress: resolved 801, reused 0, downloaded 0, added 0, done
+Done in 8.2s using pnpm v9.15.9

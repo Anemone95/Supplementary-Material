@@ -1,0 +1,107 @@
+#!/usr/bin/env node
+
+var program = require('commander');
+program.version('0.0.1')
+
+program
+  .command('login')
+  .description('login with username and password')
+  .option("-l, --username [username]", "username")
+  .option("-p, --password [password]", "password")
+  .option("-e, --env [env]", "environment {alpha|beta|pre|product}, default to alpha")
+  .action(function(options){
+    require("./wizard-login.js").login({
+    	username:options.username,
+    	password:options.password,
+    	env:options.env||"alpha"
+    });
+  });
+
+program
+  .command('config')
+  .description('change config')
+  .option("-g, --git [git]", "git repo")
+  .option("-d, --baseDir [baseDir]", "the baseDir to search from")
+  .action(function(options){
+    require("./wizard-config.js").configure({
+    	git:options.git,
+    	baseDir:options.baseDir
+    });
+  });
+
+program
+  .command('commit')
+  .description('commit a module from local directory')
+  .option("-n, --name [name]", "name of the module to commit")
+  .option("-m, --comment [comment]", "your comment")
+  .option("-e, --env [env]", "which environment to commit {alpha|beta|pre|product}")
+  .action(function(options){
+    require("./wizard-commit.js").commit({
+    	widgetName:options.name,
+    	comment:options.comment,
+    	env:options.env
+    });
+  });
+
+program
+  .command('sync')
+  .description('sync a module from remote git repo')
+  .option("-n, --name [name]", "name of the module to commit")
+  .option("-m, --comment [comment]", "your comment")
+  .option("-b, --branch [branch]", "git repo branch")
+  .option("-e, --env [env]", "which environment to commit {alpha|beta|pre|product}")
+  .action(function(options){
+    require("./wizard-sync.js").sync({
+    	widgetName:options.name,
+    	comment:options.comment,
+    	env:options.env,
+    	branch:options.branch
+    });
+  });
+
+program
+  .command('preview')
+  .description('preview a module')
+  .option("-n, --name [name]", "name of the module to preview")
+  .option("-s, --shopId [shopId]", "shopId")
+  .option("-e, --env [env]", "which environment {alpha|beta|pre|product}")
+  .action(function(options){
+    require("./wizard-preview.js").commit({
+      widgetName:options.name,
+      shopId:options.shopId,
+      env:options.env
+    });
+  });
+
+program
+  .command('init')
+  .description('init app, create an archetype')
+  .option("-n, --name [name]", "name of the module to init")
+  .action(function(options){
+    require("./wizard-init.js").init({
+      widgetName:options.name
+    });
+  });
+
+program
+  .command('server')
+  .description('serve the local app for remote access')
+  .option("-p, --port [port]", "server port")
+  .action(function(options){
+    require("./wizard-server.js").serve({
+      port:options.port
+    });
+  });
+
+program
+  .command('ci')
+  .description('start a ci server')
+  .option("-p, --port [port]", "server port")
+  .action(function(options){
+    require("./wizard-ci.js").serve({
+      port:options.port
+    });
+  });
+
+program.parse(process.argv);
+if (program.args.length === 0) program.help() 

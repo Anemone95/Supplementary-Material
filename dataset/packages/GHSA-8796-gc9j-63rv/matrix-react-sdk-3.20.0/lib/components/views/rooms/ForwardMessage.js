@@ -1,0 +1,54 @@
+"use strict";
+
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _defineProperty2 = _interopRequireDefault(require("@babel/runtime/helpers/defineProperty"));
+
+var _react = _interopRequireDefault(require("react"));
+
+var _propTypes = _interopRequireDefault(require("prop-types"));
+
+var _languageHandler = require("../../../languageHandler");
+
+var _Keyboard = require("../../../Keyboard");
+
+var _replaceableComponent = require("../../../utils/replaceableComponent");
+
+var _dec, _class, _class2, _temp;
+
+let ForwardMessage = (_dec = (0, _replaceableComponent.replaceableComponent)("views.rooms.ForwardMessage"), _dec(_class = (_temp = _class2 = class ForwardMessage extends _react.default.Component {
+  constructor(...args) {
+    super(...args);
+    (0, _defineProperty2.default)(this, "_onKeyDown", ev => {
+      switch (ev.key) {
+        case _Keyboard.Key.ESCAPE:
+          this.props.onCancelClick();
+          break;
+      }
+    });
+  }
+
+  componentDidMount() {
+    document.addEventListener('keydown', this._onKeyDown);
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener('keydown', this._onKeyDown);
+  }
+
+  render() {
+    return /*#__PURE__*/_react.default.createElement("div", {
+      className: "mx_ForwardMessage"
+    }, /*#__PURE__*/_react.default.createElement("h1", null, (0, _languageHandler._t)('Please select the destination room for this message')));
+  }
+
+}, (0, _defineProperty2.default)(_class2, "propTypes", {
+  onCancelClick: _propTypes.default.func.isRequired
+}), _temp)) || _class);
+exports.default = ForwardMessage;
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uLy4uLy4uL3NyYy9jb21wb25lbnRzL3ZpZXdzL3Jvb21zL0ZvcndhcmRNZXNzYWdlLmpzIl0sIm5hbWVzIjpbIkZvcndhcmRNZXNzYWdlIiwiUmVhY3QiLCJDb21wb25lbnQiLCJldiIsImtleSIsIktleSIsIkVTQ0FQRSIsInByb3BzIiwib25DYW5jZWxDbGljayIsImNvbXBvbmVudERpZE1vdW50IiwiZG9jdW1lbnQiLCJhZGRFdmVudExpc3RlbmVyIiwiX29uS2V5RG93biIsImNvbXBvbmVudFdpbGxVbm1vdW50IiwicmVtb3ZlRXZlbnRMaXN0ZW5lciIsInJlbmRlciIsIlByb3BUeXBlcyIsImZ1bmMiLCJpc1JlcXVpcmVkIl0sIm1hcHBpbmdzIjoiOzs7Ozs7Ozs7OztBQWlCQTs7QUFDQTs7QUFDQTs7QUFDQTs7QUFDQTs7OztJQUdxQkEsYyxXQURwQixnREFBcUIsNEJBQXJCLEMsbUNBQUQsTUFDcUJBLGNBRHJCLFNBQzRDQyxlQUFNQyxTQURsRCxDQUM0RDtBQUFBO0FBQUE7QUFBQSxzREFhM0NDLEVBQUUsSUFBSTtBQUNmLGNBQVFBLEVBQUUsQ0FBQ0MsR0FBWDtBQUNJLGFBQUtDLGNBQUlDLE1BQVQ7QUFDSSxlQUFLQyxLQUFMLENBQVdDLGFBQVg7QUFDQTtBQUhSO0FBS0gsS0FuQnVEO0FBQUE7O0FBS3hEQyxFQUFBQSxpQkFBaUIsR0FBRztBQUNoQkMsSUFBQUEsUUFBUSxDQUFDQyxnQkFBVCxDQUEwQixTQUExQixFQUFxQyxLQUFLQyxVQUExQztBQUNIOztBQUVEQyxFQUFBQSxvQkFBb0IsR0FBRztBQUNuQkgsSUFBQUEsUUFBUSxDQUFDSSxtQkFBVCxDQUE2QixTQUE3QixFQUF3QyxLQUFLRixVQUE3QztBQUNIOztBQVVERyxFQUFBQSxNQUFNLEdBQUc7QUFDTCx3QkFDSTtBQUFLLE1BQUEsU0FBUyxFQUFDO0FBQWYsb0JBQ0kseUNBQU0seUJBQUcscURBQUgsQ0FBTixDQURKLENBREo7QUFLSDs7QUEzQnVELEMsc0RBQ3JDO0FBQ2ZQLEVBQUFBLGFBQWEsRUFBRVEsbUJBQVVDLElBQVYsQ0FBZUM7QUFEZixDIiwic291cmNlc0NvbnRlbnQiOlsiLypcbiBDb3B5cmlnaHQgMjAxNyBWZWN0b3IgQ3JlYXRpb25zIEx0ZFxuIENvcHlyaWdodCAyMDE3IE1pY2hhZWwgVGVsYXR5bnNraVxuXG4gTGljZW5zZWQgdW5kZXIgdGhlIEFwYWNoZSBMaWNlbnNlLCBWZXJzaW9uIDIuMCAodGhlIFwiTGljZW5zZVwiKTtcbiB5b3UgbWF5IG5vdCB1c2UgdGhpcyBmaWxlIGV4Y2VwdCBpbiBjb21wbGlhbmNlIHdpdGggdGhlIExpY2Vuc2UuXG4gWW91IG1heSBvYnRhaW4gYSBjb3B5IG9mIHRoZSBMaWNlbnNlIGF0XG5cbiBodHRwOi8vd3d3LmFwYWNoZS5vcmcvbGljZW5zZXMvTElDRU5TRS0yLjBcblxuIFVubGVzcyByZXF1aXJlZCBieSBhcHBsaWNhYmxlIGxhdyBvciBhZ3JlZWQgdG8gaW4gd3JpdGluZywgc29mdHdhcmVcbiBkaXN0cmlidXRlZCB1bmRlciB0aGUgTGljZW5zZSBpcyBkaXN0cmlidXRlZCBvbiBhbiBcIkFTIElTXCIgQkFTSVMsXG4gV0lUSE9VVCBXQVJSQU5USUVTIE9SIENPTkRJVElPTlMgT0YgQU5ZIEtJTkQsIGVpdGhlciBleHByZXNzIG9yIGltcGxpZWQuXG4gU2VlIHRoZSBMaWNlbnNlIGZvciB0aGUgc3BlY2lmaWMgbGFuZ3VhZ2UgZ292ZXJuaW5nIHBlcm1pc3Npb25zIGFuZFxuIGxpbWl0YXRpb25zIHVuZGVyIHRoZSBMaWNlbnNlLlxuICovXG5cbmltcG9ydCBSZWFjdCBmcm9tICdyZWFjdCc7XG5pbXBvcnQgUHJvcFR5cGVzIGZyb20gJ3Byb3AtdHlwZXMnO1xuaW1wb3J0IHsgX3QgfSBmcm9tICcuLi8uLi8uLi9sYW5ndWFnZUhhbmRsZXInO1xuaW1wb3J0IHtLZXl9IGZyb20gJy4uLy4uLy4uL0tleWJvYXJkJztcbmltcG9ydCB7cmVwbGFjZWFibGVDb21wb25lbnR9IGZyb20gXCIuLi8uLi8uLi91dGlscy9yZXBsYWNlYWJsZUNvbXBvbmVudFwiO1xuXG5AcmVwbGFjZWFibGVDb21wb25lbnQoXCJ2aWV3cy5yb29tcy5Gb3J3YXJkTWVzc2FnZVwiKVxuZXhwb3J0IGRlZmF1bHQgY2xhc3MgRm9yd2FyZE1lc3NhZ2UgZXh0ZW5kcyBSZWFjdC5Db21wb25lbnQge1xuICAgIHN0YXRpYyBwcm9wVHlwZXMgPSB7XG4gICAgICAgIG9uQ2FuY2VsQ2xpY2s6IFByb3BUeXBlcy5mdW5jLmlzUmVxdWlyZWQsXG4gICAgfTtcblxuICAgIGNvbXBvbmVudERpZE1vdW50KCkge1xuICAgICAgICBkb2N1bWVudC5hZGRFdmVudExpc3RlbmVyKCdrZXlkb3duJywgdGhpcy5fb25LZXlEb3duKTtcbiAgICB9XG5cbiAgICBjb21wb25lbnRXaWxsVW5tb3VudCgpIHtcbiAgICAgICAgZG9jdW1lbnQucmVtb3ZlRXZlbnRMaXN0ZW5lcigna2V5ZG93bicsIHRoaXMuX29uS2V5RG93bik7XG4gICAgfVxuXG4gICAgX29uS2V5RG93biA9IGV2ID0+IHtcbiAgICAgICAgc3dpdGNoIChldi5rZXkpIHtcbiAgICAgICAgICAgIGNhc2UgS2V5LkVTQ0FQRTpcbiAgICAgICAgICAgICAgICB0aGlzLnByb3BzLm9uQ2FuY2VsQ2xpY2soKTtcbiAgICAgICAgICAgICAgICBicmVhaztcbiAgICAgICAgfVxuICAgIH07XG5cbiAgICByZW5kZXIoKSB7XG4gICAgICAgIHJldHVybiAoXG4gICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cIm14X0ZvcndhcmRNZXNzYWdlXCI+XG4gICAgICAgICAgICAgICAgPGgxPnsgX3QoJ1BsZWFzZSBzZWxlY3QgdGhlIGRlc3RpbmF0aW9uIHJvb20gZm9yIHRoaXMgbWVzc2FnZScpIH08L2gxPlxuICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICk7XG4gICAgfVxufVxuIl19

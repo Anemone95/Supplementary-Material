@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectTasksOptions" suppressed-tasks="Babel;Traceur compiler">
+    <TaskOptions isEnabled="true">
+      <option name="arguments" value="run compile" />
+      <option name="checkSyntaxErrors" value="true" />
+      <option name="description" value="" />
+      <option name="exitCodeBehavior" value="ERROR" />
+      <option name="fileExtension" value="es6" />
+      <option name="immediateSync" value="true" />
+      <option name="name" value="compile" />
+      <option name="output" value="$PROJECT_DIR$/Box2D.js" />
+      <option name="outputFilters">
+        <array />
+      </option>
+      <option name="outputFromStdout" value="false" />
+      <option name="program" value="/usr/bin/npm" />
+      <option name="scopeName" value="Box2D.es6" />
+      <option name="trackOnlyRoot" value="false" />
+      <option name="workingDir" value="$PROJECT_DIR$" />
+      <envs />
+    </TaskOptions>
+    <TaskOptions isEnabled="false">
+      <option name="arguments" value="wrap" />
+      <option name="checkSyntaxErrors" value="true" />
+      <option name="description" value="" />
+      <option name="exitCodeBehavior" value="ERROR" />
+      <option name="fileExtension" value="*" />
+      <option name="immediateSync" value="true" />
+      <option name="name" value="wrap" />
+      <option name="output" value="$PROJECT_DIR$/Box2D_wrap.cxx" />
+      <option name="outputFilters">
+        <array />
+      </option>
+      <option name="outputFromStdout" value="false" />
+      <option name="program" value="/usr/bin/npm" />
+      <option name="scopeName" value="Box2D.i" />
+      <option name="trackOnlyRoot" value="false" />
+      <option name="workingDir" value="$PROJECT_DIR$/Box2D/Box2D" />
+      <envs />
+    </TaskOptions>
+  </component>
+</project>

@@ -1,0 +1,40 @@
+$ corepack pnpm@9.15.9 install --prod --no-frozen-lockfile --reporter=append-only --config.node-linker=hoisted --ignore-workspace --ignore-scripts
+Progress: resolved 1, reused 0, downloaded 0, added 0
+ WARN  deprecated babel-eslint@10.1.0: babel-eslint is now @babel/eslint-parser. This package will no longer receive updates.
+ WARN  deprecated conventional-changelog-cli@2.2.2: This package is no longer maintained. Please use the conventional-changelog package instead.
+ WARN  deprecated cypress-image-snapshot@3.1.2: broken deps
+ WARN  deprecated eslint@5.16.0: This version is no longer supported. Please see https://eslint.org/version-support for other options.
+ WARN  deprecated rollup-plugin-buble@0.19.8: This module has been deprecated and is no longer maintained. Please use @rollup/plugin-buble.
+ WARN  deprecated rollup-plugin-commonjs@10.1.0: This package has been deprecated and is no longer maintained. Please use @rollup/plugin-commonjs.
+ WARN  deprecated rimraf@3.0.2: Rimraf versions prior to v4 are no longer supported
+ WARN  deprecated rollup-plugin-node-resolve@5.2.0: This package has been deprecated and is no longer maintained. Please use @rollup/plugin-node-resolve.
+ WARN  deprecated rollup-plugin-replace@2.2.0: This module has moved and is now available at @rollup/plugin-replace. Please update your dependencies. This version is no longer maintained.
+ WARN  deprecated start-server-and-test@1.15.5: this package has been deprecated
+Progress: resolved 199, reused 0, downloaded 0, added 0
+Progress: resolved 321, reused 0, downloaded 0, added 0
+Progress: resolved 531, reused 0, downloaded 0, added 0
+Progress: resolved 566, reused 0, downloaded 0, added 0
+Progress: resolved 669, reused 0, downloaded 0, added 0
+Progress: resolved 817, reused 0, downloaded 0, added 0
+Progress: resolved 958, reused 0, downloaded 0, added 0
+Progress: resolved 1255, reused 0, downloaded 0, added 0
+Progress: resolved 1343, reused 0, downloaded 0, added 0
+Progress: resolved 1345, reused 0, downloaded 0, added 0
+Progress: resolved 1360, reused 0, downloaded 0, added 0
+Progress: resolved 1388, reused 0, downloaded 0, added 0
+Progress: resolved 1488, reused 0, downloaded 0, added 0
+Progress: resolved 1510, reused 0, downloaded 0, added 0
+ WARN  126 deprecated subdependencies found: @evocateur/libnpmaccess@3.1.2, @evocateur/libnpmpublish@1.2.2, @evocateur/npm-registry-fetch@4.0.0, @evocateur/pacote@9.6.5, @lerna/add@3.21.0, @lerna/bootstrap@3.21.0, @lerna/changed@3.21.0, @lerna/check-working-tree@3.16.5, @lerna/clean@3.21.0, @lerna/cli@3.18.5, @lerna/collect-uncommitted@3.16.5, @lerna/collect-updates@3.20.0, @lerna/command@3.21.0, @lerna/conventional-commits@3.22.0, @lerna/create-symlink@3.16.2, @lerna/create@3.22.0, @lerna/describe-ref@3.16.5, @lerna/diff@3.21.0, @lerna/exec@3.21.0, @lerna/filter-options@3.20.0, @lerna/filter-packages@3.18.0, @lerna/get-npm-exec-opts@3.13.0, @lerna/get-packed@3.16.0, @lerna/github-client@3.22.0, @lerna/gitlab-client@3.15.0, @lerna/global-options@3.13.0, @lerna/has-npm-version@3.16.5, @lerna/import@3.22.0, @lerna/info@3.21.0, @lerna/init@3.21.0, @lerna/link@3.21.0, @lerna/list@3.21.0, @lerna/listable@3.18.5, @lerna/log-packed@3.16.0, @lerna/npm-conf@3.16.0, @lerna/npm-dist-tag@3.18.5, @lerna/npm-install@3.16.5, @lerna/npm-publish@3.18.5, @lerna/npm-run-script@3.16.5, @lerna/otplease@3.18.5, @lerna/output@3.13.0, @lerna/pack-directory@3.16.4, @lerna/package-graph@3.18.5, @lerna/package@3.16.0, @lerna/prerelease-id-from-version@3.16.0, @lerna/profiler@3.20.0, @lerna/project@3.21.0, @lerna/prompt@3.18.5, @lerna/publish@3.22.1, @lerna/pulse-till-done@3.13.0, @lerna/query-graph@3.18.5, @lerna/resolve-symlink@3.16.0, @lerna/rimraf-dir@3.16.5, @lerna/run-lifecycle@3.16.2, @lerna/run-topologically@3.18.5, @lerna/run@3.21.0, @lerna/symlink-binary@3.17.0, @lerna/symlink-dependencies@3.17.0, @lerna/timer@3.13.0, @lerna/validation-error@3.13.0, @lerna/version@3.22.1, @lerna/write-log-file@3.13.0, @types/minimatch@6.0.0, abab@2.0.6, acorn-dynamic-import@4.0.0, are-we-there-yet@1.1.7, conventional-changelog-atom@2.0.8, conventional-changelog-codemirror@2.0.8, conventional-changelog-core@3.2.3, conventional-changelog-core@4.2.4, conventional-changelog-ember@2.0.9, conventional-changelog-eslint@3.0.9, conventional-changelog-express@2.0.6, conventional-changelog-jquery@3.0.11, conventional-changelog-jshint@2.0.9, copy-concurrently@1.0.5, debug@3.2.6, debuglog@1.0.1, domexception@2.0.1, figgy-pudding@3.5.2, fs-write-stream-atomic@1.0.10, fsevents@1.2.13, gauge@2.7.4, git-raw-commits@2.0.0, git-raw-commits@2.0.11, git-semver-tags@2.0.3, git-semver-tags@4.1.1, glob@7.1.2, glob@7.2.3, har-validator@5.1.5, inflight@1.0.6, lodash.get@4.4.2, lodash.template@4.18.1, mkdirp-promise@5.0.1, mkdirp@0.5.1, move-concurrently@1.0.1, node-fetch-npm@2.0.4, npm-lifecycle@3.1.5, npmlog@4.1.2, opn@6.0.0, os-homedir@2.0.0, osenv@0.1.5, path-dirname@1.0.2, q@1.5.1, querystring@0.2.0, read-package-json@2.1.2, read-package-tree@5.3.1, readdir-scoped-modules@1.1.0, request@2.88.0, request@2.88.2, resolve-url@0.2.1, rimraf@2.6.3, rimraf@2.7.1, sane@4.1.0, source-map-resolve@0.5.3, source-map-url@0.4.1, sourcemap-codec@1.4.8, stable@0.1.8, svgo@1.3.2, tar@4.4.19, uid-number@0.0.6, urix@0.1.0, uuid@3.4.0, uuid@8.3.2, w3c-hr-time@1.0.2, whatwg-encoding@1.0.5
+
+devDependencies: skipped
+
+ WARN  Issues with peer dependencies found
+.
+└─┬ cypress-image-snapshot 3.1.2
+  └── ✕ unmet peer cypress@^4.5.0: found 3.8.3
+
+Packages: +9
++++++++++
+Progress: resolved 1512, reused 3, downloaded 4, added 7
+Progress: resolved 1512, reused 3, downloaded 6, added 9, done
+Done in 15.4s using pnpm v9.15.9

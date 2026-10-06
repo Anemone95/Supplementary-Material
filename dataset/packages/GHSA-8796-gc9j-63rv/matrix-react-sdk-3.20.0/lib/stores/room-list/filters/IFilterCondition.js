@@ -1,0 +1,59 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.FilterKind = exports.FILTER_CHANGED = void 0;
+
+/*
+Copyright 2020, 2021 The Matrix.org Foundation C.I.C.
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+*/
+const FILTER_CHANGED = "filter_changed";
+exports.FILTER_CHANGED = FILTER_CHANGED;
+let FilterKind;
+/**
+ * A filter condition for the room list, determining if a room
+ * should be shown or not.
+ *
+ * All filter conditions are expected to be stable executions,
+ * meaning that given the same input the same answer will be
+ * returned (thus allowing caching). As such, filter conditions
+ * can, but shouldn't, do heavier logic and not worry about being
+ * called constantly by the room list. When the condition changes
+ * such that different inputs lead to different answers (such
+ * as a change in the user's input), this emits FILTER_CHANGED.
+ */
+
+exports.FilterKind = FilterKind;
+
+(function (FilterKind) {
+  FilterKind[FilterKind["Prefilter"] = 0] = "Prefilter";
+  FilterKind[FilterKind["Runtime"] = 1] = "Runtime";
+})(FilterKind || (exports.FilterKind = FilterKind = {}));
+/*:: export interface IFilterCondition extends EventEmitter {
+    /**
+     * The kind of filter this presents.
+     *-/
+    kind: FilterKind;
+
+    /**
+     * Determines if a given room should be visible under this
+     * condition.
+     * @param room The room to check.
+     * @returns True if the room should be visible.
+     *-/
+    isVisible(room: Room): boolean;
+}*/
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uLy4uLy4uL3NyYy9zdG9yZXMvcm9vbS1saXN0L2ZpbHRlcnMvSUZpbHRlckNvbmRpdGlvbi50cyJdLCJuYW1lcyI6WyJGSUxURVJfQ0hBTkdFRCIsIkZpbHRlcktpbmQiXSwibWFwcGluZ3MiOiI7Ozs7Ozs7QUFBQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFLTyxNQUFNQSxjQUFjLEdBQUcsZ0JBQXZCOztJQUVLQyxVO0FBZVo7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBOzs7O1dBMUJZQSxVO0FBQUFBLEVBQUFBLFUsQ0FBQUEsVTtBQUFBQSxFQUFBQSxVLENBQUFBLFU7R0FBQUEsVSwwQkFBQUEsVTs7QUFyQlo7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0EiLCJzb3VyY2VzQ29udGVudCI6WyIvKlxuQ29weXJpZ2h0IDIwMjAsIDIwMjEgVGhlIE1hdHJpeC5vcmcgRm91bmRhdGlvbiBDLkkuQy5cblxuTGljZW5zZWQgdW5kZXIgdGhlIEFwYWNoZSBMaWNlbnNlLCBWZXJzaW9uIDIuMCAodGhlIFwiTGljZW5zZVwiKTtcbnlvdSBtYXkgbm90IHVzZSB0aGlzIGZpbGUgZXhjZXB0IGluIGNvbXBsaWFuY2Ugd2l0aCB0aGUgTGljZW5zZS5cbllvdSBtYXkgb2J0YWluIGEgY29weSBvZiB0aGUgTGljZW5zZSBhdFxuXG4gICAgaHR0cDovL3d3dy5hcGFjaGUub3JnL2xpY2Vuc2VzL0xJQ0VOU0UtMi4wXG5cblVubGVzcyByZXF1aXJlZCBieSBhcHBsaWNhYmxlIGxhdyBvciBhZ3JlZWQgdG8gaW4gd3JpdGluZywgc29mdHdhcmVcbmRpc3RyaWJ1dGVkIHVuZGVyIHRoZSBMaWNlbnNlIGlzIGRpc3RyaWJ1dGVkIG9uIGFuIFwiQVMgSVNcIiBCQVNJUyxcbldJVEhPVVQgV0FSUkFOVElFUyBPUiBDT05ESVRJT05TIE9GIEFOWSBLSU5ELCBlaXRoZXIgZXhwcmVzcyBvciBpbXBsaWVkLlxuU2VlIHRoZSBMaWNlbnNlIGZvciB0aGUgc3BlY2lmaWMgbGFuZ3VhZ2UgZ292ZXJuaW5nIHBlcm1pc3Npb25zIGFuZFxubGltaXRhdGlvbnMgdW5kZXIgdGhlIExpY2Vuc2UuXG4qL1xuXG5pbXBvcnQgeyBSb29tIH0gZnJvbSBcIm1hdHJpeC1qcy1zZGsvc3JjL21vZGVscy9yb29tXCI7XG5pbXBvcnQgeyBFdmVudEVtaXR0ZXIgfSBmcm9tIFwiZXZlbnRzXCI7XG5cbmV4cG9ydCBjb25zdCBGSUxURVJfQ0hBTkdFRCA9IFwiZmlsdGVyX2NoYW5nZWRcIjtcblxuZXhwb3J0IGVudW0gRmlsdGVyS2luZCB7XG4gICAgLyoqXG4gICAgICogQSBwcmVmaWx0ZXIgaXMgb25lIHdoaWNoIGNvYXJzZWx5IGRldGVybWluZXMgd2hpY2ggcm9vbXMgYXJlXG4gICAgICogYXZhaWxhYmxlIGZvciBydW50aW1lIGZpbHRlcmluZy9yZW5kZXJpbmcuIFR5cGljYWxseSB0aGlzIHdpbGxcbiAgICAgKiBiZSB0aGluZ3MgbGlrZSBTcGFjZSBzZWxlY3Rpb24uXG4gICAgICovXG4gICAgUHJlZmlsdGVyLFxuXG4gICAgLyoqXG4gICAgICogUnVudGltZSBmaWx0ZXJzIG9wZXJhdGUgb24gdGhlIGRhdGEgc2V0IGV4cG9zZWQgYnkgcHJlZmlsdGVycy5cbiAgICAgKiBUeXBpY2FsbHkgdGhlc2UgYXJlIGR5bmFtaWMgdmFsdWVzIGxpa2Ugcm9vbSBuYW1lIHNlYXJjaGluZy5cbiAgICAgKi9cbiAgICBSdW50aW1lLFxufVxuXG4vKipcbiAqIEEgZmlsdGVyIGNvbmRpdGlvbiBmb3IgdGhlIHJvb20gbGlzdCwgZGV0ZXJtaW5pbmcgaWYgYSByb29tXG4gKiBzaG91bGQgYmUgc2hvd24gb3Igbm90LlxuICpcbiAqIEFsbCBmaWx0ZXIgY29uZGl0aW9ucyBhcmUgZXhwZWN0ZWQgdG8gYmUgc3RhYmxlIGV4ZWN1dGlvbnMsXG4gKiBtZWFuaW5nIHRoYXQgZ2l2ZW4gdGhlIHNhbWUgaW5wdXQgdGhlIHNhbWUgYW5zd2VyIHdpbGwgYmVcbiAqIHJldHVybmVkICh0aHVzIGFsbG93aW5nIGNhY2hpbmcpLiBBcyBzdWNoLCBmaWx0ZXIgY29uZGl0aW9uc1xuICogY2FuLCBidXQgc2hvdWxkbid0LCBkbyBoZWF2aWVyIGxvZ2ljIGFuZCBub3Qgd29ycnkgYWJvdXQgYmVpbmdcbiAqIGNhbGxlZCBjb25zdGFudGx5IGJ5IHRoZSByb29tIGxpc3QuIFdoZW4gdGhlIGNvbmRpdGlvbiBjaGFuZ2VzXG4gKiBzdWNoIHRoYXQgZGlmZmVyZW50IGlucHV0cyBsZWFkIHRvIGRpZmZlcmVudCBhbnN3ZXJzIChzdWNoXG4gKiBhcyBhIGNoYW5nZSBpbiB0aGUgdXNlcidzIGlucHV0KSwgdGhpcyBlbWl0cyBGSUxURVJfQ0hBTkdFRC5cbiAqL1xuZXhwb3J0IGludGVyZmFjZSBJRmlsdGVyQ29uZGl0aW9uIGV4dGVuZHMgRXZlbnRFbWl0dGVyIHtcbiAgICAvKipcbiAgICAgKiBUaGUga2luZCBvZiBmaWx0ZXIgdGhpcyBwcmVzZW50cy5cbiAgICAgKi9cbiAgICBraW5kOiBGaWx0ZXJLaW5kO1xuXG4gICAgLyoqXG4gICAgICogRGV0ZXJtaW5lcyBpZiBhIGdpdmVuIHJvb20gc2hvdWxkIGJlIHZpc2libGUgdW5kZXIgdGhpc1xuICAgICAqIGNvbmRpdGlvbi5cbiAgICAgKiBAcGFyYW0gcm9vbSBUaGUgcm9vbSB0byBjaGVjay5cbiAgICAgKiBAcmV0dXJucyBUcnVlIGlmIHRoZSByb29tIHNob3VsZCBiZSB2aXNpYmxlLlxuICAgICAqL1xuICAgIGlzVmlzaWJsZShyb29tOiBSb29tKTogYm9vbGVhbjtcbn1cbiJdfQ==

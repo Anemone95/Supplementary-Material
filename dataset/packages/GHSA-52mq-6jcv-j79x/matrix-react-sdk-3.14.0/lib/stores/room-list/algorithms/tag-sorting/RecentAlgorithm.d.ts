@@ -1,0 +1,10 @@
+import { Room } from "matrix-js-sdk/src/models/room";
+import { TagID } from "../../models";
+import { IAlgorithm } from "./IAlgorithm";
+/**
+ * Sorts rooms according to the last event's timestamp in each room that seems
+ * useful to the user.
+ */
+export declare class RecentAlgorithm implements IAlgorithm {
+    sortRooms(rooms: Room[], tagId: TagID): Promise<Room[]>;
+}

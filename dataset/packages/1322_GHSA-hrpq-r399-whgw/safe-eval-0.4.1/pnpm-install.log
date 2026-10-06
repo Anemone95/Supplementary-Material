@@ -1,0 +1,12 @@
+$ corepack pnpm@9.15.9 install --prod --no-frozen-lockfile --reporter=append-only --config.node-linker=hoisted --ignore-workspace --ignore-scripts
+Progress: resolved 1, reused 0, downloaded 0, added 0
+Progress: resolved 96, reused 0, downloaded 0, added 0
+Progress: resolved 189, reused 0, downloaded 0, added 0
+Progress: resolved 296, reused 0, downloaded 0, added 0
+ WARN  7 deprecated subdependencies found: circular-json@0.3.3, eslint@4.18.2, glob@7.1.2, glob@7.2.3, inflight@1.0.6, mkdirp@0.5.1, rimraf@2.6.3
+
+devDependencies: skipped
+
+Already up to date
+Progress: resolved 301, reused 0, downloaded 0, added 0, done
+Done in 3.7s using pnpm v9.15.9

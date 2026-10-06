@@ -1,0 +1,26 @@
+.content {
+  color: silver;
+  text-align: center;
+}
+
+.clock-container {
+  position:absolute;
+  height:8em;
+  width: 10em;
+  left: 50%;
+  top: 50%;
+  margin-left: -5em;
+  margin-top:-4em;
+}
+
+.clock-time {
+  font-size: 4em;
+  font-weight: bold;
+  opacity: 0.6;
+}
+
+.clock-date {
+  font-size: 1.7em;
+  color: #454545;
+  line-height: 1em;
+}

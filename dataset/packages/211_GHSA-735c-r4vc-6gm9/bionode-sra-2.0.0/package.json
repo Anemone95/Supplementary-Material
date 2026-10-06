@@ -1,0 +1,54 @@
+{
+  "name": "bionode-sra",
+  "description": "A Node.js wrapper for SRA Toolkit.",
+  "version": "2.0.0",
+  "homepage": "http://github.com/bionode/bionode-sra",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/bionode/bionode-sra.git"
+  },
+  "author": {
+    "name": "Bruno Vieira",
+    "email": "mail@bmpvieira.com"
+  },
+  "dependencies": {
+    "JSONStream": "^1.3.1",
+    "minimist": "^1.2.0",
+    "split": "^1.0.0",
+    "through2": "^2.0.3"
+  },
+  "devDependencies": {
+    "coveralls": "~2.13.1",
+    "dependency-check": "^2.8.0",
+    "docco": "~0.7.0",
+    "istanbul": "~0.4.5",
+    "request": "^2.81.0",
+    "standard": "^10.0.2",
+    "tap-spec": "^4.1.1",
+    "tape": "^4.6.3",
+    "testling": "^1.7.1"
+  },
+  "keywords": [
+    "bio",
+    "biology",
+    "bionode",
+    "bioinformatics",
+    "download",
+    "ftp",
+    "wrapper",
+    "installer",
+    "streams",
+    "cli"
+  ],
+  "main": "index.js",
+  "bin": {
+    "bionode-sra": "cli.js"
+  },
+  "scripts": {
+    "test": "standard && dependency-check . && node test/bionode-sra.js | tap-spec && rm -rf test/SRR1509835.*",
+    "build-docs": "docco ./lib/bionode-sra.js",
+    "coverage": "istanbul cover ./node_modules/.bin/_mocha --report lcovonly -- -R spec && rm -rf ./coverage",
+    "coveralls": "istanbul cover ./node_modules/.bin/_mocha --report lcovonly -- -R spec && cat ./coverage/lcov.info | ./node_modules/.bin/coveralls && rm -rf ./coverage"
+  },
+  "license": "MIT"
+}

@@ -1,0 +1,18 @@
+$ corepack pnpm@9.15.9 install --prod --no-frozen-lockfile --reporter=append-only --config.node-linker=hoisted --ignore-workspace --ignore-scripts
+Progress: resolved 1, reused 0, downloaded 0, added 0
+Progress: resolved 95, reused 0, downloaded 0, added 0
+Progress: resolved 209, reused 0, downloaded 0, added 0
+Progress: resolved 341, reused 0, downloaded 0, added 0
+Progress: resolved 410, reused 0, downloaded 0, added 0
+ WARN  13 deprecated subdependencies found: are-we-there-yet@1.1.7, browserslist@0.4.0, eslint@5.16.0, gauge@2.7.4, glob@7.1.7, glob@7.2.3, iltorb@2.4.5, inflight@1.0.6, npmlog@4.1.2, prebuild-install@5.3.6, raw-body@1.1.7, rimraf@2.6.3, rimraf@2.7.1
+
+devDependencies: skipped
+
+Packages: +3
++++
+Progress: resolved 411, reused 1, downloaded 0, added 1
+Progress: resolved 411, reused 1, downloaded 1, added 1
+Progress: resolved 411, reused 1, downloaded 1, added 2
+Progress: resolved 411, reused 1, downloaded 2, added 2
+Progress: resolved 411, reused 1, downloaded 2, added 3, done
+Done in 11s using pnpm v9.15.9

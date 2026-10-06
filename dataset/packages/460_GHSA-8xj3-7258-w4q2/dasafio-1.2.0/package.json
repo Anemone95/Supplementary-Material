@@ -1,0 +1,19 @@
+{
+  "name": "dasafio",
+  "version": "1.2.0",
+  "main": "desafio.js",
+  "dependencies": {
+    "package": "^1.0.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Daniel de Avelar <daniel.avelar@gmail.com>",
+  "license": "ISC",
+  "description": "Desafio",
+  "repository": {
+    "type": "git",
+    "url": "\"https://github.com/npm/npm.git\""
+  }
+}

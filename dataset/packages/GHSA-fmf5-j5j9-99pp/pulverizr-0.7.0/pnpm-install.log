@@ -1,0 +1,14 @@
+$ corepack pnpm@9.15.9 install --prod --no-frozen-lockfile --reporter=append-only --config.node-linker=hoisted --ignore-workspace --ignore-scripts
+Progress: resolved 1, reused 0, downloaded 0, added 0
+ WARN  deprecated q@1.5.1: You or someone you depend on is using Q, the JavaScript Promise library that gave JavaScript developers strong feelings about promises. They can almost certainly migrate to the native JavaScript promise now. Thank you literally everyone for joining me in this bet against the odds. Be excellent to each other.
+
+(For a CapTP with native promises, see @endo/eventual-send and @endo/captp)
+Progress: resolved 25, reused 0, downloaded 0, added 0
+ WARN  3 deprecated subdependencies found: glob@7.2.3, inflight@1.0.6, rimraf@2.6.3
+
+devDependencies: skipped
+
+Packages: +32
+++++++++++++++++++++++++++++++++
+Progress: resolved 32, reused 26, downloaded 6, added 32, done
+Done in 2.2s using pnpm v9.15.9

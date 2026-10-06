@@ -1,0 +1,21 @@
+{
+  "name": "chatbyvista",
+  "version": "0.1.0",
+  "description": "Minimalist multi-room chat server",
+  "dependencies": {
+    "socket.io": "~0.9.6",
+    "mime": "~1.2.7"
+  },
+  "scripts": {
+    "start": "node server.js"
+  },
+  "main": "server.js",
+  "devDependencies": {},
+  "repository": "",
+  "keywords": [
+    "chat",
+    "room"
+  ],
+  "author": "zhrongvista",
+  "license": "BSD"
+}

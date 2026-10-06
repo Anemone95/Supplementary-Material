@@ -1,0 +1,3 @@
+export declare const serializeEntity: <EntityT extends import(".").EntityBase>(entity: EntityT, entityConstructor: import(".").Constructable<EntityT, {}>) => import("@sap-cloud-sdk/util").MapType<any>;
+export declare const serializeEntityNonCustomFields: <EntityT extends import(".").EntityBase>(entity: EntityT, entityConstructor: import(".").Constructable<EntityT, {}>) => import("@sap-cloud-sdk/util").MapType<any>;
+//# sourceMappingURL=entity-serializer.d.ts.map

@@ -1,0 +1,698 @@
+lockfileVersion: '9.0'
+
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
+
+importers:
+
+  .:
+    devDependencies:
+      chai:
+        specifier: ~1.9.1
+        version: 1.9.2
+      coffee-script:
+        specifier: ~1.7.1
+        version: 1.7.1
+      grunt:
+        specifier: ~0.4.5
+        version: 0.4.5
+      grunt-contrib-coffee:
+        specifier: ~0.10.1
+        version: 0.10.1(grunt@0.4.5)
+      grunt-contrib-watch:
+        specifier: ~0.6.1
+        version: 0.6.1(grunt@0.4.5)
+      grunt-mocha-test:
+        specifier: ~0.11.0
+        version: 0.11.0
+
+packages:
+
+  abbrev@1.1.1:
+    resolution: {integrity: sha512-nne9/IiQ/hzIhY6pdDnbBtz7DjPTKrY00P/zvPSm5pOFkl6xuGrGnXn/VtTNNfNtAfZ9/1RtehkszU9qcTii0Q==}
+
+  ansi-styles@1.0.0:
+    resolution: {integrity: sha512-3iF4FIKdxaVYT3JqQuY3Wat/T2t7TRbbQ94Fu50ZUCbLy4TFbTzr90NOHQodQkNqmeEGCw8WbeP78WNi6SKYUA==}
+    engines: {node: '>=0.8.0'}
+
+  argparse@0.1.16:
+    resolution: {integrity: sha512-LjmC2dNpdn2L4UzyoaIr11ELYoLn37ZFy9zObrQFHsSuOepeUEMKnM8w5KL4Tnrp2gy88rRuQt6Ky8Bjml+Baw==}
+
+  assertion-error@1.0.0:
+    resolution: {integrity: sha512-g/gZV+G476cnmtYI+Ko9d5khxSoCSoom/EaNmmCfwpOvBXEJ18qwFrxfP1/CsIqk2no1sAKKwxndV0tP7ROOFQ==}
+
+  async@0.1.22:
+    resolution: {integrity: sha512-2tEzliJmf5fHNafNwQLJXUasGzQCVctvsNkXmnlELHwypU0p08/rHohYvkqKIjyXpx+0rkrYv6QbhJ+UF4QkBg==}
+
+  async@0.2.10:
+    resolution: {integrity: sha512-eAkdoKxU6/LkKDBzLpT+t6Ff5EtfSF4wx1WfJiPEEV7WNLnDaRXk0oVysiEPm262roaachGexwUv94WhSgN5TQ==}
+
+  balanced-match@1.0.2:
+    resolution: {integrity: sha512-3oSeUO0TMV67hN1AmbXsK4yaqU7tjiHlbxRDZOpH0KW9+CeX4bRAaX0Anxt0tx2MrpRpWwQaPwIlISEJhYU5Pw==}
+
+  brace-expansion@1.1.21:
+    resolution: {integrity: sha512-9zeA+KLZNNzglF2TPKRQEDyx6Yby7daAkuy8MiPzpXPsYDWi/DRM8jmwUDxokQjYqBpv5DgPiwD4h4ZZSy1Ujw==}
+
+  chai@1.9.2:
+    resolution: {integrity: sha512-olRoaitftnzWHFEAza6MXR4w+FfZrOVyV7r7U/Z8ObJefCgL8IuWkAuASJjSXrpP9wvgoL8+1dB9RbMLc2FkNg==}
+    engines: {node: '>= 0.4.0'}
+
+  chalk@0.4.0:
+    resolution: {integrity: sha512-sQfYDlfv2DGVtjdoQqxS0cEZDroyG8h6TamA6rvxwlrU5BaSLDx9xhatBYl2pxZ7gmpNaPFVwBtdGdu5rQ+tYQ==}
+    engines: {node: '>=0.8.0'}
+
+  coffee-script@1.3.3:
+    resolution: {integrity: sha512-QjQ1T4BqyHv19k6XSfdhy/QLlIOhywz0ekBUCa9h71zYMJlfDTGan/Z1JXzYkZ6v8R+GhvL/p4FZPbPW8WNXlg==}
+    engines: {node: '>=0.4.0'}
+    deprecated: CoffeeScript on NPM has moved to "coffeescript" (no hyphen)
+    hasBin: true
+
+  coffee-script@1.7.1:
+    resolution: {integrity: sha512-W3s+SROY73OmrSGtPTTW/2wp2rmW5vuh0/tUuCK1NvTuyzLOVPccIP9whmhZ4cYWcr2NJPNENZIFaAMkTD5G3w==}
+    engines: {node: '>=0.8.0'}
+    deprecated: CoffeeScript on NPM has moved to "coffeescript" (no hyphen)
+    hasBin: true
+
+  colors@0.6.2:
+    resolution: {integrity: sha512-OsSVtHK8Ir8r3+Fxw/b4jS1ZLPXkV6ZxDRJQzeD7qo0SqMXWrHDM71DgYzPMHY8SFJ0Ao+nNU2p1MmwdzKqPrw==}
+    engines: {node: '>=0.1.90'}
+
+  commander@0.6.1:
+    resolution: {integrity: sha512-0fLycpl1UMTGX257hRsu/arL/cUbcvQM4zMKwvLvzXtfdezIV4yotPS2dYtknF+NmEfWSoCEF6+hj9XLm/6hEw==}
+    engines: {node: '>= 0.4.x'}
+
+  commander@2.0.0:
+    resolution: {integrity: sha512-qebjpyeaA/nJ4w3EO2cV2++/zEkccPnjWogzA2rff+Lk8ILI75vULeTmyd4wPxWdKwtP3J+G39IXVZadh0UHyw==}
+    engines: {node: '>= 0.6.x'}
+
+  concat-map@0.0.1:
+    resolution: {integrity: sha512-/Srv4dswyQNBfohGpz9o6Yb3Gz3SrUDqBH5rTuhGR7ahtlbYKnVxw2bCFMRljaA7EXHaXZ8wsHdodFvbkhKmqg==}
+
+  dateformat@1.0.2-1.2.3:
+    resolution: {integrity: sha512-AXvW8g7tO4ilk5HgOWeDmPi/ZPaCnMJ+9Cg1I3p19w6mcvAAXBuuGEXAxybC+Djj1PSZUiHUcyoYu7WneCX8gQ==}
+
+  debug@0.7.4:
+    resolution: {integrity: sha512-EohAb3+DSHSGx8carOSKJe8G0ayV5/i609OD0J2orCkuyae7SyZSz2aoLmQF2s0Pj5gITDebwPH7GFBlqOUQ1Q==}
+    peerDependencies:
+      supports-color: '*'
+    peerDependenciesMeta:
+      supports-color:
+        optional: true
+
+  debug@4.4.3:
+    resolution: {integrity: sha512-RGwwWnwQvkVfavKVt22FGLw+xYSdzARwm0ru6DhTVA3umU5hZc28V3kO4stgYryrTlLpuvgI9GiijltAjNbcqA==}
+    engines: {node: '>=6.0'}
+    peerDependencies:
+      supports-color: '*'
+    peerDependenciesMeta:
+      supports-color:
+        optional: true
+
+  deep-eql@0.1.3:
+    resolution: {integrity: sha512-6sEotTRGBFiNcqVoeHwnfopbSpi5NbH1VWJmYCVkmxMmaVTT0bUTrNaGyBwhgP4MZL012W/mkzIn3Da+iDYweg==}
+
+  diff@1.0.7:
+    resolution: {integrity: sha512-0bTLzyr1S59cPsgAD/lR+ivvHTbgPb+k/mUR6WGqma1J6QDU+kUegI8uQFuH/cMUNK7JGN3Tk1Y5Jf2MO85WrA==}
+    engines: {node: '>=0.3.1'}
+
+  esprima@1.0.4:
+    resolution: {integrity: sha512-rp5dMKN8zEs9dfi9g0X1ClLmV//WRyk/R15mppFNICIFRG5P92VP7Z04p8pk++gABo9W2tY+kHyu6P1mEHgmTA==}
+    engines: {node: '>=0.4.0'}
+    hasBin: true
+
+  eventemitter2@0.4.14:
+    resolution: {integrity: sha512-K7J4xq5xAD5jHsGM5ReWXRTFa3JRGofHiMcVgQ8PRwgWxzjHpMWCIzsmyf60+mh8KLsqYPcjUMa0AC4hd6lPyQ==}
+
+  exit@0.1.2:
+    resolution: {integrity: sha512-Zk/eNKV2zbjpKzrsQ+n1G6poVbErQxJ0LBOJXaKZ1EViLzH+hrLu9cdXI4zw9dBQJslwBEpbQ2P1oS7nDxs6jQ==}
+    engines: {node: '>= 0.8.0'}
+
+  faye-websocket@0.4.4:
+    resolution: {integrity: sha512-78pqrJbvGZSe8i+PLsPd+aJqTyGqgyWLnMw5NOwtXCTVMzEFh1zQPwIuIL/ycTj4rkDy5zZ9B6frYPqVPJBzyQ==}
+    engines: {node: '>=0.4.0'}
+
+  findup-sync@0.1.3:
+    resolution: {integrity: sha512-yjftfYnF4ThYEvKEV/kEFR15dmtyXTAh3vQnzpJUoc7Naj5y1P0Ck7Zs1+Vroa00E3KT3IYsk756S+8WA5dNLw==}
+    engines: {node: '>= 0.6.0'}
+
+  fs-extra@0.9.1:
+    resolution: {integrity: sha512-yctbTOCHGDktj3eorstAjY0Z8WtbzoHlKKiUZRbX25b34BnuIGsdI9HG2dYO72kimROUPRgJhdSxlBRhDtEZqw==}
+
+  fs.realpath@1.0.0:
+    resolution: {integrity: sha512-OO0pH2lK6a0hZnAdau5ItzHPI6pUlvI7jMVnxUQRtw4owF2wk8lOSabtGDCTP4Ggrg2MbGnWO9X8K1t4+fGMDw==}
+
+  gaze@0.5.2:
+    resolution: {integrity: sha512-3IWbXGkDDHFX8zIlNdfnmhvlSMhpBO6tDr4InB8fGku6dh/gjFPGNqcdsXJajZg05x9jRzXbL6gCnCnuMap4tw==}
+    engines: {node: '>= 0.8.0'}
+
+  getobject@0.1.0:
+    resolution: {integrity: sha512-hIGEBfnHcZpWkXPsAVeVmpYDvfy/matVl03yOY91FPmnpCC12Lm5izNxCjO3lHAeO6uaTwMxu7g450Siknlhig==}
+    engines: {node: '>= 0.8.0'}
+
+  glob@3.1.21:
+    resolution: {integrity: sha512-ANhy2V2+tFpRajE3wN4DhkNQ08KDr0Ir1qL12/cUe5+a7STEK8jkW4onUYuY8/06qAFuT5je7mjAqzx0eKI2tQ==}
+    deprecated: Old versions of glob are not supported, and contain widely publicized security vulnerabilities, which have been fixed in the current version. Please update. Support for old versions may be purchased (at exorbitant rates) by contacting i@izs.me
+
+  glob@3.2.11:
+    resolution: {integrity: sha512-hVb0zwEZwC1FXSKRPFTeOtN7AArJcJlI6ULGLtrstaswKNlrTJqAA+1lYlSUop4vjA423xlBzqfVS3iWGlqJ+g==}
+    deprecated: Old versions of glob are not supported, and contain widely publicized security vulnerabilities, which have been fixed in the current version. Please update. Support for old versions may be purchased (at exorbitant rates) by contacting i@izs.me
+
+  glob@3.2.3:
+    resolution: {integrity: sha512-WPaLsMHD1lYEqAmIQI6VOJSPwuBdGShDWnj1yUo0vQqEO809R8W3LM9OVU13CnnDhyv/EiNwOtxEW74SmrzS6w==}
+    deprecated: Old versions of glob are not supported, and contain widely publicized security vulnerabilities, which have been fixed in the current version. Please update. Support for old versions may be purchased (at exorbitant rates) by contacting i@izs.me
+
+  glob@7.2.3:
+    resolution: {integrity: sha512-nFR0zLpU2YCaRxwoCJvL6UvCH2JFyFVIvwTLsIf21AuHlMskA1hhTdk+LlYJtOlYt9v6dvszD2BGRqBL+iQK9Q==}
+    deprecated: Old versions of glob are not supported, and contain widely publicized security vulnerabilities, which have been fixed in the current version. Please update. Support for old versions may be purchased (at exorbitant rates) by contacting i@izs.me
+
+  globule@0.1.0:
+    resolution: {integrity: sha512-3eIcA2OjPCm4VvwIwZPzIxCVssA8HSpM2C6c6kK5ufJH4FGwWoyqL3In19uuX4oe+TwH3w2P1nQDmW56iehO4A==}
+    engines: {node: '>= 0.8.0'}
+
+  graceful-fs@1.2.3:
+    resolution: {integrity: sha512-iiTUZ5vZ+2ZV+h71XAgwCSu6+NAizhFU3Yw8aC/hH5SQ3SnISqEqAek40imAFGtDcwJKNhXvSY+hzIolnLwcdQ==}
+    engines: {node: '>=0.4.0'}
+    deprecated: please upgrade to graceful-fs 4 for compatibility with current and future versions of Node.js
+
+  graceful-fs@2.0.3:
+    resolution: {integrity: sha512-hcj/NTUWv+C3MbqrVb9F+aH6lvTwEHJdx2foBxlrVq5h6zE8Bfu4pv4CAAqbDcZrw/9Ak5lsRXlY9Ao8/F0Tuw==}
+    engines: {node: '>=0.4.0'}
+    deprecated: please upgrade to graceful-fs 4 for compatibility with current and future versions of Node.js
+
+  growl@1.7.0:
+    resolution: {integrity: sha512-VWv7s1EI41AG2LiCr7uAuxWikLDN1SQOuEUc37d/P34NAIIYgkvWYngNw0d9d9iCrDFL0SYCE9UQpxhIjjtuLg==}
+
+  grunt-contrib-coffee@0.10.1:
+    resolution: {integrity: sha512-XK8BQ8R3m5LUaYIPW3JpEbqUiM0Ig0dPqZGPGoraZ1x2UWLbVoVsiOq5Wgbf5IUYrlPXrZXRa0FmCIqwZ2tKtg==}
+    engines: {node: '>= 0.8.0'}
+    peerDependencies:
+      grunt: ~0.4.0
+
+  grunt-contrib-watch@0.6.1:
+    resolution: {integrity: sha512-Ea4f3anehA6G+S88vyTwewA/Mf6SbadTIxSgQClKbZYnHOcJ0PrGc2p+uzR6hS9gp7DG6ObvaxkmE8HKnLOsfA==}
+    engines: {node: '>= 0.8.0'}
+    peerDependencies:
+      grunt: ~0.4.0
+
+  grunt-legacy-log-utils@0.1.1:
+    resolution: {integrity: sha512-D0vbUX00TFYCKNZtcZzemMpwT8TR/FdRs1pmfiBw6qnUw80PfsjV+lhIozY/3eJ3PSG2zj89wd2mH/7f4tNAlw==}
+    engines: {node: '>= 0.8.0'}
+
+  grunt-legacy-log@0.1.3:
+    resolution: {integrity: sha512-qYs/uM0ImdzwIXLhS4O5WLV5soAM+PEqqHI/hzSxlo450ERSccEhnXqoeDA9ZozOdaWuYnzTOTwRcVRogleMxg==}
+    engines: {node: '>= 0.8.0'}
+
+  grunt-legacy-util@0.2.0:
+    resolution: {integrity: sha512-cXPbfF8aM+pvveQeN1K872D5fRm30xfJWZiS63Y8W8oyIPLClCsmI8bW96Txqzac9cyL4lRqEBhbhJ3n5EzUUQ==}
+    engines: {node: '>= 0.8.0'}
+
+  grunt-mocha-test@0.11.0:
+    resolution: {integrity: sha512-BDffDt8Y724rbeUhSg3GZdhTx918hJ5WoHRdW3uXCIYNxeySoECjkmTiAEf2tHp6GYwW5sMKXk2jTqCU/LbajA==}
+    engines: {node: '>= 0.10.4'}
+
+  grunt@0.4.5:
+    resolution: {integrity: sha512-1iq3ylLjzXqz/KSq1OAE2qhnpcbkF2WyhsQcavZt+YmgvHu0EbPMEhGhy2gr0FP67isHpRdfwjB5WVeXXcJemQ==}
+    engines: {node: '>= 0.8.0'}
+
+  has-color@0.1.7:
+    resolution: {integrity: sha512-kaNz5OTAYYmt646Hkqw50/qyxP2vFnTVu5AQ1Zmk22Kk5+4Qx6BpO8+u7IKsML5fOsFk0ZT0AcCJNYwcvaLBvw==}
+    engines: {node: '>=0.10.0'}
+
+  hooker@0.2.3:
+    resolution: {integrity: sha512-t+UerCsQviSymAInD01Pw+Dn/usmz1sRO+3Zk1+lx8eg+WKpD2ulcwWqHHL0+aseRBr+3+vIhiG1K1JTwaIcTA==}
+
+  iconv-lite@0.2.11:
+    resolution: {integrity: sha512-KhmFWgaQZY83Cbhi+ADInoUQ8Etn6BG5fikM9syeOjQltvR45h7cRKJ/9uvQEuD61I3Uju77yYce0/LhKVClQw==}
+    engines: {node: '>=0.4.0'}
+
+  inflight@1.0.6:
+    resolution: {integrity: sha512-k92I/b08q4wvFscXCLvqfsHCrjrF7yiXsQuIVvVE7N82W3+aqpzuUdBbfhWcy/FZR3/4IgflMgKLOsvPDrGCJA==}
+    deprecated: This module is not supported, and leaks memory. Do not use it. Check out lru-cache if you want a good and tested way to coalesce async requests by a key value, which is much more comprehensive and powerful.
+
+  inherits@1.0.2:
+    resolution: {integrity: sha512-Al67oatbRSo3RV5hRqIoln6Y5yMVbJSIn4jEJNL7VCImzq/kLr7vvb6sFRJXqr8rpHc/2kJOM+y0sPKN47VdzA==}
+
+  inherits@2.0.4:
+    resolution: {integrity: sha512-k/vGaX4/Yla3WzyMCvTQOXYeIHvqOKtnqBduzTHpzpQZzAskKMhZ2K+EnBiSM9zGSoIFeMpXKxa4dYeZIQqewQ==}
+
+  jade@0.26.3:
+    resolution: {integrity: sha512-mkk3vzUHFjzKjpCXeu+IjXeZD+QOTjUUdubgmHtHTDwvAO2ZTkMTTVrapts5CWz3JvJryh/4KWZpjeZrCepZ3A==}
+    deprecated: Jade has been renamed to pug, please install the latest version of pug instead of jade
+    hasBin: true
+
+  js-yaml@2.0.5:
+    resolution: {integrity: sha512-VEKcIksckDBUhg2JS874xVouiPkywVUh4yyUmLCDe1Zg3bCd6M+F1eGPenPeHLc2XC8pp9G8bsuofK0NeEqRkA==}
+    engines: {node: '>= 0.6.0'}
+    hasBin: true
+
+  jsonfile@1.1.1:
+    resolution: {integrity: sha512-yrmo536TrJWDHNYlkCjtkPSqNnAkt6u1k89O5Xxr53zc4DkdikTHE+Fx6VF7syJd18xsdo24U4csedAkhLgxVQ==}
+
+  lodash@0.9.2:
+    resolution: {integrity: sha512-LVbt/rjK62gSbhehDVKL0vlaime4Y1IBixL+bKeNfoY4L2zab/jGrxU6Ka05tMA/zBxkTk5t3ivtphdyYupczw==}
+    engines: {'0': node, '1': rhino}
+
+  lodash@1.0.2:
+    resolution: {integrity: sha512-0VSEDVec/Me2eATuoiQd8IjyBMMX0fahob8YJ96V1go2RjvCk1m1GxmtfXn8RNSaLaTtop7fsuhhu9oLk3hUgA==}
+    engines: {'0': node, '1': rhino}
+
+  lodash@2.4.2:
+    resolution: {integrity: sha512-Kak1hi6/hYHGVPmdyiZijoQyz5x2iGVzs6w9GYB/HiXEtylY7tIoYEROMjvM1d9nXJqPOrG2MNPMn01bJ+S0Rw==}
+    engines: {'0': node, '1': rhino}
+
+  lru-cache@2.7.3:
+    resolution: {integrity: sha512-WpibWJ60c3AgAz8a2iYErDrcT2C7OmKnsWhIcHOjkUHFjkXncJhtLxNSqUmxRxRunpb5I8Vprd7aNSd2NtksJQ==}
+
+  minimatch@0.2.14:
+    resolution: {integrity: sha512-zZ+Jy8lVWlvqqeM8iZB7w7KmQkoJn8djM585z88rywrEbzoqawVa9FR5p2hwD+y74nfuKOjmNvi9gtWJNLqHvA==}
+    deprecated: Please update to minimatch 3.0.2 or higher to avoid a RegExp DoS issue
+
+  minimatch@0.3.0:
+    resolution: {integrity: sha512-WFX1jI1AaxNTZVOHLBVazwTWKaQjoykSzCBNXB72vDTCzopQGtyP91tKdFK5cv1+qMwPyiTu1HqUriqplI8pcA==}
+    deprecated: Please update to minimatch 3.0.2 or higher to avoid a RegExp DoS issue
+
+  minimatch@3.1.5:
+    resolution: {integrity: sha512-VgjWUsnnT6n+NUk6eZq77zeFdpW2LWDzP6zFGrCbHXiYNul5Dzqk2HHQ5uFH2DNW5Xbp8+jVzaeNt94ssEEl4w==}
+
+  minimist@1.2.8:
+    resolution: {integrity: sha512-2yyAR8qBkN3YuheJanUpWC5U3bb5osDywNB8RzDVlDwDHbocAJveqqj1u8+SVD7jkWT4yvsHCpWqqWqAxb0zCA==}
+
+  mkdirp@0.3.0:
+    resolution: {integrity: sha512-OHsdUcVAQ6pOtg5JYWpCBo9W/GySVuwvP9hueRMW7UqshC0tbfzLv8wjySTPm3tfUZ/21CE9E1pJagOA91Pxew==}
+    deprecated: Legacy versions of mkdirp are no longer supported. Please update to mkdirp 1.x. (Note that the API surface has changed to use Promises in 1.x.)
+
+  mkdirp@0.3.5:
+    resolution: {integrity: sha512-8OCq0De/h9ZxseqzCH8Kw/Filf5pF/vMI6+BH7Lu0jXz2pqYCjTAQRolSxRIi+Ax+oCCjlxoJMP0YQ4XlrQNHg==}
+    deprecated: Legacy versions of mkdirp are no longer supported. Please update to mkdirp 1.x. (Note that the API surface has changed to use Promises in 1.x.)
+
+  mkdirp@0.5.6:
+    resolution: {integrity: sha512-FP+p8RB8OWpF3YZBCrP5gtADmtXApB5AMLn+vdyA+PyxCjrCs00mjyUozssO33cwDeT3wNGdLxJ5M//YqtHAJw==}
+    hasBin: true
+
+  mocha@1.20.1:
+    resolution: {integrity: sha512-25Nq3BuIYCy80uEix+hBlZcr/gnLzpcYqfsaPAxZm2qbMFmed8I3nP8N05KagK4BTkGYUvsRJ47istvRqFO8fw==}
+    engines: {node: '>= 0.4.x'}
+    deprecated: Mocha v1.x is no longer supported.
+    hasBin: true
+
+  ms@2.1.3:
+    resolution: {integrity: sha512-6FlzubTLZG3J2a/NVCAleEhjzq5oxgHyaCU9yYXvcLsvoVaHJq/s5xXI6/XXP6tz7R9xAOtHnSO/tXtF3WRTlA==}
+
+  ncp@0.5.1:
+    resolution: {integrity: sha512-l+pJxuLlzwp11Dy72MJgCPNwIbXdv6imaACLiEMb2TIDyr54qz+nAZeD5qDlJefveaJ+R9Ug6KuozCxRpQXO0Q==}
+    hasBin: true
+
+  nopt@1.0.10:
+    resolution: {integrity: sha512-NWmpvLSqUrgrAC9HCuxEvb+PSloHpqVu+FqcO4eeF2h5qYRhA7ev6KvelyQAKtegUbC6RypJnlEOhd8vloNKYg==}
+    hasBin: true
+
+  nopt@2.0.0:
+    resolution: {integrity: sha512-uVTsuT8Hm3aN3VttY+BPKw4KU9lVpI0F22UAr/I1r6+kugMr3oyhMALkycikLcdfvGRsgzCYN48DYLBFcJEUVg==}
+    hasBin: true
+
+  noptify@0.0.3:
+    resolution: {integrity: sha512-EZT35r9AuK+hig+iYv4144kwfDEDhlj3zncVHw9b9d86TUYk/67BtBApkfPD1kslAT/8TTD262xdsVbV+iCSTw==}
+
+  once@1.4.0:
+    resolution: {integrity: sha512-lNaJgI+2Q5URQBkccEKHTQOPaXdUxnZZElQTZY0MFUAuaEqe1E+Nyvgdz/aIyNi6Z9MzO5dv1H8n58/GELp3+w==}
+
+  path-is-absolute@1.0.1:
+    resolution: {integrity: sha512-AVbw3UJ2e9bq64vSaS9Am0fje1Pa8pbGqTTsmXfaIiMpnr5DlDhfJOuLj9Sf95ZPVDAUerDfEk88MPmPe7UCQg==}
+    engines: {node: '>=0.10.0'}
+
+  qs@0.5.6:
+    resolution: {integrity: sha512-KbOrQrP5Ye+0gmq+hwxoJwAFRwExACWqwxj1IDFFgqOw9Poxy3wwSbafd9ZqP6T6ykMfnxM573kt/a4i9ybatQ==}
+
+  rimraf@2.2.8:
+    resolution: {integrity: sha512-R5KMKHnPAQaZMqLOsyuyUmcIjSeDm+73eoqQpaXA7AZ22BL+6C+1mcUscgOsNd8WVlJuvlgAPsegcx7pjlV0Dg==}
+    deprecated: Rimraf versions prior to v4 are no longer supported
+    hasBin: true
+
+  rimraf@2.7.1:
+    resolution: {integrity: sha512-uWjbaKIK3T1OSVptzX7Nl6PvQ3qAGtKEtVRjRuazjfL3Bx5eI409VZSqgND+4UNnmzLVdPj9FqFJNPqBZFve4w==}
+    deprecated: Rimraf versions prior to v4 are no longer supported
+    hasBin: true
+
+  sigmund@1.0.1:
+    resolution: {integrity: sha512-fCvEXfh6NWpm+YSuY2bpXb/VIihqWA6hLsgboC+0nl71Q7N7o2eaCW8mJa/NLvQhs6jpd3VZV4UiUQlV6+lc8g==}
+
+  strip-ansi@0.1.1:
+    resolution: {integrity: sha512-behete+3uqxecWlDAm5lmskaSaISA+ThQ4oNNBDTBJt0x2ppR6IPqfZNuj6BLaLJ/Sji4TPZlcRyOis8wXQTLg==}
+    engines: {node: '>=0.8.0'}
+    hasBin: true
+
+  tiny-lr-fork@0.0.5:
+    resolution: {integrity: sha512-vhcvny/8f46rrViKV0BOUjVl4c/rDTztnT1+kT7iyD/Igqb/uyiRsKLxMc2Z8CNvTE1Px1tuNrPM+BOUL+3vlQ==}
+    hasBin: true
+
+  type-detect@0.1.1:
+    resolution: {integrity: sha512-5rqszGVwYgBoDkIm2oUtvkfZMQ0vk29iDMU0W2qCa3rG0vPDNczCMT4hV/bLBgLg8k8ri6+u3Zbt+S/14eMzlA==}
+
+  underscore.string@2.2.1:
+    resolution: {integrity: sha512-3FVmhXqelrj6gfgp3Bn6tOavJvW0dNH2T+heTD38JRxIrAbiuzbqjknszoOYj3DyFB1nWiLj208Qt2no/L4cIA==}
+
+  underscore.string@2.3.3:
+    resolution: {integrity: sha512-hbD5MibthuDAu4yA5wxes5bzFgqd3PpBJuClbRxaNddxfdsz+qf+1kHwrGQFrmchmDHb9iNU+6EHDn8uj0xDJg==}
+
+  underscore.string@2.4.0:
+    resolution: {integrity: sha512-yxkabuCaIBnzfIvX3kBxQqCs0ar/bfJwDnFEHJUm/ZrRVhT3IItdRF5cZjARLzEnyQYtIUhsZ2LG2j3HidFOFQ==}
+
+  underscore@1.7.0:
+    resolution: {integrity: sha512-cp0oQQyZhUM1kpJDLdGO1jPZHgS/MpzoWYfe9+CM2h/QGDZlqwT2T3YGukuBdaNJ/CAPoeyAZRRHz8JFo176vA==}
+
+  which@1.0.9:
+    resolution: {integrity: sha512-E87fdQ/eRJr9W1X4wTPejNy9zTW3FI2vpCZSJ/HAY+TkjKVC0TUm1jk6vn2Z7qay0DQy0+RBGdXxj+RmmiGZKQ==}
+    hasBin: true
+
+  wrappy@1.0.2:
+    resolution: {integrity: sha512-l4Sp/DRseor9wL6EvV2+TuQn63dMkPjZ/sp9XkghTEbV9KlPS1xUsZ3u7/IQO4wxtcFB4bgpQPRcR3QCvezPcQ==}
+
+snapshots:
+
+  abbrev@1.1.1: {}
+
+  ansi-styles@1.0.0: {}
+
+  argparse@0.1.16:
+    dependencies:
+      underscore: 1.7.0
+      underscore.string: 2.4.0
+
+  assertion-error@1.0.0: {}
+
+  async@0.1.22: {}
+
+  async@0.2.10: {}
+
+  balanced-match@1.0.2: {}
+
+  brace-expansion@1.1.21:
+    dependencies:
+      balanced-match: 1.0.2
+      concat-map: 0.0.1
+
+  chai@1.9.2:
+    dependencies:
+      assertion-error: 1.0.0
+      deep-eql: 0.1.3
+
+  chalk@0.4.0:
+    dependencies:
+      ansi-styles: 1.0.0
+      has-color: 0.1.7
+      strip-ansi: 0.1.1
+
+  coffee-script@1.3.3: {}
+
+  coffee-script@1.7.1:
+    dependencies:
+      mkdirp: 0.3.5
+
+  colors@0.6.2: {}
+
+  commander@0.6.1: {}
+
+  commander@2.0.0: {}
+
+  concat-map@0.0.1: {}
+
+  dateformat@1.0.2-1.2.3: {}
+
+  debug@0.7.4: {}
+
+  debug@4.4.3:
+    dependencies:
+      ms: 2.1.3
+
+  deep-eql@0.1.3:
+    dependencies:
+      type-detect: 0.1.1
+
+  diff@1.0.7: {}
+
+  esprima@1.0.4: {}
+
+  eventemitter2@0.4.14: {}
+
+  exit@0.1.2: {}
+
+  faye-websocket@0.4.4: {}
+
+  findup-sync@0.1.3:
+    dependencies:
+      glob: 3.2.11
+      lodash: 2.4.2
+
+  fs-extra@0.9.1:
+    dependencies:
+      jsonfile: 1.1.1
+      mkdirp: 0.5.6
+      ncp: 0.5.1
+      rimraf: 2.7.1
+
+  fs.realpath@1.0.0: {}
+
+  gaze@0.5.2:
+    dependencies:
+      globule: 0.1.0
+
+  getobject@0.1.0: {}
+
+  glob@3.1.21:
+    dependencies:
+      graceful-fs: 1.2.3
+      inherits: 1.0.2
+      minimatch: 0.2.14
+
+  glob@3.2.11:
+    dependencies:
+      inherits: 2.0.4
+      minimatch: 0.3.0
+
+  glob@3.2.3:
+    dependencies:
+      graceful-fs: 2.0.3
+      inherits: 2.0.4
+      minimatch: 0.2.14
+
+  glob@7.2.3:
+    dependencies:
+      fs.realpath: 1.0.0
+      inflight: 1.0.6
+      inherits: 2.0.4
+      minimatch: 3.1.5
+      once: 1.4.0
+      path-is-absolute: 1.0.1
+
+  globule@0.1.0:
+    dependencies:
+      glob: 3.1.21
+      lodash: 1.0.2
+      minimatch: 0.2.14
+
+  graceful-fs@1.2.3: {}
+
+  graceful-fs@2.0.3: {}
+
+  growl@1.7.0: {}
+
+  grunt-contrib-coffee@0.10.1(grunt@0.4.5):
+    dependencies:
+      chalk: 0.4.0
+      coffee-script: 1.7.1
+      grunt: 0.4.5
+      lodash: 2.4.2
+
+  grunt-contrib-watch@0.6.1(grunt@0.4.5):
+    dependencies:
+      async: 0.2.10
+      gaze: 0.5.2
+      grunt: 0.4.5
+      lodash: 2.4.2
+      tiny-lr-fork: 0.0.5
+    transitivePeerDependencies:
+      - supports-color
+
+  grunt-legacy-log-utils@0.1.1:
+    dependencies:
+      colors: 0.6.2
+      lodash: 2.4.2
+      underscore.string: 2.3.3
+
+  grunt-legacy-log@0.1.3:
+    dependencies:
+      colors: 0.6.2
+      grunt-legacy-log-utils: 0.1.1
+      hooker: 0.2.3
+      lodash: 2.4.2
+      underscore.string: 2.3.3
+
+  grunt-legacy-util@0.2.0:
+    dependencies:
+      async: 0.1.22
+      exit: 0.1.2
+      getobject: 0.1.0
+      hooker: 0.2.3
+      lodash: 0.9.2
+      underscore.string: 2.2.1
+      which: 1.0.9
+
+  grunt-mocha-test@0.11.0:
+    dependencies:
+      fs-extra: 0.9.1
+      hooker: 0.2.3
+      mocha: 1.20.1
+    transitivePeerDependencies:
+      - supports-color
+
+  grunt@0.4.5:
+    dependencies:
+      async: 0.1.22
+      coffee-script: 1.3.3
+      colors: 0.6.2
+      dateformat: 1.0.2-1.2.3
+      eventemitter2: 0.4.14
+      exit: 0.1.2
+      findup-sync: 0.1.3
+      getobject: 0.1.0
+      glob: 3.1.21
+      grunt-legacy-log: 0.1.3
+      grunt-legacy-util: 0.2.0
+      hooker: 0.2.3
+      iconv-lite: 0.2.11
+      js-yaml: 2.0.5
+      lodash: 0.9.2
+      minimatch: 0.2.14
+      nopt: 1.0.10
+      rimraf: 2.2.8
+      underscore.string: 2.2.1
+      which: 1.0.9
+
+  has-color@0.1.7: {}
+
+  hooker@0.2.3: {}
+
+  iconv-lite@0.2.11: {}
+
+  inflight@1.0.6:
+    dependencies:
+      once: 1.4.0
+      wrappy: 1.0.2
+
+  inherits@1.0.2: {}
+
+  inherits@2.0.4: {}
+
+  jade@0.26.3:
+    dependencies:
+      commander: 0.6.1
+      mkdirp: 0.3.0
+
+  js-yaml@2.0.5:
+    dependencies:
+      argparse: 0.1.16
+      esprima: 1.0.4
+
+  jsonfile@1.1.1: {}
+
+  lodash@0.9.2: {}
+
+  lodash@1.0.2: {}
+
+  lodash@2.4.2: {}
+
+  lru-cache@2.7.3: {}
+
+  minimatch@0.2.14:
+    dependencies:
+      lru-cache: 2.7.3
+      sigmund: 1.0.1
+
+  minimatch@0.3.0:
+    dependencies:
+      lru-cache: 2.7.3
+      sigmund: 1.0.1
+
+  minimatch@3.1.5:
+    dependencies:
+      brace-expansion: 1.1.21
+
+  minimist@1.2.8: {}
+
+  mkdirp@0.3.0: {}
+
+  mkdirp@0.3.5: {}
+
+  mkdirp@0.5.6:
+    dependencies:
+      minimist: 1.2.8
+
+  mocha@1.20.1:
+    dependencies:
+      commander: 2.0.0
+      debug: 4.4.3
+      diff: 1.0.7
+      glob: 3.2.3
+      growl: 1.7.0
+      jade: 0.26.3
+      mkdirp: 0.3.5
+    transitivePeerDependencies:
+      - supports-color
+
+  ms@2.1.3: {}
+
+  ncp@0.5.1: {}
+
+  nopt@1.0.10:
+    dependencies:
+      abbrev: 1.1.1
+
+  nopt@2.0.0:
+    dependencies:
+      abbrev: 1.1.1
+
+  noptify@0.0.3:
+    dependencies:
+      nopt: 2.0.0
+
+  once@1.4.0:
+    dependencies:
+      wrappy: 1.0.2
+
+  path-is-absolute@1.0.1: {}
+
+  qs@0.5.6: {}
+
+  rimraf@2.2.8: {}
+
+  rimraf@2.7.1:
+    dependencies:
+      glob: 7.2.3
+
+  sigmund@1.0.1: {}
+
+  strip-ansi@0.1.1: {}
+
+  tiny-lr-fork@0.0.5:
+    dependencies:
+      debug: 0.7.4
+      faye-websocket: 0.4.4
+      noptify: 0.0.3
+      qs: 0.5.6
+    transitivePeerDependencies:
+      - supports-color
+
+  type-detect@0.1.1: {}
+
+  underscore.string@2.2.1: {}
+
+  underscore.string@2.3.3: {}
+
+  underscore.string@2.4.0: {}
+
+  underscore@1.7.0: {}
+
+  which@1.0.9: {}
+
+  wrappy@1.0.2: {}

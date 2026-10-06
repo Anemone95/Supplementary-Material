@@ -1,0 +1,13 @@
+Bugs :
+- use hooks replacements are replacing anything : make sure it replaces only class calls
+
+Improvements :
+- new Element('window') & new Element('document') -> update methods to fit these
+- improve error tracing
+- method preprocess & check args
+- add check args with leading comments :
+/**
+ * string bla
+ * integer bli
+ */
+method(bla, bli)

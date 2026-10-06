@@ -1,0 +1,22 @@
+$ corepack pnpm@9.15.9 install --prod --no-frozen-lockfile --reporter=append-only --config.node-linker=hoisted --ignore-workspace --ignore-scripts
+Progress: resolved 1, reused 0, downloaded 0, added 0
+ WARN  deprecated eslint@5.16.0: This version is no longer supported. Please see https://eslint.org/version-support for other options.
+ WARN  deprecated request@2.88.2: request has been deprecated, see https://github.com/request/request/issues/3142
+ WARN  deprecated rimraf@2.7.1: Rimraf versions prior to v4 are no longer supported
+ WARN  deprecated istanbul@0.4.5: This module is no longer maintained, try this instead:
+  npm i nyc
+Visit https://istanbul.js.org/integrations for other alternatives.
+Progress: resolved 15, reused 0, downloaded 0, added 0
+Progress: resolved 28, reused 0, downloaded 0, added 0
+Progress: resolved 164, reused 0, downloaded 0, added 0
+Progress: resolved 299, reused 0, downloaded 0, added 0
+ WARN  10 deprecated subdependencies found: fstream@0.1.31, glob@5.0.15, glob@7.2.3, har-validator@5.1.5, ignore@2.2.19, inflight@1.0.6, natives@1.1.6, rimraf@2.6.3, uuid@3.4.0, uuid@7.0.3
+
+devDependencies: skipped
+
+Packages: +40
+++++++++++++++++++++++++++++++++++++++++
+Progress: resolved 338, reused 28, downloaded 0, added 28
+Progress: resolved 338, reused 28, downloaded 11, added 39
+Progress: resolved 338, reused 28, downloaded 12, added 40, done
+Done in 7.2s using pnpm v9.15.9

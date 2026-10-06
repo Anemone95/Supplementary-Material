@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Files within {{{structure.directory}}}</title>
+    <meta name="description" content="">
+    <link rel="stylesheet" href="{{{structure.assetDir}}}/css/style.css">
+    <link rel="stylesheet" href="{{{structure.assetDir}}}/css/component.css">
+    <link rel="stylesheet" href="{{{structure.assetDir}}}/css/loader.css">
+    <link rel="icon" type="image/svg+xml" href="{{{structure.assetDir}}}/images/logo.svg">
+  </head>
+
+  <body>
+    <header>
+      <div class="wrapper">
+        <nav>
+          <ol class="breadcrumb custom-separator">
+            {{#each breadcrumb}}
+              <li class="{{#if @last}}current{{/if}}">
+              {{#if @last}}
+                <span>{{{name}}}</span>
+              {{else}}
+                <a class="background-effect" href="/{{#if url}}{{{url}}}/{{/if}}">{{{name}}}</a>
+              {{/if}}
+              </li>
+            {{/each}}
+          </ol>
+        </nav>
+        <div class="html-pages-options">
+          <button type="button" class="html-pages-option html-pages-option--selected background-effect "
+            data-layout="grid" title="Grid View">
+            <img alt="Grid View" src="{{{structure.assetDir}}}/images/structure/icon-grid.svg">
+          </button>
+          <button type="button" class="html-pages-option html-pages-option--selected background-effect"
+            data-layout="list" title="List View">
+            <img alt="List View" src="{{{structure.assetDir}}}/images/structure/icon-list.svg">
+          </button>
+        </div>
+      </div>
+    </header>
+    <div class="wrapper">
+      <div style="color: #64d6e2;position: fixed;top: 50%;left: 50%;transform: translate(-50%, -60%);z-index:10;" class="la-ball-clip-rotate-multiple la-3x js-loader">
+        <div></div>
+        <div></div>
+      </div>
+      <div id="html-pages" class="html-pages-switcher html-pages-view--list">
+      </div>
+    </div><!-- /container -->
+
+    <div class="footer">
+      <a href="{{{structure.link}}}" target="_blank"><strong>{{{structure.name}}}</strong></a> by <a href="{{{author.link}}}" target="_blank">{{{author.username}}}</a>
+    </div>
+
+    <script type="text/javascript">
+      Window._sharedData = {{{json}}};
+      Window.assetDir = '{{{structure.assetDir}}}';
+    </script>
+
+    <script type="text/javascript" src="{{{structure.assetDir}}}/vendor/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="{{{structure.assetDir}}}/vendor/lodash/dist/lodash.min.js"></script>
+    <script type="text/javascript" src="{{{structure.assetDir}}}/vendor/jquery.cookie/jquery.cookie.js"></script>
+    <script type="text/javascript" src="{{{structure.assetDir}}}/js/code.js"></script>
+  </body>
+</html>

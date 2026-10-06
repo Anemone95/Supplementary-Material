@@ -1,0 +1,44 @@
+{
+  "name": "ipip-coffee",
+  "version": "1.0.9",
+  "main": "lib/ipip.js",
+  "description": "Query geolocation information from IP",
+  "homepage": "http://tool.17mon.cn",
+  "bugs": "https://github.com/ym/node-ipip/issues",
+  "author": {
+    "name": "ChiChou",
+    "email": "chichou@ujs.edu.cn",
+    "url": "http://chichou.0ginr.com/"
+  },
+  "contributors": [{
+    "name": "Aveline Swan",
+    "email": "i@xswan.net",
+    "url": "https://swan.im/"
+  }],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/ym/node-ipip.git"
+  },
+  "license": "MIT",
+  "files": [
+    "lib"
+  ],
+  "scripts": {
+    "preinstall": "wget http://s.qdcdn.com/17mon/17monipdb.zip&&unzip -p 17monipdb.zip 17monipdb.dat>17monipdb.dat",
+    "test": "make test-all"
+  },
+  "keywords": [
+    "ip",
+    "isp",
+    "geolocation",
+    "lookup"
+  ],
+  "devDependencies": {
+    "chai": "^1.9.2",
+    "coffee-script": "^1.9.3",
+    "coveralls": "^2.11.2",
+    "istanbul": "^0.3.2",
+    "mocha": "^1.21.4",
+    "rewire": "^2.1.0"
+  }
+}

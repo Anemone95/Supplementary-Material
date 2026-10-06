@@ -1,0 +1,22 @@
+$ corepack pnpm@9.15.9 install --prod --no-frozen-lockfile --reporter=append-only --config.node-linker=hoisted --ignore-workspace --ignore-scripts
+Progress: resolved 1, reused 0, downloaded 0, added 0
+ WARN  deprecated eslint@6.1.0: This version is no longer supported. Please see https://eslint.org/version-support for other options.
+ WARN  deprecated sinon@7.3.2: 16.1.1
+ WARN  deprecated supertest@4.0.2: Please upgrade to supertest v7.1.3+, see release notes at https://github.com/forwardemail/supertest/releases/tag/v7.1.3 - maintenance is supported by Forward Email @ https://forwardemail.net
+ WARN  deprecated pg-promise@9.0.0: This version of pg-promise is obsolete. You should update to a newer version.
+ WARN  deprecated dependency-check@4.0.1: dependency-check has been deprecated in favor of the knip module
+Progress: resolved 34, reused 0, downloaded 0, added 0
+Progress: resolved 157, reused 0, downloaded 0, added 0
+Progress: resolved 234, reused 0, downloaded 0, added 0
+Progress: resolved 371, reused 0, downloaded 0, added 0
+Progress: resolved 489, reused 0, downloaded 0, added 0
+Progress: resolved 616, reused 0, downloaded 0, added 0
+ WARN  18 deprecated subdependencies found: @sinonjs/text-encoding@0.7.3, @types/minimatch@6.0.0, debug@3.2.6, debuglog@1.0.1, formidable@1.2.6, glob@7.1.3, glob@7.2.3, har-validator@5.1.5, inflight@1.0.6, mkdirp@0.5.1, read-installed@4.0.3, read-package-json@2.1.2, readdir-scoped-modules@1.1.0, request@2.88.2, rimraf@2.6.3, rimraf@2.7.1, superagent@3.8.3, uuid@3.4.0
+
+devDependencies: skipped
+
+Packages: +15
++++++++++++++++
+Progress: resolved 630, reused 6, downloaded 7, added 13
+Progress: resolved 630, reused 6, downloaded 9, added 15, done
+Done in 7.5s using pnpm v9.15.9

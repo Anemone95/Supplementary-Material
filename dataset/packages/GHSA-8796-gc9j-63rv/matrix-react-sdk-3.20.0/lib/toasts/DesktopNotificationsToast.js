@@ -1,0 +1,68 @@
+"use strict";
+
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.hideToast = exports.showToast = void 0;
+
+var _languageHandler = require("../languageHandler");
+
+var _Notifier = _interopRequireDefault(require("../Notifier"));
+
+var _GenericToast = _interopRequireDefault(require("../components/views/toasts/GenericToast"));
+
+var _ToastStore = _interopRequireDefault(require("../stores/ToastStore"));
+
+/*
+Copyright 2020 The Matrix.org Foundation C.I.C.
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+*/
+const onAccept = () => {
+  _Notifier.default.setEnabled(true);
+};
+
+const onReject = () => {
+  _Notifier.default.setPromptHidden(true);
+};
+
+const TOAST_KEY = "desktopnotifications";
+
+const showToast = (fromMessageSend
+/*: boolean*/
+) => {
+  _ToastStore.default.sharedInstance().addOrReplaceToast({
+    key: TOAST_KEY,
+    title: fromMessageSend ? (0, _languageHandler._t)("Don't miss a reply") : (0, _languageHandler._t)("Notifications"),
+    props: {
+      description: (0, _languageHandler._t)("Enable desktop notifications"),
+      acceptLabel: (0, _languageHandler._t)("Enable"),
+      onAccept,
+      rejectLabel: (0, _languageHandler._t)("Dismiss"),
+      onReject
+    },
+    component: _GenericToast.default,
+    priority: 30
+  });
+};
+
+exports.showToast = showToast;
+
+const hideToast = () => {
+  _ToastStore.default.sharedInstance().dismissToast(TOAST_KEY);
+};
+
+exports.hideToast = hideToast;
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uL3NyYy90b2FzdHMvRGVza3RvcE5vdGlmaWNhdGlvbnNUb2FzdC50cyJdLCJuYW1lcyI6WyJvbkFjY2VwdCIsIk5vdGlmaWVyIiwic2V0RW5hYmxlZCIsIm9uUmVqZWN0Iiwic2V0UHJvbXB0SGlkZGVuIiwiVE9BU1RfS0VZIiwic2hvd1RvYXN0IiwiZnJvbU1lc3NhZ2VTZW5kIiwiVG9hc3RTdG9yZSIsInNoYXJlZEluc3RhbmNlIiwiYWRkT3JSZXBsYWNlVG9hc3QiLCJrZXkiLCJ0aXRsZSIsInByb3BzIiwiZGVzY3JpcHRpb24iLCJhY2NlcHRMYWJlbCIsInJlamVjdExhYmVsIiwiY29tcG9uZW50IiwiR2VuZXJpY1RvYXN0IiwicHJpb3JpdHkiLCJoaWRlVG9hc3QiLCJkaXNtaXNzVG9hc3QiXSwibWFwcGluZ3MiOiI7Ozs7Ozs7OztBQWdCQTs7QUFDQTs7QUFDQTs7QUFDQTs7QUFuQkE7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBT0EsTUFBTUEsUUFBUSxHQUFHLE1BQU07QUFDbkJDLG9CQUFTQyxVQUFULENBQW9CLElBQXBCO0FBQ0gsQ0FGRDs7QUFJQSxNQUFNQyxRQUFRLEdBQUcsTUFBTTtBQUNuQkYsb0JBQVNHLGVBQVQsQ0FBeUIsSUFBekI7QUFDSCxDQUZEOztBQUlBLE1BQU1DLFNBQVMsR0FBRyxzQkFBbEI7O0FBRU8sTUFBTUMsU0FBUyxHQUFHLENBQUNDO0FBQUQ7QUFBQSxLQUE4QjtBQUNuREMsc0JBQVdDLGNBQVgsR0FBNEJDLGlCQUE1QixDQUE4QztBQUMxQ0MsSUFBQUEsR0FBRyxFQUFFTixTQURxQztBQUUxQ08sSUFBQUEsS0FBSyxFQUFFTCxlQUFlLEdBQUcseUJBQUcsb0JBQUgsQ0FBSCxHQUE4Qix5QkFBRyxlQUFILENBRlY7QUFHMUNNLElBQUFBLEtBQUssRUFBRTtBQUNIQyxNQUFBQSxXQUFXLEVBQUUseUJBQUcsOEJBQUgsQ0FEVjtBQUVIQyxNQUFBQSxXQUFXLEVBQUUseUJBQUcsUUFBSCxDQUZWO0FBR0hmLE1BQUFBLFFBSEc7QUFJSGdCLE1BQUFBLFdBQVcsRUFBRSx5QkFBRyxTQUFILENBSlY7QUFLSGIsTUFBQUE7QUFMRyxLQUhtQztBQVUxQ2MsSUFBQUEsU0FBUyxFQUFFQyxxQkFWK0I7QUFXMUNDLElBQUFBLFFBQVEsRUFBRTtBQVhnQyxHQUE5QztBQWFILENBZE07Ozs7QUFnQkEsTUFBTUMsU0FBUyxHQUFHLE1BQU07QUFDM0JaLHNCQUFXQyxjQUFYLEdBQTRCWSxZQUE1QixDQUF5Q2hCLFNBQXpDO0FBQ0gsQ0FGTSIsInNvdXJjZXNDb250ZW50IjpbIi8qXG5Db3B5cmlnaHQgMjAyMCBUaGUgTWF0cml4Lm9yZyBGb3VuZGF0aW9uIEMuSS5DLlxuXG5MaWNlbnNlZCB1bmRlciB0aGUgQXBhY2hlIExpY2Vuc2UsIFZlcnNpb24gMi4wICh0aGUgXCJMaWNlbnNlXCIpO1xueW91IG1heSBub3QgdXNlIHRoaXMgZmlsZSBleGNlcHQgaW4gY29tcGxpYW5jZSB3aXRoIHRoZSBMaWNlbnNlLlxuWW91IG1heSBvYnRhaW4gYSBjb3B5IG9mIHRoZSBMaWNlbnNlIGF0XG5cbmh0dHA6Ly93d3cuYXBhY2hlLm9yZy9saWNlbnNlcy9MSUNFTlNFLTIuMFxuXG5Vbmxlc3MgcmVxdWlyZWQgYnkgYXBwbGljYWJsZSBsYXcgb3IgYWdyZWVkIHRvIGluIHdyaXRpbmcsIHNvZnR3YXJlXG5kaXN0cmlidXRlZCB1bmRlciB0aGUgTGljZW5zZSBpcyBkaXN0cmlidXRlZCBvbiBhbiBcIkFTIElTXCIgQkFTSVMsXG5XSVRIT1VUIFdBUlJBTlRJRVMgT1IgQ09ORElUSU9OUyBPRiBBTlkgS0lORCwgZWl0aGVyIGV4cHJlc3Mgb3IgaW1wbGllZC5cblNlZSB0aGUgTGljZW5zZSBmb3IgdGhlIHNwZWNpZmljIGxhbmd1YWdlIGdvdmVybmluZyBwZXJtaXNzaW9ucyBhbmRcbmxpbWl0YXRpb25zIHVuZGVyIHRoZSBMaWNlbnNlLlxuKi9cblxuaW1wb3J0IHsgX3QgfSBmcm9tIFwiLi4vbGFuZ3VhZ2VIYW5kbGVyXCI7XG5pbXBvcnQgTm90aWZpZXIgZnJvbSBcIi4uL05vdGlmaWVyXCI7XG5pbXBvcnQgR2VuZXJpY1RvYXN0IGZyb20gXCIuLi9jb21wb25lbnRzL3ZpZXdzL3RvYXN0cy9HZW5lcmljVG9hc3RcIjtcbmltcG9ydCBUb2FzdFN0b3JlIGZyb20gXCIuLi9zdG9yZXMvVG9hc3RTdG9yZVwiO1xuXG5jb25zdCBvbkFjY2VwdCA9ICgpID0+IHtcbiAgICBOb3RpZmllci5zZXRFbmFibGVkKHRydWUpO1xufTtcblxuY29uc3Qgb25SZWplY3QgPSAoKSA9PiB7XG4gICAgTm90aWZpZXIuc2V0UHJvbXB0SGlkZGVuKHRydWUpO1xufTtcblxuY29uc3QgVE9BU1RfS0VZID0gXCJkZXNrdG9wbm90aWZpY2F0aW9uc1wiO1xuXG5leHBvcnQgY29uc3Qgc2hvd1RvYXN0ID0gKGZyb21NZXNzYWdlU2VuZDogYm9vbGVhbikgPT4ge1xuICAgIFRvYXN0U3RvcmUuc2hhcmVkSW5zdGFuY2UoKS5hZGRPclJlcGxhY2VUb2FzdCh7XG4gICAgICAgIGtleTogVE9BU1RfS0VZLFxuICAgICAgICB0aXRsZTogZnJvbU1lc3NhZ2VTZW5kID8gX3QoXCJEb24ndCBtaXNzIGEgcmVwbHlcIikgOiBfdChcIk5vdGlmaWNhdGlvbnNcIiksXG4gICAgICAgIHByb3BzOiB7XG4gICAgICAgICAgICBkZXNjcmlwdGlvbjogX3QoXCJFbmFibGUgZGVza3RvcCBub3RpZmljYXRpb25zXCIpLFxuICAgICAgICAgICAgYWNjZXB0TGFiZWw6IF90KFwiRW5hYmxlXCIpLFxuICAgICAgICAgICAgb25BY2NlcHQsXG4gICAgICAgICAgICByZWplY3RMYWJlbDogX3QoXCJEaXNtaXNzXCIpLFxuICAgICAgICAgICAgb25SZWplY3QsXG4gICAgICAgIH0sXG4gICAgICAgIGNvbXBvbmVudDogR2VuZXJpY1RvYXN0LFxuICAgICAgICBwcmlvcml0eTogMzAsXG4gICAgfSk7XG59O1xuXG5leHBvcnQgY29uc3QgaGlkZVRvYXN0ID0gKCkgPT4ge1xuICAgIFRvYXN0U3RvcmUuc2hhcmVkSW5zdGFuY2UoKS5kaXNtaXNzVG9hc3QoVE9BU1RfS0VZKTtcbn07XG4iXX0=

@@ -1,0 +1,56 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.useEventEmitter = void 0;
+
+var _react = require("react");
+
+/*
+Copyright 2019 The Matrix.org Foundation C.I.C.
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+*/
+// Hook to wrap event emitter on and removeListener in hook lifecycle
+const useEventEmitter = (emitter
+/*: EventEmitter*/
+, eventName
+/*: string | symbol*/
+, handler
+/*: Handler*/
+) => {
+  // Create a ref that stores handler
+  const savedHandler = (0, _react.useRef)(handler); // Update ref.current value if handler changes.
+
+  (0, _react.useEffect)(() => {
+    savedHandler.current = handler;
+  }, [handler]);
+  (0, _react.useEffect)(() => {
+    // allow disabling this hook by passing a falsy emitter
+    if (!emitter) return; // Create event listener that calls handler function stored in ref
+
+    const eventListener = (...args) => savedHandler.current(...args); // Add event listener
+
+
+    emitter.on(eventName, eventListener); // Remove event listener on cleanup
+
+    return () => {
+      emitter.removeListener(eventName, eventListener);
+    };
+  }, [eventName, emitter] // Re-run if eventName or emitter changes
+  );
+};
+
+exports.useEventEmitter = useEventEmitter;
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uL3NyYy9ob29rcy91c2VFdmVudEVtaXR0ZXIudHMiXSwibmFtZXMiOlsidXNlRXZlbnRFbWl0dGVyIiwiZW1pdHRlciIsImV2ZW50TmFtZSIsImhhbmRsZXIiLCJzYXZlZEhhbmRsZXIiLCJjdXJyZW50IiwiZXZlbnRMaXN0ZW5lciIsImFyZ3MiLCJvbiIsInJlbW92ZUxpc3RlbmVyIl0sIm1hcHBpbmdzIjoiOzs7Ozs7O0FBZ0JBOztBQWhCQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFPQTtBQUNPLE1BQU1BLGVBQWUsR0FBRyxDQUFDQztBQUFEO0FBQUEsRUFBd0JDO0FBQXhCO0FBQUEsRUFBb0RDO0FBQXBEO0FBQUEsS0FBeUU7QUFDcEc7QUFDQSxRQUFNQyxZQUFZLEdBQUcsbUJBQU9ELE9BQVAsQ0FBckIsQ0FGb0csQ0FJcEc7O0FBQ0Esd0JBQVUsTUFBTTtBQUNaQyxJQUFBQSxZQUFZLENBQUNDLE9BQWIsR0FBdUJGLE9BQXZCO0FBQ0gsR0FGRCxFQUVHLENBQUNBLE9BQUQsQ0FGSDtBQUlBLHdCQUNJLE1BQU07QUFDRjtBQUNBLFFBQUksQ0FBQ0YsT0FBTCxFQUFjLE9BRlosQ0FJRjs7QUFDQSxVQUFNSyxhQUFhLEdBQUcsQ0FBQyxHQUFHQyxJQUFKLEtBQWFILFlBQVksQ0FBQ0MsT0FBYixDQUFxQixHQUFHRSxJQUF4QixDQUFuQyxDQUxFLENBT0Y7OztBQUNBTixJQUFBQSxPQUFPLENBQUNPLEVBQVIsQ0FBV04sU0FBWCxFQUFzQkksYUFBdEIsRUFSRSxDQVVGOztBQUNBLFdBQU8sTUFBTTtBQUNUTCxNQUFBQSxPQUFPLENBQUNRLGNBQVIsQ0FBdUJQLFNBQXZCLEVBQWtDSSxhQUFsQztBQUNILEtBRkQ7QUFHSCxHQWZMLEVBZ0JJLENBQUNKLFNBQUQsRUFBWUQsT0FBWixDQWhCSixDQWdCMEI7QUFoQjFCO0FBa0JILENBM0JNIiwic291cmNlc0NvbnRlbnQiOlsiLypcbkNvcHlyaWdodCAyMDE5IFRoZSBNYXRyaXgub3JnIEZvdW5kYXRpb24gQy5JLkMuXG5cbkxpY2Vuc2VkIHVuZGVyIHRoZSBBcGFjaGUgTGljZW5zZSwgVmVyc2lvbiAyLjAgKHRoZSBcIkxpY2Vuc2VcIik7XG55b3UgbWF5IG5vdCB1c2UgdGhpcyBmaWxlIGV4Y2VwdCBpbiBjb21wbGlhbmNlIHdpdGggdGhlIExpY2Vuc2UuXG5Zb3UgbWF5IG9idGFpbiBhIGNvcHkgb2YgdGhlIExpY2Vuc2UgYXRcblxuICAgIGh0dHA6Ly93d3cuYXBhY2hlLm9yZy9saWNlbnNlcy9MSUNFTlNFLTIuMFxuXG5Vbmxlc3MgcmVxdWlyZWQgYnkgYXBwbGljYWJsZSBsYXcgb3IgYWdyZWVkIHRvIGluIHdyaXRpbmcsIHNvZnR3YXJlXG5kaXN0cmlidXRlZCB1bmRlciB0aGUgTGljZW5zZSBpcyBkaXN0cmlidXRlZCBvbiBhbiBcIkFTIElTXCIgQkFTSVMsXG5XSVRIT1VUIFdBUlJBTlRJRVMgT1IgQ09ORElUSU9OUyBPRiBBTlkgS0lORCwgZWl0aGVyIGV4cHJlc3Mgb3IgaW1wbGllZC5cblNlZSB0aGUgTGljZW5zZSBmb3IgdGhlIHNwZWNpZmljIGxhbmd1YWdlIGdvdmVybmluZyBwZXJtaXNzaW9ucyBhbmRcbmxpbWl0YXRpb25zIHVuZGVyIHRoZSBMaWNlbnNlLlxuKi9cblxuaW1wb3J0IHt1c2VSZWYsIHVzZUVmZmVjdH0gZnJvbSBcInJlYWN0XCI7XG5pbXBvcnQgdHlwZSB7RXZlbnRFbWl0dGVyfSBmcm9tIFwiZXZlbnRzXCI7XG5cbnR5cGUgSGFuZGxlciA9ICguLi5hcmdzOiBhbnlbXSkgPT4gdm9pZDtcblxuLy8gSG9vayB0byB3cmFwIGV2ZW50IGVtaXR0ZXIgb24gYW5kIHJlbW92ZUxpc3RlbmVyIGluIGhvb2sgbGlmZWN5Y2xlXG5leHBvcnQgY29uc3QgdXNlRXZlbnRFbWl0dGVyID0gKGVtaXR0ZXI6IEV2ZW50RW1pdHRlciwgZXZlbnROYW1lOiBzdHJpbmcgfCBzeW1ib2wsIGhhbmRsZXI6IEhhbmRsZXIpID0+IHtcbiAgICAvLyBDcmVhdGUgYSByZWYgdGhhdCBzdG9yZXMgaGFuZGxlclxuICAgIGNvbnN0IHNhdmVkSGFuZGxlciA9IHVzZVJlZihoYW5kbGVyKTtcblxuICAgIC8vIFVwZGF0ZSByZWYuY3VycmVudCB2YWx1ZSBpZiBoYW5kbGVyIGNoYW5nZXMuXG4gICAgdXNlRWZmZWN0KCgpID0+IHtcbiAgICAgICAgc2F2ZWRIYW5kbGVyLmN1cnJlbnQgPSBoYW5kbGVyO1xuICAgIH0sIFtoYW5kbGVyXSk7XG5cbiAgICB1c2VFZmZlY3QoXG4gICAgICAgICgpID0+IHtcbiAgICAgICAgICAgIC8vIGFsbG93IGRpc2FibGluZyB0aGlzIGhvb2sgYnkgcGFzc2luZyBhIGZhbHN5IGVtaXR0ZXJcbiAgICAgICAgICAgIGlmICghZW1pdHRlcikgcmV0dXJuO1xuXG4gICAgICAgICAgICAvLyBDcmVhdGUgZXZlbnQgbGlzdGVuZXIgdGhhdCBjYWxscyBoYW5kbGVyIGZ1bmN0aW9uIHN0b3JlZCBpbiByZWZcbiAgICAgICAgICAgIGNvbnN0IGV2ZW50TGlzdGVuZXIgPSAoLi4uYXJncykgPT4gc2F2ZWRIYW5kbGVyLmN1cnJlbnQoLi4uYXJncyk7XG5cbiAgICAgICAgICAgIC8vIEFkZCBldmVudCBsaXN0ZW5lclxuICAgICAgICAgICAgZW1pdHRlci5vbihldmVudE5hbWUsIGV2ZW50TGlzdGVuZXIpO1xuXG4gICAgICAgICAgICAvLyBSZW1vdmUgZXZlbnQgbGlzdGVuZXIgb24gY2xlYW51cFxuICAgICAgICAgICAgcmV0dXJuICgpID0+IHtcbiAgICAgICAgICAgICAgICBlbWl0dGVyLnJlbW92ZUxpc3RlbmVyKGV2ZW50TmFtZSwgZXZlbnRMaXN0ZW5lcik7XG4gICAgICAgICAgICB9O1xuICAgICAgICB9LFxuICAgICAgICBbZXZlbnROYW1lLCBlbWl0dGVyXSwgLy8gUmUtcnVuIGlmIGV2ZW50TmFtZSBvciBlbWl0dGVyIGNoYW5nZXNcbiAgICApO1xufTtcbiJdfQ==

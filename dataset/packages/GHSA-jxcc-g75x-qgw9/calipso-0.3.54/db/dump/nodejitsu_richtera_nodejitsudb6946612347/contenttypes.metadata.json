@@ -1,0 +1,1 @@
+{ "indexes" : [ { "v" : 1, "key" : { "_id" : 1 }, "ns" : "nodejitsu_richtera_nodejitsudb6946612347.contenttypes", "name" : "_id_" }, { "v" : 1, "key" : { "contentType" : 1 }, "unique" : true, "ns" : "nodejitsu_richtera_nodejitsudb6946612347.contenttypes", "name" : "contentType_1" } ] }

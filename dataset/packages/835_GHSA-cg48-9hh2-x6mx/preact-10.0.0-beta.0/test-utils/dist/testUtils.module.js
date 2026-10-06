@@ -1,0 +1,2 @@
+import{options as n}from"preact";function t(){return n.t=n.debounceRendering,n.debounceRendering=function(t){return n.o=t},function(){return n.o&&n.o()}}function r(r){n.effects=[];var e,o=n.requestAnimationFrame,i=t();if(n.requestAnimationFrame=function(n){return e=n},r(),i(),e)for(;n.effects.length>0;)e(),i();n.effects=void 0,n.requestAnimationFrame=o}function e(){n.o&&(n.o(),delete n.o),void 0!==n.t&&(n.debounceRendering=n.t,delete n.t)}export{t as setupRerender,r as act,e as teardown};
+//# sourceMappingURL=testUtils.module.js.map

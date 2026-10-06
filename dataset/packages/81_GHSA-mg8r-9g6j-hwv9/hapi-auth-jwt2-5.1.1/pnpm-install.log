@@ -1,0 +1,22 @@
+$ corepack pnpm@9.15.9 install --prod --no-frozen-lockfile --reporter=append-only --config.node-linker=hoisted --ignore-workspace --ignore-scripts
+Progress: resolved 1, reused 0, downloaded 0, added 0
+ WARN  deprecated istanbul@0.3.22: This module is no longer maintained, try this instead:
+  npm i nyc
+Visit https://istanbul.js.org/integrations for other alternatives.
+ WARN  deprecated boom@2.10.1: This version has been deprecated in accordance with the hapi support policy (hapi.im/support). Please upgrade to the latest version to get the best features, bug fixes, and security patches. If you are unable to upgrade at this time, paid support is available for older versions (hapi.im/commercial).
+ WARN  deprecated codeclimate-test-reporter@0.1.1: codeclimate-test-reporter has been deprecated in favor of our new unified test-reporter. Please visit https://docs.codeclimate.com/docs/configuring-test-coverage for details on setting up the new test-reporter.
+ WARN  deprecated hapi@10.5.0: This version contains severe security issues and defects and should not be used! Please upgrade to the latest version of @hapi/hapi or consider a commercial license (https://github.com/hapijs/hapi/issues/4114)
+Progress: resolved 84, reused 0, downloaded 0, added 0
+Progress: resolved 207, reused 0, downloaded 0, added 0
+Progress: resolved 280, reused 0, downloaded 0, added 0
+Progress: resolved 284, reused 0, downloaded 0, added 0
+Progress: resolved 285, reused 0, downloaded 0, added 0
+Progress: resolved 286, reused 0, downloaded 0, added 0
+ WARN  36 deprecated subdependencies found: accept@1.1.0, ammo@1.0.1, b64@2.0.1, boom@0.4.2, call@2.0.2, catbox-memory@1.1.2, catbox@6.0.0, content@1.0.2, cryptiles@0.2.2, cryptiles@2.0.5, glob@5.0.15, glob@7.2.3, hawk@1.0.0, heavy@3.0.1, hoek@0.9.1, hoek@2.16.3, inflight@1.0.6, iron@2.1.3, items@1.1.1, joi@6.10.1, kilt@1.1.1, mimos@2.0.2, minimatch@2.0.10, nigel@1.0.1, node-uuid@1.4.8, peekaboo@1.0.0, pez@1.0.0, request@2.34.0, shot@1.7.0, sntp@0.2.4, statehood@2.1.1, subtext@2.0.2, topo@1.1.0, trim@0.0.1, vise@1.0.0, wreck@6.3.0
+
+devDependencies: skipped
+
+Packages: +11
++++++++++++
+Progress: resolved 286, reused 9, downloaded 2, added 11, done
+Done in 7.6s using pnpm v9.15.9

@@ -1,0 +1,19 @@
+{
+	"author": "Kevin J Reece",
+	"name": "reecerver",
+	"version": "0.1.2",
+	"description": "Starts a simple web server",
+	"main": "server",
+	"repository": {
+		"type": "git",
+		"url": "http://github.com/kevinjreece/reecerver"
+	},
+	"keywords": [
+		"simple",
+		"server"
+	],
+	"dependencies": {},
+	"engines": {
+		"node": "*"
+	}
+}

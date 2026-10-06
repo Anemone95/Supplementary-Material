@@ -1,0 +1,25 @@
+%YAML1.2
+---
+# Syntax Highlighting for Elding files in Markdown
+name: Elding (Markdown)
+file_extensions:
+  - md
+scope: text.md
+
+contexts:
+  main:
+    - match: ""
+      push: Packages/Markdown/Markdown.sublime-syntax
+      with_prototype:
+        - match: "<#"
+          push: eld
+
+    - match: \#(<|>)
+      scope: keyword.control
+
+  eld:
+    - match: ""
+      set: Packages/JavaScript/JavaScript.sublime-syntax
+      with_prototype:
+        - match: "#>"
+          pop: true

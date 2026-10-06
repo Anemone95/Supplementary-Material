@@ -1,0 +1,16 @@
+$ corepack pnpm@9.15.9 install --prod --no-frozen-lockfile --reporter=append-only --config.node-linker=hoisted --ignore-workspace --ignore-scripts
+Progress: resolved 1, reused 0, downloaded 0, added 0
+ WARN  deprecated babel-preset-es2015@6.24.1: 🙌  Thanks for using Babel: we recommend using babel-preset-env now: please read https://babeljs.io/env to update!
+ WARN  deprecated rimraf@2.7.1: Rimraf versions prior to v4 are no longer supported
+Progress: resolved 79, reused 0, downloaded 0, added 0
+Progress: resolved 257, reused 0, downloaded 0, added 0
+Progress: resolved 365, reused 0, downloaded 0, added 0
+ WARN  6 deprecated subdependencies found: core-js@2.6.12, debug@4.1.1, glob@7.1.2, glob@7.2.3, inflight@1.0.6, mkdirp@0.5.1
+
+devDependencies: skipped
+
+Packages: +122
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Progress: resolved 367, reused 114, downloaded 1, added 121
+Progress: resolved 367, reused 114, downloaded 2, added 122, done
+Done in 4.7s using pnpm v9.15.9

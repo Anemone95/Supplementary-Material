@@ -1,0 +1,46 @@
+{
+  "name": "serve",
+  "version": "7.1.2",
+  "description": "Static file serving and directory listing",
+  "scripts": {
+    "test": "yarn lint",
+    "lint": "zeit-eslint --ext .jsx,.js .",
+    "lint-staged": "git diff --diff-filter=ACMRT --cached --name-only '*.js' '*.jsx' | xargs zeit-eslint"
+  },
+  "files": [
+    "bin"
+  ],
+  "repository": "zeit/serve",
+  "bin": {
+    "serve": "./bin/serve.js"
+  },
+  "keywords": [
+    "now",
+    "serve",
+    "micro",
+    "http-server"
+  ],
+  "author": "leo",
+  "license": "MIT",
+  "devDependencies": {
+    "@zeit/eslint-config-node": "0.2.13",
+    "@zeit/git-hooks": "0.1.4",
+    "eslint": "4.19.1"
+  },
+  "eslintConfig": {
+    "extends": [
+      "@zeit/eslint-config-node"
+    ]
+  },
+  "git": {
+    "pre-commit": "lint-staged"
+  },
+  "dependencies": {
+    "@zeit/schemas": "1.1.2",
+    "ajv": "6.5.0",
+    "arg": "2.0.0",
+    "chalk": "2.4.1",
+    "serve-handler": "2.3.13",
+    "update-check": "1.5.2"
+  }
+}

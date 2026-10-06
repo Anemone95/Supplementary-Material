@@ -1,0 +1,260 @@
+<meta name="rolesRequired" content="named" />
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.5.0/codemirror.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.5.0/codemirror.min.js" type="text/javascript"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.5.0/mode/xml/xml.min.js" type="text/javascript"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.5.0/mode/css/css.min.js" type="text/javascript"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.5.0/mode/javascript/javascript.min.js" type="text/javascript"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.5.0/mode/htmlmixed/htmlmixed.min.js" type="text/javascript"></script>
+
+<h1>Page Editor</h1>
+
+<page-editor></page-editor>
+
+<!-- Page Editor -->
+<template for="page-editor" post-url-template="/api/content/save/{{contentPath}}" content-url-template="/api/content/read/{{contentPath}}">
+    <div class="buttons">
+        <button class="btn btn-success view">
+            <icon>eye-open</icon>
+            <span>View</span>
+        </button>
+
+        <button class="btn btn-danger cancel">
+            <icon>remove</icon>
+            <span>Cancel</span>
+        </button>
+
+        <button class="btn btn-info editPreviewToggle preview">
+            <icon>eye-open</icon>
+            <span>Preview</span>
+        </button>
+
+        <button class="btn btn-info editPreviewToggle edit">
+            <icon>pencil</icon>
+            <span>Edit</span>
+        </button>
+
+        <button class="btn btn-warning save">
+            <icon>save</icon>
+            <span>Save</span>
+        </button>
+
+        <button class="btn btn-warning saving disabled">
+            <icon>save</icon>
+            <span>Saving</span>
+        </button>
+    </div>
+
+    <code-mirror data-source-url="{{contentUrl}}"></code-mirror>
+
+    <save-message></save-message>
+
+    <preview></preview>
+</template>
+
+<style for="page-editor">
+    page-editor > code-mirror {
+        display: block;
+        border: 1px solid #eee;
+        border-radius: 3px;
+    }
+
+    page-editor > preview {
+        display: block;
+        border: 1px solid #eee;
+        border-radius: 3px;
+        border-left: 0;
+        border-right: 0;
+    }
+
+    page-editor > div.buttons {
+        border: 1px solid #eee;
+        border-radius: 3px;
+        padding: 5px;
+        text-align: right;
+        margin-bottom: 3px;
+    }
+
+    page-editor > div.buttons > button {
+        width: 90px;
+    }
+
+    page-editor > save-message {
+        display: block;
+    }
+</style>
+
+<script type="text/javascript">
+    $(function() {
+        var PageEditorComponent = Component.configure('page-editor');
+
+        var contentPath = decodeURIComponent(getUrlParameter('page'));
+
+        PageEditorComponent.on('preRenderStep', function(instance) {
+            instance.contentPath = instance['content-path'] || contentPath;
+            instance.contentUrl = instance['content-url-template'].replace(/{{contentPath}}/, instance.contentPath);
+            instance.postUrl = instance['post-url-template'].replace(/{{contentPath}}/, instance.contentPath);
+        });
+
+        PageEditorComponent.on('renderComplete', function(instance) {
+            var codeMirror = $('code-mirror', instance.element);
+            var textarea = $('textarea', instance.element)[0];
+            var previewBox = $('preview', instance.element);
+            var saveMessageBox = $('save-message', instance.element).hide();
+
+            // Lookup the code mirror element
+            var codeMirrorInstanceId = codeMirror.attr('webcomponentid');
+            var codeMirrorInstance = Component.registeredComponents['code-mirror'].registeredInstances[codeMirrorInstanceId];
+
+            function getContent() {
+                // Update the text area value
+                textarea.value = codeMirrorInstance.codeMirror.doc.getValue();
+
+                return textarea.value;
+            }
+
+            $('button.cancel', instance.element).click(doBackToPage);
+            $('button.view', instance.element).click(doBackToPage);
+
+            function doBackToPage() {
+                // TODO: Check for unsaved changes and warn the user
+                window.location = '/content/' + instance.contentPath;
+            }
+
+            $('button.edit', instance.element).click(function() {
+                codeMirror.show();
+                previewBox.html('').hide();
+                showPreviewButton();
+            });
+
+            $('button.preview', instance.element).click(doPreview);
+
+            function doPreview() {
+                showEditButton();
+                codeMirror.hide();
+
+                // Update the preview
+                var content = getContent();
+                previewBox.html(content).show();
+
+                // Scan for components and templates within the preview
+                Component.registerTemplates(previewBox[0]);
+                Component.scanForComponents(previewBox[0]);
+            }
+
+            $('button.save', instance.element).click(function() {
+                var content = getContent();
+                var postUrl = instance.postUrl;
+                var postBody = {
+                    content: content
+                };
+
+                setTimeout(function() {
+                    $.post(postUrl, postBody).done(function(body) {
+                        console.log('Post succeeded:', body);
+                        saveComplete(null, body.message);
+                    }).fail(function(error) {
+                        console.log("Post failed", error);
+                        try {
+                            saveComplete(true, JSON.parse(error.responseText).message);
+                        } catch (exception) {
+                            saveComplete(true, error.responseText);
+                        }
+                    });
+                }, 500);
+
+                $('button.preview', instance.element).hide();
+                $('button.edit', instance.element).hide();
+                $('button.view', instance.element).hide();
+                $('button.cancel', instance.element).hide();
+                $('button.save', instance.element).hide();
+                $('button.saving', instance.element).show();
+            });
+
+            function saveComplete(error, message) {
+                var alertType = (error) ? 'danger' : 'success';
+                var iconType = (error) ? 'remove' : 'ok';
+                var content = ('<div class="alert alert-{{alertType}}"><span class="glyphicon glyphicon-{{iconType}}"></span> <span>' + message + '</span></div>')
+                    .replace(/{{alertType}}/, alertType)
+                    .replace(/{{iconType}}/, iconType);
+                saveMessageBox.html(content).show();
+                setTimeout(function() {
+                    doPreview();
+                    $('button.view', instance.element).show();
+                    $('button.save', instance.element).hide();
+                }, 0);
+            }
+
+            showPreviewButton();
+
+            function showPreviewButton() {
+                $('button.preview', instance.element).show();
+                $('button.edit', instance.element).hide();
+                $('button.view', instance.element).hide();
+                $('button.cancel', instance.element).show();
+                $('button.save', instance.element).show();
+                $('button.saving', instance.element).hide();
+            }
+
+            function showEditButton() {
+                $('button.edit', instance.element).show();
+                $('button.preview', instance.element).hide();
+                $('button.view', instance.element).hide();
+                $('button.cancel', instance.element).hide();
+                $('button.save', instance.element).show();
+                $('button.saving', instance.element).hide();
+            }
+        });
+
+        PageEditorComponent.apply(function(instance) {
+            instance.render();
+        });
+
+        function getUrlParameter(sParam) {
+            var sPageURL = window.location.search.substring(1);
+            var sURLVariables = sPageURL.split('&');
+            for (var i = 0; i < sURLVariables.length; i++) {
+                var sParameterName = sURLVariables[i].split('=');
+                if (sParameterName[0] == sParam) {
+                    return sParameterName[1];
+                }
+            }
+        }
+    });
+</script>
+
+<!-- Code Mirror -->
+<template for="code-mirror">
+    <!-- Content for {{path}} loaded from {{dataSourceUrl}} -->
+    <textarea>{{body}}</textarea>
+</template>
+
+<script type="text/javascript">
+    $(function() {
+        var CodeMirrorComponent = Component.configure('code-mirror');
+
+        CodeMirrorComponent.on('renderComplete', function(instance) {
+            var textarea = $('textarea', instance.element)[0];
+            var contents = instance.body;
+            var mode = instance.mode || "htmlmixed";
+
+            if (instance.body) {
+                instance.codeMirror = CodeMirror.fromTextArea(textarea, {
+                    lineNumbers: true,
+                    mode: mode,
+                    viewportMargin: Infinity
+                });
+            }
+        });
+    });
+</script>
+
+<style for="code-mirror">
+    code-mirror .CodeMirror {
+        height: auto;
+    }
+
+    code-mirror > textarea {
+        display: none;
+    }
+</style>

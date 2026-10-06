@@ -1,0 +1,120 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+/*
+Copyright 2020 The Matrix.org Foundation C.I.C.
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+*/
+
+/* eslint-disable-next-line @typescript-eslint/no-unused-vars */
+function examineLoginResponse(response
+/*: any*/
+, credentials
+/*: IMatrixClientCreds*/
+)
+/*: void*/
+{// E.g. add additional data to the persisted credentials
+}
+/* eslint-disable-next-line @typescript-eslint/no-unused-vars */
+
+
+function persistCredentials(credentials
+/*: IMatrixClientCreds*/
+)
+/*: void*/
+{// E.g. store any additional credential fields
+}
+/* eslint-disable-next-line @typescript-eslint/no-unused-vars */
+
+
+function createSecretStorageKey()
+/*: Uint8Array*/
+{
+  // E.g. generate or retrieve secret storage key somehow
+  return null;
+}
+/* eslint-disable-next-line @typescript-eslint/no-unused-vars */
+
+
+function getSecretStorageKey()
+/*: Uint8Array*/
+{
+  // E.g. retrieve secret storage key from some other place
+  return null;
+}
+/* eslint-disable-next-line @typescript-eslint/no-unused-vars */
+
+
+function getDehydrationKey(keyInfo
+/*: ISecretStorageKeyInfo*/
+)
+/*: Promise<Uint8Array>*/
+{
+  return Promise.resolve(null);
+}
+/* eslint-disable-next-line @typescript-eslint/no-unused-vars */
+
+
+function catchAccessSecretStorageError(e
+/*: Error*/
+)
+/*: void*/
+{// E.g. notify the user in some way
+}
+/* eslint-disable-next-line @typescript-eslint/no-unused-vars */
+
+
+function setupEncryptionNeeded(kind
+/*: SetupEncryptionKind*/
+)
+/*: boolean*/
+{
+  // E.g. trigger some kind of setup
+  return false;
+} // This interface summarises all available customisation points and also marks
+// them all as optional. This allows customisers to only define and export the
+// customisations they need while still maintaining type safety.
+
+/*:: export interface ISecurityCustomisations {
+    examineLoginResponse?: typeof examineLoginResponse;
+    persistCredentials?: typeof persistCredentials;
+    createSecretStorageKey?: typeof createSecretStorageKey,
+    getSecretStorageKey?: typeof getSecretStorageKey,
+    catchAccessSecretStorageError?: typeof catchAccessSecretStorageError,
+    setupEncryptionNeeded?: typeof setupEncryptionNeeded,
+    getDehydrationKey?: typeof getDehydrationKey,
+
+    /**
+     * When false, disables the post-login UI from showing. If there's
+     * an error during setup, that will be shown to the user.
+     *
+     * Note: when this is set to false then the app will assume the user's
+     * encryption is set up some other way which would circumvent the default
+     * UI, such as by presenting alternative UI.
+     *-/
+    SHOW_ENCRYPTION_SETUP_UI?: boolean, // default true
+}*/
+
+
+// A real customisation module will define and export one or more of the
+// customisation points that make up `ISecurityCustomisations`.
+var _default = {
+  SHOW_ENCRYPTION_SETUP_UI: true
+};
+exports.default = _default;
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uL3NyYy9jdXN0b21pc2F0aW9ucy9TZWN1cml0eS50cyJdLCJuYW1lcyI6WyJleGFtaW5lTG9naW5SZXNwb25zZSIsInJlc3BvbnNlIiwiY3JlZGVudGlhbHMiLCJwZXJzaXN0Q3JlZGVudGlhbHMiLCJjcmVhdGVTZWNyZXRTdG9yYWdlS2V5IiwiZ2V0U2VjcmV0U3RvcmFnZUtleSIsImdldERlaHlkcmF0aW9uS2V5Iiwia2V5SW5mbyIsIlByb21pc2UiLCJyZXNvbHZlIiwiY2F0Y2hBY2Nlc3NTZWNyZXRTdG9yYWdlRXJyb3IiLCJlIiwic2V0dXBFbmNyeXB0aW9uTmVlZGVkIiwia2luZCIsIlNIT1dfRU5DUllQVElPTl9TRVRVUF9VSSJdLCJtYXBwaW5ncyI6Ijs7Ozs7OztBQUFBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTs7QUFNQTtBQUNBLFNBQVNBLG9CQUFULENBQ0lDO0FBREo7QUFBQSxFQUVJQztBQUZKO0FBQUE7QUFBQTtBQUdRLENBQ0o7QUFDSDtBQUVEOzs7QUFDQSxTQUFTQyxrQkFBVCxDQUNJRDtBQURKO0FBQUE7QUFBQTtBQUVRLENBQ0o7QUFDSDtBQUVEOzs7QUFDQSxTQUFTRSxzQkFBVDtBQUFBO0FBQThDO0FBQzFDO0FBQ0EsU0FBTyxJQUFQO0FBQ0g7QUFFRDs7O0FBQ0EsU0FBU0MsbUJBQVQ7QUFBQTtBQUEyQztBQUN2QztBQUNBLFNBQU8sSUFBUDtBQUNIO0FBRUQ7OztBQUNBLFNBQVNDLGlCQUFULENBQ0lDO0FBREo7QUFBQTtBQUFBO0FBRXVCO0FBQ25CLFNBQU9DLE9BQU8sQ0FBQ0MsT0FBUixDQUFnQixJQUFoQixDQUFQO0FBQ0g7QUFFRDs7O0FBQ0EsU0FBU0MsNkJBQVQsQ0FBdUNDO0FBQXZDO0FBQUE7QUFBQTtBQUF1RCxDQUNuRDtBQUNIO0FBRUQ7OztBQUNBLFNBQVNDLHFCQUFULENBQStCQztBQUEvQjtBQUFBO0FBQUE7QUFBbUU7QUFDL0Q7QUFDQSxTQUFPLEtBQVA7QUFDSCxDLENBRUQ7QUFDQTtBQUNBOzs7QUFuRUE7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBOzs7QUF1RUE7QUFDQTtlQUNlO0FBQ1hDLEVBQUFBLHdCQUF3QixFQUFFO0FBRGYsQyIsInNvdXJjZXNDb250ZW50IjpbIi8qXG5Db3B5cmlnaHQgMjAyMCBUaGUgTWF0cml4Lm9yZyBGb3VuZGF0aW9uIEMuSS5DLlxuXG5MaWNlbnNlZCB1bmRlciB0aGUgQXBhY2hlIExpY2Vuc2UsIFZlcnNpb24gMi4wICh0aGUgXCJMaWNlbnNlXCIpO1xueW91IG1heSBub3QgdXNlIHRoaXMgZmlsZSBleGNlcHQgaW4gY29tcGxpYW5jZSB3aXRoIHRoZSBMaWNlbnNlLlxuWW91IG1heSBvYnRhaW4gYSBjb3B5IG9mIHRoZSBMaWNlbnNlIGF0XG5cbiAgICBodHRwOi8vd3d3LmFwYWNoZS5vcmcvbGljZW5zZXMvTElDRU5TRS0yLjBcblxuVW5sZXNzIHJlcXVpcmVkIGJ5IGFwcGxpY2FibGUgbGF3IG9yIGFncmVlZCB0byBpbiB3cml0aW5nLCBzb2Z0d2FyZVxuZGlzdHJpYnV0ZWQgdW5kZXIgdGhlIExpY2Vuc2UgaXMgZGlzdHJpYnV0ZWQgb24gYW4gXCJBUyBJU1wiIEJBU0lTLFxuV0lUSE9VVCBXQVJSQU5USUVTIE9SIENPTkRJVElPTlMgT0YgQU5ZIEtJTkQsIGVpdGhlciBleHByZXNzIG9yIGltcGxpZWQuXG5TZWUgdGhlIExpY2Vuc2UgZm9yIHRoZSBzcGVjaWZpYyBsYW5ndWFnZSBnb3Zlcm5pbmcgcGVybWlzc2lvbnMgYW5kXG5saW1pdGF0aW9ucyB1bmRlciB0aGUgTGljZW5zZS5cbiovXG5cbmltcG9ydCB7IElNYXRyaXhDbGllbnRDcmVkcyB9IGZyb20gXCIuLi9NYXRyaXhDbGllbnRQZWdcIjtcbmltcG9ydCB7IEtpbmQgYXMgU2V0dXBFbmNyeXB0aW9uS2luZCB9IGZyb20gXCIuLi90b2FzdHMvU2V0dXBFbmNyeXB0aW9uVG9hc3RcIjtcbmltcG9ydCB7IElTZWNyZXRTdG9yYWdlS2V5SW5mbyB9IGZyb20gJ21hdHJpeC1qcy1zZGsvc3JjL21hdHJpeCc7XG5cbi8qIGVzbGludC1kaXNhYmxlLW5leHQtbGluZSBAdHlwZXNjcmlwdC1lc2xpbnQvbm8tdW51c2VkLXZhcnMgKi9cbmZ1bmN0aW9uIGV4YW1pbmVMb2dpblJlc3BvbnNlKFxuICAgIHJlc3BvbnNlOiBhbnksXG4gICAgY3JlZGVudGlhbHM6IElNYXRyaXhDbGllbnRDcmVkcyxcbik6IHZvaWQge1xuICAgIC8vIEUuZy4gYWRkIGFkZGl0aW9uYWwgZGF0YSB0byB0aGUgcGVyc2lzdGVkIGNyZWRlbnRpYWxzXG59XG5cbi8qIGVzbGludC1kaXNhYmxlLW5leHQtbGluZSBAdHlwZXNjcmlwdC1lc2xpbnQvbm8tdW51c2VkLXZhcnMgKi9cbmZ1bmN0aW9uIHBlcnNpc3RDcmVkZW50aWFscyhcbiAgICBjcmVkZW50aWFsczogSU1hdHJpeENsaWVudENyZWRzLFxuKTogdm9pZCB7XG4gICAgLy8gRS5nLiBzdG9yZSBhbnkgYWRkaXRpb25hbCBjcmVkZW50aWFsIGZpZWxkc1xufVxuXG4vKiBlc2xpbnQtZGlzYWJsZS1uZXh0LWxpbmUgQHR5cGVzY3JpcHQtZXNsaW50L25vLXVudXNlZC12YXJzICovXG5mdW5jdGlvbiBjcmVhdGVTZWNyZXRTdG9yYWdlS2V5KCk6IFVpbnQ4QXJyYXkge1xuICAgIC8vIEUuZy4gZ2VuZXJhdGUgb3IgcmV0cmlldmUgc2VjcmV0IHN0b3JhZ2Uga2V5IHNvbWVob3dcbiAgICByZXR1cm4gbnVsbDtcbn1cblxuLyogZXNsaW50LWRpc2FibGUtbmV4dC1saW5lIEB0eXBlc2NyaXB0LWVzbGludC9uby11bnVzZWQtdmFycyAqL1xuZnVuY3Rpb24gZ2V0U2VjcmV0U3RvcmFnZUtleSgpOiBVaW50OEFycmF5IHtcbiAgICAvLyBFLmcuIHJldHJpZXZlIHNlY3JldCBzdG9yYWdlIGtleSBmcm9tIHNvbWUgb3RoZXIgcGxhY2VcbiAgICByZXR1cm4gbnVsbDtcbn1cblxuLyogZXNsaW50LWRpc2FibGUtbmV4dC1saW5lIEB0eXBlc2NyaXB0LWVzbGludC9uby11bnVzZWQtdmFycyAqL1xuZnVuY3Rpb24gZ2V0RGVoeWRyYXRpb25LZXkoXG4gICAga2V5SW5mbzogSVNlY3JldFN0b3JhZ2VLZXlJbmZvLFxuKTogUHJvbWlzZTxVaW50OEFycmF5PiB7XG4gICAgcmV0dXJuIFByb21pc2UucmVzb2x2ZShudWxsKTtcbn1cblxuLyogZXNsaW50LWRpc2FibGUtbmV4dC1saW5lIEB0eXBlc2NyaXB0LWVzbGludC9uby11bnVzZWQtdmFycyAqL1xuZnVuY3Rpb24gY2F0Y2hBY2Nlc3NTZWNyZXRTdG9yYWdlRXJyb3IoZTogRXJyb3IpOiB2b2lkIHtcbiAgICAvLyBFLmcuIG5vdGlmeSB0aGUgdXNlciBpbiBzb21lIHdheVxufVxuXG4vKiBlc2xpbnQtZGlzYWJsZS1uZXh0LWxpbmUgQHR5cGVzY3JpcHQtZXNsaW50L25vLXVudXNlZC12YXJzICovXG5mdW5jdGlvbiBzZXR1cEVuY3J5cHRpb25OZWVkZWQoa2luZDogU2V0dXBFbmNyeXB0aW9uS2luZCk6IGJvb2xlYW4ge1xuICAgIC8vIEUuZy4gdHJpZ2dlciBzb21lIGtpbmQgb2Ygc2V0dXBcbiAgICByZXR1cm4gZmFsc2U7XG59XG5cbi8vIFRoaXMgaW50ZXJmYWNlIHN1bW1hcmlzZXMgYWxsIGF2YWlsYWJsZSBjdXN0b21pc2F0aW9uIHBvaW50cyBhbmQgYWxzbyBtYXJrc1xuLy8gdGhlbSBhbGwgYXMgb3B0aW9uYWwuIFRoaXMgYWxsb3dzIGN1c3RvbWlzZXJzIHRvIG9ubHkgZGVmaW5lIGFuZCBleHBvcnQgdGhlXG4vLyBjdXN0b21pc2F0aW9ucyB0aGV5IG5lZWQgd2hpbGUgc3RpbGwgbWFpbnRhaW5pbmcgdHlwZSBzYWZldHkuXG5leHBvcnQgaW50ZXJmYWNlIElTZWN1cml0eUN1c3RvbWlzYXRpb25zIHtcbiAgICBleGFtaW5lTG9naW5SZXNwb25zZT86IHR5cGVvZiBleGFtaW5lTG9naW5SZXNwb25zZTtcbiAgICBwZXJzaXN0Q3JlZGVudGlhbHM/OiB0eXBlb2YgcGVyc2lzdENyZWRlbnRpYWxzO1xuICAgIGNyZWF0ZVNlY3JldFN0b3JhZ2VLZXk/OiB0eXBlb2YgY3JlYXRlU2VjcmV0U3RvcmFnZUtleSxcbiAgICBnZXRTZWNyZXRTdG9yYWdlS2V5PzogdHlwZW9mIGdldFNlY3JldFN0b3JhZ2VLZXksXG4gICAgY2F0Y2hBY2Nlc3NTZWNyZXRTdG9yYWdlRXJyb3I/OiB0eXBlb2YgY2F0Y2hBY2Nlc3NTZWNyZXRTdG9yYWdlRXJyb3IsXG4gICAgc2V0dXBFbmNyeXB0aW9uTmVlZGVkPzogdHlwZW9mIHNldHVwRW5jcnlwdGlvbk5lZWRlZCxcbiAgICBnZXREZWh5ZHJhdGlvbktleT86IHR5cGVvZiBnZXREZWh5ZHJhdGlvbktleSxcblxuICAgIC8qKlxuICAgICAqIFdoZW4gZmFsc2UsIGRpc2FibGVzIHRoZSBwb3N0LWxvZ2luIFVJIGZyb20gc2hvd2luZy4gSWYgdGhlcmUnc1xuICAgICAqIGFuIGVycm9yIGR1cmluZyBzZXR1cCwgdGhhdCB3aWxsIGJlIHNob3duIHRvIHRoZSB1c2VyLlxuICAgICAqXG4gICAgICogTm90ZTogd2hlbiB0aGlzIGlzIHNldCB0byBmYWxzZSB0aGVuIHRoZSBhcHAgd2lsbCBhc3N1bWUgdGhlIHVzZXInc1xuICAgICAqIGVuY3J5cHRpb24gaXMgc2V0IHVwIHNvbWUgb3RoZXIgd2F5IHdoaWNoIHdvdWxkIGNpcmN1bXZlbnQgdGhlIGRlZmF1bHRcbiAgICAgKiBVSSwgc3VjaCBhcyBieSBwcmVzZW50aW5nIGFsdGVybmF0aXZlIFVJLlxuICAgICAqL1xuICAgIFNIT1dfRU5DUllQVElPTl9TRVRVUF9VST86IGJvb2xlYW4sIC8vIGRlZmF1bHQgdHJ1ZVxufVxuXG4vLyBBIHJlYWwgY3VzdG9taXNhdGlvbiBtb2R1bGUgd2lsbCBkZWZpbmUgYW5kIGV4cG9ydCBvbmUgb3IgbW9yZSBvZiB0aGVcbi8vIGN1c3RvbWlzYXRpb24gcG9pbnRzIHRoYXQgbWFrZSB1cCBgSVNlY3VyaXR5Q3VzdG9taXNhdGlvbnNgLlxuZXhwb3J0IGRlZmF1bHQge1xuICAgIFNIT1dfRU5DUllQVElPTl9TRVRVUF9VSTogdHJ1ZSxcbn0gYXMgSVNlY3VyaXR5Q3VzdG9taXNhdGlvbnM7XG4iXX0=

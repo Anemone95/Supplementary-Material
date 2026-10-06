@@ -1,0 +1,11 @@
+$ corepack pnpm@9.15.9 install --prod --no-frozen-lockfile --reporter=append-only --config.node-linker=hoisted --ignore-workspace --ignore-scripts
+Progress: resolved 1, reused 0, downloaded 0, added 0
+ WARN  deprecated koa-cash@2.2.0: Please upgrade to v3.0.4+ as we have added support for Koa v2. See https://github.com/koajs/cash for more information.
+
+devDependencies: skipped
+
+Packages: +150
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Progress: resolved 150, reused 24, downloaded 0, added 0
+Progress: resolved 150, reused 142, downloaded 8, added 150, done
+Done in 1.6s using pnpm v9.15.9

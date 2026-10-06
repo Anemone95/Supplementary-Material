@@ -1,0 +1,31 @@
+{
+  "name": "iter-http",
+  "version": "1.0.13",
+  "description": "Run static file server",
+  "main": "./http.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin": {
+    "iter-http": "./bin/iter-http"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:git-lt/iterhttp.git"
+  },
+  "keywords": [
+    "Static",
+    "file",
+    "server",
+    "Assets"
+  ],
+  "author": "ITER",
+  "license": "ISC",
+  "homepage": "http://coderlt.coding.me/coderlt",
+  "devDependencies": {
+    "minimist": "^1.2.0"
+  },
+  "bugs": {
+    "url": "https://github.com/git-lt/iterhttp/issues"
+  }
+}

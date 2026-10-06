@@ -1,0 +1,13 @@
+$ corepack pnpm@9.15.9 install --prod --no-frozen-lockfile --reporter=append-only --config.node-linker=hoisted --ignore-workspace --ignore-scripts
+Progress: resolved 1, reused 0, downloaded 0, added 0
+Progress: resolved 9, reused 0, downloaded 0, added 0
+Progress: resolved 44, reused 0, downloaded 0, added 0
+ WARN  4 deprecated subdependencies found: abab@2.0.6, domexception@2.0.1, w3c-hr-time@1.0.2, whatwg-encoding@1.0.5
+
+devDependencies: skipped
+
+Packages: +88
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Progress: resolved 88, reused 63, downloaded 0, added 0
+Progress: resolved 88, reused 70, downloaded 18, added 88, done
+Done in 4.1s using pnpm v9.15.9

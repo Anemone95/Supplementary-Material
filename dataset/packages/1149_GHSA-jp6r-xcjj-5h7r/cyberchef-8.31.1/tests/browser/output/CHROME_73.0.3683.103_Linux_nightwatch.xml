@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites errors="0"
+            failures="0"
+            tests="5">
+
+  <testsuite name="nightwatch"
+    errors="0" failures="0" hostname="" id="" package="nightwatch" skipped="0"
+    tests="5" time="9.033" timestamp="">
+  
+    <testcase name="Loading screen" classname="nightwatch" time="1.606" assertions="2">
+
+    
+
+    
+    </testcase>
+  
+    <testcase name="App loaded" classname="nightwatch" time="0.1910" assertions="9">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    </testcase>
+  
+    <testcase name="Operations loaded" classname="nightwatch" time="0.2610" assertions="17">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    </testcase>
+  
+    <testcase name="Recipe can be run" classname="nightwatch" time="1.202" assertions="8">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    </testcase>
+  
+    <testcase name="Test every module" classname="nightwatch" time="5.773" assertions="15">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    </testcase>
+  
+
+  
+
+  
+  </testsuite>
+</testsuites>

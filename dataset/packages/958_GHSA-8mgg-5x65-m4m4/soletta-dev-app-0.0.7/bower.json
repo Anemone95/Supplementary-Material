@@ -1,0 +1,55 @@
+{
+  "name": "Soletta Development Application",
+  "version": "0.0.1",
+  "authors": [
+    "Anselmo L. S. Melo <anselmo.melo@intel.com>",
+    "Bruno Bottazzini <bruno.bottazzini@intel.com>",
+    "Daniel Chaves <daniel.chaves@intel.com>",
+    "Gustavo Sverzut Barbieri <gustavo.barbieri@intel.com>",
+    "Luis Felipe Strano Moraes <luis.strano@intel.com>",
+    "Ronaldo Silva <ronaldo.silva@intel.com>"
+  ],
+  "description": "This is a nodejs application that helps you to develop FBP Files to run with Soletta.",
+  "main": "client/js/app.js",
+  "keywords": [
+    "soletta",
+    "devlopment",
+    "application"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-datatables": "~0.5.4",
+    "angular": "~1.5.3",
+    "datatables": "~1.10.11",
+    "jquery": "~2.2.3",
+    "angular-highlightjs": "~0.6.1",
+    "highlightjs": "~9.2.0",
+    "angular-loading-spinner": "~0.0.3",
+    "angular-route": "~1.5.3",
+    "spin.js": "~2.3.2",
+    "angular-ui-ace": "~0.2.3",
+    "ace-builds": "~1.2.3",
+    "bootstrap": "~3.3.6",
+    "jquery-ui": "~1.11.4",
+    "jstree-directive": "~0.1.5",
+    "ng-context-menu": "~1.0.3",
+    "underscore": "~1.8.3",
+    "angular-material": "~1.0.7"
+  },
+  "resolutions": {
+    "angular-datatables": "~0.5.4",
+    "angular": "~1.5.3",
+    "jquery": "~2.2.3",
+    "angular-highlightjs": "~0.6.1",
+    "highlightjs": "~9.2.0",
+    "angular-route": "~1.5.3",
+    "spin.js": "~2.3.2"
+  }
+}

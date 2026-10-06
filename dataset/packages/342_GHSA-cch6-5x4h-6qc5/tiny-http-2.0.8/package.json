@@ -1,0 +1,32 @@
+{
+  "name": "tiny-http",
+  "version": "2.0.8",
+  "description": "a simple static web server ",
+  "preferGlobal": true,
+  "bin": {
+    "http": "index.js"
+  },
+  "main": "dist/http.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "engines": {
+    "node": ">= 0.12.0"
+  },
+  "dependencies": {},
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lwdgit/tiny-http.git"
+  },
+  "author": "liwen",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/lwdgit/tiny-http/issues"
+  },
+  "homepage": "https://github.com/lwdgit/tiny-http#readme",
+  "keywords": [
+    "http",
+    "httpd"
+  ]
+}

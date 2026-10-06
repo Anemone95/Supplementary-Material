@@ -1,0 +1,1764 @@
+{
+  "instrumentation": "node-jscoverage",
+  "sloc": 83,
+  "hits": 10,
+  "misses": 73,
+  "coverage": 12.048192771084338,
+  "files": [
+    {
+      "filename": "/Users/asciidisco/Github/dalekjs/dalek-browser-ie/index.js",
+      "coverage": 8.75,
+      "hits": 7,
+      "misses": 73,
+      "sloc": 80,
+      "source": {
+        "1": {
+          "source": "/*!",
+          "coverage": ""
+        },
+        "2": {
+          "source": " *",
+          "coverage": ""
+        },
+        "3": {
+          "source": " * Copyright (c) 2013 Sebastian Golasch",
+          "coverage": ""
+        },
+        "4": {
+          "source": " *",
+          "coverage": ""
+        },
+        "5": {
+          "source": " * Permission is hereby granted, free of charge, to any person obtaining a",
+          "coverage": ""
+        },
+        "6": {
+          "source": " * copy of this software and associated documentation files (the \"Software\"),",
+          "coverage": ""
+        },
+        "7": {
+          "source": " * to deal in the Software without restriction, including without limitation",
+          "coverage": ""
+        },
+        "8": {
+          "source": " * the rights to use, copy, modify, merge, publish, distribute, sublicense,",
+          "coverage": ""
+        },
+        "9": {
+          "source": " * and/or sell copies of the Software, and to permit persons to whom the",
+          "coverage": ""
+        },
+        "10": {
+          "source": " * Software is furnished to do so, subject to the following conditions:",
+          "coverage": ""
+        },
+        "11": {
+          "source": " *",
+          "coverage": ""
+        },
+        "12": {
+          "source": " * The above copyright notice and this permission notice shall be included",
+          "coverage": ""
+        },
+        "13": {
+          "source": " * in all copies or substantial portions of the Software.",
+          "coverage": ""
+        },
+        "14": {
+          "source": " *",
+          "coverage": ""
+        },
+        "15": {
+          "source": " * THE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS",
+          "coverage": ""
+        },
+        "16": {
+          "source": " * OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,",
+          "coverage": ""
+        },
+        "17": {
+          "source": " * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL",
+          "coverage": ""
+        },
+        "18": {
+          "source": " * THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER",
+          "coverage": ""
+        },
+        "19": {
+          "source": " * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING",
+          "coverage": ""
+        },
+        "20": {
+          "source": " * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER",
+          "coverage": ""
+        },
+        "21": {
+          "source": " * DEALINGS IN THE SOFTWARE.",
+          "coverage": ""
+        },
+        "22": {
+          "source": " *",
+          "coverage": ""
+        },
+        "23": {
+          "source": " */",
+          "coverage": ""
+        },
+        "24": {
+          "source": "",
+          "coverage": ""
+        },
+        "25": {
+          "source": "'use strict';",
+          "coverage": 1
+        },
+        "26": {
+          "source": "",
+          "coverage": ""
+        },
+        "27": {
+          "source": "// ext. libs",
+          "coverage": ""
+        },
+        "28": {
+          "source": "var Q = require('q');",
+          "coverage": 1
+        },
+        "29": {
+          "source": "var cp = require('child_process');",
+          "coverage": 1
+        },
+        "30": {
+          "source": "var portscanner = require('portscanner');",
+          "coverage": 1
+        },
+        "31": {
+          "source": "",
+          "coverage": ""
+        },
+        "32": {
+          "source": "// int. libs",
+          "coverage": ""
+        },
+        "33": {
+          "source": "var iedriver = require('./lib/iedriver');",
+          "coverage": 1
+        },
+        "34": {
+          "source": "",
+          "coverage": ""
+        },
+        "35": {
+          "source": "/**",
+          "coverage": ""
+        },
+        "36": {
+          "source": " * This module is a browser plugin for [DalekJS](//github.com/dalekjs/dalek).",
+          "coverage": ""
+        },
+        "37": {
+          "source": " * It provides all a WebDriverServer & browser launcher for Internet Explorer.",
+          "coverage": ""
+        },
+        "38": {
+          "source": " *",
+          "coverage": ""
+        },
+        "39": {
+          "source": " * The browser plugin can be installed with the following command:",
+          "coverage": ""
+        },
+        "40": {
+          "source": " *",
+          "coverage": ""
+        },
+        "41": {
+          "source": " * ```bash",
+          "coverage": ""
+        },
+        "42": {
+          "source": " * $ npm install dalek-browser-ie --save-dev",
+          "coverage": ""
+        },
+        "43": {
+          "source": " * ```",
+          "coverage": ""
+        },
+        "44": {
+          "source": " *",
+          "coverage": ""
+        },
+        "45": {
+          "source": " * You can use the browser plugin by adding a config option to the your Dalekfile",
+          "coverage": ""
+        },
+        "46": {
+          "source": " *",
+          "coverage": ""
+        },
+        "47": {
+          "source": " * ```javascript",
+          "coverage": ""
+        },
+        "48": {
+          "source": " * \"browsers\": [\"IE\"]",
+          "coverage": ""
+        },
+        "49": {
+          "source": " * ```",
+          "coverage": ""
+        },
+        "50": {
+          "source": " *",
+          "coverage": ""
+        },
+        "51": {
+          "source": " * Or you can tell Dalek that it should test in this browser via the command line:",
+          "coverage": ""
+        },
+        "52": {
+          "source": " *",
+          "coverage": ""
+        },
+        "53": {
+          "source": " * ```bash",
+          "coverage": ""
+        },
+        "54": {
+          "source": " * $ dalek mytest.js -b IE",
+          "coverage": ""
+        },
+        "55": {
+          "source": " * ```",
+          "coverage": ""
+        },
+        "56": {
+          "source": " *",
+          "coverage": ""
+        },
+        "57": {
+          "source": " * The Webdriver Server tries to open Port 5555 by default,",
+          "coverage": ""
+        },
+        "58": {
+          "source": " * if this port is blocked, it tries to use a port between 5555 & 5564",
+          "coverage": ""
+        },
+        "59": {
+          "source": " * You can specifiy a different port from within your [Dalekfile](/pages/config.html) like so:",
+          "coverage": ""
+        },
+        "60": {
+          "source": " *",
+          "coverage": ""
+        },
+        "61": {
+          "source": " * ```javascript",
+          "coverage": ""
+        },
+        "62": {
+          "source": " * \"browsers\": {",
+          "coverage": ""
+        },
+        "63": {
+          "source": " *   \"ie\": {",
+          "coverage": ""
+        },
+        "64": {
+          "source": " *     \"port\": 6555 ",
+          "coverage": ""
+        },
+        "65": {
+          "source": " *   }",
+          "coverage": ""
+        },
+        "66": {
+          "source": " * }",
+          "coverage": ""
+        },
+        "67": {
+          "source": " * ```",
+          "coverage": ""
+        },
+        "68": {
+          "source": " *",
+          "coverage": ""
+        },
+        "69": {
+          "source": " * It is also possible to specify a range of ports:",
+          "coverage": ""
+        },
+        "70": {
+          "source": " *",
+          "coverage": ""
+        },
+        "71": {
+          "source": " * ```javascript",
+          "coverage": ""
+        },
+        "72": {
+          "source": " * \"browsers\": {",
+          "coverage": ""
+        },
+        "73": {
+          "source": " *   \"ie\": {",
+          "coverage": ""
+        },
+        "74": {
+          "source": " *     \"portRange\": [6100, 6120] ",
+          "coverage": ""
+        },
+        "75": {
+          "source": " *   }",
+          "coverage": ""
+        },
+        "76": {
+          "source": " * }",
+          "coverage": ""
+        },
+        "77": {
+          "source": " * ```",
+          "coverage": ""
+        },
+        "78": {
+          "source": " * ",
+          "coverage": ""
+        },
+        "79": {
+          "source": " * @module DalekJS",
+          "coverage": ""
+        },
+        "80": {
+          "source": " * @class InternetExplorer",
+          "coverage": ""
+        },
+        "81": {
+          "source": " * @namespace Browser",
+          "coverage": ""
+        },
+        "82": {
+          "source": " * @part InternetExplorer",
+          "coverage": ""
+        },
+        "83": {
+          "source": " * @api",
+          "coverage": ""
+        },
+        "84": {
+          "source": " */",
+          "coverage": ""
+        },
+        "85": {
+          "source": "",
+          "coverage": ""
+        },
+        "86": {
+          "source": "var InternetExplorer = {",
+          "coverage": 1
+        },
+        "87": {
+          "source": "",
+          "coverage": ""
+        },
+        "88": {
+          "source": "  /**",
+          "coverage": ""
+        },
+        "89": {
+          "source": "   * Verbose version of the browser name",
+          "coverage": ""
+        },
+        "90": {
+          "source": "   *",
+          "coverage": ""
+        },
+        "91": {
+          "source": "   * @property longName",
+          "coverage": ""
+        },
+        "92": {
+          "source": "   * @type string",
+          "coverage": ""
+        },
+        "93": {
+          "source": "   * @default Internet Explorer",
+          "coverage": ""
+        },
+        "94": {
+          "source": "   * @api",
+          "coverage": ""
+        },
+        "95": {
+          "source": "   */",
+          "coverage": ""
+        },
+        "96": {
+          "source": "",
+          "coverage": ""
+        },
+        "97": {
+          "source": "  longName: 'Internet Explorer',",
+          "coverage": ""
+        },
+        "98": {
+          "source": "",
+          "coverage": ""
+        },
+        "99": {
+          "source": "  /**",
+          "coverage": ""
+        },
+        "100": {
+          "source": "   * Default port of the IEDriverServer",
+          "coverage": ""
+        },
+        "101": {
+          "source": "   * The port may change, cause the port conflict resultion",
+          "coverage": ""
+        },
+        "102": {
+          "source": "   * tool might pick another one, if the default one is blocked",
+          "coverage": ""
+        },
+        "103": {
+          "source": "   *",
+          "coverage": ""
+        },
+        "104": {
+          "source": "   * @property port",
+          "coverage": ""
+        },
+        "105": {
+          "source": "   * @type integer",
+          "coverage": ""
+        },
+        "106": {
+          "source": "   * @default 5555",
+          "coverage": ""
+        },
+        "107": {
+          "source": "   */",
+          "coverage": ""
+        },
+        "108": {
+          "source": "",
+          "coverage": ""
+        },
+        "109": {
+          "source": "  port: 5555,",
+          "coverage": ""
+        },
+        "110": {
+          "source": "",
+          "coverage": ""
+        },
+        "111": {
+          "source": "  /**",
+          "coverage": ""
+        },
+        "112": {
+          "source": "   * Default maximum port of the IEDriverServer",
+          "coverage": ""
+        },
+        "113": {
+          "source": "   * The port is the highest port in the range that can be allocated",
+          "coverage": ""
+        },
+        "114": {
+          "source": "   * by the IEDriverServer",
+          "coverage": ""
+        },
+        "115": {
+          "source": "   *",
+          "coverage": ""
+        },
+        "116": {
+          "source": "   * @property maxPort",
+          "coverage": ""
+        },
+        "117": {
+          "source": "   * @type integer",
+          "coverage": ""
+        },
+        "118": {
+          "source": "   * @default 5654",
+          "coverage": ""
+        },
+        "119": {
+          "source": "   */",
+          "coverage": ""
+        },
+        "120": {
+          "source": "",
+          "coverage": ""
+        },
+        "121": {
+          "source": "  maxPort: 5654,",
+          "coverage": ""
+        },
+        "122": {
+          "source": "",
+          "coverage": ""
+        },
+        "123": {
+          "source": "  /**",
+          "coverage": ""
+        },
+        "124": {
+          "source": "   * Default host of the IEDriverServer",
+          "coverage": ""
+        },
+        "125": {
+          "source": "   * The host may be overridden with",
+          "coverage": ""
+        },
+        "126": {
+          "source": "   * a user configured value",
+          "coverage": ""
+        },
+        "127": {
+          "source": "   *",
+          "coverage": ""
+        },
+        "128": {
+          "source": "   * @property host",
+          "coverage": ""
+        },
+        "129": {
+          "source": "   * @type string",
+          "coverage": ""
+        },
+        "130": {
+          "source": "   * @default localhost",
+          "coverage": ""
+        },
+        "131": {
+          "source": "   */",
+          "coverage": ""
+        },
+        "132": {
+          "source": "",
+          "coverage": ""
+        },
+        "133": {
+          "source": "  host: 'localhost',",
+          "coverage": ""
+        },
+        "134": {
+          "source": "",
+          "coverage": ""
+        },
+        "135": {
+          "source": "  /**",
+          "coverage": ""
+        },
+        "136": {
+          "source": "   * Default desired capabilities that should be",
+          "coverage": ""
+        },
+        "137": {
+          "source": "   * transferred when the browser session gets requested",
+          "coverage": ""
+        },
+        "138": {
+          "source": "   *",
+          "coverage": ""
+        },
+        "139": {
+          "source": "   * @property desiredCapabilities",
+          "coverage": ""
+        },
+        "140": {
+          "source": "   * @type object",
+          "coverage": ""
+        },
+        "141": {
+          "source": "   */",
+          "coverage": ""
+        },
+        "142": {
+          "source": "",
+          "coverage": ""
+        },
+        "143": {
+          "source": "  desiredCapabilities: {",
+          "coverage": ""
+        },
+        "144": {
+          "source": "    browserName: 'InternetExplorer',",
+          "coverage": ""
+        },
+        "145": {
+          "source": "    initialBrowserUrl: ''",
+          "coverage": ""
+        },
+        "146": {
+          "source": "  },",
+          "coverage": ""
+        },
+        "147": {
+          "source": "",
+          "coverage": ""
+        },
+        "148": {
+          "source": "  /**",
+          "coverage": ""
+        },
+        "149": {
+          "source": "   * Driver defaults, what should the driver be able to access.",
+          "coverage": ""
+        },
+        "150": {
+          "source": "   *",
+          "coverage": ""
+        },
+        "151": {
+          "source": "   * @property driverDefaults",
+          "coverage": ""
+        },
+        "152": {
+          "source": "   * @type object",
+          "coverage": ""
+        },
+        "153": {
+          "source": "   */",
+          "coverage": ""
+        },
+        "154": {
+          "source": "",
+          "coverage": ""
+        },
+        "155": {
+          "source": "  driverDefaults: {",
+          "coverage": ""
+        },
+        "156": {
+          "source": "    viewport: true,",
+          "coverage": ""
+        },
+        "157": {
+          "source": "    status: true,",
+          "coverage": ""
+        },
+        "158": {
+          "source": "    sessionInfo: true",
+          "coverage": ""
+        },
+        "159": {
+          "source": "  },",
+          "coverage": ""
+        },
+        "160": {
+          "source": "",
+          "coverage": ""
+        },
+        "161": {
+          "source": "  /**",
+          "coverage": ""
+        },
+        "162": {
+          "source": "   * Path to the IEDriverServer.exe file",
+          "coverage": ""
+        },
+        "163": {
+          "source": "   *",
+          "coverage": ""
+        },
+        "164": {
+          "source": "   * @property path",
+          "coverage": ""
+        },
+        "165": {
+          "source": "   * @type string",
+          "coverage": ""
+        },
+        "166": {
+          "source": "   * @default /",
+          "coverage": ""
+        },
+        "167": {
+          "source": "   */",
+          "coverage": ""
+        },
+        "168": {
+          "source": "",
+          "coverage": ""
+        },
+        "169": {
+          "source": "  path: '/',",
+          "coverage": ""
+        },
+        "170": {
+          "source": "",
+          "coverage": ""
+        },
+        "171": {
+          "source": "  /**",
+          "coverage": ""
+        },
+        "172": {
+          "source": "   * Child process instance of the IEDriverServer",
+          "coverage": ""
+        },
+        "173": {
+          "source": "   *",
+          "coverage": ""
+        },
+        "174": {
+          "source": "   * @property spawned",
+          "coverage": ""
+        },
+        "175": {
+          "source": "   * @type null|Object",
+          "coverage": ""
+        },
+        "176": {
+          "source": "   */",
+          "coverage": ""
+        },
+        "177": {
+          "source": "",
+          "coverage": ""
+        },
+        "178": {
+          "source": "  spawned: null,",
+          "coverage": ""
+        },
+        "179": {
+          "source": "",
+          "coverage": ""
+        },
+        "180": {
+          "source": "  /**",
+          "coverage": ""
+        },
+        "181": {
+          "source": "   * IE processes that are running on startup,",
+          "coverage": ""
+        },
+        "182": {
+          "source": "   * and therefor shouldn`t be closed",
+          "coverage": ""
+        },
+        "183": {
+          "source": "   *",
+          "coverage": ""
+        },
+        "184": {
+          "source": "   * @property openProcesses",
+          "coverage": ""
+        },
+        "185": {
+          "source": "   * @type array",
+          "coverage": ""
+        },
+        "186": {
+          "source": "   * @default []   ",
+          "coverage": ""
+        },
+        "187": {
+          "source": "   */",
+          "coverage": ""
+        },
+        "188": {
+          "source": "",
+          "coverage": ""
+        },
+        "189": {
+          "source": "  openProcesses: [],",
+          "coverage": ""
+        },
+        "190": {
+          "source": "",
+          "coverage": ""
+        },
+        "191": {
+          "source": "  /**",
+          "coverage": ""
+        },
+        "192": {
+          "source": "   * Resolves the driver port",
+          "coverage": ""
+        },
+        "193": {
+          "source": "   *",
+          "coverage": ""
+        },
+        "194": {
+          "source": "   * @method getPort",
+          "coverage": ""
+        },
+        "195": {
+          "source": "   * @return {integer} port WebDriver server port",
+          "coverage": ""
+        },
+        "196": {
+          "source": "   */",
+          "coverage": ""
+        },
+        "197": {
+          "source": "",
+          "coverage": ""
+        },
+        "198": {
+          "source": "  getPort: function () {",
+          "coverage": ""
+        },
+        "199": {
+          "source": "    return this.port;",
+          "coverage": 0
+        },
+        "200": {
+          "source": "  },",
+          "coverage": ""
+        },
+        "201": {
+          "source": "",
+          "coverage": ""
+        },
+        "202": {
+          "source": "  /**",
+          "coverage": ""
+        },
+        "203": {
+          "source": "   * Returns the driver host",
+          "coverage": ""
+        },
+        "204": {
+          "source": "   *",
+          "coverage": ""
+        },
+        "205": {
+          "source": "   * @method getHost",
+          "coverage": ""
+        },
+        "206": {
+          "source": "   * @return {string} host WebDriver server hostname",
+          "coverage": ""
+        },
+        "207": {
+          "source": "   */",
+          "coverage": ""
+        },
+        "208": {
+          "source": "",
+          "coverage": ""
+        },
+        "209": {
+          "source": "  getHost: function () {",
+          "coverage": ""
+        },
+        "210": {
+          "source": "    return this.host;",
+          "coverage": 0
+        },
+        "211": {
+          "source": "  },",
+          "coverage": ""
+        },
+        "212": {
+          "source": "",
+          "coverage": ""
+        },
+        "213": {
+          "source": "  /**",
+          "coverage": ""
+        },
+        "214": {
+          "source": "   * Resolves the maximum range for the driver port",
+          "coverage": ""
+        },
+        "215": {
+          "source": "   *",
+          "coverage": ""
+        },
+        "216": {
+          "source": "   * @method getMaxPort",
+          "coverage": ""
+        },
+        "217": {
+          "source": "   * @return {integer} port Max WebDriver server port range",
+          "coverage": ""
+        },
+        "218": {
+          "source": "   */",
+          "coverage": ""
+        },
+        "219": {
+          "source": "",
+          "coverage": ""
+        },
+        "220": {
+          "source": "  getMaxPort: function () {",
+          "coverage": ""
+        },
+        "221": {
+          "source": "    return this.maxPort;",
+          "coverage": 0
+        },
+        "222": {
+          "source": "  },",
+          "coverage": ""
+        },
+        "223": {
+          "source": "",
+          "coverage": ""
+        },
+        "224": {
+          "source": "  /**",
+          "coverage": ""
+        },
+        "225": {
+          "source": "   * Launches the driver",
+          "coverage": ""
+        },
+        "226": {
+          "source": "   * (the driver takes care of launching the browser)",
+          "coverage": ""
+        },
+        "227": {
+          "source": "   *",
+          "coverage": ""
+        },
+        "228": {
+          "source": "   * @method launch",
+          "coverage": ""
+        },
+        "229": {
+          "source": "   * @return {object} promise Browser promise",
+          "coverage": ""
+        },
+        "230": {
+          "source": "   */",
+          "coverage": ""
+        },
+        "231": {
+          "source": "",
+          "coverage": ""
+        },
+        "232": {
+          "source": "  launch: function (configuration, events, config) {",
+          "coverage": ""
+        },
+        "233": {
+          "source": "    var deferred = Q.defer();",
+          "coverage": 0
+        },
+        "234": {
+          "source": "",
+          "coverage": ""
+        },
+        "235": {
+          "source": "    // store injected configuration/log event handlers",
+          "coverage": ""
+        },
+        "236": {
+          "source": "    this.reporterEvents = events;",
+          "coverage": 0
+        },
+        "237": {
+          "source": "    this.configuration = configuration;",
+          "coverage": 0
+        },
+        "238": {
+          "source": "    this.config = config;",
+          "coverage": 0
+        },
+        "239": {
+          "source": "",
+          "coverage": ""
+        },
+        "240": {
+          "source": "    // check for a user set port",
+          "coverage": ""
+        },
+        "241": {
+          "source": "    var browsers = this.config.get('browsers');",
+          "coverage": 0
+        },
+        "242": {
+          "source": "    if (browsers && Array.isArray(browsers)) {",
+          "coverage": 0
+        },
+        "243": {
+          "source": "      browsers.forEach(this._checkUserDefinedPorts.bind(this));",
+          "coverage": 0
+        },
+        "244": {
+          "source": "    }",
+          "coverage": ""
+        },
+        "245": {
+          "source": "",
+          "coverage": ""
+        },
+        "246": {
+          "source": "    // check if the current port is in use, if so, scan for free ports",
+          "coverage": ""
+        },
+        "247": {
+          "source": "    portscanner.findAPortNotInUse(this.getPort(), this.getMaxPort(), this.getHost(), this._checkPorts.bind(this, deferred));",
+          "coverage": 0
+        },
+        "248": {
+          "source": "    return deferred.promise;",
+          "coverage": 0
+        },
+        "249": {
+          "source": "  },",
+          "coverage": ""
+        },
+        "250": {
+          "source": "",
+          "coverage": ""
+        },
+        "251": {
+          "source": "  /**",
+          "coverage": ""
+        },
+        "252": {
+          "source": "   * Kills the driver & browser processes",
+          "coverage": ""
+        },
+        "253": {
+          "source": "   *",
+          "coverage": ""
+        },
+        "254": {
+          "source": "   * @method kill",
+          "coverage": ""
+        },
+        "255": {
+          "source": "   * @chainable",
+          "coverage": ""
+        },
+        "256": {
+          "source": "   */",
+          "coverage": ""
+        },
+        "257": {
+          "source": "",
+          "coverage": ""
+        },
+        "258": {
+          "source": "  kill: function () {",
+          "coverage": ""
+        },
+        "259": {
+          "source": "    // get a list of all running processes",
+          "coverage": ""
+        },
+        "260": {
+          "source": "    this._list(function(svc){",
+          "coverage": 0
+        },
+        "261": {
+          "source": "      // filter out the browser process",
+          "coverage": ""
+        },
+        "262": {
+          "source": "      svc.forEach(function (item, idx) {",
+          "coverage": 0
+        },
+        "263": {
+          "source": "        Object.keys(item).forEach(function (key) {",
+          "coverage": 0
+        },
+        "264": {
+          "source": "          if(svc[idx][key] === 'iexplore.exe') {",
+          "coverage": 0
+        },
+        "265": {
+          "source": "            // kill the browser process",
+          "coverage": ""
+        },
+        "266": {
+          "source": "            this._kill(svc[idx].PID, true);",
+          "coverage": 0
+        },
+        "267": {
+          "source": "          }",
+          "coverage": ""
+        },
+        "268": {
+          "source": "        }.bind(this));",
+          "coverage": ""
+        },
+        "269": {
+          "source": "      }.bind(this));",
+          "coverage": ""
+        },
+        "270": {
+          "source": "    }.bind(this),true);",
+          "coverage": ""
+        },
+        "271": {
+          "source": "",
+          "coverage": ""
+        },
+        "272": {
+          "source": "    // kill the driver process",
+          "coverage": ""
+        },
+        "273": {
+          "source": "    this.spawned.kill('SIGTERM');",
+          "coverage": 0
+        },
+        "274": {
+          "source": "    return this;",
+          "coverage": 0
+        },
+        "275": {
+          "source": "  },",
+          "coverage": ""
+        },
+        "276": {
+          "source": "",
+          "coverage": ""
+        },
+        "277": {
+          "source": "  _checkPorts: function (deferred, err, port) {",
+          "coverage": ""
+        },
+        "278": {
+          "source": "    // check if the port was blocked & if we need to switch to another port",
+          "coverage": ""
+        },
+        "279": {
+          "source": "    if (this.port !== port) {",
+          "coverage": 0
+        },
+        "280": {
+          "source": "      this.reporterEvents.emit('report:log:system', 'dalek-browser-ie: Switching to port: ' + port);",
+          "coverage": 0
+        },
+        "281": {
+          "source": "      this.port = port;",
+          "coverage": 0
+        },
+        "282": {
+          "source": "    }",
+          "coverage": ""
+        },
+        "283": {
+          "source": "",
+          "coverage": ""
+        },
+        "284": {
+          "source": "    // invoke the ie driver afterwards",
+          "coverage": ""
+        },
+        "285": {
+          "source": "    this._startIEdriver(deferred);",
+          "coverage": 0
+        },
+        "286": {
+          "source": "    return this;",
+          "coverage": 0
+        },
+        "287": {
+          "source": "  },",
+          "coverage": ""
+        },
+        "288": {
+          "source": "",
+          "coverage": ""
+        },
+        "289": {
+          "source": "  _startIEdriver: function (deferred) {",
+          "coverage": ""
+        },
+        "290": {
+          "source": "    var stream = '';",
+          "coverage": 0
+        },
+        "291": {
+          "source": "    this.spawned = cp.spawn(iedriver.path, ['--port=' + this.getPort()]);",
+          "coverage": 0
+        },
+        "292": {
+          "source": "",
+          "coverage": ""
+        },
+        "293": {
+          "source": "    this.spawned.stdout.on('data', function (data) {",
+          "coverage": 0
+        },
+        "294": {
+          "source": "      var dataStr = data + '';",
+          "coverage": 0
+        },
+        "295": {
+          "source": "      stream += dataStr;",
+          "coverage": 0
+        },
+        "296": {
+          "source": "      if (stream.search('Listening on port') !== -1) {",
+          "coverage": 0
+        },
+        "297": {
+          "source": "        deferred.resolve();",
+          "coverage": 0
+        },
+        "298": {
+          "source": "      }",
+          "coverage": ""
+        },
+        "299": {
+          "source": "    });",
+          "coverage": ""
+        },
+        "300": {
+          "source": "    return this;",
+          "coverage": 0
+        },
+        "301": {
+          "source": "  },",
+          "coverage": ""
+        },
+        "302": {
+          "source": "",
+          "coverage": ""
+        },
+        "303": {
+          "source": "  /**",
+          "coverage": ""
+        },
+        "304": {
+          "source": "   * Process user defined ports",
+          "coverage": ""
+        },
+        "305": {
+          "source": "   *",
+          "coverage": ""
+        },
+        "306": {
+          "source": "   * @method _checkUserDefinedPorts",
+          "coverage": ""
+        },
+        "307": {
+          "source": "   * @param {object} browser Browser configuration",
+          "coverage": ""
+        },
+        "308": {
+          "source": "   * @chainable",
+          "coverage": ""
+        },
+        "309": {
+          "source": "   * @private",
+          "coverage": ""
+        },
+        "310": {
+          "source": "   */",
+          "coverage": ""
+        },
+        "311": {
+          "source": "",
+          "coverage": ""
+        },
+        "312": {
+          "source": "  _checkUserDefinedPorts: function (browser) {",
+          "coverage": ""
+        },
+        "313": {
+          "source": "    // check for a single defined port",
+          "coverage": ""
+        },
+        "314": {
+          "source": "    if (browser.ie && browser.ie.port) {",
+          "coverage": 0
+        },
+        "315": {
+          "source": "      this.port = parseInt(browser.ie.port, 10);",
+          "coverage": 0
+        },
+        "316": {
+          "source": "      this.maxPort = this.port + 90;",
+          "coverage": 0
+        },
+        "317": {
+          "source": "      this.reporterEvents.emit('report:log:system', 'dalek-browser-ie: Switching to user defined port: ' + this.port);",
+          "coverage": 0
+        },
+        "318": {
+          "source": "    }",
+          "coverage": ""
+        },
+        "319": {
+          "source": "",
+          "coverage": ""
+        },
+        "320": {
+          "source": "    // check for a port range",
+          "coverage": ""
+        },
+        "321": {
+          "source": "    if (browser.ie && browser.ie.portRange && browser.ie.portRange.length === 2) {",
+          "coverage": 0
+        },
+        "322": {
+          "source": "      this.port = parseInt(browser.ie.portRange[0], 10);",
+          "coverage": 0
+        },
+        "323": {
+          "source": "      this.maxPort = parseInt(browser.ie.portRange[1], 10);",
+          "coverage": 0
+        },
+        "324": {
+          "source": "      this.reporterEvents.emit('report:log:system', 'dalek-browser-ie: Switching to user defined port(s): ' + this.port + ' -> ' + this.maxPort);",
+          "coverage": 0
+        },
+        "325": {
+          "source": "    }",
+          "coverage": ""
+        },
+        "326": {
+          "source": "",
+          "coverage": ""
+        },
+        "327": {
+          "source": "    return this;",
+          "coverage": 0
+        },
+        "328": {
+          "source": "  },",
+          "coverage": ""
+        },
+        "329": {
+          "source": "",
+          "coverage": ""
+        },
+        "330": {
+          "source": "  /**",
+          "coverage": ""
+        },
+        "331": {
+          "source": "   * Lists all running processes (win only)",
+          "coverage": ""
+        },
+        "332": {
+          "source": "   *",
+          "coverage": ""
+        },
+        "333": {
+          "source": "   * @method _list",
+          "coverage": ""
+        },
+        "334": {
+          "source": "   * @param {Function} callback Receives the process object as the only callback argument",
+          "coverage": ""
+        },
+        "335": {
+          "source": "   * @param {Boolean} [verbose=false] Verbose output",
+          "coverage": ""
+        },
+        "336": {
+          "source": "   * @chainable",
+          "coverage": ""
+        },
+        "337": {
+          "source": "   * @private",
+          "coverage": ""
+        },
+        "338": {
+          "source": "   */",
+          "coverage": ""
+        },
+        "339": {
+          "source": "",
+          "coverage": ""
+        },
+        "340": {
+          "source": "  _list: function(callback, verbose) {",
+          "coverage": ""
+        },
+        "341": {
+          "source": "    verbose = typeof verbose === 'boolean' ? verbose : false;",
+          "coverage": 0
+        },
+        "342": {
+          "source": "    cp.exec('tasklist /FO CSV' + (verbose === true ? ' /V' : ''), function (err, stdout) {",
+          "coverage": 0
+        },
+        "343": {
+          "source": "      var pi = stdout.split('\\r\\n');",
+          "coverage": 0
+        },
+        "344": {
+          "source": "      var p = [];",
+          "coverage": 0
+        },
+        "345": {
+          "source": "",
+          "coverage": ""
+        },
+        "346": {
+          "source": "      pi.forEach(function (line) {",
+          "coverage": 0
+        },
+        "347": {
+          "source": "        if (line.trim().length !== 0) {",
+          "coverage": 0
+        },
+        "348": {
+          "source": "          p.push(line);",
+          "coverage": 0
+        },
+        "349": {
+          "source": "        }",
+          "coverage": ""
+        },
+        "350": {
+          "source": "      });",
+          "coverage": ""
+        },
+        "351": {
+          "source": "",
+          "coverage": ""
+        },
+        "352": {
+          "source": "      var proc = [];",
+          "coverage": 0
+        },
+        "353": {
+          "source": "      var head = null;",
+          "coverage": 0
+        },
+        "354": {
+          "source": "      while (p.length > 1) {",
+          "coverage": 0
+        },
+        "355": {
+          "source": "        var rec = p.shift();",
+          "coverage": 0
+        },
+        "356": {
+          "source": "        rec = rec.replace(/\\\"\\,/gi,'\";').replace(/\\\"|\\'/gi,'').split(';');",
+          "coverage": 0
+        },
+        "357": {
+          "source": "        if (head === null){",
+          "coverage": 0
+        },
+        "358": {
+          "source": "          head = rec;",
+          "coverage": 0
+        },
+        "359": {
+          "source": "          for (var i=0;i<head.length;i++){",
+          "coverage": 0
+        },
+        "360": {
+          "source": "            head[i] = head[i].replace(/ /gi,'');",
+          "coverage": 0
+        },
+        "361": {
+          "source": "          }",
+          "coverage": ""
+        },
+        "362": {
+          "source": "",
+          "coverage": ""
+        },
+        "363": {
+          "source": "          if (head.indexOf('PID')<0){",
+          "coverage": 0
+        },
+        "364": {
+          "source": "            head[1] = 'PID';",
+          "coverage": 0
+        },
+        "365": {
+          "source": "          }",
+          "coverage": ""
+        },
+        "366": {
+          "source": "        } else {",
+          "coverage": ""
+        },
+        "367": {
+          "source": "          var tmp = {};",
+          "coverage": 0
+        },
+        "368": {
+          "source": "          for (var j=0;j<rec.length;j++){",
+          "coverage": 0
+        },
+        "369": {
+          "source": "            tmp[head[j]] = rec[j].replace(/\\\"|\\'/gi,'');",
+          "coverage": 0
+        },
+        "370": {
+          "source": "          }",
+          "coverage": ""
+        },
+        "371": {
+          "source": "          proc.push(tmp);",
+          "coverage": 0
+        },
+        "372": {
+          "source": "        }",
+          "coverage": ""
+        },
+        "373": {
+          "source": "      }",
+          "coverage": ""
+        },
+        "374": {
+          "source": "      callback(proc);",
+          "coverage": 0
+        },
+        "375": {
+          "source": "    });",
+          "coverage": ""
+        },
+        "376": {
+          "source": "",
+          "coverage": ""
+        },
+        "377": {
+          "source": "    return this;",
+          "coverage": 0
+        },
+        "378": {
+          "source": "  },",
+          "coverage": ""
+        },
+        "379": {
+          "source": "",
+          "coverage": ""
+        },
+        "380": {
+          "source": "  /**",
+          "coverage": ""
+        },
+        "381": {
+          "source": "   * Kill a specific process (win only)",
+          "coverage": ""
+        },
+        "382": {
+          "source": "   *",
+          "coverage": ""
+        },
+        "383": {
+          "source": "   * @method _kill",
+          "coverage": ""
+        },
+        "384": {
+          "source": "   * @param {Number} PID Process ID",
+          "coverage": ""
+        },
+        "385": {
+          "source": "   * @param {Boolean} [force=false] Force close the process.",
+          "coverage": ""
+        },
+        "386": {
+          "source": "   * @param {Function} [callback] Callback after process has been killed",
+          "coverage": ""
+        },
+        "387": {
+          "source": "   * @chainable",
+          "coverage": ""
+        },
+        "388": {
+          "source": "   * @private",
+          "coverage": ""
+        },
+        "389": {
+          "source": "   */",
+          "coverage": ""
+        },
+        "390": {
+          "source": "",
+          "coverage": ""
+        },
+        "391": {
+          "source": "  _kill: function(pid, force, callback) {",
+          "coverage": ""
+        },
+        "392": {
+          "source": "    if (!pid || isNaN(parseInt(pid))){",
+          "coverage": 0
+        },
+        "393": {
+          "source": "      throw new Error('PID is required for the kill operation.');",
+          "coverage": 0
+        },
+        "394": {
+          "source": "    }",
+          "coverage": ""
+        },
+        "395": {
+          "source": "    callback = callback || function(){};",
+          "coverage": 0
+        },
+        "396": {
+          "source": "    if (typeof force === 'function'){",
+          "coverage": 0
+        },
+        "397": {
+          "source": "      callback = force;",
+          "coverage": 0
+        },
+        "398": {
+          "source": "      force = false;",
+          "coverage": 0
+        },
+        "399": {
+          "source": "    }",
+          "coverage": ""
+        },
+        "400": {
+          "source": "    cp.exec('taskkill /PID ' + pid + (force === true ? ' /f' : ''),callback);",
+          "coverage": 0
+        },
+        "401": {
+          "source": "    return this;",
+          "coverage": 0
+        },
+        "402": {
+          "source": "  }",
+          "coverage": ""
+        },
+        "403": {
+          "source": "",
+          "coverage": ""
+        },
+        "404": {
+          "source": "};",
+          "coverage": ""
+        },
+        "405": {
+          "source": "",
+          "coverage": ""
+        },
+        "406": {
+          "source": "// expose the module",
+          "coverage": ""
+        },
+        "407": {
+          "source": "module.exports = InternetExplorer;",
+          "coverage": 1
+        },
+        "408": {
+          "source": "",
+          "coverage": ""
+        }
+      }
+    },
+    {
+      "filename": "/Users/asciidisco/Github/dalekjs/dalek-browser-ie/lib/iedriver.js",
+      "coverage": 100,
+      "hits": 3,
+      "misses": 0,
+      "sloc": 3,
+      "source": {
+        "1": {
+          "source": "// Copyright 2013 The Obvious Corporation.",
+          "coverage": ""
+        },
+        "2": {
+          "source": "",
+          "coverage": ""
+        },
+        "3": {
+          "source": "/**",
+          "coverage": ""
+        },
+        "4": {
+          "source": " * @fileoverview Helpers made available via require('dalek-browser-ie') once package is",
+          "coverage": ""
+        },
+        "5": {
+          "source": " * installed.",
+          "coverage": ""
+        },
+        "6": {
+          "source": " */",
+          "coverage": ""
+        },
+        "7": {
+          "source": "",
+          "coverage": ""
+        },
+        "8": {
+          "source": "var path = require('path');",
+          "coverage": 1
+        },
+        "9": {
+          "source": "",
+          "coverage": ""
+        },
+        "10": {
+          "source": "",
+          "coverage": ""
+        },
+        "11": {
+          "source": "/**",
+          "coverage": ""
+        },
+        "12": {
+          "source": " * Where the iedriverserver binary can be found.",
+          "coverage": ""
+        },
+        "13": {
+          "source": " * @type {string}",
+          "coverage": ""
+        },
+        "14": {
+          "source": " */",
+          "coverage": ""
+        },
+        "15": {
+          "source": "exports.path = path.join(__dirname, 'bin', 'IEDriverServer.exe');",
+          "coverage": 1
+        },
+        "16": {
+          "source": "",
+          "coverage": ""
+        },
+        "17": {
+          "source": "",
+          "coverage": ""
+        },
+        "18": {
+          "source": "/**",
+          "coverage": ""
+        },
+        "19": {
+          "source": " * The version of iedriverserver installed by this package.",
+          "coverage": ""
+        },
+        "20": {
+          "source": " * @type {number}",
+          "coverage": ""
+        },
+        "21": {
+          "source": " */",
+          "coverage": ""
+        },
+        "22": {
+          "source": "exports.version = '23.0.0';",
+          "coverage": 1
+        },
+        "23": {
+          "source": "",
+          "coverage": ""
+        }
+      }
+    }
+  ],
+  "stats": {
+    "suites": 0,
+    "tests": 0,
+    "passes": 0,
+    "pending": 0,
+    "failures": 0,
+    "start": "2014-11-28T14:31:52.586Z",
+    "end": "2014-11-28T14:31:52.586Z",
+    "duration": 0
+  },
+  "tests": [],
+  "failures": [],
+  "passes": []
+}

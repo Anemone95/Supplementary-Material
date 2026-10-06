@@ -1,0 +1,30 @@
+$ corepack pnpm@9.15.9 install --prod --no-frozen-lockfile --reporter=append-only --config.node-linker=hoisted --ignore-workspace --ignore-scripts
+Progress: resolved 1, reused 0, downloaded 0, added 0
+ WARN  deprecated istanbul@0.4.5: This module is no longer maintained, try this instead:
+  npm i nyc
+Visit https://istanbul.js.org/integrations for other alternatives.
+ WARN  deprecated phantomjs-prebuilt@2.1.16: this package is now deprecated
+Progress: resolved 21, reused 0, downloaded 0, added 0
+ ERROR  Command failed with exit code 128: git ls-remote git+ssh://git@github.com/bucharest-gold/keycloak-admin-client.git HEAD
+ERROR: Repository not found.
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+
+This error happened while installing a direct dependency of /home/wenyuan/work/jelly-benchmarks/packages/Supplementary-Material/dataset/packages/978_GHSA-68hw-vfh7-xvg8/keycloak-connect-4.3.0
+
+pnpm: Command failed with exit code 128: git ls-remote git+ssh://git@github.com/bucharest-gold/keycloak-admin-client.git HEAD
+ERROR: Repository not found.
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+    at makeError (/home/wenyuan/.cache/node/corepack/v1/pnpm/9.15.9/dist/pnpm.cjs:17470:17)
+    at handlePromise (/home/wenyuan/.cache/node/corepack/v1/pnpm/9.15.9/dist/pnpm.cjs:18041:33)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async getRepoRefs (/home/wenyuan/.cache/node/corepack/v1/pnpm/9.15.9/dist/pnpm.cjs:112678:23)
+    at async resolveRef (/home/wenyuan/.cache/node/corepack/v1/pnpm/9.15.9/dist/pnpm.cjs:112690:20)
+    at async resolveGit (/home/wenyuan/.cache/node/corepack/v1/pnpm/9.15.9/dist/pnpm.cjs:112630:24)
+    at async Object.resolve (/home/wenyuan/.cache/node/corepack/v1/pnpm/9.15.9/dist/pnpm.cjs:112943:175)
+    at async run (/home/wenyuan/.cache/node/corepack/v1/pnpm/9.15.9/dist/pnpm.cjs:131687:23)

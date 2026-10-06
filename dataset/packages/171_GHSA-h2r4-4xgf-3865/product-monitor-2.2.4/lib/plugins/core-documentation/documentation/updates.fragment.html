@@ -1,0 +1,131 @@
+<meta name="rolesRequired" content="administrator" />
+
+<h1>Software Updates</h1>
+
+<h3>Package Status</h3>
+<package-status data-source-url="/api/npmStatus" refresh-time="45"></package-status>
+
+<!-- NPM Package Status Component -->
+<template for="package-status">
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <h4>Host Environment</h4>
+            <p>This information is provided to keep an eye on what version of NodeJS and NPM are installed.</p>
+            <p>The update status feature requires npm version 2.0.x &gt; to work correctly.</p>
+
+            <div class="row header">
+                <div title="Name" class="col-md-4 packageName">Name</div>
+                <div title="Minimum Requirement" class="col-md-2">Minimum</div>
+                <div title="Current" class="col-md-2">Current</div>
+            </div>
+            <plugin-status minimum="{{versions.npm.minimumRequirement}}" current="{{versions.npm.current}}">npm</plugin-status>
+            <plugin-status minimum="{{versions.node.minimumRequirement}}" current="{{versions.node.current}}">nodejs</plugin-status>
+
+            {{#if updatesRequired}}
+            <h4>Packages and plugins requiring an update:</h4>
+            <div class="row header">
+                <div title="Package Name" class="col-md-4 packageName">Package Name</div>
+                <div title="Current" class="col-md-2">Current</div>
+                <div title="Wanted" class="col-md-2">Wanted</div>
+                <div title="Latest" class="col-md-2">Latest</div>
+                <div title="LvL" class="col-md-2">Level</div>
+            </div>
+            {{#each data}}
+            <div class="row{{#if updateRequired}} updateRequired{{else}} noUpdateRequired{{/if}}">
+                <div title="Package Name" class="col-md-4 packageName">{{@key}}</div>
+                <div title="Current" class="col-md-2">{{current}}</div>
+                <div title="Wanted" class="col-md-2">{{wanted}}</div>
+                <div title="Latest" class="col-md-2">{{latest}}</div>
+                <div title="Level" class="col-md-2">{{level}}</div>
+            </div>
+            {{/each}} {{/if}}
+        </div>
+    </div>
+    {{content}} {{#if updatesRequired}}
+    <div class="alert alert-info">
+        <p>
+            <icon>ok</icon>
+            <span>{{message}}</span>
+        </p>
+        {{#unless updatesDisabled}}
+        <p id="{{id}}_updateOptions">
+            <post-button post-url="/api/updateServer" result-target="{{id}}_updateOptions">
+                <icon>cog</icon>
+                <span>Update Server (Recommended)</span>
+            </post-button>
+        </p>{{/unless}}
+    </div>
+    {{else}} {{#if error}}
+    <div class="alert alert-warning">
+        <p>
+            <icon>cloud</icon>
+            <span>{{message}}</span>
+        </p>
+    </div>
+    {{else}}
+    <div class="alert alert-info">
+        <p>
+            <icon>ok</icon>
+            <span>{{message}}</span>
+        </p>
+    </div>
+    {{/if}} {{/if}} {{#if updatesDisabled}}
+    <div class="alert alert-warning">
+        <p>
+            <icon>remove</icon>
+            <span>Package updates for this server instance have been disabled.</span>
+            <span>If an update is required, please update these manually, commit to source, and then pull down the changes to this machine.</span>
+        </p>
+    </div>
+    {{/if}}
+    <div id="{{id}}_updateServerResult"></div>
+</template>
+
+<style for="package-status">
+    package-status,
+    package-status > div {
+        display: block;
+    }
+
+    package-status:first-of-type h4:first-of-type {
+        margin-top: 0;
+    }
+
+    package-status div.row.header > div {
+        font-weight: bold;
+        color: #111;
+    }
+
+    package-status div.row > div {
+        display: inline-block;
+    }
+
+    package-status div.row.noUpdateRequired > div {
+        color: #999;
+    }
+
+    package-status div.row > div {
+        min-width: 80px;
+        text-align: center;
+    }
+
+    package-status div.row > div.packageName {
+        min-width: 140px;
+        text-align: left;
+    }
+
+    package-status div.row.updateRequired {}
+
+    package-status div.row.updateRequired > div {
+        font-weight: bold;
+        color: #111;
+    }
+</style>
+
+<template for="plugin-status">
+    <div class="row">
+        <div title="Name" class="col-md-4 packageName">{{content}}</div>
+        <div title="Minimum Requirement" class="col-md-2">{{minimum}}</div>
+        <div title="Current" class="col-md-2">{{current}}</div>
+    </div>
+</template>

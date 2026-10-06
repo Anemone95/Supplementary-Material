@@ -1,0 +1,19 @@
+{
+  "name": "simple-npm-registry",
+  "version": "0.0.4",
+  "bin": {
+    "simple-npm-registry": "./index.js"
+  },
+  "dependencies": {
+    "async": "^2.0.0-rc.3",
+    "colors": "^1.1.2",
+    "express": "^4.13.4",
+    "lodash": "^4.11.1",
+    "minimist": "^1.2.0",
+    "request": "^2.72.0"
+  },
+  "repository": {
+    "type": "git",
+    "url" : "https://github.com/OverFlow636/simple-npm-registry"
+  }
+}

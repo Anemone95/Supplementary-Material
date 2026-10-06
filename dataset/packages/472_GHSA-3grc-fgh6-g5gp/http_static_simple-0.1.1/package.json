@@ -1,0 +1,19 @@
+{
+   "author": "Jared Hunsaker",
+   "name": "http_static_simple",
+   "version": "0.1.1",
+   "description": "A simple server for the weather",
+   "main": "http_static_simple",
+   "repository": {
+     "type": "git",
+     "url": "https://github.com/JaredMH/Lab6-Node.JS"
+   },
+   "keywords": [
+     "weather",
+     "server"
+   ],
+   "dependencies": {},
+   "engines": {
+       "node": "*"
+   }
+}

@@ -1,0 +1,25 @@
+$ corepack pnpm@9.15.9 install --prod --no-frozen-lockfile --reporter=append-only --config.node-linker=hoisted --ignore-workspace --ignore-scripts
+Progress: resolved 1, reused 0, downloaded 0, added 0
+ WARN  deprecated uuid@7.0.3: uuid@10 and below is no longer supported.  For ESM codebases, update to uuid@latest.  For CommonJS codebases, use uuid@11 (but be aware this version will likely be deprecated in 2028).
+ WARN  deprecated axios@0.19.2: Critical security vulnerability fixed in v0.21.1. For more information, see https://github.com/axios/axios/pull/3410
+ WARN  deprecated @sap-cloud-sdk/util@1.54.2: 1.x is no longer maintained.
+Progress: resolved 16, reused 0, downloaded 0, added 0
+Progress: resolved 19, reused 0, downloaded 0, added 0
+ WARN  deprecated @sap-cloud-sdk/analytics@1.54.2: 1.x is no longer maintained.
+Progress: resolved 74, reused 0, downloaded 0, added 0
+Progress: resolved 196, reused 0, downloaded 0, added 0
+Progress: resolved 278, reused 0, downloaded 0, added 0
+Progress: resolved 443, reused 0, downloaded 0, added 0
+Progress: resolved 612, reused 0, downloaded 0, added 0
+Progress: resolved 654, reused 0, downloaded 0, added 0
+ WARN  16 deprecated subdependencies found: abab@2.0.6, domexception@1.0.1, glob@7.2.3, har-validator@5.1.5, inflight@1.0.6, request-promise-native@1.0.9, request@2.88.2, resolve-url@0.2.1, rimraf@3.0.2, sane@4.1.0, source-map-resolve@0.5.3, source-map-url@0.4.1, urix@0.1.0, uuid@3.4.0, w3c-hr-time@1.0.2, whatwg-encoding@1.0.5
+
+devDependencies: skipped
+
+Packages: +173
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Progress: resolved 656, reused 143, downloaded 18, added 160
+Progress: resolved 656, reused 143, downloaded 26, added 172
+Progress: resolved 656, reused 143, downloaded 27, added 172
+Progress: resolved 656, reused 143, downloaded 27, added 173, done
+Done in 11.8s using pnpm v9.15.9

@@ -1,0 +1,28 @@
+{
+    "name": "knightjs",
+    "version": "0.0.1",
+    "description": "A simple static server on Top of Node.js.",
+    "main": "./lib/create-server.js",
+    "repository": {
+        "type": "git",
+        "url": "git@github.com:skyang/knight.git"
+    },
+    "bin": {
+        "knight": "bin/knight"
+    },
+    "scripts": {
+        "start": "node ./bin/knight",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "keywords": [
+        "static-server",
+        "Node.js",
+        "command"
+    ],
+    "author": "skyang<hhyuestc@gmail.com>",
+    "license": "MIT",
+    "dependencies": {
+        "commander": "^2.12.2",
+        "opn": "^5.1.0"
+    }
+}

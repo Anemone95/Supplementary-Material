@@ -1,0 +1,16 @@
+$ corepack pnpm@9.15.9 install --prod --no-frozen-lockfile --reporter=append-only --config.node-linker=hoisted --ignore-workspace --ignore-scripts
+Progress: resolved 1, reused 0, downloaded 0, added 0
+ WARN  deprecated request@2.83.0: request has been deprecated, see https://github.com/request/request/issues/3142
+ WARN  deprecated rimraf@2.6.3: Rimraf versions prior to v4 are no longer supported
+ WARN  deprecated async-cache@1.1.0: No longer maintained. Use [lru-cache](http://npm.im/lru-cache) version 7.6 or higher, and provide an asynchronous `fetchMethod` option.
+ WARN  deprecated tap@10.7.3: Versions of tap before v18 are no longer maintained. Please upgrade.
+Progress: resolved 40, reused 0, downloaded 0, added 0
+ WARN  17 deprecated subdependencies found: boom@2.10.1, boom@4.3.1, boom@5.3.3, cryptiles@2.0.5, cryptiles@3.2.1, glob@7.2.3, har-validator@2.0.6, har-validator@5.0.3, hawk@3.1.3, hawk@6.0.2, hoek@2.16.3, hoek@4.3.1, inflight@1.0.6, request@2.79.0, sntp@1.0.9, sntp@2.1.0, uuid@3.4.0
+Progress: resolved 154, reused 0, downloaded 0, added 0
+
+devDependencies: skipped
+
+Packages: +18
+++++++++++++++++++
+Progress: resolved 154, reused 17, downloaded 1, added 18, done
+Done in 2.6s using pnpm v9.15.9

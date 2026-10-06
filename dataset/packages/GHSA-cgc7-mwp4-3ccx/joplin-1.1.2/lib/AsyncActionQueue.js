@@ -1,0 +1,105 @@
+"use strict";
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var IntervalType;
+(function (IntervalType) {
+    IntervalType[IntervalType["Debounce"] = 1] = "Debounce";
+    IntervalType[IntervalType["Fixed"] = 2] = "Fixed";
+})(IntervalType = exports.IntervalType || (exports.IntervalType = {}));
+// The AsyncActionQueue can be used to debounce asynchronous actions, to make sure
+// they run in the right order, and also to ensure that if multiple actions are emitted
+// only the last one is executed. This is particularly useful to save data in the background.
+// Each queue should be associated with a specific entity (a note, resource, etc.)
+class AsyncActionQueue {
+    constructor(interval = 100, intervalType = IntervalType.Debounce) {
+        this.queue_ = [];
+        this.scheduleProcessingIID_ = null;
+        this.processing_ = false;
+        this.needProcessing_ = false;
+        this.interval_ = interval;
+        this.intervalType_ = intervalType;
+    }
+    push(action, context = null) {
+        this.queue_.push({
+            action: action,
+            context: context,
+        });
+        this.scheduleProcessing();
+    }
+    get queue() {
+        return this.queue_;
+    }
+    scheduleProcessing(interval = null) {
+        if (interval === null)
+            interval = this.interval_;
+        if (this.scheduleProcessingIID_) {
+            if (this.intervalType_ === IntervalType.Fixed)
+                return;
+            clearTimeout(this.scheduleProcessingIID_);
+        }
+        this.scheduleProcessingIID_ = setTimeout(() => {
+            this.scheduleProcessingIID_ = null;
+            this.processQueue();
+        }, interval);
+    }
+    processQueue() {
+        return __awaiter(this, void 0, void 0, function* () {
+            if (this.processing_) {
+                this.scheduleProcessing();
+                return;
+            }
+            this.processing_ = true;
+            const itemCount = this.queue_.length;
+            if (itemCount) {
+                const item = this.queue_[itemCount - 1];
+                yield item.action();
+                this.queue_.splice(0, itemCount);
+            }
+            this.processing_ = false;
+        });
+    }
+    reset() {
+        return __awaiter(this, void 0, void 0, function* () {
+            if (this.scheduleProcessingIID_) {
+                clearTimeout(this.scheduleProcessingIID_);
+                this.scheduleProcessingIID_ = null;
+            }
+            this.queue_ = [];
+            return this.waitForAllDone();
+        });
+    }
+    // Currently waitForAllDone() already finishes all the actions
+    // as quickly as possible so we can make it an alias.
+    processAllNow() {
+        return __awaiter(this, void 0, void 0, function* () {
+            return this.waitForAllDone();
+        });
+    }
+    waitForAllDone() {
+        return __awaiter(this, void 0, void 0, function* () {
+            if (!this.queue_.length)
+                return Promise.resolve();
+            this.scheduleProcessing(1);
+            return new Promise((resolve) => {
+                const iid = setInterval(() => {
+                    if (this.processing_)
+                        return;
+                    if (!this.queue_.length) {
+                        clearInterval(iid);
+                        resolve();
+                    }
+                }, 100);
+            });
+        });
+    }
+}
+exports.default = AsyncActionQueue;
+//# sourceMappingURL=AsyncActionQueue.js.map

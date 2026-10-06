@@ -1,0 +1,17 @@
+$ corepack pnpm@9.15.9 install --prod --no-frozen-lockfile --reporter=append-only --config.node-linker=hoisted --ignore-workspace --ignore-scripts
+Progress: resolved 1, reused 0, downloaded 0, added 0
+ WARN  deprecated @shopify/jest-dom-mocks@2.11.7: Package no longer supported. Contact Support at https://www.npmjs.com/support for more info.
+ WARN  deprecated @shopify/jest-koa-mocks@2.3.4: Package no longer supported. Contact Support at https://www.npmjs.com/support for more info.
+ WARN  deprecated @shopify/network@1.6.4: Package no longer supported. Contact Support at https://www.npmjs.com/support for more info.
+Progress: resolved 51, reused 0, downloaded 0, added 0
+Progress: resolved 145, reused 0, downloaded 0, added 0
+Progress: resolved 148, reused 0, downloaded 0, added 0
+Progress: resolved 149, reused 0, downloaded 0, added 0
+ WARN  5 deprecated subdependencies found: @shopify/async@2.2.6, @shopify/decorators@1.2.5, @shopify/function-enhancers@1.1.5, lodash.isequal@4.5.0, querystring@0.2.1
+
+devDependencies: skipped
+
+Packages: +9
++++++++++
+Progress: resolved 150, reused 6, downloaded 3, added 9, done
+Done in 5.4s using pnpm v9.15.9

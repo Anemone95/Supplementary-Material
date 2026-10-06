@@ -1,0 +1,52 @@
+{
+  "_from": "untitled-model@^1.0.2",
+  "_id": "untitled-model@1.0.4",
+  "_inBundle": false,
+  "_integrity": "sha512-0MQH+Bm618quX5QVpNSxgcxYAQK4IIBsaW8dTTdhMCnAzyE5wxkq3KWe3SQFiSr8kk5sC3b3ksodytiPfiZhUg==",
+  "_location": "/untitled-model",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "range",
+    "registry": true,
+    "raw": "untitled-model@^1.0.2",
+    "name": "untitled-model",
+    "escapedName": "untitled-model",
+    "rawSpec": "^1.0.2",
+    "saveSpec": null,
+    "fetchSpec": "^1.0.2"
+  },
+  "_requiredBy": [
+    "/untitled-js"
+  ],
+  "_resolved": "https://registry.npmjs.org/untitled-model/-/untitled-model-1.0.4.tgz",
+  "_shasum": "c48cbe8c19d25a9231f44c5127fa88d0fadbd140",
+  "_spec": "untitled-model@^1.0.2",
+  "author": {
+    "name": "Pankaj Devesh"
+  },
+  "bundleDependencies": false,
+  "dependencies": {
+    "mysql": "^2.15.0"
+  },
+  "deprecated": false,
+  "description": "sql models",
+  "directories": {
+    "example": "examples",
+    "lib": "lib"
+  },
+  "keywords": [
+    "sql",
+    "sql-model"
+  ],
+  "license": "MIT",
+  "main": "lib/model.js",
+  "name": "untitled-model",
+  "repository": {
+    "type": "git",
+    "url": "pankajdevesh"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "version": "1.0.5"
+}

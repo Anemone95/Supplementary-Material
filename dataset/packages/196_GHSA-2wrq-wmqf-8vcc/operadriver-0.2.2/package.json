@@ -1,0 +1,45 @@
+{
+  "name": "operadriver",
+  "version": "0.2.2",
+  "keywords": [
+    "operadriver",
+    "chromedriver",
+    "selenium"
+  ],
+  "description": "OperaDriver for Selenium",
+  "homepage": "https://github.com/cnpm/node-operadriver",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/cnpm/node-operadriver.git"
+  },
+  "licenses": [
+    {
+      "type": "MIT"
+    }
+  ],
+  "author": {
+    "name": "fengmk2",
+    "email": "m@fengmk2.com",
+    "url": "http://fengmk2.com"
+  },
+  "main": "lib/operadriver",
+  "files": [
+    "bin/",
+    "lib/operadriver.js",
+    "install.js"
+  ],
+  "bin": {
+    "operadriver": "./bin/operadriver"
+  },
+  "scripts": {
+    "install": "node install.js"
+  },
+  "dependencies": {
+    "adm-zip": "^0.4.7",
+    "kew": "^0.5.0",
+    "mkdirp": "^0.5.0",
+    "npmconf": "^2.1.1",
+    "rimraf": "^2.0.3",
+    "urllib": "~2.3.5"
+  }
+}

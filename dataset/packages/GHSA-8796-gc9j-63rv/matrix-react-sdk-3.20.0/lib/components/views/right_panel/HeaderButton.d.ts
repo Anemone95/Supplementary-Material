@@ -1,0 +1,16 @@
+import React from 'react';
+import Analytics from '../../../Analytics';
+interface IProps {
+    isHighlighted: boolean;
+    onClick: () => void;
+    badge?: React.ReactNode;
+    analytics: Parameters<typeof Analytics.trackEvent>;
+    name: string;
+    title: string;
+}
+export default class HeaderButton extends React.Component<IProps> {
+    constructor(props: IProps);
+    private onClick;
+    render(): JSX.Element;
+}
+export {};

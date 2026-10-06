@@ -1,0 +1,19 @@
+{
+  "author": "Matthew Freeman",
+  "name": "byucslabsix",
+  "version": "0.0.5",
+  "description": "my implementation of the REST service in lab 6",
+  "main": "server",
+  "repository": {
+    "type": "git",
+    "utl": "https://github.com/cvhooper22/CS360-lab6.git"
+  },
+  "keywords": [
+    "BYUCS",
+    "BYUCS360",
+    "Lab6"
+  ],
+  "engines": {
+    "node": "*"
+  }
+}

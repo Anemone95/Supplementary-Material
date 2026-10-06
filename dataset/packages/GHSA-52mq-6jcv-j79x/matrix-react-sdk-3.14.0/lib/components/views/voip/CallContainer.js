@@ -1,0 +1,43 @@
+"use strict";
+
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireDefault(require("react"));
+
+var _IncomingCallBox = _interopRequireDefault(require("./IncomingCallBox"));
+
+var _CallPreview = _interopRequireDefault(require("./CallPreview"));
+
+/*
+Copyright 2020 The Matrix.org Foundation C.I.C.
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+*/
+class CallContainer extends _react.default.PureComponent
+/*:: <IProps, IState>*/
+{
+  render() {
+    return /*#__PURE__*/_react.default.createElement("div", {
+      className: "mx_CallContainer"
+    }, /*#__PURE__*/_react.default.createElement(_IncomingCallBox.default, null), /*#__PURE__*/_react.default.createElement(_CallPreview.default, null));
+  }
+
+}
+
+exports.default = CallContainer;
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uLy4uLy4uL3NyYy9jb21wb25lbnRzL3ZpZXdzL3ZvaXAvQ2FsbENvbnRhaW5lci50c3giXSwibmFtZXMiOlsiQ2FsbENvbnRhaW5lciIsIlJlYWN0IiwiUHVyZUNvbXBvbmVudCIsInJlbmRlciJdLCJtYXBwaW5ncyI6Ijs7Ozs7Ozs7O0FBZ0JBOztBQUNBOztBQUNBOztBQWxCQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFjZSxNQUFNQSxhQUFOLFNBQTRCQyxlQUFNQztBQUFsQztBQUFnRTtBQUNwRUMsRUFBQUEsTUFBUCxHQUFnQjtBQUNaLHdCQUFPO0FBQUssTUFBQSxTQUFTLEVBQUM7QUFBZixvQkFDSCw2QkFBQyx3QkFBRCxPQURHLGVBRUgsNkJBQUMsb0JBQUQsT0FGRyxDQUFQO0FBSUg7O0FBTjBFIiwic291cmNlc0NvbnRlbnQiOlsiLypcbkNvcHlyaWdodCAyMDIwIFRoZSBNYXRyaXgub3JnIEZvdW5kYXRpb24gQy5JLkMuXG5cbkxpY2Vuc2VkIHVuZGVyIHRoZSBBcGFjaGUgTGljZW5zZSwgVmVyc2lvbiAyLjAgKHRoZSBcIkxpY2Vuc2VcIik7XG55b3UgbWF5IG5vdCB1c2UgdGhpcyBmaWxlIGV4Y2VwdCBpbiBjb21wbGlhbmNlIHdpdGggdGhlIExpY2Vuc2UuXG5Zb3UgbWF5IG9idGFpbiBhIGNvcHkgb2YgdGhlIExpY2Vuc2UgYXRcblxuICAgIGh0dHA6Ly93d3cuYXBhY2hlLm9yZy9saWNlbnNlcy9MSUNFTlNFLTIuMFxuXG5Vbmxlc3MgcmVxdWlyZWQgYnkgYXBwbGljYWJsZSBsYXcgb3IgYWdyZWVkIHRvIGluIHdyaXRpbmcsIHNvZnR3YXJlXG5kaXN0cmlidXRlZCB1bmRlciB0aGUgTGljZW5zZSBpcyBkaXN0cmlidXRlZCBvbiBhbiBcIkFTIElTXCIgQkFTSVMsXG5XSVRIT1VUIFdBUlJBTlRJRVMgT1IgQ09ORElUSU9OUyBPRiBBTlkgS0lORCwgZWl0aGVyIGV4cHJlc3Mgb3IgaW1wbGllZC5cblNlZSB0aGUgTGljZW5zZSBmb3IgdGhlIHNwZWNpZmljIGxhbmd1YWdlIGdvdmVybmluZyBwZXJtaXNzaW9ucyBhbmRcbmxpbWl0YXRpb25zIHVuZGVyIHRoZSBMaWNlbnNlLlxuKi9cblxuaW1wb3J0IFJlYWN0IGZyb20gJ3JlYWN0JztcbmltcG9ydCBJbmNvbWluZ0NhbGxCb3ggZnJvbSAnLi9JbmNvbWluZ0NhbGxCb3gnO1xuaW1wb3J0IENhbGxQcmV2aWV3IGZyb20gJy4vQ2FsbFByZXZpZXcnO1xuXG5pbnRlcmZhY2UgSVByb3BzIHtcblxufVxuXG5pbnRlcmZhY2UgSVN0YXRlIHtcblxufVxuXG5leHBvcnQgZGVmYXVsdCBjbGFzcyBDYWxsQ29udGFpbmVyIGV4dGVuZHMgUmVhY3QuUHVyZUNvbXBvbmVudDxJUHJvcHMsIElTdGF0ZT4ge1xuICAgIHB1YmxpYyByZW5kZXIoKSB7XG4gICAgICAgIHJldHVybiA8ZGl2IGNsYXNzTmFtZT1cIm14X0NhbGxDb250YWluZXJcIj5cbiAgICAgICAgICAgIDxJbmNvbWluZ0NhbGxCb3ggLz5cbiAgICAgICAgICAgIDxDYWxsUHJldmlldyAvPlxuICAgICAgICA8L2Rpdj47XG4gICAgfVxufVxuIl19

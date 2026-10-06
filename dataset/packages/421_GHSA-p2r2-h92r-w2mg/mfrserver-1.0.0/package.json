@@ -1,0 +1,21 @@
+{
+  "name": "mfrserver",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "yes"
+  },
+  "repository": {
+    "type": "git",
+    "url": "yes"
+  },
+  "keywords": [
+    "this",
+    "is",
+    "a",
+    "server"
+  ],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}

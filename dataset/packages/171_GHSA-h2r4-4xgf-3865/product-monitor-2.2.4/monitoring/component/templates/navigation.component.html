@@ -1,0 +1,51 @@
+<style for="navigation">
+body {
+  padding-top: 50px;
+  padding-bottom: 20px;
+}
+</style>
+
+<template for="navigation" data-source-url="/api/navigation" refresh-time="125">
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/"><product-title>Product Monitor</product-title></a>
+      </div>
+      <div id="navbar" class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Content <span class="caret"></span></a>
+            <ul class="dropdown-menu" role="menu">
+              {{#each navigationItems}}
+              {{#if linkText}}<li><a href="{{href}}">{{linkText}}</a></li>{{/if}}
+              {{#if divider}}<li class="divider"></li>{{/if}}
+              {{/each}}
+            </ul>
+          </li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Server <span class="caret"></span></a>
+            <ul class="dropdown-menu" role="menu">
+              {{#each documentationItems}}
+                {{#if linkText}}<li><a href="{{href}}">{{linkText}}</a></li>{{/if}}
+                {{#if divider}}<li class="divider"></li>{{/if}}
+              {{/each}}
+            </ul>
+          </li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <!-- No content here yet -->
+        </ul>
+        <form class="navbar-form navbar-right">
+          <a href="/docs/status"><monitor-status data-source-url="/api/monitorStatus">Monitor Status</monitor-status></a>
+          <authentication data-source-url="/auth/status"></authentication>
+        </form>
+      </div>
+    </div>
+  </nav>
+</template>

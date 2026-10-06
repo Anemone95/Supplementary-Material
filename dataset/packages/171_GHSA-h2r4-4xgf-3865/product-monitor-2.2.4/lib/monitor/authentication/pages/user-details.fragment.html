@@ -1,0 +1,36 @@
+<jumbotron>
+    <h1>User Details</h1>
+    <user-details data-source-url="/auth/user"></user-details>
+</jumbotron>
+
+<template for="user-details">
+    {{#if roles.named}}
+    {{#each user}}
+    <h3 class="{{@key}}">
+        <label>{{@key}}</label> : <a href="{{this}}">{{this}}</a>
+    </h3>
+    {{/each}}
+    <h2>Enabled roles</h2>
+    {{#each roles}}
+    <role class="{{@this}}">
+        <h3>
+            <label>{{@this}}</label>
+        </h3>
+    </role>
+    {{/each}}
+    {{else}}
+        <p>User does not have basic permissions.</p>
+    {{/if}}
+</template>
+
+<style for="login-options">
+    login-options > h2 > label {
+        text-transform: capitalize;
+    }
+</style>
+
+<style for="role">
+    role > label {
+        text-transform: capitalize;
+    }
+</style>

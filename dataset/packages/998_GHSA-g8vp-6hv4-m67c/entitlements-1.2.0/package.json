@@ -1,0 +1,42 @@
+{
+  "name": "entitlements",
+  "version": "1.2.0",
+  "description": "check the entitlements of a .app bundle",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "bin": {
+    "entitlements": "cli.js"
+  },
+  "files": [
+    "index.js",
+    "cli.js"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/matiassingers/entitlements"
+  },
+  "author": "Matias Singers <mail@matiassingers.com> (http://mts.io)",
+  "keywords": [
+    "ipa",
+    "ios",
+    "entitlements",
+    "codesign"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/matiassingers/entitlements/issues"
+  },
+  "homepage": "https://github.com/matiassingers/entitlements",
+  "dependencies": {
+    "simple-plist": "0.0.4"
+  },
+  "devDependencies": {
+    "mocha": "2.2.5",
+    "proxyquire": "1.5.0"
+  }
+}

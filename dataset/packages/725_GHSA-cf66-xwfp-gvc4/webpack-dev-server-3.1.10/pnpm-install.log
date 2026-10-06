@@ -1,0 +1,23 @@
+$ corepack pnpm@9.15.9 install --prod --no-frozen-lockfile --reporter=append-only --config.node-linker=hoisted --ignore-workspace --ignore-scripts
+Progress: resolved 1, reused 0, downloaded 0, added 0
+ WARN  deprecated html-webpack-plugin@3.2.0: 3.x is no longer supported
+ WARN  deprecated eslint@5.16.0: This version is no longer supported. Please see https://eslint.org/version-support for other options.
+Progress: resolved 43, reused 0, downloaded 0, added 0
+ WARN  deprecated standard-version@4.4.0: standard-version is deprecated. If you're a GitHub user, I recommend https://github.com/googleapis/release-please as an alternative.
+ WARN  deprecated supertest@3.4.2: Please upgrade to supertest v7.1.3+, see release notes at https://github.com/forwardemail/supertest/releases/tag/v7.1.3 - maintenance is supported by Forward Email @ https://forwardemail.net
+ WARN  deprecated rimraf@2.7.1: Rimraf versions prior to v4 are no longer supported
+ WARN  deprecated sinon@6.3.5: 16.1.1
+Progress: resolved 108, reused 0, downloaded 0, added 0
+Progress: resolved 251, reused 0, downloaded 0, added 0
+Progress: resolved 480, reused 0, downloaded 0, added 0
+Progress: resolved 639, reused 0, downloaded 0, added 0
+Progress: resolved 842, reused 0, downloaded 0, added 0
+ WARN  33 deprecated subdependencies found: @sinonjs/text-encoding@0.7.3, conventional-changelog-atom@0.2.8, conventional-changelog-codemirror@0.3.8, conventional-changelog-core@2.0.11, conventional-changelog-ember@0.3.12, conventional-changelog-eslint@1.0.9, conventional-changelog-express@0.3.6, conventional-changelog-jquery@0.1.0, conventional-changelog-jshint@0.3.8, copy-concurrently@1.0.5, core-js@2.6.12, figgy-pudding@3.5.2, formidable@1.2.6, fs-write-stream-atomic@1.0.10, fsevents@1.2.13, git-raw-commits@1.3.6, git-semver-tags@1.3.6, glob@7.1.2, glob@7.2.3, inflight@1.0.6, lodash.get@4.4.2, lodash.template@4.18.1, mkdirp@0.5.1, move-concurrently@1.0.1, path-dirname@1.0.2, q@1.5.1, resolve-url@0.2.1, rimraf@2.6.3, source-map-resolve@0.5.3, source-map-url@0.4.1, superagent@3.8.3, urix@0.1.0, uuid@3.4.0
+Progress: resolved 1077, reused 0, downloaded 0, added 0
+
+devDependencies: skipped
+
+Packages: +596
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Progress: resolved 1077, reused 495, downloaded 60, added 596, done
+Done in 8.1s using pnpm v9.15.9

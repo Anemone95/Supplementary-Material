@@ -1,0 +1,20 @@
+$ corepack pnpm@9.15.9 install --prod --no-frozen-lockfile --reporter=append-only --config.node-linker=hoisted --ignore-workspace --ignore-scripts
+ WARN  deprecated @babel/plugin-proposal-class-properties@7.18.6: This proposal has been merged to the ECMAScript standard and thus this plugin is no longer maintained. Please use @babel/plugin-transform-class-properties instead.
+Progress: resolved 1, reused 0, downloaded 0, added 0
+ WARN  deprecated rimraf@2.7.1: Rimraf versions prior to v4 are no longer supported
+ WARN  deprecated @babel/plugin-proposal-object-rest-spread@7.20.7: This proposal has been merged to the ECMAScript standard and thus this plugin is no longer maintained. Please use @babel/plugin-transform-object-rest-spread instead.
+Progress: resolved 66, reused 0, downloaded 0, added 0
+Progress: resolved 221, reused 0, downloaded 0, added 0
+Progress: resolved 359, reused 0, downloaded 0, added 0
+Progress: resolved 376, reused 0, downloaded 0, added 0
+Progress: resolved 378, reused 0, downloaded 0, added 0
+ WARN  deprecated eslint@9.39.5: This version is no longer supported. Please see https://eslint.org/version-support for other options.
+Progress: resolved 409, reused 0, downloaded 0, added 0
+Progress: resolved 447, reused 0, downloaded 0, added 0
+ WARN  5 deprecated subdependencies found: debug@3.2.6, glob@7.1.3, glob@7.2.3, inflight@1.0.6, mkdirp@0.5.4
+
+devDependencies: skipped
+
+Already up to date
+Progress: resolved 454, reused 0, downloaded 0, added 0, done
+Done in 7.6s using pnpm v9.15.9

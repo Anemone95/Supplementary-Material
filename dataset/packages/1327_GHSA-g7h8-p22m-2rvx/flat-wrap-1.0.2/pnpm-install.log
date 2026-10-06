@@ -1,0 +1,14 @@
+$ corepack pnpm@9.15.9 install --prod --no-frozen-lockfile --reporter=append-only --config.node-linker=hoisted --ignore-workspace --ignore-scripts
+Progress: resolved 1, reused 0, downloaded 0, added 0
+Progress: resolved 81, reused 0, downloaded 0, added 0
+Progress: resolved 163, reused 0, downloaded 0, added 0
+Progress: resolved 334, reused 0, downloaded 0, added 0
+Progress: resolved 494, reused 0, downloaded 0, added 0
+Progress: resolved 495, reused 0, downloaded 0, added 0
+ WARN  9 deprecated subdependencies found: core-js@2.6.12, fsevents@1.2.13, glob@7.2.3, inflight@1.0.6, lodash.isequal@4.5.0, resolve-url@0.2.1, source-map-resolve@0.5.3, source-map-url@0.4.1, urix@0.1.0
+
+devDependencies: skipped
+
+Already up to date
+Progress: resolved 496, reused 0, downloaded 0, added 0, done
+Done in 9.2s using pnpm v9.15.9

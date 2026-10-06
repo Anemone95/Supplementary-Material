@@ -1,0 +1,76 @@
+<html>
+	<head>
+		<title>City Finder</title>
+		<script src="https://code.jquery.com/jquery-1.10.2.js"></script><!--Import JQuery remotely-->
+
+	</head>
+
+	<body>
+		<form>
+		Enter A Utah City: <input type="text" id="cityfield" value=""><br>
+		Suggestion: <span id="txtHint">Empty</span>
+		<input id="button" type="submit" value="Submit">
+		</form>
+		<p>City</p>
+		<textarea id="dispcity">No City</textarea>
+		<p>Current Weather</p>
+		<div id="weather">No weather</div>
+		</form>
+
+		<script>
+			$("#button").click(function(e)
+			{
+				var value = $("#cityfield").val();
+				e.preventDefault();
+				$("#dispcity").text(value);
+				
+				//Go to underground
+				var myurl= "https://api.wunderground.com/api/e3757f882b4e33df/geolookup/conditions/q/UT/";
+				myurl += value;
+				myurl += ".json";
+				console.log(myurl);
+				$.ajax(
+				{
+					url : myurl,
+					dataType : "jsonp",
+					success : function(parsed_json) //Which parts do we want?
+					{
+						var location = parsed_json['location']['city'];
+						var temp_string = parsed_json['current_observation']['temperature_string'];
+						var current_weather = parsed_json['current_observation']['weather'];
+						everything = "<ul>";
+						everything += "<li>Location: "+location;
+						everything += "<li>Temperature: "+temp_string;
+						everything += "<li>Weather: "+current_weather;
+						everything += "</ul>";
+						$("#weather").html(everything);
+					}
+				});
+			});
+		
+			$("#cityfield").keyup(function() 
+			{
+				var url = "http://52.11.32.200/getcity.cgi?q="+$("#cityfield").val();
+				$.getJSON(url,function(data)
+				{
+					var everything;
+					everything = "<ul>";
+					$.each(data, function(i,item) 
+					{
+						everything += "<li> "+data[i].city;
+					});
+					everything += "</ul>";
+					$("#txtHint").html(everything);
+				})
+				.done(function() { console.log('getJSON request succeeded!'); })
+				.fail(function(jqXHR, textStatus, errorThrown) 
+				{ 
+					console.log('getJSON request failed! ' + textStatus); 
+					console.log("incoming "+jqXHR.responseText);
+				})
+				.always(function() { console.log('getJSON request ended!');})
+				.complete(function() { console.log("complete"); });
+			});
+		</script>
+	</body>
+</html>

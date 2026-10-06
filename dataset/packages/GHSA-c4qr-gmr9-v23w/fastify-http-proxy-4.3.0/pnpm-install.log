@@ -1,0 +1,20 @@
+$ corepack pnpm@9.15.9 install --prod --no-frozen-lockfile --reporter=append-only --config.node-linker=hoisted --ignore-workspace --ignore-scripts
+Progress: resolved 1, reused 0, downloaded 0, added 0
+ WARN  deprecated eslint-plugin-typescript@0.14.0: Deprecated: Use @typescript-eslint/eslint-plugin instead
+ WARN  deprecated fast-proxy@1.8.0: Use @fastify/http-proxy instead
+ WARN  deprecated tap@14.11.0: Versions of tap before v18 are no longer maintained. Please upgrade.
+Progress: resolved 20, reused 0, downloaded 0, added 0
+Progress: resolved 21, reused 0, downloaded 0, added 0
+Progress: resolved 22, reused 0, downloaded 0, added 0
+Progress: resolved 122, reused 0, downloaded 0, added 0
+Progress: resolved 276, reused 0, downloaded 0, added 0
+Progress: resolved 474, reused 0, downloaded 0, added 0
+Progress: resolved 713, reused 0, downloaded 0, added 0
+ WARN  9 deprecated subdependencies found: eslint@7.18.0, glob@7.2.3, har-validator@5.1.5, inflight@1.0.6, request@2.88.2, rimraf@2.7.1, rimraf@3.0.2, string-similarity@4.0.4, uuid@3.4.0
+
+devDependencies: skipped
+
+Packages: +16
+++++++++++++++++
+Progress: resolved 722, reused 12, downloaded 4, added 16, done
+Done in 10.2s using pnpm v9.15.9

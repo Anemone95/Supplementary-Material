@@ -1,0 +1,55 @@
+{
+  "name": "featurebook",
+  "version": "0.0.32",
+  "description": "A command line tool (and Node.js library) for generating beautiful system specifications from Gherkin source files.",
+  "bin": {
+    "featurebook": "./bin/featurebook.js"
+  },
+  "files": [
+    "bin"
+  ],
+  "preferGlobal": true,
+  "scripts": {
+    "test": "mocha --recursive"
+  },
+  "keywords": [
+    "gherkin",
+    "cucumber",
+    "editor",
+    "xp",
+    "bdd",
+    "attd",
+    "feature",
+    "specification",
+    "documentation",
+    "browser",
+    "viewer",
+    "cute",
+    "beautiful",
+    "markdown"
+  ],
+  "author": {
+    "name": "Daniel Pacak",
+    "email": "pacak.daniel@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SOFTWARE-CLINIC/featurebook.git"
+  },
+  "bugs": {
+    "url": "https://github.com/SOFTWARE-CLINIC/featurebook/issues"
+  },
+  "license": "MIT",
+  "engines": {
+    "node": ">= 4"
+  },
+  "dependencies": {
+    "featurebook-api": "1.0.0-alpha.4",
+    "featurebook-html": "1.0.0-alpha.3",
+    "featurebook-pdf": "1.0.0-alpha.4",
+    "featurebook-serve": "1.0.0-alpha.5",
+    "bash-color": "0.0.4",
+    "commander": "2.9.0",
+    "opener": "1.4.3"
+  }
+}

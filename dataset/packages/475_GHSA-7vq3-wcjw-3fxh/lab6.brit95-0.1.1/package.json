@@ -1,0 +1,15 @@
+{
+	"author": "Brittany Irizarry",
+	"name": "lab6.brit95",
+	"version": "0.1.1",
+	"description": "Lab 6 for my CS360 class",
+	"main": "static",
+	"repository": {
+		"type": "git",
+		"url": "http://github.com/brit95/lab6"
+	},
+	"dependencies": {},
+	"engines": {
+		"node": "*"
+	}
+}

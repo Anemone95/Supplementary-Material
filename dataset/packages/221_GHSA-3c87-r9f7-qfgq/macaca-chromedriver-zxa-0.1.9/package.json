@@ -1,0 +1,46 @@
+{
+  "name": "macaca-chromedriver-zxa",
+  "version": "0.1.9",
+  "description": "Node.js wrapper for the selenium chromedriver.",
+  "keywords": [
+    "macaca1",
+    "chromedriver1"
+  ],
+  "bin": {
+    "macaca-chromedriver": "./bin/macaca-chromedriver"
+  },
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/xudafeng/macaca-chromedriver.git"
+  },
+  "dependencies": {
+    "bluebird": "~3.0.5",
+    "commander": "~2.9.0",
+    "jszip": "~2.5.0",
+    "lodash": "~3.10.1",
+    "reliable-logger": "~1.0.7",
+    "request": "~2.67.0",
+    "request-promise": "~1.0.2"
+  },
+  "devDependencies": {
+    "mocha": "*",
+    "should": "*",
+    "jshint": "*",
+    "istanbul": "*",
+    "pre-commit": "1.1.1"
+  },
+  "scripts": {
+    "install": "node ./bin/macaca-chromedriver install",
+    "test": "make test",
+    "jshint": "make jshint"
+  },
+  "pre-commit": [
+    "jshint"
+  ],
+  "homepage": "https://github.com/macacajs/macaca-chromedriver",
+  "author": "xudafeng",
+  "email": "xudafeng@126.com",
+  "blog": "http://xdf.me",
+  "license": "MIT"
+}

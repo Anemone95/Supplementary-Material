@@ -1,0 +1,36 @@
+{
+  "name": "bitty",
+  "version": "0.2.10",
+  "description": "Browserify live editing server",
+  "bin": {
+    "bitty": "index.js"
+  },
+  "keywords": [
+    "browserify",
+    "live",
+    "http-server"
+  ],
+  "files": [
+    "index.js"
+  ],
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Casper Beyer <caspervonb@qup.io>",
+  "license": "MIT",
+  "dependencies": {
+    "chokidar": "^1.0.0-rc3",
+    "chrome-remote-interface": "^0.6.0",
+    "commander": "^2.6.0"
+  },
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/caspervonb/bitty.git"
+  },
+  "bugs": {
+    "url": "https://github.com/caspervonb/bitty/issues"
+  },
+  "homepage": "https://github.com/caspervonb/bitty"
+}

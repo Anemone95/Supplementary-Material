@@ -1,0 +1,11 @@
+$ corepack pnpm@9.15.9 install --prod --no-frozen-lockfile --reporter=append-only --config.node-linker=hoisted --ignore-workspace --ignore-scripts
+Progress: resolved 1, reused 0, downloaded 0, added 0
+ WARN  deprecated protractor@2.5.1: We have news to share - Protractor is deprecated and will reach end-of-life by Summer 2023. To learn more and find out about other options please refer to this post on the Angular blog. Thank you for using and contributing to Protractor. https://goo.gle/state-of-e2e-in-angular
+Progress: resolved 109, reused 0, downloaded 0, added 0
+ WARN  21 deprecated subdependencies found: boom@2.10.1, cryptiles@2.0.5, formatio@1.1.1, glob@3.2.11, glob@7.2.3, har-validator@1.8.0, hawk@2.3.1, hoek@2.16.3, inflight@1.0.6, jade@0.26.3, minimatch@0.3.0, mkdirp@0.3.0, mkdirp@0.5.1, node-uuid@1.4.8, q@1.0.0, request@2.57.0, rimraf@2.7.1, samsam@1.1.2, sinon@1.17.7, sntp@1.0.9, to-iso-string@0.0.2
+
+devDependencies: skipped
+
+Already up to date
+Progress: resolved 159, reused 0, downloaded 0, added 0, done
+Done in 2.2s using pnpm v9.15.9

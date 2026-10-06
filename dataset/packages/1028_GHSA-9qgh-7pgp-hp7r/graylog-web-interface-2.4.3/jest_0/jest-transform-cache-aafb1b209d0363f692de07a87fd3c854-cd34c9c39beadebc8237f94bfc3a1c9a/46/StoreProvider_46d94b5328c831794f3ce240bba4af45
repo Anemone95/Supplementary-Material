@@ -1,0 +1,19 @@
+8fc6598c3ce0ba110fdbe752345a2d77
+'use strict';Object.defineProperty(exports, "__esModule", { value: true });var _createClass = function () {function defineProperties(target, props) {for (var i = 0; i < props.length; i++) {var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);}}return function (Constructor, protoProps, staticProps) {if (protoProps) defineProperties(Constructor.prototype, protoProps);if (staticProps) defineProperties(Constructor, staticProps);return Constructor;};}();var _CombinedProvider = require('injection/CombinedProvider');var _CombinedProvider2 = _interopRequireDefault(_CombinedProvider);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function _classCallCheck(instance, Constructor) {if (!(instance instanceof Constructor)) {throw new TypeError("Cannot call a class as a function");}}var
+
+StoreProvider = function () {function StoreProvider() {_classCallCheck(this, StoreProvider);}_createClass(StoreProvider, [{ key: 'getStore', value: function getStore(
+    storeName) {
+      var result = _CombinedProvider2.default.get(storeName);
+      if (!result[storeName + 'Store']) {
+        throw new Error('Requested store "' + storeName + '" is not registered.');
+      }
+      return result[storeName + 'Store'];
+    } }]);return StoreProvider;}();
+
+
+if (typeof window.storeProvider === 'undefined') {
+  window.storeProvider = new StoreProvider();
+}var _default =
+
+window.storeProvider;exports.default = _default;module.exports = exports['default'];;var _temp = function () {if (typeof __REACT_HOT_LOADER__ === 'undefined') {return;}__REACT_HOT_LOADER__.register(StoreProvider, 'StoreProvider', '/root/graylog2-server-2.4.3/graylog2-web-interface/src/injection/StoreProvider.jsx');__REACT_HOT_LOADER__.register(_default, 'default', '/root/graylog2-server-2.4.3/graylog2-web-interface/src/injection/StoreProvider.jsx');}();;
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIlN0b3JlUHJvdmlkZXIuanN4Il0sIm5hbWVzIjpbIlN0b3JlUHJvdmlkZXIiLCJzdG9yZU5hbWUiLCJyZXN1bHQiLCJnZXQiLCJFcnJvciIsIndpbmRvdyIsInN0b3JlUHJvdmlkZXIiXSwibWFwcGluZ3MiOiJnbkJBQUEsOEQ7O0FBRU1BLGE7QUFDS0MsYSxFQUFXO0FBQ2xCLFVBQU1DLFNBQVMsMkJBQWlCQyxHQUFqQixDQUFxQkYsU0FBckIsQ0FBZjtBQUNBLFVBQUksQ0FBQ0MsT0FBVUQsU0FBVixXQUFMLEVBQWtDO0FBQ2hDLGNBQU0sSUFBSUcsS0FBSix1QkFBOEJILFNBQTlCLDBCQUFOO0FBQ0Q7QUFDRCxhQUFPQyxPQUFVRCxTQUFWLFdBQVA7QUFDRCxLOzs7QUFHSCxJQUFJLE9BQU9JLE9BQU9DLGFBQWQsS0FBZ0MsV0FBcEMsRUFBaUQ7QUFDL0NELFNBQU9DLGFBQVAsR0FBdUIsSUFBSU4sYUFBSixFQUF2QjtBQUNELEM7O0FBRWNLLE9BQU9DLGEsa0xBZGhCTixhIiwiZmlsZSI6IlN0b3JlUHJvdmlkZXIuanN4Iiwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IENvbWJpbmVkUHJvdmlkZXIgZnJvbSAnaW5qZWN0aW9uL0NvbWJpbmVkUHJvdmlkZXInO1xuXG5jbGFzcyBTdG9yZVByb3ZpZGVyIHtcbiAgZ2V0U3RvcmUoc3RvcmVOYW1lKSB7XG4gICAgY29uc3QgcmVzdWx0ID0gQ29tYmluZWRQcm92aWRlci5nZXQoc3RvcmVOYW1lKTtcbiAgICBpZiAoIXJlc3VsdFtgJHtzdG9yZU5hbWV9U3RvcmVgXSkge1xuICAgICAgdGhyb3cgbmV3IEVycm9yKGBSZXF1ZXN0ZWQgc3RvcmUgXCIke3N0b3JlTmFtZX1cIiBpcyBub3QgcmVnaXN0ZXJlZC5gKTtcbiAgICB9XG4gICAgcmV0dXJuIHJlc3VsdFtgJHtzdG9yZU5hbWV9U3RvcmVgXTtcbiAgfVxufVxuXG5pZiAodHlwZW9mIHdpbmRvdy5zdG9yZVByb3ZpZGVyID09PSAndW5kZWZpbmVkJykge1xuICB3aW5kb3cuc3RvcmVQcm92aWRlciA9IG5ldyBTdG9yZVByb3ZpZGVyKCk7XG59XG5cbmV4cG9ydCBkZWZhdWx0IHdpbmRvdy5zdG9yZVByb3ZpZGVyO1xuIl19

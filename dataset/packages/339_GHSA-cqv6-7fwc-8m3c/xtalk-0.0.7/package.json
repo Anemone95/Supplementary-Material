@@ -1,0 +1,30 @@
+{
+    "name": "xtalk",
+    "description": "Your browser talks to node x. 'nuff said.",
+    "author": {
+        "name": "Jonathan Annett",
+        "email": "sophtwhere@icloud.com",
+        "url": "https://github.com/sophtwhere"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/sophtwhere/xtalk.git"
+    },
+    "version": "0.0.7",
+    "main": "index.js",
+    "readme": "xtalk\n ====\nYour browser talks to node x. \n\nThere is a demo available at https://www.npmjs.org/package/xtalk-demo\n\n",
+    "readmeFilename": "README.md",
+    "bugs": {
+        "email": "sophtwhere@icloud.com"
+    },
+    "homepage": "https://github.com/sophtwhere/xtalk",
+    "dependencies": {
+        "funcinfo": ">=0.0.8",
+        "eachkv": ">=1.0.8",
+        "forcepaths": ">=1.0.4",
+        "requireasync": ">=0.0.18",
+        "uglify-js": ">=2.4.14",
+        "stringifycode": ">=0.0.12",
+        "js-beautify": ">=1.5.1"
+    }
+}

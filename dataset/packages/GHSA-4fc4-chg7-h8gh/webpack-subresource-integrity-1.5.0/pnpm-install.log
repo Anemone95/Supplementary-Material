@@ -1,0 +1,39 @@
+$ corepack pnpm@9.15.9 install --prod --no-frozen-lockfile --reporter=append-only --config.node-linker=hoisted --ignore-workspace --ignore-scripts
+Progress: resolved 1, reused 0, downloaded 0, added 0
+ WARN  deprecated glob@7.2.3: Old versions of glob are not supported, and contain widely publicized security vulnerabilities, which have been fixed in the current version. Please update. Support for old versions may be purchased (at exorbitant rates) by contacting i@izs.me
+ WARN  deprecated extract-text-webpack-plugin@1.0.1: Deprecated. Please use https://github.com/webpack-contrib/mini-css-extract-plugin
+ WARN  deprecated babel-eslint@8.2.6: babel-eslint is now @babel/eslint-parser. This package will no longer receive updates.
+ WARN  deprecated karma-webpack@2.0.7: Deprecated due to publishing issue, use 2.0.8
+ WARN  deprecated eslint@4.19.1: This version is no longer supported. Please see https://eslint.org/version-support for other options.
+ WARN  deprecated html-webpack-plugin@2.30.1: out of support
+ WARN  deprecated puppeteer@1.20.0: < 24.15.0 is no longer supported
+ WARN  deprecated rimraf@2.7.1: Rimraf versions prior to v4 are no longer supported
+Progress: resolved 42, reused 0, downloaded 0, added 0
+Progress: resolved 159, reused 0, downloaded 0, added 0
+Progress: resolved 298, reused 0, downloaded 0, added 0
+Progress: resolved 401, reused 0, downloaded 0, added 0
+Progress: resolved 578, reused 0, downloaded 0, added 0
+Progress: resolved 827, reused 0, downloaded 0, added 0
+Progress: resolved 905, reused 0, downloaded 0, added 0
+Progress: resolved 906, reused 0, downloaded 0, added 0
+Progress: resolved 982, reused 0, downloaded 0, added 0
+ WARN  28 deprecated subdependencies found: @types/minimatch@6.0.0, browserslist@1.7.7, circular-json@0.3.3, copy-concurrently@1.0.5, core-js@2.6.12, flatten@1.0.3, fs-write-stream-atomic@1.0.10, fsevents@1.2.13, glob@7.1.2, har-validator@5.1.5, inflight@1.0.6, json3@3.3.2, lodash.get@4.4.2, log4js@0.6.38, mkdirp@0.5.1, move-concurrently@1.0.1, nodeunit@0.11.3, path-dirname@1.0.2, q@1.5.1, request@2.88.2, resolve-url@0.2.1, rimraf@2.6.3, source-map-resolve@0.5.3, source-map-url@0.4.1, svgo@0.7.2, tap@12.7.0, urix@0.1.0, uuid@3.4.0
+
+devDependencies: skipped
+
+ WARN  Issues with peer dependencies found
+.
+├─┬ add-asset-html-webpack-plugin 3.2.2
+│ ├── ✕ unmet peer html-webpack-plugin@"^3.0.4 || ^4.0.0-0 || ^5.0.0": found 2.30.1
+│ └── ✕ unmet peer webpack@"^4.0.0 || ^5.0.0": found 1.15.0
+├─┬ file-loader 1.1.11
+│ └── ✕ unmet peer webpack@"^2.0.0 || ^3.0.0 || ^4.0.0": found 1.15.0
+├─┬ mini-css-extract-plugin 0.2.0
+│ └── ✕ unmet peer webpack@^4.1.0: found 1.15.0
+└─┬ webpack-assets-manifest 3.1.1
+  └── ✕ unmet peer webpack@>=4.4.0: found 1.15.0
+
+Packages: +3
++++
+Progress: resolved 996, reused 3, downloaded 0, added 3, done
+Done in 9.8s using pnpm v9.15.9

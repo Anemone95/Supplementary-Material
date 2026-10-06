@@ -1,0 +1,42 @@
+$ corepack pnpm@9.15.9 install --prod --no-frozen-lockfile --reporter=append-only --config.node-linker=hoisted --ignore-workspace --ignore-scripts
+Progress: resolved 1, reused 0, downloaded 0, added 0
+ WARN  deprecated @babel/polyfill@7.12.1: 🚨 This package has been deprecated in favor of separate inclusion of a polyfill and regenerator-runtime (when needed). See the @babel/polyfill docs (https://babeljs.io/docs/en/babel-polyfill) for more information.
+ WARN  deprecated codecov@3.8.3: https://about.codecov.io/blog/codecov-uploader-deprecation-plan/
+ WARN  deprecated vue@2.6.10: Vue 2 has reached EOL and is no longer actively maintained. See https://v2.vuejs.org/eol/ for more details.
+ WARN  deprecated html-webpack-plugin@3.2.0: 3.x is no longer supported
+Progress: resolved 31, reused 0, downloaded 0, added 0
+ WARN  deprecated rimraf@2.7.1: Rimraf versions prior to v4 are no longer supported
+ WARN  deprecated eslint@5.16.0: This version is no longer supported. Please see https://eslint.org/version-support for other options.
+Progress: resolved 63, reused 0, downloaded 0, added 0
+Progress: resolved 123, reused 0, downloaded 0, added 0
+Progress: resolved 209, reused 0, downloaded 0, added 0
+Progress: resolved 342, reused 0, downloaded 0, added 0
+Progress: resolved 469, reused 0, downloaded 0, added 0
+Progress: resolved 611, reused 0, downloaded 0, added 0
+Progress: resolved 728, reused 0, downloaded 0, added 0
+Progress: resolved 821, reused 0, downloaded 0, added 0
+Progress: resolved 955, reused 0, downloaded 0, added 0
+Progress: resolved 1067, reused 0, downloaded 0, added 0
+Progress: resolved 1133, reused 0, downloaded 0, added 0
+Progress: resolved 1196, reused 0, downloaded 0, added 0
+Progress: resolved 1339, reused 0, downloaded 0, added 0
+Progress: resolved 1407, reused 0, downloaded 0, added 0
+Progress: resolved 1511, reused 0, downloaded 0, added 0
+Progress: resolved 1640, reused 0, downloaded 0, added 0
+ WARN  46 deprecated subdependencies found: @types/minimatch@6.0.0, @types/vfile-message@2.0.0, abab@2.0.6, argv@0.0.2, consolidate@0.15.1, copy-concurrently@1.0.5, core-js@2.6.12, domexception@1.0.1, figgy-pudding@3.5.2, flatten@1.0.3, fs-write-stream-atomic@1.0.10, fsevents@1.2.13, glob@10.5.0, glob@3.1.21, glob@4.5.3, glob@7.2.3, graceful-fs@1.2.3, gulp-util@3.0.8, har-validator@5.1.5, highlight.js@9.18.5, inflight@1.0.6, is-relative-path@1.0.2, left-pad@1.3.0, lodash.clone@4.5.0, lodash.pick@4.4.0, lodash.template@3.6.2, lodash.template@4.18.1, minimatch@0.2.14, minimatch@2.0.10, move-concurrently@1.0.1, natives@1.1.6, path-dirname@1.0.2, request-promise-native@1.0.9, request@2.88.2, resolve-url@0.2.1, rimraf@2.6.3, sane@4.1.0, source-map-resolve@0.5.3, source-map-url@0.4.1, trim@0.0.1, urix@0.1.0, uuid@3.4.0, uuid@8.3.2, w3c-hr-time@1.0.2, whatwg-encoding@1.0.5, whatwg-encoding@3.1.1
+
+devDependencies: skipped
+
+ WARN  Issues with peer dependencies found
+.
+├─┬ @vant/eslint-config 1.5.1
+│ └── ✕ unmet peer eslint@^6.7.2: found 5.16.0
+└─┬ vue-jest 4.0.0-beta.1
+  └─┬ ts-jest 23.10.5
+    └── ✕ unmet peer jest@">=22 <24": found 24.9.0
+
+Packages: +4
+++++
+Progress: resolved 1640, reused 1, downloaded 0, added 0
+Progress: resolved 1640, reused 3, downloaded 1, added 4, done
+Done in 19.3s using pnpm v9.15.9

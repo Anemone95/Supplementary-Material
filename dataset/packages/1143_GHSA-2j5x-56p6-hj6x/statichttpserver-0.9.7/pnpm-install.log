@@ -1,0 +1,14 @@
+$ corepack pnpm@9.15.9 install --prod --no-frozen-lockfile --reporter=append-only --config.node-linker=hoisted --ignore-workspace --ignore-scripts
+Progress: resolved 1, reused 0, downloaded 0, added 0
+ WARN  deprecated eslint@3.19.0: This version is no longer supported. Please see https://eslint.org/version-support for other options.
+ WARN  deprecated request@2.88.2: request has been deprecated, see https://github.com/request/request/issues/3142
+Progress: resolved 4, reused 0, downloaded 0, added 0
+Progress: resolved 100, reused 0, downloaded 0, added 0
+Progress: resolved 191, reused 0, downloaded 0, added 0
+ WARN  9 deprecated subdependencies found: circular-json@0.3.3, glob@7.1.1, glob@7.2.3, har-validator@5.1.5, inflight@1.0.6, json3@3.3.2, mkdirp@0.5.1, rimraf@2.6.3, uuid@3.4.0
+
+devDependencies: skipped
+
+Already up to date
+Progress: resolved 232, reused 0, downloaded 0, added 0, done
+Done in 3.9s using pnpm v9.15.9

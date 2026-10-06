@@ -1,0 +1,22 @@
+$ corepack pnpm@9.15.9 install --prod --no-frozen-lockfile --reporter=append-only --config.node-linker=hoisted --ignore-workspace --ignore-scripts
+ WARN  deprecated dottie@0.1.0: Package no longer supported. Contact Support at https://www.npmjs.com/support for more info.
+Progress: resolved 1, reused 0, downloaded 0, added 0
+ WARN  deprecated lingo@0.0.5: This project is abandoned
+ WARN  deprecated node-uuid@1.4.8: Use uuid module instead
+ WARN  deprecated mocha@1.17.1: Mocha v1.x is no longer supported.
+ WARN  deprecated circular-json@0.1.6: CircularJSON is in maintenance only, flatted is its successor.
+ WARN  deprecated sinon@1.8.2: 16.1.1
+ WARN  deprecated istanbul@0.1.46: This module is no longer maintained, try this instead:
+  npm i nyc
+Visit https://istanbul.js.org/integrations for other alternatives.
+ WARN  deprecated coffee-script@1.7.1: CoffeeScript on NPM has moved to "coffeescript" (no hyphen)
+Progress: resolved 74, reused 0, downloaded 0, added 0
+ WARN  20 deprecated subdependencies found: aws-sign@0.2.1, boom@0.3.8, cryptiles@0.1.3, formatio@1.0.2, glob@3.2.11, glob@3.2.3, graceful-fs@2.0.3, hawk@0.10.2, hoek@0.7.6, jade@0.26.3, minimatch@0.2.14, minimatch@0.3.0, minimatch@0.4.0, mkdirp@0.3.0, mkdirp@0.3.5, request@2.16.2, samsam@1.1.3, sliced@0.0.5, sntp@0.1.4, wru@0.3.0
+
+devDependencies: skipped
+
+Packages: +16
+++++++++++++++++
+Progress: resolved 118, reused 5, downloaded 0, added 5
+Progress: resolved 118, reused 6, downloaded 10, added 16, done
+Done in 2.6s using pnpm v9.15.9

@@ -1,0 +1,15 @@
+$ corepack pnpm@9.15.9 install --prod --no-frozen-lockfile --reporter=append-only --config.node-linker=hoisted --ignore-workspace --ignore-scripts
+Progress: resolved 1, reused 0, downloaded 0, added 0
+ WARN  deprecated lodash.isequal@4.5.0: This package is deprecated. Use require('node:util').isDeepStrictEqual instead.
+ WARN  deprecated bcrypt@3.0.8: versions < v5.0.0 do not handle NUL in passwords properly
+Progress: resolved 74, reused 0, downloaded 0, added 0
+Progress: resolved 358, reused 0, downloaded 0, added 0
+ WARN  16 deprecated subdependencies found: are-we-there-yet@1.1.7, fsevents@1.2.13, gauge@2.7.4, glob@7.2.3, inflight@1.0.6, node-pre-gyp@0.14.0, npmlog@4.1.2, osenv@0.1.5, path-dirname@1.0.2, resolve-url@0.2.1, rimraf@2.7.1, source-map-resolve@0.5.3, source-map-url@0.4.1, tar@4.4.19, uglify-es@3.3.9, urix@0.1.0
+
+devDependencies: skipped
+
+Packages: +493
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Progress: resolved 472, reused 426, downloaded 40, added 491
+Progress: resolved 472, reused 426, downloaded 42, added 493, done
+Done in 3.6s using pnpm v9.15.9

@@ -1,0 +1,29 @@
+lockfileVersion: '9.0'
+
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
+
+importers:
+
+  .:
+    dependencies:
+      comandante:
+        specifier: 0.0.1
+        version: 0.0.1
+
+packages:
+
+  comandante@0.0.1:
+    resolution: {integrity: sha512-v+oHWculB8bDLaNKNnU296dvnpTdk38oQdryVD4KtwLB9i7RdYasi3t296PYxijereTBOMZHw2m/B54LCtlFxw==}
+
+  duplexer@0.0.4:
+    resolution: {integrity: sha512-nO0WWuIDTde3CWK/8IPpG50dyhUilgpsqzYSIP+w20Yh+4iDgb/2Gs75QItcp0Hmx/JtxtTXBalj+LSTD1VemA==}
+
+snapshots:
+
+  comandante@0.0.1:
+    dependencies:
+      duplexer: 0.0.4
+
+  duplexer@0.0.4: {}

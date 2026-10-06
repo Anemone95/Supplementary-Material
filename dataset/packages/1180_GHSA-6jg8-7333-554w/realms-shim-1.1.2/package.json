@@ -1,0 +1,61 @@
+{
+  "name": "realms-shim",
+  "version": "1.1.2",
+  "description": "Spec-compliant shim for Realms TC39 Proposal",
+  "main": "dist/realms-shim.cjs.js",
+  "module": "dist/realms-shim.esm.js",
+  "browser": "dist/realms-shim.umd.js",
+  "license": "Apache-2.0",
+  "author": {
+    "name": "TC39 Open Source Contributors"
+  },
+  "keywords": [
+    "realms",
+    "ES8",
+    "ES2017",
+    "ECMAScript",
+    "ESNext",
+    "proposal"
+  ],
+  "homepage": "https://github.com/Agoric/realms-shim#readme",
+  "bugs": {
+    "url": "https://github.com/Agoric/realms-shim/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Agoric/realms-shim.git"
+  },
+  "scripts": {
+    "test": "npm run shim:test",
+    "build": "npm run shim:build",
+    "shim:lint": "eslint ./src ./test ./examples",
+    "shim:prettier": "prettier --config ./.prettierrc --write ./src/**/**/*.js ./test/**/**/*.js ./examples/**/**/*.js",
+    "shim:test": "tape -r esm ./test/**/**/*.js",
+    "shim:coverage": "nyc tape -r esm ./test/**/**/*.js",
+    "shim:coveralls": "nyc report --reporter=text-lcov | coveralls",
+    "shim:build": "npm run shim:build:dev && npm run shim:build:prod",
+    "shim:watch": "npm run shim:build:dev --watch",
+    "shim:build:dev": "rollup -c",
+    "shim:build:prod": "rollup -c --environment NODE_ENV:production"
+  },
+  "devDependencies": {
+    "coveralls": "^3.0.6",
+    "eslint": "^6.4.0",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-config-prettier": "^6.3.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-prettier": "^3.1.1",
+    "esm": "^3.2.25",
+    "nyc": "^14.1.1",
+    "prettier": "^1.18.2",
+    "rollup": "^1.21.4",
+    "rollup-plugin-babel-minify": "^9.1.0",
+    "rollup-plugin-strip-code": "^0.2.7",
+    "sinon": "^7.5.0",
+    "tape": "^4.11.0"
+  },
+  "files": [
+    "dist",
+    "LICENSE*"
+  ]
+}

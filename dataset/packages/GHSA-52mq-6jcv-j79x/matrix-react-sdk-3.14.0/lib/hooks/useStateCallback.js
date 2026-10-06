@@ -1,0 +1,47 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.useStateCallback = void 0;
+
+var _react = require("react");
+
+/*
+Copyright 2021 The Matrix.org Foundation C.I.C.
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+*/
+// Hook to simplify interactions with a store-backed state values
+// Returns value and method to change the state value
+const useStateCallback = (initialValue
+/*: T*/
+, callback
+/*: (v: T) => void*/
+) =>
+/*: [T, Dispatch<SetStateAction<T>>]*/
+{
+  const [value, setValue] = (0, _react.useState)(initialValue);
+
+  const interceptSetValue = (newVal
+  /*: T*/
+  ) => {
+    setValue(newVal);
+    callback(newVal);
+  };
+
+  return [value, interceptSetValue];
+};
+
+exports.useStateCallback = useStateCallback;
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uL3NyYy9ob29rcy91c2VTdGF0ZUNhbGxiYWNrLnRzIl0sIm5hbWVzIjpbInVzZVN0YXRlQ2FsbGJhY2siLCJpbml0aWFsVmFsdWUiLCJjYWxsYmFjayIsInZhbHVlIiwic2V0VmFsdWUiLCJpbnRlcmNlcHRTZXRWYWx1ZSIsIm5ld1ZhbCJdLCJtYXBwaW5ncyI6Ijs7Ozs7OztBQWdCQTs7QUFoQkE7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBSUE7QUFDQTtBQUNPLE1BQU1BLGdCQUFnQixHQUFHLENBQUlDO0FBQUo7QUFBQSxFQUFxQkM7QUFBckI7QUFBQTtBQUFBO0FBQW9GO0FBQ2hILFFBQU0sQ0FBQ0MsS0FBRCxFQUFRQyxRQUFSLElBQW9CLHFCQUFTSCxZQUFULENBQTFCOztBQUNBLFFBQU1JLGlCQUFpQixHQUFHLENBQUNDO0FBQUQ7QUFBQSxPQUFlO0FBQ3JDRixJQUFBQSxRQUFRLENBQUNFLE1BQUQsQ0FBUjtBQUNBSixJQUFBQSxRQUFRLENBQUNJLE1BQUQsQ0FBUjtBQUNILEdBSEQ7O0FBSUEsU0FBTyxDQUFDSCxLQUFELEVBQVFFLGlCQUFSLENBQVA7QUFDSCxDQVBNIiwic291cmNlc0NvbnRlbnQiOlsiLypcbkNvcHlyaWdodCAyMDIxIFRoZSBNYXRyaXgub3JnIEZvdW5kYXRpb24gQy5JLkMuXG5cbkxpY2Vuc2VkIHVuZGVyIHRoZSBBcGFjaGUgTGljZW5zZSwgVmVyc2lvbiAyLjAgKHRoZSBcIkxpY2Vuc2VcIik7XG55b3UgbWF5IG5vdCB1c2UgdGhpcyBmaWxlIGV4Y2VwdCBpbiBjb21wbGlhbmNlIHdpdGggdGhlIExpY2Vuc2UuXG5Zb3UgbWF5IG9idGFpbiBhIGNvcHkgb2YgdGhlIExpY2Vuc2UgYXRcblxuICAgIGh0dHA6Ly93d3cuYXBhY2hlLm9yZy9saWNlbnNlcy9MSUNFTlNFLTIuMFxuXG5Vbmxlc3MgcmVxdWlyZWQgYnkgYXBwbGljYWJsZSBsYXcgb3IgYWdyZWVkIHRvIGluIHdyaXRpbmcsIHNvZnR3YXJlXG5kaXN0cmlidXRlZCB1bmRlciB0aGUgTGljZW5zZSBpcyBkaXN0cmlidXRlZCBvbiBhbiBcIkFTIElTXCIgQkFTSVMsXG5XSVRIT1VUIFdBUlJBTlRJRVMgT1IgQ09ORElUSU9OUyBPRiBBTlkgS0lORCwgZWl0aGVyIGV4cHJlc3Mgb3IgaW1wbGllZC5cblNlZSB0aGUgTGljZW5zZSBmb3IgdGhlIHNwZWNpZmljIGxhbmd1YWdlIGdvdmVybmluZyBwZXJtaXNzaW9ucyBhbmRcbmxpbWl0YXRpb25zIHVuZGVyIHRoZSBMaWNlbnNlLlxuKi9cblxuaW1wb3J0IHtEaXNwYXRjaCwgU2V0U3RhdGVBY3Rpb24sIHVzZVN0YXRlfSBmcm9tIFwicmVhY3RcIjtcblxuLy8gSG9vayB0byBzaW1wbGlmeSBpbnRlcmFjdGlvbnMgd2l0aCBhIHN0b3JlLWJhY2tlZCBzdGF0ZSB2YWx1ZXNcbi8vIFJldHVybnMgdmFsdWUgYW5kIG1ldGhvZCB0byBjaGFuZ2UgdGhlIHN0YXRlIHZhbHVlXG5leHBvcnQgY29uc3QgdXNlU3RhdGVDYWxsYmFjayA9IDxUPihpbml0aWFsVmFsdWU6IFQsIGNhbGxiYWNrOiAodjogVCkgPT4gdm9pZCk6IFtULCBEaXNwYXRjaDxTZXRTdGF0ZUFjdGlvbjxUPj5dID0+IHtcbiAgICBjb25zdCBbdmFsdWUsIHNldFZhbHVlXSA9IHVzZVN0YXRlKGluaXRpYWxWYWx1ZSk7XG4gICAgY29uc3QgaW50ZXJjZXB0U2V0VmFsdWUgPSAobmV3VmFsOiBUKSA9PiB7XG4gICAgICAgIHNldFZhbHVlKG5ld1ZhbCk7XG4gICAgICAgIGNhbGxiYWNrKG5ld1ZhbCk7XG4gICAgfTtcbiAgICByZXR1cm4gW3ZhbHVlLCBpbnRlcmNlcHRTZXRWYWx1ZV07XG59O1xuIl19

@@ -1,0 +1,13 @@
+{
+  "name": "nodeaaaaa",
+  "version": "1.3.0",
+  "description": "this is node",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}

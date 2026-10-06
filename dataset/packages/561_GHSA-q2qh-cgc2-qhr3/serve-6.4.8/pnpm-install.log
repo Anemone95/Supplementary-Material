@@ -1,0 +1,16 @@
+$ corepack pnpm@9.15.9 install --prod --no-frozen-lockfile --reporter=append-only --config.node-linker=hoisted --ignore-workspace --ignore-scripts
+ WARN  deprecated @zeit/check-updates@1.0.5: Please use `update-check` instead.
+Progress: resolved 1, reused 0, downloaded 0, added 0
+Progress: resolved 186, reused 0, downloaded 0, added 0
+Progress: resolved 443, reused 0, downloaded 0, added 0
+Progress: resolved 723, reused 0, downloaded 0, added 0
+Progress: resolved 815, reused 0, downloaded 0, added 0
+ WARN  13 deprecated subdependencies found: circular-json@0.3.3, core-js@2.6.12, eslint@3.19.0, fsevents@1.2.13, glob@7.2.3, inflight@1.0.6, lodash.isequal@4.5.0, resolve-url@0.2.1, rimraf@2.6.3, source-map-resolve@0.5.3, source-map-url@0.4.1, string-similarity@1.2.0, urix@0.1.0
+Progress: resolved 817, reused 0, downloaded 0, added 0
+
+devDependencies: skipped
+
+Packages: +172
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Progress: resolved 817, reused 152, downloaded 19, added 172, done
+Done in 5.6s using pnpm v9.15.9

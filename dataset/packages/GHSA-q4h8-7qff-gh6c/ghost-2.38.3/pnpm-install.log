@@ -1,0 +1,54 @@
+$ corepack pnpm@9.15.9 install --prod --no-frozen-lockfile --reporter=append-only --config.node-linker=hoisted --ignore-workspace --ignore-scripts
+ WARN  Unsupported engine: wanted: {"node":"^8.10.0 || ^10.13.0"} (current: {"node":"v22.5.1","pnpm":"9.15.9"})
+ WARN  deprecated @nexes/nql@0.3.0: Package has been moved to @tryghost/nql
+Progress: resolved 1, reused 0, downloaded 0, added 0
+ WARN  deprecated @tryghost/members-ssr@0.7.1: Package no longer supported. Contact Support at https://www.npmjs.com/support for more info.
+ WARN  deprecated @tryghost/members-api@0.8.2: Package no longer supported. Contact Support at https://www.npmjs.com/support for more info.
+ WARN  deprecated brute-knex@4.0.0: Package no longer supported. Contact Support at https://www.npmjs.com/support for more info.
+ WARN  deprecated ghost-ignition@3.1.0: Package no longer supported. Contact Support at https://www.npmjs.com/support for more info.
+ WARN  deprecated glob@7.1.4: Old versions of glob are not supported, and contain widely publicized security vulnerabilities, which have been fixed in the current version. Please update. Support for old versions may be purchased (at exorbitant rates) by contacting i@izs.me
+ WARN  deprecated multer@1.4.2: Multer 1.x is affected by CVE-2022-24434. This is fixed in v1.4.4-lts.1 which drops support for versions of Node.js before 6. Please upgrade to at least Node.js 6 and version 1.4.4-lts.1 of Multer. If you need support for older versions of Node.js, we are open to accepting patches that would fix the CVE on the main 1.x release line, whilst maintaining compatibility with Node.js 0.10.
+ WARN  deprecated nodemailer@0.7.1: All versions below 4.0.1 of Nodemailer are deprecated. See https://nodemailer.com/status/
+ WARN  deprecated path-match@1.2.4: This package is archived and no longer maintained. For support, visit https://github.com/expressjs/express/discussions
+ WARN  deprecated uuid@3.3.3: uuid@10 and below is no longer supported.  For ESM codebases, update to uuid@latest.  For CommonJS codebases, use uuid@11 (but be aware this version will likely be deprecated in 2028).
+ WARN  deprecated @tryghost/html-to-mobiledoc@0.6.0: Deprecated: Ghost has moved to the Lexical editor and no longer supports mobiledoc. Use @tryghost/kg-html-to-lexical instead.
+ WARN  deprecated eslint@6.1.0: This version is no longer supported. Please see https://eslint.org/version-support for other options.
+ WARN  deprecated supertest@4.0.2: Please upgrade to supertest v7.1.3+, see release notes at https://github.com/forwardemail/supertest/releases/tag/v7.1.3 - maintenance is supported by Forward Email @ https://forwardemail.net
+ WARN  deprecated sinon@7.4.2: 16.1.1
+Progress: resolved 119, reused 0, downloaded 0, added 0
+Progress: resolved 134, reused 0, downloaded 0, added 0
+Progress: resolved 243, reused 0, downloaded 0, added 0
+Progress: resolved 329, reused 0, downloaded 0, added 0
+Progress: resolved 376, reused 0, downloaded 0, added 0
+Progress: resolved 492, reused 0, downloaded 0, added 0
+Progress: resolved 669, reused 0, downloaded 0, added 0
+Progress: resolved 729, reused 0, downloaded 0, added 0
+Progress: resolved 827, reused 0, downloaded 0, added 0
+Progress: resolved 984, reused 0, downloaded 0, added 0
+Progress: resolved 1251, reused 0, downloaded 0, added 0
+Progress: resolved 1379, reused 0, downloaded 0, added 0
+Progress: resolved 1450, reused 0, downloaded 0, added 0
+Progress: resolved 1451, reused 0, downloaded 0, added 0
+ WARN  75 deprecated subdependencies found: @babel/polyfill@7.12.1, @hapi/address@2.1.4, @hapi/formula@1.2.0, @hapi/hoek@8.5.1, @hapi/joi@16.1.8, @hapi/pinpoint@1.0.2, @hapi/topo@3.1.6, @nexes/mongo-knex@0.3.0, @nexes/mongo-utils@0.2.1, @nexes/nql-lang@0.0.1, @sinonjs/text-encoding@0.7.3, @tryghost/extract-zip@1.6.6, @tryghost/kg-parser-plugins@0.8.0, @tryghost/magic-link@0.3.3, @tryghost/mobiledoc-kit@0.11.2, @types/minimatch@6.0.0, abab@2.0.6, are-we-there-yet@1.1.7, aws-sdk@2.0.5, axios@0.18.1, browserslist@1.7.7, circular-json@0.3.3, core-js@2.6.12, debug@3.2.6, debug@4.1.1, domexception@1.0.1, eslint@4.19.1, eslint@5.16.0, flatten@1.0.3, formidable@1.2.6, fstream@1.0.12, gauge@2.7.4, ghost-ignition@2.9.6, ghost-ignition@4.0.0, glob@5.0.15, glob@6.0.4, glob@7.0.6, glob@7.1.2, glob@7.1.3, har-validator@5.1.5, iltorb@1.3.10, inflight@1.0.6, intl-messageformat-parser@2.1.3, lodash.pick@4.4.0, mailcomposer@0.2.12, mimelib@0.2.19, mkdirp@0.5.0, mkdirp@0.5.1, node-pre-gyp@0.11.0, npmlog@4.1.2, osenv@0.1.5, path-dirname@1.0.2, prebuild-install@2.5.3, prebuild-install@5.3.6, promise-wtf@1.2.4, q@1.5.1, raw-body@1.1.7, request-promise-native@1.0.9, request-promise@4.2.6, request@2.88.2, resolve-url@0.2.1, rimraf@2.4.5, rimraf@2.6.3, rimraf@2.7.1, source-map-resolve@0.5.3, source-map-url@0.4.1, superagent@3.8.3, svgo@0.7.2, tar@2.2.2, tar@4.4.19, trim@0.0.1, urix@0.1.0, w3c-hr-time@1.0.2, whatwg-encoding@1.0.5, whatwg-encoding@3.1.1
+
+devDependencies: skipped
+
+ WARN  Issues with peer dependencies found
+.
+└─┬ bookshelf 0.14.2
+  └── ✕ unmet peer knex@">=0.6.10 <0.15.0": found 0.19.5
+
+Packages: +1067
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Progress: resolved 1452, reused 892, downloaded 11, added 911
+Progress: resolved 1452, reused 892, downloaded 54, added 995
+Progress: resolved 1452, reused 892, downloaded 86, added 1042
+Progress: resolved 1452, reused 892, downloaded 95, added 1053
+Progress: resolved 1452, reused 892, downloaded 97, added 1055
+Progress: resolved 1452, reused 892, downloaded 98, added 1055
+Progress: resolved 1452, reused 892, downloaded 98, added 1057
+Progress: resolved 1452, reused 892, downloaded 99, added 1057
+Progress: resolved 1452, reused 892, downloaded 99, added 1058
+Progress: resolved 1452, reused 892, downloaded 100, added 1058
+Progress: resolved 1452, reused 892, downloaded 100, added 1067, done
+Done in 35.1s using pnpm v9.15.9

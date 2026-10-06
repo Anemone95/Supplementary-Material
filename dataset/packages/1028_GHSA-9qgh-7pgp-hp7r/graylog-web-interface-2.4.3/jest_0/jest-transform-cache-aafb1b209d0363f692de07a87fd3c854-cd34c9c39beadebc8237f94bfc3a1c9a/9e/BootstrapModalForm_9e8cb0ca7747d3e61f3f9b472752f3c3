@@ -1,0 +1,122 @@
+2c31f63135fcb01627e779e9d9d867ad
+'use strict';Object.defineProperty(exports, "__esModule", { value: true });var _extends = Object.assign || function (target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i];for (var key in source) {if (Object.prototype.hasOwnProperty.call(source, key)) {target[key] = source[key];}}}return target;};var _createClass = function () {function defineProperties(target, props) {for (var i = 0; i < props.length; i++) {var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);}}return function (Constructor, protoProps, staticProps) {if (protoProps) defineProperties(Constructor.prototype, protoProps);if (staticProps) defineProperties(Constructor, staticProps);return Constructor;};}();var _propTypes = require('prop-types');var _propTypes2 = _interopRequireDefault(_propTypes);
+var _react = require('react');var _react2 = _interopRequireDefault(_react);
+var _reactDom = require('react-dom');var _reactDom2 = _interopRequireDefault(_reactDom);
+var _reactBootstrap = require('react-bootstrap');
+var _jquery = require('jquery');var _jquery2 = _interopRequireDefault(_jquery);
+
+var _BootstrapModalWrapper = require('components/bootstrap/BootstrapModalWrapper');var _BootstrapModalWrapper2 = _interopRequireDefault(_BootstrapModalWrapper);
+
+var _validations = require('legacy/validations.js');function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function _classCallCheck(instance, Constructor) {if (!(instance instanceof Constructor)) {throw new TypeError("Cannot call a class as a function");}}function _possibleConstructorReturn(self, call) {if (!self) {throw new ReferenceError("this hasn't been initialised - super() hasn't been called");}return call && (typeof call === "object" || typeof call === "function") ? call : self;}function _inherits(subClass, superClass) {if (typeof superClass !== "function" && superClass !== null) {throw new TypeError("Super expression must either be null or a function, not " + typeof superClass);}subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } });if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;}
+
+/**
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           * Encapsulates a form element inside a bootstrap modal, hiding some custom logic that this kind of component
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           * has, and providing form validation using HTML5 and our custom validation.
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           */var
+BootstrapModalForm = function (_Component) {_inherits(BootstrapModalForm, _Component);
+  function BootstrapModalForm(props) {_classCallCheck(this, BootstrapModalForm);var _this = _possibleConstructorReturn(this, (BootstrapModalForm.__proto__ || Object.getPrototypeOf(BootstrapModalForm)).call(this,
+    props));
+
+    _this.open = _this.open.bind(_this);
+    _this.close = _this.close.bind(_this);
+    _this._submit = _this._submit.bind(_this);
+    _this._onModalCancel = _this._onModalCancel.bind(_this);return _this;
+  }_createClass(BootstrapModalForm, [{ key: '_onModalCancel', value: function _onModalCancel()
+
+    {
+      if (typeof this.props.onCancel === 'function') {
+        this.props.onCancel();
+      }
+
+      this.close();
+    } }, { key: 'open', value: function open()
+
+    {
+      this.refs.modal.open();
+    } }, { key: 'close', value: function close()
+
+    {
+      this.refs.modal.close();
+    } }, { key: '_submit', value: function _submit(
+
+    event) {
+      var formDOMNode = _reactDom2.default.findDOMNode(this.refs.form);
+      var $formDOMNode = (0, _jquery2.default)(formDOMNode);
+
+      if (typeof formDOMNode.checkValidity === 'function' && !formDOMNode.checkValidity() ||
+      typeof $formDOMNode.checkValidity === 'function' && !$formDOMNode.checkValidity()) {
+        event.preventDefault();
+        return;
+      }
+
+      // Check custom validation for plugin fields
+      if (!(0, _validations.validate)(formDOMNode)) {
+        event.preventDefault();
+        return;
+      }
+
+      if (typeof this.props.onSubmitForm === 'function') {
+        event.preventDefault();
+        this.props.onSubmitForm(event);
+      }
+    } }, { key: 'render', value: function render()
+
+    {
+      var body =
+      _react2.default.createElement('div', { className: 'container-fluid' },
+        this.props.children);
+
+
+
+      return (
+        _react2.default.createElement(_BootstrapModalWrapper2.default, { ref: 'modal',
+            onOpen: this.props.onModalOpen,
+            onClose: this.props.onModalClose,
+            onHide: this._onModalCancel },
+          _react2.default.createElement(_reactBootstrap.Modal.Header, { closeButton: true },
+            _react2.default.createElement(_reactBootstrap.Modal.Title, null, this.props.title)),
+
+          _react2.default.createElement('form', _extends({ ref: 'form', onSubmit: this._submit }, this.props.formProps),
+            _react2.default.createElement(_reactBootstrap.Modal.Body, null,
+              body),
+
+            _react2.default.createElement(_reactBootstrap.Modal.Footer, null,
+              _react2.default.createElement(_reactBootstrap.Button, { type: 'button', onClick: this._onModalCancel }, this.props.cancelButtonText),
+              _react2.default.createElement(_reactBootstrap.Button, { type: 'submit', disabled: this.props.submitButtonDisabled, bsStyle: 'primary' }, this.props.submitButtonText)))));
+
+
+
+
+    } }]);return BootstrapModalForm;}(_react.Component);
+
+
+BootstrapModalForm.propTypes = {
+  /* Modal title */
+  title: _propTypes2.default.oneOfType([_propTypes2.default.string, _propTypes2.default.node]),
+  /* Form contents, included in the modal body */
+  children: _propTypes2.default.oneOfType([
+  _propTypes2.default.arrayOf(_propTypes2.default.element),
+  _propTypes2.default.element]).
+  isRequired,
+  onModalOpen: _propTypes2.default.func,
+  onModalClose: _propTypes2.default.func,
+  onSubmitForm: _propTypes2.default.func,
+  onCancel: _propTypes2.default.func,
+  /* Object with additional props to pass to the form */
+  formProps: _propTypes2.default.object,
+  /* Text to use in the cancel button. "Cancel" is the default */
+  cancelButtonText: _propTypes2.default.string,
+  /* Text to use in the submit button. "Submit" is the default */
+  submitButtonText: _propTypes2.default.string,
+  submitButtonDisabled: _propTypes2.default.bool };
+
+
+BootstrapModalForm.defaultProps = {
+  formProps: {},
+  cancelButtonText: '取消',
+  submitButtonText: '提交',
+  submitButtonDisabled: false };var _default =
+
+
+BootstrapModalForm;exports.default = _default;module.exports = exports['default'];;var _temp = function () {if (typeof __REACT_HOT_LOADER__ === 'undefined') {return;}__REACT_HOT_LOADER__.register(BootstrapModalForm, 'BootstrapModalForm', '/root/graylog2-server-2.4.3/graylog2-web-interface/src/components/bootstrap/BootstrapModalForm.jsx');__REACT_HOT_LOADER__.register(_default, 'default', '/root/graylog2-server-2.4.3/graylog2-web-interface/src/components/bootstrap/BootstrapModalForm.jsx');}();;
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIkJvb3RzdHJhcE1vZGFsRm9ybS5qc3giXSwibmFtZXMiOlsiQm9vdHN0cmFwTW9kYWxGb3JtIiwicHJvcHMiLCJvcGVuIiwiYmluZCIsImNsb3NlIiwiX3N1Ym1pdCIsIl9vbk1vZGFsQ2FuY2VsIiwib25DYW5jZWwiLCJyZWZzIiwibW9kYWwiLCJldmVudCIsImZvcm1ET01Ob2RlIiwiZmluZERPTU5vZGUiLCJmb3JtIiwiJGZvcm1ET01Ob2RlIiwiY2hlY2tWYWxpZGl0eSIsInByZXZlbnREZWZhdWx0Iiwib25TdWJtaXRGb3JtIiwiYm9keSIsImNoaWxkcmVuIiwib25Nb2RhbE9wZW4iLCJvbk1vZGFsQ2xvc2UiLCJ0aXRsZSIsImZvcm1Qcm9wcyIsImNhbmNlbEJ1dHRvblRleHQiLCJzdWJtaXRCdXR0b25EaXNhYmxlZCIsInN1Ym1pdEJ1dHRvblRleHQiLCJwcm9wVHlwZXMiLCJvbmVPZlR5cGUiLCJzdHJpbmciLCJub2RlIiwiYXJyYXlPZiIsImVsZW1lbnQiLCJpc1JlcXVpcmVkIiwiZnVuYyIsIm9iamVjdCIsImJvb2wiLCJkZWZhdWx0UHJvcHMiXSwibWFwcGluZ3MiOiJ1MkJBQUEsdUM7QUFDQSw4QjtBQUNBLHFDO0FBQ0E7QUFDQSxnQzs7QUFFQSxtRjs7QUFFQSxvRDs7QUFFQTs7OztBQUlNQSxrQjtBQUNKLDhCQUFZQyxLQUFaLEVBQW1CO0FBQ1hBLFNBRFc7O0FBR2pCLFVBQUtDLElBQUwsR0FBWSxNQUFLQSxJQUFMLENBQVVDLElBQVYsT0FBWjtBQUNBLFVBQUtDLEtBQUwsR0FBYSxNQUFLQSxLQUFMLENBQVdELElBQVgsT0FBYjtBQUNBLFVBQUtFLE9BQUwsR0FBZSxNQUFLQSxPQUFMLENBQWFGLElBQWIsT0FBZjtBQUNBLFVBQUtHLGNBQUwsR0FBc0IsTUFBS0EsY0FBTCxDQUFvQkgsSUFBcEIsT0FBdEIsQ0FOaUI7QUFPbEIsRzs7QUFFZ0I7QUFDZixVQUFJLE9BQU8sS0FBS0YsS0FBTCxDQUFXTSxRQUFsQixLQUErQixVQUFuQyxF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YztBQUdoQ0Usb0JBQWtCLElBSGM7QUFJaENELHdCQUFzQixLQUpVLEVBQWxDLEM7OztBQU9lekIsa0Isa0xBekdUQSxrQiIsImZpbGUiOiJCb290c3RyYXBNb2RhbEZvcm0uanN4Iiwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IFByb3BUeXBlcyBmcm9tICdwcm9wLXR5cGVzJztcbmltcG9ydCBSZWFjdCwgeyBDb21wb25lbnQgfSBmcm9tICdyZWFjdCc7XG5pbXBvcnQgUmVhY3RET00gZnJvbSAncmVhY3QtZG9tJztcbmltcG9ydCB7IE1vZGFsLCBCdXR0b24gfSBmcm9tICdyZWFjdC1ib290c3RyYXAnO1xuaW1wb3J0ICQgZnJvbSAnanF1ZXJ5JztcblxuaW1wb3J0IEJvb3RzdHJhcE1vZGFsV3JhcHBlciBmcm9tICdjb21wb25lbnRzL2Jvb3RzdHJhcC9Cb290c3RyYXBNb2RhbFdyYXBwZXInO1xuXG5pbXBvcnQgeyB2YWxpZGF0ZSB9IGZyb20gJ2xlZ2FjeS92YWxpZGF0aW9ucy5qcyc7XG5cbi8qKlxuICogRW5jYXBzdWxhdGVzIGEgZm9ybSBlbGVtZW50IGluc2lkZSBhIGJvb3RzdHJhcCBtb2RhbCwgaGlkaW5nIHNvbWUgY3VzdG9tIGxvZ2ljIHRoYXQgdGhpcyBraW5kIG9mIGNvbXBvbmVudFxuICogaGFzLCBhbmQgcHJvdmlkaW5nIGZvcm0gdmFsaWRhdGlvbiB1c2luZyBIVE1MNSBhbmQgb3VyIGN1c3RvbSB2YWxpZGF0aW9uLlxuICovXG5jbGFzcyBCb290c3RyYXBNb2RhbEZvcm0gZXh0ZW5kcyBDb21wb25lbnQge1xuICBjb25zdHJ1Y3Rvcihwcm9wcykge1xuICAgIHN1cGVyKHByb3BzKTtcblxuICAgIHRoaXMub3BlbiA9IHRoaXMub3Blbi5iaW5kKHRoaXMpO1xuICAgIHRoaXMuY2xvc2UgPSB0aGlzLmNsb3NlLmJpbmQodGhpcyk7XG4gICAgdGhpcy5fc3VibWl0ID0gdGhpcy5fc3VibWl0LmJpbmQodGhpcyk7XG4gICAgdGhpcy5fb25Nb2RhbENhbmNlbCA9IHRoaXMuX29uTW9kYWxDYW5jZWwuYmluZCh0aGlzKTtcbiAgfVxuXG4gIF9vbk1vZGFsQ2FuY2VsKCkge1xuICAgIGlmICh0eXBlb2YgdGhpcy5wcm9wcy5vbkNhbmNlbCA9PT0gJ2Z1bmN0aW9uJykge1xuICAgICAgdGhpcy5wcm9wcy5vbkNhbmNlbCgpO1xuICAgIH1cblxuICAgIHRoaXMuY2xvc2UoKTtcbiAgfVxuXG4gIG9wZW4oKSB7XG4gICAgdGhpcy5yZWZzLm1vZGFsLm9wZW4oKTtcbiAgfVxuXG4gIGNsb3NlKCkge1xuICAgIHRoaXMucmVmcy5tb2RhbC5jbG9zZSgpO1xuICB9XG5cbiAgX3N1Ym1pdChldmVudCkge1xuICAgIGNvbnN0IGZvcm1ET01Ob2RlID0gUmVhY3RET00uZmluZERPTU5vZGUodGhpcy5yZWZzLmZvcm0pO1xuICAgIGNvbnN0ICRmb3JtRE9NTm9kZSA9ICQoZm9ybURPTU5vZGUpO1xuXG4gICAgaWYgKCh0eXBlb2YgZm9ybURPTU5vZGUuY2hlY2tWYWxpZGl0eSA9PT0gJ2Z1bmN0aW9uJyAmJiAhZm9ybURPTU5vZGUuY2hlY2tWYWxpZGl0eSgpKSB8fFxuICAgICAgKHR5cGVvZiAkZm9ybURPTU5vZGUuY2hlY2tWYWxpZGl0eSA9PT0gJ2Z1bmN0aW9uJyAmJiAhJGZvcm1ET01Ob2RlLmNoZWNrVmFsaWRpdHkoKSkpIHtcbiAgICAgIGV2ZW50LnByZXZlbnREZWZhdWx0KCk7XG4gICAgICByZXR1cm47XG4gICAgfVxuXG4gICAgLy8gQ2hlY2sgY3VzdG9tIHZhbGlkYXRpb24gZm9yIHBsdWdpbiBmaWVsZHNcbiAgICBpZiAoIXZhbGlkYXRlKGZvcm1ET01Ob2RlKSkge1xuICAgICAgZXZlbnQucHJldmVudERlZmF1bHQoKTtcbiAgICAgIHJldHVybjtcbiAgICB9XG5cbiAgICBpZiAodHlwZW9mIHRoaXMucHJvcHMub25TdWJtaXRGb3JtID09PSAnZnVuY3Rpb24nKSB7XG4gICAgICBldmVudC5wcmV2ZW50RGVmYXVsdCgpO1xuICAgICAgdGhpcy5wcm9wcy5vblN1Ym1pdEZvcm0oZXZlbnQpO1xuICAgIH1cbiAgfVxuXG4gIHJlbmRlcigpIHtcbiAgICBjb25zdCBib2R5ID0gKFxuICAgICAgPGRpdiBjbGFzc05hbWU9XCJjb250YWluZXItZmx1aWRcIj5cbiAgICAgICAge3RoaXMucHJvcHMuY2hpbGRyZW59XG4gICAgICA8L2Rpdj5cbiAgICApO1xuXG4gICAgcmV0dXJuIChcbiAgICAgIDxCb290c3RyYXBNb2RhbFdyYXBwZXIgcmVmPVwibW9kYWxcIlxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICBvbk9wZW49e3RoaXMucHJvcHMub25Nb2RhbE9wZW59XG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgIG9uQ2xvc2U9e3RoaXMucHJvcHMub25Nb2RhbENsb3NlfVxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICBvbkhpZGU9e3RoaXMuX29uTW9kYWxDYW5jZWx9PlxuICAgICAgICA8TW9kYWwuSGVhZGVyIGNsb3NlQnV0dG9uPlxuICAgICAgICAgIDxNb2RhbC5UaXRsZT57dGhpcy5wcm9wcy50aXRsZX08L01vZGFsLlRpdGxlPlxuICAgICAgICA8L01vZGFsLkhlYWRlcj5cbiAgICAgICAgPGZvcm0gcmVmPVwiZm9ybVwiIG9uU3VibWl0PXt0aGlzLl9zdWJtaXR9IHsuLi50aGlzLnByb3BzLmZvcm1Qcm9wc30+XG4gICAgICAgICAgPE1vZGFsLkJvZHk+XG4gICAgICAgICAgICB7Ym9keX1cbiAgICAgICAgICA8L01vZGFsLkJvZHk+XG4gICAgICAgICAgPE1vZGFsLkZvb3Rlcj5cbiAgICAgICAgICAgIDxCdXR0b24gdHlwZT1cImJ1dHRvblwiIG9uQ2xpY2s9e3RoaXMuX29uTW9kYWxDYW5jZWx9Pnt0aGlzLnByb3BzLmNhbmNlbEJ1dHRvblRleHR9PC9CdXR0b24+XG4gICAgICAgICAgICA8QnV0dG9uIHR5cGU9XCJzdWJtaXRcIiBkaXNhYmxlZD17dGhpcy5wcm9wcy5zdWJtaXRCdXR0b25EaXNhYmxlZH0gYnNTdHlsZT1cInByaW1hcnlcIj57dGhpcy5wcm9wcy5zdWJtaXRCdXR0b25UZXh0fTwvQnV0dG9uPlxuICAgICAgICAgIDwvTW9kYWwuRm9vdGVyPlxuICAgICAgICA8L2Zvcm0+XG4gICAgICA8L0Jvb3RzdHJhcE1vZGFsV3JhcHBlcj5cbiAgICApO1xuICB9XG59XG5cbkJvb3RzdHJhcE1vZGFsRm9ybS5wcm9wVHlwZXMgPSB7XG4gIC8qIE1vZGFsIHRpdGxlICovXG4gIHRpdGxlOiBQcm9wVHlwZXMub25lT2ZUeXBlKFtQcm9wVHlwZXMuc3RyaW5nLCBQcm9wVHlwZXMubm9kZV0pLFxuICAvKiBGb3JtIGNvbnRlbnRzLCBpbmNsdWRlZCBpbiB0aGUgbW9kYWwgYm9keSAqL1xuICBjaGlsZHJlbjogUHJvcFR5cGVzLm9uZU9mVHlwZShbXG4gICAgUHJvcFR5cGVzLmFycmF5T2YoUHJvcFR5cGVzLmVsZW1lbnQpLFxuICAgIFByb3BUeXBlcy5lbGVtZW50LFxuICBdKS5pc1JlcXVpcmVkLFxuICBvbk1vZGFsT3BlbjogUHJvcFR5cGVzLmZ1bmMsXG4gIG9uTW9kYWxDbG9zZTogUHJvcFR5cGVzLmZ1bmMsXG4gIG9uU3VibWl0Rm9ybTogUHJvcFR5cGVzLmZ1bmMsXG4gIG9uQ2FuY2VsOiBQcm9wVHlwZXMuZnVuYyxcbiAgLyogT2JqZWN0IHdpdGggYWRkaXRpb25hbCBwcm9wcyB0byBwYXNzIHRvIHRoZSBmb3JtICovXG4gIGZvcm1Qcm9wczogUHJvcFR5cGVzLm9iamVjdCxcbiAgLyogVGV4dCB0byB1c2UgaW4gdGhlIGNhbmNlbCBidXR0b24uIFwiQ2FuY2VsXCIgaXMgdGhlIGRlZmF1bHQgKi9cbiAgY2FuY2VsQnV0dG9uVGV4dDogUHJvcFR5cGVzLnN0cmluZyxcbiAgLyogVGV4dCB0byB1c2UgaW4gdGhlIHN1Ym1pdCBidXR0b24uIFwiU3VibWl0XCIgaXMgdGhlIGRlZmF1bHQgKi9cbiAgc3VibWl0QnV0dG9uVGV4dDogUHJvcFR5cGVzLnN0cmluZyxcbiAgc3VibWl0QnV0dG9uRGlzYWJsZWQ6IFByb3BUeXBlcy5ib29sLFxufTtcblxuQm9vdHN0cmFwTW9kYWxGb3JtLmRlZmF1bHRQcm9wcyA9IHtcbiAgZm9ybVByb3BzOiB7fSxcbiAgY2FuY2VsQnV0dG9uVGV4dDogJ+WPlua2iCcsXG4gIHN1Ym1pdEJ1dHRvblRleHQ6ICfmj5DkuqQnLFxuICBzdWJtaXRCdXR0b25EaXNhYmxlZDogZmFsc2UsXG59O1xuXG5leHBvcnQgZGVmYXVsdCBCb290c3RyYXBNb2RhbEZvcm07XG4iXX0=

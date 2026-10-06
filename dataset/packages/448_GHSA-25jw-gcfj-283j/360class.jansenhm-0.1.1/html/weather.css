@@ -1,0 +1,32 @@
+.ajax-loader {
+    width: 40px;
+    height: 40px;
+    background: url(ajax-loader.gif) center center no-repeat;
+}
+div#banner {
+	float: right;
+}
+img#weathermanImg {
+	height: 300px;
+	width: auto;
+
+}
+div.spacingDiv{
+	height: 110px;
+	display: block;
+}
+div#weatherLinks {
+	margin: 13px;
+}	
+span#suggestion {
+	display: block;
+}
+form#weatherForm {
+	padding: 8px 10px;
+
+	border-bottom: blue solid 2px;
+}
+form#weatherForm input#submitButton {
+	margin-top: 8px;
+	margin-left: 10px;
+}

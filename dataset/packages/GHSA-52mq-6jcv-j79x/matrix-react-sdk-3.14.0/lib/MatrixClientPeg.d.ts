@@ -1,0 +1,70 @@
+import { MatrixClient } from 'matrix-js-sdk/src/client';
+export interface IMatrixClientCreds {
+    homeserverUrl: string;
+    identityServerUrl: string;
+    userId: string;
+    deviceId?: string;
+    accessToken: string;
+    guest?: boolean;
+    pickleKey?: string;
+    freshLogin?: boolean;
+}
+export interface IOpts {
+    initialSyncLimit?: number;
+    pendingEventOrdering?: "detached" | "chronological";
+    lazyLoadMembers?: boolean;
+    clientWellKnownPollPeriod?: number;
+}
+export interface IMatrixClientPeg {
+    opts: IOpts;
+    /**
+     * Sets the script href passed to the IndexedDB web worker
+     * If set, a separate web worker will be started to run the IndexedDB
+     * queries on.
+     *
+     * @param {string} script href to the script to be passed to the web worker
+     */
+    setIndexedDbWorkerScript(script: string): void;
+    /**
+     * Return the server name of the user's homeserver
+     * Throws an error if unable to deduce the homeserver name
+     * (eg. if the user is not logged in)
+     *
+     * @returns {string} The homeserver name, if present.
+     */
+    getHomeserverName(): string;
+    get(): MatrixClient;
+    unset(): void;
+    assign(): Promise<any>;
+    start(): Promise<any>;
+    getCredentials(): IMatrixClientCreds;
+    /**
+     * If we've registered a user ID we set this to the ID of the
+     * user we've just registered. If they then go & log in, we
+     * can send them to the welcome user (obviously this doesn't
+     * guarentee they'll get a chat with the welcome user).
+     *
+     * @param {string} uid The user ID of the user we've just registered
+     */
+    setJustRegisteredUserId(uid: string): void;
+    /**
+     * Returns true if the current user has just been registered by this
+     * client as determined by setJustRegisteredUserId()
+     *
+     * @returns {bool} True if user has just been registered
+     */
+    currentUserIsJustRegistered(): boolean;
+    /**
+     * If the current user has been registered by this device then this
+     * returns a boolean of whether it was within the last N hours given.
+     */
+    userRegisteredWithinLastHours(hours: number): boolean;
+    /**
+     * Replace this MatrixClientPeg's client with a client instance that has
+     * homeserver / identity server URLs and active credentials
+     *
+     * @param {IMatrixClientCreds} creds The new credentials to use.
+     */
+    replaceUsingCreds(creds: IMatrixClientCreds): void;
+}
+export declare const MatrixClientPeg: IMatrixClientPeg;

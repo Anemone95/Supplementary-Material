@@ -1,0 +1,20 @@
+$ corepack pnpm@9.15.9 install --prod --no-frozen-lockfile --reporter=append-only --config.node-linker=hoisted --ignore-workspace --ignore-scripts
+Progress: resolved 1, reused 0, downloaded 0, added 0
+ WARN  deprecated @babel/plugin-proposal-class-properties@7.18.6: This proposal has been merged to the ECMAScript standard and thus this plugin is no longer maintained. Please use @babel/plugin-transform-class-properties instead.
+ WARN  deprecated eslint@7.32.0: This version is no longer supported. Please see https://eslint.org/version-support for other options.
+ WARN  deprecated rollup-plugin-terser@7.0.2: This package has been deprecated and is no longer maintained. Please use @rollup/plugin-terser
+Progress: resolved 11, reused 0, downloaded 0, added 0
+Progress: resolved 12, reused 0, downloaded 0, added 0
+Progress: resolved 13, reused 0, downloaded 0, added 0
+Progress: resolved 14, reused 0, downloaded 0, added 0
+Progress: resolved 120, reused 0, downloaded 0, added 0
+Progress: resolved 248, reused 0, downloaded 0, added 0
+Progress: resolved 369, reused 0, downloaded 0, added 0
+Progress: resolved 445, reused 0, downloaded 0, added 0
+ WARN  5 deprecated subdependencies found: @humanwhocodes/config-array@0.5.0, @humanwhocodes/object-schema@1.2.1, glob@7.2.3, inflight@1.0.6, rimraf@3.0.2
+
+devDependencies: skipped
+
+Already up to date
+Progress: resolved 456, reused 0, downloaded 0, added 0, done
+Done in 9.1s using pnpm v9.15.9

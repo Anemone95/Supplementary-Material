@@ -1,0 +1,40 @@
+{
+  "name": "umount",
+  "version": "1.1.6",
+  "description": "Umount a device in UNIX based operating systems",
+  "main": "build/umount.js",
+  "homepage": "https://github.com/jviotti/node-umount",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/jviotti/node-umount.git"
+  },
+  "keywords": [
+    "umount",
+    "unix",
+    "device"
+  ],
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "gulp test",
+    "prepublish": "gulp build"
+  },
+  "author": "Juan Cruz Viotti <juanchiviotti@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "chai": "~3.5.0",
+    "coffee-script": "~1.12.6",
+    "gulp": "~3.9.1",
+    "gulp-coffee": "~2.3.4",
+    "gulp-coffeelint": "~0.6.0",
+    "gulp-mocha": "~3.0.1",
+    "gulp-util": "~3.0.1",
+    "mocha": "~3.4.1",
+    "sinon": "~2.3.1",
+    "sinon-chai": "~2.10.0"
+  },
+  "dependencies": {
+    "lodash": "~4.17.4"
+  }
+}

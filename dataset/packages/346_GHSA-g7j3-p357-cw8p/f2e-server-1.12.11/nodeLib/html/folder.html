@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head><%var $ = request.$, mime = request.util.mime, staticServer = request.util.staticServer;%>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<title><%=$.title%></title>
+	<link rel="stylesheet" href="<%=staticServer%>static/css/folder.css">
+	<!--[if lt IE 9]>
+	<style>.fixed-line{display:none;} body{padding:0;}</style>
+	<![endif]-->
+	<!--[if !IE | (gte IE 9)]><!-->
+	<script data-main="<%=staticServer%>static/js/folder.js" src="<%=staticServer%>static/js/require.min.js"></script>
+	<!--<![endif]-->
+</head>
+<body>
+<div class="fixed-line">
+	<a href="/config" class="btn btn-primary" title="配置" target="_blank">动态配置</a>
+	<a class="btn btn-danger" href="javascript:void(0);" id="output" title="点击将当前项目输出到指定文件夹">项目输出</a>
+	<a class="btn btn-success" href="http://f2e-server.com" target="_blank">服务器API</a>
+    <div id="clock" data-clock="<%=staticServer%>static/img/clock.gif"></div>
+</div>
+<ul id="list-container">
+<%for(var i=0; i<$.fileList.length; i++){ 
+	var t = $.fileList[i], 
+		temp = t.name.match(/\.([^\.\/]+)$/), 
+		type = temp ? temp[1] : "folder",
+		_blank = mime.isTXT(type) ? 'target="_blank"' : '',
+		_icon = mime.isTXT(type) ? '<a href="/prettify?'+t.href+'?handle=false&middleware=false&debug=true&_build_=true" target="_blank" class="see-to-source">源</a>' : '';
+
+		_icon = type == 'psd' ? '<a href="/psd?'+t.href+'" target="_blank" class="see-to-source">稿</a>' : _icon;
+
+%><li class="<%=type%>" ><a href="<%=t.href%>" <%=_blank%> ><%=t.name%></a> <%=_icon%></li>
+<%}%>	
+</ul>
+
+<%if($.needUpdate){%>
+<div class="worn-msg btn-warning animated flash">
+	<a href="http://f2e-server.com/#change-log" target="_blank">Your f2e-server is need-update!</a>
+</div>
+<%}%>
+
+</body>
+</html>

@@ -1,0 +1,44 @@
+{
+  "name": "grunt-ccompiler",
+  "description": "Closure Compiler Grunt Plugin",
+  "version": "0.1.0",
+  "homepage": "https://github.com/AlfonsoFilho/grunt-ccompiler",
+  "author": {
+    "name": "Alfonso Filho",
+    "email": "alfonsocfilho@gmail.com"
+  },
+  "main": "Gruntfile",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/alfonso/grunt-ccompiler.git"
+  },
+  "bugs": {
+    "url": "https://github.com/AlfonsoFilho/grunt-ccompiler/issues"
+  },
+  "licenses": "MIT",
+  "engines": {
+    "node": ">= 0.8.0"
+  },
+  "scripts": {
+    "test": "grunt test",
+    "postinstall": "node scripts/install.js"
+  },
+  "devDependencies": {
+    "grunt-contrib-jshint": "^0.9.2",
+    "grunt-contrib-clean": "^0.5.0",
+    "grunt-contrib-nodeunit": "^0.3.3",
+    "grunt": "~0.4.5",
+    "grunt-release-it": "^0.2.1"
+  },
+  "peerDependencies": {
+    "grunt": "~0.4.5"
+  },
+  "keywords": [
+    "gruntplugin"
+  ],
+  "dependencies": {
+    "shelljs": "^0.3.0",
+    "progress": "^1.1.8",
+    "decompress-zip": "^0.1.0"
+  }
+}

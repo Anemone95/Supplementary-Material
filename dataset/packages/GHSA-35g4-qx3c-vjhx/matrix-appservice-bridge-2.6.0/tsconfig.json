@@ -1,0 +1,33 @@
+{
+  "compilerOptions": {
+    "incremental": true,
+    "target": "ES2019",
+    "module": "commonjs",
+    "allowJs": true,
+    "checkJs": false,
+    "declaration": true,
+    "sourceMap": true,
+    "outDir": "./lib",
+    "composite": false,
+    "strict": true,
+    "esModuleInterop": true,
+    "strictNullChecks": true,
+    "skipLibCheck": true, /* matrix-js-sdk throws up errors */
+  },
+  "include": [
+    "src/**/*"
+  ],
+  "exclude": [
+    "spec/**/*",
+    "scripts/**/*",
+    "app.js"
+  ],
+  "typedocOptions": {
+    "mode": "library",
+    "out": ".typedoc",
+    "entryPoint": "index",
+    "excludePrivate": true,
+    "excludeNotExported": true,
+    "exclude": ["**/index.ts"]
+  }
+}

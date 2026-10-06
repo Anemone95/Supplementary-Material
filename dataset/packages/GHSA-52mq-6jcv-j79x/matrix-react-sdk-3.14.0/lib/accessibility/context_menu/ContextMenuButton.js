@@ -1,0 +1,58 @@
+"use strict";
+
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.ContextMenuButton = void 0;
+
+var _extends2 = _interopRequireDefault(require("@babel/runtime/helpers/extends"));
+
+var _objectWithoutProperties2 = _interopRequireDefault(require("@babel/runtime/helpers/objectWithoutProperties"));
+
+var _react = _interopRequireDefault(require("react"));
+
+var _AccessibleButton = _interopRequireDefault(require("../../components/views/elements/AccessibleButton"));
+
+/*
+Copyright 2015, 2016 OpenMarket Ltd
+Copyright 2018 New Vector Ltd
+Copyright 2019 The Matrix.org Foundation C.I.C.
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+*/
+// Semantic component for representing the AccessibleButton which launches a <ContextMenu />
+const ContextMenuButton
+/*: React.FC<IProps>*/
+= (_ref) => {
+  let {
+    label,
+    isExpanded,
+    children,
+    onClick,
+    onContextMenu
+  } = _ref,
+      props = (0, _objectWithoutProperties2.default)(_ref, ["label", "isExpanded", "children", "onClick", "onContextMenu"]);
+  return /*#__PURE__*/_react.default.createElement(_AccessibleButton.default, (0, _extends2.default)({}, props, {
+    onClick: onClick,
+    onContextMenu: onContextMenu || onClick,
+    title: label,
+    "aria-label": label,
+    "aria-haspopup": true,
+    "aria-expanded": isExpanded
+  }), children);
+};
+
+exports.ContextMenuButton = ContextMenuButton;
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uLy4uL3NyYy9hY2Nlc3NpYmlsaXR5L2NvbnRleHRfbWVudS9Db250ZXh0TWVudUJ1dHRvbi50c3giXSwibmFtZXMiOlsiQ29udGV4dE1lbnVCdXR0b24iLCJsYWJlbCIsImlzRXhwYW5kZWQiLCJjaGlsZHJlbiIsIm9uQ2xpY2siLCJvbkNvbnRleHRNZW51IiwicHJvcHMiXSwibWFwcGluZ3MiOiI7Ozs7Ozs7Ozs7Ozs7QUFrQkE7O0FBRUE7O0FBcEJBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFZQTtBQUNPLE1BQU1BO0FBQW1DO0FBQUEsRUFBRyxVQU83QztBQUFBLE1BUDhDO0FBQ2hEQyxJQUFBQSxLQURnRDtBQUVoREMsSUFBQUEsVUFGZ0Q7QUFHaERDLElBQUFBLFFBSGdEO0FBSWhEQyxJQUFBQSxPQUpnRDtBQUtoREMsSUFBQUE7QUFMZ0QsR0FPOUM7QUFBQSxNQURDQyxLQUNEO0FBQ0Ysc0JBQ0ksNkJBQUMseUJBQUQsNkJBQ1FBLEtBRFI7QUFFSSxJQUFBLE9BQU8sRUFBRUYsT0FGYjtBQUdJLElBQUEsYUFBYSxFQUFFQyxhQUFhLElBQUlELE9BSHBDO0FBSUksSUFBQSxLQUFLLEVBQUVILEtBSlg7QUFLSSxrQkFBWUEsS0FMaEI7QUFNSSxxQkFBZSxJQU5uQjtBQU9JLHFCQUFlQztBQVBuQixNQVNNQyxRQVROLENBREo7QUFhSCxDQXJCTSIsInNvdXJjZXNDb250ZW50IjpbIi8qXG5Db3B5cmlnaHQgMjAxNSwgMjAxNiBPcGVuTWFya2V0IEx0ZFxuQ29weXJpZ2h0IDIwMTggTmV3IFZlY3RvciBMdGRcbkNvcHlyaWdodCAyMDE5IFRoZSBNYXRyaXgub3JnIEZvdW5kYXRpb24gQy5JLkMuXG5cbkxpY2Vuc2VkIHVuZGVyIHRoZSBBcGFjaGUgTGljZW5zZSwgVmVyc2lvbiAyLjAgKHRoZSBcIkxpY2Vuc2VcIik7XG55b3UgbWF5IG5vdCB1c2UgdGhpcyBmaWxlIGV4Y2VwdCBpbiBjb21wbGlhbmNlIHdpdGggdGhlIExpY2Vuc2UuXG5Zb3UgbWF5IG9idGFpbiBhIGNvcHkgb2YgdGhlIExpY2Vuc2UgYXRcblxuICAgIGh0dHA6Ly93d3cuYXBhY2hlLm9yZy9saWNlbnNlcy9MSUNFTlNFLTIuMFxuXG5Vbmxlc3MgcmVxdWlyZWQgYnkgYXBwbGljYWJsZSBsYXcgb3IgYWdyZWVkIHRvIGluIHdyaXRpbmcsIHNvZnR3YXJlXG5kaXN0cmlidXRlZCB1bmRlciB0aGUgTGljZW5zZSBpcyBkaXN0cmlidXRlZCBvbiBhbiBcIkFTIElTXCIgQkFTSVMsXG5XSVRIT1VUIFdBUlJBTlRJRVMgT1IgQ09ORElUSU9OUyBPRiBBTlkgS0lORCwgZWl0aGVyIGV4cHJlc3Mgb3IgaW1wbGllZC5cblNlZSB0aGUgTGljZW5zZSBmb3IgdGhlIHNwZWNpZmljIGxhbmd1YWdlIGdvdmVybmluZyBwZXJtaXNzaW9ucyBhbmRcbmxpbWl0YXRpb25zIHVuZGVyIHRoZSBMaWNlbnNlLlxuKi9cblxuaW1wb3J0IFJlYWN0IGZyb20gXCJyZWFjdFwiO1xuXG5pbXBvcnQgQWNjZXNzaWJsZUJ1dHRvbiBmcm9tIFwiLi4vLi4vY29tcG9uZW50cy92aWV3cy9lbGVtZW50cy9BY2Nlc3NpYmxlQnV0dG9uXCI7XG5cbmludGVyZmFjZSBJUHJvcHMgZXh0ZW5kcyBSZWFjdC5Db21wb25lbnRQcm9wczx0eXBlb2YgQWNjZXNzaWJsZUJ1dHRvbj4ge1xuICAgIGxhYmVsPzogc3RyaW5nO1xuICAgIC8vIHdoZXRoZXIgb3Igbm90IHRoZSBjb250ZXh0IG1lbnUgaXMgY3VycmVudGx5IG9wZW5cbiAgICBpc0V4cGFuZGVkOiBib29sZWFuO1xufVxuXG4vLyBTZW1hbnRpYyBjb21wb25lbnQgZm9yIHJlcHJlc2VudGluZyB0aGUgQWNjZXNzaWJsZUJ1dHRvbiB3aGljaCBsYXVuY2hlcyBhIDxDb250ZXh0TWVudSAvPlxuZXhwb3J0IGNvbnN0IENvbnRleHRNZW51QnV0dG9uOiBSZWFjdC5GQzxJUHJvcHM+ID0gKHtcbiAgICBsYWJlbCxcbiAgICBpc0V4cGFuZGVkLFxuICAgIGNoaWxkcmVuLFxuICAgIG9uQ2xpY2ssXG4gICAgb25Db250ZXh0TWVudSxcbiAgICAuLi5wcm9wc1xufSkgPT4ge1xuICAgIHJldHVybiAoXG4gICAgICAgIDxBY2Nlc3NpYmxlQnV0dG9uXG4gICAgICAgICAgICB7Li4ucHJvcHN9XG4gICAgICAgICAgICBvbkNsaWNrPXtvbkNsaWNrfVxuICAgICAgICAgICAgb25Db250ZXh0TWVudT17b25Db250ZXh0TWVudSB8fCBvbkNsaWNrfVxuICAgICAgICAgICAgdGl0bGU9e2xhYmVsfVxuICAgICAgICAgICAgYXJpYS1sYWJlbD17bGFiZWx9XG4gICAgICAgICAgICBhcmlhLWhhc3BvcHVwPXt0cnVlfVxuICAgICAgICAgICAgYXJpYS1leHBhbmRlZD17aXNFeHBhbmRlZH1cbiAgICAgICAgPlxuICAgICAgICAgICAgeyBjaGlsZHJlbiB9XG4gICAgICAgIDwvQWNjZXNzaWJsZUJ1dHRvbj5cbiAgICApO1xufTtcbiJdfQ==

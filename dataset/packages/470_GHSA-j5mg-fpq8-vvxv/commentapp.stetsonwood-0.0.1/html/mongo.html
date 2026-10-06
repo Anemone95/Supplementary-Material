@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script src = "https://code.jquery.com/jquery-1.10.2.js"></script>
+		<script>
+			$(document).ready(function() {
+			    $("#submit_button").click(function() {
+			        var myobj = {Name:$("#name_input").val(),Comment:$("#comment_input").val()};
+			        var url = "http://www.axoth.us/comment";
+			        jobj = JSON.stringify(myobj);
+			        $("#json_post").text(jobj);
+			        $.post(url,jobj, function(data,textStatus) {
+     					$("#post_result").text("success");
+        			});
+
+
+			    });
+			    $("#show_button").click(function() {
+			    	var url = "http://www.axoth.us/comment";
+			    	$.getJSON(url,function(data) {
+				        var everything;
+				        everything = "<ul>";
+				        $.each(data, function(i,item) {
+				         	everything += "<li> Name: "+data[i].Name+" Comment: "+data[i].Comment;
+				        });
+				        everything += "</ul>";
+				        $("#current_comments").html(everything);
+			      	});
+
+			    });
+		    });
+		</script>
+		<title>
+		</title>
+	</head>
+
+	<body>
+		<h2>Comment App</h2> 
+		<form>
+			Name: <input type="text" id="name_input" value="">
+			<br>
+			Comment: <input type="text" id="comment_input" value="">
+			<br>
+			<br>
+		</form>
+		<button id="submit_button">Submit Comment</button>
+		<button id="show_button">Show Comments</button>
+		<br><br>
+		<div id="json_post"></div>
+		<div id="post_result"></div>
+		<p>Current Comments:</p>
+		<div id="current_comments"></div>
+	</body>
+</html>

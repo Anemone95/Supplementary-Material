@@ -1,0 +1,32 @@
+{
+  "name": "jikes",
+  "version": "0.0.1",
+  "description": "web framework for beginners",
+  "main": "app.js",
+  "directories": {
+    "example": "examples"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hypesystem/jikes"
+  },
+  "keywords": [
+    "web",
+    "framework",
+    "node",
+    "javascript"
+  ],
+  "author": "Niels Abildgaard <me@hypesystem.dk>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/hypesystem/jikes/issues"
+  },
+  "homepage": "https://github.com/hypesystem/jikes",
+  "dependencies": {
+    "express": "^4.12.2"
+  }
+}

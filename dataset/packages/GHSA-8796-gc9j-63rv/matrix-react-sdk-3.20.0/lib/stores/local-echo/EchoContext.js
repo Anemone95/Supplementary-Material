@@ -1,0 +1,126 @@
+"use strict";
+
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.EchoContext = exports.ContextTransactionState = void 0;
+
+var _defineProperty2 = _interopRequireDefault(require("@babel/runtime/helpers/defineProperty"));
+
+var _EchoTransaction = require("./EchoTransaction");
+
+var _arrays = require("../../utils/arrays");
+
+var _Whenable = require("../../utils/Whenable");
+
+/*
+Copyright 2020 The Matrix.org Foundation C.I.C.
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+*/
+let ContextTransactionState;
+exports.ContextTransactionState = ContextTransactionState;
+
+(function (ContextTransactionState) {
+  ContextTransactionState[ContextTransactionState["NotStarted"] = 0] = "NotStarted";
+  ContextTransactionState[ContextTransactionState["PendingErrors"] = 1] = "PendingErrors";
+  ContextTransactionState[ContextTransactionState["AllSuccessful"] = 2] = "AllSuccessful";
+})(ContextTransactionState || (exports.ContextTransactionState = ContextTransactionState = {}));
+
+class EchoContext extends _Whenable.Whenable
+/*:: <ContextTransactionState> implements IDestroyable*/
+{
+  constructor(...args) {
+    super(...args);
+    (0, _defineProperty2.default)(this, "_transactions", []);
+    (0, _defineProperty2.default)(this, "_state", ContextTransactionState.NotStarted);
+    (0, _defineProperty2.default)(this, "checkTransactions", () => {
+      let status = ContextTransactionState.AllSuccessful;
+
+      for (const txn of this.transactions) {
+        if (txn.status === _EchoTransaction.TransactionStatus.Error || txn.didPreviouslyFail) {
+          status = ContextTransactionState.PendingErrors;
+          break;
+        } else if (txn.status === _EchoTransaction.TransactionStatus.Pending) {
+          status = ContextTransactionState.NotStarted; // no break as we might hit something which broke
+        }
+      }
+
+      this._state = status;
+      this.notifyCondition(status);
+    });
+  }
+
+  get transactions()
+  /*: EchoTransaction[]*/
+  {
+    return (0, _arrays.arrayFastClone)(this._transactions);
+  }
+
+  get state()
+  /*: ContextTransactionState*/
+  {
+    return this._state;
+  }
+
+  get firstFailedTime()
+  /*: Date*/
+  {
+    const failedTxn = this.transactions.find(t => t.didPreviouslyFail || t.status === _EchoTransaction.TransactionStatus.Error);
+    if (failedTxn) return failedTxn.startTime;
+    return null;
+  }
+
+  disownTransaction(txn
+  /*: EchoTransaction*/
+  ) {
+    const idx = this._transactions.indexOf(txn);
+
+    if (idx >= 0) this._transactions.splice(idx, 1);
+    txn.destroy();
+    this.checkTransactions();
+  }
+
+  beginTransaction(auditName
+  /*: string*/
+  , runFn
+  /*: RunFn*/
+  )
+  /*: EchoTransaction*/
+  {
+    const txn = new _EchoTransaction.EchoTransaction(auditName, runFn);
+
+    this._transactions.push(txn);
+
+    txn.whenAnything(this.checkTransactions); // We have no intent to call the transaction again if it succeeds (in fact, it'll
+    // be really angry at us if we do), so call that the end of the road for the events.
+
+    txn.when(_EchoTransaction.TransactionStatus.Success, () => txn.destroy());
+    return txn;
+  }
+
+  destroy() {
+    for (const txn of this.transactions) {
+      txn.destroy();
+    }
+
+    this._transactions = [];
+    super.destroy();
+  }
+
+}
+
+exports.EchoContext = EchoContext;
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uLy4uL3NyYy9zdG9yZXMvbG9jYWwtZWNoby9FY2hvQ29udGV4dC50cyJdLCJuYW1lcyI6WyJDb250ZXh0VHJhbnNhY3Rpb25TdGF0ZSIsIkVjaG9Db250ZXh0IiwiV2hlbmFibGUiLCJOb3RTdGFydGVkIiwic3RhdHVzIiwiQWxsU3VjY2Vzc2Z1bCIsInR4biIsInRyYW5zYWN0aW9ucyIsIlRyYW5zYWN0aW9uU3RhdHVzIiwiRXJyb3IiLCJkaWRQcmV2aW91c2x5RmFpbCIsIlBlbmRpbmdFcnJvcnMiLCJQZW5kaW5nIiwiX3N0YXRlIiwibm90aWZ5Q29uZGl0aW9uIiwiX3RyYW5zYWN0aW9ucyIsInN0YXRlIiwiZmlyc3RGYWlsZWRUaW1lIiwiZmFpbGVkVHhuIiwiZmluZCIsInQiLCJzdGFydFRpbWUiLCJkaXNvd25UcmFuc2FjdGlvbiIsImlkeCIsImluZGV4T2YiLCJzcGxpY2UiLCJkZXN0cm95IiwiY2hlY2tUcmFuc2FjdGlvbnMiLCJiZWdpblRyYW5zYWN0aW9uIiwiYXVkaXROYW1lIiwicnVuRm4iLCJFY2hvVHJhbnNhY3Rpb24iLCJwdXNoIiwid2hlbkFueXRoaW5nIiwid2hlbiIsIlN1Y2Nlc3MiXSwibWFwcGluZ3MiOiI7Ozs7Ozs7Ozs7O0FBZ0JBOztBQUNBOztBQUVBOztBQW5CQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7SUFPWUEsdUI7OztXQUFBQSx1QjtBQUFBQSxFQUFBQSx1QixDQUFBQSx1QjtBQUFBQSxFQUFBQSx1QixDQUFBQSx1QjtBQUFBQSxFQUFBQSx1QixDQUFBQSx1QjtHQUFBQSx1Qix1Q0FBQUEsdUI7O0FBTUwsTUFBZUMsV0FBZixTQUFtQ0M7QUFBbkM7QUFBNkY7QUFBQTtBQUFBO0FBQUEseURBQ3JELEVBRHFEO0FBQUEsa0RBRS9FRix1QkFBdUIsQ0FBQ0csVUFGdUQ7QUFBQSw2REFxQ3BFLE1BQU07QUFDOUIsVUFBSUMsTUFBTSxHQUFHSix1QkFBdUIsQ0FBQ0ssYUFBckM7O0FBQ0EsV0FBSyxNQUFNQyxHQUFYLElBQWtCLEtBQUtDLFlBQXZCLEVBQXFDO0FBQ2pDLFlBQUlELEdBQUcsQ0FBQ0YsTUFBSixLQUFlSSxtQ0FBa0JDLEtBQWpDLElBQTBDSCxHQUFHLENBQUNJLGlCQUFsRCxFQUFxRTtBQUNqRU4sVUFBQUEsTUFBTSxHQUFHSix1QkFBdUIsQ0FBQ1csYUFBakM7QUFDQTtBQUNILFNBSEQsTUFHTyxJQUFJTCxHQUFHLENBQUNGLE1BQUosS0FBZUksbUNBQWtCSSxPQUFyQyxFQUE4QztBQUNqRFIsVUFBQUEsTUFBTSxHQUFHSix1QkFBdUIsQ0FBQ0csVUFBakMsQ0FEaUQsQ0FFakQ7QUFDSDtBQUNKOztBQUNELFdBQUtVLE1BQUwsR0FBY1QsTUFBZDtBQUNBLFdBQUtVLGVBQUwsQ0FBcUJWLE1BQXJCO0FBQ0gsS0FsRCtGO0FBQUE7O0FBSWhHLE1BQVdHLFlBQVg7QUFBQTtBQUE2QztBQUN6QyxXQUFPLDRCQUFlLEtBQUtRLGFBQXBCLENBQVA7QUFDSDs7QUFFRCxNQUFXQyxLQUFYO0FBQUE7QUFBNEM7QUFDeEMsV0FBTyxLQUFLSCxNQUFaO0FBQ0g7O0FBRUQsTUFBV0ksZUFBWDtBQUFBO0FBQW1DO0FBQy9CLFVBQU1DLFNBQVMsR0FBRyxLQUFLWCxZQUFMLENBQWtCWSxJQUFsQixDQUF1QkMsQ0FBQyxJQUFJQSxDQUFDLENBQUNWLGlCQUFGLElBQXVCVSxDQUFDLENBQUNoQixNQUFGLEtBQWFJLG1DQUFrQkMsS0FBbEYsQ0FBbEI7QUFDQSxRQUFJUyxTQUFKLEVBQWUsT0FBT0EsU0FBUyxDQUFDRyxTQUFqQjtBQUNmLFdBQU8sSUFBUDtBQUNIOztBQUVNQyxFQUFBQSxpQkFBUCxDQUF5QmhCO0FBQXpCO0FBQUEsSUFBK0M7QUFDM0MsVUFBTWlCLEdBQUcsR0FBRyxLQUFLUixhQUFMLENBQW1CUyxPQUFuQixDQUEyQmxCLEdBQTNCLENBQVo7O0FBQ0EsUUFBSWlCLEdBQUcsSUFBSSxDQUFYLEVBQWMsS0FBS1IsYUFBTCxDQUFtQlUsTUFBbkIsQ0FBMEJGLEdBQTFCLEVBQStCLENBQS9CO0FBQ2RqQixJQUFBQSxHQUFHLENBQUNvQixPQUFKO0FBQ0EsU0FBS0MsaUJBQUw7QUFDSDs7QUFFTUMsRUFBQUEsZ0JBQVAsQ0FBd0JDO0FBQXhCO0FBQUEsSUFBMkNDO0FBQTNDO0FBQUE7QUFBQTtBQUEwRTtBQUN0RSxVQUFNeEIsR0FBRyxHQUFHLElBQUl5QixnQ0FBSixDQUFvQkYsU0FBcEIsRUFBK0JDLEtBQS9CLENBQVo7O0FBQ0EsU0FBS2YsYUFBTCxDQUFtQmlCLElBQW5CLENBQXdCMUIsR0FBeEI7O0FBQ0FBLElBQUFBLEdBQUcsQ0FBQzJCLFlBQUosQ0FBaUIsS0FBS04saUJBQXRCLEVBSHNFLENBS3RFO0FBQ0E7O0FBQ0FyQixJQUFBQSxHQUFHLENBQUM0QixJQUFKLENBQVMxQixtQ0FBa0IyQixPQUEzQixFQUFvQyxNQUFNN0IsR0FBRyxDQUFDb0IsT0FBSixFQUExQztBQUVBLFdBQU9wQixHQUFQO0FBQ0g7O0FBaUJNb0IsRUFBQUEsT0FBUCxHQUFpQjtBQUNiLFNBQUssTUFBTXBCLEdBQVgsSUFBa0IsS0FBS0MsWUFBdkIsRUFBcUM7QUFDakNELE1BQUFBLEdBQUcsQ0FBQ29CLE9BQUo7QUFDSDs7QUFDRCxTQUFLWCxhQUFMLEdBQXFCLEVBQXJCO0FBQ0EsVUFBTVcsT0FBTjtBQUNIOztBQTFEK0YiLCJzb3VyY2VzQ29udGVudCI6WyIvKlxuQ29weXJpZ2h0IDIwMjAgVGhlIE1hdHJpeC5vcmcgRm91bmRhdGlvbiBDLkkuQy5cblxuTGljZW5zZWQgdW5kZXIgdGhlIEFwYWNoZSBMaWNlbnNlLCBWZXJzaW9uIDIuMCAodGhlIFwiTGljZW5zZVwiKTtcbnlvdSBtYXkgbm90IHVzZSB0aGlzIGZpbGUgZXhjZXB0IGluIGNvbXBsaWFuY2Ugd2l0aCB0aGUgTGljZW5zZS5cbllvdSBtYXkgb2J0YWluIGEgY29weSBvZiB0aGUgTGljZW5zZSBhdFxuXG5odHRwOi8vd3d3LmFwYWNoZS5vcmcvbGljZW5zZXMvTElDRU5TRS0yLjBcblxuVW5sZXNzIHJlcXVpcmVkIGJ5IGFwcGxpY2FibGUgbGF3IG9yIGFncmVlZCB0byBpbiB3cml0aW5nLCBzb2Z0d2FyZVxuZGlzdHJpYnV0ZWQgdW5kZXIgdGhlIExpY2Vuc2UgaXMgZGlzdHJpYnV0ZWQgb24gYW4gXCJBUyBJU1wiIEJBU0lTLFxuV0lUSE9VVCBXQVJSQU5USUVTIE9SIENPTkRJVElPTlMgT0YgQU5ZIEtJTkQsIGVpdGhlciBleHByZXNzIG9yIGltcGxpZWQuXG5TZWUgdGhlIExpY2Vuc2UgZm9yIHRoZSBzcGVjaWZpYyBsYW5ndWFnZSBnb3Zlcm5pbmcgcGVybWlzc2lvbnMgYW5kXG5saW1pdGF0aW9ucyB1bmRlciB0aGUgTGljZW5zZS5cbiovXG5cbmltcG9ydCB7IEVjaG9UcmFuc2FjdGlvbiwgUnVuRm4sIFRyYW5zYWN0aW9uU3RhdHVzIH0gZnJvbSBcIi4vRWNob1RyYW5zYWN0aW9uXCI7XG5pbXBvcnQgeyBhcnJheUZhc3RDbG9uZSB9IGZyb20gXCIuLi8uLi91dGlscy9hcnJheXNcIjtcbmltcG9ydCB7IElEZXN0cm95YWJsZSB9IGZyb20gXCIuLi8uLi91dGlscy9JRGVzdHJveWFibGVcIjtcbmltcG9ydCB7IFdoZW5hYmxlIH0gZnJvbSBcIi4uLy4uL3V0aWxzL1doZW5hYmxlXCI7XG5cbmV4cG9ydCBlbnVtIENvbnRleHRUcmFuc2FjdGlvblN0YXRlIHtcbiAgICBOb3RTdGFydGVkLFxuICAgIFBlbmRpbmdFcnJvcnMsXG4gICAgQWxsU3VjY2Vzc2Z1bFxufVxuXG5leHBvcnQgYWJzdHJhY3QgY2xhc3MgRWNob0NvbnRleHQgZXh0ZW5kcyBXaGVuYWJsZTxDb250ZXh0VHJhbnNhY3Rpb25TdGF0ZT4gaW1wbGVtZW50cyBJRGVzdHJveWFibGUge1xuICAgIHByaXZhdGUgX3RyYW5zYWN0aW9uczogRWNob1RyYW5zYWN0aW9uW10gPSBbXTtcbiAgICBwcml2YXRlIF9zdGF0ZSA9IENvbnRleHRUcmFuc2FjdGlvblN0YXRlLk5vdFN0YXJ0ZWQ7XG5cbiAgICBwdWJsaWMgZ2V0IHRyYW5zYWN0aW9ucygpOiBFY2hvVHJhbnNhY3Rpb25bXSB7XG4gICAgICAgIHJldHVybiBhcnJheUZhc3RDbG9uZSh0aGlzLl90cmFuc2FjdGlvbnMpO1xuICAgIH1cblxuICAgIHB1YmxpYyBnZXQgc3RhdGUoKTogQ29udGV4dFRyYW5zYWN0aW9uU3RhdGUge1xuICAgICAgICByZXR1cm4gdGhpcy5fc3RhdGU7XG4gICAgfVxuXG4gICAgcHVibGljIGdldCBmaXJzdEZhaWxlZFRpbWUoKTogRGF0ZSB7XG4gICAgICAgIGNvbnN0IGZhaWxlZFR4biA9IHRoaXMudHJhbnNhY3Rpb25zLmZpbmQodCA9PiB0LmRpZFByZXZpb3VzbHlGYWlsIHx8IHQuc3RhdHVzID09PSBUcmFuc2FjdGlvblN0YXR1cy5FcnJvcik7XG4gICAgICAgIGlmIChmYWlsZWRUeG4pIHJldHVybiBmYWlsZWRUeG4uc3RhcnRUaW1lO1xuICAgICAgICByZXR1cm4gbnVsbDtcbiAgICB9XG5cbiAgICBwdWJsaWMgZGlzb3duVHJhbnNhY3Rpb24odHhuOiBFY2hvVHJhbnNhY3Rpb24pIHtcbiAgICAgICAgY29uc3QgaWR4ID0gdGhpcy5fdHJhbnNhY3Rpb25zLmluZGV4T2YodHhuKTtcbiAgICAgICAgaWYgKGlkeCA+PSAwKSB0aGlzLl90cmFuc2FjdGlvbnMuc3BsaWNlKGlkeCwgMSk7XG4gICAgICAgIHR4bi5kZXN0cm95KCk7XG4gICAgICAgIHRoaXMuY2hlY2tUcmFuc2FjdGlvbnMoKTtcbiAgICB9XG5cbiAgICBwdWJsaWMgYmVnaW5UcmFuc2FjdGlvbihhdWRpdE5hbWU6IHN0cmluZywgcnVuRm46IFJ1bkZuKTogRWNob1RyYW5zYWN0aW9uIHtcbiAgICAgICAgY29uc3QgdHhuID0gbmV3IEVjaG9UcmFuc2FjdGlvbihhdWRpdE5hbWUsIHJ1bkZuKTtcbiAgICAgICAgdGhpcy5fdHJhbnNhY3Rpb25zLnB1c2godHhuKTtcbiAgICAgICAgdHhuLndoZW5Bbnl0aGluZyh0aGlzLmNoZWNrVHJhbnNhY3Rpb25zKTtcblxuICAgICAgICAvLyBXZSBoYXZlIG5vIGludGVudCB0byBjYWxsIHRoZSB0cmFuc2FjdGlvbiBhZ2FpbiBpZiBpdCBzdWNjZWVkcyAoaW4gZmFjdCwgaXQnbGxcbiAgICAgICAgLy8gYmUgcmVhbGx5IGFuZ3J5IGF0IHVzIGlmIHdlIGRvKSwgc28gY2FsbCB0aGF0IHRoZSBlbmQgb2YgdGhlIHJvYWQgZm9yIHRoZSBldmVudHMuXG4gICAgICAgIHR4bi53aGVuKFRyYW5zYWN0aW9uU3RhdHVzLlN1Y2Nlc3MsICgpID0+IHR4bi5kZXN0cm95KCkpO1xuXG4gICAgICAgIHJldHVybiB0eG47XG4gICAgfVxuXG4gICAgcHJpdmF0ZSBjaGVja1RyYW5zYWN0aW9ucyA9ICgpID0+IHtcbiAgICAgICAgbGV0IHN0YXR1cyA9IENvbnRleHRUcmFuc2FjdGlvblN0YXRlLkFsbFN1Y2Nlc3NmdWw7XG4gICAgICAgIGZvciAoY29uc3QgdHhuIG9mIHRoaXMudHJhbnNhY3Rpb25zKSB7XG4gICAgICAgICAgICBpZiAodHhuLnN0YXR1cyA9PT0gVHJhbnNhY3Rpb25TdGF0dXMuRXJyb3IgfHwgdHhuLmRpZFByZXZpb3VzbHlGYWlsKSB7XG4gICAgICAgICAgICAgICAgc3RhdHVzID0gQ29udGV4dFRyYW5zYWN0aW9uU3RhdGUuUGVuZGluZ0Vycm9ycztcbiAgICAgICAgICAgICAgICBicmVhaztcbiAgICAgICAgICAgIH0gZWxzZSBpZiAodHhuLnN0YXR1cyA9PT0gVHJhbnNhY3Rpb25TdGF0dXMuUGVuZGluZykge1xuICAgICAgICAgICAgICAgIHN0YXR1cyA9IENvbnRleHRUcmFuc2FjdGlvblN0YXRlLk5vdFN0YXJ0ZWQ7XG4gICAgICAgICAgICAgICAgLy8gbm8gYnJlYWsgYXMgd2UgbWlnaHQgaGl0IHNvbWV0aGluZyB3aGljaCBicm9rZVxuICAgICAgICAgICAgfVxuICAgICAgICB9XG4gICAgICAgIHRoaXMuX3N0YXRlID0gc3RhdHVzO1xuICAgICAgICB0aGlzLm5vdGlmeUNvbmRpdGlvbihzdGF0dXMpO1xuICAgIH07XG5cbiAgICBwdWJsaWMgZGVzdHJveSgpIHtcbiAgICAgICAgZm9yIChjb25zdCB0eG4gb2YgdGhpcy50cmFuc2FjdGlvbnMpIHtcbiAgICAgICAgICAgIHR4bi5kZXN0cm95KCk7XG4gICAgICAgIH1cbiAgICAgICAgdGhpcy5fdHJhbnNhY3Rpb25zID0gW107XG4gICAgICAgIHN1cGVyLmRlc3Ryb3koKTtcbiAgICB9XG59XG4iXX0=

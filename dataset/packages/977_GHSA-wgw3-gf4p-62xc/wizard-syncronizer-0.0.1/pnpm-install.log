@@ -1,0 +1,13 @@
+$ corepack pnpm@9.15.9 install --prod --no-frozen-lockfile --reporter=append-only --config.node-linker=hoisted --ignore-workspace --ignore-scripts
+Progress: resolved 1, reused 0, downloaded 0, added 0
+ WARN  deprecated request@2.27.0: request has been deprecated, see https://github.com/request/request/issues/3142
+ WARN  deprecated express@3.4.8: No longer maintained. Please upgrade to a stable version.
+Progress: resolved 54, reused 0, downloaded 0, added 0
+ WARN  11 deprecated subdependencies found: aws-sign@0.3.0, boom@0.4.2, connect@2.12.0, cryptiles@0.2.2, forEachAsync@2.2.1, hawk@1.0.0, hoek@0.9.1, mkdirp@0.3.5, node-uuid@1.4.8, raw-body@1.1.2, sntp@0.2.4
+
+devDependencies: skipped
+
+Packages: +66
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Progress: resolved 66, reused 53, downloaded 13, added 66, done
+Done in 1.9s using pnpm v9.15.9

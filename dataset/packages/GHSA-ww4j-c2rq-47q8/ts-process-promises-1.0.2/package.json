@@ -1,0 +1,42 @@
+{
+  "version": "1.0.2",
+  "name": "ts-process-promises",
+  "description": "Node child processes as promises",
+  "main": "lib/process-promises.js",
+  "typings": "lib/process-promises.d.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "files": [
+    "LICENSE",
+    "**/*.md",
+    "lib/**/*.js",
+    "lib/**/*.d.ts"
+  ],
+  "keywords": [
+    "child process",
+    "promise"
+  ],
+  "author": "Rkroh Morath <rkrohmorath@gmail.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/radarsu/process-promises.git"
+  },
+  "devDependencies": {
+    "@types/bluebird": "^3.5.5",
+    "gulp": "^3.9.0",
+    "gulp-jasmine": "^2.2.1",
+    "gulp-rimraf": "^0.2.0",
+    "gulp-util": "^3.0.7",
+    "jasmine": "^2.3.2",
+    "tsd": "^0.6.5",
+    "typescript": "^2.3.4"
+  },
+  "dependencies": {
+    "bluebird": "^3.0.5",
+    "resolve": "^1.1.6",
+    "split": "^1.0.0",
+    "stack-trace": "0.0.9"
+  }
+}

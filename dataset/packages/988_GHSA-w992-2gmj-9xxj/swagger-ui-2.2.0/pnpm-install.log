@@ -1,0 +1,20 @@
+$ corepack pnpm@9.15.9 install --prod --no-frozen-lockfile --reporter=append-only --config.node-linker=hoisted --ignore-workspace --ignore-scripts
+Progress: resolved 1, reused 0, downloaded 0, added 0
+ WARN  deprecated karma-phantomjs-launcher@0.2.3: PhantomJS development have stopped, use puppeteer or similar
+ WARN  deprecated swagger-client@2.1.18: No longer maintained, please upgrade to swagger-client@3.
+ WARN  deprecated gulp-header@1.8.12: Removed event-stream from gulp-header
+Progress: resolved 123, reused 0, downloaded 0, added 0
+Progress: resolved 669, reused 0, downloaded 0, added 0
+ WARN  66 deprecated subdependencies found: boom@0.4.2, boom@2.10.1, clone-buffer@1.0.0, connect@2.30.2, consolidate@0.11.0, core-js@2.6.12, cryptiles@0.2.2, cryptiles@2.0.5, csurf@1.8.3, ecstatic@0.7.6, formatio@1.1.1, formidable@1.0.17, fsevents@1.2.13, glob@3.1.21, glob@3.2.11, glob@4.5.3, glob@6.0.4, glob@7.2.3, graceful-fs@1.2.3, gulp-util@2.2.20, gulp-util@3.0.8, har-validator@4.2.1, har-validator@5.1.5, hawk@1.1.1, hawk@3.1.3, hoek@0.9.1, hoek@2.16.3, inflight@1.0.6, is-buffer@1.0.2, jade@0.26.3, json3@3.3.2, lodash.clone@4.5.0, lodash.pick@4.4.0, lodash.template@2.4.1, lodash.template@3.6.2, lodash.template@4.18.1, log4js@0.6.38, minimatch@0.2.14, minimatch@0.3.0, minimatch@2.0.10, mkdirp@0.3.0, mkdirp@0.5.1, natives@1.1.6, node-uuid@1.4.8, npmconf@2.1.1, osenv@0.1.5, path-dirname@1.0.2, q@1.5.1, rcloader@0.1.2, request@2.42.0, request@2.81.0, request@2.88.2, resolve-url@0.2.1, rimraf@2.7.1, samsam@1.1.2, sinon@1.16.1, sntp@0.2.4, sntp@1.0.9, source-map-resolve@0.5.3, source-map-url@0.4.1, stable@0.1.8, superagent@1.8.5, to-iso-string@0.0.2, uid-number@0.0.5, urix@0.1.0, uuid@3.4.0
+
+devDependencies: skipped
+
+ WARN  Issues with peer dependencies found
+.
+└─┬ gulp-wrap 0.11.0
+  └─┬ consolidate 0.11.0
+    └── ✕ unmet peer lodash@^4.17.20: found 3.10.1
+
+Already up to date
+Progress: resolved 873, reused 0, downloaded 0, added 0, done
+Done in 3.2s using pnpm v9.15.9

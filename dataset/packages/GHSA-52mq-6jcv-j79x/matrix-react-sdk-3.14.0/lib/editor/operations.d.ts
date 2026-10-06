@@ -1,0 +1,12 @@
+import Range from "./range";
+import { Part } from "./parts";
+/**
+ * Some common queries and transformations on the editor model
+ */
+export declare function replaceRangeAndExpandSelection(range: Range, newParts: Part[]): void;
+export declare function replaceRangeAndMoveCaret(range: Range, newParts: Part[]): void;
+export declare function rangeStartsAtBeginningOfLine(range: Range): boolean;
+export declare function rangeEndsAtEndOfLine(range: Range): boolean;
+export declare function formatRangeAsQuote(range: Range): void;
+export declare function formatRangeAsCode(range: Range): void;
+export declare function toggleInlineFormat(range: Range, prefix: string, suffix?: string): void;

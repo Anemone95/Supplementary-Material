@@ -1,0 +1,51 @@
+{
+  "name": "tenvoy",
+  "version": "7.0.2",
+  "description": "PGP, NaCl, and PBKDF2 in node.js and the browser (hashing, random, encryption, decryption, signatures, conversions), used by TogaTech.org",
+  "main": "./node/tenvoy.min.js",
+  "browser": {
+    "./node/tenvoy.js": "./tenvoy.js",
+    "./node/tenvoy.min.js": "./tenvoy.min.js"
+  },
+  "scripts": {
+    "test": "node ./node/tester.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TogaTech/tEnvoy.git"
+  },
+  "keywords": [
+    "javascript",
+    "hashing",
+    "cryptography",
+    "encryption",
+    "pgp",
+    "hash-functions",
+    "hash",
+    "md5",
+    "pbkdf2",
+    "nacl",
+    "tweetnacl",
+    "sha256",
+    "signatures",
+    "openpgp",
+    "decryption",
+    "signature-verification",
+    "encryption-decryption",
+    "md5-hash",
+    "sha256-hash",
+    "cryptographic-random-generator"
+  ],
+  "author": "TogaTech",
+  "license": "LGPL-3.0+",
+  "engines": {
+    "node": ">= 10.0.0"
+  },
+  "bugs": {
+    "url": "https://github.com/TogaTech/tEnvoy/issues"
+  },
+  "dependencies": {
+    "asn1.js": "^5.0.0"
+  },
+  "homepage": "https://github.com/TogaTech/tEnvoy#readme"
+}

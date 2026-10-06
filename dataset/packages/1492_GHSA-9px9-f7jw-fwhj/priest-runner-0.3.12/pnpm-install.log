@@ -1,0 +1,13 @@
+$ corepack pnpm@9.15.9 install --prod --no-frozen-lockfile --reporter=append-only --config.node-linker=hoisted --ignore-workspace --ignore-scripts
+Progress: resolved 1, reused 0, downloaded 0, added 0
+ WARN  deprecated uuid@2.0.3: uuid@10 and below is no longer supported.  For ESM codebases, update to uuid@latest.  For CommonJS codebases, use uuid@11 (but be aware this version will likely be deprecated in 2028).
+Progress: resolved 95, reused 0, downloaded 0, added 0
+ WARN  1 deprecated subdependencies found: json3@3.3.2
+
+devDependencies: skipped
+
+Packages: +108
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Progress: resolved 107, reused 71, downloaded 25, added 103
+Progress: resolved 107, reused 71, downloaded 29, added 108, done
+Done in 2.6s using pnpm v9.15.9

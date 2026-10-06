@@ -1,0 +1,25 @@
+%YAML1.2
+---
+# Syntax Highlighting for Elding
+name: Elding
+file_extensions:
+  - html
+scope: text.html
+
+contexts:
+  main:
+    - match: ""
+      push: Packages/HTML/HTML.sublime-syntax
+      with_prototype:
+        - match: "<#"
+          push: mat
+
+    - match: \#(<|>)
+      scope: keyword.control
+
+  mat:
+    - match: ""
+      set: Packages/JavaScript/JavaScript.sublime-syntax
+      with_prototype:
+        - match: "#>"
+          pop: true

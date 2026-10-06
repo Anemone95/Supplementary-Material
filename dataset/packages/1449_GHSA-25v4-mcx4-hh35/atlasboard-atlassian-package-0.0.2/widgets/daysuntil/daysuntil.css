@@ -1,0 +1,30 @@
+.table {
+    display: table;
+    border-spacing: 20px;
+    margin: auto;
+}
+.cell {
+    display: table-cell;
+    vertical-align: top;
+}
+.cell.text {
+    padding-top: 46px;
+    width: 360px;
+    overflow: hidden
+}
+.until {
+    color: #454545;
+    font-size: 30px;
+}
+.title {
+    font-size: 50px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: inherit;
+}
+.days {
+    font-size: 160px;
+    line-height: 160px;
+    color: #B72F28;
+}

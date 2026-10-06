@@ -1,0 +1,59 @@
+{
+  "name": "hapi",
+  "description": "HTTP Server framework",
+  "homepage": "http://hapijs.com",
+  "version": "6.0.2",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/spumko/hapi"
+  },
+  "main": "index",
+  "keywords": [
+    "framework",
+    "http",
+    "api",
+    "router"
+  ],
+  "engines": {
+    "node": ">=0.10.22"
+  },
+  "dependencies": {
+    "hoek": "^2.3.x",
+    "boom": "^2.4.x",
+    "joi": "^4.4.x",
+    "catbox": "^2.1.x",
+    "catbox-memory": "1.x.x",
+    "shot": "1.x.x",
+    "nipple": "^2.4.x",
+    "cryptiles": "2.x.x",
+    "iron": "2.x.x",
+    "topo": "1.x.x",
+    "kilt": "^1.1.x",
+    "async": "0.8.x",
+    "multiparty": "3.2.x",
+    "mime": "1.2.x",
+    "lru-cache": "2.5.x",
+    "optimist": "0.6.x",
+    "negotiator": "0.4.x",
+    "semver": "2.3.x",
+    "qs": "0.6.x"
+  },
+  "devDependencies": {
+    "lab": "3.x.x",
+    "handlebars": "1.2.x",
+    "jade": "1.0.x",
+    "form-data": "0.1.x"
+  },
+  "bin": {
+    "hapi": "./bin/hapi"
+  },
+  "scripts": {
+    "test": "make test-cov"
+  },
+  "licenses": [
+    {
+      "type": "BSD",
+      "url": "http://github.com/spumko/hapi/raw/master/LICENSE"
+    }
+  ]
+}

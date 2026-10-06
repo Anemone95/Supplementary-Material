@@ -1,0 +1,52 @@
+{
+  "_from": "algo-httpserv",
+  "_id": "algo-httpserv@1.1.1",
+  "_inBundle": false,
+  "_integrity": "sha512-Rg0Sz6YsGZhhBKsp9pSC05kux+w4T67DV/Ll9hAURKXbO6U272ADRvnQCfGhOrmI0/ljLm0SYJ2JcY4B5DCFCA==",
+  "_location": "/algo-httpserv",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "algo-httpserv",
+    "name": "algo-httpserv",
+    "escapedName": "algo-httpserv",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/algo-httpserv/-/algo-httpserv-1.0.2.tgz",
+  "_shasum": "9e30d088f28846d709d4287e388d17c8586b3abf",
+  "_spec": "algo-httpserv",
+  "_where": "/home/algo/Projects",
+  "author": {
+    "name": "AlgoRythm-Dylan"
+  },
+  "bugs": {
+    "url": "https://github.com/AlgoRythm-Dylan/httpserv/issues"
+  },
+  "bundleDependencies": false,
+  "deprecated": false,
+  "description": "Dead simple, unbloated HTTP(s) request handler, perfect for the programmer with better things to do.",
+  "homepage": "https://github.com/AlgoRythm-Dylan/httpserv#readme",
+  "keywords": [
+    "http",
+    "server",
+    "request-handler"
+  ],
+  "license": "MIT",
+  "main": "httpserv.js",
+  "name": "algo-httpserv",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AlgoRythm-Dylan/httpserv.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "version": "1.1.1"
+}

@@ -1,0 +1,40 @@
+[
+    {
+        "name": "Data",
+        "version": "0.0.1",
+        "dev": false,
+        "dependencies": {}
+    },
+    {
+        "name": "File",
+        "version": "0.0.1",
+        "dev": false,
+        "dependencies": {
+            "Request": "0.0.1"
+        }
+    },
+    {
+        "name": "Interact",
+        "version": "0.0.1",
+        "dev": false,
+        "dependencies": {}
+    },
+    {
+        "name": "Request",
+        "version": "0.0.1",
+        "dev": false,
+        "dependencies": {}
+    },
+    {
+        "name": "Security",
+        "version": "0.0.1",
+        "dev": false,
+        "dependencies": {}
+    },
+    {
+        "name": "View",
+        "version": "0.0.1",
+        "dev": false,
+        "dependencies": {}
+    }
+]

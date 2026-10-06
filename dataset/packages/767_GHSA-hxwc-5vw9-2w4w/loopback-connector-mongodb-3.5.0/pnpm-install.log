@@ -1,0 +1,19 @@
+$ corepack pnpm@9.15.9 install --prod --no-frozen-lockfile --reporter=append-only --config.node-linker=hoisted --ignore-workspace --ignore-scripts
+Progress: resolved 1, reused 0, downloaded 0, added 0
+ WARN  deprecated sinon@6.3.5: 16.1.1
+ WARN  deprecated eslint@5.16.0: This version is no longer supported. Please see https://eslint.org/version-support for other options.
+Progress: resolved 234, reused 0, downloaded 0, added 0
+ WARN  9 deprecated subdependencies found: @sinonjs/text-encoding@0.7.3, glob@7.1.2, glob@7.2.3, inflight@1.0.6, lodash.get@4.4.2, mkdirp@0.5.1, rimraf@2.6.3, uuid@3.4.0, uuid@7.0.3
+
+devDependencies: skipped
+
+ WARN  Issues with peer dependencies found
+.
+└─┬ eslint-config-loopback 10.0.0
+  └─┬ eslint-plugin-mocha 4.12.1
+    └── ✕ unmet peer eslint@"^2.0.0 || ^3.0.0 || ^4.0.0": found 5.16.0
+
+Packages: +97
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Progress: resolved 332, reused 95, downloaded 0, added 97, done
+Done in 1.8s using pnpm v9.15.9

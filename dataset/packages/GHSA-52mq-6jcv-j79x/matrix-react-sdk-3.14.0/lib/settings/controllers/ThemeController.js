@@ -1,0 +1,60 @@
+"use strict";
+
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _defineProperty2 = _interopRequireDefault(require("@babel/runtime/helpers/defineProperty"));
+
+var _SettingController = _interopRequireDefault(require("./SettingController"));
+
+var _theme = require("../../theme");
+
+/*
+Copyright 2019 Michael Telatynski <7t3chguy@gmail.com>
+Copyright 2019, 2020 The Matrix.org Foundation C.I.C.
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+*/
+class ThemeController extends _SettingController.default {
+  getValueOverride(level
+  /*: SettingLevel*/
+  , roomId
+  /*: string*/
+  , calculatedValue
+  /*: any*/
+  , calculatedAtLevel
+  /*: SettingLevel*/
+  )
+  /*: any*/
+  {
+    if (!calculatedValue) return null; // Don't override null themes
+
+    if (ThemeController.isLogin) return 'light';
+    const themes = (0, _theme.enumerateThemes)(); // Override in case some no longer supported theme is stored here
+
+    if (!themes[calculatedValue]) {
+      return _theme.DEFAULT_THEME;
+    }
+
+    return null; // no override
+  }
+
+}
+
+exports.default = ThemeController;
+(0, _defineProperty2.default)(ThemeController, "isLogin", false);
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uLy4uL3NyYy9zZXR0aW5ncy9jb250cm9sbGVycy9UaGVtZUNvbnRyb2xsZXIudHMiXSwibmFtZXMiOlsiVGhlbWVDb250cm9sbGVyIiwiU2V0dGluZ0NvbnRyb2xsZXIiLCJnZXRWYWx1ZU92ZXJyaWRlIiwibGV2ZWwiLCJyb29tSWQiLCJjYWxjdWxhdGVkVmFsdWUiLCJjYWxjdWxhdGVkQXRMZXZlbCIsImlzTG9naW4iLCJ0aGVtZXMiLCJERUZBVUxUX1RIRU1FIl0sIm1hcHBpbmdzIjoiOzs7Ozs7Ozs7OztBQWlCQTs7QUFDQTs7QUFsQkE7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFNZSxNQUFNQSxlQUFOLFNBQThCQywwQkFBOUIsQ0FBZ0Q7QUFHcERDLEVBQUFBLGdCQUFQLENBQ0lDO0FBREo7QUFBQSxJQUVJQztBQUZKO0FBQUEsSUFHSUM7QUFISjtBQUFBLElBSUlDO0FBSko7QUFBQTtBQUFBO0FBS087QUFDSCxRQUFJLENBQUNELGVBQUwsRUFBc0IsT0FBTyxJQUFQLENBRG5CLENBQ2dDOztBQUVuQyxRQUFJTCxlQUFlLENBQUNPLE9BQXBCLEVBQTZCLE9BQU8sT0FBUDtBQUU3QixVQUFNQyxNQUFNLEdBQUcsNkJBQWYsQ0FMRyxDQU1IOztBQUNBLFFBQUksQ0FBQ0EsTUFBTSxDQUFDSCxlQUFELENBQVgsRUFBOEI7QUFDMUIsYUFBT0ksb0JBQVA7QUFDSDs7QUFFRCxXQUFPLElBQVAsQ0FYRyxDQVdVO0FBQ2hCOztBQXBCMEQ7Ozs4QkFBMUNULGUsYUFDTyxLIiwic291cmNlc0NvbnRlbnQiOlsiLypcbkNvcHlyaWdodCAyMDE5IE1pY2hhZWwgVGVsYXR5bnNraSA8N3QzY2hndXlAZ21haWwuY29tPlxuQ29weXJpZ2h0IDIwMTksIDIwMjAgVGhlIE1hdHJpeC5vcmcgRm91bmRhdGlvbiBDLkkuQy5cblxuTGljZW5zZWQgdW5kZXIgdGhlIEFwYWNoZSBMaWNlbnNlLCBWZXJzaW9uIDIuMCAodGhlIFwiTGljZW5zZVwiKTtcbnlvdSBtYXkgbm90IHVzZSB0aGlzIGZpbGUgZXhjZXB0IGluIGNvbXBsaWFuY2Ugd2l0aCB0aGUgTGljZW5zZS5cbllvdSBtYXkgb2J0YWluIGEgY29weSBvZiB0aGUgTGljZW5zZSBhdFxuXG4gICAgaHR0cDovL3d3dy5hcGFjaGUub3JnL2xpY2Vuc2VzL0xJQ0VOU0UtMi4wXG5cblVubGVzcyByZXF1aXJlZCBieSBhcHBsaWNhYmxlIGxhdyBvciBhZ3JlZWQgdG8gaW4gd3JpdGluZywgc29mdHdhcmVcbmRpc3RyaWJ1dGVkIHVuZGVyIHRoZSBMaWNlbnNlIGlzIGRpc3RyaWJ1dGVkIG9uIGFuIFwiQVMgSVNcIiBCQVNJUyxcbldJVEhPVVQgV0FSUkFOVElFUyBPUiBDT05ESVRJT05TIE9GIEFOWSBLSU5ELCBlaXRoZXIgZXhwcmVzcyBvciBpbXBsaWVkLlxuU2VlIHRoZSBMaWNlbnNlIGZvciB0aGUgc3BlY2lmaWMgbGFuZ3VhZ2UgZ292ZXJuaW5nIHBlcm1pc3Npb25zIGFuZFxubGltaXRhdGlvbnMgdW5kZXIgdGhlIExpY2Vuc2UuXG4qL1xuXG5pbXBvcnQgU2V0dGluZ0NvbnRyb2xsZXIgZnJvbSBcIi4vU2V0dGluZ0NvbnRyb2xsZXJcIjtcbmltcG9ydCB7REVGQVVMVF9USEVNRSwgZW51bWVyYXRlVGhlbWVzfSBmcm9tIFwiLi4vLi4vdGhlbWVcIjtcbmltcG9ydCB7IFNldHRpbmdMZXZlbCB9IGZyb20gXCIuLi9TZXR0aW5nTGV2ZWxcIjtcblxuZXhwb3J0IGRlZmF1bHQgY2xhc3MgVGhlbWVDb250cm9sbGVyIGV4dGVuZHMgU2V0dGluZ0NvbnRyb2xsZXIge1xuICAgIHB1YmxpYyBzdGF0aWMgaXNMb2dpbiA9IGZhbHNlO1xuXG4gICAgcHVibGljIGdldFZhbHVlT3ZlcnJpZGUoXG4gICAgICAgIGxldmVsOiBTZXR0aW5nTGV2ZWwsXG4gICAgICAgIHJvb21JZDogc3RyaW5nLFxuICAgICAgICBjYWxjdWxhdGVkVmFsdWU6IGFueSxcbiAgICAgICAgY2FsY3VsYXRlZEF0TGV2ZWw6IFNldHRpbmdMZXZlbCxcbiAgICApOiBhbnkge1xuICAgICAgICBpZiAoIWNhbGN1bGF0ZWRWYWx1ZSkgcmV0dXJuIG51bGw7IC8vIERvbid0IG92ZXJyaWRlIG51bGwgdGhlbWVzXG5cbiAgICAgICAgaWYgKFRoZW1lQ29udHJvbGxlci5pc0xvZ2luKSByZXR1cm4gJ2xpZ2h0JztcblxuICAgICAgICBjb25zdCB0aGVtZXMgPSBlbnVtZXJhdGVUaGVtZXMoKTtcbiAgICAgICAgLy8gT3ZlcnJpZGUgaW4gY2FzZSBzb21lIG5vIGxvbmdlciBzdXBwb3J0ZWQgdGhlbWUgaXMgc3RvcmVkIGhlcmVcbiAgICAgICAgaWYgKCF0aGVtZXNbY2FsY3VsYXRlZFZhbHVlXSkge1xuICAgICAgICAgICAgcmV0dXJuIERFRkFVTFRfVEhFTUU7XG4gICAgICAgIH1cblxuICAgICAgICByZXR1cm4gbnVsbDsgLy8gbm8gb3ZlcnJpZGVcbiAgICB9XG59XG4iXX0=

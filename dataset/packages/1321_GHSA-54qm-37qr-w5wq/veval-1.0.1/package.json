@@ -1,0 +1,8 @@
+{
+  "name": "veval",
+  "version": "1.0.1",
+  "description": "Safe vm based eval function",
+  "main": "index.js",
+  "author": "pyxelx",
+  "license": "GPL-3.0"
+}

@@ -1,0 +1,52 @@
+"use strict";
+
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.RovingAccessibleTooltipButton = void 0;
+
+var _extends2 = _interopRequireDefault(require("@babel/runtime/helpers/extends"));
+
+var _objectWithoutProperties2 = _interopRequireDefault(require("@babel/runtime/helpers/objectWithoutProperties"));
+
+var _react = _interopRequireDefault(require("react"));
+
+var _AccessibleTooltipButton = _interopRequireDefault(require("../../components/views/elements/AccessibleTooltipButton"));
+
+var _RovingTabIndex = require("../RovingTabIndex");
+
+/*
+Copyright 2020 The Matrix.org Foundation C.I.C.
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+*/
+// Wrapper to allow use of useRovingTabIndex for simple AccessibleTooltipButtons outside of React Functional Components.
+const RovingAccessibleTooltipButton
+/*: React.FC<IProps>*/
+= (_ref) => {
+  let {
+    inputRef
+  } = _ref,
+      props = (0, _objectWithoutProperties2.default)(_ref, ["inputRef"]);
+  const [onFocus, isActive, ref] = (0, _RovingTabIndex.useRovingTabIndex)(inputRef);
+  return /*#__PURE__*/_react.default.createElement(_AccessibleTooltipButton.default, (0, _extends2.default)({}, props, {
+    onFocus: onFocus,
+    inputRef: ref,
+    tabIndex: isActive ? 0 : -1
+  }));
+};
+
+exports.RovingAccessibleTooltipButton = RovingAccessibleTooltipButton;
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uLy4uL3NyYy9hY2Nlc3NpYmlsaXR5L3JvdmluZy9Sb3ZpbmdBY2Nlc3NpYmxlVG9vbHRpcEJ1dHRvbi50c3giXSwibmFtZXMiOlsiUm92aW5nQWNjZXNzaWJsZVRvb2x0aXBCdXR0b24iLCJpbnB1dFJlZiIsInByb3BzIiwib25Gb2N1cyIsImlzQWN0aXZlIiwicmVmIl0sIm1hcHBpbmdzIjoiOzs7Ozs7Ozs7Ozs7O0FBZ0JBOztBQUVBOztBQUNBOztBQW5CQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFhQTtBQUNPLE1BQU1BO0FBQStDO0FBQUEsRUFBRyxVQUEwQjtBQUFBLE1BQXpCO0FBQUNDLElBQUFBO0FBQUQsR0FBeUI7QUFBQSxNQUFYQyxLQUFXO0FBQ3JGLFFBQU0sQ0FBQ0MsT0FBRCxFQUFVQyxRQUFWLEVBQW9CQyxHQUFwQixJQUEyQix1Q0FBa0JKLFFBQWxCLENBQWpDO0FBQ0Esc0JBQU8sNkJBQUMsZ0NBQUQsNkJBQTZCQyxLQUE3QjtBQUFvQyxJQUFBLE9BQU8sRUFBRUMsT0FBN0M7QUFBc0QsSUFBQSxRQUFRLEVBQUVFLEdBQWhFO0FBQXFFLElBQUEsUUFBUSxFQUFFRCxRQUFRLEdBQUcsQ0FBSCxHQUFPLENBQUM7QUFBL0YsS0FBUDtBQUNILENBSE0iLCJzb3VyY2VzQ29udGVudCI6WyIvKlxuQ29weXJpZ2h0IDIwMjAgVGhlIE1hdHJpeC5vcmcgRm91bmRhdGlvbiBDLkkuQy5cblxuTGljZW5zZWQgdW5kZXIgdGhlIEFwYWNoZSBMaWNlbnNlLCBWZXJzaW9uIDIuMCAodGhlIFwiTGljZW5zZVwiKTtcbnlvdSBtYXkgbm90IHVzZSB0aGlzIGZpbGUgZXhjZXB0IGluIGNvbXBsaWFuY2Ugd2l0aCB0aGUgTGljZW5zZS5cbllvdSBtYXkgb2J0YWluIGEgY29weSBvZiB0aGUgTGljZW5zZSBhdFxuXG4gICAgaHR0cDovL3d3dy5hcGFjaGUub3JnL2xpY2Vuc2VzL0xJQ0VOU0UtMi4wXG5cblVubGVzcyByZXF1aXJlZCBieSBhcHBsaWNhYmxlIGxhdyBvciBhZ3JlZWQgdG8gaW4gd3JpdGluZywgc29mdHdhcmVcbmRpc3RyaWJ1dGVkIHVuZGVyIHRoZSBMaWNlbnNlIGlzIGRpc3RyaWJ1dGVkIG9uIGFuIFwiQVMgSVNcIiBCQVNJUyxcbldJVEhPVVQgV0FSUkFOVElFUyBPUiBDT05ESVRJT05TIE9GIEFOWSBLSU5ELCBlaXRoZXIgZXhwcmVzcyBvciBpbXBsaWVkLlxuU2VlIHRoZSBMaWNlbnNlIGZvciB0aGUgc3BlY2lmaWMgbGFuZ3VhZ2UgZ292ZXJuaW5nIHBlcm1pc3Npb25zIGFuZFxubGltaXRhdGlvbnMgdW5kZXIgdGhlIExpY2Vuc2UuXG4qL1xuXG5pbXBvcnQgUmVhY3QgZnJvbSBcInJlYWN0XCI7XG5cbmltcG9ydCBBY2Nlc3NpYmxlVG9vbHRpcEJ1dHRvbiBmcm9tIFwiLi4vLi4vY29tcG9uZW50cy92aWV3cy9lbGVtZW50cy9BY2Nlc3NpYmxlVG9vbHRpcEJ1dHRvblwiO1xuaW1wb3J0IHt1c2VSb3ZpbmdUYWJJbmRleH0gZnJvbSBcIi4uL1JvdmluZ1RhYkluZGV4XCI7XG5pbXBvcnQge1JlZn0gZnJvbSBcIi4vdHlwZXNcIjtcblxudHlwZSBBVEJQcm9wcyA9IFJlYWN0LkNvbXBvbmVudFByb3BzPHR5cGVvZiBBY2Nlc3NpYmxlVG9vbHRpcEJ1dHRvbj47XG5pbnRlcmZhY2UgSVByb3BzIGV4dGVuZHMgT21pdDxBVEJQcm9wcywgXCJvbkZvY3VzXCIgfCBcImlucHV0UmVmXCIgfCBcInRhYkluZGV4XCI+IHtcbiAgICBpbnB1dFJlZj86IFJlZjtcbn1cblxuLy8gV3JhcHBlciB0byBhbGxvdyB1c2Ugb2YgdXNlUm92aW5nVGFiSW5kZXggZm9yIHNpbXBsZSBBY2Nlc3NpYmxlVG9vbHRpcEJ1dHRvbnMgb3V0c2lkZSBvZiBSZWFjdCBGdW5jdGlvbmFsIENvbXBvbmVudHMuXG5leHBvcnQgY29uc3QgUm92aW5nQWNjZXNzaWJsZVRvb2x0aXBCdXR0b246IFJlYWN0LkZDPElQcm9wcz4gPSAoe2lucHV0UmVmLCAuLi5wcm9wc30pID0+IHtcbiAgICBjb25zdCBbb25Gb2N1cywgaXNBY3RpdmUsIHJlZl0gPSB1c2VSb3ZpbmdUYWJJbmRleChpbnB1dFJlZik7XG4gICAgcmV0dXJuIDxBY2Nlc3NpYmxlVG9vbHRpcEJ1dHRvbiB7Li4ucHJvcHN9IG9uRm9jdXM9e29uRm9jdXN9IGlucHV0UmVmPXtyZWZ9IHRhYkluZGV4PXtpc0FjdGl2ZSA/IDAgOiAtMX0gLz47XG59O1xuXG4iXX0=

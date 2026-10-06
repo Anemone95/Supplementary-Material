@@ -1,0 +1,21 @@
+$ corepack pnpm@9.15.9 install --prod --no-frozen-lockfile --reporter=append-only --config.node-linker=hoisted --ignore-workspace --ignore-scripts
+Progress: resolved 1, reused 0, downloaded 0, added 0
+ WARN  deprecated eslint@3.19.0: This version is no longer supported. Please see https://eslint.org/version-support for other options.
+Progress: resolved 96, reused 0, downloaded 0, added 0
+Progress: resolved 240, reused 0, downloaded 0, added 0
+Progress: resolved 388, reused 0, downloaded 0, added 0
+Packages are hard linked from the content-addressable store to the virtual store.
+  Content-addressable store is at: /home/wenyuan/pkg-cache/pnpm/v3
+  Virtual store is at:             node_modules/.pnpm
+ WARN  The git-hosted package fetched from "https://codeload.github.com/reggi/node-fs-extra/tar.gz/796dea19db2d82e80aa0d1b450a9c0b4a9c0d80b" has to be built but the build scripts were ignored.
+Progress: resolved 390, reused 0, downloaded 1, added 0
+ WARN  The git-hosted package fetched from "https://codeload.github.com/markdown-it/markdown-it/tar.gz/255d62d39122694872ddce840e2141379ac3deca" has to be built but the build scripts were ignored.
+Progress: resolved 390, reused 0, downloaded 2, added 0
+Progress: resolved 423, reused 0, downloaded 2, added 0
+ WARN  6 deprecated subdependencies found: circular-json@0.3.3, es6-collections@0.5.6, glob@7.2.3, inflight@1.0.6, rimraf@2.6.3, rimraf@2.7.1
+
+devDependencies: skipped
+
+Already up to date
+Progress: resolved 426, reused 0, downloaded 2, added 0, done
+Done in 7.4s using pnpm v9.15.9

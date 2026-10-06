@@ -1,0 +1,18 @@
+$ corepack pnpm@9.15.9 install --prod --no-frozen-lockfile --reporter=append-only --config.node-linker=hoisted --ignore-workspace --ignore-scripts
+ WARN  deprecated ldapjs@1.0.0: This package has been decomissioned. See https://github.com/ldapjs/node-ldapjs/blob/8ffd0bc9c149088a10ec4c1ec6a18450f76ad05d/README.md
+Progress: resolved 1, reused 0, downloaded 0, added 0
+ WARN  deprecated jscs@2.11.0: JSCS has merged with ESLint! See - https://medium.com/@markelog/jscs-end-of-the-line-bc9bf0b3fdb2
+ WARN  deprecated eslint@1.10.3: This version is no longer supported. Please see https://eslint.org/version-support for other options.
+Progress: resolved 64, reused 0, downloaded 0, added 0
+Progress: resolved 252, reused 0, downloaded 0, added 0
+Progress: resolved 426, reused 0, downloaded 0, added 0
+Progress: resolved 472, reused 0, downloaded 0, added 0
+ WARN  32 deprecated subdependencies found: babel-plugin-constant-folding@1.0.1, babel-plugin-dead-code-elimination@1.0.2, babel-plugin-eval@1.0.1, babel-plugin-inline-environment-variables@1.0.1, babel-plugin-jscript@1.0.4, babel-plugin-member-expression-literals@1.0.1, babel-plugin-property-literals@1.0.1, babel-plugin-proto-to-assign@1.0.4, babel-plugin-react-constant-elements@1.0.3, babel-plugin-react-display-name@1.0.3, babel-plugin-remove-console@1.0.1, babel-plugin-remove-debugger@1.0.1, babel-plugin-runtime@1.0.7, babel-plugin-undefined-to-void@1.1.6, circular-json@0.3.3, core-js@1.2.7, glob@5.0.15, glob@6.0.4, glob@7.2.3, inflight@1.0.6, jscs-preset-wikimedia@1.0.1, lodash.omit@3.1.0, minimatch@2.0.10, node-uuid@1.4.8, nomnom@1.8.1, q@1.5.1, rimraf@2.4.5, rimraf@2.6.3, rimraf@2.7.1, stable@0.1.8, try-resolve@1.0.1, uuid@2.0.3
+
+devDependencies: skipped
+
+Packages: +155
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Progress: resolved 473, reused 137, downloaded 17, added 154
+Progress: resolved 473, reused 137, downloaded 18, added 155, done
+Done in 5.5s using pnpm v9.15.9

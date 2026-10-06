@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../src/followings/index.js"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;;;;;AAAA;;AACA;;AAEA","sourcesContent":["import dataSource from './data-source';\nimport resolver from './resolver';\n\nexport { followingsSchema as schema } from '@apollosproject/data-schema';\nexport { resolver, dataSource };\n"],"file":"index.js"}

@@ -1,0 +1,48 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.getNameForEventRoom = getNameForEventRoom;
+exports.userLabelForEventRoom = userLabelForEventRoom;
+
+var _MatrixClientPeg = require("../MatrixClientPeg");
+
+var _languageHandler = require("../languageHandler");
+
+/*
+Copyright 2019 The Matrix.org Foundation C.I.C.
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+*/
+function getNameForEventRoom(userId, roomId) {
+  const client = _MatrixClientPeg.MatrixClientPeg.get();
+
+  const room = client.getRoom(roomId);
+  const member = room && room.getMember(userId);
+  return member ? member.name : userId;
+}
+
+function userLabelForEventRoom(userId, roomId) {
+  const name = getNameForEventRoom(userId, roomId);
+
+  if (name !== userId) {
+    return (0, _languageHandler._t)("%(name)s (%(userId)s)", {
+      name,
+      userId
+    });
+  } else {
+    return userId;
+  }
+}
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uL3NyYy91dGlscy9LZXlWZXJpZmljYXRpb25TdGF0ZU9ic2VydmVyLmpzIl0sIm5hbWVzIjpbImdldE5hbWVGb3JFdmVudFJvb20iLCJ1c2VySWQiLCJyb29tSWQiLCJjbGllbnQiLCJNYXRyaXhDbGllbnRQZWciLCJnZXQiLCJyb29tIiwiZ2V0Um9vbSIsIm1lbWJlciIsImdldE1lbWJlciIsIm5hbWUiLCJ1c2VyTGFiZWxGb3JFdmVudFJvb20iXSwibWFwcGluZ3MiOiI7Ozs7Ozs7O0FBZ0JBOztBQUNBOztBQWpCQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFLTyxTQUFTQSxtQkFBVCxDQUE2QkMsTUFBN0IsRUFBcUNDLE1BQXJDLEVBQTZDO0FBQ2hELFFBQU1DLE1BQU0sR0FBR0MsaUNBQWdCQyxHQUFoQixFQUFmOztBQUNBLFFBQU1DLElBQUksR0FBR0gsTUFBTSxDQUFDSSxPQUFQLENBQWVMLE1BQWYsQ0FBYjtBQUNBLFFBQU1NLE1BQU0sR0FBR0YsSUFBSSxJQUFJQSxJQUFJLENBQUNHLFNBQUwsQ0FBZVIsTUFBZixDQUF2QjtBQUNBLFNBQU9PLE1BQU0sR0FBR0EsTUFBTSxDQUFDRSxJQUFWLEdBQWlCVCxNQUE5QjtBQUNIOztBQUVNLFNBQVNVLHFCQUFULENBQStCVixNQUEvQixFQUF1Q0MsTUFBdkMsRUFBK0M7QUFDbEQsUUFBTVEsSUFBSSxHQUFHVixtQkFBbUIsQ0FBQ0MsTUFBRCxFQUFTQyxNQUFULENBQWhDOztBQUNBLE1BQUlRLElBQUksS0FBS1QsTUFBYixFQUFxQjtBQUNqQixXQUFPLHlCQUFHLHVCQUFILEVBQTRCO0FBQUNTLE1BQUFBLElBQUQ7QUFBT1QsTUFBQUE7QUFBUCxLQUE1QixDQUFQO0FBQ0gsR0FGRCxNQUVPO0FBQ0gsV0FBT0EsTUFBUDtBQUNIO0FBQ0oiLCJzb3VyY2VzQ29udGVudCI6WyIvKlxuQ29weXJpZ2h0IDIwMTkgVGhlIE1hdHJpeC5vcmcgRm91bmRhdGlvbiBDLkkuQy5cblxuTGljZW5zZWQgdW5kZXIgdGhlIEFwYWNoZSBMaWNlbnNlLCBWZXJzaW9uIDIuMCAodGhlIFwiTGljZW5zZVwiKTtcbnlvdSBtYXkgbm90IHVzZSB0aGlzIGZpbGUgZXhjZXB0IGluIGNvbXBsaWFuY2Ugd2l0aCB0aGUgTGljZW5zZS5cbllvdSBtYXkgb2J0YWluIGEgY29weSBvZiB0aGUgTGljZW5zZSBhdFxuXG4gICAgaHR0cDovL3d3dy5hcGFjaGUub3JnL2xpY2Vuc2VzL0xJQ0VOU0UtMi4wXG5cblVubGVzcyByZXF1aXJlZCBieSBhcHBsaWNhYmxlIGxhdyBvciBhZ3JlZWQgdG8gaW4gd3JpdGluZywgc29mdHdhcmVcbmRpc3RyaWJ1dGVkIHVuZGVyIHRoZSBMaWNlbnNlIGlzIGRpc3RyaWJ1dGVkIG9uIGFuIFwiQVMgSVNcIiBCQVNJUyxcbldJVEhPVVQgV0FSUkFOVElFUyBPUiBDT05ESVRJT05TIE9GIEFOWSBLSU5ELCBlaXRoZXIgZXhwcmVzcyBvciBpbXBsaWVkLlxuU2VlIHRoZSBMaWNlbnNlIGZvciB0aGUgc3BlY2lmaWMgbGFuZ3VhZ2UgZ292ZXJuaW5nIHBlcm1pc3Npb25zIGFuZFxubGltaXRhdGlvbnMgdW5kZXIgdGhlIExpY2Vuc2UuXG4qL1xuXG5pbXBvcnQge01hdHJpeENsaWVudFBlZ30gZnJvbSAnLi4vTWF0cml4Q2xpZW50UGVnJztcbmltcG9ydCB7IF90IH0gZnJvbSAnLi4vbGFuZ3VhZ2VIYW5kbGVyJztcblxuZXhwb3J0IGZ1bmN0aW9uIGdldE5hbWVGb3JFdmVudFJvb20odXNlcklkLCByb29tSWQpIHtcbiAgICBjb25zdCBjbGllbnQgPSBNYXRyaXhDbGllbnRQZWcuZ2V0KCk7XG4gICAgY29uc3Qgcm9vbSA9IGNsaWVudC5nZXRSb29tKHJvb21JZCk7XG4gICAgY29uc3QgbWVtYmVyID0gcm9vbSAmJiByb29tLmdldE1lbWJlcih1c2VySWQpO1xuICAgIHJldHVybiBtZW1iZXIgPyBtZW1iZXIubmFtZSA6IHVzZXJJZDtcbn1cblxuZXhwb3J0IGZ1bmN0aW9uIHVzZXJMYWJlbEZvckV2ZW50Um9vbSh1c2VySWQsIHJvb21JZCkge1xuICAgIGNvbnN0IG5hbWUgPSBnZXROYW1lRm9yRXZlbnRSb29tKHVzZXJJZCwgcm9vbUlkKTtcbiAgICBpZiAobmFtZSAhPT0gdXNlcklkKSB7XG4gICAgICAgIHJldHVybiBfdChcIiUobmFtZSlzICglKHVzZXJJZClzKVwiLCB7bmFtZSwgdXNlcklkfSk7XG4gICAgfSBlbHNlIHtcbiAgICAgICAgcmV0dXJuIHVzZXJJZDtcbiAgICB9XG59XG4iXX0=

@@ -1,0 +1,33 @@
+{
+  "name": "chromedriver126",
+  "version": "1.0.15",
+  "description": "chromedriver 1.26",
+  "main": "lib/chromedriver",
+  "scripts": {
+    "install": "node install.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/swangful/chromedriver126.git"
+  },
+  "keywords": [
+    "chromedriver"
+  ],
+  "bin": {
+    "chromedriver": "./bin/chromedriver"
+  },
+  "author": "Steve Wang <swangful@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/swangful/chromedriver126/issues"
+  },
+  "homepage": "https://github.com/swangful/chromedriver126",
+  "dependencies": {
+    "colors": "^1.1.2",
+    "adm-zip": "^0.4.7",
+    "kew": "^0.5.0",
+    "mkdirp": "^0.5.0",
+    "npmconf": "^2.1.1",
+    "rimraf": "^2.0.3"
+  }
+}

@@ -1,0 +1,348 @@
+<html ng-app="soletta-devapp" ng-init="loadingStatus='true'" style="background-color: #202429;">
+    <head class="header">
+        <meta charset="utf-8">
+        <title>Soletta Development Application</title>
+
+        <link rel="stylesheet" type="text/css" href="/libs/bootstrap/dist/css/bootstrap.css">
+        <link rel="stylesheet" type="text/css" href="/jstree/themes/default/style.css">
+        <link rel="stylesheet" type="text/css" href="/css/app.css">
+        <link rel="stylesheet" type="text/css" href="/libs/highlightjs/styles/railscasts.css">
+        <link rel="stylesheet" type="text/css" href="/libs/angular-datatables/dist/plugins/bootstrap/datatables.bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="/libs/angular-material/angular-material.min.css">
+        <link rel="stylesheet" type="text/css" href="/css/all.css">
+        <link rel="stylesheet" type="text/css" href="/css/jquery-ui.css">
+        <link rel="stylesheet" type="text/css" href="/css/dialog.css">
+        <link rel="stylesheet" type="text/css" href="/css/theme.css">
+        <link rel="stylesheet" type="text/css" href="/css/bootstrap.css">
+        <script src="/libs/angular/angular.min.js"></script>
+        <script src="/libs/angular-route/angular-route.min.js"></script>
+        <script src="/libs/jquery/dist/jquery.min.js"></script>
+        <script src="/jstree/jstree.min.js"></script>
+        <script src="/libs/jquery-ui/jquery-ui.min.js"></script>
+        <script src="/libs/jstree-directive/jsTree.directive.js"></script>
+        <script src="/js/app.js"></script>
+        <script src="/js/factory.js"></script>
+        <script src="/js/controllers.js"></script>
+        <script src="/js/controllers/editor.js"></script>
+        <script src="/js/controllers/journal.js"></script>
+        <script src="/js/controllers/menu.js"></script>
+        <script src="/js/controllers/cheat_sheet.js"></script>
+        <script src="/libs/highlightjs/highlight.pack.js"></script>
+        <script src="/libs/angular-highlightjs/angular-highlightjs.min.js"></script>
+        <script src="/libs/datatables/media/js/jquery.dataTables.min.js"></script>
+        <script src="/libs/angular-datatables/dist/angular-datatables.min.js"></script>
+        <script src="/libs/angular-ui-ace/ui-ace.min.js"></script>
+        <script src="/libs/angular-material/angular-material.min.js"></script>
+        <script src="/libs/angular-animate/angular-animate.min.js"></script>
+        <script src="/libs/angular-messages/angular-messages.min.js"></script>
+        <script src="/libs/angular-aria/angular-aria.min.js"></script>
+        <script src="/libs/ace-builds/src-min/ace.js"></script>
+        <script src="/libs/ace-builds/src-min/ext-modelist.js"></script>
+        <script src="/libs/underscore/underscore-min.js"></script>
+        <script src="/libs/spin.js/spin.js"></script>
+        <script src="/libs/angular-spinner/angular-spinner.min.js"></script>
+        <script src="/libs/ng-context-menu/dist/ng-context-menu.min.js"></script>
+        <script src="/js/collapse/ui-bootstrap-custom-0.13.1.min.js"></script>
+        <script src="/js/combobox/jquery-ui-custom-combobox.js"></script>
+        <script>
+            $(function() {
+                var currentContent = $('#cb');
+                var currentMenu = $('#menu-cb');
+                var bottomMargin = 220;
+
+                //initial setup
+                $('#sj').hide();
+                $('#fe').hide();
+                $('#sc').hide();
+                currentMenu.addClass('menu-item-selected');
+
+                //Handling the menu clicks
+                $('.menu-item').on('click',function(event){
+
+                    //clearing old references
+                    currentContent.hide();
+                    currentMenu.removeClass('menu-item-selected');
+
+                    //assigning new menu and content
+                    currentMenu = $(event.target);
+                    currentContent = $('#' + (currentMenu).attr('id').substr(5));
+
+                    currentMenu.addClass('menu-item-selected');
+                    currentContent.show();
+
+                });
+
+                //handling mouse over and mouse out events
+                $('.menu-item').mouseover(function(event){
+                    $(event.target).addClass('menu-item-hover');
+                })
+                $('.menu-item').mouseout(function(event){
+                    $(event.target).removeClass('menu-item-hover');
+                })
+
+                //dynamically resizes the height of the components
+                function defineCodeBrowserHeight(){
+                    var availableHeight = window.innerHeight- bottomMargin;
+                    $('#cb-content').css('height',availableHeight+'px');
+                    $('#tree').css('height',availableHeight+23+'px');
+                    $('#fbp_editor').css('height',(availableHeight/2)+'px');
+                    $('#svgFrame').css('height',(availableHeight/2)+'px');
+                }
+
+                //forcing the component size redrawing on window resize
+                $(window).resize(function(){
+                   defineCodeBrowserHeight();
+                })
+
+                $('#configComboBox').combobox();
+                $('#configComboBox').append('<option value="none">none</option>');
+
+                //dynamically setting the size of the code browser and viewer
+                defineCodeBrowserHeight();
+            });
+        </script>
+
+        <!-- Soletta Dev-App header -->
+        <div class="headerDevapp">
+            <div style="width:245px; display: flex;">
+                <div class="boxTitle" style="width:40px; margin-left: -15px;"></div>
+                <div class="headerSolettaLogo">
+                 <!--   <img src="imgs/soletta_logo.png" style="margin-top: 6px; margin-bottom: 5px;"/> -->
+                </div>
+                <div class="dropShadow"></div>
+            </div>
+            <div class="boxTitle">
+                <div class="headerTitle">
+                    Soletta Development Application
+                </div>
+            </div>
+        </div>
+    </head>
+    <body class="container">
+
+        <!-- NAVIGATION MENU !-->
+        <div ng-controller="menuController" id="top-menu">
+            <div align="center" class='menu-item' id='menu-cb'>EDITOR</div>
+            <div  align="center" ng-class="{'enable_div': journal == true, 'disable_div': journal == false}" class='menu-item' id='menu-sj'>JOURNAL</div>
+            <div  align="center" ng-class="{'enable_div': cheat_sheet == true, 'disable_div': cheat_sheet == false}" class='menu-item' id='menu-sc'>CHEAT SHEET</div>
+        </div>
+
+        <!-- CONTENT REGION !-->
+        <div id="tabs">
+            <div id="tabcont" class="tabcontents">
+                <!-- -------------------------------------------------------------- !-->
+                <!-- Editor !-->
+                <!-- -------------------------------------------------------------- !-->
+                <div ng-controller="editor as ctrl" id="cb">
+                    <!-- TOP OF THE PAGE !-->
+                    <div class="container" style="width: 100%; height: 56px; background-color: #2D3237 !important;">
+
+                    <!--TOP MENU !-->
+                    <div class="menuStyle" style="margin-right: -7px; width: 100%;">
+                        <md-menu-bar class="top-menu-font" style="padding: 0px; width: 220px; margin-left: 11px; margin-top: 8px;">
+                          <md-menu style="margin-right: 15px;">
+                            <button ng-click="$mdOpenMenu()">
+                            File
+                            </button>
+                            <md-menu-content class="top-menu-font">
+                                <md-menu-item>
+                                    <md-button ng-click="ctrl.menuAction('file.projectnew', $event)">
+                                        New Project
+                                    </md-button>
+                                 </md-menu-item>
+                                 <md-menu-item>
+                                    <md-button ng-click="ctrl.menuAction('file.folder', $event)">
+                                        New Folder
+                                    </md-button>
+                                 </md-menu-item>
+                                 <md-menu-item>
+                                    <md-button ng-click="ctrl.menuAction('file.new', $event)">
+                                        New File
+                                    </md-button>
+                                 </md-menu-item>
+                                 <md-menu-divider></md-menu-divider>
+                                 <md-menu-item>
+                                    <md-button ng-disabled="!shouldSave" ng-click="ctrl.menuAction('file.save', $event)">
+                                        Save
+                                    </md-button>
+                                 </md-menu-item>
+                                 <md-menu-item>
+                                    <md-button ng-click="ctrl.menuAction('file.remove', $event)">
+                                        Remove
+                                    </md-button>
+                                 </md-menu-item>
+                                 <md-menu-divider></md-menu-divider>
+                                 <md-menu-item>
+                                    <md-button ng-click="ctrl.menuAction('file.import', $event)">
+                                        Import GIT Project
+                                    </md-button>
+                                 </md-menu-item>
+                            </md-menu-content>
+                          </md-menu>
+                          <md-menu style="margin-right: 15px;">
+                            <button ng-click="$mdOpenMenu()">
+                                Edit
+                            </button>
+                            <md-menu-content class="top-menu-font">
+                                <md-menu-item>
+                                    <md-button ng-click="ctrl.menuAction('edit.undo', $event)">
+                                        Undo
+                                    </md-button>
+                                </md-menu-item>
+                                <md-menu-item>
+                                    <md-button ng-click="ctrl.menuAction('edit.redo', $event)">
+                                            Redo
+                                    </md-button>
+                                </md-menu-item>
+                                <md-menu-divider></md-menu-divider>
+                                <md-menu-item>
+                                    <md-button ng-click="ctrl.menuAction('edit.copy', $event)">
+                                        Copy
+                                    </md-button>
+                                </md-menu-item>
+                                <md-menu-item>
+                                    <md-button ng-click="ctrl.menuAction('edit.paste', $event)">
+                                        Paste
+                                    </md-button>
+                                </md-menu-item>
+                                <md-menu-divider></md-menu-divider>
+                                </md-menu-item>
+                                <md-menu-item>
+                                    <md-button ng-click="ctrl.menuAction('edit.selectall', $event)">
+                                        Select All
+                                    </md-button>
+                            </md-menu-content>
+                          </md-menu>
+                          <md-menu>
+                            <button ng-click="$mdOpenMenu()">
+                                View
+                            </button>
+                            <md-menu-content class="top-menu-font">
+                                <md-menu-item>
+                                    <md-button ng-click="ctrl.menuAction('view.code', $event)">
+                                        {{showhideCode}}
+                                    </md-button>
+                                </md-menu-item>
+                                <md-menu-item>
+                                    <md-button ng-click="ctrl.menuAction('view.flow', $event)">
+                                        {{showhideFlow}}
+                                    </md-button>
+                                 </md-menu-item>
+                                 <md-menu-item>
+                                    <md-button ng-click="ctrl.menuAction('view.project', $event)">
+                                        {{showhideProject}}
+                                    </md-button>
+                                 </md-menu-item>
+                            </md-menu-content>
+                          </md-menu>
+                        </md-menu-bar>
+                    </div>
+                </div>
+
+                <div style="vertical-align: text-bottom;">
+                    <div ng-if="libChecked == true" class="blueLabel" style="margin-left:20px; width:330px;">
+                        Projects
+                    </div>
+                    <div class="blueLabel" ng-if="codeChecked == true" >
+                        Code viewer <span>{{fileName}}</span>
+                    </div>
+                    <div class="blueLabel" ng-if="codeChecked == false" >
+                        SVG viewer <span>{{fileName}}</span>
+                    </div>
+                </div>
+                <div class="serviceStatus">
+
+                    <!-- TABLELESS !-->
+                    <div style="float:right">
+                        <button ng-class="processRunClass()" title="Run FBP code" ng-click="run()" id="runCode"></button>
+                    </div>
+
+                    <div  class="running_table" ng-class="{'enable_div': runJournal == true, 'disable_div': runJournal == false}" style="float:right">
+                        <span style="font-size: 13px; font-family: clearsans-bold; color: #616568; margin-right: 16px;" >CONFIGURATION</span>
+                        <select id="configComboBox" class="inputControls">
+                            <option value="" ></option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- SHOW NODE SOURCE CODE !-->
+                <!--Main container of all code browser content !-->
+                <div id="cb-content" class="row show-source" style="width: 100%; height: 100%; background-color:#202429">
+                    <!--Tree view !-->
+                    <div id="wrap">
+                        <div collapse="!libChecked" context-menu id="tree" class="col-md-4 tree-browser" data-target="menu-1" ng-class="{ 'highlight': highlight, 'expanded' : expanded }" style="height: 100%;" ng-attr-style="{{codeChecked || svgChecked && 'width: 350px;' || 'width: 100%;' }}">
+                            <js-tree id="jstree" ui-tree="rootTree" tree-events="select_node:nodeSelected;ready:readyCB" tree-ajax="/api/tree"></js-tree>
+                        </div>
+                    </div>
+
+                    <!-- DROP DOWN MENU !-->
+                    <div class="dropdown" style="position: fixed; z-index: 9999;" id="menu-1">
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a class="pointer" role="menuitem" tabindex="1" ng-click="createProject()">New project</a></li>
+                            <li><a class="pointer" role="menuitem" tabindex="1" ng-click="newFolder()">Create folder</a></li>
+                            <li><a class="pointer" role="menuitem" tabindex="2"  ng-click="createFile()">Create file</a></li>
+                            <li><a class="pointer" role="menuitem" tabindex="3" ng-click="remove()">Remove</a></li>
+                        </ul>
+                    </div>
+                    <!-- Contains the code viewer and the svg viewer !-->
+                    <div ng-attr-style="{{libChecked && 'margin-left: 360px;' || 'margin-left: 0px;' }}" style="background-color:#262a2e; width: 102%;">
+                        <div id="codeCheck" collapse="!codeChecked">
+                            <div ui-ace="{onChange: editorChanged}" ng-attr-style="{{codeChecked && !svgChecked && 'height: 100%;' || 'height: 50%;'}}" style="width: 100%; float: left;" id="fbp_editor"></div>
+                        </div>
+                        <div  id="svgCheck" collapse="!svgChecked" style="overflow-y: scroll; height: 100%; background-color:#202429;">
+                            <div id="svgFrame" style="width:100%;" ng-attr-style="{{svgChecked && !codeChecked && 'height: 100%; width:100%;' || 'height: 50%; width:100%;'}}"></div>
+                        </div>
+                        <div class="status-bar" ng-attr-style="{{libChecked && 'margin-left: -10px;' || 'margin-left: 15px;' }}"><span>{{ServiceStatus}}</span></div>
+                    </div>
+                </div>
+            </div> <!--close tabcontents !-->
+
+
+
+            <!-- -------------------------------------------------------------- !-->
+            <!-- SYSTEMD JOURNAL !-->
+            <!-- -------------------------------------------------------------- !-->
+            <div id="sj" ng-controller="SystemdJournald" class="systemd-journald">
+
+            <!-- HEADER CONTROLS !-->
+                <div class="container" style="width: 100%;">
+
+                    <div class="headerControls">
+                        <input type="search" ng-model="searchText" placeholder="Search" class="inputControls" style="width:450px; outline: 0; margin-right: -11px;"/>
+                            <!--refresh button !-->
+                        <button ng-click="run()" style="outline: 0; background:transparent; border:0"><img src="imgs/button_refresh.png"></button>
+                    </div>
+                </div>
+
+                <!-- DATA TABLE !-->
+                <table cellpadding="0" cellspacing="0" border="0" id="table" class="table table-hover data-table sort display" style="font-size: 12px !important; background-color:#262a2e; color:#afb2b6;">
+                    <thead style="background-color:#2d3237; font-size:1.2em;">
+                        <tr>
+                            <th style="border:0;color:#33b7e9"> <a href="" ng-init="columnToOrder='__REALTIME_TIMESTAMP';reverse=!reverse" ng-click="columnToOrder='__REALTIME_TIMESTAMP';reverse=!reverse">Date</a></th>
+                            <th style="border:0;color:#33b7e9"> <a style="margin-left: 150px !important;" href="" ng-click="columnToOrder='SYSLOG_IDENTIFIER';reverse=!reverse">Unit</a></th>
+                            <th style="border:0;color:#33b7e9"> <a style="margin-left: 210px !important;" href="" ng-click="columnToOrder='MESSAGE';reverse=!reverse">Message</a></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="cursor: pointer" ng-repeat="item in JournaldViewer | orderBy:columnToOrder:reverse | filter:searchText as results track by $index" >
+                            <td style="width: 200px; border:0;">{{(item.__REALTIME_TIMESTAMP / 1000) | date:'dd-MM-yyyy HH:mm'}}</td>
+                            <td class="unit" style="width:250px; border:0; ">{{item.SYSLOG_IDENTIFIER}}</td>
+                            <td class="message" style="border:0;" >{{item.MESSAGE}}</td>
+                            <td class="code" style="display: none"><div style="overflow:hidden">{{item.CODE_FILE}}</td>
+                        </tr>
+                        <tr ng-if="results.length == 0">
+                            <td><strong>No results found...</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div><!--Close Systemd Journal !-->
+
+            <!-- -------------------------------------------------------------- !-->
+            <!-- CHEAT SHEET !-->
+            <!-- -------------------------------------------------------------- !-->
+            <div ng-controller="cheatSheetController" id="sc" class="cheat_sheet" style="height:90%;" >
+                <iframe style="width:100%; height:90%;" ng-src="{{cheatSheetUrl}}"></iframe>
+            </div>
+        </div><!--close tabs!-->
+    </body>
+</html>

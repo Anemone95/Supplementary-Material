@@ -1,0 +1,12 @@
+$ corepack pnpm@9.15.9 install --prod --no-frozen-lockfile --reporter=append-only --config.node-linker=hoisted --ignore-workspace --ignore-scripts
+ WARN  deprecated mocha@1.20.1: Mocha v1.x is no longer supported.
+Progress: resolved 1, reused 0, downloaded 0, added 0
+ WARN  deprecated sinon@1.10.3: 16.1.1
+ WARN  8 deprecated subdependencies found: formatio@1.0.2, glob@3.2.3, graceful-fs@2.0.3, jade@0.26.3, minimatch@0.2.14, mkdirp@0.3.0, mkdirp@0.3.5, samsam@1.1.3
+Progress: resolved 50, reused 0, downloaded 0, added 0
+
+devDependencies: skipped
+
+Already up to date
+Progress: resolved 50, reused 0, downloaded 0, added 0, done
+Done in 1.2s using pnpm v9.15.9

@@ -1,0 +1,215 @@
+{
+  "options": [
+    {
+      "name": "host",
+      "alias": "H",
+      "description": "Host address to bind to. By default it supports \"any address\"",
+      "defaultValue": "0.0.0.0",
+      "type": "String",
+      "typeLabel": "string",
+      "validation": "isHostname",
+      "show": true
+    },
+    {
+      "name": "port",
+      "alias": "p",
+      "description": "Port to listen on",
+      "defaultValue": 8084,
+      "type": "Number",
+      "typeLabel": "number",
+      "validation": "isNumeric",
+      "show": true
+    },
+    {
+      "name": "root",
+      "alias": "r",
+      "description": "The root directory",
+      "type": "String",
+      "typeLabel": "string",
+      "defaultValue": "./",
+      "validation": "isFileName",
+      "defaultOption": true,
+      "multiple": true
+    },
+    {
+      "name": "cache",
+      "alias": "c",
+      "description": "Time in milliseconds for caching files in the browser",
+      "defaultValue": 3600,
+      "type": "Number",
+      "typeLabel": "number",
+      "validation": "isNumeric",
+      "show": true
+    },
+    {
+      "name": "log-level",
+      "alias": "l",
+      "description": "Display logs in the console. The possible values are `silent`, `error`, `warn`, `info`, `debug`. Any logs of a higher level than the setting are shown. If you define it as `info`, it will show `warn` and `error` outputs also",
+      "defaultValue": "info",
+      "type": "String",
+      "typeLabel": "string",
+      "validation": "isString",
+      "show": true
+    },
+    {
+      "name": "silent",
+      "alias": "S",
+      "description": "Set `log-level` to `silent` mode",
+      "type": "Boolean",
+      "validation": "isBoolean",
+      "show": true
+    },
+    {
+      "name": "verbose",
+      "alias": "V",
+      "description": "Set `log-level` to `debug` mode",
+      "type": "Boolean",
+      "validation": "isBoolean",
+      "show": true
+    },
+
+    {
+      "name": "localhost",
+      "description": "Only works locally. Block external connections",
+      "type": "Boolean",
+      "validation": "isBoolean",
+      "show": true
+    },
+    {
+      "name": "no-cache",
+      "description": "Disabled the caching files in the browser",
+      "type": "Boolean",
+      "validation": "isBoolean",
+      "show": true
+    },
+    {
+      "name": "no-port-scan",
+      "description": "Disabled the port scanning when the selected port is already in use",
+      "type": "Boolean",
+      "validation": "isBoolean",
+      "show": true
+    },
+    {
+      "name": "cors",
+      "alias": "C",
+      "description": "Setup CORS headers to allow requests from any origin",
+      "type": "Boolean",
+      "validation": "isBoolean",
+      "show": true
+    },
+    {
+      "name": "directory-index",
+      "alias": "d",
+      "description": "The index file of a directory. Set to false to always show the directory listing",
+      "defaultValue": "index.html",
+      "type": "String",
+      "typeLabel": "file",
+      "validation": "isString",
+      "show": true
+    },
+    {
+      "name": "open",
+      "alias": "o",
+      "description": "Open browser window after starting the server",
+      "defaultValue": false,
+      "type": "Boolean",
+      "validation": "isBoolean",
+      "show": true
+    },
+    {
+      "name": "no-listing",
+      "description": "Turn off the directory listings",
+      "type": "Boolean",
+      "validation": "isBoolean",
+      "show": true
+    },
+    {
+      "name": "notifications",
+      "description": "Activate automatic notifications launching",
+      "type": "Boolean",
+      "validation": "isBoolean",
+      "show": true
+    },
+    {
+      "name": "browser",
+      "alias": "b",
+      "description": "Specify browser to use instead of system default",
+      "type": "String",
+      "typeLabel": "string",
+      "validation": "isString",
+      "show": true
+    },
+
+
+    {
+      "name": "layout",
+      "alias": "L",
+      "description": "Specify the page layout. Available options `grid` or `list`",
+      "defaultValue": "grid",
+      "type": "String",
+      "typeLabel": "string",
+      "validation": "isString",
+      "show": true
+    },
+
+
+    {
+      "name": "auth",
+      "alias": "a",
+      "description": "Enables http-auth using the `PAGES_USER` and `PAGES_PASSWORD` environment variables",
+      "type": "Boolean",
+      "validation": "isBoolean",
+      "show": true
+    },
+    {
+      "name": "unzipped",
+      "alias": "u",
+      "description": "Disable GZIP compression",
+      "type": "Boolean",
+      "validation": "isBoolean",
+      "show": true
+    },
+    {
+      "name": "no-clipboard",
+      "description": "Don't copy address to clipboard",
+      "type": "Boolean",
+      "validation": "isBoolean",
+      "show": true
+    },
+
+    {
+      "name": "ignore",
+      "alias": "i",
+      "description": "Files and directories to ignore. Use a string (comma-separated string for paths to ignore) if your are using the command line and an array if you are calling it via API",
+      "defaultValue": "",
+      "type": "Array",
+      "typeLabel": "array",
+      "validation": "isArray",
+      "show": true
+    },
+
+    {
+      "name": "help",
+      "alias": "h",
+      "description": "Output usage information",
+      "type": "Boolean",
+      "validation": "isBoolean",
+      "show": true
+    },
+    {
+      "name": "version",
+      "alias": "v",
+      "description": "Output the version number",
+      "type": "Boolean",
+      "validation": "isBoolean",
+      "show": true
+    },
+    {
+      "name": "dry-test",
+      "description": "",
+      "type": "Boolean",
+      "validation": "isBoolean",
+      "show": false
+    }
+  ]
+}

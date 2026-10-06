@@ -1,0 +1,16 @@
+{
+  "name": "zjjserver",
+  "version": "1.0.0",
+  "description": "this is a static server",
+  "main": "server",
+  "dependencies": {},
+  "devDependencies": {},
+  "scripts": {
+    "test": "zjj"
+  },
+  "author": "zjj",
+  "license": "ISC",
+  "keywords": [
+    "123456"
+  ]
+}

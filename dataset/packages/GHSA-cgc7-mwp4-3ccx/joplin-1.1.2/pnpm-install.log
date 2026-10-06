@@ -1,0 +1,23 @@
+$ corepack pnpm@9.15.9 install --prod --no-frozen-lockfile --reporter=append-only --config.node-linker=hoisted --ignore-workspace --ignore-scripts
+ WARN  deprecated highlight.js@10.1.1: Potential vulnerability. Upgrade to @latest
+Progress: resolved 1, reused 0, downloaded 0, added 0
+ WARN  deprecated jssha@2.4.2: jsSHA versions < 3.0.0 will no longer receive feature updates
+ WARN  deprecated request@2.88.2: request has been deprecated, see https://github.com/request/request/issues/3142
+Progress: resolved 60, reused 0, downloaded 0, added 0
+ WARN  deprecated uuid@3.4.0: uuid@10 and below is no longer supported.  For ESM codebases, update to uuid@latest.  For CommonJS codebases, use uuid@11 (but be aware this version will likely be deprecated in 2028).
+ WARN  deprecated tar@4.4.19: Old versions of tar are not supported, and contain widely publicized security vulnerabilities, which have been fixed in the current version. Please update. Support for old versions may be purchased (at exorbitant rates) by contacting i@izs.me
+ WARN  deprecated aws-sdk@2.1693.0: The AWS SDK for JavaScript (v2) has reached end-of-support, and no longer receives updates. Please migrate your code to use AWS SDK for JavaScript (v3). More info https://a.co/cUPnyil
+Progress: resolved 138, reused 0, downloaded 0, added 0
+Progress: resolved 320, reused 0, downloaded 0, added 0
+Progress: resolved 561, reused 0, downloaded 0, added 0
+ WARN  31 deprecated subdependencies found: abab@2.0.6, are-we-there-yet@1.1.7, clone-buffer@1.0.0, default-resolution@2.0.0, domexception@1.0.1, fsevents@1.2.13, gauge@2.7.4, glob@7.2.3, har-validator@5.1.5, highlight.js@9.12.0, inflight@1.0.6, node-pre-gyp@0.11.0, npmlog@4.1.2, osenv@0.1.5, path-dirname@1.0.2, prebuild-install@5.3.3, prebuild-install@5.3.6, q@0.9.7, q@1.1.2, querystring@0.2.0, request-promise-native@1.0.9, resolve-url@0.2.1, rimraf@2.6.3, rimraf@2.7.1, source-map-resolve@0.5.3, source-map-url@0.4.1, tar@5.0.11, urix@0.1.0, uuid@8.0.0, w3c-hr-time@1.0.2, whatwg-encoding@1.0.5
+
+devDependencies: skipped
+
+Packages: +513
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Progress: resolved 750, reused 0, downloaded 0, added 0
+Progress: resolved 750, reused 415, downloaded 76, added 504
+Progress: resolved 750, reused 415, downloaded 80, added 509
+Progress: resolved 750, reused 415, downloaded 83, added 513, done
+Done in 7.8s using pnpm v9.15.9

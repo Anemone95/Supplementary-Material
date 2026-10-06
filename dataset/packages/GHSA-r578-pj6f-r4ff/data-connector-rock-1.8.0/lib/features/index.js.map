@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../src/features/index.js"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;;;;;AAAA","sourcesContent":["export { featuresSchema as schema } from '@apollosproject/data-schema';\nexport dataSource from './data-source';\nexport resolver from './resolver';\n"],"file":"index.js"}

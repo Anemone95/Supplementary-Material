@@ -1,0 +1,16 @@
+32:37:922 INFO ApplicationStore.<init>  App archive folder:/Users/tobias/projects/pro7/webdrvr/applications
+32:37:995 INFO IOSServer.init  
+Beta features enabled ( enabled by -beta flag ): false
+Simulator enabled ( enabled by -simulators flag): false
+Inspector: http://0.0.0.0:5555/inspector/
+tests can access the server at http://0.0.0.0:5555/wd/hub
+server status: http://0.0.0.0:5555/wd/hub/status
+Connected devices: http://0.0.0.0:5555/wd/hub/devices/all
+Applications: http://0.0.0.0:5555/wd/hub/applications/all
+Capabilities: http://0.0.0.0:5555/wd/hub/capabilities/all
+Monitoring '/Users/tobias/projects/pro7/webdrvr/applications' for new applications
+Archived apps /Users/tobias/projects/pro7/webdrvr/applications
+
+Applications :
+--------------- 
+

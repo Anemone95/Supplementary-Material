@@ -1,0 +1,16 @@
+$ corepack pnpm@9.15.9 install --prod --no-frozen-lockfile --reporter=append-only --config.node-linker=hoisted --ignore-workspace --ignore-scripts
+Progress: resolved 1, reused 0, downloaded 0, added 0
+ WARN  deprecated uuid@8.3.2: uuid@10 and below is no longer supported.  For ESM codebases, update to uuid@latest.  For CommonJS codebases, use uuid@11 (but be aware this version will likely be deprecated in 2028).
+ WARN  deprecated eslint@7.32.0: This version is no longer supported. Please see https://eslint.org/version-support for other options.
+Progress: resolved 261, reused 0, downloaded 0, added 0
+Progress: resolved 328, reused 0, downloaded 0, added 0
+Progress: resolved 329, reused 0, downloaded 0, added 0
+Progress: resolved 330, reused 0, downloaded 0, added 0
+ WARN  9 deprecated subdependencies found: @humanwhocodes/config-array@0.5.0, @humanwhocodes/object-schema@1.2.1, glob@7.1.6, glob@7.2.3, har-validator@5.1.5, inflight@1.0.6, request@2.88.2, rimraf@3.0.2, uuid@3.4.0
+
+devDependencies: skipped
+
+Packages: +4
+++++
+Progress: resolved 330, reused 4, downloaded 0, added 4, done
+Done in 4.6s using pnpm v9.15.9

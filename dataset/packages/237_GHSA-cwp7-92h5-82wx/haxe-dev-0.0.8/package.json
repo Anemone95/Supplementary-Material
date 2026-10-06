@@ -1,0 +1,29 @@
+{
+  "name": "haxe-dev",
+  "version": "0.0.8",
+  "description": "The Cross-platform Toolkit",
+  "scripts": {
+    "install": "node install.js",
+    "test": "node test.js"
+  },
+  "repository" : { 
+    "type" : "git", 
+    "url" : "https://github.com/clemos/npm-haxe.git"
+  },
+  "directories": {
+    "bin": "./bin"
+  },
+  "author": "clemos",
+  "license": "(MIT OR GPL-3.0)",
+  "dependencies": {
+    "download": "^4.2.1",
+    "download-status": "^2.2.1",
+    "mv": "^2.1.1",
+    "rimraf": "^2.5.2"
+  },
+  "config": {
+    "version": "3.2.1",
+    "nightly": "",
+    "haxelib_version": "3.2.0-rc.1"
+  }
+}

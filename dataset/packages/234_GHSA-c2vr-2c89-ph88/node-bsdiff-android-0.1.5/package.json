@@ -1,0 +1,48 @@
+{
+  "name": "node-bsdiff-android",
+  "version": "0.1.5",
+  "description": "bsdiff APK file.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "install": "node install.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:arthur-zhang/node-bsdiff-android.git"
+  },
+  "keywords": [
+    "bsdiff",
+    "android"
+  ],
+  "author": {
+    "name": "Arthur Zhang"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/arthur-zhang/node-bsdiff-android/issues"
+  },
+  "homepage": "https://github.com/arthur-zhang/node-bsdiff-android",
+  "gitHead": "37d8d7156e0f330a968a25b2824bd3d9c3607dc2",
+  "_id": "node-bsdiff-android@0.1.4",
+  "_shasum": "97fdaa7fe5a97139756a300500d75e6bf5de2b34",
+  "_from": "node-bsdiff-android@0.1.4",
+  "_npmVersion": "1.4.28",
+  "_npmUser": {
+    "name": "zhangya_no1",
+    "email": "zhangya_no1@qq.com"
+  },
+  "maintainers": [
+    {
+      "name": "zhangya_no1",
+      "email": "zhangya_no1@qq.com"
+    }
+  ],
+  "dist": {
+    "shasum": "97fdaa7fe5a97139756a300500d75e6bf5de2b34",
+    "tarball": "http://registry.npmjs.org/node-bsdiff-android/-/node-bsdiff-android-0.1.4.tgz"
+  },
+  "directories": {},
+  "_resolved": "https://registry.npmjs.org/node-bsdiff-android/-/node-bsdiff-android-0.1.4.tgz",
+  "readme": "ERROR: No README data found!"
+}

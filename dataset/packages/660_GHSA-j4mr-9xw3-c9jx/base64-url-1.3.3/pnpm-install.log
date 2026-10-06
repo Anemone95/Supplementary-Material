@@ -1,0 +1,13 @@
+$ corepack pnpm@9.15.9 install --prod --no-frozen-lockfile --reporter=append-only --config.node-linker=hoisted --ignore-workspace --ignore-scripts
+Progress: resolved 1, reused 0, downloaded 0, added 0
+ WARN  deprecated istanbul@0.3.22: This module is no longer maintained, try this instead:
+  npm i nyc
+Visit https://istanbul.js.org/integrations for other alternatives.
+ WARN  deprecated jscs@1.13.1: JSCS has merged with ESLint! See - https://medium.com/@markelog/jscs-end-of-the-line-bc9bf0b3fdb2
+ WARN  6 deprecated subdependencies found: glob@5.0.15, glob@7.2.3, inflight@1.0.6, minimatch@2.0.10, rimraf@2.7.1, uuid@2.0.3
+
+devDependencies: skipped
+
+Already up to date
+Progress: resolved 244, reused 0, downloaded 0, added 0, done
+Done in 967ms using pnpm v9.15.9

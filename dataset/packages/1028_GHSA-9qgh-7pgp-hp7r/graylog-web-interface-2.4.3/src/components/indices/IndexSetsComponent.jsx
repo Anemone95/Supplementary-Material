@@ -1,0 +1,152 @@
+import React from 'react';
+import Reflux from 'reflux';
+import { LinkContainer } from 'react-router-bootstrap';
+import { Col, Button, Label, DropdownButton, MenuItem } from 'react-bootstrap';
+
+import { EntityList, EntityListItem, PaginatedList, Spinner } from 'components/common';
+import Routes from 'routing/Routes';
+import StringUtils from 'util/StringUtils';
+import NumberUtils from 'util/NumberUtils';
+
+import { IndexSetDeletionForm, IndexSetDetails } from 'components/indices';
+
+import CombinedProvider from 'injection/CombinedProvider';
+
+const { IndexSetsStore, IndexSetsActions } = CombinedProvider.get('IndexSets');
+
+const IndexSetsComponent = React.createClass({
+  mixins: [Reflux.connect(IndexSetsStore)],
+
+  componentDidMount() {
+    this.loadData(1, this.PAGE_SIZE);
+  },
+
+  loadData(pageNo, limit) {
+    this.currentPageNo = pageNo;
+    this.currentPageSize = limit;
+    IndexSetsActions.listPaginated((pageNo - 1) * limit, limit, true);
+    IndexSetsActions.stats();
+  },
+
+  // Stores the current page and page size to be able to reload the current page
+  currentPageNo: 1,
+  currentPageSize: 10,
+
+  PAGE_SIZE: 10,
+
+  _onChangePaginatedList(page, size) {
+    this.loadData(page, size);
+  },
+
+  _onSetDefault(indexSet) {
+    return () => {
+      IndexSetsActions.setDefault(indexSet).then(() => this.loadData(this.currentPageNo, this.currentPageSize));
+    };
+  },
+
+  _onDelete(indexSet) {
+    return () => {
+      this.refs[`index-set-deletion-form-${indexSet.id}`].open();
+    };
+  },
+
+  _deleteIndexSet(indexSet, deleteIndices) {
+    IndexSetsActions.delete(indexSet, deleteIndices).then(() => {
+      this.loadData(1, this.PAGE_SIZE);
+    });
+  },
+
+  _formatIndexSet(indexSet) {
+    const actions = (
+      <div>
+        <LinkContainer to={Routes.SYSTEM.INDEX_SETS.CONFIGURATION(indexSet.id)}>
+          <Button bsStyle="info">编辑</Button>
+        </LinkContainer>
+        {' '}
+        <DropdownButton title="更多操作" id={`index-set-dropdown-${indexSet.id}`} pullRight>
+          <MenuItem
+            onSelect={this._onSetDefault(indexSet)}
+            disabled={!indexSet.writable || indexSet.default}>设为默认</MenuItem>
+          <MenuItem divider />
+          <MenuItem onSelect={this._onDelete(indexSet)}>删除</MenuItem>
+        </DropdownButton>
+      </div>
+    );
+
+    const content = (
+      <Col md={12}>
+        <IndexSetDetails indexSet={indexSet} />
+
+        <IndexSetDeletionForm ref={`index-set-deletion-form-${indexSet.id}`} indexSet={indexSet} onDelete={this._deleteIndexSet} />
+      </Col>
+    );
+
+    const indexSetTitle = (
+      <LinkContainer to={Routes.SYSTEM.INDEX_SETS.SHOW(indexSet.id)}>
+        <a>{indexSet.title}</a>
+      </LinkContainer>
+    );
+
+    const isDefault = indexSet.default ? <Label key={`index-set-${indexSet.id}-default-label`} bsStyle="primary">默认</Label> : '';
+    const isReadOnly = !indexSet.writable ? <Label key={`index-set-${indexSet.id}-readOnly-label`} bsStyle="info">只读</Label> : '';
+    let description = indexSet.description;
+    if (indexSet.default) {
+      description += `${description.endsWith('.') ? '' : '.'} Graylog将在默认情况下使用该索引集。`;
+    }
+
+    let statsString;
+    const stats = this.state.indexSetStats[indexSet.id];
+    if (stats) {
+      statsString = this._formatStatsString(stats);
+    }
+
+    return (
+      <EntityListItem key={`index-set-${indexSet.id}`}
+                      title={indexSetTitle}
+                      titleSuffix={<span>{statsString} {isDefault} {isReadOnly}</span>}
+                      description={description}
+                      actions={actions}
+                      contentRow={content} />
+    );
+  },
+
+  _formatStatsString(stats) {
+    if (!stats) {
+      return 'N/A';
+    }
+    const indices = `${NumberUtils.formatNumber(stats.indices)} ${StringUtils.pluralize(stats.indices, 'index', 'indices')}`;
+    const documents = `${NumberUtils.formatNumber(stats.documents)} ${StringUtils.pluralize(stats.documents, 'document', 'documents')}`;
+    const size = NumberUtils.formatBytes(stats.size);
+
+    return `${indices}, ${documents}, ${size}`;
+  },
+
+  _isLoading() {
+    return !this.state.indexSets;
+  },
+
+  render() {
+    if (this._isLoading()) {
+      return <Spinner />;
+    }
+
+    return (
+      <div>
+        <h4><strong>总计:</strong> {this._formatStatsString(this.state.globalIndexSetStats)}</h4>
+
+        <hr style={{ marginBottom: 0 }} />
+
+        <PaginatedList pageSize={this.PAGE_SIZE}
+                       totalItems={this.state.indexSetsCount}
+                       onChange={this._onChangePaginatedList}
+                       showPageSizeSelect={false}>
+          <EntityList bsNoItemsStyle="info"
+                      noItemsText="没有索引集可显示。"
+                      items={this.state.indexSets.map(indexSet => this._formatIndexSet(indexSet))} />
+        </PaginatedList>
+      </div>
+    );
+  },
+});
+
+export default IndexSetsComponent;

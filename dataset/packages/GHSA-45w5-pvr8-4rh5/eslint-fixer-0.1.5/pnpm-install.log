@@ -1,0 +1,17 @@
+$ corepack pnpm@9.15.9 install --prod --no-frozen-lockfile --reporter=append-only --config.node-linker=hoisted --ignore-workspace --ignore-scripts
+ WARN  deprecated code@4.1.0: This version has been deprecated in accordance with the hapi support policy (hapi.im/support). Please upgrade to the latest version to get the best features, bug fixes, and security patches. If you are unable to upgrade at this time, paid support is available for older versions (hapi.im/commercial).
+Progress: resolved 1, reused 0, downloaded 0, added 0
+ WARN  deprecated babel-eslint@7.2.3: babel-eslint is now @babel/eslint-parser. This package will no longer receive updates.
+ WARN  deprecated fs-promise@2.0.3: Use mz or fs-extra^3.0 with Promise Support
+Progress: resolved 177, reused 0, downloaded 0, added 0
+Progress: resolved 286, reused 0, downloaded 0, added 0
+ WARN  deprecated eslint@3.19.0: This version is no longer supported. Please see https://eslint.org/version-support for other options.
+Progress: resolved 327, reused 0, downloaded 0, added 0
+ WARN  9 deprecated subdependencies found: circular-json@0.3.3, core-js@2.6.12, glob@7.1.1, glob@7.2.3, hoek@4.3.1, inflight@1.0.6, json3@3.3.2, mkdirp@0.5.1, rimraf@2.6.3
+
+devDependencies: skipped
+
+Packages: +1
++
+Progress: resolved 380, reused 1, downloaded 0, added 1, done
+Done in 4s using pnpm v9.15.9

@@ -1,0 +1,274 @@
+lockfileVersion: '9.0'
+
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
+
+importers:
+
+  .:
+    dependencies:
+      connect-redis:
+        specifier: 1.4.1
+        version: 1.4.1
+      cron:
+        specifier: 1.0.1
+        version: 1.0.1
+      debug:
+        specifier: 0.7.0
+        version: 0.7.0
+      express:
+        specifier: 3.1.0
+        version: 3.1.0
+      express-liquid:
+        specifier: 0.2.x
+        version: 0.2.6
+      mkdirp:
+        specifier: 0.3.4
+        version: 0.3.4
+      pm:
+        specifier: 2.1.0
+        version: 2.1.0
+      redis:
+        specifier: 0.7.2
+        version: 0.7.2
+      time:
+        specifier: 0.8.3
+        version: 0.8.3
+      tinyliquid:
+        specifier: 0.2.x
+        version: 0.2.34
+      tomatolog:
+        specifier: 0.0.1
+        version: 0.0.1
+
+packages:
+
+  bindings@1.5.0:
+    resolution: {integrity: sha512-p2q/t/mhvuOj/UeLlV6566GD/guowlr0hHxClI0W9m7MWYkL1F0hLo+0Aexs9HSPCtR1SXQ0TD3MMKrXZajbiQ==}
+
+  buffer-crc32@0.1.1:
+    resolution: {integrity: sha512-UsRYbAdoR39JogmdI9AeZFQrmf0aqdPOzNLh5NR7GBdGNwxXW4eKqUvgZ+B9ImebovILBxiqSnoX9BfNRsh9bA==}
+
+  bytes@0.1.0:
+    resolution: {integrity: sha512-zTSmfpu7b+Mll4T9ZjTYUO3Q6+m+F3ZEQ515ZECaAFhmmHiRl/UcdcAsuFyVklbMRo9GWyRyqTsB6C6ahjGnVA==}
+
+  commander@0.6.1:
+    resolution: {integrity: sha512-0fLycpl1UMTGX257hRsu/arL/cUbcvQM4zMKwvLvzXtfdezIV4yotPS2dYtknF+NmEfWSoCEF6+hj9XLm/6hEw==}
+    engines: {node: '>= 0.4.x'}
+
+  connect-redis@1.4.1:
+    resolution: {integrity: sha512-gYnN8txY3Y6f4OPilWnaV29iv8pXwf9/I4leeigykQLFg8jKHeOSzkP+8ihSWpVKGdUDAxB7maYPIfCYzy+Nsw==}
+
+  connect@2.7.2:
+    resolution: {integrity: sha512-meJvPQ2TjQY+HdDOmd+0WBcDxtFfAnGfvmPNCWLFmnI+W2eKpWAy2AUqWQLz05N/+2/ejlvsE/OEpAnWHGT+1g==}
+    engines: {node: '>= 0.5.0'}
+    deprecated: connect 2.x series is deprecated
+
+  cookie-signature@0.0.1:
+    resolution: {integrity: sha512-cF3ACWE4MpShxO2sKb6TtB4wHIn2DsO83K1DNhukqVd5PhYwxLLqHvkrcvHpIpPJ0ow8pqSO36gwL4viDq9edA==}
+
+  cookie@0.0.5:
+    resolution: {integrity: sha512-STLsAHdtBDF5GJiPHc4sdfX5qzri6bcSxdSlW/o4IYJAA5yZxh3ZZsvctsKRNbhpP328sN+A2EjOF9vcW/LhdQ==}
+
+  cron@1.0.1:
+    resolution: {integrity: sha512-LUzm+lKek936WkGK0BQWXgE5VyMrQqIYzUvZpDylHKiFs4AkQjoHqYwyxaP82n2wavC4U8jvUEgZppGyDMQ4ig==}
+
+  debug@0.7.0:
+    resolution: {integrity: sha512-UWZnvGiX9tQgtrsA+mhGLKnUFvr1moempl9IvqQKyFnEgN0T4kpCE+KJcqTLcVxQjRVRnLF3VSE1Hchki5N98g==}
+    peerDependencies:
+      supports-color: '*'
+    peerDependenciesMeta:
+      supports-color:
+        optional: true
+
+  express-liquid@0.2.6:
+    resolution: {integrity: sha512-Nz+oDd7Xok91gyYGXJKAd3GsmslWGXMEALOKwJs2Eaj0j/VjJZuT13cD1VSRYvS0gQQWa8vdvt1kMxNd4kpHig==}
+    engines: {node: '>= 0.8.0'}
+
+  express@3.1.0:
+    resolution: {integrity: sha512-fZ/utHDyS9FSH5cYCifxpZjF4bboMyeq1YIndUgknybbn39fKB+rovjslEfNL7Pi9Cfavbj3H7srcdZ/+hKN3A==}
+    deprecated: No longer maintained. Please upgrade to a stable version.
+    hasBin: true
+
+  file-uri-to-path@1.0.0:
+    resolution: {integrity: sha512-0Zt+s3L7Vf1biwWZ29aARiVYLx7iMGnEUl9x33fbB/j3jR81u/O2LbqK+Bm1CDSNDKVtJ/YjwY7TUd5SkeLQLw==}
+
+  formidable@1.0.11:
+    resolution: {integrity: sha512-ZG3xz6afuCmpLGNtTI/W8HDKWisPv/iZgtEvfB1nF3vJHDJ2M4hpU/HDLJQYnTVqErpaLphweqOMULwP/Ls6cg==}
+    deprecated: 'Please upgrade to latest, formidable@v2 or formidable@v3! Check these notes: https://bit.ly/2ZEqIau'
+
+  fresh@0.1.0:
+    resolution: {integrity: sha512-ROG9M8tikYOuOJsvRBggh10WiQ/JebnldAwuCaQyFoiAUIE9XrYVnpznIjOQGZfCMzxzEBYHQr/LHJp3tcndzQ==}
+
+  hiredis@0.5.0:
+    resolution: {integrity: sha512-fKf2yLN2hTiXWGPiJUhDFyBQ5arMb500QfF+xEodoMK/G+WxYU+ckDoMIjHK7+IDWCex1QfJz3QVCfsu557XgQ==}
+    engines: {node: '>= 0.10.0'}
+
+  methods@0.0.1:
+    resolution: {integrity: sha512-pB8oFfci/xcfUgM6DTxc7lbTKifPPgs3mZUOsEgaH+1TTWpmcmv3sHl+5sUHIj2X2W8aPYa2+nJealRHK+Lo6A==}
+
+  mime@1.2.6:
+    resolution: {integrity: sha512-S4yfg1ehMduQ5F3NeTUUWJesnut4RvymaRSatO4etOm68yZE98oCg2GtgG0coGYx03GCv240sezMvRwFk8DUKw==}
+
+  mkdirp@0.3.3:
+    resolution: {integrity: sha512-Oamd41MnZw/yuxtarGf3MFbHzFqQY4S17DcN+rATh2t5MKuCtG7vVVRG+RUT6g9+hr47DIVucIHGOUlwmJRvDA==}
+    deprecated: Legacy versions of mkdirp are no longer supported. Please update to mkdirp 1.x. (Note that the API surface has changed to use Promises in 1.x.)
+
+  mkdirp@0.3.4:
+    resolution: {integrity: sha512-sZObLj65ImOahHTaycVJF559muyAvv1hYyBQSfVfZq9ajpgY9Da+cRQzbXDfsKJTwUMUABRjBMDHieYqbHKx0g==}
+    deprecated: Legacy versions of mkdirp are no longer supported. Please update to mkdirp 1.x. (Note that the API surface has changed to use Promises in 1.x.)
+
+  nan@2.29.0:
+    resolution: {integrity: sha512-GlGk3HIvitbvs+LT3g6XUP1kpirKNvmDFwF/bmo6XNWSb/eYEs/O4bfgIEIXCZ+lIOTS5xNwDvSGMw6FJdAhtA==}
+
+  pause@0.0.1:
+    resolution: {integrity: sha512-KG8UEiEVkR3wGEb4m5yZkVCzigAD+cVEJck2CzYZO37ZGJfctvVptVO192MwrtPhzONn6go8ylnOdMhKqi4nfg==}
+
+  pm@2.1.0:
+    resolution: {integrity: sha512-sDWUWsWIc3XdUI3DYcvxtED0aH+4QNyINqZvOFU591m1Yhjqk9GildHjsH5jC42QAnOjEbtMIVLhRtCi8IJs+Q==}
+    engines: {node: '>=0.6.9'}
+
+  qs@0.5.1:
+    resolution: {integrity: sha512-1NhhAEZMTI+2tQrOAGFlS1HFmKCcI9mvsysUbfqvvz6ObXwxCvPuAqzD+5LYBbEfjrdSOakWzaZx4wFPnND+xA==}
+
+  range-parser@0.0.4:
+    resolution: {integrity: sha512-okJVEq9DbZyg+5lD8pr6ooQmeA0uu8DYIyAU7VK1WUUK7hctI1yw2ZHhKiKjB6RXaDrYRmTR4SsIHkyiQpaLMA==}
+
+  redis@0.7.2:
+    resolution: {integrity: sha512-YDn7Ke+Fc5hgZ6FWtBciVgADOwkG6pyGXKVD5mqbl5/+VJfD9B36hf+WPVRLeYrf7NrZLBw3jf/olkqqlPVjEw==}
+
+  send@0.1.0:
+    resolution: {integrity: sha512-D/GaJQQYx7ICNq9Te5V4wHetfDQdFk3HJ4oBfDUBNW7XQmLbJ8sQDm/wFvVUUpKN8tluOnO1dFdM8KODn6D79w==}
+
+  time@0.8.3:
+    resolution: {integrity: sha512-y9CZsQepuhSw0bMt+kYCHa9yHD8F90RJQ9H7zYF0GnHa3ocRYyVLtUFQZkX4ouKEbhUuDRq9Kx9j9FE3vreh7A==}
+
+  tinyliquid@0.2.34:
+    resolution: {integrity: sha512-WWpF2PWac77IHcpdgGstEAUtek/ki1aoDVaWuqwy/bH+PgJIsPU5PEZFf203QnFAyNEhBKPHUdPhFvv/KfqDjg==}
+    engines: {node: '>= 0.10.0'}
+
+  tomatolog@0.0.1:
+    resolution: {integrity: sha512-KuOp57KkiBvFLrZpP+rnvWiubWP9avwvp/R9mJ7h8Jqn8al4eA+W9aJY4GHgQ1UxImZUyO6KBndqhhwaeV9vwQ==}
+
+snapshots:
+
+  bindings@1.5.0:
+    dependencies:
+      file-uri-to-path: 1.0.0
+
+  buffer-crc32@0.1.1: {}
+
+  bytes@0.1.0: {}
+
+  commander@0.6.1: {}
+
+  connect-redis@1.4.1:
+    dependencies:
+      debug: 0.7.0
+      redis: 0.7.2
+    transitivePeerDependencies:
+      - supports-color
+
+  connect@2.7.2:
+    dependencies:
+      buffer-crc32: 0.1.1
+      bytes: 0.1.0
+      cookie: 0.0.5
+      cookie-signature: 0.0.1
+      debug: 0.7.0
+      formidable: 1.0.11
+      fresh: 0.1.0
+      pause: 0.0.1
+      qs: 0.5.1
+      send: 0.1.0
+    transitivePeerDependencies:
+      - supports-color
+
+  cookie-signature@0.0.1: {}
+
+  cookie@0.0.5: {}
+
+  cron@1.0.1: {}
+
+  debug@0.7.0: {}
+
+  express-liquid@0.2.6:
+    dependencies:
+      tinyliquid: 0.2.34
+
+  express@3.1.0:
+    dependencies:
+      buffer-crc32: 0.1.1
+      commander: 0.6.1
+      connect: 2.7.2
+      cookie: 0.0.5
+      cookie-signature: 0.0.1
+      debug: 0.7.0
+      fresh: 0.1.0
+      methods: 0.0.1
+      mkdirp: 0.3.3
+      range-parser: 0.0.4
+      send: 0.1.0
+    transitivePeerDependencies:
+      - supports-color
+
+  file-uri-to-path@1.0.0: {}
+
+  formidable@1.0.11: {}
+
+  fresh@0.1.0: {}
+
+  hiredis@0.5.0:
+    dependencies:
+      bindings: 1.5.0
+      nan: 2.29.0
+    optional: true
+
+  methods@0.0.1: {}
+
+  mime@1.2.6: {}
+
+  mkdirp@0.3.3: {}
+
+  mkdirp@0.3.4: {}
+
+  nan@2.29.0:
+    optional: true
+
+  pause@0.0.1: {}
+
+  pm@2.1.0: {}
+
+  qs@0.5.1: {}
+
+  range-parser@0.0.4: {}
+
+  redis@0.7.2:
+    optionalDependencies:
+      hiredis: 0.5.0
+
+  send@0.1.0:
+    dependencies:
+      debug: 0.7.0
+      fresh: 0.1.0
+      mime: 1.2.6
+      range-parser: 0.0.4
+    transitivePeerDependencies:
+      - supports-color
+
+  time@0.8.3:
+    dependencies:
+      bindings: 1.5.0
+      debug: 0.7.0
+    transitivePeerDependencies:
+      - supports-color
+
+  tinyliquid@0.2.34: {}
+
+  tomatolog@0.0.1:
+    dependencies:
+      debug: 0.7.0
+      mkdirp: 0.3.4
+    transitivePeerDependencies:
+      - supports-color

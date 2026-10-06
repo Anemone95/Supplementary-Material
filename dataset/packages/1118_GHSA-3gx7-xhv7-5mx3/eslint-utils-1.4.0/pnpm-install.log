@@ -1,0 +1,30 @@
+$ corepack pnpm@9.15.9 install --prod --no-frozen-lockfile --reporter=append-only --config.node-linker=hoisted --ignore-workspace --ignore-scripts
+Progress: resolved 1, reused 0, downloaded 0, added 0
+ WARN  deprecated rimraf@2.7.1: Rimraf versions prior to v4 are no longer supported
+ WARN  deprecated codecov@3.8.3: https://about.codecov.io/blog/codecov-uploader-deprecation-plan/
+ WARN  deprecated eslint@5.16.0: This version is no longer supported. Please see https://eslint.org/version-support for other options.
+Progress: resolved 30, reused 0, downloaded 0, added 0
+Progress: resolved 96, reused 0, downloaded 0, added 0
+Progress: resolved 136, reused 0, downloaded 0, added 0
+Progress: resolved 205, reused 0, downloaded 0, added 0
+Progress: resolved 304, reused 0, downloaded 0, added 0
+Progress: resolved 370, reused 0, downloaded 0, added 0
+Progress: resolved 470, reused 0, downloaded 0, added 0
+Progress: resolved 529, reused 0, downloaded 0, added 0
+Progress: resolved 625, reused 0, downloaded 0, added 0
+Progress: resolved 765, reused 0, downloaded 0, added 0
+Progress: resolved 863, reused 0, downloaded 0, added 0
+Progress: resolved 923, reused 0, downloaded 0, added 0
+Progress: resolved 1022, reused 0, downloaded 0, added 0
+Progress: resolved 1132, reused 0, downloaded 0, added 0
+Progress: resolved 1235, reused 0, downloaded 0, added 0
+Progress: resolved 1237, reused 0, downloaded 0, added 0
+Progress: resolved 1238, reused 0, downloaded 0, added 0
+ WARN  42 deprecated subdependencies found: @babel/plugin-proposal-async-generator-functions@7.0.0-beta.47, @babel/plugin-proposal-class-properties@7.0.0-beta.47, @babel/plugin-proposal-export-namespace-from@7.0.0-beta.47, @babel/plugin-proposal-numeric-separator@7.0.0-beta.47, @babel/plugin-proposal-object-rest-spread@7.0.0-beta.47, @babel/plugin-proposal-optional-catch-binding@7.0.0-beta.47, @babel/plugin-proposal-unicode-property-regex@7.0.0-beta.47, argv@0.0.2, browserslist@1.7.7, consolidate@0.15.1, copy-concurrently@1.0.5, core-js@2.6.12, docsearch.js@2.6.3, figgy-pudding@3.5.2, flatten@1.0.3, fs-write-stream-atomic@1.0.10, fsevents@1.2.13, glob@7.1.2, glob@7.2.3, har-validator@5.1.5, hoek@4.3.1, inflight@1.0.6, joi@11.4.0, lodash.template@4.18.1, mkdirp@0.3.0, mkdirp@0.5.1, move-concurrently@1.0.1, path-dirname@1.0.2, q@1.5.1, request@2.88.2, resolve-url@0.2.1, rimraf@2.6.3, source-map-resolve@0.5.3, source-map-url@0.4.1, svgo@0.7.2, topo@2.1.1, urix@0.1.0, uuid@3.4.0, uuid@8.3.2, vue@2.7.16, webpack-chain@4.12.1, workbox-google-analytics@3.6.3
+
+devDependencies: skipped
+
+Packages: +1
++
+Progress: resolved 1258, reused 1, downloaded 0, added 1, done
+Done in 21.2s using pnpm v9.15.9

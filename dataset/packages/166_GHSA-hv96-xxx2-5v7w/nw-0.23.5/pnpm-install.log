@@ -1,0 +1,14 @@
+$ corepack pnpm@9.15.9 install --prod --no-frozen-lockfile --reporter=append-only --config.node-linker=hoisted --ignore-workspace --ignore-scripts
+ WARN  deprecated rimraf@2.7.1: Rimraf versions prior to v4 are no longer supported
+Progress: resolved 1, reused 0, downloaded 0, added 0
+ WARN  deprecated request@2.88.2: request has been deprecated, see https://github.com/request/request/issues/3142
+Progress: resolved 151, reused 0, downloaded 0, added 0
+Progress: resolved 328, reused 0, downloaded 0, added 0
+ WARN  13 deprecated subdependencies found: charm@0.1.2, glob@3.2.11, glob@5.0.15, glob@7.2.3, gulp-util@3.0.8, har-validator@5.1.5, inflight@1.0.6, lodash.isequal@4.5.0, lodash.template@3.6.2, minimatch@0.3.0, path-dirname@1.0.2, uuid@2.0.3, uuid@3.4.0
+
+devDependencies: skipped
+
+Packages: +289
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Progress: resolved 329, reused 223, downloaded 51, added 289, done
+Done in 3.1s using pnpm v9.15.9

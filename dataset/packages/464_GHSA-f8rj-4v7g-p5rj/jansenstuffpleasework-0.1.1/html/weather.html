@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<link rel="stylesheet" type="text/css" href="weather.css">
+	<title>Teh Wheather paje!</title>
+	<script src="jquery-1.11.1.min.js"></script>
+	<script src="weather.js"></script>
+</head>
+<body>
+	<div id='banner'>
+		<img id='weathermanImg' src='weatherman.png' alt='Smiling Weather man'>
+	</div>
+
+	<div id='weatherLinks'>
+		<form id='weatherForm'>
+ 			<label for='weatherCityInput' id='weatherTextLabel'>Enter a Utah City:</label>
+			<input type='text' id='weatherCityInput' value="" name='cityName'>
+			<span id='suggestion'>Suggestion: <span id='hint'>Empty</span></span>
+			<input id='submitButton' type='submit'>
+		</form>
+	</div>
+	<h5>City</h5>
+	<textarea id='displayCity'>No City</textarea>
+	<h5>Current Weather</h5>
+	<div id='weatherDiv'>No weather</div>
+
+		
+</body>
+</html>

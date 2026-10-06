@@ -1,0 +1,14 @@
+{
+  "name": "serverhuwenhui",
+  "version": "1.1.0",
+  "description": "",
+  "main": "node.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "huwenhui"
+  ],
+  "author": "hu",
+  "license": "ISC"
+}

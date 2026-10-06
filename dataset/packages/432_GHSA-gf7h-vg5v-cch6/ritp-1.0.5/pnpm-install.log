@@ -1,0 +1,11 @@
+$ corepack pnpm@9.15.9 install --prod --no-frozen-lockfile --reporter=append-only --config.node-linker=hoisted --ignore-workspace --ignore-scripts
+Progress: resolved 1, reused 0, downloaded 0, added 0
+ WARN  deprecated log4js@0.6.38: 0.x is no longer supported. Please upgrade to 6.x or higher.
+ WARN  7 deprecated subdependencies found: coffee-script@1.3.3, glob@3.1.21, glob@3.2.11, graceful-fs@1.2.3, minimatch@0.2.14, minimatch@0.3.0, rimraf@2.2.8
+
+devDependencies: skipped
+
+Packages: +55
++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Progress: resolved 53, reused 53, downloaded 0, added 55, done
+Done in 1s using pnpm v9.15.9

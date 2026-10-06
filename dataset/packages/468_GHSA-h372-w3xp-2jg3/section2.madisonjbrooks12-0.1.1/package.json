@@ -1,0 +1,21 @@
+{
+    "author": "madisonjbrooks12",
+    "name": "section2.madisonjbrooks12",
+    "version":"0.1.1",
+    "description": "Simple web server",
+    "main": "static",
+    "repository": {
+      "type": "git",
+      "url": "http://github.com/madisonjbrooks12/nodeServer"
+    },
+    "keywords": [
+      "section2",
+      "server",
+      "node",
+      "cs360"
+    ],
+    "dependencies": {},
+    "enginec": {
+        "node": "*"
+    }
+}

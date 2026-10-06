@@ -1,0 +1,50 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.getHomePageUrl = getHomePageUrl;
+exports.shouldUseLoginForWelcome = shouldUseLoginForWelcome;
+
+/*
+Copyright 2019, 2021 The Matrix.org Foundation C.I.C.
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+*/
+function getHomePageUrl(appConfig
+/*: ConfigOptions*/
+)
+/*: string | null*/
+{
+  const pagesConfig = appConfig.embeddedPages;
+  let pageUrl = pagesConfig?.homeUrl;
+
+  if (!pageUrl) {
+    // This is a deprecated config option for the home page
+    // (despite the name, given we also now have a welcome
+    // page, which is not the same).
+    pageUrl = appConfig.welcomePageUrl;
+  }
+
+  return pageUrl;
+}
+
+function shouldUseLoginForWelcome(appConfig
+/*: ConfigOptions*/
+)
+/*: boolean*/
+{
+  const pagesConfig = appConfig.embeddedPages;
+  return pagesConfig?.loginForWelcome === true;
+}
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uL3NyYy91dGlscy9wYWdlcy50cyJdLCJuYW1lcyI6WyJnZXRIb21lUGFnZVVybCIsImFwcENvbmZpZyIsInBhZ2VzQ29uZmlnIiwiZW1iZWRkZWRQYWdlcyIsInBhZ2VVcmwiLCJob21lVXJsIiwid2VsY29tZVBhZ2VVcmwiLCJzaG91bGRVc2VMb2dpbkZvcldlbGNvbWUiLCJsb2dpbkZvcldlbGNvbWUiXSwibWFwcGluZ3MiOiI7Ozs7Ozs7O0FBQUE7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBSU8sU0FBU0EsY0FBVCxDQUF3QkM7QUFBeEI7QUFBQTtBQUFBO0FBQWlFO0FBQ3BFLFFBQU1DLFdBQVcsR0FBR0QsU0FBUyxDQUFDRSxhQUE5QjtBQUNBLE1BQUlDLE9BQU8sR0FBR0YsV0FBVyxFQUFFRyxPQUEzQjs7QUFFQSxNQUFJLENBQUNELE9BQUwsRUFBYztBQUNWO0FBQ0E7QUFDQTtBQUNBQSxJQUFBQSxPQUFPLEdBQUdILFNBQVMsQ0FBQ0ssY0FBcEI7QUFDSDs7QUFFRCxTQUFPRixPQUFQO0FBQ0g7O0FBRU0sU0FBU0csd0JBQVQsQ0FBa0NOO0FBQWxDO0FBQUE7QUFBQTtBQUFxRTtBQUN4RSxRQUFNQyxXQUFXLEdBQUdELFNBQVMsQ0FBQ0UsYUFBOUI7QUFDQSxTQUFPRCxXQUFXLEVBQUVNLGVBQWIsS0FBaUMsSUFBeEM7QUFDSCIsInNvdXJjZXNDb250ZW50IjpbIi8qXG5Db3B5cmlnaHQgMjAxOSwgMjAyMSBUaGUgTWF0cml4Lm9yZyBGb3VuZGF0aW9uIEMuSS5DLlxuXG5MaWNlbnNlZCB1bmRlciB0aGUgQXBhY2hlIExpY2Vuc2UsIFZlcnNpb24gMi4wICh0aGUgXCJMaWNlbnNlXCIpO1xueW91IG1heSBub3QgdXNlIHRoaXMgZmlsZSBleGNlcHQgaW4gY29tcGxpYW5jZSB3aXRoIHRoZSBMaWNlbnNlLlxuWW91IG1heSBvYnRhaW4gYSBjb3B5IG9mIHRoZSBMaWNlbnNlIGF0XG5cbiAgICBodHRwOi8vd3d3LmFwYWNoZS5vcmcvbGljZW5zZXMvTElDRU5TRS0yLjBcblxuVW5sZXNzIHJlcXVpcmVkIGJ5IGFwcGxpY2FibGUgbGF3IG9yIGFncmVlZCB0byBpbiB3cml0aW5nLCBzb2Z0d2FyZVxuZGlzdHJpYnV0ZWQgdW5kZXIgdGhlIExpY2Vuc2UgaXMgZGlzdHJpYnV0ZWQgb24gYW4gXCJBUyBJU1wiIEJBU0lTLFxuV0lUSE9VVCBXQVJSQU5USUVTIE9SIENPTkRJVElPTlMgT0YgQU5ZIEtJTkQsIGVpdGhlciBleHByZXNzIG9yIGltcGxpZWQuXG5TZWUgdGhlIExpY2Vuc2UgZm9yIHRoZSBzcGVjaWZpYyBsYW5ndWFnZSBnb3Zlcm5pbmcgcGVybWlzc2lvbnMgYW5kXG5saW1pdGF0aW9ucyB1bmRlciB0aGUgTGljZW5zZS5cbiovXG5cbmltcG9ydCB7IENvbmZpZ09wdGlvbnMgfSBmcm9tIFwiLi4vU2RrQ29uZmlnXCI7XG5cbmV4cG9ydCBmdW5jdGlvbiBnZXRIb21lUGFnZVVybChhcHBDb25maWc6IENvbmZpZ09wdGlvbnMpOiBzdHJpbmcgfCBudWxsIHtcbiAgICBjb25zdCBwYWdlc0NvbmZpZyA9IGFwcENvbmZpZy5lbWJlZGRlZFBhZ2VzO1xuICAgIGxldCBwYWdlVXJsID0gcGFnZXNDb25maWc/LmhvbWVVcmw7XG5cbiAgICBpZiAoIXBhZ2VVcmwpIHtcbiAgICAgICAgLy8gVGhpcyBpcyBhIGRlcHJlY2F0ZWQgY29uZmlnIG9wdGlvbiBmb3IgdGhlIGhvbWUgcGFnZVxuICAgICAgICAvLyAoZGVzcGl0ZSB0aGUgbmFtZSwgZ2l2ZW4gd2UgYWxzbyBub3cgaGF2ZSBhIHdlbGNvbWVcbiAgICAgICAgLy8gcGFnZSwgd2hpY2ggaXMgbm90IHRoZSBzYW1lKS5cbiAgICAgICAgcGFnZVVybCA9IGFwcENvbmZpZy53ZWxjb21lUGFnZVVybDtcbiAgICB9XG5cbiAgICByZXR1cm4gcGFnZVVybDtcbn1cblxuZXhwb3J0IGZ1bmN0aW9uIHNob3VsZFVzZUxvZ2luRm9yV2VsY29tZShhcHBDb25maWc6IENvbmZpZ09wdGlvbnMpOiBib29sZWFuIHtcbiAgICBjb25zdCBwYWdlc0NvbmZpZyA9IGFwcENvbmZpZy5lbWJlZGRlZFBhZ2VzO1xuICAgIHJldHVybiBwYWdlc0NvbmZpZz8ubG9naW5Gb3JXZWxjb21lID09PSB0cnVlO1xufVxuIl19

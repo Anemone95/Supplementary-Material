@@ -1,0 +1,59 @@
+"use strict";
+
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _defineProperty2 = _interopRequireDefault(require("@babel/runtime/helpers/defineProperty"));
+
+var _react = _interopRequireDefault(require("react"));
+
+var _propTypes = _interopRequireDefault(require("prop-types"));
+
+var _languageHandler = require("../../../languageHandler");
+
+var _AccessibleButton = _interopRequireDefault(require("../elements/AccessibleButton"));
+
+/*
+Copyright 2016 OpenMarket Ltd
+Copyright 2017 Vector Creations Ltd
+Copyright 2019 New Vector Ltd
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+*/
+class TopUnreadMessagesBar extends _react.default.Component {
+  render() {
+    return /*#__PURE__*/_react.default.createElement("div", {
+      className: "mx_TopUnreadMessagesBar"
+    }, /*#__PURE__*/_react.default.createElement(_AccessibleButton.default, {
+      className: "mx_TopUnreadMessagesBar_scrollUp",
+      title: (0, _languageHandler._t)('Jump to first unread message.'),
+      onClick: this.props.onScrollUpClick
+    }), /*#__PURE__*/_react.default.createElement(_AccessibleButton.default, {
+      className: "mx_TopUnreadMessagesBar_markAsRead",
+      title: (0, _languageHandler._t)('Mark all as read'),
+      onClick: this.props.onCloseClick
+    }));
+  }
+
+}
+
+exports.default = TopUnreadMessagesBar;
+(0, _defineProperty2.default)(TopUnreadMessagesBar, "propTypes", {
+  onScrollUpClick: _propTypes.default.func,
+  onCloseClick: _propTypes.default.func
+});
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uLy4uLy4uL3NyYy9jb21wb25lbnRzL3ZpZXdzL3Jvb21zL1RvcFVucmVhZE1lc3NhZ2VzQmFyLmpzIl0sIm5hbWVzIjpbIlRvcFVucmVhZE1lc3NhZ2VzQmFyIiwiUmVhY3QiLCJDb21wb25lbnQiLCJyZW5kZXIiLCJwcm9wcyIsIm9uU2Nyb2xsVXBDbGljayIsIm9uQ2xvc2VDbGljayIsIlByb3BUeXBlcyIsImZ1bmMiXSwibWFwcGluZ3MiOiI7Ozs7Ozs7Ozs7O0FBa0JBOztBQUNBOztBQUNBOztBQUNBOztBQXJCQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBT2UsTUFBTUEsb0JBQU4sU0FBbUNDLGVBQU1DLFNBQXpDLENBQW1EO0FBTTlEQyxFQUFBQSxNQUFNLEdBQUc7QUFDTCx3QkFDSTtBQUFLLE1BQUEsU0FBUyxFQUFDO0FBQWYsb0JBQ0ksNkJBQUMseUJBQUQ7QUFBa0IsTUFBQSxTQUFTLEVBQUMsa0NBQTVCO0FBQ0ksTUFBQSxLQUFLLEVBQUUseUJBQUcsK0JBQUgsQ0FEWDtBQUVJLE1BQUEsT0FBTyxFQUFFLEtBQUtDLEtBQUwsQ0FBV0M7QUFGeEIsTUFESixlQUtJLDZCQUFDLHlCQUFEO0FBQWtCLE1BQUEsU0FBUyxFQUFDLG9DQUE1QjtBQUNJLE1BQUEsS0FBSyxFQUFFLHlCQUFHLGtCQUFILENBRFg7QUFFSSxNQUFBLE9BQU8sRUFBRSxLQUFLRCxLQUFMLENBQVdFO0FBRnhCLE1BTEosQ0FESjtBQVlIOztBQW5CNkQ7Ozs4QkFBN0NOLG9CLGVBQ0U7QUFDZkssRUFBQUEsZUFBZSxFQUFFRSxtQkFBVUMsSUFEWjtBQUVmRixFQUFBQSxZQUFZLEVBQUVDLG1CQUFVQztBQUZULEMiLCJzb3VyY2VzQ29udGVudCI6WyIvKlxuQ29weXJpZ2h0IDIwMTYgT3Blbk1hcmtldCBMdGRcbkNvcHlyaWdodCAyMDE3IFZlY3RvciBDcmVhdGlvbnMgTHRkXG5Db3B5cmlnaHQgMjAxOSBOZXcgVmVjdG9yIEx0ZFxuXG5MaWNlbnNlZCB1bmRlciB0aGUgQXBhY2hlIExpY2Vuc2UsIFZlcnNpb24gMi4wICh0aGUgXCJMaWNlbnNlXCIpO1xueW91IG1heSBub3QgdXNlIHRoaXMgZmlsZSBleGNlcHQgaW4gY29tcGxpYW5jZSB3aXRoIHRoZSBMaWNlbnNlLlxuWW91IG1heSBvYnRhaW4gYSBjb3B5IG9mIHRoZSBMaWNlbnNlIGF0XG5cbiAgICBodHRwOi8vd3d3LmFwYWNoZS5vcmcvbGljZW5zZXMvTElDRU5TRS0yLjBcblxuVW5sZXNzIHJlcXVpcmVkIGJ5IGFwcGxpY2FibGUgbGF3IG9yIGFncmVlZCB0byBpbiB3cml0aW5nLCBzb2Z0d2FyZVxuZGlzdHJpYnV0ZWQgdW5kZXIgdGhlIExpY2Vuc2UgaXMgZGlzdHJpYnV0ZWQgb24gYW4gXCJBUyBJU1wiIEJBU0lTLFxuV0lUSE9VVCBXQVJSQU5USUVTIE9SIENPTkRJVElPTlMgT0YgQU5ZIEtJTkQsIGVpdGhlciBleHByZXNzIG9yIGltcGxpZWQuXG5TZWUgdGhlIExpY2Vuc2UgZm9yIHRoZSBzcGVjaWZpYyBsYW5ndWFnZSBnb3Zlcm5pbmcgcGVybWlzc2lvbnMgYW5kXG5saW1pdGF0aW9ucyB1bmRlciB0aGUgTGljZW5zZS5cbiovXG5cbmltcG9ydCBSZWFjdCBmcm9tICdyZWFjdCc7XG5pbXBvcnQgUHJvcFR5cGVzIGZyb20gJ3Byb3AtdHlwZXMnO1xuaW1wb3J0IHsgX3QgfSBmcm9tICcuLi8uLi8uLi9sYW5ndWFnZUhhbmRsZXInO1xuaW1wb3J0IEFjY2Vzc2libGVCdXR0b24gZnJvbSAnLi4vZWxlbWVudHMvQWNjZXNzaWJsZUJ1dHRvbic7XG5cbmV4cG9ydCBkZWZhdWx0IGNsYXNzIFRvcFVucmVhZE1lc3NhZ2VzQmFyIGV4dGVuZHMgUmVhY3QuQ29tcG9uZW50IHtcbiAgICBzdGF0aWMgcHJvcFR5cGVzID0ge1xuICAgICAgICBvblNjcm9sbFVwQ2xpY2s6IFByb3BUeXBlcy5mdW5jLFxuICAgICAgICBvbkNsb3NlQ2xpY2s6IFByb3BUeXBlcy5mdW5jLFxuICAgIH07XG5cbiAgICByZW5kZXIoKSB7XG4gICAgICAgIHJldHVybiAoXG4gICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cIm14X1RvcFVucmVhZE1lc3NhZ2VzQmFyXCI+XG4gICAgICAgICAgICAgICAgPEFjY2Vzc2libGVCdXR0b24gY2xhc3NOYW1lPVwibXhfVG9wVW5yZWFkTWVzc2FnZXNCYXJfc2Nyb2xsVXBcIlxuICAgICAgICAgICAgICAgICAgICB0aXRsZT17X3QoJ0p1bXAgdG8gZmlyc3QgdW5yZWFkIG1lc3NhZ2UuJyl9XG4gICAgICAgICAgICAgICAgICAgIG9uQ2xpY2s9e3RoaXMucHJvcHMub25TY3JvbGxVcENsaWNrfT5cbiAgICAgICAgICAgICAgICA8L0FjY2Vzc2libGVCdXR0b24+XG4gICAgICAgICAgICAgICAgPEFjY2Vzc2libGVCdXR0b24gY2xhc3NOYW1lPVwibXhfVG9wVW5yZWFkTWVzc2FnZXNCYXJfbWFya0FzUmVhZFwiXG4gICAgICAgICAgICAgICAgICAgIHRpdGxlPXtfdCgnTWFyayBhbGwgYXMgcmVhZCcpfVxuICAgICAgICAgICAgICAgICAgICBvbkNsaWNrPXt0aGlzLnByb3BzLm9uQ2xvc2VDbGlja30+XG4gICAgICAgICAgICAgICAgPC9BY2Nlc3NpYmxlQnV0dG9uPlxuICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICk7XG4gICAgfVxufVxuIl19

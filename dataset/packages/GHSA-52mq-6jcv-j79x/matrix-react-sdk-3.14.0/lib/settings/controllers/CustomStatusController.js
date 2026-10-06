@@ -1,0 +1,47 @@
+"use strict";
+
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _SettingController = _interopRequireDefault(require("./SettingController"));
+
+var _dispatcher = _interopRequireDefault(require("../../dispatcher/dispatcher"));
+
+/*
+Copyright 2019, 2020 The Matrix.org Foundation C.I.C.
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+*/
+class CustomStatusController extends _SettingController.default {
+  onChange(level
+  /*: SettingLevel*/
+  , roomId
+  /*: string*/
+  , newValue
+  /*: any*/
+  ) {
+    // Dispatch setting change so that some components that are still visible when the
+    // Settings page is open (such as RoomTiles) can reflect the change.
+    _dispatcher.default.dispatch({
+      action: "feature_custom_status_changed"
+    });
+  }
+
+}
+
+exports.default = CustomStatusController;
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uLy4uL3NyYy9zZXR0aW5ncy9jb250cm9sbGVycy9DdXN0b21TdGF0dXNDb250cm9sbGVyLnRzIl0sIm5hbWVzIjpbIkN1c3RvbVN0YXR1c0NvbnRyb2xsZXIiLCJTZXR0aW5nQ29udHJvbGxlciIsIm9uQ2hhbmdlIiwibGV2ZWwiLCJyb29tSWQiLCJuZXdWYWx1ZSIsImRpcyIsImRpc3BhdGNoIiwiYWN0aW9uIl0sIm1hcHBpbmdzIjoiOzs7Ozs7Ozs7QUFnQkE7O0FBQ0E7O0FBakJBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQU1lLE1BQU1BLHNCQUFOLFNBQXFDQywwQkFBckMsQ0FBdUQ7QUFDM0RDLEVBQUFBLFFBQVAsQ0FBZ0JDO0FBQWhCO0FBQUEsSUFBcUNDO0FBQXJDO0FBQUEsSUFBcURDO0FBQXJEO0FBQUEsSUFBb0U7QUFDaEU7QUFDQTtBQUNBQyx3QkFBSUMsUUFBSixDQUFhO0FBQ1RDLE1BQUFBLE1BQU0sRUFBRTtBQURDLEtBQWI7QUFHSDs7QUFQaUUiLCJzb3VyY2VzQ29udGVudCI6WyIvKlxuQ29weXJpZ2h0IDIwMTksIDIwMjAgVGhlIE1hdHJpeC5vcmcgRm91bmRhdGlvbiBDLkkuQy5cblxuTGljZW5zZWQgdW5kZXIgdGhlIEFwYWNoZSBMaWNlbnNlLCBWZXJzaW9uIDIuMCAodGhlIFwiTGljZW5zZVwiKTtcbnlvdSBtYXkgbm90IHVzZSB0aGlzIGZpbGUgZXhjZXB0IGluIGNvbXBsaWFuY2Ugd2l0aCB0aGUgTGljZW5zZS5cbllvdSBtYXkgb2J0YWluIGEgY29weSBvZiB0aGUgTGljZW5zZSBhdFxuXG4gICAgaHR0cDovL3d3dy5hcGFjaGUub3JnL2xpY2Vuc2VzL0xJQ0VOU0UtMi4wXG5cblVubGVzcyByZXF1aXJlZCBieSBhcHBsaWNhYmxlIGxhdyBvciBhZ3JlZWQgdG8gaW4gd3JpdGluZywgc29mdHdhcmVcbmRpc3RyaWJ1dGVkIHVuZGVyIHRoZSBMaWNlbnNlIGlzIGRpc3RyaWJ1dGVkIG9uIGFuIFwiQVMgSVNcIiBCQVNJUyxcbldJVEhPVVQgV0FSUkFOVElFUyBPUiBDT05ESVRJT05TIE9GIEFOWSBLSU5ELCBlaXRoZXIgZXhwcmVzcyBvciBpbXBsaWVkLlxuU2VlIHRoZSBMaWNlbnNlIGZvciB0aGUgc3BlY2lmaWMgbGFuZ3VhZ2UgZ292ZXJuaW5nIHBlcm1pc3Npb25zIGFuZFxubGltaXRhdGlvbnMgdW5kZXIgdGhlIExpY2Vuc2UuXG4qL1xuXG5pbXBvcnQgU2V0dGluZ0NvbnRyb2xsZXIgZnJvbSBcIi4vU2V0dGluZ0NvbnRyb2xsZXJcIjtcbmltcG9ydCBkaXMgZnJvbSBcIi4uLy4uL2Rpc3BhdGNoZXIvZGlzcGF0Y2hlclwiO1xuaW1wb3J0IHsgU2V0dGluZ0xldmVsIH0gZnJvbSBcIi4uL1NldHRpbmdMZXZlbFwiO1xuXG5leHBvcnQgZGVmYXVsdCBjbGFzcyBDdXN0b21TdGF0dXNDb250cm9sbGVyIGV4dGVuZHMgU2V0dGluZ0NvbnRyb2xsZXIge1xuICAgIHB1YmxpYyBvbkNoYW5nZShsZXZlbDogU2V0dGluZ0xldmVsLCByb29tSWQ6IHN0cmluZywgbmV3VmFsdWU6IGFueSkge1xuICAgICAgICAvLyBEaXNwYXRjaCBzZXR0aW5nIGNoYW5nZSBzbyB0aGF0IHNvbWUgY29tcG9uZW50cyB0aGF0IGFyZSBzdGlsbCB2aXNpYmxlIHdoZW4gdGhlXG4gICAgICAgIC8vIFNldHRpbmdzIHBhZ2UgaXMgb3BlbiAoc3VjaCBhcyBSb29tVGlsZXMpIGNhbiByZWZsZWN0IHRoZSBjaGFuZ2UuXG4gICAgICAgIGRpcy5kaXNwYXRjaCh7XG4gICAgICAgICAgICBhY3Rpb246IFwiZmVhdHVyZV9jdXN0b21fc3RhdHVzX2NoYW5nZWRcIixcbiAgICAgICAgfSk7XG4gICAgfVxufVxuIl19

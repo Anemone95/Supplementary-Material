@@ -1,0 +1,14 @@
+$ corepack pnpm@9.15.9 install --prod --no-frozen-lockfile --reporter=append-only --config.node-linker=hoisted --ignore-workspace --ignore-scripts
+ WARN  Unsupported engine: wanted: {"node":"~0.8.11"} (current: {"node":"v22.5.1","pnpm":"9.15.9"})
+ WARN  deprecated mkdirp@0.3.5: Legacy versions of mkdirp are no longer supported. Please update to mkdirp 1.x. (Note that the API surface has changed to use Promises in 1.x.)
+Progress: resolved 1, reused 0, downloaded 0, added 0
+ WARN  deprecated express@2.5.11: express 2.x series is deprecated
+ WARN  3 deprecated subdependencies found: connect@1.9.2, formidable@1.0.17, mkdirp@0.3.0
+
+devDependencies: skipped
+
+Packages: +9
++++++++++
+Progress: resolved 9, reused 2, downloaded 6, added 8
+Progress: resolved 9, reused 2, downloaded 7, added 9, done
+Done in 1.4s using pnpm v9.15.9

@@ -1,0 +1,11 @@
+{
+  "name": "jn_jj_server",
+  "version": "0.0.8",
+  "description": "NodeJS Server for JJ",
+  "main": "index.js",
+  "scripts": {
+    "test": "node index.js test"
+  },
+  "author": "Jose Nunez",
+  "license": "MIT"
+}

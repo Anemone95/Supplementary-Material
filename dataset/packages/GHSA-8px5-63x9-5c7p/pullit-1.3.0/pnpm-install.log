@@ -1,0 +1,16 @@
+$ corepack pnpm@9.15.9 install --prod --no-frozen-lockfile --reporter=append-only --config.node-linker=hoisted --ignore-workspace --ignore-scripts
+Progress: resolved 1, reused 0, downloaded 0, added 0
+ WARN  deprecated github@11.0.0: 'github' has been renamed to '@octokit/rest' (https://git.io/vNB11)
+Progress: resolved 62, reused 0, downloaded 0, added 0
+Progress: resolved 176, reused 0, downloaded 0, added 0
+Progress: resolved 299, reused 0, downloaded 0, added 0
+Progress: resolved 461, reused 0, downloaded 0, added 0
+ WARN  17 deprecated subdependencies found: abab@1.0.4, charm@0.1.2, content-type-parser@1.0.2, core-js@2.6.12, fsevents@1.2.13, glob@7.2.3, har-validator@5.1.5, inflight@1.0.6, request@2.88.2, resolve-url@0.2.1, rimraf@2.7.1, sane@2.5.2, source-map-resolve@0.5.3, source-map-url@0.4.1, urix@0.1.0, uuid@3.4.0, whatwg-encoding@1.0.5
+
+devDependencies: skipped
+
+Packages: +26
+++++++++++++++++++++++++++
+Progress: resolved 469, reused 20, downloaded 5, added 25
+Progress: resolved 469, reused 20, downloaded 6, added 26, done
+Done in 5.4s using pnpm v9.15.9

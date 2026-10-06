@@ -1,0 +1,32 @@
+{
+  "name": "upmerge",
+  "title": "UpMerge",
+  "description": "JavaScript Object Merge and Clone for Client or Server side",
+  "version": "0.1.8",
+  "homepage": "https://github.com/jazzfog/UpMerge",
+  "author": {
+    "name": "Pavel Pushkaryov",
+    "url": "https://github.com/jazzfog/UpMerge"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jazzfog/UpMerge.git"
+  },
+  "keywords": [
+    "JavaScript",
+    "Merge",
+    "Clone",
+    "Object"
+  ],
+  "bugs": {
+    "url": "https://github.com/jazzfog/UpMerge/issues"
+  },
+  "license": "MIT",
+  "files": [
+    "src",
+    "build"
+  ],
+  "dependencies": {},
+  "devDependencies": {},
+  "main": "build/upmerge.js"
+}

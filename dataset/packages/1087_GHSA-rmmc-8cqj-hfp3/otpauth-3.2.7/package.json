@@ -1,0 +1,75 @@
+{
+  "name": "otpauth",
+  "version": "3.2.7",
+  "description": "One Time Password (HOTP/TOTP) library for Node.js and browser",
+  "keywords": [
+    "otp",
+    "hotp",
+    "totp",
+    "one time password",
+    "2fa",
+    "2 factor",
+    "two factor",
+    "two-factor",
+    "2step",
+    "2 step",
+    "two step",
+    "two-step",
+    "auth",
+    "authenticator",
+    "google authenticator"
+  ],
+  "author": "Héctor Molinero Fernández <hector@molinero.dev>",
+  "license": "MIT",
+  "homepage": "https://github.com/hectorm/otpauth",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hectorm/otpauth.git"
+  },
+  "bugs": {
+    "url": "https://github.com/hectorm/otpauth/issues"
+  },
+  "main": "dist/otpauth.js",
+  "files": [
+    "/dist",
+    "/src"
+  ],
+  "scripts": {
+    "lint": "eslint --fix .",
+    "build": "webpack --display-reasons",
+    "test:browser:unminified": "karma start",
+    "test:browser:minified": "IS_MINIFIED=true karma start",
+    "test:browser": "run-s test:browser:*",
+    "test:node:unminified": "mocha --reporter dot",
+    "test:node:minified": "IS_MINIFIED=true mocha --reporter dot",
+    "test:node": "run-s test:node:*",
+    "test": "run-s test:*",
+    "docs": "rimraf docs && esdoc2",
+    "dist": "run-s lint build test docs",
+    "version": "run-s dist && git add -A dist docs"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "chai": "~4.2.0",
+    "closure-webpack-plugin": "~2.0.1",
+    "esdoc2": "~2.1.5",
+    "esdoc2-standard-plugin": "~2.1.2",
+    "eslint": "~5.16.0",
+    "eslint-config-airbnb-base": "~13.1.0",
+    "eslint-config-hectorm": "~1.0.1",
+    "eslint-plugin-import": "~2.17.3",
+    "google-closure-compiler": "~20190528.0.0",
+    "karma": "~4.1.0",
+    "karma-chai": "~0.1.0",
+    "karma-chrome-launcher": "~2.2.0",
+    "karma-firefox-launcher": "~1.1.0",
+    "karma-mocha": "~1.3.0",
+    "mocha": "~6.1.4",
+    "npm-run-all": "~4.1.5",
+    "rimraf": "~2.6.3",
+    "sjcl": "1.0.8",
+    "tmp": "~0.1.0",
+    "webpack": "~4.32.2",
+    "webpack-cli": "~3.3.2"
+  }
+}

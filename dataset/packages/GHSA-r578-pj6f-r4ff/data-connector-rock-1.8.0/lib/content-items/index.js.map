@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../src/content-items/index.js"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;;;;;AAAA;;AACA;;AACA","sourcesContent":["export { default as dataSource } from './data-source';\nexport { default as resolver } from './resolver';\nexport { contentItemSchema as schema } from '@apollosproject/data-schema';\n"],"file":"index.js"}

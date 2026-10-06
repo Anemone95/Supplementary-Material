@@ -1,0 +1,67 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.useLocalStorageState = void 0;
+
+var _react = require("react");
+
+/*
+Copyright 2020 The Matrix.org Foundation C.I.C.
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+*/
+const getValue = (key
+/*: string*/
+, initialValue
+/*: T*/
+) =>
+/*: T*/
+{
+  try {
+    const item = window.localStorage.getItem(key);
+    return item ? JSON.parse(item) : initialValue;
+  } catch (error) {
+    return initialValue;
+  }
+}; // Hook behaving like useState but persisting the value to localStorage. Returns same as useState
+
+
+const useLocalStorageState = (key
+/*: string*/
+, initialValue
+/*: T*/
+) =>
+/*: [T, Dispatch<SetStateAction<T>>]*/
+{
+  const lsKey = "mx_" + key;
+  const [value, setValue] = (0, _react.useState)(getValue(lsKey, initialValue));
+  (0, _react.useEffect)(() => {
+    setValue(getValue(lsKey, initialValue));
+  }, [lsKey, initialValue]);
+
+  const _setValue
+  /*: Dispatch<SetStateAction<T>>*/
+  = (0, _react.useCallback)((v
+  /*: T*/
+  ) => {
+    window.localStorage.setItem(lsKey, JSON.stringify(v));
+    setValue(v);
+  }, [lsKey]);
+
+  return [value, _setValue];
+};
+
+exports.useLocalStorageState = useLocalStorageState;
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uL3NyYy9ob29rcy91c2VMb2NhbFN0b3JhZ2VTdGF0ZS50cyJdLCJuYW1lcyI6WyJnZXRWYWx1ZSIsImtleSIsImluaXRpYWxWYWx1ZSIsIml0ZW0iLCJ3aW5kb3ciLCJsb2NhbFN0b3JhZ2UiLCJnZXRJdGVtIiwiSlNPTiIsInBhcnNlIiwiZXJyb3IiLCJ1c2VMb2NhbFN0b3JhZ2VTdGF0ZSIsImxzS2V5IiwidmFsdWUiLCJzZXRWYWx1ZSIsIl9zZXRWYWx1ZSIsInYiLCJzZXRJdGVtIiwic3RyaW5naWZ5Il0sIm1hcHBpbmdzIjoiOzs7Ozs7O0FBZ0JBOztBQWhCQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFJQSxNQUFNQSxRQUFRLEdBQUcsQ0FBSUM7QUFBSjtBQUFBLEVBQWlCQztBQUFqQjtBQUFBO0FBQUE7QUFBd0M7QUFDckQsTUFBSTtBQUNBLFVBQU1DLElBQUksR0FBR0MsTUFBTSxDQUFDQyxZQUFQLENBQW9CQyxPQUFwQixDQUE0QkwsR0FBNUIsQ0FBYjtBQUNBLFdBQU9FLElBQUksR0FBR0ksSUFBSSxDQUFDQyxLQUFMLENBQVdMLElBQVgsQ0FBSCxHQUFzQkQsWUFBakM7QUFDSCxHQUhELENBR0UsT0FBT08sS0FBUCxFQUFjO0FBQ1osV0FBT1AsWUFBUDtBQUNIO0FBQ0osQ0FQRCxDLENBU0E7OztBQUNPLE1BQU1RLG9CQUFvQixHQUFHLENBQUlUO0FBQUo7QUFBQSxFQUFpQkM7QUFBakI7QUFBQTtBQUFBO0FBQXVFO0FBQ3ZHLFFBQU1TLEtBQUssR0FBRyxRQUFRVixHQUF0QjtBQUVBLFFBQU0sQ0FBQ1csS0FBRCxFQUFRQyxRQUFSLElBQW9CLHFCQUFZYixRQUFRLENBQUNXLEtBQUQsRUFBUVQsWUFBUixDQUFwQixDQUExQjtBQUVBLHdCQUFVLE1BQU07QUFDWlcsSUFBQUEsUUFBUSxDQUFDYixRQUFRLENBQUNXLEtBQUQsRUFBUVQsWUFBUixDQUFULENBQVI7QUFDSCxHQUZELEVBRUcsQ0FBQ1MsS0FBRCxFQUFRVCxZQUFSLENBRkg7O0FBSUEsUUFBTVk7QUFBc0M7QUFBQSxJQUFHLHdCQUFZLENBQUNDO0FBQUQ7QUFBQSxPQUFVO0FBQ2pFWCxJQUFBQSxNQUFNLENBQUNDLFlBQVAsQ0FBb0JXLE9BQXBCLENBQTRCTCxLQUE1QixFQUFtQ0osSUFBSSxDQUFDVSxTQUFMLENBQWVGLENBQWYsQ0FBbkM7QUFDQUYsSUFBQUEsUUFBUSxDQUFDRSxDQUFELENBQVI7QUFDSCxHQUg4QyxFQUc1QyxDQUFDSixLQUFELENBSDRDLENBQS9DOztBQUtBLFNBQU8sQ0FBQ0MsS0FBRCxFQUFRRSxTQUFSLENBQVA7QUFDSCxDQWZNIiwic291cmNlc0NvbnRlbnQiOlsiLypcbkNvcHlyaWdodCAyMDIwIFRoZSBNYXRyaXgub3JnIEZvdW5kYXRpb24gQy5JLkMuXG5cbkxpY2Vuc2VkIHVuZGVyIHRoZSBBcGFjaGUgTGljZW5zZSwgVmVyc2lvbiAyLjAgKHRoZSBcIkxpY2Vuc2VcIik7XG55b3UgbWF5IG5vdCB1c2UgdGhpcyBmaWxlIGV4Y2VwdCBpbiBjb21wbGlhbmNlIHdpdGggdGhlIExpY2Vuc2UuXG5Zb3UgbWF5IG9idGFpbiBhIGNvcHkgb2YgdGhlIExpY2Vuc2UgYXRcblxuICAgIGh0dHA6Ly93d3cuYXBhY2hlLm9yZy9saWNlbnNlcy9MSUNFTlNFLTIuMFxuXG5Vbmxlc3MgcmVxdWlyZWQgYnkgYXBwbGljYWJsZSBsYXcgb3IgYWdyZWVkIHRvIGluIHdyaXRpbmcsIHNvZnR3YXJlXG5kaXN0cmlidXRlZCB1bmRlciB0aGUgTGljZW5zZSBpcyBkaXN0cmlidXRlZCBvbiBhbiBcIkFTIElTXCIgQkFTSVMsXG5XSVRIT1VUIFdBUlJBTlRJRVMgT1IgQ09ORElUSU9OUyBPRiBBTlkgS0lORCwgZWl0aGVyIGV4cHJlc3Mgb3IgaW1wbGllZC5cblNlZSB0aGUgTGljZW5zZSBmb3IgdGhlIHNwZWNpZmljIGxhbmd1YWdlIGdvdmVybmluZyBwZXJtaXNzaW9ucyBhbmRcbmxpbWl0YXRpb25zIHVuZGVyIHRoZSBMaWNlbnNlLlxuKi9cblxuaW1wb3J0IHtEaXNwYXRjaCwgU2V0U3RhdGVBY3Rpb24sIHVzZUNhbGxiYWNrLCB1c2VFZmZlY3QsIHVzZVN0YXRlfSBmcm9tIFwicmVhY3RcIjtcblxuY29uc3QgZ2V0VmFsdWUgPSA8VD4oa2V5OiBzdHJpbmcsIGluaXRpYWxWYWx1ZTogVCk6IFQgPT4ge1xuICAgIHRyeSB7XG4gICAgICAgIGNvbnN0IGl0ZW0gPSB3aW5kb3cubG9jYWxTdG9yYWdlLmdldEl0ZW0oa2V5KTtcbiAgICAgICAgcmV0dXJuIGl0ZW0gPyBKU09OLnBhcnNlKGl0ZW0pIDogaW5pdGlhbFZhbHVlO1xuICAgIH0gY2F0Y2ggKGVycm9yKSB7XG4gICAgICAgIHJldHVybiBpbml0aWFsVmFsdWU7XG4gICAgfVxufTtcblxuLy8gSG9vayBiZWhhdmluZyBsaWtlIHVzZVN0YXRlIGJ1dCBwZXJzaXN0aW5nIHRoZSB2YWx1ZSB0byBsb2NhbFN0b3JhZ2UuIFJldHVybnMgc2FtZSBhcyB1c2VTdGF0ZVxuZXhwb3J0IGNvbnN0IHVzZUxvY2FsU3RvcmFnZVN0YXRlID0gPFQ+KGtleTogc3RyaW5nLCBpbml0aWFsVmFsdWU6IFQpOiBbVCwgRGlzcGF0Y2g8U2V0U3RhdGVBY3Rpb248VD4+XSA9PiB7XG4gICAgY29uc3QgbHNLZXkgPSBcIm14X1wiICsga2V5O1xuXG4gICAgY29uc3QgW3ZhbHVlLCBzZXRWYWx1ZV0gPSB1c2VTdGF0ZTxUPihnZXRWYWx1ZShsc0tleSwgaW5pdGlhbFZhbHVlKSk7XG5cbiAgICB1c2VFZmZlY3QoKCkgPT4ge1xuICAgICAgICBzZXRWYWx1ZShnZXRWYWx1ZShsc0tleSwgaW5pdGlhbFZhbHVlKSk7XG4gICAgfSwgW2xzS2V5LCBpbml0aWFsVmFsdWVdKTtcblxuICAgIGNvbnN0IF9zZXRWYWx1ZTogRGlzcGF0Y2g8U2V0U3RhdGVBY3Rpb248VD4+ID0gdXNlQ2FsbGJhY2soKHY6IFQpID0+IHtcbiAgICAgICAgd2luZG93LmxvY2FsU3RvcmFnZS5zZXRJdGVtKGxzS2V5LCBKU09OLnN0cmluZ2lmeSh2KSk7XG4gICAgICAgIHNldFZhbHVlKHYpO1xuICAgIH0sIFtsc0tleV0pO1xuXG4gICAgcmV0dXJuIFt2YWx1ZSwgX3NldFZhbHVlXTtcbn07XG4iXX0=

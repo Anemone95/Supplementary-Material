@@ -1,0 +1,25 @@
+{
+  "name": "sspa",
+  "version": "0.1.0",
+  "description": "Serve Single-Page Applicaton while in development",
+  "main": "sspa.js",
+  "engines": {
+    "node": "~0.8.x",
+    "npm": "~1.1.x"
+  },
+  "bin": {
+      "sspa": "bin/sspa"
+  },
+  "repository": {
+      "type": "git",
+      "url": "git://github.com/andreypopp /sspa.git"
+  },
+  "homepage": "https://github.com/sspa/sspa",
+  "keywords": ["single-page-app", "application", "server", "development"],
+  "author": {
+      "name": "Andrey Popp",
+      "email": "8mayday@gmail.com",
+      "url": "http://andreypopp.com"
+  },
+  "license": "MIT"
+}

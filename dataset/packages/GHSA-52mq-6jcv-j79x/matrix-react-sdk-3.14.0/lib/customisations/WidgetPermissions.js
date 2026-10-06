@@ -1,0 +1,60 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.WidgetPermissionCustomisations = void 0;
+
+/*
+ * Copyright 2020 The Matrix.org Foundation C.I.C.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *         http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+// Populate this class with the details of your customisations when copying it.
+
+/**
+ * Approves the widget for capabilities that it requested, if any can be
+ * approved. Typically this will be used to give certain widgets capabilities
+ * without having to prompt the user to approve them. This cannot reject
+ * capabilities that Element will be automatically granting, such as the
+ * ability for Jitsi widgets to stay on screen - those will be approved
+ * regardless.
+ * @param {Widget} widget The widget to approve capabilities for.
+ * @param {Set<Capability>} requestedCapabilities The capabilities the widget requested.
+ * @returns {Set<Capability>} Resolves to the capabilities that are approved for use
+ * by the widget. If none are approved, this should return an empty Set.
+ */
+async function preapproveCapabilities(widget
+/*: Widget*/
+, requestedCapabilities
+/*: Set<Capability>*/
+)
+/*: Promise<Set<Capability>>*/
+{
+  return new Set(); // no additional capabilities approved
+} // This interface summarises all available customisation points and also marks
+// them all as optional. This allows customisers to only define and export the
+// customisations they need while still maintaining type safety.
+
+/*:: export interface IWidgetPermissionCustomisations {
+    preapproveCapabilities?: typeof preapproveCapabilities;
+}*/
+
+
+// A real customisation module will define and export one or more of the
+// customisation points that make up the interface above.
+const WidgetPermissionCustomisations
+/*: IWidgetPermissionCustomisations*/
+= {};
+exports.WidgetPermissionCustomisations = WidgetPermissionCustomisations;
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uL3NyYy9jdXN0b21pc2F0aW9ucy9XaWRnZXRQZXJtaXNzaW9ucy50cyJdLCJuYW1lcyI6WyJwcmVhcHByb3ZlQ2FwYWJpbGl0aWVzIiwid2lkZ2V0IiwicmVxdWVzdGVkQ2FwYWJpbGl0aWVzIiwiU2V0IiwiV2lkZ2V0UGVybWlzc2lvbkN1c3RvbWlzYXRpb25zIl0sIm1hcHBpbmdzIjoiOzs7Ozs7O0FBQUE7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBRUE7O0FBR0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0EsZUFBZUEsc0JBQWYsQ0FDSUM7QUFESjtBQUFBLEVBRUlDO0FBRko7QUFBQTtBQUFBO0FBRzRCO0FBQ3hCLFNBQU8sSUFBSUMsR0FBSixFQUFQLENBRHdCLENBQ047QUFDckIsQyxDQUVEO0FBQ0E7QUFDQTs7O0FBeENBO0FBQ0E7OztBQTRDQTtBQUNBO0FBQ08sTUFBTUM7QUFBK0Q7QUFBQSxFQUFHLEVBQXhFIiwic291cmNlc0NvbnRlbnQiOlsiLypcbiAqIENvcHlyaWdodCAyMDIwIFRoZSBNYXRyaXgub3JnIEZvdW5kYXRpb24gQy5JLkMuXG4gKlxuICogTGljZW5zZWQgdW5kZXIgdGhlIEFwYWNoZSBMaWNlbnNlLCBWZXJzaW9uIDIuMCAodGhlIFwiTGljZW5zZVwiKTtcbiAqIHlvdSBtYXkgbm90IHVzZSB0aGlzIGZpbGUgZXhjZXB0IGluIGNvbXBsaWFuY2Ugd2l0aCB0aGUgTGljZW5zZS5cbiAqIFlvdSBtYXkgb2J0YWluIGEgY29weSBvZiB0aGUgTGljZW5zZSBhdFxuICpcbiAqICAgICAgICAgaHR0cDovL3d3dy5hcGFjaGUub3JnL2xpY2Vuc2VzL0xJQ0VOU0UtMi4wXG4gKlxuICogVW5sZXNzIHJlcXVpcmVkIGJ5IGFwcGxpY2FibGUgbGF3IG9yIGFncmVlZCB0byBpbiB3cml0aW5nLCBzb2Z0d2FyZVxuICogZGlzdHJpYnV0ZWQgdW5kZXIgdGhlIExpY2Vuc2UgaXMgZGlzdHJpYnV0ZWQgb24gYW4gXCJBUyBJU1wiIEJBU0lTLFxuICogV0lUSE9VVCBXQVJSQU5USUVTIE9SIENPTkRJVElPTlMgT0YgQU5ZIEtJTkQsIGVpdGhlciBleHByZXNzIG9yIGltcGxpZWQuXG4gKiBTZWUgdGhlIExpY2Vuc2UgZm9yIHRoZSBzcGVjaWZpYyBsYW5ndWFnZSBnb3Zlcm5pbmcgcGVybWlzc2lvbnMgYW5kXG4gKiBsaW1pdGF0aW9ucyB1bmRlciB0aGUgTGljZW5zZS5cbiAqL1xuXG4vLyBQb3B1bGF0ZSB0aGlzIGNsYXNzIHdpdGggdGhlIGRldGFpbHMgb2YgeW91ciBjdXN0b21pc2F0aW9ucyB3aGVuIGNvcHlpbmcgaXQuXG5pbXBvcnQgeyBDYXBhYmlsaXR5LCBXaWRnZXQgfSBmcm9tIFwibWF0cml4LXdpZGdldC1hcGlcIjtcblxuLyoqXG4gKiBBcHByb3ZlcyB0aGUgd2lkZ2V0IGZvciBjYXBhYmlsaXRpZXMgdGhhdCBpdCByZXF1ZXN0ZWQsIGlmIGFueSBjYW4gYmVcbiAqIGFwcHJvdmVkLiBUeXBpY2FsbHkgdGhpcyB3aWxsIGJlIHVzZWQgdG8gZ2l2ZSBjZXJ0YWluIHdpZGdldHMgY2FwYWJpbGl0aWVzXG4gKiB3aXRob3V0IGhhdmluZyB0byBwcm9tcHQgdGhlIHVzZXIgdG8gYXBwcm92ZSB0aGVtLiBUaGlzIGNhbm5vdCByZWplY3RcbiAqIGNhcGFiaWxpdGllcyB0aGF0IEVsZW1lbnQgd2lsbCBiZSBhdXRvbWF0aWNhbGx5IGdyYW50aW5nLCBzdWNoIGFzIHRoZVxuICogYWJpbGl0eSBmb3IgSml0c2kgd2lkZ2V0cyB0byBzdGF5IG9uIHNjcmVlbiAtIHRob3NlIHdpbGwgYmUgYXBwcm92ZWRcbiAqIHJlZ2FyZGxlc3MuXG4gKiBAcGFyYW0ge1dpZGdldH0gd2lkZ2V0IFRoZSB3aWRnZXQgdG8gYXBwcm92ZSBjYXBhYmlsaXRpZXMgZm9yLlxuICogQHBhcmFtIHtTZXQ8Q2FwYWJpbGl0eT59IHJlcXVlc3RlZENhcGFiaWxpdGllcyBUaGUgY2FwYWJpbGl0aWVzIHRoZSB3aWRnZXQgcmVxdWVzdGVkLlxuICogQHJldHVybnMge1NldDxDYXBhYmlsaXR5Pn0gUmVzb2x2ZXMgdG8gdGhlIGNhcGFiaWxpdGllcyB0aGF0IGFyZSBhcHByb3ZlZCBmb3IgdXNlXG4gKiBieSB0aGUgd2lkZ2V0LiBJZiBub25lIGFyZSBhcHByb3ZlZCwgdGhpcyBzaG91bGQgcmV0dXJuIGFuIGVtcHR5IFNldC5cbiAqL1xuYXN5bmMgZnVuY3Rpb24gcHJlYXBwcm92ZUNhcGFiaWxpdGllcyhcbiAgICB3aWRnZXQ6IFdpZGdldCxcbiAgICByZXF1ZXN0ZWRDYXBhYmlsaXRpZXM6IFNldDxDYXBhYmlsaXR5Pixcbik6IFByb21pc2U8U2V0PENhcGFiaWxpdHk+PiB7XG4gICAgcmV0dXJuIG5ldyBTZXQoKTsgLy8gbm8gYWRkaXRpb25hbCBjYXBhYmlsaXRpZXMgYXBwcm92ZWRcbn1cblxuLy8gVGhpcyBpbnRlcmZhY2Ugc3VtbWFyaXNlcyBhbGwgYXZhaWxhYmxlIGN1c3RvbWlzYXRpb24gcG9pbnRzIGFuZCBhbHNvIG1hcmtzXG4vLyB0aGVtIGFsbCBhcyBvcHRpb25hbC4gVGhpcyBhbGxvd3MgY3VzdG9taXNlcnMgdG8gb25seSBkZWZpbmUgYW5kIGV4cG9ydCB0aGVcbi8vIGN1c3RvbWlzYXRpb25zIHRoZXkgbmVlZCB3aGlsZSBzdGlsbCBtYWludGFpbmluZyB0eXBlIHNhZmV0eS5cbmV4cG9ydCBpbnRlcmZhY2UgSVdpZGdldFBlcm1pc3Npb25DdXN0b21pc2F0aW9ucyB7XG4gICAgcHJlYXBwcm92ZUNhcGFiaWxpdGllcz86IHR5cGVvZiBwcmVhcHByb3ZlQ2FwYWJpbGl0aWVzO1xufVxuXG4vLyBBIHJlYWwgY3VzdG9taXNhdGlvbiBtb2R1bGUgd2lsbCBkZWZpbmUgYW5kIGV4cG9ydCBvbmUgb3IgbW9yZSBvZiB0aGVcbi8vIGN1c3RvbWlzYXRpb24gcG9pbnRzIHRoYXQgbWFrZSB1cCB0aGUgaW50ZXJmYWNlIGFib3ZlLlxuZXhwb3J0IGNvbnN0IFdpZGdldFBlcm1pc3Npb25DdXN0b21pc2F0aW9uczogSVdpZGdldFBlcm1pc3Npb25DdXN0b21pc2F0aW9ucyA9IHt9O1xuIl19

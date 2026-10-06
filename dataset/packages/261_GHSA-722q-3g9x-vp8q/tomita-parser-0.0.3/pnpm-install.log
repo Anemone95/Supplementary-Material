@@ -1,0 +1,14 @@
+$ corepack pnpm@9.15.9 install --prod --no-frozen-lockfile --reporter=append-only --config.node-linker=hoisted --ignore-workspace --ignore-scripts
+Progress: resolved 1, reused 0, downloaded 0, added 0
+ WARN  deprecated code@1.5.0: This version has been deprecated in accordance with the hapi support policy (hapi.im/support). Please upgrade to the latest version to get the best features, bug fixes, and security patches. If you are unable to upgrade at this time, paid support is available for older versions (hapi.im/commercial).
+ WARN  deprecated lab@5.18.1: This version has been deprecated in accordance with the hapi support policy (hapi.im/support). Please upgrade to the latest version to get the best features, bug fixes, and security patches. If you are unable to upgrade at this time, paid support is available for older versions (hapi.im/commercial).
+Progress: resolved 117, reused 0, downloaded 0, added 0
+Progress: resolved 365, reused 0, downloaded 0, added 0
+ WARN  30 deprecated subdependencies found: bossy@1.0.3, circular-json@0.3.3, eslint-config-hapi@2.0.1, eslint-plugin-hapi@1.2.2, eslint@0.24.1, eslint@1.5.1, glob@3.1.21, glob@4.5.3, glob@5.0.15, glob@7.2.3, graceful-fs@1.2.3, gulp-util@3.0.8, hapi-capitalize-modules@1.1.6, hapi-scope-start@1.1.4, har-validator@5.1.5, hoek@2.16.3, inflight@1.0.6, items@1.1.1, lodash.omit@3.1.0, lodash.template@3.6.2, minimatch@0.2.14, minimatch@2.0.10, natives@1.1.6, request@2.88.2, resolve-url@0.2.1, rimraf@2.6.3, source-map-resolve@0.5.3, source-map-url@0.4.1, urix@0.1.0, uuid@3.4.0
+
+devDependencies: skipped
+
+Packages: +297
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Progress: resolved 403, reused 280, downloaded 0, added 297, done
+Done in 3.2s using pnpm v9.15.9

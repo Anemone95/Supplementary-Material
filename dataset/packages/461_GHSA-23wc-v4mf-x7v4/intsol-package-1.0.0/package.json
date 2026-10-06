@@ -1,0 +1,16 @@
+{
+  "name": "intsol-package",
+  "version": "1.0.0",
+  "description": "this is a simple node program",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "main-program": "node js\\index.js"
+  },
+  "keywords": [
+    "simple",
+    "sample"
+  ],
+  "author": "ramkumar",
+  "license": "MIT"
+}

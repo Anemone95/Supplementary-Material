@@ -1,0 +1,48 @@
+"use strict";
+
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+
+var _interopRequireWildcard = require("@babel/runtime/helpers/interopRequireWildcard");
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireWildcard(require("react"));
+
+var _classnames = _interopRequireDefault(require("classnames"));
+
+/*
+Copyright 2020 The Matrix.org Foundation C.I.C.
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+*/
+const EventTileBubble = /*#__PURE__*/(0, _react.forwardRef)(({
+  className,
+  title,
+  subtitle,
+  children
+}, ref) => {
+  return /*#__PURE__*/_react.default.createElement("div", {
+    className: (0, _classnames.default)("mx_EventTileBubble", className),
+    ref: ref
+  }, /*#__PURE__*/_react.default.createElement("div", {
+    className: "mx_EventTileBubble_title"
+  }, title), subtitle && /*#__PURE__*/_react.default.createElement("div", {
+    className: "mx_EventTileBubble_subtitle"
+  }, subtitle), children);
+});
+var _default = EventTileBubble;
+exports.default = _default;
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uLy4uLy4uL3NyYy9jb21wb25lbnRzL3ZpZXdzL21lc3NhZ2VzL0V2ZW50VGlsZUJ1YmJsZS50c3giXSwibmFtZXMiOlsiRXZlbnRUaWxlQnViYmxlIiwiY2xhc3NOYW1lIiwidGl0bGUiLCJzdWJ0aXRsZSIsImNoaWxkcmVuIiwicmVmIl0sIm1hcHBpbmdzIjoiOzs7Ozs7Ozs7OztBQWdCQTs7QUFDQTs7QUFqQkE7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBV0EsTUFBTUEsZUFBZSxnQkFBRyx1QkFBbUMsQ0FBQztBQUFFQyxFQUFBQSxTQUFGO0FBQWFDLEVBQUFBLEtBQWI7QUFBb0JDLEVBQUFBLFFBQXBCO0FBQThCQyxFQUFBQTtBQUE5QixDQUFELEVBQTJDQyxHQUEzQyxLQUFtRDtBQUMxRyxzQkFBTztBQUFLLElBQUEsU0FBUyxFQUFFLHlCQUFXLG9CQUFYLEVBQWlDSixTQUFqQyxDQUFoQjtBQUE2RCxJQUFBLEdBQUcsRUFBRUk7QUFBbEUsa0JBQ0g7QUFBSyxJQUFBLFNBQVMsRUFBQztBQUFmLEtBQTRDSCxLQUE1QyxDQURHLEVBRURDLFFBQVEsaUJBQUk7QUFBSyxJQUFBLFNBQVMsRUFBQztBQUFmLEtBQStDQSxRQUEvQyxDQUZYLEVBR0RDLFFBSEMsQ0FBUDtBQUtILENBTnVCLENBQXhCO2VBUWVKLGUiLCJzb3VyY2VzQ29udGVudCI6WyIvKlxuQ29weXJpZ2h0IDIwMjAgVGhlIE1hdHJpeC5vcmcgRm91bmRhdGlvbiBDLkkuQy5cblxuTGljZW5zZWQgdW5kZXIgdGhlIEFwYWNoZSBMaWNlbnNlLCBWZXJzaW9uIDIuMCAodGhlIFwiTGljZW5zZVwiKTtcbnlvdSBtYXkgbm90IHVzZSB0aGlzIGZpbGUgZXhjZXB0IGluIGNvbXBsaWFuY2Ugd2l0aCB0aGUgTGljZW5zZS5cbllvdSBtYXkgb2J0YWluIGEgY29weSBvZiB0aGUgTGljZW5zZSBhdFxuXG4gICAgaHR0cDovL3d3dy5hcGFjaGUub3JnL2xpY2Vuc2VzL0xJQ0VOU0UtMi4wXG5cblVubGVzcyByZXF1aXJlZCBieSBhcHBsaWNhYmxlIGxhdyBvciBhZ3JlZWQgdG8gaW4gd3JpdGluZywgc29mdHdhcmVcbmRpc3RyaWJ1dGVkIHVuZGVyIHRoZSBMaWNlbnNlIGlzIGRpc3RyaWJ1dGVkIG9uIGFuIFwiQVMgSVNcIiBCQVNJUyxcbldJVEhPVVQgV0FSUkFOVElFUyBPUiBDT05ESVRJT05TIE9GIEFOWSBLSU5ELCBlaXRoZXIgZXhwcmVzcyBvciBpbXBsaWVkLlxuU2VlIHRoZSBMaWNlbnNlIGZvciB0aGUgc3BlY2lmaWMgbGFuZ3VhZ2UgZ292ZXJuaW5nIHBlcm1pc3Npb25zIGFuZFxubGltaXRhdGlvbnMgdW5kZXIgdGhlIExpY2Vuc2UuXG4qL1xuXG5pbXBvcnQgUmVhY3QsIHtmb3J3YXJkUmVmLCBSZWFjdE5vZGV9IGZyb20gXCJyZWFjdFwiO1xuaW1wb3J0IGNsYXNzTmFtZXMgZnJvbSBcImNsYXNzbmFtZXNcIjtcblxuaW50ZXJmYWNlIElQcm9wcyB7XG4gICAgY2xhc3NOYW1lOiBzdHJpbmc7XG4gICAgdGl0bGU6IHN0cmluZztcbiAgICBzdWJ0aXRsZT86IFJlYWN0Tm9kZTtcbn1cblxuY29uc3QgRXZlbnRUaWxlQnViYmxlID0gZm9yd2FyZFJlZjxIVE1MRGl2RWxlbWVudCwgSVByb3BzPigoeyBjbGFzc05hbWUsIHRpdGxlLCBzdWJ0aXRsZSwgY2hpbGRyZW4gfSwgcmVmKSA9PiB7XG4gICAgcmV0dXJuIDxkaXYgY2xhc3NOYW1lPXtjbGFzc05hbWVzKFwibXhfRXZlbnRUaWxlQnViYmxlXCIsIGNsYXNzTmFtZSl9IHJlZj17cmVmfT5cbiAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJteF9FdmVudFRpbGVCdWJibGVfdGl0bGVcIj57IHRpdGxlIH08L2Rpdj5cbiAgICAgICAgeyBzdWJ0aXRsZSAmJiA8ZGl2IGNsYXNzTmFtZT1cIm14X0V2ZW50VGlsZUJ1YmJsZV9zdWJ0aXRsZVwiPnsgc3VidGl0bGUgfTwvZGl2PiB9XG4gICAgICAgIHsgY2hpbGRyZW4gfVxuICAgIDwvZGl2Pjtcbn0pO1xuXG5leHBvcnQgZGVmYXVsdCBFdmVudFRpbGVCdWJibGU7XG4iXX0=

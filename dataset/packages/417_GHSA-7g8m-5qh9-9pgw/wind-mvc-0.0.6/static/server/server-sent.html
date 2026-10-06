@@ -1,0 +1,24 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<title>服务器发送消息</title>
+</head>
+<body>
+消息内容：
+<div id='result'></div>
+
+<script>
+	var source = new EventSource('server!serverSent');
+	var target = document.getElementById('result');
+	source.onopen = function (event){
+		console.log('is open');
+	};
+	source.onmessage = function (event){
+		target.innerHTML += event.data + '<br/>';
+	};
+	source.onerror = function (error){
+		console.log(error);
+	};
+</script>
+</body>
+</html>

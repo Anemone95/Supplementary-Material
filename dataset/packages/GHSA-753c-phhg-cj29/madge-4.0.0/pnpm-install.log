@@ -1,0 +1,15 @@
+$ corepack pnpm@9.15.9 install --prod --no-frozen-lockfile --reporter=append-only --config.node-linker=hoisted --ignore-workspace --ignore-scripts
+Progress: resolved 1, reused 0, downloaded 0, added 0
+ WARN  deprecated eslint@6.8.0: This version is no longer supported. Please see https://eslint.org/version-support for other options.
+Progress: resolved 34, reused 0, downloaded 0, added 0
+Progress: resolved 166, reused 0, downloaded 0, added 0
+Progress: resolved 287, reused 0, downloaded 0, added 0
+ WARN  6 deprecated subdependencies found: flatten@1.0.3, glob@7.1.6, glob@7.2.3, inflight@1.0.6, is-relative-path@1.0.2, rimraf@2.6.3
+
+devDependencies: skipped
+
+Packages: +158
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Progress: resolved 309, reused 103, downloaded 46, added 151
+Progress: resolved 309, reused 103, downloaded 49, added 158, done
+Done in 4.8s using pnpm v9.15.9

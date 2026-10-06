@@ -1,0 +1,23 @@
+$ corepack pnpm@9.15.9 install --prod --no-frozen-lockfile --reporter=append-only --config.node-linker=hoisted --ignore-workspace --ignore-scripts
+Progress: resolved 1, reused 0, downloaded 0, added 0
+ WARN  deprecated rimraf@2.7.1: Rimraf versions prior to v4 are no longer supported
+ WARN  deprecated asar@0.11.0: Please use @electron/asar moving forward.  There is no API change, just a package name change
+ WARN  deprecated rcedit@0.5.1: Package no longer supported. Contact Support at https://www.npmjs.com/support for more info.
+ WARN  deprecated electron-download@2.2.1: Please use @electron/get moving forward.
+ WARN  deprecated electron-osx-sign@0.3.2: Please use @electron/osx-sign moving forward. Be aware the API is slightly different
+Progress: resolved 49, reused 0, downloaded 0, added 0
+Progress: resolved 187, reused 0, downloaded 0, added 0
+Progress: resolved 346, reused 0, downloaded 0, added 0
+Progress: resolved 440, reused 0, downloaded 0, added 0
+Progress: resolved 560, reused 0, downloaded 0, added 0
+Progress: resolved 674, reused 0, downloaded 0, added 0
+ WARN  45 deprecated subdependencies found: babel-plugin-constant-folding@1.0.1, babel-plugin-dead-code-elimination@1.0.2, babel-plugin-eval@1.0.1, babel-plugin-inline-environment-variables@1.0.1, babel-plugin-jscript@1.0.4, babel-plugin-member-expression-literals@1.0.1, babel-plugin-property-literals@1.0.1, babel-plugin-proto-to-assign@1.0.4, babel-plugin-react-constant-elements@1.0.3, babel-plugin-react-display-name@1.0.3, babel-plugin-remove-console@1.0.1, babel-plugin-remove-debugger@1.0.1, babel-plugin-runtime@1.0.7, babel-plugin-undefined-to-void@1.1.6, boom@2.10.1, circular-json@0.3.3, core-js@1.2.7, core-js@2.6.12, cryptiles@2.0.5, eslint@1.9.0, glob@10.5.0, glob@5.0.15, glob@6.0.4, glob@7.2.3, har-validator@2.0.6, har-validator@5.1.5, hawk@3.1.3, hoek@2.16.3, home-path@1.0.7, inflight@1.0.6, istanbul@0.4.5, lodash.get@4.4.2, lodash.omit@3.1.0, minimatch@2.0.10, q@1.5.1, request@2.79.0, request@2.88.2, rimraf@2.4.5, rimraf@2.6.3, sntp@1.0.9, stable@0.1.8, standard-format@1.6.10, try-resolve@1.0.1, uuid@3.4.0, xmldom@0.1.31
+
+devDependencies: skipped
+
+Packages: +180
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Progress: resolved 699, reused 142, downloaded 34, added 176
+Progress: resolved 699, reused 142, downloaded 37, added 179
+Progress: resolved 699, reused 142, downloaded 38, added 180, done
+Done in 8.7s using pnpm v9.15.9

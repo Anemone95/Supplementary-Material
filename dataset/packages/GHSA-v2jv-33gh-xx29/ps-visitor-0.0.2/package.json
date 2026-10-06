@@ -1,0 +1,22 @@
+{
+  "name": "ps-visitor",
+  "version": "0.0.2",
+  "description": "node.js visit command `ps aux` and `kill`.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WisdomKwan/ps-visitor.git"
+  },
+  "keywords": [
+    "ps"
+  ],
+  "author": "Wisdom Kwan",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/WisdomKwan/ps-visitor/issues"
+  },
+  "homepage": "https://github.com/WisdomKwan/ps-visitor#readme"
+}

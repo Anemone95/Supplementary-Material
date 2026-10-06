@@ -1,0 +1,38 @@
+lockfileVersion: '9.0'
+
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
+
+importers:
+
+  .:
+    dependencies:
+      mime:
+        specifier: 1.2.7
+        version: 1.2.7
+      optimist:
+        specifier: 0.3.4
+        version: 0.3.4
+
+packages:
+
+  mime@1.2.7:
+    resolution: {integrity: sha512-dpy+nvloUnk2kSbmdZ6PFEuGUV+gYLF3YIAxkOuvD3N0pZiUM4UiNBW9516oVHcOLfRVTIgShgQVyXQu7K+XIA==}
+
+  optimist@0.3.4:
+    resolution: {integrity: sha512-CM668OmXLjrLKlVPze/bc0BIOZ0qoM5gWwEVurkjXPv6cgkybJ2TSt86nmaud+niwPfWHLOcgbbcRtA5zJgOIQ==}
+
+  wordwrap@0.0.3:
+    resolution: {integrity: sha512-1tMA907+V4QmxV7dbRvb4/8MaRALK6q9Abid3ndMYnbyo8piisCmeONVqVSXqQA3KaP4SLt5b7ud6E2sqP8TFw==}
+    engines: {node: '>=0.4.0'}
+
+snapshots:
+
+  mime@1.2.7: {}
+
+  optimist@0.3.4:
+    dependencies:
+      wordwrap: 0.0.3
+
+  wordwrap@0.0.3: {}

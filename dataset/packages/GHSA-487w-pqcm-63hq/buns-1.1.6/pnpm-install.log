@@ -1,0 +1,13 @@
+$ corepack pnpm@9.15.9 install --prod --no-frozen-lockfile --reporter=append-only --config.node-linker=hoisted --ignore-workspace --ignore-scripts
+Progress: resolved 1, reused 0, downloaded 0, added 0
+ WARN  deprecated babel-preset-es2015@6.24.1: 🙌  Thanks for using Babel: we recommend using babel-preset-env now: please read https://babeljs.io/env to update!
+Progress: resolved 242, reused 0, downloaded 0, added 0
+Progress: resolved 273, reused 0, downloaded 0, added 0
+ WARN  1 deprecated subdependencies found: core-js@2.6.12
+
+devDependencies: skipped
+
+Packages: +285
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Progress: resolved 274, reused 271, downloaded 2, added 285, done
+Done in 3.2s using pnpm v9.15.9

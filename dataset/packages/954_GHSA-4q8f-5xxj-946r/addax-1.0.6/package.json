@@ -1,0 +1,40 @@
+{
+  "name": "addax",
+  "version": "1.0.6",
+  "description": "Proxy to serve presigned s3 downloads to authenticated users",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin": {
+    "addax": "./index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/seetransparent/addax"
+  },
+  "author": "Transparent Intelligence",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/seetransparent/addax/issues"
+  },
+  "keywords": [
+    "amazon",
+    "aws",
+    "s3",
+    "sync",
+    "folder",
+    "directory",
+    "server",
+    "express",
+    "file",
+    "sign",
+    "upload"
+  ],
+  "homepage": "https://github.com/seetransparent/addax#readme",
+  "dependencies": {
+    "commander": "^2.12.2",
+    "express": "^4.16.2",
+    "lodash": "^4.17.4"
+  }
+}

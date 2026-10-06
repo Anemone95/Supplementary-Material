@@ -1,0 +1,51 @@
+{
+  "name": "is-user-valid",
+  "description": "Really simple service to check if a user is valid in your ldap",
+  "version": "1.1.2",
+  "license": "Apache-2.0",
+  "author": {
+    "name": "David Lozano",
+    "email": "david.lozanollanos@telefonica.com"
+  },
+  "contributors": [
+    "Eduardo Alonso García <eduardo.alonsogarcia@telefonica.com>",
+    "Javier Mendiara Cañardo <javier.mendiaracanardo@telefonica.com>"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/TDAF/is-user-valid.git"
+  },
+  "main": "lib/is-user-valid",
+  "bin": {
+    "is-user-valid": "./bin/is-user-valid"
+  },
+  "engines": {
+    "node": ">= 0.10.40"
+  },
+  "scripts": {
+    "lint": "jscs lib && eslint lib",
+    "prepublish": "npm run lint"
+  },
+  "dependencies": {
+    "basic-auth": "^1.0.3",
+    "body-parser": "^1.13.2",
+    "express": "^4.11.0",
+    "express-domaining": "^1.0.2",
+    "express-logging": "^1.0.0",
+    "express-tracking": "^1.0.0",
+    "ldapjs": "1.0.0",
+    "logops": "^1.0.0-alpha.5",
+    "merge-config": "^1.0.0",
+    "path": "^0.12.7",
+    "server-terminate": "^1.0.0"
+  },
+  "keywords": [
+    "express",
+    "ldap",
+    "user"
+  ],
+  "devDependencies": {
+    "eslint": "^1.6.0",
+    "jscs": "^2.3.0"
+  }
+}

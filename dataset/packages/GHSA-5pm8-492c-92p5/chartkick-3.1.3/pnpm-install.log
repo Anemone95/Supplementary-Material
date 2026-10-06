@@ -1,0 +1,15 @@
+$ corepack pnpm@9.15.9 install --prod --no-frozen-lockfile --reporter=append-only --config.node-linker=hoisted --ignore-workspace --ignore-scripts
+Progress: resolved 1, reused 0, downloaded 0, added 0
+ WARN  deprecated rollup-plugin-commonjs@9.3.4: This package has been deprecated and is no longer maintained. Please use @rollup/plugin-commonjs.
+ WARN  deprecated eslint@5.16.0: This version is no longer supported. Please see https://eslint.org/version-support for other options.
+ WARN  deprecated rollup-plugin-buble@0.19.8: This module has been deprecated and is no longer maintained. Please use @rollup/plugin-buble.
+ WARN  deprecated rollup-plugin-node-resolve@4.2.4: This package has been deprecated and is no longer maintained. Please use @rollup/plugin-node-resolve.
+Progress: resolved 45, reused 0, downloaded 0, added 0
+Progress: resolved 149, reused 0, downloaded 0, added 0
+ WARN  6 deprecated subdependencies found: acorn-dynamic-import@4.0.0, glob@7.2.3, inflight@1.0.6, os-homedir@2.0.0, rimraf@2.6.3, sourcemap-codec@1.4.8
+
+devDependencies: skipped
+
+Already up to date
+Progress: resolved 157, reused 0, downloaded 0, added 0, done
+Done in 2.4s using pnpm v9.15.9

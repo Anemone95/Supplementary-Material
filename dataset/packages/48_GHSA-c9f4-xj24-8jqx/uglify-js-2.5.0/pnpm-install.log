@@ -1,0 +1,6 @@
+$ corepack pnpm@9.15.9 install --prod --no-frozen-lockfile --reporter=append-only --config.node-linker=hoisted --ignore-workspace --ignore-scripts
+Progress: resolved 1, reused 0, downloaded 0, added 0
+Progress: resolved 17, reused 0, downloaded 0, added 0
+Progress: resolved 19, reused 2, downloaded 0, added 0
+Progress: resolved 19, reused 3, downloaded 0, added 0
+ ERR_PNPM_MISSING_PACKAGE_NAME  Can't install git://github.com/marijnh/acorn.git: Missing package name

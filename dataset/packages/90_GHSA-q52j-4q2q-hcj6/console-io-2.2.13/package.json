@@ -1,0 +1,39 @@
+{
+  "name": "console-io",
+  "version": "2.2.13",
+  "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
+  "description": "Web console",
+  "homepage": "http://cloudcmd.io",
+  "bin": {
+    "console": "bin/console.js"
+  },
+  "main": "lib/server.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/cloudcmd/console.git"
+  },
+  "scripts": {
+    "bower": "bower"
+  },
+  "keywords": [
+    "console",
+    "terminal",
+    "express"
+  ],
+  "dependencies": {
+    "debug": "~2.2.0",
+    "express": "~4.13.0",
+    "join-io": "~1.4.0",
+    "mollify": "~1.0.3",
+    "rendy": "~1.1.0",
+    "socket.io": "~1.3.7",
+    "spawnify": "~2.1.0"
+  },
+  "devDependencies": {
+    "bower": "^1.5.1",
+    "gulp": "^3.9.0",
+    "gulp-jshint": "~1.11.0",
+    "gulp-recess": "~1.1.1"
+  },
+  "license": "MIT"
+}

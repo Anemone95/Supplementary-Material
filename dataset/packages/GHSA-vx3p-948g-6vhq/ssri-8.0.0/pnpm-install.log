@@ -1,0 +1,18 @@
+$ corepack pnpm@9.15.9 install --prod --no-frozen-lockfile --reporter=append-only --config.node-linker=hoisted --ignore-workspace --ignore-scripts
+ WARN  deprecated standard-version@7.1.0: standard-version is deprecated. If you're a GitHub user, I recommend https://github.com/googleapis/release-please as an alternative.
+Progress: resolved 1, reused 0, downloaded 0, added 0
+ WARN  deprecated tap@14.11.0: Versions of tap before v18 are no longer maintained. Please upgrade.
+Progress: resolved 105, reused 0, downloaded 0, added 0
+Progress: resolved 317, reused 0, downloaded 0, added 0
+Progress: resolved 505, reused 0, downloaded 0, added 0
+Progress: resolved 604, reused 0, downloaded 0, added 0
+Progress: resolved 605, reused 0, downloaded 0, added 0
+Progress: resolved 606, reused 0, downloaded 0, added 0
+ WARN  23 deprecated subdependencies found: conventional-changelog-atom@2.0.8, conventional-changelog-codemirror@2.0.8, conventional-changelog-core@4.2.4, conventional-changelog-ember@2.0.9, conventional-changelog-eslint@3.0.9, conventional-changelog-express@2.0.6, conventional-changelog-jquery@3.0.11, conventional-changelog-jshint@2.0.9, eslint@6.8.0, git-raw-commits@2.0.0, git-raw-commits@2.0.11, git-semver-tags@3.0.1, git-semver-tags@4.1.1, glob@7.2.3, har-validator@5.1.5, inflight@1.0.6, lodash.template@4.18.1, q@1.5.1, request@2.88.2, rimraf@2.6.3, rimraf@2.7.1, stringify-package@1.0.1, uuid@3.4.0
+
+devDependencies: skipped
+
+Packages: +2
+++
+Progress: resolved 606, reused 2, downloaded 0, added 2, done
+Done in 7.7s using pnpm v9.15.9

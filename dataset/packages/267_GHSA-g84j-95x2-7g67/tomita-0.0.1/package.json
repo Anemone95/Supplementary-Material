@@ -1,0 +1,21 @@
+{
+  "name": "tomita",
+  "version": "0.0.1",
+  "description": "Node wrapper for Yandex Tomita Parser",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha",
+    "install": "gulp download"
+  },
+  "keywords": [
+    "yandex",
+    "tomita"
+  ],
+  "author": "Roman Timashev",
+  "license": "MIT",
+  "dependencies": {
+    "gulp-download": "0.0.1",
+    "gulp": "^3.6.0",
+    "gulp-shell": "^0.2.4"
+  }
+}

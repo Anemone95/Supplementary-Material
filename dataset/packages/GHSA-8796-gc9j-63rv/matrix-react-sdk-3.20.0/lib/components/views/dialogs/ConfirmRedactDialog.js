@@ -1,0 +1,41 @@
+"use strict";
+
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+
+var _interopRequireWildcard = require("@babel/runtime/helpers/interopRequireWildcard");
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireDefault(require("react"));
+
+var sdk = _interopRequireWildcard(require("../../../index"));
+
+var _languageHandler = require("../../../languageHandler");
+
+var _replaceableComponent = require("../../../utils/replaceableComponent");
+
+var _dec, _class;
+
+let ConfirmRedactDialog = (
+/*
+ * A dialog for confirming a redaction.
+ */
+_dec = (0, _replaceableComponent.replaceableComponent)("views.dialogs.ConfirmRedactDialog"), _dec(_class = class ConfirmRedactDialog extends _react.default.Component {
+  render() {
+    const TextInputDialog = sdk.getComponent('views.dialogs.TextInputDialog');
+    return /*#__PURE__*/_react.default.createElement(TextInputDialog, {
+      onFinished: this.props.onFinished,
+      title: (0, _languageHandler._t)("Confirm Removal"),
+      description: (0, _languageHandler._t)("Are you sure you wish to remove (delete) this event? " + "Note that if you delete a room name or topic change, it could undo the change."),
+      placeholder: (0, _languageHandler._t)("Reason (optional)"),
+      focus: true,
+      button: (0, _languageHandler._t)("Remove")
+    });
+  }
+
+}) || _class);
+exports.default = ConfirmRedactDialog;
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uLy4uLy4uL3NyYy9jb21wb25lbnRzL3ZpZXdzL2RpYWxvZ3MvQ29uZmlybVJlZGFjdERpYWxvZy5qcyJdLCJuYW1lcyI6WyJDb25maXJtUmVkYWN0RGlhbG9nIiwiUmVhY3QiLCJDb21wb25lbnQiLCJyZW5kZXIiLCJUZXh0SW5wdXREaWFsb2ciLCJzZGsiLCJnZXRDb21wb25lbnQiLCJwcm9wcyIsIm9uRmluaXNoZWQiXSwibWFwcGluZ3MiOiI7Ozs7Ozs7Ozs7O0FBZ0JBOztBQUNBOztBQUNBOztBQUNBOzs7O0lBTXFCQSxtQjtBQUpyQjtBQUNBO0FBQ0E7T0FDQyxnREFBcUIsbUNBQXJCLEMsZ0JBQUQsTUFDcUJBLG1CQURyQixTQUNpREMsZUFBTUMsU0FEdkQsQ0FDaUU7QUFDN0RDLEVBQUFBLE1BQU0sR0FBRztBQUNMLFVBQU1DLGVBQWUsR0FBR0MsR0FBRyxDQUFDQyxZQUFKLENBQWlCLCtCQUFqQixDQUF4QjtBQUNBLHdCQUNJLDZCQUFDLGVBQUQ7QUFBaUIsTUFBQSxVQUFVLEVBQUUsS0FBS0MsS0FBTCxDQUFXQyxVQUF4QztBQUNJLE1BQUEsS0FBSyxFQUFFLHlCQUFHLGlCQUFILENBRFg7QUFFSSxNQUFBLFdBQVcsRUFDUCx5QkFBRywwREFDQSxnRkFESCxDQUhSO0FBS0ksTUFBQSxXQUFXLEVBQUUseUJBQUcsbUJBQUgsQ0FMakI7QUFNSSxNQUFBLEtBQUssTUFOVDtBQU9JLE1BQUEsTUFBTSxFQUFFLHlCQUFHLFFBQUg7QUFQWixNQURKO0FBV0g7O0FBZDRELEMiLCJzb3VyY2VzQ29udGVudCI6WyIvKlxuQ29weXJpZ2h0IDIwMTcgVmVjdG9yIENyZWF0aW9ucyBMdGRcblxuTGljZW5zZWQgdW5kZXIgdGhlIEFwYWNoZSBMaWNlbnNlLCBWZXJzaW9uIDIuMCAodGhlIFwiTGljZW5zZVwiKTtcbnlvdSBtYXkgbm90IHVzZSB0aGlzIGZpbGUgZXhjZXB0IGluIGNvbXBsaWFuY2Ugd2l0aCB0aGUgTGljZW5zZS5cbllvdSBtYXkgb2J0YWluIGEgY29weSBvZiB0aGUgTGljZW5zZSBhdFxuXG4gICAgaHR0cDovL3d3dy5hcGFjaGUub3JnL2xpY2Vuc2VzL0xJQ0VOU0UtMi4wXG5cblVubGVzcyByZXF1aXJlZCBieSBhcHBsaWNhYmxlIGxhdyBvciBhZ3JlZWQgdG8gaW4gd3JpdGluZywgc29mdHdhcmVcbmRpc3RyaWJ1dGVkIHVuZGVyIHRoZSBMaWNlbnNlIGlzIGRpc3RyaWJ1dGVkIG9uIGFuIFwiQVMgSVNcIiBCQVNJUyxcbldJVEhPVVQgV0FSUkFOVElFUyBPUiBDT05ESVRJT05TIE9GIEFOWSBLSU5ELCBlaXRoZXIgZXhwcmVzcyBvciBpbXBsaWVkLlxuU2VlIHRoZSBMaWNlbnNlIGZvciB0aGUgc3BlY2lmaWMgbGFuZ3VhZ2UgZ292ZXJuaW5nIHBlcm1pc3Npb25zIGFuZFxubGltaXRhdGlvbnMgdW5kZXIgdGhlIExpY2Vuc2UuXG4qL1xuXG5pbXBvcnQgUmVhY3QgZnJvbSAncmVhY3QnO1xuaW1wb3J0ICogYXMgc2RrIGZyb20gJy4uLy4uLy4uL2luZGV4JztcbmltcG9ydCB7IF90IH0gZnJvbSAnLi4vLi4vLi4vbGFuZ3VhZ2VIYW5kbGVyJztcbmltcG9ydCB7cmVwbGFjZWFibGVDb21wb25lbnR9IGZyb20gXCIuLi8uLi8uLi91dGlscy9yZXBsYWNlYWJsZUNvbXBvbmVudFwiO1xuXG4vKlxuICogQSBkaWFsb2cgZm9yIGNvbmZpcm1pbmcgYSByZWRhY3Rpb24uXG4gKi9cbkByZXBsYWNlYWJsZUNvbXBvbmVudChcInZpZXdzLmRpYWxvZ3MuQ29uZmlybVJlZGFjdERpYWxvZ1wiKVxuZXhwb3J0IGRlZmF1bHQgY2xhc3MgQ29uZmlybVJlZGFjdERpYWxvZyBleHRlbmRzIFJlYWN0LkNvbXBvbmVudCB7XG4gICAgcmVuZGVyKCkge1xuICAgICAgICBjb25zdCBUZXh0SW5wdXREaWFsb2cgPSBzZGsuZ2V0Q29tcG9uZW50KCd2aWV3cy5kaWFsb2dzLlRleHRJbnB1dERpYWxvZycpO1xuICAgICAgICByZXR1cm4gKFxuICAgICAgICAgICAgPFRleHRJbnB1dERpYWxvZyBvbkZpbmlzaGVkPXt0aGlzLnByb3BzLm9uRmluaXNoZWR9XG4gICAgICAgICAgICAgICAgdGl0bGU9e190KFwiQ29uZmlybSBSZW1vdmFsXCIpfVxuICAgICAgICAgICAgICAgIGRlc2NyaXB0aW9uPXtcbiAgICAgICAgICAgICAgICAgICAgX3QoXCJBcmUgeW91IHN1cmUgeW91IHdpc2ggdG8gcmVtb3ZlIChkZWxldGUpIHRoaXMgZXZlbnQ/IFwiICtcbiAgICAgICAgICAgICAgICAgICAgICAgXCJOb3RlIHRoYXQgaWYgeW91IGRlbGV0ZSBhIHJvb20gbmFtZSBvciB0b3BpYyBjaGFuZ2UsIGl0IGNvdWxkIHVuZG8gdGhlIGNoYW5nZS5cIil9XG4gICAgICAgICAgICAgICAgcGxhY2Vob2xkZXI9e190KFwiUmVhc29uIChvcHRpb25hbClcIil9XG4gICAgICAgICAgICAgICAgZm9jdXNcbiAgICAgICAgICAgICAgICBidXR0b249e190KFwiUmVtb3ZlXCIpfT5cbiAgICAgICAgICAgIDwvVGV4dElucHV0RGlhbG9nPlxuICAgICAgICApO1xuICAgIH1cbn1cbiJdfQ==

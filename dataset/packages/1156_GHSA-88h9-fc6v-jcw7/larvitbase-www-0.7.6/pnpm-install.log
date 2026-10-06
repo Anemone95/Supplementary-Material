@@ -1,0 +1,30 @@
+$ corepack pnpm@9.15.9 install --prod --no-frozen-lockfile --reporter=append-only --config.node-linker=hoisted --ignore-workspace --ignore-scripts
+ WARN  deprecated istanbul@0.4.5: This module is no longer maintained, try this instead:
+  npm i nyc
+Visit https://istanbul.js.org/integrations for other alternatives.
+Progress: resolved 1, reused 0, downloaded 0, added 0
+ WARN  deprecated request@2.88.2: request has been deprecated, see https://github.com/request/request/issues/3142
+ WARN  deprecated eslint@6.8.0: This version is no longer supported. Please see https://eslint.org/version-support for other options.
+Progress: resolved 14, reused 0, downloaded 0, added 0
+ ERROR  Command failed with exit code 128: git fetch --depth 1 origin 24ea30276fdfa64737985e58031b6f3b4981b1e5
+ERROR: Repository not found.
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+
+This error happened while installing a direct dependency of /home/wenyuan/work/jelly-benchmarks/packages/Supplementary-Material/dataset/packages/1156_GHSA-88h9-fc6v-jcw7/larvitbase-www-0.7.6
+
+pnpm: Command failed with exit code 128: git fetch --depth 1 origin 24ea30276fdfa64737985e58031b6f3b4981b1e5
+ERROR: Repository not found.
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+    at makeError (/home/wenyuan/.cache/node/corepack/v1/pnpm/9.15.9/dist/pnpm.cjs:17470:17)
+    at handlePromise (/home/wenyuan/.cache/node/corepack/v1/pnpm/9.15.9/dist/pnpm.cjs:18041:33)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async execGit (/home/wenyuan/.cache/node/corepack/v1/pnpm/9.15.9/dist/pnpm.cjs:113034:7)
+    at async gitFetcher (/home/wenyuan/.cache/node/corepack/v1/pnpm/9.15.9/dist/pnpm.cjs:112987:11)
+    at async fetcher (/home/wenyuan/.cache/node/corepack/v1/pnpm/9.15.9/dist/pnpm.cjs:132237:16)
+    at async run (/home/wenyuan/.cache/node/corepack/v1/pnpm/9.15.9/dist/pnpm.cjs:131687:23)

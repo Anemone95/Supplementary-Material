@@ -1,0 +1,21 @@
+[Unit]
+Description=Hook Server for GitLab
+After=network.target
+
+[Service]
+User=wwwrun
+Group=www
+Type=simple
+StandardOutput=journal
+StandardError=journal
+Restart=always
+# Run ExecStartPre/ExecStartPost with root-permissions
+PermissionsStartOnly=true
+# Remove PIDFile at Stop
+PIDFile=/var/run/gitlabhook/gitlabhookd.pid
+ExecStartPre=/usr/bin/mkdir -p /var/run/gitlabhook
+ExecStartPost=/bin/sh -c '/usr/bin/echo $MAINPID > /var/run/gitlabhook/gitlabhookd.pid'
+ExecStart=/usr/bin/node /usr/lib/node_modules/gitlabhook/gitlabhook-server.js
+
+[Install]
+WantedBy=multi-user.target

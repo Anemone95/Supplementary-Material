@@ -1,0 +1,9 @@
+$ corepack pnpm@9.15.9 install --prod --no-frozen-lockfile --reporter=append-only --config.node-linker=hoisted --ignore-workspace --ignore-scripts
+Progress: resolved 1, reused 0, downloaded 0, added 0
+ WARN  deprecated brtapsauce@0.3.0: no longer maintained
+ ERR_PNPM_FETCH_404  GET https://github.com/substack/querystring/archive/0.2.0-ie8.tar.gz: Not Found - 404
+
+This error happened while installing the dependencies of brtapsauce@0.3.0
+ at browserify@3.19.1
+
+No authorization header was set for the request.

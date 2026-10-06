@@ -1,0 +1,19 @@
+$ corepack pnpm@9.15.9 install --prod --no-frozen-lockfile --reporter=append-only --config.node-linker=hoisted --ignore-workspace --ignore-scripts
+Progress: resolved 1, reused 0, downloaded 0, added 0
+Progress: resolved 22, reused 0, downloaded 0, added 0
+Progress: resolved 82, reused 0, downloaded 0, added 0
+Progress: resolved 153, reused 0, downloaded 0, added 0
+Progress: resolved 280, reused 0, downloaded 0, added 0
+Progress: resolved 491, reused 0, downloaded 0, added 0
+Progress: resolved 633, reused 0, downloaded 0, added 0
+Progress: resolved 765, reused 0, downloaded 0, added 0
+Progress: resolved 892, reused 0, downloaded 0, added 0
+Progress: resolved 1032, reused 0, downloaded 0, added 0
+ WARN  29 deprecated subdependencies found: @babel/plugin-proposal-class-properties@7.18.6, @babel/plugin-proposal-nullish-coalescing-operator@7.18.6, @babel/plugin-proposal-optional-chaining@7.21.0, @babel/polyfill@7.12.1, abab@2.0.6, babel-eslint@10.1.0, core-js@2.6.12, domexception@1.0.1, eslint@6.8.0, fsevents@1.2.13, glob@7.2.3, har-validator@5.1.5, inflight@1.0.6, left-pad@1.3.0, request-promise-native@1.0.9, request@2.88.2, resolve-url@0.2.1, rimraf@2.6.3, rimraf@2.7.1, rollup-plugin-babel@4.4.0, rollup-plugin-terser@5.3.1, sane@4.1.0, source-map-resolve@0.5.3, source-map-url@0.4.1, sourcemap-codec@1.4.8, urix@0.1.0, uuid@3.4.0, w3c-hr-time@1.0.2, whatwg-encoding@1.0.5
+
+devDependencies: skipped
+
+Packages: +3
++++
+Progress: resolved 1059, reused 3, downloaded 0, added 3, done
+Done in 10.3s using pnpm v9.15.9

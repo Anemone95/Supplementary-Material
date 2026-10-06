@@ -1,0 +1,16 @@
+{
+	"author": "Abe Austin",
+	"name": "city-weather-abe",
+	"version": "0.1.1",
+	"repository":
+	{
+		"type": "git",
+		"location":"https://github.com/abe-austin/cityWeather.git"
+	},
+	"description": "Returns the weather of cities in Utah", 
+	"main": "cityWeather",
+	"engines": 
+	{ 
+		"node": "*" 
+	} 
+}

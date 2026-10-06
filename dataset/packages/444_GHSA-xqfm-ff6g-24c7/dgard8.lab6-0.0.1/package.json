@@ -1,0 +1,14 @@
+{
+ "author": "Doug Gardner",
+ "name": "dgard8.lab6",
+ "version": "0.0.1",
+ "repository": {
+  "type": "git",
+  "url":"http://github.com/dgard8/lab6"
+ },
+ "keywords": [
+  "CS360",
+  "lab6"
+ ],
+ "main": "static"
+}

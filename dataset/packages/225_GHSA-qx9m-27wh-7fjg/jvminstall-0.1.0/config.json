@@ -1,0 +1,19 @@
+{
+  "jvmArchive": {
+    "win32": {
+      "link": "http://cdn.azul.com/zulu/bin/zulu1.8.0_66-8.11.0.1-win64.zip",
+      "type": "md5",
+      "hash": "245a96c063beaa729c50264430fc59f7"
+    },
+    "linux": {
+      "link": "http://cdn.azul.com/zulu/bin/zulu1.8.0_66-8.11.0.1-x86lx64.zip",
+      "type": "md5",
+      "hash": "f4024b311b3d4ce37323bd781415cb2b"
+    },
+    "darwin": {
+      "link": "http://cdn.azul.com/zulu/bin/zulu1.8.0_66-8.11.0.1-macosx.zip",
+      "type": "md5",
+      "hash": "879e240e6b041128b4c0f0bd14c63e4e"
+    }
+  }
+}

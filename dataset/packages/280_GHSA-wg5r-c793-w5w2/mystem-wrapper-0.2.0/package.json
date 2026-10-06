@@ -1,0 +1,42 @@
+{
+  "name": "mystem-wrapper",
+  "version": "0.2.0",
+  "description": "Yandex mystem app wrapper module.",
+  "main": "index.js",
+  "scripts": {
+    "postinstall": "node bin/install-mystem.js",
+    "test": "mocha tests"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/titarenko/mystem-wrapper.git"
+  },
+  "keywords": [
+    "yandex",
+    "mystem",
+    "wrapper",
+    "nlp",
+    "natural",
+    "language",
+    "processing",
+    "promise"
+  ],
+  "author": "Constantin Titarenko",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/titarenko/mystem-wrapper/issues"
+  },
+  "homepage": "https://github.com/titarenko/mystem-wrapper#readme",
+  "dependencies": {
+    "bluebird": "^2.9.34",
+    "byline": "^4.2.1",
+    "lodash": "^3.10.0",
+    "request": "^2.69.0",
+    "tar.gz": "^1.0.3",
+    "unzip": "^0.1.11"
+  },
+  "devDependencies": {
+    "mocha": "^2.2.5",
+    "should": "^7.0.2"
+  }
+}

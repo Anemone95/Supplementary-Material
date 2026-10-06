@@ -1,0 +1,12 @@
+{
+ "author": "Jansen McQuivey",
+  "name": "360class.jansenhm",
+ "version": "0.1.1",
+ "description": "I have to make this for class",
+  "main": "weatherServer.js",
+  "dependencies": {},
+ "engines": {
+     "node": "*"
+  }
+} 
+

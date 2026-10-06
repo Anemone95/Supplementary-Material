@@ -1,0 +1,28 @@
+{
+  "name": "node-ps",
+  "version": "0.0.2",
+  "description": "A cross-platform node module for listing and searching running processes.",
+  "main": "index.js",
+  "scripts": {
+    "test": "NODE_ENV=test mocha ./test"
+  },
+  "author": "fortruce",
+  "license": "ISC",
+  "directories": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/fortruce/node-ps.git"
+  },
+  "keywords": [
+    "ps",
+    "process",
+    "list",
+    "processes"
+  ],
+  "bugs": {
+    "url": "https://github.com/fortruce/node-ps/issues"
+  },
+  "homepage": "https://github.com/fortruce/node-ps"
+}

@@ -1,0 +1,29 @@
+$ corepack pnpm@9.15.9 install --prod --no-frozen-lockfile --reporter=append-only --config.node-linker=hoisted --ignore-workspace --ignore-scripts
+Progress: resolved 1, reused 0, downloaded 0, added 0
+ WARN  deprecated bson@0.4.19: Fixed a critical issue with BSON serialization documented in CVE-2019-2391, see https://bit.ly/2KcpXdo for more details
+ WARN  deprecated sliced@0.0.5: Unsupported
+ WARN  deprecated highlight.js@7.0.1: Version no longer supported. Upgrade to @latest
+ WARN  deprecated jade@0.26.3: Jade has been renamed to pug, please install the latest version of pug instead of jade
+ WARN  deprecated mocha@1.20.0: Mocha v1.x is no longer supported.
+ WARN  deprecated mongodb@2.1.2: Please upgrade to 2.2.19 or higher
+ WARN  deprecated eslint@1.10.1: This version is no longer supported. Please see https://eslint.org/version-support for other options.
+ WARN  deprecated q@1.4.1: You or someone you depend on is using Q, the JavaScript Promise library that gave JavaScript developers strong feelings about promises. They can almost certainly migrate to the native JavaScript promise now. Thank you literally everyone for joining me in this bet against the odds. Be excellent to each other.
+
+(For a CapTP with native promises, see @endo/eventual-send and @endo/captp)
+ WARN  deprecated muri@1.0.0: This package is no longer supported. Please use https://www.npmjs.com/package/mongodb-connection-string-url
+ WARN  deprecated mpromise@0.5.4: Unsupported
+ WARN  deprecated istanbul@0.3.22: This module is no longer maintained, try this instead:
+  npm i nyc
+Visit https://istanbul.js.org/integrations for other alternatives.
+Progress: resolved 39, reused 0, downloaded 0, added 0
+Progress: resolved 182, reused 0, downloaded 0, added 0
+Progress: resolved 302, reused 0, downloaded 0, added 0
+ WARN  15 deprecated subdependencies found: bson@0.4.23, circular-json@0.3.3, github-flavored-markdown@1.0.1, glob@3.2.3, glob@5.0.15, glob@7.1.7, glob@7.2.3, graceful-fs@2.0.3, inflight@1.0.6, lodash.omit@3.1.0, minimatch@0.2.14, minimatch@2.0.10, mkdirp@0.3.0, mkdirp@0.3.5, rimraf@2.6.3
+Progress: resolved 305, reused 0, downloaded 1, added 0
+
+devDependencies: skipped
+
+Packages: +24
+++++++++++++++++++++++++
+Progress: resolved 305, reused 7, downloaded 18, added 24, done
+Done in 4.7s using pnpm v9.15.9

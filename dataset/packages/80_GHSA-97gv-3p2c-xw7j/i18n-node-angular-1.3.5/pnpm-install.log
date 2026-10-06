@@ -1,0 +1,17 @@
+$ corepack pnpm@9.15.9 install --prod --no-frozen-lockfile --reporter=append-only --config.node-linker=hoisted --ignore-workspace --ignore-scripts
+Progress: resolved 1, reused 0, downloaded 0, added 0
+Progress: resolved 107, reused 0, downloaded 0, added 0
+ WARN  3 deprecated subdependencies found: glob@7.1.7, inflight@1.0.6, rimraf@2.2.8
+
+devDependencies: skipped
+
+ WARN  Issues with peer dependencies found
+.
+├─┬ grunt-contrib-clean 0.5.0
+│ └── ✕ unmet peer grunt@~0.4.0: found 1.6.3
+└─┬ grunt-contrib-uglify 0.4.1
+  └── ✕ unmet peer grunt@~0.4.0: found 1.6.3
+
+Already up to date
+Progress: resolved 153, reused 0, downloaded 0, added 0, done
+Done in 1.7s using pnpm v9.15.9

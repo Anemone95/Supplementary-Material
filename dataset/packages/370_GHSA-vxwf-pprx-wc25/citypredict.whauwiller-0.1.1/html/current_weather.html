@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <link rel="stylesheet" type="text/css" href="css/current_weather.css">
+        <link rel="stylesheet" type="text/css" href="css/base.css">
+        <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+        <title>Current Weather</title>
+    </head>
+    <body>
+        <div class="banner"><img class="banner-image" src="img/header.jpg" alt="Wesley Hauwiller's CS 360 Weather Page"></div>
+        <div class="nav-bar">
+            <span class="nav-bar-link"><a href="index.html">Home</a></span>
+            <span class="nav-bar-link"><a href="current_weather.html">Current Weather</a></span>
+            <span class="nav-bar-link"><a href="weather_forecast.html">Weather Forecast</a></span>
+            <span class="nav-bar-link"><a href="about.html">About</a></span>
+            <span class="nav-bar-link"><a href="contact.html">Contact</a></span>
+        </div>
+        <div class="main">
+            <pre>Under Construction: Current Weather will be displayed here.</pre>
+            <div class="header-text">Current Conditions</div>
+            <form id="weather-query">
+                Enter a City:<input type="text" id="city-input"><br/>
+                Suggestion: <span id="city-suggestions">Empty</span><br/>
+                <input type="submit">
+            </form>
+            <div>City</div>
+            <textarea id="city-name">
+            </textarea>
+            <div>Current Weather</div>
+            <div id="weather-forecast">None</div>
+            <script>
+                $("#city-input").keyup(function(e){
+                    var temptext = $("#city-input").val();
+                    var queryData = {};
+                    queryData.q = temptext;
+                    $.ajax({
+                       url: "http://52.11.86.202/getcity",
+                       data: queryData,
+                       success: function(data){
+                           var suggest_list = "<ul>";
+                           data.forEach(function(cityData){
+                               suggest_list += "<li>";
+                               suggest_list += cityData.city;
+                               suggest_list += "</li>";
+                           });
+                           suggest_list += "</ul>"
+                           $("#city-suggestions").html(suggest_list);
+                       },
+                       dataType: "JSON" 
+                    });
+                });
+
+                $("#weather-query").submit(function(e){
+                    e.preventDefault();
+                    var city_search = $("#city-input").val();
+                    $("#city-name").text(city_search);
+                    var queryURL = "https://api.wunderground.com/api/51f77fd48b3d4248/geolookup/conditions/q/UT/";
+                    queryURL += city_search;
+                    queryURL += ".json";
+                    $.ajax({
+                        url: queryURL,
+                        dataType: "jsonp",
+                        success: function(weatherData){
+                            var forecastHTML = "<ul>";
+                            forecastHTML += "<li>Location: " + weatherData.location.city;
+                            forecastHTML += "<li>Temperature: " + weatherData.current_observation.temperature_string;
+                            forecastHTML += "<li>Weather: " + weatherData.current_observation.weather;
+                            forecastHTML += "</ul>";
+                            $("#weather-forecast").html(forecastHTML);
+                        }
+                    });
+                });
+            </script>
+
+        </div>
+        <div class="footer">
+            (C) Wesley Hauwiller 2015 
+        </div>
+    </body>
+</html>

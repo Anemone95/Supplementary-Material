@@ -1,0 +1,11 @@
+$ corepack pnpm@9.15.9 install --prod --no-frozen-lockfile --reporter=append-only --config.node-linker=hoisted --ignore-workspace --ignore-scripts
+Progress: resolved 1, reused 0, downloaded 0, added 0
+Progress: resolved 53, reused 0, downloaded 0, added 0
+ WARN  1 deprecated subdependencies found: tar@6.0.5
+
+devDependencies: skipped
+
+Packages: +78
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Progress: resolved 78, reused 70, downloaded 8, added 78, done
+Done in 2.1s using pnpm v9.15.9

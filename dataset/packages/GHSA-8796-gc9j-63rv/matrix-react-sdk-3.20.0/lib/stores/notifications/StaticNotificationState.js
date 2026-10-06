@@ -1,0 +1,69 @@
+"use strict";
+
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.StaticNotificationState = void 0;
+
+var _defineProperty2 = _interopRequireDefault(require("@babel/runtime/helpers/defineProperty"));
+
+var _NotificationColor = require("./NotificationColor");
+
+var _NotificationState = require("./NotificationState");
+
+/*
+Copyright 2020 The Matrix.org Foundation C.I.C.
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+*/
+class StaticNotificationState extends _NotificationState.NotificationState {
+  constructor(symbol
+  /*: string*/
+  , count
+  /*: number*/
+  , color
+  /*: NotificationColor*/
+  ) {
+    super();
+    this._symbol = symbol;
+    this._count = count;
+    this._color = color;
+  }
+
+  static forCount(count
+  /*: number*/
+  , color
+  /*: NotificationColor*/
+  )
+  /*: StaticNotificationState*/
+  {
+    return new StaticNotificationState(null, count, color);
+  }
+
+  static forSymbol(symbol
+  /*: string*/
+  , color
+  /*: NotificationColor*/
+  )
+  /*: StaticNotificationState*/
+  {
+    return new StaticNotificationState(symbol, 0, color);
+  }
+
+}
+
+exports.StaticNotificationState = StaticNotificationState;
+(0, _defineProperty2.default)(StaticNotificationState, "RED_EXCLAMATION", StaticNotificationState.forSymbol("!", _NotificationColor.NotificationColor.Red));
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uLy4uL3NyYy9zdG9yZXMvbm90aWZpY2F0aW9ucy9TdGF0aWNOb3RpZmljYXRpb25TdGF0ZS50cyJdLCJuYW1lcyI6WyJTdGF0aWNOb3RpZmljYXRpb25TdGF0ZSIsIk5vdGlmaWNhdGlvblN0YXRlIiwiY29uc3RydWN0b3IiLCJzeW1ib2wiLCJjb3VudCIsImNvbG9yIiwiX3N5bWJvbCIsIl9jb3VudCIsIl9jb2xvciIsImZvckNvdW50IiwiZm9yU3ltYm9sIiwiTm90aWZpY2F0aW9uQ29sb3IiLCJSZWQiXSwibWFwcGluZ3MiOiI7Ozs7Ozs7Ozs7O0FBZ0JBOztBQUNBOztBQWpCQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFLTyxNQUFNQSx1QkFBTixTQUFzQ0Msb0NBQXRDLENBQXdEO0FBRzNEQyxFQUFBQSxXQUFXLENBQUNDO0FBQUQ7QUFBQSxJQUFpQkM7QUFBakI7QUFBQSxJQUFnQ0M7QUFBaEM7QUFBQSxJQUEwRDtBQUNqRTtBQUNBLFNBQUtDLE9BQUwsR0FBZUgsTUFBZjtBQUNBLFNBQUtJLE1BQUwsR0FBY0gsS0FBZDtBQUNBLFNBQUtJLE1BQUwsR0FBY0gsS0FBZDtBQUNIOztBQUVELFNBQWNJLFFBQWQsQ0FBdUJMO0FBQXZCO0FBQUEsSUFBc0NDO0FBQXRDO0FBQUE7QUFBQTtBQUF5RjtBQUNyRixXQUFPLElBQUlMLHVCQUFKLENBQTRCLElBQTVCLEVBQWtDSSxLQUFsQyxFQUF5Q0MsS0FBekMsQ0FBUDtBQUNIOztBQUVELFNBQWNLLFNBQWQsQ0FBd0JQO0FBQXhCO0FBQUEsSUFBd0NFO0FBQXhDO0FBQUE7QUFBQTtBQUEyRjtBQUN2RixXQUFPLElBQUlMLHVCQUFKLENBQTRCRyxNQUE1QixFQUFvQyxDQUFwQyxFQUF1Q0UsS0FBdkMsQ0FBUDtBQUNIOztBQWhCMEQ7Ozs4QkFBbERMLHVCLHFCQUNnQ0EsdUJBQXVCLENBQUNVLFNBQXhCLENBQWtDLEdBQWxDLEVBQXVDQyxxQ0FBa0JDLEdBQXpELEMiLCJzb3VyY2VzQ29udGVudCI6WyIvKlxuQ29weXJpZ2h0IDIwMjAgVGhlIE1hdHJpeC5vcmcgRm91bmRhdGlvbiBDLkkuQy5cblxuTGljZW5zZWQgdW5kZXIgdGhlIEFwYWNoZSBMaWNlbnNlLCBWZXJzaW9uIDIuMCAodGhlIFwiTGljZW5zZVwiKTtcbnlvdSBtYXkgbm90IHVzZSB0aGlzIGZpbGUgZXhjZXB0IGluIGNvbXBsaWFuY2Ugd2l0aCB0aGUgTGljZW5zZS5cbllvdSBtYXkgb2J0YWluIGEgY29weSBvZiB0aGUgTGljZW5zZSBhdFxuXG4gICAgaHR0cDovL3d3dy5hcGFjaGUub3JnL2xpY2Vuc2VzL0xJQ0VOU0UtMi4wXG5cblVubGVzcyByZXF1aXJlZCBieSBhcHBsaWNhYmxlIGxhdyBvciBhZ3JlZWQgdG8gaW4gd3JpdGluZywgc29mdHdhcmVcbmRpc3RyaWJ1dGVkIHVuZGVyIHRoZSBMaWNlbnNlIGlzIGRpc3RyaWJ1dGVkIG9uIGFuIFwiQVMgSVNcIiBCQVNJUyxcbldJVEhPVVQgV0FSUkFOVElFUyBPUiBDT05ESVRJT05TIE9GIEFOWSBLSU5ELCBlaXRoZXIgZXhwcmVzcyBvciBpbXBsaWVkLlxuU2VlIHRoZSBMaWNlbnNlIGZvciB0aGUgc3BlY2lmaWMgbGFuZ3VhZ2UgZ292ZXJuaW5nIHBlcm1pc3Npb25zIGFuZFxubGltaXRhdGlvbnMgdW5kZXIgdGhlIExpY2Vuc2UuXG4qL1xuXG5pbXBvcnQgeyBOb3RpZmljYXRpb25Db2xvciB9IGZyb20gXCIuL05vdGlmaWNhdGlvbkNvbG9yXCI7XG5pbXBvcnQgeyBOb3RpZmljYXRpb25TdGF0ZSB9IGZyb20gXCIuL05vdGlmaWNhdGlvblN0YXRlXCI7XG5cbmV4cG9ydCBjbGFzcyBTdGF0aWNOb3RpZmljYXRpb25TdGF0ZSBleHRlbmRzIE5vdGlmaWNhdGlvblN0YXRlIHtcbiAgICBwdWJsaWMgc3RhdGljIHJlYWRvbmx5IFJFRF9FWENMQU1BVElPTiA9IFN0YXRpY05vdGlmaWNhdGlvblN0YXRlLmZvclN5bWJvbChcIiFcIiwgTm90aWZpY2F0aW9uQ29sb3IuUmVkKTtcblxuICAgIGNvbnN0cnVjdG9yKHN5bWJvbDogc3RyaW5nLCBjb3VudDogbnVtYmVyLCBjb2xvcjogTm90aWZpY2F0aW9uQ29sb3IpIHtcbiAgICAgICAgc3VwZXIoKTtcbiAgICAgICAgdGhpcy5fc3ltYm9sID0gc3ltYm9sO1xuICAgICAgICB0aGlzLl9jb3VudCA9IGNvdW50O1xuICAgICAgICB0aGlzLl9jb2xvciA9IGNvbG9yO1xuICAgIH1cblxuICAgIHB1YmxpYyBzdGF0aWMgZm9yQ291bnQoY291bnQ6IG51bWJlciwgY29sb3I6IE5vdGlmaWNhdGlvbkNvbG9yKTogU3RhdGljTm90aWZpY2F0aW9uU3RhdGUge1xuICAgICAgICByZXR1cm4gbmV3IFN0YXRpY05vdGlmaWNhdGlvblN0YXRlKG51bGwsIGNvdW50LCBjb2xvcik7XG4gICAgfVxuXG4gICAgcHVibGljIHN0YXRpYyBmb3JTeW1ib2woc3ltYm9sOiBzdHJpbmcsIGNvbG9yOiBOb3RpZmljYXRpb25Db2xvcik6IFN0YXRpY05vdGlmaWNhdGlvblN0YXRlIHtcbiAgICAgICAgcmV0dXJuIG5ldyBTdGF0aWNOb3RpZmljYXRpb25TdGF0ZShzeW1ib2wsIDAsIGNvbG9yKTtcbiAgICB9XG59XG4iXX0=

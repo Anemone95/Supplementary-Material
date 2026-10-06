@@ -1,0 +1,44 @@
+a {
+    text-decoration: none;
+}
+
+.counts {
+    margin-bottom: 1em;
+}
+
+.count {
+    display:inline-block;
+    font-size: 1.6em;
+    padding-right: 0.5em;
+}
+
+.count > * {
+    display: inline-block;
+}
+
+.label {
+    width: auto;
+    font-weight: bold;
+}
+
+.label a {
+    color: #999;
+}
+
+.result {
+    padding-right: 0.2em;
+    font-weight: bold;
+    text-align: right;
+}
+
+.result, .result a {
+    color: #1C842F;
+}
+
+.result.pending a {
+    color: #B72F28;
+}
+
+.result .error {
+    color: #B72F28;
+}

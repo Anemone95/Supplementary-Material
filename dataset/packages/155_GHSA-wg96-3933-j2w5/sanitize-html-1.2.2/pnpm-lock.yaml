@@ -1,0 +1,94 @@
+lockfileVersion: '9.0'
+
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
+
+importers:
+
+  .:
+    dependencies:
+      he:
+        specifier: ~0.4.1
+        version: 0.4.1
+      htmlparser2:
+        specifier: ~3.3.0
+        version: 3.3.0
+      lodash:
+        specifier: 2.4.x
+        version: 2.4.2
+
+packages:
+
+  core-util-is@1.0.3:
+    resolution: {integrity: sha512-ZQBvi1DcpJ4GDqanjucZ2Hj3wEO5pZDS89BWbkcrvdxksJorwUDDZamX9ldFkp9aw2lmBDLgkObEA4DWNJ9FYQ==}
+
+  domelementtype@1.3.1:
+    resolution: {integrity: sha512-BSKB+TSpMpFI/HOxCNr1O8aMOTZ8hT3pM3GQ0w/mWRmkhEDSFJkkyzz4XQsBV44BChwGkrDfMyjVD0eA2aFV3w==}
+
+  domhandler@2.1.0:
+    resolution: {integrity: sha512-4Qr6GTzdsnKVGdYferZT3na5zkswztvfsoyprP/j2bLf1l3pUTamwYvNVldkEYFG6Ll+3eV5mVk0zgRr6iI+SA==}
+
+  domutils@1.1.6:
+    resolution: {integrity: sha512-ZeagMzMKyk9GSFMqV3x3uHgRN36hLpSOF6LIRXmftce0UUqFsAx/azJAJ4Jc+9DYKmwROH5HLOcOu1OPARWwNg==}
+
+  he@0.4.1:
+    resolution: {integrity: sha512-wFn1JlcsgbcWEawQ6A1GztgNRRl6UyEtaARIDpAeH3c35T/9id/QQKvap1NAz6Yk2oKrKwXQZZFERS0tl9E0Jg==}
+    hasBin: true
+
+  htmlparser2@3.3.0:
+    resolution: {integrity: sha512-Z8i63n7seuPvRe1PQyrjmoVStv7bjMa0skrOl/k6tnT/5WpPNrzWLB1Hg/dJxBXH/M6KZvm25JQGVCiQGxURLQ==}
+
+  inherits@2.0.4:
+    resolution: {integrity: sha512-k/vGaX4/Yla3WzyMCvTQOXYeIHvqOKtnqBduzTHpzpQZzAskKMhZ2K+EnBiSM9zGSoIFeMpXKxa4dYeZIQqewQ==}
+
+  isarray@0.0.1:
+    resolution: {integrity: sha512-D2S+3GLxWH+uhrNEcoh/fnmYeP8E8/zHl644d/jdA0g2uyXvy3sb0qxotE+ne0LtccHknQzWwZEzhak7oJ0COQ==}
+
+  lodash@2.4.2:
+    resolution: {integrity: sha512-Kak1hi6/hYHGVPmdyiZijoQyz5x2iGVzs6w9GYB/HiXEtylY7tIoYEROMjvM1d9nXJqPOrG2MNPMn01bJ+S0Rw==}
+    engines: {'0': node, '1': rhino}
+
+  readable-stream@1.0.34:
+    resolution: {integrity: sha512-ok1qVCJuRkNmvebYikljxJA/UEsKwLl2nI1OmaqAu4/UE+h0wKCHok4XkL/gvi39OacXvw59RJUOFUkDib2rHg==}
+
+  string_decoder@0.10.31:
+    resolution: {integrity: sha512-ev2QzSzWPYmy9GuqfIVildA4OdcGLeFZQrq5ys6RtiuF+RQQiZWr8TZNyAcuVXyQRYfEO+MsoB/1BuQVhOJuoQ==}
+
+snapshots:
+
+  core-util-is@1.0.3: {}
+
+  domelementtype@1.3.1: {}
+
+  domhandler@2.1.0:
+    dependencies:
+      domelementtype: 1.3.1
+
+  domutils@1.1.6:
+    dependencies:
+      domelementtype: 1.3.1
+
+  he@0.4.1: {}
+
+  htmlparser2@3.3.0:
+    dependencies:
+      domelementtype: 1.3.1
+      domhandler: 2.1.0
+      domutils: 1.1.6
+      readable-stream: 1.0.34
+
+  inherits@2.0.4: {}
+
+  isarray@0.0.1: {}
+
+  lodash@2.4.2: {}
+
+  readable-stream@1.0.34:
+    dependencies:
+      core-util-is: 1.0.3
+      inherits: 2.0.4
+      isarray: 0.0.1
+      string_decoder: 0.10.31
+
+  string_decoder@0.10.31: {}

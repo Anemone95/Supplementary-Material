@@ -1,0 +1,44 @@
+{
+  "name": "@wturyn/swagger-injector",
+  "version": "3.0.1",
+  "description": "Utility to inject swagger the doc GUI into a node API",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha tests/*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wturyn/swagger-injector"
+  },
+  "keywords": [
+    "swagger",
+    "docs",
+    "documentation",
+    "injector",
+    "express",
+    "koa",
+    "restify"
+  ],
+  "author": "John Hofrichter",
+  "contributors": [
+    {
+      "name": "Wojtek Turyn",
+      "email": "w.turyn@gmail.com"
+    }
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/wturyn/swagger-injector/issues"
+  },
+  "homepage": "https://github.com/wturyn/swagger-injector",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "cookie-parser": "^1.4.3",
+    "express": "^4.14.1",
+    "koa": "^2.0.0-alpha.7",
+    "mocha": "^3.2.0"
+  },
+  "dependencies": {
+    "node-cache": "^4.1.1"
+  }
+}

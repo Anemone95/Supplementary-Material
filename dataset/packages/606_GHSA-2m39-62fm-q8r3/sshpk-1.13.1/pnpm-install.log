@@ -1,0 +1,11 @@
+$ corepack pnpm@9.15.9 install --prod --no-frozen-lockfile --reporter=append-only --config.node-linker=hoisted --ignore-workspace --ignore-scripts
+Progress: resolved 1, reused 0, downloaded 0, added 0
+ WARN  deprecated sinon@1.17.7: 16.1.1
+ WARN  7 deprecated subdependencies found: formatio@1.1.1, glob@3.2.11, glob@7.2.3, inflight@1.0.6, minimatch@0.3.0, rimraf@2.6.3, samsam@1.1.2
+
+devDependencies: skipped
+
+Packages: +9
++++++++++
+Progress: resolved 67, reused 9, downloaded 0, added 9, done
+Done in 630ms using pnpm v9.15.9

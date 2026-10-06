@@ -1,0 +1,16 @@
+{
+  "name": "serverlyr",
+  "version": "1.1.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "serverlyr"
+  ],
+  "author": "liuyongru",
+  "license": "ISC"
+}

@@ -1,0 +1,23 @@
+{
+  "name": "cyber-js",
+  "version": "1.0.7",
+  "description": "The Cyber JS lib",
+  "main": "app.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cyber-js/node-server.git"
+  },
+  "author": "Alex Munoz <alex@napend.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cyber-js/node-server/issues"
+  },
+  "homepage": "https://github.com/cyber-js/node-server#readme",
+  "dependencies": {
+    "fs": "0.0.2",
+    "http": "0.0.0",
+    "path": "^0.12.7",
+    "url": "^0.11.0"
+  }
+}

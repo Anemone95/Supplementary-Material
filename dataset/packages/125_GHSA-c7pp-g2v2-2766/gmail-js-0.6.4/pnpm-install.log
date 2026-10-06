@@ -1,0 +1,16 @@
+$ corepack pnpm@9.15.9 install --prod --no-frozen-lockfile --reporter=append-only --config.node-linker=hoisted --ignore-workspace --ignore-scripts
+ WARN  deprecated jquery@1.12.4: This version is deprecated. Please upgrade to the latest version or find support at https://www.herodevs.com/support/jquery-nes or https://tuxcare.com/lp/click-jquery-support/.
+Progress: resolved 1, reused 0, downloaded 0, added 0
+ WARN  deprecated eslint@3.19.0: This version is no longer supported. Please see https://eslint.org/version-support for other options.
+Progress: resolved 58, reused 0, downloaded 0, added 0
+Progress: resolved 142, reused 0, downloaded 0, added 0
+ WARN  7 deprecated subdependencies found: circular-json@0.3.3, glob@7.1.1, glob@7.2.3, inflight@1.0.6, json3@3.3.2, mkdirp@0.5.1, rimraf@2.6.3
+
+devDependencies: skipped
+
+Packages: +1
++
+Progress: resolved 181, reused 0, downloaded 0, added 0
+Progress: resolved 181, reused 0, downloaded 1, added 0
+Progress: resolved 181, reused 0, downloaded 1, added 1, done
+Done in 5.2s using pnpm v9.15.9

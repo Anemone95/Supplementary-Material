@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>Current Weather</title>
+<link rel="stylesheet" type="text/css" href="360.css">
+<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+<meta charset="utf-8">
+</head>
+
+<body>
+
+<div class="center">
+
+<h1> Current Weather </h1>
+
+<form action="#">
+Enter A Utah City: <input type="text" id="cityfield" value=""><br>
+Suggestion(s): <span id="txtHint">Empty</span> 
+<input id="button" type="submit" value="Submit"><br>
+</form>
+<p>City</p>
+<textarea id="dispcity">No City</textarea>
+<p>Current Weather</p>
+<div id="weather">No weather</div>
+<img name="image" src="LightSkyBlue.jpg" style="width:50px;height:50px" hspace="100" alt="none">
+
+<script>
+
+$("#button").click(function(e)
+{
+  var value = $("#cityfield").val();
+  console.log(value);
+  e.preventDefault();
+  $("#dispcity").text(value);
+  var myurl = "https://api.wunderground.com/api/4548fab18c705e7c/geolookup/conditions/q/UT/"
+  myurl += value;
+  myurl += ".json";
+  console.log(myurl);
+  $.ajax(
+  {
+    url : myurl,
+    dataType : "jsonp",
+    success : function(parsed_json) {
+      var location = parsed_json['location']['city'];
+      var temp_string = parsed_json['current_observation']['temperature_string'];
+      var humidity = parsed_json['current_observation']['relative_humidity'];
+      var current_weather = parsed_json['current_observation']['weather'];
+      everything = "<ul>";
+      everything += "<li>Location: "+location;
+      everything += "<li>Temperature: "+temp_string;
+      everything += "<li>Relative Humidity: "+temp_string;
+      everything += "<li>Weather: "+current_weather;
+      everything += "</ul>";
+      $("#weather").html(everything);
+      var imgurl;
+      switch(current_weather)
+      {
+      
+      	case "Drizzle":
+      	case "Light Drizzle":
+      	case "Heavy Drizzle":
+      	case "Rain":
+      	case "Heavy Rain":
+      	case "Light Rain":
+      		imgurl = "http://icons.wxug.com/i/c/f/rain.gif";
+      		break;
+      	case "Snow":
+      	case "Light Snow":
+      	case "Heavy Snow":
+      	case "Snow Grains":
+      	case "Ice Crystals":
+      	case "Ice Pellets":
+      		imgurl = "http://icons.wxug.com/i/c/f/snow.gif";
+      		break;
+      	case "Patches of Fog":
+      	case "Shallow Fog":
+      	case "Partial Fog":
+      		imgurl = "http://icons.wxug.com/i/c/f/fog.gif";
+      		break;
+      	case "Overcast":
+      		imgurl = "http://icons.wxug.com/i/c/f/cloudy.gif";
+      		break;
+      	case "Clear":
+      		imgurl = "http://icons.wxug.com/i/c/f/clear.gif";
+      		break;
+      	case "Partly Cloudy":
+      		imgurl = "http://icons.wxug.com/i/c/f/partlycloudy.gif";
+      		break;
+      	case "Mostly Cloudy":
+      		imgurl = "http://icons.wxug.com/i/c/f/mostlycloudy.gif";
+      		break;
+      	case "Scattered Clouds":
+      		imgurl = "http://icons.wxug.com/i/c/f/snow.gif";
+      		break;
+      	case "Small Hail":
+      		imgurl = "http://icons.wxug.com/i/c/f/flurries.gif";
+      		break;
+      	case "Squalls":
+      		imgurl = "http://icons.wxug.com/i/c/f/tstorms.gif";
+      		break;
+      	case "Funnel Cloud":
+      		imgurl = "http://icons.wxug.com/i/c/f/tstorms.gif";
+      		break;
+      	case "Unknown Precipitation":
+      		imgurl = "http://icons.wxug.com/i/c/f/chancerain.gif";
+      		break;
+      	case "Unknown":
+      		imgurl = "http://icons.wxug.com/i/c/f/unknown.gif";
+      		break;
+      	default:
+      		imgurl = "LightSkyBlue.jpg";
+      		break;
+      }
+      document.images["image"].src = imgurl;
+      //$("#image").html(imgurl);
+    }
+  });
+  
+});
+
+$( "#cityfield" ).keyup(
+	function() 
+	{
+		console.log("");
+		//$.getJSON("staticCity.txt",function(data) {
+		//$.getJSON("https://students.cs.byu.edu/~clement/CS360/ajax/getcity.cgi?q="+$("#cityfield").val(),function(data) {
+		 //$.getJSON("https://students.cs.byu.edu/~clement/CS360/ajax/getcity.cgi?q="+$("#cityfield").val(),function(data) {
+                $.getJSON("http://52.10.16.119:80/getcity?q="+$("#cityfield").val(),function(data) {  
+		  var everything;
+		  //if(data.size()>0)
+		  //{
+			  everything = "<ul>";
+			  $.each(data, function(i,item) {
+				everything += "<li> "+data[i].city+"</li>";
+			  });
+			  everything += "</ul>";
+		  //}
+		  //else
+		  //everything = "No suggestions";
+		  $("#txtHint").html(everything);
+
+		  
+		});
+		
+		$("txtHint").text("Keyup "+$("#cityfield").val());
+	}
+);
+
+</script>
+
+</div>
+</body>
+</html>

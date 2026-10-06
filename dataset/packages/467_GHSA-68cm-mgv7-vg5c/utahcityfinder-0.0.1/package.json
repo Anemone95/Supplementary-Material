@@ -1,0 +1,11 @@
+{
+   "author": "Steven Barnett",
+   "name": "utahcityfinder",
+   "version": "0.0.1",
+   "description": "Constructs a list of Utah cities with a certain prefix",
+   "main": "utahcityfinder",
+   "repository" : {
+      "type" : "git",
+      "url" : "http://github.com/sdaltonb/utahCityFinder"
+   }
+}

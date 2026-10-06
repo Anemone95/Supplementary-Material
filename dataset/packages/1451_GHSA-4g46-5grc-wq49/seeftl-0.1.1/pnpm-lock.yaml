@@ -1,0 +1,234 @@
+lockfileVersion: '9.0'
+
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
+
+importers:
+
+  .:
+    dependencies:
+      connect:
+        specifier: 3.1.1
+        version: 3.1.1
+      fs:
+        specifier: 0.0.2
+        version: 0.0.2
+      minimist:
+        specifier: ~0.1.0
+        version: 0.1.0
+      path:
+        specifier: 0.12.7
+        version: 0.12.7
+      serve-index:
+        specifier: 1.2.0
+        version: 1.2.0
+      serve-static:
+        specifier: 1.5.3
+        version: 1.5.3
+
+packages:
+
+  accepts@1.0.7:
+    resolution: {integrity: sha512-iq8ew2zitUlNcUca0wye3fYwQ6sSPItDo38oC0R+XA5KTzeXRN+GF7NjOXs3dVItj4J+gQVdpq4/qbnMb1hMHw==}
+    engines: {node: '>= 0.8.0'}
+
+  batch@0.5.1:
+    resolution: {integrity: sha512-OXRjc65VJvFtb7JD5HszSI1WWwsI6YnJS7Qmlx1CaDQrZ5urNIeRjtTyBe1YapNXyoWzrcc4yqg4rNe8YMyong==}
+
+  connect@3.1.1:
+    resolution: {integrity: sha512-c9bSlG46OcmWNuGSwtlf6dblOxSDznf4FjHy2GLITEGh6zGUMFtoxs2wJmnH2Eb859t78epAk1IqpKaLASUCLA==}
+    engines: {node: '>= 0.10.0'}
+
+  debug@1.0.4:
+    resolution: {integrity: sha512-plA8d2GHafT7kXzMDs5r7NSfYP7IKHdO8rZPVAqI33Eum7Vq/Ef/ETXm6NncF/RMif4fzI0RetSArZ6PMIxP0g==}
+    peerDependencies:
+      supports-color: '*'
+    peerDependenciesMeta:
+      supports-color:
+        optional: true
+
+  depd@0.4.4:
+    resolution: {integrity: sha512-NoEUYrSLv7re4u8OtA4yp3ktNC0HaB4dDGPg89TO+suwiVYoBMG8MeSPVpq8RNX9llVyrhknE/pGccsfRMxbhA==}
+    engines: {node: '>= 0.8.0'}
+
+  destroy@1.0.3:
+    resolution: {integrity: sha512-KB/AVLKRwZPOEo6/lxkDJ+Bv3jFRRrhmnRMPvpWwmIfUggpzGkQBqolyo8FRf833b/F5rzmy1uVN3fHBkjTxgw==}
+
+  ee-first@1.0.5:
+    resolution: {integrity: sha512-+FCut34oNiJD2jD+YL/onRxOHF5ut3xOGgTIyEIOdYfun8AexYhEyurzv9izwhTft1Z7pdy4VlTq51K/sIsQRA==}
+
+  escape-html@1.0.1:
+    resolution: {integrity: sha512-z6kAnok8fqVTra7Yu77dZF2Y6ETJlxH58wN38wNyuNQLm8xXdKnfNrlSmfXsTePWP03rRVUKHubtUwanwUi7+g==}
+
+  finalhandler@0.1.0:
+    resolution: {integrity: sha512-VxIedmyMyIZh8ol/AeWrgVwzDqYVO5wqOcXNuQC0olCvWDgvN7+QyVKHWoZyplbZ82j5p7BynpekYybNSmTjww==}
+    engines: {node: '>= 0.8.0'}
+
+  fresh@0.2.2:
+    resolution: {integrity: sha512-ZGGi8GROK//ijm2gB33sUuN9TjN1tC/dvG4Bt4j6IWrVGpMmudUBCxx+Ir7qePsdREfkpQC4FL8W0jeSOsgv1w==}
+
+  fs@0.0.2:
+    resolution: {integrity: sha512-YAiVokMCrSIFZiroB1oz51hPiPRVcUtSa4x2U5RYXyhS9VAPdiFigKbPTnOSq7XY8wd3FIVPYmXpo5lMzFmxgg==}
+
+  inherits@2.0.3:
+    resolution: {integrity: sha512-x00IRNXNy63jwGkJmzPigoySHbaqpNuzKbBOmzK+g2OdZpQ9w+sxCN+VSB3ja7IAge2OP2qpfxTjeNcyjmW1uw==}
+
+  mime-types@1.0.2:
+    resolution: {integrity: sha512-echfutj/t5SoTL4WZpqjA1DCud1XO0WQF3/GJ48YBmc4ZMhCK77QA6Z/w6VTQERLKuJ4drze3kw2TUT8xZXVNw==}
+    engines: {node: '>= 0.8.0'}
+
+  mime@1.2.11:
+    resolution: {integrity: sha512-Ysa2F/nqTNGHhhm9MV8ure4+Hc+Y8AWiqUdHxsO7xu8zc92ND9f3kpALHjaP026Ft17UfxrMt95c50PLUeynBw==}
+
+  minimist@0.1.0:
+    resolution: {integrity: sha512-wR5Ipl99t0mTGwLjQJnBjrP/O7zBbLZqvA3aw32DmLx+nXHfWctUjzDjnDx09pX1Po86WFQazF9xUzfMea3Cnw==}
+
+  ms@0.6.2:
+    resolution: {integrity: sha512-/pc3eh7TWorTtbvXg8je4GvrvEqCfH7PA3P7iW01yL2E53FKixzgMBaQi0NOPbMJqY34cBSvR0tZtmlTkdUG4A==}
+
+  negotiator@0.4.7:
+    resolution: {integrity: sha512-ujxWwyRfZ6udAgHGECQC3JDO9e6UAsuItfUMcqA0Xf2OLNQTveFVFx+fHGIJ5p0MJaJrZyGQqPwzuN0NxJzEKA==}
+
+  on-finished@2.1.0:
+    resolution: {integrity: sha512-33+g6TZkplndl+2k2VNO1YphX5hm79DGhBP6TJcDI9o1sCFbUvO2bgxPdGanIFqZK4su6OVLwPHY9GkLQrojgA==}
+
+  parseurl@1.3.3:
+    resolution: {integrity: sha512-CiyeOxFT/JZyN5m0z9PfXw4SCBJ6Sygz1Dpl0wqjlhDEGGBP1GnsUVEL0p63hoG1fcj3fHynXi9NYO4nWOL+qQ==}
+    engines: {node: '>= 0.8'}
+
+  path@0.12.7:
+    resolution: {integrity: sha512-aXXC6s+1w7otVF9UletFkFcDsJeO7lSZBPUQhtb5O0xJe8LtYhj/GxldoL09bBj9+ZmE2hNoHqQSFMN5fikh4Q==}
+
+  process@0.11.10:
+    resolution: {integrity: sha512-cdGef/drWFoydD1JsMzuFf8100nZl+GT+yacc2bEced5f9Rjk4z+WtFUTBu9PhOi9j/jfmBPu0mMEY4wIdAF8A==}
+    engines: {node: '>= 0.6.0'}
+
+  range-parser@1.0.3:
+    resolution: {integrity: sha512-nDsRrtIxVUO5opg/A8T2S3ebULVIfuh8ECbh4w3N4mWxIiT3QILDJDUQayPqm2e8Q8NUa0RSUkGCfe33AfjR3Q==}
+    engines: {node: '>= 0.6'}
+
+  send@0.8.3:
+    resolution: {integrity: sha512-pB//2WPgYGXQPNUq1XJ2wLdZU4P4fchsM09vfDdeEYOxs+4OnQKN+DqJJQ0kAxP5mpdLJf3nWcLftKn2Pb+mvg==}
+    engines: {node: '>= 0.8.0'}
+
+  serve-index@1.2.0:
+    resolution: {integrity: sha512-WlsDs/Jo628YtlLuWM4jVbyIXlTi+3NvIJ10gkyb05rqhy3DEiE1ZBR2wyKnGrigehAo2ljuDJLaOth96HNRIQ==}
+    engines: {node: '>= 0.8.0'}
+
+  serve-static@1.5.3:
+    resolution: {integrity: sha512-4K9GvOWb3zKUT6W98vplGGI0Ea5xh1JnD4T8Pyd+61OwQ/HLszGxNgj7qoMY0fGmo1WJKbp/OEHkOBP69VlfaQ==}
+    engines: {node: '>= 0.8.0'}
+
+  util@0.10.4:
+    resolution: {integrity: sha512-0Pm9hTQ3se5ll1XihRic3FDIku70C+iHUdT/W926rSgHV5QgXsYbKZN8MSC3tJtSkhuROzvsQjAaFENRXr+19A==}
+
+  utils-merge@1.0.0:
+    resolution: {integrity: sha512-HwU9SLQEtyo+0uoKXd1nkLqigUWLB+QuNQR4OcmB73eWqksM5ovuqcycks2x043W8XVb75rG1HQ0h93TMXkzQQ==}
+    engines: {node: '>= 0.4.0'}
+
+snapshots:
+
+  accepts@1.0.7:
+    dependencies:
+      mime-types: 1.0.2
+      negotiator: 0.4.7
+
+  batch@0.5.1: {}
+
+  connect@3.1.1:
+    dependencies:
+      debug: 1.0.4
+      finalhandler: 0.1.0
+      parseurl: 1.3.3
+      utils-merge: 1.0.0
+    transitivePeerDependencies:
+      - supports-color
+
+  debug@1.0.4:
+    dependencies:
+      ms: 0.6.2
+
+  depd@0.4.4: {}
+
+  destroy@1.0.3: {}
+
+  ee-first@1.0.5: {}
+
+  escape-html@1.0.1: {}
+
+  finalhandler@0.1.0:
+    dependencies:
+      debug: 1.0.4
+      escape-html: 1.0.1
+    transitivePeerDependencies:
+      - supports-color
+
+  fresh@0.2.2: {}
+
+  fs@0.0.2: {}
+
+  inherits@2.0.3: {}
+
+  mime-types@1.0.2: {}
+
+  mime@1.2.11: {}
+
+  minimist@0.1.0: {}
+
+  ms@0.6.2: {}
+
+  negotiator@0.4.7: {}
+
+  on-finished@2.1.0:
+    dependencies:
+      ee-first: 1.0.5
+
+  parseurl@1.3.3: {}
+
+  path@0.12.7:
+    dependencies:
+      process: 0.11.10
+      util: 0.10.4
+
+  process@0.11.10: {}
+
+  range-parser@1.0.3: {}
+
+  send@0.8.3:
+    dependencies:
+      debug: 1.0.4
+      depd: 0.4.4
+      destroy: 1.0.3
+      escape-html: 1.0.1
+      fresh: 0.2.2
+      mime: 1.2.11
+      ms: 0.6.2
+      on-finished: 2.1.0
+      range-parser: 1.0.3
+    transitivePeerDependencies:
+      - supports-color
+
+  serve-index@1.2.0:
+    dependencies:
+      accepts: 1.0.7
+      batch: 0.5.1
+      debug: 1.0.4
+      parseurl: 1.3.3
+    transitivePeerDependencies:
+      - supports-color
+
+  serve-static@1.5.3:
+    dependencies:
+      escape-html: 1.0.1
+      parseurl: 1.3.3
+      send: 0.8.3
+      utils-merge: 1.0.0
+    transitivePeerDependencies:
+      - supports-color
+
+  util@0.10.4:
+    dependencies:
+      inherits: 2.0.3
+
+  utils-merge@1.0.0: {}

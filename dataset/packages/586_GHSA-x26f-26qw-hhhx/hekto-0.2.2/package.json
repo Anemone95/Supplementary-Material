@@ -1,0 +1,31 @@
+{
+  "name": "hekto",
+  "repository": {
+    "url": "https://github.com/tobihrbr/hekto.git",
+    "type": "git"
+  },
+  "version": "0.2.2",
+  "description": "Serve static files",
+  "keywords": [
+    "serve",
+    "list",
+    "static",
+    "http",
+    "server"
+  ],
+  "bin": {
+    "hekto": "./bin/hekto.js"
+  },
+  "license": "MIT",
+  "author": "tobihrbr",
+  "dependencies": {
+    "argument.js": "0.0.1",
+    "array-path-join": "0.0.1",
+    "file-type": "^4.1.0",
+    "koa": "^1.2.4",
+    "koa-cash": "^2.1.0",
+    "koa-compress": "^1.0.9",
+    "path-is-inside": "^1.0.2",
+    "read-chunk": "^2.0.0"
+  }
+}

@@ -1,0 +1,50 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.useDispatcher = void 0;
+
+var _react = require("react");
+
+/*
+Copyright 2020 The Matrix.org Foundation C.I.C.
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+*/
+// Hook to simplify listening to flux dispatches
+const useDispatcher = (dispatcher
+/*: Dispatcher<ActionPayload>*/
+, handler
+/*: (payload: ActionPayload) => void*/
+) => {
+  // Create a ref that stores handler
+  const savedHandler = (0, _react.useRef)((payload
+  /*: ActionPayload*/
+  ) => {}); // Update ref.current value if handler changes.
+
+  (0, _react.useEffect)(() => {
+    savedHandler.current = handler;
+  }, [handler]);
+  (0, _react.useEffect)(() => {
+    // Create event listener that calls handler function stored in ref
+    const ref = dispatcher.register(payload => savedHandler.current(payload)); // Remove event listener on cleanup
+
+    return () => {
+      dispatcher.unregister(ref);
+    };
+  }, [dispatcher]);
+};
+
+exports.useDispatcher = useDispatcher;
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uL3NyYy9ob29rcy91c2VEaXNwYXRjaGVyLnRzIl0sIm5hbWVzIjpbInVzZURpc3BhdGNoZXIiLCJkaXNwYXRjaGVyIiwiaGFuZGxlciIsInNhdmVkSGFuZGxlciIsInBheWxvYWQiLCJjdXJyZW50IiwicmVmIiwicmVnaXN0ZXIiLCJ1bnJlZ2lzdGVyIl0sIm1hcHBpbmdzIjoiOzs7Ozs7O0FBZ0JBOztBQWhCQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFPQTtBQUNPLE1BQU1BLGFBQWEsR0FBRyxDQUFDQztBQUFEO0FBQUEsRUFBd0NDO0FBQXhDO0FBQUEsS0FBc0Y7QUFDL0c7QUFDQSxRQUFNQyxZQUFZLEdBQUcsbUJBQU8sQ0FBQ0M7QUFBRDtBQUFBLE9BQTRCLENBQUUsQ0FBckMsQ0FBckIsQ0FGK0csQ0FJL0c7O0FBQ0Esd0JBQVUsTUFBTTtBQUNaRCxJQUFBQSxZQUFZLENBQUNFLE9BQWIsR0FBdUJILE9BQXZCO0FBQ0gsR0FGRCxFQUVHLENBQUNBLE9BQUQsQ0FGSDtBQUlBLHdCQUFVLE1BQU07QUFDWjtBQUNBLFVBQU1JLEdBQUcsR0FBR0wsVUFBVSxDQUFDTSxRQUFYLENBQXFCSCxPQUFELElBQWFELFlBQVksQ0FBQ0UsT0FBYixDQUFxQkQsT0FBckIsQ0FBakMsQ0FBWixDQUZZLENBR1o7O0FBQ0EsV0FBTyxNQUFNO0FBQ1RILE1BQUFBLFVBQVUsQ0FBQ08sVUFBWCxDQUFzQkYsR0FBdEI7QUFDSCxLQUZEO0FBR0gsR0FQRCxFQU9HLENBQUNMLFVBQUQsQ0FQSDtBQVFILENBakJNIiwic291cmNlc0NvbnRlbnQiOlsiLypcbkNvcHlyaWdodCAyMDIwIFRoZSBNYXRyaXgub3JnIEZvdW5kYXRpb24gQy5JLkMuXG5cbkxpY2Vuc2VkIHVuZGVyIHRoZSBBcGFjaGUgTGljZW5zZSwgVmVyc2lvbiAyLjAgKHRoZSBcIkxpY2Vuc2VcIik7XG55b3UgbWF5IG5vdCB1c2UgdGhpcyBmaWxlIGV4Y2VwdCBpbiBjb21wbGlhbmNlIHdpdGggdGhlIExpY2Vuc2UuXG5Zb3UgbWF5IG9idGFpbiBhIGNvcHkgb2YgdGhlIExpY2Vuc2UgYXRcblxuICAgIGh0dHA6Ly93d3cuYXBhY2hlLm9yZy9saWNlbnNlcy9MSUNFTlNFLTIuMFxuXG5Vbmxlc3MgcmVxdWlyZWQgYnkgYXBwbGljYWJsZSBsYXcgb3IgYWdyZWVkIHRvIGluIHdyaXRpbmcsIHNvZnR3YXJlXG5kaXN0cmlidXRlZCB1bmRlciB0aGUgTGljZW5zZSBpcyBkaXN0cmlidXRlZCBvbiBhbiBcIkFTIElTXCIgQkFTSVMsXG5XSVRIT1VUIFdBUlJBTlRJRVMgT1IgQ09ORElUSU9OUyBPRiBBTlkgS0lORCwgZWl0aGVyIGV4cHJlc3Mgb3IgaW1wbGllZC5cblNlZSB0aGUgTGljZW5zZSBmb3IgdGhlIHNwZWNpZmljIGxhbmd1YWdlIGdvdmVybmluZyBwZXJtaXNzaW9ucyBhbmRcbmxpbWl0YXRpb25zIHVuZGVyIHRoZSBMaWNlbnNlLlxuKi9cblxuaW1wb3J0IHt1c2VFZmZlY3QsIHVzZVJlZn0gZnJvbSBcInJlYWN0XCI7XG5cbmltcG9ydCB7QWN0aW9uUGF5bG9hZH0gZnJvbSBcIi4uL2Rpc3BhdGNoZXIvcGF5bG9hZHNcIjtcbmltcG9ydCB7RGlzcGF0Y2hlcn0gZnJvbSBcImZsdXhcIjtcblxuLy8gSG9vayB0byBzaW1wbGlmeSBsaXN0ZW5pbmcgdG8gZmx1eCBkaXNwYXRjaGVzXG5leHBvcnQgY29uc3QgdXNlRGlzcGF0Y2hlciA9IChkaXNwYXRjaGVyOiBEaXNwYXRjaGVyPEFjdGlvblBheWxvYWQ+LCBoYW5kbGVyOiAocGF5bG9hZDogQWN0aW9uUGF5bG9hZCkgPT4gdm9pZCkgPT4ge1xuICAgIC8vIENyZWF0ZSBhIHJlZiB0aGF0IHN0b3JlcyBoYW5kbGVyXG4gICAgY29uc3Qgc2F2ZWRIYW5kbGVyID0gdXNlUmVmKChwYXlsb2FkOiBBY3Rpb25QYXlsb2FkKSA9PiB7fSk7XG5cbiAgICAvLyBVcGRhdGUgcmVmLmN1cnJlbnQgdmFsdWUgaWYgaGFuZGxlciBjaGFuZ2VzLlxuICAgIHVzZUVmZmVjdCgoKSA9PiB7XG4gICAgICAgIHNhdmVkSGFuZGxlci5jdXJyZW50ID0gaGFuZGxlcjtcbiAgICB9LCBbaGFuZGxlcl0pO1xuXG4gICAgdXNlRWZmZWN0KCgpID0+IHtcbiAgICAgICAgLy8gQ3JlYXRlIGV2ZW50IGxpc3RlbmVyIHRoYXQgY2FsbHMgaGFuZGxlciBmdW5jdGlvbiBzdG9yZWQgaW4gcmVmXG4gICAgICAgIGNvbnN0IHJlZiA9IGRpc3BhdGNoZXIucmVnaXN0ZXIoKHBheWxvYWQpID0+IHNhdmVkSGFuZGxlci5jdXJyZW50KHBheWxvYWQpKTtcbiAgICAgICAgLy8gUmVtb3ZlIGV2ZW50IGxpc3RlbmVyIG9uIGNsZWFudXBcbiAgICAgICAgcmV0dXJuICgpID0+IHtcbiAgICAgICAgICAgIGRpc3BhdGNoZXIudW5yZWdpc3RlcihyZWYpO1xuICAgICAgICB9O1xuICAgIH0sIFtkaXNwYXRjaGVyXSk7XG59O1xuIl19

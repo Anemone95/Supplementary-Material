@@ -1,0 +1,9 @@
+$ corepack pnpm@9.15.9 install --prod --no-frozen-lockfile --reporter=append-only --config.node-linker=hoisted --ignore-workspace --ignore-scripts
+ ERR_PNPM_FETCH_404  GET https://registry.npmjs.org/@theia%2Fext-scripts: Not Found - 404
+
+This error happened while installing a direct dependency of /home/wenyuan/work/jelly-benchmarks/packages/Supplementary-Material/dataset/packages/GHSA-cwg9-c9cr-p5fq/console-1.8.0
+
+@theia/ext-scripts is not in the npm registry, or you have no permission to fetch it.
+
+No authorization header was set for the request.
+Progress: resolved 1, reused 0, downloaded 0, added 0

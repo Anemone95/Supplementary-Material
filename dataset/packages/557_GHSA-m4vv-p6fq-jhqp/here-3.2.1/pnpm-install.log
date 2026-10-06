@@ -1,0 +1,19 @@
+$ corepack pnpm@9.15.9 install --prod --no-frozen-lockfile --reporter=append-only --config.node-linker=hoisted --ignore-workspace --ignore-scripts
+Progress: resolved 1, reused 0, downloaded 0, added 0
+ WARN  deprecated koa-router@5.4.2: Please use @koa/router instead, starting from v9! 
+ WARN  deprecated standard-version@4.4.0: standard-version is deprecated. If you're a GitHub user, I recommend https://github.com/googleapis/release-please as an alternative.
+ WARN  deprecated eslint@1.10.3: This version is no longer supported. Please see https://eslint.org/version-support for other options.
+ WARN  GET https://registry.npmjs.org/concat-stream error (ECONNRESET). Will retry in 10 seconds. 2 retries left.
+Progress: resolved 289, reused 0, downloaded 0, added 0
+ WARN  GET https://registry.npmjs.org/snapdragon error (ECONNRESET). Will retry in 10 seconds. 2 retries left.
+Progress: resolved 439, reused 0, downloaded 0, added 0
+Progress: resolved 440, reused 0, downloaded 0, added 0
+Progress: resolved 543, reused 0, downloaded 0, added 0
+ WARN  31 deprecated subdependencies found: circular-json@0.3.3, conventional-changelog-atom@0.2.8, conventional-changelog-codemirror@0.3.8, conventional-changelog-core@2.0.11, conventional-changelog-ember@0.3.12, conventional-changelog-eslint@1.0.9, conventional-changelog-express@0.3.6, conventional-changelog-jquery@0.1.0, conventional-changelog-jshint@0.3.8, core-js@2.6.12, fsevents@1.2.13, git-raw-commits@1.3.6, git-semver-tags@1.3.6, glob@3.2.11, glob@5.0.15, glob@7.2.3, inflight@1.0.6, jade@0.26.3, json3@3.3.2, lodash.omit@3.1.0, lodash.template@4.18.1, minimatch@0.3.0, mkdirp@0.3.0, mkdirp@0.5.1, q@1.5.1, resolve-url@0.2.1, rimraf@2.6.3, source-map-resolve@0.5.3, source-map-url@0.4.1, to-iso-string@0.0.2, urix@0.1.0
+
+devDependencies: skipped
+
+Packages: +362
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Progress: resolved 597, reused 338, downloaded 0, added 362, done
+Done in 12.9s using pnpm v9.15.9

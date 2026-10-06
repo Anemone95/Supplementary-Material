@@ -1,0 +1,16 @@
+encoding "utf8";
+
+TTextMinerConfig {
+	Dictionary = "dic.gzt";
+
+	Output = {
+		File = "output.txt"
+		Format = text
+	}
+
+	Articles = ["@ARTICLES@"]
+
+	Facts = [
+		{ Name = "Fact" }
+	]
+}

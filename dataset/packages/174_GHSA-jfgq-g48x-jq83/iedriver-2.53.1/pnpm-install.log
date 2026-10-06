@@ -1,0 +1,13 @@
+$ corepack pnpm@9.15.9 install --prod --no-frozen-lockfile --reporter=append-only --config.node-linker=hoisted --ignore-workspace --ignore-scripts
+Progress: resolved 1, reused 0, downloaded 0, added 0
+ WARN  deprecated npmconf@0.0.24: this package has been reintegrated into npm and is now out of date with respect to npm
+ WARN  deprecated mkdirp@0.3.5: Legacy versions of mkdirp are no longer supported. Please update to mkdirp 1.x. (Note that the API surface has changed to use Promises in 1.x.)
+ WARN  deprecated rimraf@2.0.3: Rimraf versions prior to v4 are no longer supported
+ WARN  3 deprecated subdependencies found: graceful-fs@1.1.14, ini@1.1.0, osenv@0.0.3
+
+devDependencies: skipped
+
+Packages: +17
++++++++++++++++++
+Progress: resolved 17, reused 7, downloaded 10, added 17, done
+Done in 1.1s using pnpm v9.15.9

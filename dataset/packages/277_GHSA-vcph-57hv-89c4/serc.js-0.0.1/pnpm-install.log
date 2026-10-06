@@ -1,0 +1,10 @@
+$ corepack pnpm@9.15.9 install --prod --no-frozen-lockfile --reporter=append-only --config.node-linker=hoisted --ignore-workspace --ignore-scripts
+ WARN  deprecated sinon@1.7.3: 16.1.1
+Progress: resolved 1, reused 0, downloaded 0, added 0
+ WARN  1 deprecated subdependencies found: buster-core@0.6.4
+
+devDependencies: skipped
+
+Already up to date
+Progress: resolved 5, reused 0, downloaded 0, added 0, done
+Done in 918ms using pnpm v9.15.9

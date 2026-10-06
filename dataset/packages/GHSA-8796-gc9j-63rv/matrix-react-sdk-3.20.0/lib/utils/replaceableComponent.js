@@ -1,0 +1,57 @@
+"use strict";
+
+var _interopRequireWildcard = require("@babel/runtime/helpers/interopRequireWildcard");
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.replaceableComponent = replaceableComponent;
+
+var sdk = _interopRequireWildcard(require("../index"));
+
+/*
+Copyright 2019 The Matrix.org Foundation C.I.C.
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+*/
+
+/**
+ * Replaces a component with a skinned version if a skinned version exists.
+ * This decorator should only be applied to components which can be skinned. For
+ * the react-sdk this means all components should be decorated with this.
+ *
+ * The decoration works by assuming the skin has been loaded prior to the
+ * decorator being called. If that's not the case, the developer will find
+ * out quickly through various amounts of errors and explosions.
+ *
+ * For a bit more detail on how this works, see docs/skinning.md
+ * @param {string} name The dot-path name of the component being replaced.
+ * @param {React.Component} origComponent The component that can be replaced
+ * with a skinned version. If no skinned version is available, this component
+ * will be used. Note that this is automatically provided to the function and
+ * thus is optional for purposes of types.
+ * @returns {ClassDecorator} The decorator.
+ */
+function replaceableComponent(name
+/*: string*/
+, origComponent
+/*: React.Component*/
+)
+/*: ClassDecorator*/
+{
+  // Decorators return a function to override the class (origComponent). This
+  // ultimately assumes that `getComponent()` won't throw an error and instead
+  // return a falsey value like `null` when the skin doesn't have a component.
+  return () => sdk.getComponent(name) || origComponent;
+}
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uL3NyYy91dGlscy9yZXBsYWNlYWJsZUNvbXBvbmVudC50cyJdLCJuYW1lcyI6WyJyZXBsYWNlYWJsZUNvbXBvbmVudCIsIm5hbWUiLCJvcmlnQ29tcG9uZW50Iiwic2RrIiwiZ2V0Q29tcG9uZW50Il0sIm1hcHBpbmdzIjoiOzs7Ozs7Ozs7QUFpQkE7O0FBakJBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTs7QUFLQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ08sU0FBU0Esb0JBQVQsQ0FBOEJDO0FBQTlCO0FBQUEsRUFBNENDO0FBQTVDO0FBQUE7QUFBQTtBQUE2RjtBQUNoRztBQUNBO0FBQ0E7QUFDQSxTQUFPLE1BQU1DLEdBQUcsQ0FBQ0MsWUFBSixDQUFpQkgsSUFBakIsS0FBMEJDLGFBQXZDO0FBQ0giLCJzb3VyY2VzQ29udGVudCI6WyIvKlxuQ29weXJpZ2h0IDIwMTkgVGhlIE1hdHJpeC5vcmcgRm91bmRhdGlvbiBDLkkuQy5cblxuTGljZW5zZWQgdW5kZXIgdGhlIEFwYWNoZSBMaWNlbnNlLCBWZXJzaW9uIDIuMCAodGhlIFwiTGljZW5zZVwiKTtcbnlvdSBtYXkgbm90IHVzZSB0aGlzIGZpbGUgZXhjZXB0IGluIGNvbXBsaWFuY2Ugd2l0aCB0aGUgTGljZW5zZS5cbllvdSBtYXkgb2J0YWluIGEgY29weSBvZiB0aGUgTGljZW5zZSBhdFxuXG4gICAgaHR0cDovL3d3dy5hcGFjaGUub3JnL2xpY2Vuc2VzL0xJQ0VOU0UtMi4wXG5cblVubGVzcyByZXF1aXJlZCBieSBhcHBsaWNhYmxlIGxhdyBvciBhZ3JlZWQgdG8gaW4gd3JpdGluZywgc29mdHdhcmVcbmRpc3RyaWJ1dGVkIHVuZGVyIHRoZSBMaWNlbnNlIGlzIGRpc3RyaWJ1dGVkIG9uIGFuIFwiQVMgSVNcIiBCQVNJUyxcbldJVEhPVVQgV0FSUkFOVElFUyBPUiBDT05ESVRJT05TIE9GIEFOWSBLSU5ELCBlaXRoZXIgZXhwcmVzcyBvciBpbXBsaWVkLlxuU2VlIHRoZSBMaWNlbnNlIGZvciB0aGUgc3BlY2lmaWMgbGFuZ3VhZ2UgZ292ZXJuaW5nIHBlcm1pc3Npb25zIGFuZFxubGltaXRhdGlvbnMgdW5kZXIgdGhlIExpY2Vuc2UuXG4qL1xuXG5pbXBvcnQgKiBhcyBSZWFjdCBmcm9tICdyZWFjdCc7XG5pbXBvcnQgKiBhcyBzZGsgZnJvbSAnLi4vaW5kZXgnO1xuXG4vKipcbiAqIFJlcGxhY2VzIGEgY29tcG9uZW50IHdpdGggYSBza2lubmVkIHZlcnNpb24gaWYgYSBza2lubmVkIHZlcnNpb24gZXhpc3RzLlxuICogVGhpcyBkZWNvcmF0b3Igc2hvdWxkIG9ubHkgYmUgYXBwbGllZCB0byBjb21wb25lbnRzIHdoaWNoIGNhbiBiZSBza2lubmVkLiBGb3JcbiAqIHRoZSByZWFjdC1zZGsgdGhpcyBtZWFucyBhbGwgY29tcG9uZW50cyBzaG91bGQgYmUgZGVjb3JhdGVkIHdpdGggdGhpcy5cbiAqXG4gKiBUaGUgZGVjb3JhdGlvbiB3b3JrcyBieSBhc3N1bWluZyB0aGUgc2tpbiBoYXMgYmVlbiBsb2FkZWQgcHJpb3IgdG8gdGhlXG4gKiBkZWNvcmF0b3IgYmVpbmcgY2FsbGVkLiBJZiB0aGF0J3Mgbm90IHRoZSBjYXNlLCB0aGUgZGV2ZWxvcGVyIHdpbGwgZmluZFxuICogb3V0IHF1aWNrbHkgdGhyb3VnaCB2YXJpb3VzIGFtb3VudHMgb2YgZXJyb3JzIGFuZCBleHBsb3Npb25zLlxuICpcbiAqIEZvciBhIGJpdCBtb3JlIGRldGFpbCBvbiBob3cgdGhpcyB3b3Jrcywgc2VlIGRvY3Mvc2tpbm5pbmcubWRcbiAqIEBwYXJhbSB7c3RyaW5nfSBuYW1lIFRoZSBkb3QtcGF0aCBuYW1lIG9mIHRoZSBjb21wb25lbnQgYmVpbmcgcmVwbGFjZWQuXG4gKiBAcGFyYW0ge1JlYWN0LkNvbXBvbmVudH0gb3JpZ0NvbXBvbmVudCBUaGUgY29tcG9uZW50IHRoYXQgY2FuIGJlIHJlcGxhY2VkXG4gKiB3aXRoIGEgc2tpbm5lZCB2ZXJzaW9uLiBJZiBubyBza2lubmVkIHZlcnNpb24gaXMgYXZhaWxhYmxlLCB0aGlzIGNvbXBvbmVudFxuICogd2lsbCBiZSB1c2VkLiBOb3RlIHRoYXQgdGhpcyBpcyBhdXRvbWF0aWNhbGx5IHByb3ZpZGVkIHRvIHRoZSBmdW5jdGlvbiBhbmRcbiAqIHRodXMgaXMgb3B0aW9uYWwgZm9yIHB1cnBvc2VzIG9mIHR5cGVzLlxuICogQHJldHVybnMge0NsYXNzRGVjb3JhdG9yfSBUaGUgZGVjb3JhdG9yLlxuICovXG5leHBvcnQgZnVuY3Rpb24gcmVwbGFjZWFibGVDb21wb25lbnQobmFtZTogc3RyaW5nLCBvcmlnQ29tcG9uZW50PzogUmVhY3QuQ29tcG9uZW50KTogQ2xhc3NEZWNvcmF0b3Ige1xuICAgIC8vIERlY29yYXRvcnMgcmV0dXJuIGEgZnVuY3Rpb24gdG8gb3ZlcnJpZGUgdGhlIGNsYXNzIChvcmlnQ29tcG9uZW50KS4gVGhpc1xuICAgIC8vIHVsdGltYXRlbHkgYXNzdW1lcyB0aGF0IGBnZXRDb21wb25lbnQoKWAgd29uJ3QgdGhyb3cgYW4gZXJyb3IgYW5kIGluc3RlYWRcbiAgICAvLyByZXR1cm4gYSBmYWxzZXkgdmFsdWUgbGlrZSBgbnVsbGAgd2hlbiB0aGUgc2tpbiBkb2Vzbid0IGhhdmUgYSBjb21wb25lbnQuXG4gICAgcmV0dXJuICgpID0+IHNkay5nZXRDb21wb25lbnQobmFtZSkgfHwgb3JpZ0NvbXBvbmVudDtcbn1cbiJdfQ==

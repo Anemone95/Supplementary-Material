@@ -1,0 +1,27 @@
+{
+  "name": "domokeeper",
+  "version": "0.2.0",
+  "description": "domokeeper server: a pluggable domotic control server for Raspberry Pi 2/3",
+  "main": "index.js",
+  "bin": {
+    "domokeeper": "./bin.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "xdg-open http://localhost:43569/ >/dev/null 2>&1; node index.js"
+  },
+  "man": "./domokeeper.1",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jperelli/domokeeper.git"
+  },
+  "author": "Julian Perelli (http://jperelli.com.ar)",
+  "license": "AGPL-3.0",
+  "bugs": {
+    "url": "https://github.com/jperelli/domokeeper/issues"
+  },
+  "homepage": "https://github.com/jperelli/domokeeper#readme",
+  "dependencies": {
+    "express": "^4.14.1"
+  }
+}

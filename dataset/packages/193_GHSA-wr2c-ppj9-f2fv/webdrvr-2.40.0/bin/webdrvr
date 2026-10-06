@@ -1,0 +1,21 @@
+#!/usr/bin/env node
+
+var path = require('path');
+var spawn = require('child_process').spawn;
+var webdrvr = require(path.join(__dirname, '..', 'lib', 'index.js'));
+var args = webdrvr.args.concat(
+  ['-jar', webdrvr.selenium.path],
+  process.argv.slice(2)
+);
+
+var childProcess = spawn(
+  'java',
+  args, {
+    stdio: 'inherit'
+  }
+);
+
+process.on('SIGTERM', function() {
+  childProcess.kill('SIGTERM')
+  process.exit(1)
+});

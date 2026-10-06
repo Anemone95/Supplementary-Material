@@ -1,0 +1,20 @@
+$ corepack pnpm@9.15.9 install --prod --no-frozen-lockfile --reporter=append-only --config.node-linker=hoisted --ignore-workspace --ignore-scripts
+Progress: resolved 1, reused 0, downloaded 0, added 0
+ WARN  deprecated tap@14.11.0: Versions of tap before v18 are no longer maintained. Please upgrade.
+ WARN  deprecated sinon@9.2.4: 16.1.1
+ WARN  deprecated fastify-cookie@5.7.0: Please use @fastify/cookie@6.0.0 instead
+Progress: resolved 12, reused 0, downloaded 0, added 0
+Progress: resolved 75, reused 0, downloaded 0, added 0
+Progress: resolved 156, reused 0, downloaded 0, added 0
+Progress: resolved 271, reused 0, downloaded 0, added 0
+Progress: resolved 430, reused 0, downloaded 0, added 0
+Progress: resolved 556, reused 0, downloaded 0, added 0
+Progress: resolved 641, reused 0, downloaded 0, added 0
+ WARN  11 deprecated subdependencies found: @sinonjs/text-encoding@0.7.3, eslint@7.18.0, glob@7.2.3, har-validator@5.1.5, inflight@1.0.6, lodash.get@4.4.2, request@2.88.2, rimraf@2.7.1, rimraf@3.0.2, string-similarity@4.0.4, uuid@3.4.0
+
+devDependencies: skipped
+
+Packages: +12
+++++++++++++
+Progress: resolved 642, reused 12, downloaded 0, added 12, done
+Done in 7.5s using pnpm v9.15.9

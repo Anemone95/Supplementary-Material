@@ -1,0 +1,35 @@
+{
+  "name": "private-ip",
+  "version": "1.0.5",
+  "description": "Check if IP address is private.",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/frenchbread/private-ip.git"
+  },
+  "bugs": "https://github.com/frenchbread/private-ip/issues",
+  "homepage": "https://github.com/frenchbread/private-ip#readme",
+  "author": "Damir Mustafin <frenchthebread@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "lint": "./node_modules/.bin/eslint src",
+    "build": "npm run clean && ./node_modules/.bin/babel src --out-dir lib",
+    "clean": "./node_modules/.bin/rimraf ./lib",
+    "test": "npm run build && ava",
+    "prepublish": "npm run build"
+  },
+  "keywords": [
+    "ip",
+    "address",
+    "private"
+  ],
+  "devDependencies": {
+    "ava": "^0.15.2",
+    "babel-cli": "^6.11.4",
+    "babel-eslint": "^7.2.3",
+    "babel-preset-latest": "^6.24.1",
+    "eslint": "^3.19.0",
+    "rimraf": "^2.6.1",
+    "standard": "^10.0.2"
+  }
+}

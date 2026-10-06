@@ -1,0 +1,12 @@
+$ corepack pnpm@9.15.9 install --prod --no-frozen-lockfile --reporter=append-only --config.node-linker=hoisted --ignore-workspace --ignore-scripts
+ WARN  deprecated gulp-util@2.2.20: gulp-util is deprecated - replace it, following the guidelines at https://medium.com/gulpjs/gulp-util-ca3b1f9f9ac5
+Progress: resolved 1, reused 0, downloaded 0, added 0
+Progress: resolved 51, reused 0, downloaded 0, added 0
+ WARN  1 deprecated subdependencies found: lodash.template@2.4.1
+
+devDependencies: skipped
+
+Packages: +88
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Progress: resolved 88, reused 88, downloaded 0, added 88, done
+Done in 2.3s using pnpm v9.15.9

@@ -1,0 +1,63 @@
+import React from "react";
+import { Room } from "matrix-js-sdk/src/models/room";
+import { TagID } from "../../../stores/room-list/models";
+import { ResizeNotifier } from "../../../utils/ResizeNotifier";
+interface IProps {
+    room: Room;
+    showMessagePreview: boolean;
+    isMinimized: boolean;
+    tag: TagID;
+    resizeNotifier: ResizeNotifier;
+}
+declare type PartialDOMRect = Pick<DOMRect, "left" | "bottom">;
+interface IState {
+    selected: boolean;
+    notificationsMenuPosition: PartialDOMRect;
+    generalMenuPosition: PartialDOMRect;
+    messagePreview?: string;
+    hasUnsentEvents: boolean;
+}
+export default class RoomTile extends React.PureComponent<IProps, IState> {
+    private dispatcherRef;
+    private roomTileRef;
+    private notificationState;
+    private roomProps;
+    constructor(props: IProps);
+    private countUnsentEvents;
+    private onRoomNameUpdate;
+    private onNotificationUpdate;
+    private onResize;
+    private onLocalEchoUpdated;
+    private onRoomPropertyUpdate;
+    private get showContextMenu();
+    private get showMessagePreview();
+    componentDidUpdate(prevProps: Readonly<IProps>, prevState: Readonly<IState>): void;
+    componentDidMount(): void;
+    componentWillUnmount(): void;
+    private onAction;
+    private onCommunityUpdate;
+    private onRoomPreviewChanged;
+    private generatePreview;
+    private scrollIntoView;
+    private onTileClick;
+    private onActiveRoomUpdate;
+    private onNotificationsMenuOpenClick;
+    private onCloseNotificationsMenu;
+    private onGeneralMenuOpenClick;
+    private onContextMenu;
+    private onCloseGeneralMenu;
+    private onTagRoom;
+    private onLeaveRoomClick;
+    private onForgetRoomClick;
+    private onOpenRoomSettings;
+    private onInviteClick;
+    private saveNotifState;
+    private onClickAllNotifs;
+    private onClickAlertMe;
+    private onClickMentions;
+    private onClickMute;
+    private renderNotificationsMenu;
+    private renderGeneralMenu;
+    render(): React.ReactElement;
+}
+export {};

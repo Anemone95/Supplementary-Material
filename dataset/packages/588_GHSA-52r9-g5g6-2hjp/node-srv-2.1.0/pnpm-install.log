@@ -1,0 +1,10 @@
+$ corepack pnpm@9.15.9 install --prod --no-frozen-lockfile --reporter=append-only --config.node-linker=hoisted --ignore-workspace --ignore-scripts
+Progress: resolved 1, reused 0, downloaded 0, added 0
+ WARN  deprecated coffee-script@1.12.7: CoffeeScript on NPM has moved to "coffeescript" (no hyphen)
+
+devDependencies: skipped
+
+Packages: +7
++++++++
+Progress: resolved 8, reused 7, downloaded 0, added 7, done
+Done in 697ms using pnpm v9.15.9

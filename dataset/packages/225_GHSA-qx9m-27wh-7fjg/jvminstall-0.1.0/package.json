@@ -1,0 +1,23 @@
+{
+  "name": "jvminstall",
+  "version": "0.1.0",
+  "description": "Downloading and unpacking jvm to local system.",
+  "main": "index.js",
+  "dependencies": {
+    "adm-zip": "^0.4.7"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@git.javadeploy.net:Titan/jvmInstall.git"
+  },
+  "keywords": [
+    "jvm",
+    "unpack"
+  ],
+  "author": "Russkih Anatoly",
+  "license": "ISC"
+}

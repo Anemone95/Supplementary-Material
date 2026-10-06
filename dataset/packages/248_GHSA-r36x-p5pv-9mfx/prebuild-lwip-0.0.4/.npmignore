@@ -1,0 +1,7 @@
+build
+node_modules
+npm-debug.log
+tests/results
+.idea
+.qiniurc
+.DS_Store

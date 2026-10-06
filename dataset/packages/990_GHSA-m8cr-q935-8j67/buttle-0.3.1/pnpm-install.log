@@ -1,0 +1,10 @@
+$ corepack pnpm@9.15.9 install --prod --no-frozen-lockfile --reporter=append-only --config.node-linker=hoisted --ignore-workspace --ignore-scripts
+Progress: resolved 1, reused 0, downloaded 0, added 0
+ WARN  4 deprecated subdependencies found: glob@7.1.7, inflight@1.0.6, lodash.createcallback@2.4.4, raw-body@1.1.7
+
+devDependencies: skipped
+
+Packages: +145
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Progress: resolved 145, reused 145, downloaded 0, added 145, done
+Done in 1.2s using pnpm v9.15.9

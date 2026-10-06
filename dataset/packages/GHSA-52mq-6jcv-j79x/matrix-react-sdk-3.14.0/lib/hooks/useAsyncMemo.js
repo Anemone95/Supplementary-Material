@@ -1,0 +1,43 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.useAsyncMemo = void 0;
+
+var _react = require("react");
+
+/*
+Copyright 2020 The Matrix.org Foundation C.I.C.
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+*/
+const useAsyncMemo = (fn
+/*: Fn<T>*/
+, deps
+/*: DependencyList*/
+, initialValue
+/*: T*/
+) =>
+/*: T*/
+{
+  const [value, setValue] = (0, _react.useState)(initialValue);
+  (0, _react.useEffect)(() => {
+    fn().then(setValue);
+  }, deps); // eslint-disable-line react-hooks/exhaustive-deps
+
+  return value;
+};
+
+exports.useAsyncMemo = useAsyncMemo;
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uL3NyYy9ob29rcy91c2VBc3luY01lbW8udHMiXSwibmFtZXMiOlsidXNlQXN5bmNNZW1vIiwiZm4iLCJkZXBzIiwiaW5pdGlhbFZhbHVlIiwidmFsdWUiLCJzZXRWYWx1ZSIsInRoZW4iXSwibWFwcGluZ3MiOiI7Ozs7Ozs7QUFnQkE7O0FBaEJBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQU1PLE1BQU1BLFlBQVksR0FBRyxDQUFJQztBQUFKO0FBQUEsRUFBZUM7QUFBZjtBQUFBLEVBQXFDQztBQUFyQztBQUFBO0FBQUE7QUFBNkQ7QUFDckYsUUFBTSxDQUFDQyxLQUFELEVBQVFDLFFBQVIsSUFBb0IscUJBQVlGLFlBQVosQ0FBMUI7QUFDQSx3QkFBVSxNQUFNO0FBQ1pGLElBQUFBLEVBQUUsR0FBR0ssSUFBTCxDQUFVRCxRQUFWO0FBQ0gsR0FGRCxFQUVHSCxJQUZILEVBRnFGLENBSTNFOztBQUNWLFNBQU9FLEtBQVA7QUFDSCxDQU5NIiwic291cmNlc0NvbnRlbnQiOlsiLypcbkNvcHlyaWdodCAyMDIwIFRoZSBNYXRyaXgub3JnIEZvdW5kYXRpb24gQy5JLkMuXG5cbkxpY2Vuc2VkIHVuZGVyIHRoZSBBcGFjaGUgTGljZW5zZSwgVmVyc2lvbiAyLjAgKHRoZSBcIkxpY2Vuc2VcIik7XG55b3UgbWF5IG5vdCB1c2UgdGhpcyBmaWxlIGV4Y2VwdCBpbiBjb21wbGlhbmNlIHdpdGggdGhlIExpY2Vuc2UuXG5Zb3UgbWF5IG9idGFpbiBhIGNvcHkgb2YgdGhlIExpY2Vuc2UgYXRcblxuICAgIGh0dHA6Ly93d3cuYXBhY2hlLm9yZy9saWNlbnNlcy9MSUNFTlNFLTIuMFxuXG5Vbmxlc3MgcmVxdWlyZWQgYnkgYXBwbGljYWJsZSBsYXcgb3IgYWdyZWVkIHRvIGluIHdyaXRpbmcsIHNvZnR3YXJlXG5kaXN0cmlidXRlZCB1bmRlciB0aGUgTGljZW5zZSBpcyBkaXN0cmlidXRlZCBvbiBhbiBcIkFTIElTXCIgQkFTSVMsXG5XSVRIT1VUIFdBUlJBTlRJRVMgT1IgQ09ORElUSU9OUyBPRiBBTlkgS0lORCwgZWl0aGVyIGV4cHJlc3Mgb3IgaW1wbGllZC5cblNlZSB0aGUgTGljZW5zZSBmb3IgdGhlIHNwZWNpZmljIGxhbmd1YWdlIGdvdmVybmluZyBwZXJtaXNzaW9ucyBhbmRcbmxpbWl0YXRpb25zIHVuZGVyIHRoZSBMaWNlbnNlLlxuKi9cblxuaW1wb3J0IHt1c2VTdGF0ZSwgdXNlRWZmZWN0LCBEZXBlbmRlbmN5TGlzdH0gZnJvbSAncmVhY3QnO1xuXG50eXBlIEZuPFQ+ID0gKCkgPT4gUHJvbWlzZTxUPjtcblxuZXhwb3J0IGNvbnN0IHVzZUFzeW5jTWVtbyA9IDxUPihmbjogRm48VD4sIGRlcHM6IERlcGVuZGVuY3lMaXN0LCBpbml0aWFsVmFsdWU/OiBUKTogVCA9PiB7XG4gICAgY29uc3QgW3ZhbHVlLCBzZXRWYWx1ZV0gPSB1c2VTdGF0ZTxUPihpbml0aWFsVmFsdWUpO1xuICAgIHVzZUVmZmVjdCgoKSA9PiB7XG4gICAgICAgIGZuKCkudGhlbihzZXRWYWx1ZSk7XG4gICAgfSwgZGVwcyk7IC8vIGVzbGludC1kaXNhYmxlLWxpbmUgcmVhY3QtaG9va3MvZXhoYXVzdGl2ZS1kZXBzXG4gICAgcmV0dXJuIHZhbHVlO1xufTtcbiJdfQ==

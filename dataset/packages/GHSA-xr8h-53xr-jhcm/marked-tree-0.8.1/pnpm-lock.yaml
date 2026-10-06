@@ -1,0 +1,49 @@
+lockfileVersion: '9.0'
+
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
+
+importers:
+
+  .:
+    dependencies:
+      marked:
+        specifier: 0.3.6
+        version: 0.3.6
+      opn:
+        specifier: 5.0.0
+        version: 5.0.0
+    devDependencies:
+      es6-import:
+        specifier: 1.1.0
+        version: 1.1.0
+
+packages:
+
+  es6-import@1.1.0:
+    resolution: {integrity: sha512-F8G2iNOjwMVs/qHIwwkdhP8ecuWbNA6OgOLYAvP28r2NAeJZ8e0zp7XbUuDeX8+vmjSOkabR42I6KgJprFB0Vw==}
+
+  is-wsl@1.1.0:
+    resolution: {integrity: sha512-gfygJYZ2gLTDlmbWMI0CE2MwnFzSN/2SZfkMlItC4K/JBlsWVDB0bO6XhqcY13YXE7iMcAJnzTCJjPiTeJJ0Mw==}
+    engines: {node: '>=4'}
+
+  marked@0.3.6:
+    resolution: {integrity: sha512-gE75oL01YUIxaBqgeGBuNNd8u0L+H1N6xeW/s+O57o5EC31aPX1M1lD4W9eGyHFJGTwOgMkqzYODZ4yp5w20gQ==}
+    hasBin: true
+
+  opn@5.0.0:
+    resolution: {integrity: sha512-jwMMRUgQgvNizIcwhMD6FJP0q5IiN+Ki4KmwDcevYghb+ONUYqBTcyRW+WrcgORmqPhC+/sEGE2OW/gEom6YdQ==}
+    engines: {node: '>=4'}
+
+snapshots:
+
+  es6-import@1.1.0: {}
+
+  is-wsl@1.1.0: {}
+
+  marked@0.3.6: {}
+
+  opn@5.0.0:
+    dependencies:
+      is-wsl: 1.1.0

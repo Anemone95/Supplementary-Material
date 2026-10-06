@@ -1,0 +1,20 @@
+$ corepack pnpm@9.15.9 install --prod --no-frozen-lockfile --reporter=append-only --config.node-linker=hoisted --ignore-workspace --ignore-scripts
+Progress: resolved 1, reused 0, downloaded 0, added 0
+ WARN  deprecated tslint-immutable@4.9.1: Package no longer supported. Contact Support at https://www.npmjs.com/support for more info.
+ WARN  deprecated standard-version@4.4.0: standard-version is deprecated. If you're a GitHub user, I recommend https://github.com/googleapis/release-please as an alternative.
+ WARN  deprecated codecov@3.8.3: https://about.codecov.io/blog/codecov-uploader-deprecation-plan/
+Progress: resolved 17, reused 0, downloaded 0, added 0
+Progress: resolved 18, reused 0, downloaded 0, added 0
+Progress: resolved 39, reused 0, downloaded 0, added 0
+Progress: resolved 155, reused 0, downloaded 0, added 0
+Progress: resolved 231, reused 0, downloaded 0, added 0
+Progress: resolved 552, reused 0, downloaded 0, added 0
+Progress: resolved 770, reused 0, downloaded 0, added 0
+ WARN  36 deprecated subdependencies found: @babel/plugin-proposal-async-generator-functions@7.0.0-rc.1, @babel/plugin-proposal-object-rest-spread@7.0.0-rc.1, @babel/plugin-proposal-optional-catch-binding@7.0.0-rc.1, @types/handlebars@4.1.0, argv@0.0.2, conventional-changelog-atom@0.2.8, conventional-changelog-codemirror@0.3.8, conventional-changelog-core@2.0.11, conventional-changelog-ember@0.3.12, conventional-changelog-eslint@1.0.9, conventional-changelog-express@0.3.6, conventional-changelog-jquery@0.1.0, conventional-changelog-jshint@0.3.8, core-js@2.6.12, cross-spawn-async@2.2.5, fsevents@1.2.13, git-raw-commits@1.3.6, git-semver-tags@1.3.6, glob@11.1.0, glob@7.2.3, highlight.js@9.18.5, inflight@1.0.6, lodash.clone@4.5.0, lodash.template@4.18.1, osenv@0.1.5, path-dirname@1.0.2, q@1.5.1, resolve-url@0.2.1, right-pad@1.1.1, rimraf@2.7.1, source-map-resolve@0.5.3, source-map-url@0.4.1, urix@0.1.0, uuid@2.0.3, uuid@3.4.0, uuid@8.3.2
+
+devDependencies: skipped
+
+Packages: +38
+++++++++++++++++++++++++++++++++++++++
+Progress: resolved 792, reused 38, downloaded 0, added 38, done
+Done in 7.6s using pnpm v9.15.9

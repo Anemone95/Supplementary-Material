@@ -1,0 +1,17 @@
+
+# added by GitSavvy
+/error.log
+
+# added by GitSavvy
+/node_modules/
+
+# added by GitSavvy
+/output.log
+
+# added by GitSavvy
+/wwwroot
+
+# added by GitSavvy
+/npm-debug.log
+
+terriajs.pid

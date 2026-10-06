@@ -1,0 +1,31 @@
+/*
+Copyright 2020 The Matrix.org Foundation C.I.C.
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+*/
+
+/**
+ * Represents an event preview.
+ */
+
+/*:: export interface IPreview {
+    /**
+     * Gets the text which represents the event as a preview.
+     * @param event The event to preview.
+     * @param tagId Optional. The tag where the room the event was sent in resides.
+     * @returns The preview.
+     *-/
+    getTextFor(event: MatrixEvent, tagId?: TagID): string | null;
+}*/
+"use strict";
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uLy4uLy4uL3NyYy9zdG9yZXMvcm9vbS1saXN0L3ByZXZpZXdzL0lQcmV2aWV3LnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTs7QUFLQTtBQUNBO0FBQ0E7OztBQXJCQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBIiwic291cmNlc0NvbnRlbnQiOlsiLypcbkNvcHlyaWdodCAyMDIwIFRoZSBNYXRyaXgub3JnIEZvdW5kYXRpb24gQy5JLkMuXG5cbkxpY2Vuc2VkIHVuZGVyIHRoZSBBcGFjaGUgTGljZW5zZSwgVmVyc2lvbiAyLjAgKHRoZSBcIkxpY2Vuc2VcIik7XG55b3UgbWF5IG5vdCB1c2UgdGhpcyBmaWxlIGV4Y2VwdCBpbiBjb21wbGlhbmNlIHdpdGggdGhlIExpY2Vuc2UuXG5Zb3UgbWF5IG9idGFpbiBhIGNvcHkgb2YgdGhlIExpY2Vuc2UgYXRcblxuICAgIGh0dHA6Ly93d3cuYXBhY2hlLm9yZy9saWNlbnNlcy9MSUNFTlNFLTIuMFxuXG5Vbmxlc3MgcmVxdWlyZWQgYnkgYXBwbGljYWJsZSBsYXcgb3IgYWdyZWVkIHRvIGluIHdyaXRpbmcsIHNvZnR3YXJlXG5kaXN0cmlidXRlZCB1bmRlciB0aGUgTGljZW5zZSBpcyBkaXN0cmlidXRlZCBvbiBhbiBcIkFTIElTXCIgQkFTSVMsXG5XSVRIT1VUIFdBUlJBTlRJRVMgT1IgQ09ORElUSU9OUyBPRiBBTlkgS0lORCwgZWl0aGVyIGV4cHJlc3Mgb3IgaW1wbGllZC5cblNlZSB0aGUgTGljZW5zZSBmb3IgdGhlIHNwZWNpZmljIGxhbmd1YWdlIGdvdmVybmluZyBwZXJtaXNzaW9ucyBhbmRcbmxpbWl0YXRpb25zIHVuZGVyIHRoZSBMaWNlbnNlLlxuKi9cblxuaW1wb3J0IHsgTWF0cml4RXZlbnQgfSBmcm9tIFwibWF0cml4LWpzLXNkay9zcmMvbW9kZWxzL2V2ZW50XCI7XG5pbXBvcnQgeyBUYWdJRCB9IGZyb20gXCIuLi9tb2RlbHNcIjtcblxuLyoqXG4gKiBSZXByZXNlbnRzIGFuIGV2ZW50IHByZXZpZXcuXG4gKi9cbmV4cG9ydCBpbnRlcmZhY2UgSVByZXZpZXcge1xuICAgIC8qKlxuICAgICAqIEdldHMgdGhlIHRleHQgd2hpY2ggcmVwcmVzZW50cyB0aGUgZXZlbnQgYXMgYSBwcmV2aWV3LlxuICAgICAqIEBwYXJhbSBldmVudCBUaGUgZXZlbnQgdG8gcHJldmlldy5cbiAgICAgKiBAcGFyYW0gdGFnSWQgT3B0aW9uYWwuIFRoZSB0YWcgd2hlcmUgdGhlIHJvb20gdGhlIGV2ZW50IHdhcyBzZW50IGluIHJlc2lkZXMuXG4gICAgICogQHJldHVybnMgVGhlIHByZXZpZXcuXG4gICAgICovXG4gICAgZ2V0VGV4dEZvcihldmVudDogTWF0cml4RXZlbnQsIHRhZ0lkPzogVGFnSUQpOiBzdHJpbmcgfCBudWxsO1xufVxuIl19

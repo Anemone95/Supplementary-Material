@@ -1,0 +1,5158 @@
+{
+  "1003_GHSA-vfp9-gwrh-wq9g": {
+    "vulnerability_location": [
+      {
+        "source": {
+          "file": "crud-file-server.js",
+          "lineno": 36,
+          "code": "var parsedUrl = require('url').parse(req.url);"
+        },
+        "sink": {
+          "file": "crud-file-server.js",
+          "lineno": 107,
+          "code": "fs.readdir(relativePath, function(err, files) {"
+        }
+      },
+      {
+        "source": {
+          "file": "crud-file-server.js",
+          "lineno": 36,
+          "code": "var parsedUrl = require('url').parse(req.url);"
+        },
+        "sink": {
+          "file": "crud-file-server.js",
+          "lineno": 160,
+          "code": "fs.readFile(relativePath, function(err, data) {"
+        }
+      },
+      {
+        "source": {
+          "file": "crud-file-server.js",
+          "lineno": 36,
+          "code": "var parsedUrl = require('url').parse(req.url);"
+        },
+        "sink": {
+          "file": "crud-file-server.js",
+          "lineno": 172,
+          "code": "fs.readFile(relativePath, function(err, data) {"
+        }
+      },
+      {
+        "source": {
+          "file": "crud-file-server.js",
+          "lineno": 36,
+          "code": "var parsedUrl = require('url').parse(req.url);"
+        },
+        "sink": {
+          "file": "crud-file-server.js",
+          "lineno": 187,
+          "code": "var stream = fs.createWriteStream(relativePath);"
+        }
+      },
+      {
+        "source": {
+          "file": "crud-file-server.js",
+          "lineno": 36,
+          "code": "var parsedUrl = require('url').parse(req.url);"
+        },
+        "sink": {
+          "file": "crud-file-server.js",
+          "lineno": 214,
+          "code": "fs.rename(relativePath, path + query.rename, function(err) {"
+        }
+      },
+      {
+        "source": {
+          "file": "crud-file-server.js",
+          "lineno": 36,
+          "code": "var parsedUrl = require('url').parse(req.url);"
+        },
+        "sink": {
+          "file": "crud-file-server.js",
+          "lineno": 223,
+          "code": "fs.mkdir(relativePath, 0777, function(err) {"
+        }
+      },
+      {
+        "source": {
+          "file": "crud-file-server.js",
+          "lineno": 36,
+          "code": "var parsedUrl = require('url').parse(req.url);"
+        },
+        "sink": {
+          "file": "crud-file-server.js",
+          "lineno": 240,
+          "code": "fs.rmdir(relativePath, function(err) {"
+        }
+      },
+      {
+        "source": {
+          "file": "crud-file-server.js",
+          "lineno": 36,
+          "code": "var parsedUrl = require('url').parse(req.url);"
+        },
+        "sink": {
+          "file": "crud-file-server.js",
+          "lineno": 248,
+          "code": "fs.unlink(relativePath, function(err) {"
+        }
+      }
+    ],
+    "note": "Each `case` sink replaced by its file-system calls: GET readdir/readFile x2, PUT createWriteStream, POST rename/mkdir, DELETE rmdir/unlink. Source moved from the cleanUrl sanitizer (line 6) to the read of req.url (line 36)."
+  },
+  "1017_GHSA-2598-2f59-rmhq": {
+    "vulnerability_location": [
+      {
+        "source": {
+          "file": "lib/model.js",
+          "lineno": 1336,
+          "code": "Model.prototype.findAll = function(options) {"
+        },
+        "sink": {
+          "file": "lib/model.js",
+          "lineno": 1398,
+          "code": "return this.QueryInterface.select(this, this.getTableName(options), options);"
+        }
+      }
+    ],
+    "note": "Removed leading '/' from file paths; source code text set to the actual line 1336 (Model.prototype.findAll)."
+  },
+  "1021_GHSA-r3x4-wr4h-pw33": {
+    "vulnerability_location": [
+      {
+        "source": {
+          "file": "lib/index.js",
+          "lineno": 90,
+          "code": "function saferEval(code, context) {"
+        },
+        "sink": {
+          "file": "lib/index.js",
+          "lineno": 62,
+          "code": "return vm.runInContext('(function () {\"use strict\"; ' + src + '})()', this._context, this._options);"
+        }
+      },
+      {
+        "source": {
+          "file": "lib/browser.js",
+          "lineno": 96,
+          "code": "function saferEval(code, context) {"
+        },
+        "sink": {
+          "file": "lib/browser.js",
+          "lineno": 63,
+          "code": "return Function('__context', src).call(null, __context); // eslint-disable-line"
+        }
+      }
+    ],
+    "note": "Sink was a string-argument line of vm.runInContext; moved both locations to the shipped entry files (main lib/index.js, browser lib/browser.js) that the package loads instead of src/: vm.runInContext / Function calls and saferEval parameter lists."
+  },
+  "1025_GHSA-crf7-fvjx-863q": {
+    "vulnerability_location": [
+      {
+        "source": {
+          "file": "lib/router/index.js",
+          "lineno": 182,
+          "code": "app.all(\"*\", (request, response)=>{"
+        },
+        "sink": {
+          "file": "lib/router/index.js",
+          "lineno": 190,
+          "code": "return staticHandler(request, response)"
+        }
+      }
+    ],
+    "note": "Sink was matchPath (route lookup); the static file is served by zero-static/serve-handler, so the sink is the package's call staticHandler(request, response). Source code text fixed."
+  },
+  "1028_GHSA-9qgh-7pgp-hp7r": {
+    "vulnerability_location": [
+      {
+        "block": {
+          "file": "src/components/common/TypeAheadInput.jsx",
+          "start_lineno": 60,
+          "end_lineno": 62,
+          "code": "return `<div><strong>${props.suggestionText}</strong> ${value[props.displayKey]}</div>`;"
+        }
+      },
+      {
+        "block": {
+          "file": "src/components/search/QueryInput.ts",
+          "start_lineno": 51,
+          "end_lineno": 51,
+          "code": "return '<p><strong>' + previousTerms + '</strong>' + matchPrefix + '<strong>' + currentMatch + '</strong>' + matchSuffix + '</p>';"
+        }
+      }
+    ],
+    "note": "QueryInput is shipped as src/components/search/QueryInput.ts (not .jsx); block code texts set to their first line."
+  },
+  "1029_GHSA-h97g-4mx7-5p2p": {
+    "exclude": "Extracted package is apostrophe 0.5.393, but the vulnerable code (lib/modules/apostrophe-pages/lib/api.js, trailing-slash redirect in self.serve) is from apostrophe 2.x (review: 2.91.1); it is in neither the package nor its dependencies."
+  },
+  "1034_GHSA-5634-rv46-48jf": {
+    "vulnerability_location": [
+      {
+        "source": {
+          "file": "lib/bleach.js",
+          "lineno": 62,
+          "code": "sanitize: function(html, options) {"
+        },
+        "sink": {
+          "file": "lib/bleach.js",
+          "lineno": 98,
+          "code": "return html;"
+        }
+      }
+    ],
+    "note": "Removed leading '/'; source sanitize() is at line 62, sink `return html;` at line 98."
+  },
+  "1067_GHSA-2m96-9w4j-wgv7": {
+    "vulnerability_location": [
+      {
+        "source": {
+          "file": "index.js",
+          "lineno": 2164,
+          "code": "var merge = createAssigner(function(object, source, srcIndex) {"
+        },
+        "sink": {
+          "file": "index.js",
+          "lineno": 856,
+          "code": "object[key] = value;"
+        }
+      }
+    ],
+    "note": "Sink object[key] = value (assignMergeValue) is the prototype-pollution assignment and is kept; source moved from `module.exports = merge;` to the parameter list of the exported merge function."
+  },
+  "1069_GHSA-5947-m4fg-xhqg": {
+    "vulnerability_location": [
+      {
+        "source": {
+          "file": "index.js",
+          "lineno": 2164,
+          "code": "var mergeWith = createAssigner(function(object, source, srcIndex, customizer) {"
+        },
+        "sink": {
+          "file": "index.js",
+          "lineno": 856,
+          "code": "object[key] = value;"
+        }
+      }
+    ],
+    "note": "Sink line 2207 is module.exports; prototype-pollution sink is the assignment object[key] = value in assignMergeValue (line 856)."
+  },
+  "1070_GHSA-46fh-8fc5-xcwx": {
+    "vulnerability_location": [
+      {
+        "block": {
+          "file": "index.js",
+          "start_lineno": 853,
+          "end_lineno": 858,
+          "code": "function assignMergeValue(object, key, value) {"
+        }
+      }
+    ],
+    "note": "Package ships index.js (not lodash.js); block is assignMergeValue at lines 853-858."
+  },
+  "1071_GHSA-779f-wgxg-qr8f": {
+    "vulnerability_location": [
+      {
+        "block": {
+          "file": "index.js",
+          "start_lineno": 808,
+          "end_lineno": 819,
+          "code": "function baseAssignValue(object, key, value) {"
+        }
+      }
+    ],
+    "note": "Block code text set to the first line of baseAssignValue (lines 808-819)."
+  },
+  "1081_GHSA-h9wr-xr4r-66fh": {
+    "vulnerability_location": [
+      {
+        "source": {
+          "file": "lib/factory/CheckboxEntryFactory.js",
+          "lineno": 9,
+          "code": "var checkbox = function(options, defaultParameters) {"
+        },
+        "sink": {
+          "file": "lib/factory/CheckboxEntryFactory.js",
+          "lineno": 30,
+          "code": "resource.html += entryFieldDescription(description);"
+        }
+      },
+      {
+        "source": {
+          "file": "lib/factory/ComboEntryFactory.js",
+          "lineno": 35,
+          "code": "description = options.description;"
+        },
+        "sink": {
+          "file": "lib/factory/ComboEntryFactory.js",
+          "lineno": 109,
+          "code": "comboBoxEntry.html += entryFieldDescription(description);"
+        }
+      },
+      {
+        "source": {
+          "file": "lib/factory/ComboEntryFactory.js",
+          "lineno": 29,
+          "code": "var comboBox = function(options) {"
+        },
+        "sink": {
+          "file": "lib/factory/ComboEntryFactory.js",
+          "lineno": 100,
+          "code": "comboBoxEntry.html += '<div class=\"dpp-field-wrapper dpp-combo-input\" ' +"
+        }
+      },
+      {
+        "source": {
+          "file": "lib/factory/LinkEntryFactory.js",
+          "lineno": 34,
+          "code": "function link(options) {"
+        },
+        "sink": {
+          "file": "lib/factory/LinkEntryFactory.js",
+          "lineno": 62,
+          "code": "resource.html += entryFieldDescription(description);"
+        }
+      },
+      {
+        "source": {
+          "file": "lib/PropertiesPanel.js",
+          "lineno": 1205,
+          "code": "function setContentEditableSelection(node, selection) {"
+        },
+        "sink": {
+          "file": "lib/PropertiesPanel.js",
+          "lineno": 1213,
+          "code": "domRange.setStart(focusNode, selection.start);"
+        }
+      },
+      {
+        "source": {
+          "file": "lib/factory/TextInputEntryFactory.js",
+          "lineno": 36,
+          "code": "description = options.description;"
+        },
+        "sink": {
+          "file": "lib/factory/TextInputEntryFactory.js",
+          "lineno": 60,
+          "code": "resource.html += entryFieldDescription(description);"
+        }
+      },
+      {
+        "source": {
+          "file": "lib/factory/TextBoxEntryFactory.js",
+          "lineno": 6,
+          "code": "var textBox = function(options, defaultParameters) {"
+        },
+        "sink": {
+          "file": "lib/factory/TextBoxEntryFactory.js",
+          "lineno": 26,
+          "code": "resource.html += entryFieldDescription(description);"
+        }
+      }
+    ],
+    "note": "Removed former location 1 (ComboEntryFactory:54, options.id in a domQuery CSS selector, not an HTML write; the HTML write of options.id is the kept ComboEntryFactory:100 location). LinkEntryFactory source moved to `function link(options) {` (line 34); PropertiesPanel sink setStart moved to line 1213 (kept as annotated, though it is not an HTML write); code texts set to actual lines."
+  },
+  "1097_GHSA-m86m-5m44-pc93": {
+    "vulnerability_location": [
+      {
+        "source": {
+          "file": "src/index.js",
+          "lineno": 17,
+          "code": "setStatus(service, status) {"
+        },
+        "sink": {
+          "file": "src/index.js",
+          "lineno": 18,
+          "code": "this.statusMap[service] = status;"
+        }
+      }
+    ],
+    "note": "File is src/index.js (removed 'package/' prefix and added src/)."
+  },
+  "1110_GHSA-7j93-2h6r-hm49": {
+    "vulnerability_location": [
+      {
+        "source": {
+          "file": "http-file-server.js",
+          "lineno": 134,
+          "code": "fs.readdir(fullPath, function (err, files) {"
+        },
+        "sink": {
+          "file": "http-file-server.js",
+          "lineno": 194,
+          "code": "res.end(html);"
+        }
+      }
+    ],
+    "note": "Sink moved from a template .replace() to the HTML response write res.end(html) (line 194)."
+  },
+  "1111_GHSA-j657-59rv-qwm6": {
+    "vulnerability_location": [
+      {
+        "source": {
+          "file": "index.js",
+          "lineno": 26,
+          "code": "let _content = await content( ctx, fullStaticPath )"
+        },
+        "sink": {
+          "file": "index.js",
+          "lineno": 44,
+          "code": "ctx.body = _content"
+        }
+      }
+    ],
+    "note": "file.js does not exist (util/file.js is a file read, not XSS). XSS sink is the response write `ctx.body = _content` of the directory-listing HTML built in util/dir.js."
+  },
+  "1122_GHSA-5mrr-rgp6-x4gr": {
+    "vulnerability_location": [
+      {
+        "source": {
+          "file": "dist/DocumentMatcher.js",
+          "lineno": 412,
+          "code": "$where: function $where(selectorValue, matcher) {"
+        },
+        "sink": {
+          "file": "dist/DocumentMatcher.js",
+          "lineno": 419,
+          "code": "selectorValue = Function('obj', 'return ' + selectorValue); //eslint-disable-line no-new-func"
+        }
+      }
+    ],
+    "note": "Source pointed into juice-shop (not shipped); both locations moved to dist/DocumentMatcher.js loaded by index.js: $where(selectorValue, ...) and Function('obj', 'return ' + selectorValue)."
+  },
+  "112_GHSA-98pq-pmw9-4gpm": {
+    "vulnerability_location": [
+      {
+        "source": {
+          "file": "lib/dialects/abstract/query-generator.js",
+          "lineno": 1765,
+          "code": "addLimitAndOffset: function(options, model) {"
+        },
+        "sink": {
+          "file": "lib/dialects/abstract/query-generator.js",
+          "lineno": 1768,
+          "code": "fragment += ' LIMIT ' + options.offset + ', ' + 18440000000000000000;"
+        }
+      },
+      {
+        "source": {
+          "file": "lib/dialects/abstract/query-generator.js",
+          "lineno": 1765,
+          "code": "addLimitAndOffset: function(options, model) {"
+        },
+        "sink": {
+          "file": "lib/dialects/abstract/query-generator.js",
+          "lineno": 1771,
+          "code": "fragment += ' LIMIT ' + options.offset + ', ' + options.limit;"
+        }
+      },
+      {
+        "source": {
+          "file": "lib/dialects/abstract/query-generator.js",
+          "lineno": 1765,
+          "code": "addLimitAndOffset: function(options, model) {"
+        },
+        "sink": {
+          "file": "lib/dialects/abstract/query-generator.js",
+          "lineno": 1773,
+          "code": "fragment += ' LIMIT ' + options.limit;"
+        }
+      },
+      {
+        "source": {
+          "file": "lib/dialects/mssql/query-generator.js",
+          "lineno": 556,
+          "code": "addLimitAndOffset: function(options, model) {"
+        },
+        "sink": {
+          "file": "lib/dialects/mssql/query-generator.js",
+          "lineno": 593,
+          "code": "fragment += ' OFFSET ' + offset + ' ROWS';"
+        }
+      },
+      {
+        "source": {
+          "file": "lib/dialects/mssql/query-generator.js",
+          "lineno": 556,
+          "code": "addLimitAndOffset: function(options, model) {"
+        },
+        "sink": {
+          "file": "lib/dialects/mssql/query-generator.js",
+          "lineno": 597,
+          "code": "fragment += ' FETCH NEXT ' + options.limit + ' ROWS ONLY';"
+        }
+      },
+      {
+        "source": {
+          "file": "lib/dialects/postgres/query-generator.js",
+          "lineno": 424,
+          "code": "addLimitAndOffset: function(options) {"
+        },
+        "sink": {
+          "file": "lib/dialects/postgres/query-generator.js",
+          "lineno": 426,
+          "code": "if (options.limit) fragment += ' LIMIT ' + options.limit;"
+        }
+      },
+      {
+        "source": {
+          "file": "lib/dialects/postgres/query-generator.js",
+          "lineno": 424,
+          "code": "addLimitAndOffset: function(options) {"
+        },
+        "sink": {
+          "file": "lib/dialects/postgres/query-generator.js",
+          "lineno": 427,
+          "code": "if (options.offset) fragment += ' OFFSET ' + options.offset;"
+        }
+      },
+      {
+        "source": {
+          "file": "lib/dialects/sqlite/query-generator.js",
+          "lineno": 91,
+          "code": "addLimitAndOffset: function(options){"
+        },
+        "sink": {
+          "file": "lib/dialects/sqlite/query-generator.js",
+          "lineno": 94,
+          "code": "fragment += ' LIMIT ' + options.offset + ', ' + 10000000000000;"
+        }
+      },
+      {
+        "source": {
+          "file": "lib/dialects/sqlite/query-generator.js",
+          "lineno": 91,
+          "code": "addLimitAndOffset: function(options){"
+        },
+        "sink": {
+          "file": "lib/dialects/sqlite/query-generator.js",
+          "lineno": 97,
+          "code": "fragment += ' LIMIT ' + options.offset + ', ' + options.limit;"
+        }
+      },
+      {
+        "source": {
+          "file": "lib/dialects/sqlite/query-generator.js",
+          "lineno": 91,
+          "code": "addLimitAndOffset: function(options){"
+        },
+        "sink": {
+          "file": "lib/dialects/sqlite/query-generator.js",
+          "lineno": 99,
+          "code": "fragment += ' LIMIT ' + options.limit;"
+        }
+      }
+    ],
+    "note": "Abstract query-generator sinks 2 and 3 moved to lines 1771 and 1773 where the LIMIT fragments are; code texts set to actual lines."
+  },
+  "114_GHSA-p788-rj37-357w": {
+    "vulnerability_location": [
+      {
+        "block": {
+          "file": "jq.js",
+          "start_lineno": 4,
+          "end_lineno": 4,
+          "code": "console.log('http://stedolan.github.io/jq/download/linux32/jq')"
+        }
+      },
+      {
+        "block": {
+          "file": "jq.js",
+          "start_lineno": 6,
+          "end_lineno": 6,
+          "code": "console.log( 'http://stedolan.github.io/jq/download/linux64/jq')"
+        }
+      }
+    ],
+    "note": "Second block: file name had surrounding spaces; the linux64 http URL is at line 6."
+  },
+  "1153_GHSA-xqh8-5j36-4556": {
+    "vulnerability_location": [
+      {
+        "source": {
+          "file": "index.js",
+          "lineno": 13,
+          "code": "const PGStore = function (options) {"
+        },
+        "sink": {
+          "file": "index.js",
+          "lineno": 97,
+          "code": "this.query('DELETE FROM ' + this.quotedTable() + ' WHERE expire < to_timestamp($1)', [currentTimestamp()], function (err) {"
+        }
+      },
+      {
+        "source": {
+          "file": "index.js",
+          "lineno": 13,
+          "code": "const PGStore = function (options) {"
+        },
+        "sink": {
+          "file": "index.js",
+          "lineno": 166,
+          "code": "this.pgPromise.query(query, params || [])"
+        }
+      },
+      {
+        "source": {
+          "file": "index.js",
+          "lineno": 13,
+          "code": "const PGStore = function (options) {"
+        },
+        "sink": {
+          "file": "index.js",
+          "lineno": 170,
+          "code": "this.pool.query(query, params || [], function (err, res) {"
+        }
+      },
+      {
+        "source": {
+          "file": "index.js",
+          "lineno": 13,
+          "code": "const PGStore = function (options) {"
+        },
+        "sink": {
+          "file": "index.js",
+          "lineno": 185,
+          "code": "this.query('SELECT sess FROM ' + this.quotedTable() + ' WHERE sid = $1 AND expire >= to_timestamp($2)', [sid, currentTimestamp()], function (err, data) {"
+        }
+      },
+      {
+        "source": {
+          "file": "index.js",
+          "lineno": 13,
+          "code": "const PGStore = function (options) {"
+        },
+        "sink": {
+          "file": "index.js",
+          "lineno": 209,
+          "code": "this.query(query, [sess, expireTime, sid], function (err) {"
+        }
+      },
+      {
+        "source": {
+          "file": "index.js",
+          "lineno": 13,
+          "code": "const PGStore = function (options) {"
+        },
+        "sink": {
+          "file": "index.js",
+          "lineno": 222,
+          "code": "this.query('DELETE FROM ' + this.quotedTable() + ' WHERE sid = $1', [sid], function (err) {"
+        }
+      }
+    ],
+    "note": "Sinks shifted by one line to the query calls (97 prune DELETE, 185 get SELECT, 209 set INSERT, 222 destroy DELETE); the .then() sink became the pgPromise.query call (166), and the pool.query call of the same wrapper (170) was added."
+  },
+  "1156_GHSA-88h9-fc6v-jcw7": {
+    "vulnerability_location": [
+      {
+        "source": {
+          "file": "index.js",
+          "lineno": 54,
+          "code": "function mwParse(req, res, cb) { that.mwParse(req, res, cb); },"
+        },
+        "sink": {
+          "file": "index.js",
+          "lineno": 215,
+          "code": "fs.readFile(req.routed.templateFullPath, function (err, str) {"
+        }
+      }
+    ],
+    "note": "Source mwParse middleware is at line 54."
+  },
+  "115_GHSA-cgpp-wm2h-6hqx": {
+    "vulnerability_location": [
+      {
+        "block": {
+          "file": "sequel/lib/criteriaProcessor.js",
+          "start_lineno": 729,
+          "end_lineno": 811,
+          "code": "str = comparator + ' ' + utils.escapeName(value, '\"');"
+        }
+      }
+    ],
+    "note": "File name typo criteriaProcessos.js -> criteriaProcessor.js; block code text set to its first line."
+  },
+  "1165_GHSA-4rgj-8mq3-hggj": {
+    "vulnerability_location": [
+      {
+        "block": {
+          "file": "lib/index.js",
+          "start_lineno": 219,
+          "end_lineno": 300,
+          "code": "internals.multipart = function (req, options, source, contentType) {"
+        }
+      }
+    ],
+    "note": "File is lib/index.js; block 219-300 is internals.multipart, code text set to its first line."
+  },
+  "116_GHSA-2r5h-gh4x-8hp9": {
+    "vulnerability_location": [
+      {
+        "source": {
+          "file": "index.js",
+          "lineno": 5,
+          "code": "var cdn = ["
+        },
+        "sink": {
+          "file": "index.js",
+          "lineno": 31,
+          "code": "http.get(link.url, function (res) {"
+        }
+      }
+    ],
+    "note": "Package ships index.js (no src/); http.get(link.url, ...) is at line 31; line numbers made integers."
+  },
+  "1184_GHSA-pc5p-h8pf-mvwp": {
+    "vulnerability_location": [
+      {
+        "block": {
+          "file": "index.js",
+          "start_lineno": 159,
+          "end_lineno": 171,
+          "code": "} else {"
+        }
+      }
+    ],
+    "note": "Block lines are correct; code text set to the first line of the block."
+  },
+  "1185_GHSA-p77h-hv6g-fmfp": {
+    "vulnerability_location": [
+      {
+        "block": {
+          "file": "lib/odbc.js",
+          "start_lineno": 2011,
+          "end_lineno": 2014,
+          "code": "if(exports.debug) {"
+        }
+      }
+    ],
+    "note": "lib/configure.js does not exist; the debug console.log block is in lib/odbc.js 2011-2014."
+  },
+  "118_GHSA-hxm2-r34f-qmc5": {
+    "vulnerability_location": [
+      {
+        "source": {
+          "file": "minimatch.js",
+          "lineno": 263,
+          "code": "function parse (pattern, isSub) {"
+        },
+        "sink": {
+          "file": "minimatch.js",
+          "lineno": 521,
+          "code": "tail = tail.replace(/((?:\\\\{2})*)(\\\\?)\\|/g, function (_, $1, $2) {"
+        }
+      }
+    ],
+    "note": "Line numbers were correct; sink code text set to the actual line (regex escaping)."
+  },
+  "1211_GHSA-phph-xpj4-wvcv": {
+    "vulnerability_location": [
+      {
+        "source": {
+          "file": "client/post.js",
+          "lineno": 78,
+          "code": "handleChangeContent: function (text) {"
+        },
+        "sink": {
+          "file": "client/rendered.js",
+          "lineno": 11,
+          "code": "dangerouslySetInnerHTML={{"
+        }
+      }
+    ],
+    "note": "Sink moved from the debounced save call to the HTML write: the marked() output is rendered with dangerouslySetInnerHTML in client/rendered.js."
+  },
+  "1221_GHSA-876r-hj45-fw7g": {
+    "vulnerability_location": [
+      {
+        "source": {
+          "file": "lib/index.js",
+          "lineno": 92,
+          "code": "function saferEval(code, context) {"
+        },
+        "sink": {
+          "file": "lib/index.js",
+          "lineno": 64,
+          "code": "return vm.runInContext(src, this._context, this._options);"
+        }
+      }
+    ],
+    "note": "index.js is lib/index.js (package main); saferEval at line 92, vm.runInContext at line 64."
+  },
+  "1227_GHSA-gr4j-r575-g665": {
+    "vulnerability_location": [
+      {
+        "source": {
+          "file": "es-modules/parts/SvgRenderer.js",
+          "lineno": 1004,
+          "code": "hrefAttribute = parseAttribute(span, 'href');"
+        },
+        "sink": {
+          "file": "es-modules/parts/SvgRenderer.js",
+          "lineno": 1006,
+          "code": "attr(tspan, 'onclick', 'location.href=\\\"' + hrefAttribute + '\\\"');"
+        }
+      },
+      {
+        "source": {
+          "file": "highcharts.src.js",
+          "lineno": 6440,
+          "code": "hrefAttribute = parseAttribute(span, 'href');"
+        },
+        "sink": {
+          "file": "highcharts.src.js",
+          "lineno": 6442,
+          "code": "attr(tspan, 'onclick', 'location.href=\\\"' + hrefAttribute + '\\\"');"
+        }
+      }
+    ],
+    "note": "js/ and ts/ are not shipped: location 0 sink moved to es-modules/parts/SvgRenderer.js:1006; location 1 (the ts copy) pointed at the same code in the shipped bundle highcharts.src.js (6440/6442)."
+  },
+  "123_GHSA-7f59-x49p-v8mq": {
+    "exclude": "swagger-ui 2.2.0 already contains the fix (commit 50c713a): the content_type / parameter_content_type / response_content_type option templates in dist/swagger-ui.js escape the value; the vulnerable code is not in the package."
+  },
+  "124_GHSA-v2jq-9475-r5g8": {
+    "vulnerability_location": [
+      {
+        "source": {
+          "file": "dist/bootstrap-tagsinput.js",
+          "lineno": 108,
+          "code": "itemTitle = self.options.itemTitle(item);"
+        },
+        "sink": {
+          "file": "dist/bootstrap-tagsinput.js",
+          "lineno": 136,
+          "code": "var $tag = $('<span class=\"tag ' + htmlEncode(tagClass) + (itemTitle !== null ? ('\" title=\"' + itemTitle) : '') + '\">' + htmlEncode(itemText) + '<span data-role=\"remove\"></span></span>');"
+        }
+      }
+    ],
+    "note": "Sink code text set to the actual $('<span ...' + itemTitle ...) line; moved to dist/bootstrap-tagsinput.js (package main, identical to src/)."
+  },
+  "125_GHSA-c7pp-g2v2-2766": {
+    "vulnerability_location": [
+      {
+        "source": {
+          "file": "src/gmail.js",
+          "lineno": 872,
+          "code": "api.tools.parse_response = function(response) {"
+        },
+        "sink": {
+          "file": "src/gmail.js",
+          "lineno": 894,
+          "code": "var get_data = new Function(\"\\\"use strict\\\"; return \" + data);"
+        }
+      },
+      {
+        "source": {
+          "file": "src/gmail.js",
+          "lineno": 1680,
+          "code": "api.helper.get.visible_emails_post = function(get_data) {"
+        },
+        "sink": {
+          "file": "src/gmail.js",
+          "lineno": 1689,
+          "code": "get_data = new Function(get_data);"
+        }
+      },
+      {
+        "source": {
+          "file": "src/gmail.js",
+          "lineno": 1933,
+          "code": "api.helper.get.email_data_post = function(get_data) {"
+        },
+        "sink": {
+          "file": "src/gmail.js",
+          "lineno": 1939,
+          "code": "get_data = new Function(get_data);"
+        }
+      }
+    ],
+    "note": "Removed 'package/' prefix; code texts set to actual new Function lines."
+  },
+  "1303_GHSA-j27j-4w6m-8fc4": {
+    "vulnerability_location": [
+      {
+        "source": {
+          "file": "index.js",
+          "lineno": 8,
+          "code": "server.on('request',function (req,res) {"
+        },
+        "sink": {
+          "file": "index.js",
+          "lineno": 19,
+          "code": "var files=fs.readdirSync(staticPath);"
+        }
+      }
+    ],
+    "note": "Removed 'package/' prefix; readdirSync is at line 19."
+  },
+  "1311_GHSA-6xc2-mj39-q599": {
+    "exclude": "Vulnerable controllers (packages/strapi-admin, packages/strapi-plugin-users-permissions) are not in the strapi package nor in its installed dependencies."
+  },
+  "1316_GHSA-2cf5-4w76-r9qv": {
+    "exclude": "Extracted handlebars 4.5.1 already escapes '=' in lib/handlebars/utils.js; the vulnerable escape map is from handlebars 3.0.3 (review correct_package_link), which is not in the dataset package."
+  },
+  "1319_GHSA-3gpc-w23c-w59w": {
+    "vulnerability_location": [
+      {
+        "source": {
+          "file": "lib/pitboss-ng.js",
+          "lineno": 13,
+          "code": "constructor(code, options) {"
+        },
+        "sink": {
+          "file": "lib/forkable.js",
+          "lineno": 73,
+          "code": "result: script.runInNewContext(context || {}, {"
+        }
+      }
+    ],
+    "note": "Removed leading '/'; script.runInNewContext is at line 73."
+  },
+  "1329_GHSA-6fh5-8wq8-w3wr": {
+    "vulnerability_location": [
+      {
+        "source": {
+          "file": "lib/index.js",
+          "lineno": 22,
+          "code": "function unflatten (obj, opts) {"
+        },
+        "sink": {
+          "file": "lib/index.js",
+          "lineno": 38,
+          "code": "_setWith(newObj, dotSep ? path : path.replace(re, '.'), obj[path], Object)"
+        }
+      },
+      {
+        "source": {
+          "file": "lib/index.js",
+          "lineno": 22,
+          "code": "function unflatten (obj, opts) {"
+        },
+        "sink": {
+          "file": "lib/index.js",
+          "lineno": 40,
+          "code": "_set(newObj, dotSep ? path : path.replace(re, '.'), obj[path])"
+        }
+      }
+    ],
+    "note": "File 'a/lib/index.js' -> 'lib/index.js'; source line 21 -> 22. Sinks (calls into the lodash.set / lodash.setwith dependencies) kept."
+  },
+  "132_GHSA-gjhx-gxwx-jx9j": {
+    "vulnerability_location": [
+      {
+        "source": {
+          "file": "lib/drag_and_drop_handler.js",
+          "lineno": 454,
+          "code": "function DragElement(node, offset_x, offset_y, $tree) {"
+        },
+        "sink": {
+          "file": "lib/drag_and_drop_handler.js",
+          "lineno": 459,
+          "code": "$tree.append(this.$element);"
+        }
+      },
+      {
+        "source": {
+          "file": "src/drag_and_drop_handler.coffee",
+          "lineno": 462,
+          "code": "constructor: (node, offset_x, offset_y, $tree) ->"
+        },
+        "sink": {
+          "file": "src/drag_and_drop_handler.coffee",
+          "lineno": 468,
+          "code": "$tree.append(@$element)"
+        }
+      },
+      {
+        "source": {
+          "file": "tree.jquery.js",
+          "lineno": 472,
+          "code": "function DragElement(node, offset_x, offset_y, $tree) {"
+        },
+        "sink": {
+          "file": "tree.jquery.js",
+          "lineno": 477,
+          "code": "$tree.append(this.$element);"
+        }
+      }
+    ],
+    "note": "Location 1 (coffee source): source line 466 -> 462 (the DragElement constructor). Other locations unchanged."
+  },
+  "1343_GHSA-89mq-4x47-5v83": {
+    "vulnerability_location": [
+      {
+        "source": {
+          "file": "angular.js",
+          "lineno": 463,
+          "code": "function baseExtend(dst, objs, deep) {"
+        },
+        "sink": {
+          "file": "angular.js",
+          "lineno": 488,
+          "code": "dst[key] = src;"
+        }
+      }
+    ],
+    "note": "File 'src/angular.js' (not shipped) -> 'angular.js'; source line 324 -> 463. Sink was the recursive call baseExtend(dst[key], [src], true); replaced by the property assignment dst[key] = src (line 488) that writes onto the prototype."
+  },
+  "1347_GHSA-hg79-j56m-fxgv": {
+    "vulnerability_location": [
+      {
+        "source": {
+          "file": "lib/ReactElement.js",
+          "lineno": 149,
+          "code": "ReactElement.createElement = function(type, config, children) {"
+        },
+        "sink": {
+          "file": "lib/ReactDOMComponent.js",
+          "lineno": 280,
+          "code": "return prefix + innerHTML.__html;"
+        }
+      }
+    ],
+    "note": "Sink line 281 -> 280 (return of the unescaped dangerouslySetInnerHTML.__html)."
+  },
+  "135_GHSA-3j7m-hmh3-9jmp": {
+    "vulnerability_location": [
+      {
+        "source": {
+          "file": "index.js",
+          "lineno": 7,
+          "code": "function sanitizeHtml(html, options) {"
+        },
+        "sink": {
+          "file": "index.js",
+          "lineno": 159,
+          "code": "result += text;"
+        }
+      }
+    ],
+    "note": "Sink parser.write(html) -> line 159 'result += text;' in ontext, which concatenates the unescaped text (e.g. a stray '<' of a nested tag, htmlparser2 issue 105) into the returned HTML; the patch re-sanitizes the result recursively."
+  },
+  "1436_GHSA-x8qc-rrcw-4r46": {
+    "vulnerability_location": [
+      {
+        "source": {
+          "file": "node_modules/pacote/lib/fetchers/directory.js",
+          "lineno": 35,
+          "code": "const pkgPath = path.join(spec.fetchSpec, 'package.json')"
+        },
+        "sink": {
+          "file": "node_modules/pacote/lib/fetchers/directory.js",
+          "lineno": 59,
+          "code": "pkg.bin[path.basename(relative)] = relative"
+        }
+      }
+    ],
+    "note": "File 'package/node_modules/pacote/...' -> 'node_modules/pacote/lib/fetchers/directory.js' (installed dependency); source line 34 -> 35. Sink kept."
+  },
+  "1440_GHSA-cfwc-xjfp-44jg": {
+    "vulnerability_location": [
+      {
+        "source": {
+          "file": "gnuplot.js",
+          "lineno": 6,
+          "code": "plot.print = function (data, options) {"
+        },
+        "sink": {
+          "file": "gnuplot.js",
+          "lineno": 7,
+          "code": "plot.write(data);"
+        }
+      }
+    ],
+    "note": "File '/gnuplot.js' -> 'gnuplot.js'; code set to the actual trimmed lines. Sink kept: plot.write writes the commands to the gnuplot process spawned via the comandante dependency."
+  },
+  "1441_GHSA-65xx-c85x-wg76": {
+    "vulnerability_location": [
+      {
+        "source": {
+          "file": "plotter.js",
+          "lineno": 87,
+          "code": "function setup_gnuplot(gnuplot, options) {"
+        },
+        "sink": {
+          "file": "plotter.js",
+          "lineno": 106,
+          "code": "gnuplot.stdin.write('set title \"'+options.title+'\"\\n');"
+        }
+      },
+      {
+        "source": {
+          "file": "plotter.js",
+          "lineno": 87,
+          "code": "function setup_gnuplot(gnuplot, options) {"
+        },
+        "sink": {
+          "file": "plotter.js",
+          "lineno": 112,
+          "code": "gnuplot.stdin.write('set xlabel \"'+options.xlabel+'\"\\n');"
+        }
+      },
+      {
+        "source": {
+          "file": "plotter.js",
+          "lineno": 87,
+          "code": "function setup_gnuplot(gnuplot, options) {"
+        },
+        "sink": {
+          "file": "plotter.js",
+          "lineno": 115,
+          "code": "gnuplot.stdin.write('set ylabel \"'+options.ylabel+'\"\\n');"
+        }
+      }
+    ],
+    "note": "File 'package/plotter.js' -> 'plotter.js'. Sinks kept: writes of option strings into the stdin of the spawned gnuplot process (command injection via gnuplot 'system')."
+  },
+  "1443_GHSA-v6c5-hwqg-3x5q": {
+    "vulnerability_location": [
+      {
+        "block": {
+          "file": "lib/strategy.js",
+          "start_lineno": 95,
+          "end_lineno": 97,
+          "code": "accessToken = session.getAccessToken().getJwtToken();"
+        }
+      },
+      {
+        "block": {
+          "file": "test/strategy.test.js",
+          "start_lineno": 87,
+          "end_lineno": 88,
+          "code": "req.body.username = \"username\""
+        }
+      }
+    ],
+    "note": "Files 'src/strategy.js' -> 'lib/strategy.js' and 'src/test/strategy.test.js' -> 'test/strategy.test.js'; code set to each block's actual first line; line numbers as integers."
+  },
+  "1446_GHSA-7r9x-hr76-jr96": {
+    "vulnerability_location": [
+      {
+        "source": {
+          "file": "lib/git.js",
+          "lineno": 173,
+          "code": "Git.prototype.checkout = function(repo, cb) {"
+        },
+        "sink": {
+          "file": "lib/git.js",
+          "lineno": 195,
+          "code": "child.exec(cmd, {"
+        }
+      },
+      {
+        "source": {
+          "file": "lib/git.js",
+          "lineno": 173,
+          "code": "Git.prototype.checkout = function(repo, cb) {"
+        },
+        "sink": {
+          "file": "lib/git.js",
+          "lineno": 208,
+          "code": "child.exec(cmd, {"
+        }
+      },
+      {
+        "source": {
+          "file": "lib/git.js",
+          "lineno": 217,
+          "code": "Git.prototype.pull = function(repo, cb) {"
+        },
+        "sink": {
+          "file": "lib/git.js",
+          "lineno": 223,
+          "code": "child.exec(cmd, {"
+        }
+      }
+    ],
+    "note": "Location 2 source: line 173 -> 217 (Git.prototype.pull)."
+  },
+  "1449_GHSA-25v4-mcx4-hh35": {
+    "vulnerability_location": [
+      {
+        "source": {
+          "file": "widgets/blockers/blockers.js",
+          "lineno": 30,
+          "code": "data.blockers.forEach(function(blocker) {"
+        },
+        "sink": {
+          "file": "widgets/blockers/blockers.js",
+          "lineno": 44,
+          "code": "var $summary = $(\"<div/>\").addClass(\"issue-summary\").append(blocker.summary).appendTo(listItem);"
+        }
+      }
+    ],
+    "note": "File 'widgets/blocker/blocker.js' -> 'widgets/blockers/blockers.js'; lines unchanged."
+  },
+  "1453_GHSA-r5fx-8r73-v86c": {
+    "vulnerability_location": [
+      {
+        "source": {
+          "file": "angular.js",
+          "lineno": 7595,
+          "code": "$set: function(key, value, writeAttr, attrName) {"
+        },
+        "sink": {
+          "file": "angular.js",
+          "lineno": 7672,
+          "code": "this.$$element.attr(attrName, value);"
+        }
+      }
+    ],
+    "note": "File 'src/angular.js' -> 'angular.js'. Sink was the sanitization condition (the patch adds xlinkHref to it); replaced by the attribute write this.$$element.attr(attrName, value) (line 7672) that puts the unsanitized a[xlink:href] value into the DOM."
+  },
+  "1470_GHSA-mg69-6j3m-jvgw": {
+    "vulnerability_location": [
+      {
+        "source": {
+          "file": "index.js",
+          "lineno": 21,
+          "code": "var marky = module.exports = function (markdown, options) {"
+        },
+        "sink": {
+          "file": "lib/sanitize.js",
+          "lineno": 16,
+          "code": "return sanitizeHtml(html, config)"
+        }
+      }
+    ],
+    "note": "Sink 'bin/sanitize.js:97' (no such file; the flawed iframe-src regex is lib/sanitize.js:97, a filter, not an output) -> lib/sanitize.js:16, the call handing the HTML and the permissive config to the sanitize-html dependency that returns it. Source getSanitizerConfig(options) (config, not attacker input) -> the exported marky(markdown, options) in index.js:21."
+  },
+  "1478_GHSA-5854-jvxx-2cg9": {
+    "vulnerability_location": [
+      {
+        "source": {
+          "file": "lib/index.js",
+          "lineno": 115,
+          "code": "const contentEncoding = source.headers['content-encoding'];"
+        },
+        "sink": {
+          "file": "lib/index.js",
+          "lineno": 116,
+          "code": "const decoder = (options.decoders || internals.decoders)[contentEncoding];"
+        }
+      }
+    ],
+    "note": "File 'index.js' -> 'lib/index.js'; lines unchanged."
+  },
+  "1480_GHSA-g9cg-h3jm-cwrc": {
+    "vulnerability_location": [
+      {
+        "source": {
+          "file": "lib/index.js",
+          "lineno": 280,
+          "code": "const onPart = (part) => {"
+        },
+        "sink": {
+          "file": "lib/index.js",
+          "lineno": 242,
+          "code": "data[name] = value;"
+        }
+      }
+    ],
+    "note": "Source line 278 -> 280 (onPart). Sink kept: data[name] = value is the property assignment with the attacker field name."
+  },
+  "1484_GHSA-36c4-4r89-6whg": {
+    "vulnerability_location": [
+      {
+        "source": {
+          "file": "lib/index.js",
+          "lineno": 95,
+          "code": "let source = this.req;"
+        },
+        "sink": {
+          "file": "lib/index.js",
+          "lineno": 100,
+          "code": "const decoder = (this.settings.decoders || internals.decoders)[contentEncoding];"
+        }
+      }
+    ],
+    "note": "Sink line 305 -> 100 (decoder lookup by the content-encoding header in Parser.prototype.parse, the function of the source)."
+  },
+  "1492_GHSA-9px9-f7jw-fwhj": {
+    "vulnerability_location": [
+      {
+        "source": {
+          "file": "src/middleware.js",
+          "lineno": 63,
+          "code": "var params = req.body;"
+        },
+        "sink": {
+          "file": "src/controller.js",
+          "lineno": 140,
+          "code": "var child = spawn(cmd, params.args, {"
+        }
+      }
+    ],
+    "note": "Files 'middleware.js'/'controller.js' -> 'src/...'. Source and sink were swapped: source is now the request body read (src/middleware.js:63) in the POST / handler, sink the spawn call (src/controller.js:140)."
+  },
+  "1494_GHSA-f3vw-587g-r29g": {
+    "vulnerability_location": [
+      {
+        "source": {
+          "file": "runtime/server.mjs",
+          "lineno": 2633,
+          "code": "return (req, res, next) => {"
+        },
+        "sink": {
+          "file": "runtime/server.mjs",
+          "lineno": 2630,
+          "code": "? (file) => fs.readFileSync(path.resolve(build_dir, file))"
+        }
+      },
+      {
+        "source": {
+          "file": "runtime/server.mjs",
+          "lineno": 2633,
+          "code": "return (req, res, next) => {"
+        },
+        "sink": {
+          "file": "runtime/server.mjs",
+          "lineno": 2631,
+          "code": ": (file) => (cache.has(file) ? cache : cache.set(file, fs.readFileSync(path.resolve(build_dir, file)))).get(file);"
+        }
+      }
+    ],
+    "note": "Sink read(file) replaced by the two fs.readFileSync calls it dispatches to (dev at line 2630, production at line 2631), each with the same source."
+  },
+  "1499_GHSA-8whr-v3gm-w8h9": {
+    "vulnerability_location": [
+      {
+        "source": {
+          "file": "lib/node-rules.js",
+          "lineno": 145,
+          "code": "RuleEngine.prototype.fromJSON = function(rules) {"
+        },
+        "sink": {
+          "file": "lib/node-rules.js",
+          "lineno": 152,
+          "code": "rule.condition = eval(\"(\" + rule.condition + \")\");"
+        }
+      },
+      {
+        "source": {
+          "file": "lib/node-rules.js",
+          "lineno": 145,
+          "code": "RuleEngine.prototype.fromJSON = function(rules) {"
+        },
+        "sink": {
+          "file": "lib/node-rules.js",
+          "lineno": 153,
+          "code": "rule.consequence = eval(\"(\" + rule.consequence + \")\");"
+        }
+      },
+      {
+        "source": {
+          "file": "lib/node-rules.js",
+          "lineno": 145,
+          "code": "RuleEngine.prototype.fromJSON = function(rules) {"
+        },
+        "sink": {
+          "file": "lib/node-rules.js",
+          "lineno": 157,
+          "code": "rules.condition = eval(\"(\" + rules.condition + \")\");"
+        }
+      },
+      {
+        "source": {
+          "file": "lib/node-rules.js",
+          "lineno": 145,
+          "code": "RuleEngine.prototype.fromJSON = function(rules) {"
+        },
+        "sink": {
+          "file": "lib/node-rules.js",
+          "lineno": 158,
+          "code": "rules.consequence = eval(\"(\" + rules.consequence + \")\");"
+        }
+      }
+    ],
+    "note": "Sink code set to the actual eval lines (the package wraps the strings in parentheses); lines unchanged."
+  },
+  "14_GHSA-g4xp-36c3-f7mr": {
+    "vulnerability_location": [
+      {
+        "source": {
+          "file": "lib/directory.js",
+          "lineno": 87,
+          "code": "var lastParam = request._paramsArray[request._paramsArray.length - 1];"
+        },
+        "sink": {
+          "file": "lib/file.js",
+          "lineno": 155,
+          "code": "var fileStream = Fs.createReadStream(path);"
+        }
+      }
+    ],
+    "note": "Sink File.load(path, ...) (lib/directory.js:112) -> the Fs.createReadStream(path) in lib/file.js:155 that File.load reaches through the response marshal."
+  },
+  "1507_GHSA-426h-24vj-qwxf": {
+    "vulnerability_location": [
+      {
+        "source": {
+          "file": "index.js",
+          "lineno": 5,
+          "code": "install: function(packages, opts){"
+        },
+        "sink": {
+          "file": "index.js",
+          "lineno": 18,
+          "code": "var cmd = exec(cmdString, {cwd: opts.cwd?opts.cwd:\"/\", maxBuffer: opts.maxBuffer?opts.maxBuffer:200 * 1024},(error, stdout, stderr) => {"
+        }
+      },
+      {
+        "source": {
+          "file": "index.js",
+          "lineno": 37,
+          "code": "uninstall: function(packages, opts){"
+        },
+        "sink": {
+          "file": "index.js",
+          "lineno": 47,
+          "code": "var cmd = exec(cmdString, {cwd: opts.cwd?opts.cwd:\"/\"},(error, stdout, stderr) => {"
+        }
+      },
+      {
+        "source": {
+          "file": "index.js",
+          "lineno": 66,
+          "code": "list:function(path){"
+        },
+        "sink": {
+          "file": "index.js",
+          "lineno": 71,
+          "code": "exec(cmdString, {cwd: path?path:\"/\"},(error, stdout, stderr) => {"
+        }
+      }
+    ],
+    "note": "File 'package/index.js' -> 'index.js'; code set to the actual lines. Sources 1-2 (cmdString construction, code did not match) -> the exported install/uninstall parameter lists (lines 5, 37), like location 3."
+  },
+  "1512_GHSA-6q48-vjq2-mwcj": {
+    "vulnerability_location": [
+      {
+        "source": {
+          "file": "build/umount.js",
+          "lineno": 26,
+          "code": "exports.umount = function(device, callback) {"
+        },
+        "sink": {
+          "file": "build/umount.js",
+          "lineno": 52,
+          "code": "return child_process.exec(unmountCommand + \" \" + device, callback);"
+        }
+      }
+    ],
+    "note": "File 'build/unmount.js' -> 'build/umount.js'; lines unchanged."
+  },
+  "1517_GHSA-gm9x-q798-hmr4": {
+    "vulnerability_location": [
+      {
+        "source": {
+          "file": "dist/index.js",
+          "lineno": 1,
+          "code": "\"use strict\";Object.defineProperty(exports,\"__esModule\",{value:!0}),exports.latest=exports.get=void 0;const e=require(\"tslib\"),t=require(\"semver\"),r=require(\"child_process\");exports.get=s=>e.__awaiter(void 0,void 0,void 0,(function*(){return(e=>{const r=new Map;return e.split(\"\\n\").forEach(e=>{const t=e.split(/\\t/);r.set(t[1].split(\"/\")[2].replace(/\\^\\{\\}$/,\"\"),t[0])}),new Map([...r.entries()].filter(e=>t.valid(e[0])).sort((e,r)=>t.compare(e[0],r[0])).reverse())})(yield(e=>new Promise((t,s)=>{r.exec(\"git ls-remote --tags \"+e,(e,r,o)=>{o&&s(new Error(o)),t(r.toString().trim())})}))(s))})),exports.latest=t=>e.__awaiter(void 0,void 0,void 0,(function*(){return(yield exports.get(t)).entries().next().value})),module.exports={get:exports.get,latest:exports.latest};"
+        },
+        "sink": {
+          "file": "dist/index.js",
+          "lineno": 1,
+          "code": "\"use strict\";Object.defineProperty(exports,\"__esModule\",{value:!0}),exports.latest=exports.get=void 0;const e=require(\"tslib\"),t=require(\"semver\"),r=require(\"child_process\");exports.get=s=>e.__awaiter(void 0,void 0,void 0,(function*(){return(e=>{const r=new Map;return e.split(\"\\n\").forEach(e=>{const t=e.split(/\\t/);r.set(t[1].split(\"/\")[2].replace(/\\^\\{\\}$/,\"\"),t[0])}),new Map([...r.entries()].filter(e=>t.valid(e[0])).sort((e,r)=>t.compare(e[0],r[0])).reverse())})(yield(e=>new Promise((t,s)=>{r.exec(\"git ls-remote --tags \"+e,(e,r,o)=>{o&&s(new Error(o)),t(r.toString().trim())})}))(s))})),exports.latest=t=>e.__awaiter(void 0,void 0,void 0,(function*(){return(yield exports.get(t)).entries().next().value})),module.exports={get:exports.get,latest:exports.latest};"
+        }
+      }
+    ],
+    "note": "Minified dist/index.js: source (exports.get) and sink (r.exec('git ls-remote --tags '+e, ...)) are both on line 1; code set to the actual line text (the annotated fragments used other quotes)."
+  },
+  "1523_GHSA-p6mc-m468-83gw": {
+    "vulnerability_location": [
+      {
+        "source": {
+          "file": "lodash.js",
+          "lineno": 3978,
+          "code": "function baseSet(object, path, value, customizer) {"
+        },
+        "sink": {
+          "file": "lodash.js",
+          "lineno": 2559,
+          "code": "object[key] = value;"
+        }
+      }
+    ],
+    "note": "Source line 3965 -> 3978. Sink 'nested = nested[key]' (the walk into the prototype) -> the property assignment object[key] = value in baseAssignValue (line 2559), reached from baseSet via assignValue(nested, key, newValue) at line 4006. The review's line numbers are from lodash 4.17.15; the shipped 4.17.18 already returns early on __proto__/constructor/prototype keys in baseSet (line 3993)."
+  },
+  "1530_GHSA-w42g-7vfc-xf37": {
+    "vulnerability_location": [
+      {
+        "block": {
+          "file": "src/ApolloServer.ts",
+          "start_lineno": 8,
+          "end_lineno": 27,
+          "code": "export class ApolloServer extends ApolloServerBase {"
+        }
+      }
+    ],
+    "note": "Code '(too large)' -> the block's actual first line; lines unchanged. The compiled class is dist/ApolloServer.js lines 17-37."
+  },
+  "183_GHSA-ff29-f57w-2mm3": {
+    "vulnerability_location": [
+      {
+        "source": {
+          "file": "scripts/updatedb.js",
+          "lineno": 32,
+          "code": "url: 'http://geolite.maxmind.com/download/geoip/database/GeoIPCountryCSV.zip',"
+        },
+        "sink": {
+          "file": "scripts/updatedb.js",
+          "lineno": 117,
+          "code": "var client = http.get(getOptions(), onResponse);"
+        }
+      }
+    ],
+    "note": "File 'updatedb.js' -> 'scripts/updatedb.js'. Source is now the insecure http URL (line 32, the former sink); sink is the http.get download it flows to through fetch(database.url) (line 117)."
+  },
+  "201_GHSA-6v7p-j23v-4xmw": {
+    "vulnerability_location": [
+      {
+        "source": {
+          "file": "scripts/install.js",
+          "lineno": 158,
+          "code": "request (SOURCE, function (source)"
+        },
+        "sink": {
+          "file": "scripts/install.js",
+          "lineno": 123,
+          "code": "var req = mHTTP.get (url);"
+        }
+      }
+    ],
+    "note": "File 'robot-js-2.0.0/package/scripts/install.js' -> 'scripts/install.js'. Sink sigs.on(\"data\") -> the plain-http download mHTTP.get(url) (line 123) that request(SOURCE, ...) performs."
+  },
+  "211_GHSA-735c-r4vc-6gm9": {
+    "vulnerability_location": [
+      {
+        "source": {
+          "file": "test/bionode-sra.js",
+          "lineno": 9,
+          "code": "var sraURL = 'http://ftp-trace.ncbi.nlm.nih.gov/sra/sra-instant/reads/ByRun/sra/SRR/SRR150/SRR1509835/SRR1509835.sra'"
+        },
+        "sink": {
+          "file": "test/bionode-sra.js",
+          "lineno": 10,
+          "code": "var downloadSRA = request(sraURL)"
+        }
+      }
+    ],
+    "note": "Source file 'test/bionode-era.js' (typo) -> 'test/bionode-sra.js'."
+  },
+  "232_GHSA-4pf7-579w-f4gm": {
+    "exclude": "The packaged dwebp-bin 1.0.0 does not contain the vulnerable code: lib/install.js builds from the vendored vendor/source/libwebp-1.1.0.tar.gz and lib/index.js fetches binaries over https; the annotated binBuild.url('http://downloads.webmproject.org/...') is from 0.3.0 (the review's correct_package_link)."
+  },
+  "242_GHSA-vvwp-3f54-xc39": {
+    "vulnerability_location": [
+      {
+        "block": {
+          "file": "scripts/update-closure.js",
+          "start_lineno": 32,
+          "end_lineno": 36,
+          "code": "var req = http.request({"
+        }
+      }
+    ],
+    "note": "File 'scripts/install.js' -> 'scripts/update-closure.js' (the install script); code set to the block's first line; lines unchanged."
+  },
+  "245_GHSA-4p7j-5ppx-rfhm": {
+    "vulnerability_location": [
+      {
+        "source": {
+          "file": "install.js",
+          "lineno": 23,
+          "code": "var url = \"http://ocyo9x61y.bkt.clouddn.com/aapt-\" + platform + \".zip\";"
+        },
+        "sink": {
+          "file": "install.js",
+          "lineno": 27,
+          "code": "var request = http.get(url, function (response) {"
+        }
+      }
+    ],
+    "note": "Source is now the insecure http URL (line 23, the former sink, code fixed); sink is the http.get download (line 27). The former source attemptDownload(3) is only the top-level call."
+  },
+  "25_GHSA-44g9-w23c-5rw7": {
+    "vulnerability_location": [
+      {
+        "source": {
+          "file": "lib/server.js",
+          "lineno": 306,
+          "code": "req.url =  decodeURIComponent(url.parse(req.url).pathname);"
+        },
+        "sink": {
+          "file": "lib/server.js",
+          "lineno": 157,
+          "code": "var dir = fs.readdirSync(location)"
+        }
+      },
+      {
+        "source": {
+          "file": "lib/server.js",
+          "lineno": 306,
+          "code": "req.url =  decodeURIComponent(url.parse(req.url).pathname);"
+        },
+        "sink": {
+          "file": "lib/server.js",
+          "lineno": 245,
+          "code": "var stream = fs.createReadStream(dir);"
+        }
+      }
+    ],
+    "note": "Sinks readContents(absolute, ...) / pipeStream(absolute, ...) -> the fs calls they perform on the path: fs.readdirSync(location) (line 157) and fs.createReadStream(dir) (line 245)."
+  },
+  "261_GHSA-722q-3g9x-vp8q": {
+    "vulnerability_location": [
+      {
+        "block": {
+          "file": "gulpfile.js",
+          "start_lineno": 15,
+          "end_lineno": 16,
+          "code": "return require(\"gulp-download\")(url)"
+        }
+      }
+    ],
+    "note": "Code set to the block's actual first line (the annotation merged lines 15-16 with other quotes); lines unchanged."
+  },
+  "267_GHSA-g84j-95x2-7g67": {
+    "vulnerability_location": [
+      {
+        "block": {
+          "file": "gulpfile.js",
+          "start_lineno": 6,
+          "end_lineno": 12,
+          "code": "var dist = {"
+        }
+      }
+    ],
+    "note": "Block 13-15 -> 6-12, the dist map of http download URLs that the annotated code shows."
+  },
+  "294_GHSA-2r9c-46v3-43fc": {
+    "vulnerability_location": [
+      {
+        "source": {
+          "file": "bin/install.js",
+          "lineno": 21,
+          "code": "remoteFile = 'http://haxe.org/website-content/downloads/'+haxeVersion+'/downloads/haxe-'+haxeVersion+'-linux64.tar.gz';"
+        },
+        "sink": {
+          "file": "bin/install.js",
+          "lineno": 63,
+          "code": ".get( remoteFile )"
+        }
+      }
+    ],
+    "note": "File 'install.js' -> 'bin/install.js'; lines unchanged."
+  },
+  "2_GHSA-rph7-j9qr-h8q8": {
+    "vulnerability_location": [
+      {
+        "source": {
+          "file": "lib/probe-handler.js",
+          "lineno": 16,
+          "code": "var source_file = obj['source_file'];"
+        },
+        "sink": {
+          "file": "lib/probe-handler.js",
+          "lineno": 19,
+          "code": "var the_process = child_process.exec("
+        }
+      }
+    ],
+    "note": "src/lib/probe-handler.js is not shipped; moved to lib/probe-handler.js (source line 16, sink is the child_process.exec call at line 19)."
+  },
+  "305_GHSA-2r7f-4h2c-5x73": {
+    "vulnerability_location": [
+      {
+        "source": {
+          "file": "lib/parser.js",
+          "lineno": 124,
+          "code": "loaded = _lodash2['default'].isString(this.source) ? _jsYaml2['default'].safeLoad(this.source) : this.source;"
+        },
+        "sink": {
+          "file": "lib/parser.js",
+          "lineno": 146,
+          "code": "swaggerParser.validate(loaded, function (err) {"
+        }
+      }
+    ],
+    "note": "Source file src/parser.js is not shipped; moved to lib/parser.js:124. Sink kept: swaggerParser.validate hands the document to swagger-parser, which resolves the $ref file read."
+  },
+  "310_GHSA-38h8-x697-gh8q": {
+    "vulnerability_location": [
+      {
+        "block": {
+          "file": "js/lib/create-pipes.js",
+          "start_lineno": 9,
+          "end_lineno": 29,
+          "code": "module.exports = function() {"
+        }
+      }
+    ],
+    "note": "Block range kept; code set to the actual first line of the block."
+  },
+  "322_GHSA-26q7-g57v-mxcp": {
+    "vulnerability_location": [
+      {
+        "source": {
+          "file": "client/js/shout.js",
+          "lineno": 317,
+          "code": "socket.on(\"topic\", function(data) {"
+        },
+        "sink": {
+          "file": "client/js/shout.js",
+          "lineno": 318,
+          "code": "$(\"#chan-\" + data.chan).find(\".header .topic\").html(data.topic);"
+        }
+      },
+      {
+        "source": {
+          "file": "src/plugins/irc-events/topic.js",
+          "lineno": 6,
+          "code": "irc.on(\"topic\", function(data) {"
+        },
+        "sink": {
+          "file": "src/plugins/irc-events/topic.js",
+          "lineno": 30,
+          "code": "client.emit(\"topic\", {"
+        }
+      }
+    ],
+    "note": "Location 1 sink moved from the object property 'topic: topic' to the client.emit call (line 30) that sends the IRC topic to the browser, where location 0 writes it with .html()."
+  },
+  "326_GHSA-cmh5-qc8w-xvcq": {
+    "vulnerability_location": [
+      {
+        "source": {
+          "file": "i18next.js",
+          "lineno": 1177,
+          "code": "var options = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];"
+        },
+        "sink": {
+          "file": "i18next.js",
+          "lineno": 1190,
+          "code": "this.escapeValue = iOpts.escapeValue;"
+        }
+      },
+      {
+        "source": {
+          "file": "dist/commonjs/Interpolator.js",
+          "lineno": 33,
+          "code": "var options = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];"
+        },
+        "sink": {
+          "file": "dist/commonjs/Interpolator.js",
+          "lineno": 46,
+          "code": "this.escapeValue = iOpts.escapeValue;"
+        }
+      },
+      {
+        "source": {
+          "file": "dist/es/Interpolator.js",
+          "lineno": 18,
+          "code": "var options = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];"
+        },
+        "sink": {
+          "file": "dist/es/Interpolator.js",
+          "lineno": 31,
+          "code": "this.escapeValue = iOpts.escapeValue;"
+        }
+      },
+      {
+        "source": {
+          "file": "dist/umd/i18next.js",
+          "lineno": 1177,
+          "code": "var options = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];"
+        },
+        "sink": {
+          "file": "dist/umd/i18next.js",
+          "lineno": 1190,
+          "code": "this.escapeValue = iOpts.escapeValue;"
+        }
+      }
+    ],
+    "note": "Location 2 sink pointed at dist/commonjs/Interpolator.js:31; set to dist/es/Interpolator.js:31 to match its dist/es source. Truncated source code text ('arguments[0>') corrected in locations 0, 2, 3."
+  },
+  "329_GHSA-2pqj-h3vj-pqgw": {
+    "vulnerability_location": [
+      {
+        "source": {
+          "file": "tmp/jquery.js",
+          "lineno": 97,
+          "code": "   init: function( selector, context, rootjQuery ) {"
+        },
+        "sink": {
+          "file": "tmp/jquery.js",
+          "lineno": 6325,
+          "code": "div.innerHTML = wrap[1] + elem + wrap[2];"
+        }
+      },
+      {
+        "source": {
+          "file": "lib/node-jquery.js",
+          "lineno": 122,
+          "code": "   init: function( selector, context, rootjQuery ) {"
+        },
+        "sink": {
+          "file": "lib/node-jquery.js",
+          "lineno": 6350,
+          "code": "div.innerHTML = wrap[1] + elem + wrap[2];"
+        }
+      }
+    ],
+    "note": "Sinks moved from the selector regex match to the innerHTML write in jQuery.clean, reached from init via jQuery.parseHTML(match[1]) -> buildFragment -> clean."
+  },
+  "32_GHSA-xwg4-93c6-3h42": {
+    "vulnerability_location": [
+      {
+        "source": {
+          "file": "lib/send.js",
+          "lineno": 405,
+          "code": "var path = utils.decode(this.path)"
+        },
+        "sink": {
+          "file": "lib/send.js",
+          "lineno": 648,
+          "code": "var stream = fs.createReadStream(path, options);"
+        }
+      }
+    ],
+    "note": "Sink moved from the dotfile check to the fs.createReadStream that reads the traversed path."
+  },
+  "343_GHSA-3cgg-gh9j-w8vm": {
+    "vulnerability_location": [
+      {
+        "source": {
+          "file": "bin/iter-http",
+          "lineno": 216,
+          "code": "route:function( pathName, req, res ){/* 路由到指定的文件并响应输出 */"
+        },
+        "sink": {
+          "file": "bin/iter-http",
+          "lineno": 196,
+          "code": "raw = fs.createReadStream(pathName, {\"start\": range.start, \"end\": range.end});"
+        }
+      },
+      {
+        "source": {
+          "file": "bin/iter-http",
+          "lineno": 216,
+          "code": "route:function( pathName, req, res ){/* 路由到指定的文件并响应输出 */"
+        },
+        "sink": {
+          "file": "bin/iter-http",
+          "lineno": 204,
+          "code": "raw = fs.createReadStream(pathName);"
+        }
+      }
+    ],
+    "note": "File bin/iter-http.js is shipped as bin/iter-http (same line numbers; http.js is an identical copy shifted by one line). The responseFile call is replaced by its two fs.createReadStream calls."
+  },
+  "347_GHSA-6w83-22gj-5pv9": {
+    "vulnerability_location": [
+      {
+        "source": {
+          "file": "app.js",
+          "lineno": 35,
+          "code": "var uri = url.parse(request.url).pathname"
+        },
+        "sink": {
+          "file": "app.js",
+          "lineno": 50,
+          "code": "fs.readFile(filename, \"binary\", function(err, file) {"
+        }
+      }
+    ],
+    "note": "Leading '/' removed from file; sink moved from response.write to the fs.readFile of the traversed path."
+  },
+  "352_GHSA-5w8q-x7hc-jhp6": {
+    "vulnerability_location": [
+      {
+        "source": {
+          "file": "lib/router.js",
+          "lineno": 726,
+          "code": "full_path = \"\" + dispatch.static_route + (unescape(pathname));"
+        },
+        "sink": {
+          "file": "lib/router.js",
+          "lineno": 727,
+          "code": "return fs.exists(full_path, function(exists) {"
+        }
+      },
+      {
+        "source": {
+          "file": "lib/router.js",
+          "lineno": 726,
+          "code": "full_path = \"\" + dispatch.static_route + (unescape(pathname));"
+        },
+        "sink": {
+          "file": "lib/router.js",
+          "lineno": 757,
+          "code": "fd = fs.createReadStream(full_path);"
+        }
+      },
+      {
+        "source": {
+          "file": "lib/router.js",
+          "lineno": 726,
+          "code": "full_path = \"\" + dispatch.static_route + (unescape(pathname));"
+        },
+        "sink": {
+          "file": "lib/router.js",
+          "lineno": 1110,
+          "code": "fs.readdir(fpath, function(err, files) {"
+        }
+      }
+    ],
+    "note": "Location 2 sink moved from dispatch.directory(...) to the fs.readdir in dispatch.dir_list that it reaches."
+  },
+  "355_GHSA-gqfv-g9f6-3v3m": {
+    "vulnerability_location": [
+      {
+        "source": {
+          "file": "index.js",
+          "lineno": 3,
+          "code": "http.createServer(function(req,res){"
+        },
+        "sink": {
+          "file": "index.js",
+          "lineno": 5,
+          "code": "fs.readFile(path,function(error,data){"
+        }
+      }
+    ],
+    "note": "Sink code text corrected (typo 'readFile*path')."
+  },
+  "356_GHSA-hfq9-rfpv-j8r8": {
+    "vulnerability_location": [
+      {
+        "source": {
+          "file": "lib/stats.js",
+          "lineno": 12,
+          "code": "  proc: function(pid, options, done) {"
+        },
+        "sink": {
+          "file": "lib/stats.js",
+          "lineno": 45,
+          "code": "fs.readFile(p.join('/proc', ''+pid, 'stat'), 'utf8', function(err, infos) {"
+        }
+      },
+      {
+        "source": {
+          "file": "lib/stats.js",
+          "lineno": 39,
+          "code": "proc_calc: function(pid, options, done) {"
+        },
+        "sink": {
+          "file": "lib/stats.js",
+          "lineno": 45,
+          "code": "fs.readFile(p.join('/proc', ''+pid, 'stat'), 'utf8', function(err, infos) {"
+        }
+      },
+      {
+        "source": {
+          "file": "lib/stats.js",
+          "lineno": 96,
+          "code": "ps: function(pid, options, done) {"
+        },
+        "sink": {
+          "file": "lib/stats.js",
+          "lineno": 103,
+          "code": "exec(cmd + pid, function(err, stdout, stderr) {"
+        }
+      },
+      {
+        "source": {
+          "file": "lib/stats.js",
+          "lineno": 119,
+          "code": "win: function(pid, options, done) {"
+        },
+        "sink": {
+          "file": "lib/stats.js",
+          "lineno": 124,
+          "code": "var wmic = spawn('wmic', args.split(' '), {detached: true})"
+        }
+      }
+    ],
+    "note": "Locations 0 and 1 (sinks: the two self.proc_calc calls) replaced by one location whose sink is the fs.readFile that proc_calc performs. Locations 2-4 kept (fs.readFile, exec, spawn)."
+  },
+  "36_GHSA-69rr-wvh9-6c4q": {
+    "vulnerability_location": [
+      {
+        "source": {
+          "file": "st.js",
+          "lineno": 188,
+          "code": " req.url = url.parse(req.url).pathname"
+        },
+        "sink": {
+          "file": "st.js",
+          "lineno": 347,
+          "code": "var stream = fs.createReadStream(p, streamOpt)"
+        }
+      }
+    ],
+    "note": "Sink moved from this.file(...) to the fs.createReadStream in Mount.prototype.streamFile that reads the traversed path."
+  },
+  "382_GHSA-j38m-7q52-fgfh": {
+    "vulnerability_location": [
+      {
+        "source": {
+          "file": "node-server.js",
+          "lineno": 19,
+          "code": "var server = http.createServer(function(req,resp){"
+        },
+        "sink": {
+          "file": "node-server.js",
+          "lineno": 48,
+          "code": "var rs = fs.createReadStream(pathname), str = \"\";"
+        }
+      }
+    ],
+    "note": "Source code text did not match line 19; set to the request handler on line 19 (req is the attacker input; start(conf) on line 18 takes configuration)."
+  },
+  "394_GHSA-2958-5r4r-wvv6": {
+    "vulnerability_location": [
+      {
+        "source": {
+          "file": "caolili.js",
+          "lineno": 3,
+          "code": "http.createServer(function (request,response) {"
+        },
+        "sink": {
+          "file": "caolili.js",
+          "lineno": 7,
+          "code": "fs.readFile(path,function (error,data) {"
+        }
+      }
+    ],
+    "note": "Sink moved from the path construction to the fs.readFile on line 7."
+  },
+  "412_GHSA-4vfj-c2xf-8r48": {
+    "vulnerability_location": [
+      {
+        "source": {
+          "file": "index.js",
+          "lineno": 7,
+          "code": "http.createServer(function(request,response){"
+        },
+        "sink": {
+          "file": "index.js",
+          "lineno": 9,
+          "code": "fs.readFile(path,function(error,data){"
+        }
+      }
+    ],
+    "note": "Sink line corrected 8 -> 9."
+  },
+  "413_GHSA-xj6q-9hx8-mm7f": {
+    "vulnerability_location": [
+      {
+        "source": {
+          "file": "node.js",
+          "lineno": 5,
+          "code": "var path=\".\"+url.parse(request.url).pathname;"
+        },
+        "sink": {
+          "file": "node.js",
+          "lineno": 7,
+          "code": "fs.readFile(path,function (error,file) {"
+        }
+      }
+    ],
+    "note": "Source code text corrected (quote characters)."
+  },
+  "417_GHSA-7g8m-5qh9-9pgw": {
+    "vulnerability_location": [
+      {
+        "source": {
+          "file": "controller.js",
+          "lineno": 111,
+          "code": "var pathname = url.parse(request.url).pathname;"
+        },
+        "sink": {
+          "file": "lib/util/util4HTML.js",
+          "lineno": 7,
+          "code": "fs.readFile(path, 'binary', callback);"
+        }
+      }
+    ],
+    "note": "Sink moved from response.write to the fs.readFile in util4HTML.getHTMLBinary, called with '.' + pathname at controller.js:183."
+  },
+  "42_GHSA-f5w6-r7rg-mcgq": {
+    "vulnerability_location": [
+      {
+        "block": {
+          "file": "validator.js",
+          "start_lineno": 38,
+          "end_lineno": 38,
+          "code": "var email = /^((([a-z]|\\d|[!#\\$%&'\\*\\+\\-\\/=\\?\\^_`{\\|}~]|[\\u00A0-\\uD7FF\\uF900-\\uFDCF\\uFDF0-\\uFFEF])+(\\.([a-z]|\\d|[!#\\$%&'\\*\\+\\-\\/=\\?\\^_`{\\|}~]|[\\u00A0-\\uD7FF\\uF900-\\uFDCF\\uFDF0-\\uFFEF])+)*)|((\\x22)((((\\x20|\\x09)*(\\x0d\\x0a))?(\\x20|\\x09)+)?(([\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x7f]|\\x21|[\\x23-\\x5b]|[\\x5d-\\x7e]|[\\u00A0-\\uD7FF\\uF900-\\uFDCF\\uFDF0-\\uFFEF])|(\\\\([\\x01-\\x09\\x0b\\x0c\\x0d-\\x7f]|[\\u00A0-\\uD7FF\\uF900-\\uFDCF\\uFDF0-\\uFFEF]))))*(((\\x20|\\x09)*(\\x0d\\x0a))?(\\x20|\\x09)+)?(\\x22)))@((([a-z]|\\d|[\\u00A0-\\uD7FF\\uF900-\\uFDCF\\uFDF0-\\uFFEF])|(([a-z]|\\d|[\\u00A0-\\uD7FF\\uF900-\\uFDCF\\uFDF0-\\uFFEF])([a-z]|\\d|-|\\.|_|~|[\\u00A0-\\uD7FF\\uF900-\\uFDCF\\uFDF0-\\uFFEF])*([a-z]|\\d|[\\u00A0-\\uD7FF\\uF900-\\uFDCF\\uFDF0-\\uFFEF])))\\.)+(([a-z]|[\\u00A0-\\uD7FF\\uF900-\\uFDCF\\uFDF0-\\uFFEF])|(([a-z]|[\\u00A0-\\uD7FF\\uF900-\\uFDCF\\uFDF0-\\uFFEF])([a-z]|\\d|-|\\.|_|~|[\\u00A0-\\uD7FF\\uF900-\\uFDCF\\uFDF0-\\uFFEF])*([a-z]|[\\u00A0-\\uD7FF\\uF900-\\uFDCF\\uFDF0-\\uFFEF])))$/i;"
+        }
+      }
+    ],
+    "note": "'package/' prefix removed from block 0 and its code set to the actual line text (the review had unescaped the regex). Block 1 removed: the is_url regex does not exist in 3.22.0 (isURL is implemented by string splitting)."
+  },
+  "433_GHSA-78h7-fgq9-625x": {
+    "vulnerability_location": [
+      {
+        "source": {
+          "file": "lib/quickserver.js",
+          "lineno": 25,
+          "code": "var serverLogic = function(request, response) {"
+        },
+        "sink": {
+          "file": "lib/quickserver.js",
+          "lineno": 53,
+          "code": "fs.readFile(filename, \"binary\", function(err, file) {"
+        }
+      }
+    ],
+    "note": "Source line corrected 27 -> 25."
+  },
+  "439_GHSA-8vmc-g99q-xj94": {
+    "vulnerability_location": [
+      {
+        "source": {
+          "file": "node.js",
+          "lineno": 4,
+          "code": "http.createServer(function(request,response){"
+        },
+        "sink": {
+          "file": "node.js",
+          "lineno": 9,
+          "code": "fs.readFile(path,function(error,file){"
+        }
+      }
+    ],
+    "note": "Sink line corrected 10 -> 9."
+  },
+  "43_GHSA-79mx-88w7-8f7q": {
+    "vulnerability_location": [
+      {
+        "source": {
+          "file": "validator.js",
+          "lineno": 374,
+          "code": "exports.xssClean = function(str, is_image) {"
+        },
+        "sink": {
+          "file": "validator.js",
+          "lineno": 917,
+          "code": "this.modify(exports.xssClean(this.str, is_image));"
+        }
+      }
+    ],
+    "note": "Sink code text corrected to the actual line 917 (exports.xssClean, not xss.clean)."
+  },
+  "445_GHSA-vgjp-vh3c-32v3": {
+    "vulnerability_location": [
+      {
+        "source": {
+          "file": "index.js",
+          "lineno": 17,
+          "code": "app.use((req, res, next) => {"
+        },
+        "sink": {
+          "file": "mocks.js",
+          "lineno": 73,
+          "code": "var contentString = fs.readFileSync(filename, {"
+        }
+      }
+    ],
+    "note": "Sink file mock.js does not exist; the readFileSync is at mocks.js:73."
+  },
+  "471_GHSA-v464-rcx7-j875": {
+    "vulnerability_location": [
+      {
+        "source": {
+          "file": "Infra.data.js",
+          "lineno": 32,
+          "code": "var server = http.createServer(function (req, res) {"
+        },
+        "sink": {
+          "file": "Infra.data.js",
+          "lineno": 137,
+          "code": "fs.readFile(realPath,options, function(err, file){"
+        }
+      },
+      {
+        "source": {
+          "file": "Infra.data.js",
+          "lineno": 32,
+          "code": "var server = http.createServer(function (req, res) {"
+        },
+        "sink": {
+          "file": "Infra.data.js",
+          "lineno": 71,
+          "code": "fs.writeFile(filename,yaml.safeDump(body),function(err){"
+        }
+      },
+      {
+        "source": {
+          "file": "Infra.data.js",
+          "lineno": 32,
+          "code": "var server = http.createServer(function (req, res) {"
+        },
+        "sink": {
+          "file": "Infra.data.js",
+          "lineno": 115,
+          "code": "fs.writeFile(\"put/\" + filename,yaml.safeDump(body),function(err){"
+        }
+      }
+    ],
+    "note": "File name case corrected (infra.data.js -> Infra.data.js); sink code text at line 137 corrected."
+  },
+  "472_GHSA-3grc-fgh6-g5gp": {
+    "vulnerability_location": [
+      {
+        "source": {
+          "file": "http_static_simple.js",
+          "lineno": 5,
+          "code": "http.createServer(function (req, res) {"
+        },
+        "sink": {
+          "file": "http_static_simple.js",
+          "lineno": 33,
+          "code": "fs.readFile(ROOT_DIR + urlObj.pathname, function (err,data) {"
+        }
+      }
+    ],
+    "note": "'package/' prefix removed; source line corrected 4 -> 5."
+  },
+  "476_GHSA-cpp2-q66x-fq44": {
+    "vulnerability_location": [
+      {
+        "source": {
+          "file": "app.js",
+          "lineno": 24,
+          "code": "function tryRunPage(page, req, res) {"
+        },
+        "sink": {
+          "file": "app.js",
+          "lineno": 38,
+          "code": "fs.readFile(page+\".js\", function(err, data) {"
+        }
+      },
+      {
+        "source": {
+          "file": "app.js",
+          "lineno": 24,
+          "code": "function tryRunPage(page, req, res) {"
+        },
+        "sink": {
+          "file": "app.js",
+          "lineno": 51,
+          "code": "fs.readFile(page+\"/../../views/\"+viewToRender, function(err, data) {"
+        }
+      },
+      {
+        "source": {
+          "file": "app.js",
+          "lineno": 24,
+          "code": "function tryRunPage(page, req, res) {"
+        },
+        "sink": {
+          "file": "app.js",
+          "lineno": 68,
+          "code": "fs.readFile(page+\".htm\", function(err, data) {"
+        }
+      }
+    ],
+    "note": "Sink code texts corrected (quote characters); lines unchanged."
+  },
+  "47_GHSA-mvmf-cvfx-qg55": {
+    "vulnerability_location": [
+      {
+        "source": {
+          "file": "lib/bleach.js",
+          "lineno": 22,
+          "code": "analyze: function(html) {"
+        },
+        "sink": {
+          "file": "lib/bleach.js",
+          "lineno": 29,
+          "code": "while ((match = bleach.matcher.exec(html)) != null) {"
+        }
+      }
+    ],
+    "note": "'package/' prefix removed. Source moved from the regex definition to analyze(html), where the attacker string enters; sink (the exec applying the vulnerable regex) kept."
+  },
+  "49_GHSA-qr28-7j6p-9hmv": {
+    "vulnerability_location": [
+      {
+        "source": {
+          "file": "src/map.js",
+          "lineno": 130,
+          "code": "_initialize: function(json) {"
+        },
+        "sink": {
+          "file": "src/info_control.js",
+          "lineno": 87,
+          "code": "this._content.innerHTML += info.join(' | ');"
+        }
+      }
+    ],
+    "note": "Sink moved from infoControl.addInfo(json.attribution) to the innerHTML write in InfoControl._update that addInfo reaches."
+  },
+  "531_GHSA-x5pg-88wf-qq4p": {
+    "vulnerability_location": [
+      {
+        "block": {
+          "file": "lib/marked.js",
+          "start_lineno": 459,
+          "end_lineno": 460,
+          "code": "em: /^\\b_((?:[^_]|__)+?)_\\b|^\\*((?:\\*\\*|[\\s\\S])+?)\\*(?!\\*)/,"
+        }
+      }
+    ],
+    "note": "Block range kept; code set to the actual first line (the em regex)."
+  },
+  "551_GHSA-pv8x-p9hq-j328": {
+    "vulnerability_location": [
+      {
+        "source": {
+          "file": "lib/expression/parse.js",
+          "lineno": 55,
+          "code": "function parse (expr, options) {"
+        },
+        "sink": {
+          "file": "lib/expression/node/Node.js",
+          "lineno": 73,
+          "code": "var factory = new Function('defs', factoryCode);"
+        }
+      }
+    ],
+    "note": "Source moved to parse(expr), where the expression enters; sink moved from the ObjectNode key compilation to the new Function that compiles the generated code."
+  },
+  "552_GHSA-vx5c-87qx-cv6c": {
+    "vulnerability_location": [
+      {
+        "source": {
+          "file": "lib/expression/parse.js",
+          "lineno": 55,
+          "code": "function parse (expr, options) {"
+        },
+        "sink": {
+          "file": "node_modules/typed-function/typed-function.js",
+          "lineno": 1115,
+          "code": "var factory = (new Function(refs.name, 'createError', body));"
+        }
+      }
+    ],
+    "note": "Source moved to parse(expr). Sink moved from the FunctionNode check to the new Function in typed-function 0.10.5 that compiles code containing the typed function name (fixed by upgrading typed-function)."
+  },
+  "554_GHSA-g8m7-qhv7-9h5x": {
+    "vulnerability_location": [
+      {
+        "source": {
+          "file": "middleware/file-explorer.js",
+          "lineno": 31,
+          "code": "let fullRequestPath = path.join(directory, requestPath);"
+        },
+        "sink": {
+          "file": "lib/read-file.js",
+          "lineno": 11,
+          "code": "return fs.readFile(file, done);"
+        }
+      },
+      {
+        "source": {
+          "file": "middleware/file-explorer.js",
+          "lineno": 31,
+          "code": "let fullRequestPath = path.join(directory, requestPath);"
+        },
+        "sink": {
+          "file": "lib/read-folder.js",
+          "lineno": 11,
+          "code": "return fs.readdir(file, done);"
+        }
+      }
+    ],
+    "note": "Sink getFileStat (lstat) replaced by the file-system reads of the traversed path: fs.readFile (lib/read-file.js) and fs.readdir (lib/read-folder.js), called from middleware/file-explorer.js lines 51 and 36."
+  },
+  "557_GHSA-m4vv-p6fq-jhqp": {
+    "vulnerability_location": [
+      {
+        "source": {
+          "file": "middleware/file-explorer.js",
+          "lineno": 30,
+          "code": "let requestPath = decodeURIComponent(this.request.path);"
+        },
+        "sink": {
+          "file": "lib/read-file.js",
+          "lineno": 11,
+          "code": "return fs.readFile(file, done);"
+        }
+      },
+      {
+        "source": {
+          "file": "middleware/file-explorer.js",
+          "lineno": 30,
+          "code": "let requestPath = decodeURIComponent(this.request.path);"
+        },
+        "sink": {
+          "file": "lib/read-folder.js",
+          "lineno": 11,
+          "code": "return fs.readdir(file, done);"
+        }
+      }
+    ],
+    "note": "Source moved from the configured directory to the read of this.request.path (line 30). Sink file middleware/file_explorer.js does not exist; replaced by fs.readFile (lib/read-file.js) and fs.readdir (lib/read-folder.js) reached from middleware/file-explorer.js lines 51 and 36."
+  },
+  "560_GHSA-68gr-cmcp-g3mj": {
+    "vulnerability_location": [
+      {
+        "source": {
+          "file": "lib/lactate.js",
+          "lineno": 286,
+          "code": "Lactate.prototype.serveFile = function(request) {"
+        },
+        "sink": {
+          "file": "lib/lactate.js",
+          "lineno": 579,
+          "code": "var rs = fs.createReadStream(fp);"
+        }
+      }
+    ],
+    "note": "Source moved to serveFile definition (line 286). Sink was the cache lookup this.cache.get (not a file-system op); now fs.createReadStream(fp) at line 579, which reads the attacker-controlled path."
+  },
+  "572_GHSA-f522-ffg8-j8r6": {
+    "vulnerability_location": [
+      {
+        "block": {
+          "file": "formats.js",
+          "start_lineno": 4,
+          "end_lineno": 4,
+          "code": "exports['email'] = /^\\S+@\\S+$/"
+        }
+      }
+    ],
+    "note": "Block code set to the actual text of formats.js line 4 (the vulnerable email regex)."
+  },
+  "576_GHSA-hfj4-96f7-6r5g": {
+    "vulnerability_location": [
+      {
+        "source": {
+          "file": "src/html-janitor.js",
+          "lineno": 42,
+          "code": "HTMLJanitor.prototype.clean = function (html) {"
+        },
+        "sink": {
+          "file": "src/html-janitor.js",
+          "lineno": 45,
+          "code": "root.innerHTML = html;"
+        }
+      }
+    ],
+    "note": "Sink moved to line 45, where the shipped code assigns root.innerHTML = html."
+  },
+  "579_GHSA-xcvv-84j5-jw9h": {
+    "vulnerability_location": [
+      {
+        "source": {
+          "file": "index.js",
+          "lineno": 14,
+          "code": "function assign(target/*, objects*/) {"
+        },
+        "sink": {
+          "file": "index.js",
+          "lineno": 44,
+          "code": "target[key] = val;"
+        }
+      },
+      {
+        "source": {
+          "file": "index.js",
+          "lineno": 14,
+          "code": "function assign(target/*, objects*/) {"
+        },
+        "sink": {
+          "file": "index.js",
+          "lineno": 46,
+          "code": "target[key] = assign(target[key] || {}, val);"
+        }
+      },
+      {
+        "source": {
+          "file": "index.js",
+          "lineno": 14,
+          "code": "function assign(target/*, objects*/) {"
+        },
+        "sink": {
+          "file": "index.js",
+          "lineno": 48,
+          "code": "target[key] = val;"
+        }
+      }
+    ],
+    "note": "Removed 'package/' prefix; sinks shifted to the target[key] assignments at lines 44, 46, 48; fixed '{{' typo in source code."
+  },
+  "585_GHSA-jrhj-2j3q-xf3v": {
+    "vulnerability_location": [
+      {
+        "source": {
+          "file": "simplehttpserver.js",
+          "lineno": 117,
+          "code": "fs.readdir(pathname, function(err, list) {"
+        },
+        "sink": {
+          "file": "simplehttpserver.js",
+          "lineno": 146,
+          "code": "res.send('<!DOCTYPE html>' +"
+        }
+      }
+    ],
+    "note": "Source was code from another package; the XSS is via malicious file names, which enter at fs.readdir (line 117). Sink was fs.stat; now res.send of the directory-listing HTML (line 146)."
+  },
+  "586_GHSA-x26f-26qw-hhhx": {
+    "vulnerability_location": [
+      {
+        "source": {
+          "file": "bin/hekto.js",
+          "lineno": 81,
+          "code": "let file = path.join(process.cwd(), argDir, this.request.url);"
+        },
+        "sink": {
+          "file": "bin/hekto.js",
+          "lineno": 99,
+          "code": "if (fs.existsSync(file)) {"
+        }
+      },
+      {
+        "source": {
+          "file": "bin/hekto.js",
+          "lineno": 81,
+          "code": "let file = path.join(process.cwd(), argDir, this.request.url);"
+        },
+        "sink": {
+          "file": "bin/hekto.js",
+          "lineno": 101,
+          "code": "if (fs.lstatSync(file).isDirectory()) {"
+        }
+      },
+      {
+        "source": {
+          "file": "bin/hekto.js",
+          "lineno": 81,
+          "code": "let file = path.join(process.cwd(), argDir, this.request.url);"
+        },
+        "sink": {
+          "file": "bin/hekto.js",
+          "lineno": 106,
+          "code": "if (fs.existsSync(file)) {"
+        }
+      },
+      {
+        "source": {
+          "file": "bin/hekto.js",
+          "lineno": 81,
+          "code": "let file = path.join(process.cwd(), argDir, this.request.url);"
+        },
+        "sink": {
+          "file": "bin/hekto.js",
+          "lineno": 116,
+          "code": "this.body = fs.createReadStream(file);"
+        }
+      },
+      {
+        "source": {
+          "file": "bin/hekto.js",
+          "lineno": 81,
+          "code": "let file = path.join(process.cwd(), argDir, this.request.url);"
+        },
+        "sink": {
+          "file": "bin/hekto.js",
+          "lineno": 133,
+          "code": "if (fs.lstatSync(file).isFile()) {"
+        }
+      },
+      {
+        "source": {
+          "file": "bin/hekto.js",
+          "lineno": 81,
+          "code": "let file = path.join(process.cwd(), argDir, this.request.url);"
+        },
+        "sink": {
+          "file": "bin/hekto.js",
+          "lineno": 138,
+          "code": "this.body = fs.createReadStream(file);"
+        }
+      },
+      {
+        "source": {
+          "file": "bin/hekto.js",
+          "lineno": 81,
+          "code": "let file = path.join(process.cwd(), argDir, this.request.url);"
+        },
+        "sink": {
+          "file": "bin/hekto.js",
+          "lineno": 141,
+          "code": "this.body = fs.createReadStream(file);"
+        }
+      },
+      {
+        "source": {
+          "file": "bin/hekto.js",
+          "lineno": 81,
+          "code": "let file = path.join(process.cwd(), argDir, this.request.url);"
+        },
+        "sink": {
+          "file": "bin/hekto.js",
+          "lineno": 152,
+          "code": "this.body = fs.createReadStream(file);"
+        }
+      },
+      {
+        "source": {
+          "file": "bin/hekto.js",
+          "lineno": 81,
+          "code": "let file = path.join(process.cwd(), argDir, this.request.url);"
+        },
+        "sink": {
+          "file": "bin/hekto.js",
+          "lineno": 183,
+          "code": "if (fs.existsSync(file + '.html') && fs.lstatSync(file + '.html').isFile()) {"
+        }
+      },
+      {
+        "source": {
+          "file": "bin/hekto.js",
+          "lineno": 81,
+          "code": "let file = path.join(process.cwd(), argDir, this.request.url);"
+        },
+        "sink": {
+          "file": "bin/hekto.js",
+          "lineno": 191,
+          "code": "if (fs.existsSync(file.slice(0, -1) + '.html') && fs.lstatSync(file.slice(0, -1) + '.html') && this.request.url.slice(-1) === '/' ) {"
+        }
+      },
+      {
+        "source": {
+          "file": "bin/hekto.js",
+          "lineno": 81,
+          "code": "let file = path.join(process.cwd(), argDir, this.request.url);"
+        },
+        "sink": {
+          "file": "bin/hekto.js",
+          "lineno": 194,
+          "code": "this.body = fs.createReadStream(file.slice(0, -1) + '.html');"
+        }
+      }
+    ],
+    "note": "Location 3 sink moved from line 106 to fs.createReadStream(file) at line 116; location 8 sink code fixed ('tif' typo)."
+  },
+  "590_GHSA-2x4q-6jfv-8h9h": {
+    "vulnerability_location": [
+      {
+        "source": {
+          "file": "index.js",
+          "lineno": 60,
+          "code": "Glance.prototype.serveRequest = function Glance$serveRequest (req, res) {"
+        },
+        "sink": {
+          "file": "index.js",
+          "lineno": 91,
+          "code": "return filed(request.fullPath).pipe(res)"
+        }
+      }
+    ],
+    "note": "Sink was an event emit; now filed(request.fullPath).pipe(res) at line 91, which hands the traversed path to the 'filed' dependency that reads the file."
+  },
+  "595": {
+    "vulnerability_location": [
+      {
+        "source": {
+          "file": "node_modules/connect/lib/middleware/directory.js",
+          "lineno": 79,
+          "code": "var url = parse(req.url)"
+        },
+        "sink": {
+          "file": "node_modules/connect/lib/middleware/directory.js",
+          "lineno": 135,
+          "code": "res.end(str);"
+        }
+      },
+      {
+        "source": {
+          "file": "node_modules/connect/lib/middleware/directory.js",
+          "lineno": 101,
+          "code": "fs.readdir(path, function(err, files){"
+        },
+        "sink": {
+          "file": "node_modules/connect/lib/middleware/directory.js",
+          "lineno": 135,
+          "code": "res.end(str);"
+        }
+      }
+    ],
+    "note": "index.js does not exist (package ships lib/simple-server.js, which only wires connect.directory). The XSS lives in the installed connect 2.10.1 directory middleware: req.url pathname (line 79) and readdir file names (line 101) are written unescaped into the listing HTML sent by res.end(str) at line 135."
+  },
+  "610_GHSA-7375-vjr2-3g7w": {
+    "vulnerability_location": [
+      {
+        "source": {
+          "file": "index.js",
+          "lineno": 142,
+          "code": "var listing = htmlls(listPath, {"
+        },
+        "sink": {
+          "file": "index.js",
+          "lineno": 191,
+          "code": ".pipe(res)"
+        }
+      }
+    ],
+    "note": "Source was a require(); attacker file names enter via the html-ls listing stream created at line 142 (href only passed through encodeURI). Sink is the write of the rendered listing HTML to the response (.pipe(res), line 191)."
+  },
+  "612_GHSA-hr2v-3952-633q": {
+    "vulnerability_location": [
+      {
+        "source": {
+          "file": "lib/deep-extend.js",
+          "lineno": 82,
+          "code": "var deepExtend = module.exports = function (/*obj_1, [obj_2], [obj_N]*/) {"
+        },
+        "sink": {
+          "file": "lib/deep-extend.js",
+          "lineno": 117,
+          "code": "target[key] = val;"
+        }
+      },
+      {
+        "source": {
+          "file": "lib/deep-extend.js",
+          "lineno": 82,
+          "code": "var deepExtend = module.exports = function (/*obj_1, [obj_2], [obj_N]*/) {"
+        },
+        "sink": {
+          "file": "lib/deep-extend.js",
+          "lineno": 122,
+          "code": "target[key] = deepCloneArray(val);"
+        }
+      },
+      {
+        "source": {
+          "file": "lib/deep-extend.js",
+          "lineno": 82,
+          "code": "var deepExtend = module.exports = function (/*obj_1, [obj_2], [obj_N]*/) {"
+        },
+        "sink": {
+          "file": "lib/deep-extend.js",
+          "lineno": 127,
+          "code": "target[key] = cloneSpecificValue(val);"
+        }
+      },
+      {
+        "source": {
+          "file": "lib/deep-extend.js",
+          "lineno": 82,
+          "code": "var deepExtend = module.exports = function (/*obj_1, [obj_2], [obj_N]*/) {"
+        },
+        "sink": {
+          "file": "lib/deep-extend.js",
+          "lineno": 132,
+          "code": "target[key] = deepExtend({}, val);"
+        }
+      },
+      {
+        "source": {
+          "file": "lib/deep-extend.js",
+          "lineno": 82,
+          "code": "var deepExtend = module.exports = function (/*obj_1, [obj_2], [obj_N]*/) {"
+        },
+        "sink": {
+          "file": "lib/deep-extend.js",
+          "lineno": 137,
+          "code": "target[key] = deepExtend(src, val);"
+        }
+      }
+    ],
+    "note": "File path fixed from 'lib/deep-extend' to 'lib/deep-extend.js'; lines unchanged."
+  },
+  "63_GHSA-rc8h-3fv6-pxv8": {
+    "vulnerability_location": [
+      {
+        "source": {
+          "file": "lib/transmit.js",
+          "lineno": 74,
+          "code": "var ifModifiedSinceHeader = request.headers['if-modified-since'];"
+        },
+        "sink": {
+          "file": "lib/transmit.js",
+          "lineno": 82,
+          "code": "var ifModifiedSince = internals.parseDate(ifModifiedSinceHeader);"
+        }
+      }
+    ],
+    "note": "File path fixed from 'transmit.js' to 'lib/transmit.js'; lines unchanged."
+  },
+  "642_GHSA-m8fw-534v-xm85": {
+    "vulnerability_location": [
+      {
+        "source": {
+          "file": "common/cloudfunc.js",
+          "lineno": 184,
+          "code": "const link = prefix + FS + path + file.name;"
+        },
+        "sink": {
+          "file": "common/cloudfunc.js",
+          "lineno": 203,
+          "code": "return rendy(templateFile, {"
+        }
+      }
+    ],
+    "note": "Sink file typo 'commmon/' fixed to 'common/cloudfunc.js'."
+  },
+  "648_GHSA-8xqr-4cpm-wx7g": {
+    "vulnerability_location": [
+      {
+        "block": {
+          "file": "dist/ReactSVG.js",
+          "start_lineno": 203,
+          "end_lineno": 203,
+          "code": "evalScripts: 'once',"
+        }
+      }
+    ],
+    "note": "File 'ReactSVG.js' is shipped as dist/ReactSVG.js; line 203 holds the evalScripts: 'once' default."
+  },
+  "652_GHSA-wm77-q74p-5763": {
+    "vulnerability_location": [
+      {
+        "source": {
+          "file": "lib/providers/fs.js",
+          "lineno": 68,
+          "code": "return function(req, pathname) {"
+        },
+        "sink": {
+          "file": "lib/providers/fs.js",
+          "lineno": 88,
+          "code": "result.stream = fs.createReadStream(foundPath);"
+        }
+      }
+    ],
+    "note": "Source moved to the returned provider function (req, pathname) at line 68, where the attacker path enters (the exported factory only takes options). Sink was the ../ check; now fs.createReadStream(foundPath) at line 88."
+  },
+  "665_GHSA-fm87-46vv-jqrr": {
+    "vulnerability_location": [
+      {
+        "source": {
+          "file": "lib/server.js",
+          "lineno": 19,
+          "code": "module.exports = coroutine(function * (req, res, flags, current, fu) {"
+        },
+        "sink": {
+          "file": "lib/http-request.js",
+          "lineno": 96,
+          "code": "sendServer(opts.req, opts.path, opts.streamOptions)"
+        }
+      }
+    ],
+    "note": "Removed 'package/' prefix. Sink was the internal wrapper httpRequest.stream; now the call that hands req and the traversed path to the 'send' dependency (lib/http-request.js line 96)."
+  },
+  "668_GHSA-m7qm-r2r5-f77q": {
+    "vulnerability_location": [
+      {
+        "source": {
+          "file": "dist/components/MarkdownPreview.js",
+          "lineno": 97,
+          "code": "renderer.link = function (href, title, text) {"
+        },
+        "sink": {
+          "file": "dist/components/MarkdownPreview.js",
+          "lineno": 98,
+          "code": "return '<a target=\"_blank\" rel=\"noopener noreferrer\" href=\"' + href + '\" title=\"' + title + '\">' + text + '</a>';"
+        }
+      }
+    ],
+    "note": "Code text fixed (double quotes). Source moved to the renderer.link parameter list (line 97), where the unescaped href/title/text enter; sink stays at line 98."
+  },
+  "695_GHSA-29gp-92wp-94q8": {
+    "vulnerability_location": [
+      {
+        "source": {
+          "file": "launchEditor.js",
+          "lineno": 266,
+          "code": "function launchEditor(fileName, lineNumber, colNumber) {"
+        },
+        "sink": {
+          "file": "launchEditor.js",
+          "lineno": 334,
+          "code": "_childProcess = child_process.spawn("
+        }
+      }
+    ],
+    "note": "Removed 'package/' prefix. Sink was in openBrowser.js and not a child_process call; now child_process.spawn of cmd.exe in launchEditor.js line 334, which receives the attacker file name on Windows."
+  },
+  "696_GHSA-m734-r4g6-34f9": {
+    "vulnerability_location": [
+      {
+        "source": {
+          "file": "lib/mongodb.js",
+          "lineno": 1196,
+          "code": "MongoDB.prototype.all = function all(model, filter, options, callback) {"
+        },
+        "sink": {
+          "file": "lib/mongodb.js",
+          "lineno": 1215,
+          "code": "this.execute(model, 'find', query, findOpts, processResponse);"
+        }
+      },
+      {
+        "source": {
+          "file": "lib/mongodb.js",
+          "lineno": 1196,
+          "code": "MongoDB.prototype.all = function all(model, filter, options, callback) {"
+        },
+        "sink": {
+          "file": "lib/mongodb.js",
+          "lineno": 1217,
+          "code": "this.execute(model, 'find', query, processResponse);"
+        }
+      }
+    ],
+    "note": "Lines shifted by one: source at 1196, sinks at 1215 and 1217."
+  },
+  "717_GHSA-qw93-45r3-p66p": {
+    "vulnerability_location": [
+      {
+        "block": {
+          "file": "index.js",
+          "start_lineno": 50,
+          "end_lineno": 50,
+          "code": "result[key] = clone(array[key]);"
+        }
+      },
+      {
+        "block": {
+          "file": "index.js",
+          "start_lineno": 60,
+          "end_lineno": 60,
+          "code": "result[key] = clone(obj[key]);"
+        }
+      },
+      {
+        "block": {
+          "file": "index.js",
+          "start_lineno": 72,
+          "end_lineno": 75,
+          "code": "if (key in merged) {"
+        }
+      },
+      {
+        "block": {
+          "file": "index.js",
+          "start_lineno": 105,
+          "end_lineno": 105,
+          "code": "result[resultIndex++] = array[k];"
+        }
+      },
+      {
+        "block": {
+          "file": "index.js",
+          "start_lineno": 107,
+          "end_lineno": 107,
+          "code": "result[resultIndex++] = clone(array[k]);"
+        }
+      }
+    ],
+    "note": "Removed leading '/' from file; block 1 code set to line 60 text (result[key] = clone(obj[key]);); block 2 code set to its first line."
+  },
+  "736_GHSA-gwg9-rgvj-4h5j": {
+    "vulnerability_location": [
+      {
+        "source": {
+          "file": "index.js",
+          "lineno": 373,
+          "code": "function compile (format) {"
+        },
+        "sink": {
+          "file": "index.js",
+          "lineno": 391,
+          "code": "return new Function('tokens, req, res', js)"
+        }
+      }
+    ],
+    "note": "Source moved to the exported compile(format) parameter list (line 373), where the format string enters; sink unchanged."
+  },
+  "741_GHSA-jhgp-hvj6-x2p2": {
+    "vulnerability_location": [
+      {
+        "source": {
+          "file": "index.js",
+          "lineno": 160,
+          "code": "var result = yield *read(decodeURI(req.pathname));"
+        },
+        "sink": {
+          "file": "index.js",
+          "lineno": 79,
+          "code": "return util.format(TEMPLATE, base, base, list);"
+        }
+      }
+    ],
+    "note": "Source moved to the request read req.pathname (line 160). Sink was fs.readFile; the XSS is the directory listing that inserts the unescaped pathname into HTML (util.format(TEMPLATE, base, base, list), line 79)."
+  },
+  "745_GHSA-v2p6-4mp7-3r9v": {
+    "vulnerability_location": [
+      {
+        "source": {
+          "file": "unescapeHTML.js",
+          "lineno": 4,
+          "code": "module.exports = function unescapeHTML(str) {"
+        },
+        "sink": {
+          "file": "unescapeHTML.js",
+          "lineno": 5,
+          "code": "return makeString(str).replace(/\\&([^;]+);/g, function(entity, entityCode) {"
+        }
+      }
+    ],
+    "note": "File name typo 'underscapeHTML.js' fixed to 'unescapeHTML.js'."
+  },
+  "748_GHSA-hgr5-82rc-p936": {
+    "vulnerability_location": [
+      {
+        "source": {
+          "file": "dist/md-data-table.js",
+          "lineno": 1041,
+          "code": "transclude(function (clone) {"
+        },
+        "sink": {
+          "file": "dist/md-data-table.js",
+          "lineno": 1380,
+          "code": "element.append(val);"
+        }
+      }
+    ],
+    "note": "Sink was an object literal field; now element.append(val) at line 1380, which inserts the cell value into the DOM as HTML."
+  },
+  "751_GHSA-w32g-5hqp-gg6q": {
+    "vulnerability_location": [
+      {
+        "source": {
+          "file": "dist/mermaid.js",
+          "lineno": 50748,
+          "code": "const setLink = function (ids, linkStr, tooltip) {"
+        },
+        "sink": {
+          "file": "dist/mermaid.js",
+          "lineno": 51119,
+          "code": "link.setAttributeNS('http://www.w3.org/2000/svg', 'href', vertex.link);"
+        }
+      }
+    ],
+    "note": "Removed leading '/'. Sink was the (bypassable) javascript: filter; now the line writing vertex.link into the SVG anchor href (line 51119)."
+  },
+  "753_GHSA-44vf-8ffm-v2qh": {
+    "vulnerability_location": [
+      {
+        "block": {
+          "file": "index.js",
+          "start_lineno": 45,
+          "end_lineno": 77,
+          "code": "RailsSessionDecoder.prototype.decodeCookieFn = function (cookie, isSignedCookie, next) {"
+        }
+      }
+    ],
+    "note": "Block code set to the actual first line of the block (decodeCookieFn definition)."
+  },
+  "767_GHSA-hxwc-5vw9-2w4w": {
+    "vulnerability_location": [
+      {
+        "source": {
+          "file": "lib/mongodb.js",
+          "lineno": 842,
+          "code": "MongoDB.prototype.buildWhere = function(model, where) {"
+        },
+        "sink": {
+          "file": "lib/mongodb.js",
+          "lineno": 854,
+          "code": "return self.buildWhere(model, c);"
+        }
+      }
+    ],
+    "note": "File typo 'lib/mongdb.js' fixed to 'lib/mongodb.js'; lines unchanged."
+  },
+  "769_GHSA-2hwp-g4g7-mwwj": {
+    "vulnerability_location": [
+      {
+        "source": {
+          "file": "js/jquery.terminal.js",
+          "lineno": 3586,
+          "code": "format: function format(str, options) {"
+        },
+        "sink": {
+          "file": "js/jquery.terminal.js",
+          "lineno": 3680,
+          "code": "result = '<a target=\"_blank\" href=\"' + data + '\"';"
+        }
+      }
+    ],
+    "note": "Source was the anyLinks option default; now the exported $.terminal.format(str, options) (line 3586). Sink was the condition; now the line concatenating the unescaped link data into the href attribute (line 3680)."
+  },
+  "773_GHSA-9wjh-jr2j-6r4x": {
+    "vulnerability_location": [
+      {
+        "source": {
+          "file": "server.js",
+          "lineno": 141,
+          "code": "let filename = req.body.filename;"
+        },
+        "sink": {
+          "file": "pi_video_recording.js",
+          "lineno": 49,
+          "code": "childProcess.spawn(\"raspivid\","
+        }
+      },
+      {
+        "source": {
+          "file": "server.js",
+          "lineno": 141,
+          "code": "let filename = req.body.filename;"
+        },
+        "sink": {
+          "file": "pi_video_recording.js",
+          "lineno": 69,
+          "code": "const process = childProcess.exec("
+        }
+      }
+    ],
+    "note": "Sink file fixed to pi_video_recording.js and line to the spawn call (49); added the childProcess.exec in encodeRecord (line 69), where the same filename reaches a shell command."
+  },
+  "777_GHSA-73v8-v6g4-vrpm": {
+    "vulnerability_location": [
+      {
+        "block": {
+          "file": "lib/extractors.js",
+          "start_lineno": 63,
+          "end_lineno": 65,
+          "code": "var input = new stream.Readable();"
+        }
+      },
+      {
+        "block": {
+          "file": "lib/extractors.js",
+          "start_lineno": 91,
+          "end_lineno": 95,
+          "code": "var input = new stream.Readable();"
+        }
+      },
+      {
+        "block": {
+          "file": "lib/extractors.js",
+          "start_lineno": 130,
+          "end_lineno": 132,
+          "code": "var input = new stream.Readable();"
+        }
+      }
+    ],
+    "note": "File name fixed from 'lib/extractor.js' to 'lib/extractors.js'; block code set to each block's first line."
+  },
+  "784_GHSA-j9f8-8h89-j69x": {
+    "vulnerability_location": [
+      {
+        "source": {
+          "file": "lib/bucket.js",
+          "lineno": 13,
+          "code": "exec: function (command) {"
+        },
+        "sink": {
+          "file": "lib/bucket.js",
+          "lineno": 18,
+          "code": "cp.exec(command, { shell: true }, function (err, stdout, stderr) {"
+        }
+      }
+    ],
+    "note": "Sink file fixed: the cp.exec(command, { shell: true }) call is in lib/bucket.js line 18, not lib/openfiles.js."
+  },
+  "787_GHSA-hgch-jjmr-gp7w": {
+    "vulnerability_location": [
+      {
+        "source": {
+          "file": "src/index.js",
+          "lineno": 71,
+          "code": "function saferEval (code, context) {"
+        },
+        "sink": {
+          "file": "src/index.js",
+          "lineno": 43,
+          "code": "return vm.runInContext("
+        }
+      }
+    ],
+    "note": "Sink code set to the vm.runInContext call at line 43 (the annotated text was its argument on line 44)."
+  },
+  "794_GHSA-2j5v-fc74-j9q2": {
+    "vulnerability_location": [
+      {
+        "block": {
+          "file": "src/editormd.js",
+          "start_lineno": 3959,
+          "end_lineno": 3959,
+          "code": "div.addClass(\"markdown-body \" + this.classPrefix + \"html-preview\").append(markdownParsed);"
+        }
+      }
+    ],
+    "note": "Block moved to line 3959 of src/editormd.js, which holds the .append(markdownParsed) (line 3971 is the same code in the built editormd.js)."
+  },
+  "795_GHSA-xg75-3277-gvvj": {
+    "vulnerability_location": [
+      {
+        "source": {
+          "file": "node_modules/serve-handler/src/index.js",
+          "lineno": 392,
+          "code": "module.exports = async (request, response, config = {}, methods = {}) => {"
+        },
+        "sink": {
+          "file": "node_modules/serve-handler/src/index.js",
+          "lineno": 524,
+          "code": "const stream = await handlers.createReadStream(absolutePath);"
+        }
+      }
+    ],
+    "note": "src/index.js is not shipped by serve; the code is in the installed serve-handler dependency at the same lines."
+  },
+  "799_GHSA-2hhw-p8mg-jrm6": {
+    "vulnerability_location": [
+      {
+        "source": {
+          "file": "bin/http-live",
+          "lineno": 70,
+          "code": "http.createServer(function (req, res) {"
+        },
+        "sink": {
+          "file": "bin/http-live",
+          "lineno": 93,
+          "code": "fs.readFile(abspath, function(err, data) {"
+        }
+      }
+    ],
+    "note": "Sink was res.write; now fs.readFile(abspath) at line 93, which reads the attacker-controlled path."
+  },
+  "812_GHSA-xf5p-87ch-gxw2": {
+    "vulnerability_location": [
+      {
+        "block": {
+          "file": "lib/marked.js",
+          "start_lineno": 618,
+          "end_lineno": 622,
+          "code": "text: edit(inline.text)"
+        }
+      },
+      {
+        "block": {
+          "file": "lib/marked.js",
+          "start_lineno": 631,
+          "end_lineno": 633,
+          "code": "inline.breaks = merge({}, inline.gfm, {"
+        }
+      },
+      {
+        "block": {
+          "file": "lib/marked.js",
+          "start_lineno": 547,
+          "end_lineno": 549,
+          "code": "br: /^( {2,}|\\\\)\\n(?!\\s*$)/,"
+        }
+      }
+    ],
+    "note": "Block 3 code was split at the regex's literal '\\n'; code set to the actual first line of each block (line numbers unchanged)."
+  },
+  "813_GHSA-8j8c-7jfh-h6hx": {
+    "vulnerability_location": [
+      {
+        "source": {
+          "file": "lib/js-yaml/loader.js",
+          "lineno": 1580,
+          "code": "function load(input, options) {"
+        },
+        "sink": {
+          "file": "lib/js-yaml/type/js/function.js",
+          "lineno": 70,
+          "code": "return new Function(params, source.slice(body[0] + 1, body[1] - 1));"
+        }
+      },
+      {
+        "source": {
+          "file": "lib/js-yaml/loader.js",
+          "lineno": 1580,
+          "code": "function load(input, options) {"
+        },
+        "sink": {
+          "file": "lib/js-yaml/type/js/function.js",
+          "lineno": 75,
+          "code": "return new Function(params, 'return ' + source.slice(body[0], body[1]));"
+        }
+      }
+    ],
+    "note": "Sink '_result[keyNode] = valueNode' is a plain store; the code executed via String(keyNode)/toString is built by new Function in type/js/function.js (two branches, one location each). Source moved from internal storeMappingPair to the exported load(input, options)."
+  },
+  "822_GHSA-gh4g-3gm9-5wrq": {
+    "vulnerability_location": [
+      {
+        "source": {
+          "file": "dist/jquery.shave.js",
+          "lineno": 7,
+          "code": "function shave(target, maxHeight) {"
+        },
+        "sink": {
+          "file": "dist/jquery.shave.js",
+          "lineno": 68,
+          "code": "el.insertAdjacentHTML('beforeend', '<span class=\"' + classname + '\" style=\"display:none;\">' + diff + '</span>');"
+        }
+      },
+      {
+        "source": {
+          "file": "dist/shave.es.js",
+          "lineno": 8,
+          "code": "function shave(target, maxHeight) {"
+        },
+        "sink": {
+          "file": "dist/shave.es.js",
+          "lineno": 64,
+          "code": "el.insertAdjacentHTML('beforeend', \"<span class=\\\"\".concat(classname, \"\\\" style=\\\"display:none;\\\">\").concat(diff, \"</span>\"));"
+        }
+      },
+      {
+        "source": {
+          "file": "dist/shave.js",
+          "lineno": 14,
+          "code": "function shave(target, maxHeight) {"
+        },
+        "sink": {
+          "file": "dist/shave.js",
+          "lineno": 70,
+          "code": "el.insertAdjacentHTML('beforeend', \"<span class=\\\"\".concat(classname, \"\\\" style=\\\"display:none;\\\">\").concat(diff, \"</span>\"));"
+        }
+      },
+      {
+        "source": {
+          "file": "src/shave.js",
+          "lineno": 1,
+          "code": "export default function shave (target, maxHeight, opts = {}) {"
+        },
+        "sink": {
+          "file": "src/shave.js",
+          "lineno": 60,
+          "code": "el.insertAdjacentHTML("
+        }
+      }
+    ],
+    "note": "Removed leading '/' from paths; src/shave.js sink moved from the template-literal argument (62) to the el.insertAdjacentHTML( call (60); codes set to actual line text."
+  },
+  "823_GHSA-984p-xq9m-4rjw": {
+    "vulnerability_location": [
+      {
+        "block": {
+          "file": "lib/AbstractClientStore.js",
+          "start_lineno": 4,
+          "end_lineno": 21,
+          "code": "AbstractClientStore.prototype.increment = function (key, lifetime, callback) {"
+        }
+      }
+    ],
+    "note": "Block code was a description; set to the actual first line (increment function)."
+  },
+  "827_GHSA-c35v-qwqg-87jc": {
+    "exclude": "The shipped package is express-basic-auth 1.1.7 (patched; review's correct package is 1.1.6): the non-constant-time comparison 'username == i && password == users[i]' is replaced by timingSafeEqual-based safeCompare, so the vulnerable code is in neither the package nor its dependencies."
+  },
+  "830_GHSA-9q64-mpxx-87fg": {
+    "vulnerability_location": [
+      {
+        "source": {
+          "file": "lib/ecstatic.js",
+          "lineno": 175,
+          "code": "return function middleware(req, res, next) {"
+        },
+        "sink": {
+          "file": "lib/ecstatic.js",
+          "lineno": 395,
+          "code": "res.setHeader('location', `${parsed.pathname}/${q}`);"
+        }
+      }
+    ],
+    "note": "Location 0 sink (url: of the internal 404 re-dispatch, line 378) is not a redirect; the only redirect is res.setHeader('location', ...) at 395 (was annotated at 396). Both locations then coincide, so they are merged into one."
+  },
+  "831_GHSA-8v5f-hp78-jgxq": {
+    "vulnerability_location": [
+      {
+        "source": {
+          "file": "lib/jwt.js",
+          "lineno": 58,
+          "code": "jwt.decode = function jwt_decode(token, key, noVerify, algorithm) {"
+        },
+        "sink": {
+          "file": "lib/jwt.js",
+          "lineno": 87,
+          "code": "if (!verify(signingInput, key, signingMethod, signingType, signatureSeg)) {"
+        }
+      }
+    ],
+    "note": "File path fixed: jwt.js -> lib/jwt.js (lines unchanged)."
+  },
+  "833_GHSA-78j5-gcmf-vqc8": {
+    "vulnerability_location": [
+      {
+        "source": {
+          "file": "build/api/web/index.js",
+          "lineno": 64,
+          "code": "const base = Utils.combineBaseUrl(Utils.getWebProtocol(req), req.get('host'), config.url_prefix);"
+        },
+        "sink": {
+          "file": "build/api/web/index.js",
+          "lineno": 69,
+          "code": "res.send(webPage);"
+        }
+      }
+    ],
+    "note": "Source moved from module.exports = function(config, auth, storage) to the request read req.get('host') (64); sink moved from that line to res.send(webPage) (69), which writes the unescaped base URL into the HTML."
+  },
+  "834_GHSA-9w87-4j72-gcv7": {
+    "vulnerability_location": [
+      {
+        "block": {
+          "file": "dist/generate-and-save.js",
+          "start_lineno": 42,
+          "end_lineno": 42,
+          "code": "process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';"
+        }
+      }
+    ],
+    "note": "File path fixed: generate-and-save.js -> dist/generate-and-save.js."
+  },
+  "835_GHSA-cg48-9hh2-x6mx": {
+    "vulnerability_location": [
+      {
+        "source": {
+          "file": "src/render.js",
+          "lineno": 13,
+          "code": "export function render(vnode, parentDom) {"
+        },
+        "sink": {
+          "file": "src/diff/index.js",
+          "lineno": 282,
+          "code": "dom.innerHTML = newHtml && newHtml.__html || '';"
+        }
+      }
+    ],
+    "note": "A JSON-provided vnode (no constructor check) reaches render(); source set to render(vnode, parentDom), sink set to the dom.innerHTML write of dangerouslySetInnerHTML in diff (was 'return vnode;' in createVNode and a createElement line as source)."
+  },
+  "85_GHSA-rrj3-qmh8-72pf": {
+    "vulnerability_location": [
+      {
+        "source": {
+          "file": "tasks/gh-pages.js",
+          "lineno": 123,
+          "code": "log('Cloning ' + repo + ' into ' + options.clone);"
+        },
+        "sink": {
+          "file": "tasks/gh-pages.js",
+          "lineno": 124,
+          "code": "return git.clone(repo, options.clone, options.branch, options);"
+        }
+      }
+    ],
+    "note": "Sink file path fixed: src/index.js -> tasks/gh-pages.js (same line)."
+  },
+  "880_GHSA-42xw-2xvc-qx8m": {
+    "vulnerability_location": [
+      {
+        "block": {
+          "file": "lib/adapters/http.js",
+          "start_lineno": 183,
+          "end_lineno": 186,
+          "code": "if (config.maxContentLength > -1 && Buffer.concat(responseBuffer).length > config.maxContentLength) {"
+        }
+      }
+    ],
+    "note": "File path typo fixed: lib/adaptares/http.js -> lib/adapters/http.js."
+  },
+  "884_GHSA-8v67-x8q5-3x3g": {
+    "vulnerability_location": [
+      {
+        "source": {
+          "file": "lib/simditor.js",
+          "lineno": 2345,
+          "code": "_this.editor.body.get(0).innerHTML = state.html;"
+        },
+        "sink": {
+          "file": "lib/simditor.js",
+          "lineno": 2366,
+          "code": "return callback(pasteContent);"
+        }
+      }
+    ],
+    "note": "File path fixed: lib/simeditor.js -> lib/simditor.js (lines unchanged)."
+  },
+  "885_GHSA-788m-pj96-7w2c": {
+    "vulnerability_location": [
+      {
+        "source": {
+          "file": "src/definitions/modules/dropdown.js",
+          "lineno": 350,
+          "code": "selectValues  = module.get.selectValues()"
+        },
+        "sink": {
+          "file": "src/definitions/modules/dropdown.js",
+          "lineno": 372,
+          "code": ".html( templates.dropdown(selectValues) )"
+        }
+      },
+      {
+        "source": {
+          "file": "src/definitions/modules/dropdown.js",
+          "lineno": 394,
+          "code": "menu: function(values) {"
+        },
+        "sink": {
+          "file": "src/definitions/modules/dropdown.js",
+          "lineno": 395,
+          "code": "$menu.html( templates.menu(values, fields));"
+        }
+      },
+      {
+        "source": {
+          "file": "src/definitions/modules/dropdown.js",
+          "lineno": 692,
+          "code": "filter: function(query) {"
+        },
+        "sink": {
+          "file": "src/definitions/modules/dropdown.js",
+          "lineno": 2761,
+          "code": ".html(html)"
+        }
+      },
+      {
+        "source": {
+          "file": "src/definitions/modules/dropdown.js",
+          "lineno": 692,
+          "code": "filter: function(query) {"
+        },
+        "sink": {
+          "file": "src/definitions/modules/dropdown.js",
+          "lineno": 214,
+          "code": ".html(html)"
+        }
+      }
+    ],
+    "note": "Location 2 sink module.add.userSuggestion(query) replaced by the two HTML writes it reaches: $addition.html(html) in add.userSuggestion (2761) and $('<div />').html(html) in create.userChoice (214)."
+  },
+  "889_GHSA-cgjv-rghq-qhgp": {
+    "vulnerability_location": [
+      {
+        "source": {
+          "file": "httpserv.js",
+          "lineno": 75,
+          "code": "module.exports.serve = function(request, response){"
+        },
+        "sink": {
+          "file": "httpserv.js",
+          "lineno": 57,
+          "code": "fs.createReadStream(filePath, streamOptions).pipe(response);"
+        }
+      }
+    ],
+    "note": "Both sinks were doStream(...) calls; the file-system call is fs.createReadStream(filePath, ...) in doStream (57). Source moved from setServePath (config) to the exported serve(request, response), which reads request.url. The two locations then coincide and are merged."
+  },
+  "89_GHSA-xg5r-8j97-2wrj": {
+    "vulnerability_location": [
+      {
+        "source": {
+          "file": "lib/restafary.js",
+          "lineno": 39,
+          "code": "name    = ponse.getPathName(req);"
+        },
+        "sink": {
+          "file": "lib/fs/put.js",
+          "lineno": 19,
+          "code": "files.pipe(readStream, name, callback);"
+        }
+      },
+      {
+        "source": {
+          "file": "lib/restafary.js",
+          "lineno": 39,
+          "code": "name    = ponse.getPathName(req);"
+        },
+        "sink": {
+          "file": "lib/fs/put.js",
+          "lineno": 23,
+          "code": "flop.create(name, callback);"
+        }
+      },
+      {
+        "source": {
+          "file": "lib/restafary.js",
+          "lineno": 39,
+          "code": "name    = ponse.getPathName(req);"
+        },
+        "sink": {
+          "file": "lib/fs/put.js",
+          "lineno": 27,
+          "code": "files.pipe(readStream, name, {gunzip: true}, callback);"
+        }
+      },
+      {
+        "source": {
+          "file": "lib/restafary.js",
+          "lineno": 39,
+          "code": "name    = ponse.getPathName(req);"
+        },
+        "sink": {
+          "file": "lib/fs/patch.js",
+          "lineno": 21,
+          "code": "patch(name, data, options, callback);"
+        }
+      },
+      {
+        "source": {
+          "file": "lib/restafary.js",
+          "lineno": 39,
+          "code": "name    = ponse.getPathName(req);"
+        },
+        "sink": {
+          "file": "lib/fs/get.js",
+          "lineno": 21,
+          "code": "flop.read(name, callback);"
+        }
+      },
+      {
+        "source": {
+          "file": "lib/restafary.js",
+          "lineno": 39,
+          "code": "name    = ponse.getPathName(req);"
+        },
+        "sink": {
+          "file": "lib/fs/get.js",
+          "lineno": 25,
+          "code": "flop.read(name, 'size', callback);"
+        }
+      },
+      {
+        "source": {
+          "file": "lib/restafary.js",
+          "lineno": 39,
+          "code": "name    = ponse.getPathName(req);"
+        },
+        "sink": {
+          "file": "lib/fs/get.js",
+          "lineno": 29,
+          "code": "flop.read(name, 'time raw', callback);"
+        }
+      },
+      {
+        "source": {
+          "file": "lib/restafary.js",
+          "lineno": 39,
+          "code": "name    = ponse.getPathName(req);"
+        },
+        "sink": {
+          "file": "lib/fs/get.js",
+          "lineno": 33,
+          "code": "beautify(name, callback);"
+        }
+      },
+      {
+        "source": {
+          "file": "lib/restafary.js",
+          "lineno": 39,
+          "code": "name    = ponse.getPathName(req);"
+        },
+        "sink": {
+          "file": "lib/fs/get.js",
+          "lineno": 37,
+          "code": "minify(name, callback);"
+        }
+      },
+      {
+        "source": {
+          "file": "lib/restafary.js",
+          "lineno": 39,
+          "code": "name    = ponse.getPathName(req);"
+        },
+        "sink": {
+          "file": "lib/fs/get.js",
+          "lineno": 41,
+          "code": "ashify(readStream(name), {algorithm: 'sha1', encoding:'hex'}, callback);"
+        }
+      },
+      {
+        "source": {
+          "file": "lib/restafary.js",
+          "lineno": 39,
+          "code": "name    = ponse.getPathName(req);"
+        },
+        "sink": {
+          "file": "lib/restafary.js",
+          "lineno": 193,
+          "code": "ponse.sendFile(params);"
+        }
+      },
+      {
+        "source": {
+          "file": "lib/restafary.js",
+          "lineno": 39,
+          "code": "name    = ponse.getPathName(req);"
+        },
+        "sink": {
+          "file": "lib/fs/delete.js",
+          "lineno": 21,
+          "code": "flop.delete(name, callback);"
+        }
+      },
+      {
+        "source": {
+          "file": "lib/restafary.js",
+          "lineno": 39,
+          "code": "name    = ponse.getPathName(req);"
+        },
+        "sink": {
+          "file": "lib/fs/delete.js",
+          "lineno": 25,
+          "code": "flop.delete(name, files, callback);"
+        }
+      }
+    ],
+    "note": "Sink 'path = mellow.pathToWin(name, root)' only builds the path; replaced by one location per file-system operation it reaches (files.pipe/flop.create in put, patchfile in patch, flop.read/beautify/minify/createReadStream in get, ponse.sendFile in onGet, flop.delete in delete). Source moved from internal onFS to the request read ponse.getPathName(req)."
+  },
+  "915_GHSA-724c-6vrf-99rq": {
+    "vulnerability_location": [
+      {
+        "source": {
+          "file": "common/models/user.js",
+          "lineno": 232,
+          "code": "var query = self.normalizeCredentials(credentials, realmRequired,"
+        },
+        "sink": {
+          "file": "common/models/user.js",
+          "lineno": 250,
+          "code": "self.findOne({where: query}, function(err, user) {"
+        }
+      }
+    ],
+    "note": "Source line moved 208 -> 232 (normalizeCredentials call)."
+  },
+  "916_GHSA-6fcr-9h9g-23fq": {
+    "vulnerability_location": [
+      {
+        "block": {
+          "file": "src/index.js",
+          "start_lineno": 90,
+          "end_lineno": 100,
+          "code": "const toCancel = blocks"
+        }
+      }
+    ],
+    "note": "Block shifted to start at 'const toCancel = blocks' (90) and end at the closing of each(...) (100)."
+  },
+  "959_GHSA-v86x-f47q-f7f4": {
+    "vulnerability_location": [
+      {
+        "source": {
+          "file": "___fs++.js",
+          "lineno": 52,
+          "code": "function(dir,callback)"
+        },
+        "sink": {
+          "file": "___fs++.js",
+          "lineno": 57,
+          "code": "_cp.exec('dir /s /b \"'+dir+'\"',"
+        }
+      }
+    ],
+    "note": "Source file path fixed: src/index.js -> ___fs++.js (findfiles, same line)."
+  },
+  "962_GHSA-9r3m-mhfm-39cm": {
+    "vulnerability_location": [
+      {
+        "block": {
+          "file": "dist/util.js",
+          "start_lineno": 92,
+          "end_lineno": 107,
+          "code": "const wholePart = (value / exports.PRECISION_M);"
+        }
+      }
+    ],
+    "note": "Block lines correct; code set to the shipped JS first line (annotation had the TypeScript text)."
+  },
+  "966_GHSA-pmv6-gf98-p3r5": {
+    "vulnerability_location": [
+      {
+        "source": {
+          "file": "index.js",
+          "lineno": 5,
+          "code": "module.exports = function (port) {"
+        },
+        "sink": {
+          "file": "index.js",
+          "lineno": 11,
+          "code": "return sh("
+        }
+      },
+      {
+        "source": {
+          "file": "index.js",
+          "lineno": 5,
+          "code": "module.exports = function (port) {"
+        },
+        "sink": {
+          "file": "index.js",
+          "lineno": 16,
+          "code": "return sh("
+        }
+      }
+    ],
+    "note": "Sinks moved from the template-literal argument lines to the execa shell calls 'return sh(' (11, 16)."
+  },
+  "967_GHSA-45j8-pm75-5v8x": {
+    "vulnerability_location": [
+      {
+        "source": {
+          "file": "src/helper/route.js",
+          "lineno": 22,
+          "code": "const filePath = path.join(root, req.url);"
+        },
+        "sink": {
+          "file": "src/helper/route.js",
+          "lineno": 46,
+          "code": "rs = fs.createReadStream(filePath);"
+        }
+      },
+      {
+        "source": {
+          "file": "src/helper/route.js",
+          "lineno": 22,
+          "code": "const filePath = path.join(root, req.url);"
+        },
+        "sink": {
+          "file": "src/helper/route.js",
+          "lineno": 49,
+          "code": "rs = fs.createReadStream(filePath, { start, end });// 返回部分内容"
+        }
+      }
+    ],
+    "note": "File path fixed: src/helper/route -> src/helper/route.js."
+  },
+  "980_GHSA-7qcx-jmrc-h2rr": {
+    "vulnerability_location": [
+      {
+        "block": {
+          "file": "fields/types/markdown/MarkdownField.js",
+          "start_lineno": 129,
+          "end_lineno": 129,
+          "code": "<textarea name={this.props.paths.md} style={styles} defaultValue={this.props.value.md} ref=\"markdownTextarea\" className=\"form-control markdown code\"></textarea>"
+        }
+      },
+      {
+        "block": {
+          "file": "fields/types/Field.js",
+          "start_lineno": 56,
+          "end_lineno": 56,
+          "code": "return <input type=\"text\" ref=\"focusTarget\" name={this.props.path} placeholder={this.props.placeholder} value={this.props.value} onChange={this.valueChanged} autoComplete=\"off\" className=\"form-control\" />;"
+        }
+      }
+    ],
+    "note": "Removed '/package/' prefix from paths; code set to actual line text."
+  },
+  "981_GHSA-7cv6-gvx3-m54m": {
+    "exclude": "The annotated renderValue code (innerHtml = value.md.replace(/\\n/g, '<br />')) belongs to later keystone (4.x, PR 4478); keystone 0.3.22's MarkdownField.js has 133 lines and no such code, and it is not in any dependency."
+  },
+  "988_GHSA-w992-2gmj-9xxj": {
+    "vulnerability_location": [
+      {
+        "source": {
+          "file": "dist/swagger-ui.js",
+          "lineno": 6349,
+          "code": "SwaggerSpecConverter.prototype.apiInfo = function(obj, swagger) {"
+        },
+        "sink": {
+          "file": "dist/swagger-ui.js",
+          "lineno": 22351,
+          "code": "$(this.el).html(Handlebars.templates.main(this.model));"
+        }
+      }
+    ],
+    "note": "Sink moved from the property copy swagger.info.description = ... to the HTML write $(this.el).html(Handlebars.templates.main(this.model)) (22351), whose main template inserts info.description unescaped."
+  },
+  "989_GHSA-hq8g-qq57-5275": {
+    "vulnerability_location": [
+      {
+        "source": {
+          "file": "lib/model.js",
+          "lineno": 50,
+          "code": "function all_generator(temp){"
+        },
+        "sink": {
+          "file": "lib/model.js",
+          "lineno": 53,
+          "code": "con.query(\"SELECT * FROM \" + temp.model + \";\",function (e,data){"
+        }
+      }
+    ],
+    "note": "File path fixed: model.js -> lib/model.js."
+  },
+  "GHSA-2m8v-572m-ff2v": {
+    "vulnerability_location": [
+      {
+        "source": {
+          "file": "lib/internet.js",
+          "lineno": 127,
+          "code": "function inetLatency(host, callback) {"
+        },
+        "sink": {
+          "file": "lib/util.js",
+          "lineno": 399,
+          "code": "const child = spawn(cmd, args, options);"
+        }
+      },
+      {
+        "source": {
+          "file": "lib/internet.js",
+          "lineno": 31,
+          "code": "function inetChecksite(url, callback) {"
+        },
+        "sink": {
+          "file": "lib/util.js",
+          "lineno": 399,
+          "code": "const child = spawn(cmd, args, options);"
+        }
+      },
+      {
+        "source": {
+          "file": "lib/processes.js",
+          "lineno": 881,
+          "code": "function processLoad(proc, callback) {"
+        },
+        "sink": {
+          "file": "lib/processes.js",
+          "lineno": 993,
+          "code": "exec('ps -axo pid,pcpu,pmem,comm | grep -i ' + procSanitized + ' | grep -v grep', { maxBuffer: 1024 * 20000 }, function (error, stdout) {"
+        }
+      },
+      {
+        "source": {
+          "file": "lib/processes.js",
+          "lineno": 881,
+          "code": "function processLoad(proc, callback) {"
+        },
+        "sink": {
+          "file": "lib/processes.js",
+          "lineno": 1026,
+          "code": "exec(cmd, { maxBuffer: 1024 * 20000 }, function (error, stdout) {"
+        }
+      },
+      {
+        "source": {
+          "file": "lib/processes.js",
+          "lineno": 90,
+          "code": "function services(srv, callback) {"
+        },
+        "sink": {
+          "file": "lib/util.js",
+          "lineno": 399,
+          "code": "const child = spawn(cmd, args, options);"
+        }
+      },
+      {
+        "source": {
+          "file": "lib/processes.js",
+          "lineno": 90,
+          "code": "function services(srv, callback) {"
+        },
+        "sink": {
+          "file": "lib/processes.js",
+          "lineno": 216,
+          "code": "exec(cmd, { maxBuffer: 1024 * 20000 }, function (error, stdout) {"
+        }
+      }
+    ],
+    "note": "Location 4/6 sinks util.execSafe('ps', args) are a package wrapper; sink moved to its spawn(cmd, args, options) (lib/util.js:399). Locations 4 and 6 then coincide; location 6 removed."
+  },
+  "GHSA-2mm9-c2fx-c7m4": {
+    "vulnerability_location": [
+      {
+        "source": {
+          "file": "lib/docsify.js",
+          "lineno": 7957,
+          "code": "var href = location.href;"
+        },
+        "sink": {
+          "file": "lib/docsify.js",
+          "lineno": 7627,
+          "code": "node[replace ? 'outerHTML' : 'innerHTML'] = content;"
+        }
+      }
+    ],
+    "note": "isExternal bypass lets a remote markdown page skip purify.sanitize; source set to the URL read 'var href = location.href;' in getCurrentPath (7957), sink to the innerHTML write in _renderTo (7627) (was the url.match line inside isExternal)."
+  },
+  "GHSA-34r7-q49f-h37c": {
+    "vulnerability_location": [
+      {
+        "block": {
+          "file": "lib/compress.js",
+          "start_lineno": 2158,
+          "end_lineno": 2158,
+          "code": "if (compressor.option(\"comparisons\")) {"
+        }
+      }
+    ],
+    "note": "Code set to actual text (double quotes)."
+  },
+  "GHSA-35jh-r3h4-6jhm": {
+    "vulnerability_location": [
+      {
+        "source": {
+          "file": "lodash.js",
+          "lineno": 14796,
+          "code": "function template(string, options, guard) {"
+        },
+        "sink": {
+          "file": "lodash.js",
+          "lineno": 14894,
+          "code": "return Function(importsKeys, sourceURL + 'return ' + source)"
+        }
+      }
+    ],
+    "note": "File path typo fixed: lodhash.js -> lodash.js."
+  },
+  "GHSA-39q4-p535-c852": {
+    "vulnerability_location": [
+      {
+        "block": {
+          "file": "php/net-gopher/gopher_parsedir.js",
+          "start_lineno": 28,
+          "end_lineno": 29,
+          "code": "var entryPattern = /^(.)(.*?)\\t(.*?)\\t(.*?)\\t(.*?)\\u000d\\u000a$/;"
+        }
+      }
+    ],
+    "note": "File fixed: lib/index.js -> php/net-gopher/gopher_parsedir.js; block extended to include the line applying the regex (dirent.match(entryPattern))."
+  },
+  "GHSA-3crj-w4f5-gwh4": {
+    "vulnerability_location": [
+      {
+        "source": {
+          "file": "lib/thirdparty/less/tree/quoted.js",
+          "lineno": 22,
+          "code": "eval: function (env) {"
+        },
+        "sink": {
+          "file": "lib/thirdparty/less/tree/javascript.js",
+          "lineno": 20,
+          "code": "expression = new(Function)('return (' + expression + ')');"
+        }
+      },
+      {
+        "source": {
+          "file": "lib/thirdparty/less/functions.js",
+          "lineno": 215,
+          "code": "e: function (str) {"
+        },
+        "sink": {
+          "file": "lib/thirdparty/less/functions.js",
+          "lineno": 216,
+          "code": "return new(tree.Anonymous)(str instanceof tree.JavaScript ? str.evaluated : str);"
+        }
+      },
+      {
+        "block": {
+          "file": "lib/thirdparty/less/parser.js",
+          "start_lineno": 1001,
+          "end_lineno": 1016,
+          "code": "javascript: function () {"
+        }
+      }
+    ],
+    "note": "Location 0 sink moved to new(Function)('return (' + expression + ')') in tree/javascript.js (20), which the JavaScript node's eval runs; location 1 (Variable eval for @{} interpolation, same source) reaches that same sink and was merged into it. Location 2 file fixed: function.js -> functions.js. Location 3 block moved to the javascript parser at 1001-1016."
+  },
+  "GHSA-4r62-v4vq-hr96": {
+    "vulnerability_location": [
+      {
+        "block": {
+          "file": "lib/marked.esm.js",
+          "start_lineno": 1202,
+          "end_lineno": 1213,
+          "code": "strong: {"
+        }
+      },
+      {
+        "block": {
+          "file": "lib/marked.esm.js",
+          "start_lineno": 1217,
+          "end_lineno": 1218,
+          "code": "text: /^(`+|[^`])(?:(?= {2,}\\n)|[\\s\\S]*?(?:(?=[\\\\<!\\[`*]|\\b_|$)|[^ ](?= {2,}\\n)))/,"
+        }
+      },
+      {
+        "block": {
+          "file": "lib/marked.esm.js",
+          "start_lineno": 1227,
+          "end_lineno": 1228,
+          "code": "inline._blockSkip = '\\\\[[^\\\\]]*?\\\\]\\\\([^\\\\)]*?\\\\)|`[^`]*?`|<[^>]*?>';"
+        }
+      }
+    ],
+    "note": "Blocks shifted +73 lines to the shipped lib/marked.esm.js: strong/em regex objects (1202-1213), text/punctuation (1217-1218), _blockSkip/_overlapSkip (1227-1228); codes set to actual text."
+  },
+  "GHSA-4wv4-mgfq-598v": {
+    "vulnerability_location": [
+      {
+        "source": {
+          "file": "lib/index.js",
+          "lineno": 12,
+          "code": "constructor(data) {"
+        },
+        "sink": {
+          "file": "lib/index.js",
+          "lineno": 13,
+          "code": "this.laureates = eval(`(${data})`).laureates;"
+        }
+      }
+    ],
+    "note": "File path fixed: index.js -> lib/index.js."
+  },
+  "GHSA-6fw4-hr69-g3rv": {
+    "vulnerability_location": [
+      {
+        "source": {
+          "file": "index.js",
+          "lineno": 44,
+          "code": "setter: function(path) {"
+        },
+        "sink": {
+          "file": "index.js",
+          "lineno": 55,
+          "code": "data[parts[index]] = value"
+        }
+      }
+    ],
+    "note": "Source line moved 11 -> 44 (setter: function(path))."
+  },
+  "GHSA-7p8h-86p5-wv3p": {
+    "vulnerability_location": [
+      {
+        "source": {
+          "file": "lib/scripts/collection.js",
+          "lineno": 188,
+          "code": "$.get(`${makeCollectionUrl()}${encodeURIComponent(_id)}/${prop}`, function (prop) {"
+        },
+        "sink": {
+          "file": "lib/scripts/collection.js",
+          "lineno": 191,
+          "code": "target.parent().html(prop);"
+        }
+      }
+    ],
+    "note": "In this version the $.get callback parameter is named `prop` (line 188) and the jQuery .html() write of the fetched value is at line 191; moved source and sink to these lines."
+  },
+  "GHSA-8f89-2fwj-5v5r": {
+    "vulnerability_location": [
+      {
+        "source": {
+          "file": "dist/klona.js",
+          "lineno": 1,
+          "code": "module.exports = function klona(x) {"
+        },
+        "sink": {
+          "file": "dist/klona.js",
+          "lineno": 9,
+          "code": "tmp[k] = klona(x[k]);"
+        }
+      }
+    ],
+    "note": "Sink code corrected to the shipped text `tmp[k] = klona(x[k]);` (line 9)."
+  },
+  "GHSA-8px5-63x9-5c7p": {
+    "vulnerability_location": [
+      {
+        "source": {
+          "file": "src/index.js",
+          "lineno": 35,
+          "code": ".then(res => {"
+        },
+        "sink": {
+          "file": "src/index.js",
+          "lineno": 37,
+          "code": "execSync("
+        }
+      }
+    ],
+    "note": "Sink moved from the template-string argument (line 38) to the execSync call on line 37."
+  },
+  "GHSA-9cp3-fh5x-xfcj": {
+    "vulnerability_location": [
+      {
+        "source": {
+          "file": "lib/charset.js",
+          "lineno": 35,
+          "code": "module.exports = function charset(obj, data) {"
+        },
+        "sink": {
+          "file": "lib/charset.js",
+          "lineno": 59,
+          "code": "matchs = CHARTSET_RE.exec(contentType);"
+        }
+      }
+    ],
+    "note": "Source moved from a non-existent regex line (106) to the exported function's parameter list `charset(obj, data)` (line 35); sink at line 59 already applies the vulnerable regex."
+  },
+  "GHSA-9v3m-8fp8-mj99": {
+    "vulnerability_location": [
+      {
+        "source": {
+          "file": "js/src/tooltip.js",
+          "lineno": 641,
+          "code": "...$(this.element).data(),"
+        },
+        "sink": {
+          "file": "js/src/tooltip.js",
+          "lineno": 433,
+          "code": "$element[html ? 'html' : 'text'](content)"
+        }
+      },
+      {
+        "source": {
+          "file": "js/src/tooltip.js",
+          "lineno": 641,
+          "code": "...$(this.element).data(),"
+        },
+        "sink": {
+          "file": "js/src/tooltip.js",
+          "lineno": 411,
+          "code": "this.tip = this.tip || $(this.config.template)[0]"
+        }
+      }
+    ],
+    "note": "Attacker data enters through the element's data-* attributes (`...$(this.element).data()`, line 641). Sinks: the .html() write of title/content (line 433) and the jQuery HTML parse of config.template (line 411). Replaced the event-trigger sink (line 324) and the former source at line 433, which is itself the HTML write."
+  },
+  "GHSA-c4qr-gmr9-v23w": {
+    "vulnerability_location": [
+      {
+        "source": {
+          "file": "index.js",
+          "lineno": 105,
+          "code": "async function httpProxy (fastify, opts) {"
+        },
+        "sink": {
+          "file": "index.js",
+          "lineno": 123,
+          "code": "fastify.register(From, fromOpts)"
+        }
+      },
+      {
+        "source": {
+          "file": "index.js",
+          "lineno": 69,
+          "code": "function setupWebSocketProxy (fastify, options) {"
+        },
+        "sink": {
+          "file": "index.js",
+          "lineno": 70,
+          "code": "const server = new WebSocket.Server({"
+        }
+      }
+    ],
+    "note": "Location 1 sink moved to `const server = new WebSocket.Server({` (line 70)."
+  },
+  "GHSA-cf4h-3jhx-xvhq": {
+    "vulnerability_location": [
+      {
+        "source": {
+          "file": "underscore.js",
+          "lineno": 875,
+          "code": "function template(text, settings, oldSettings) {"
+        },
+        "sink": {
+          "file": "underscore.js",
+          "lineno": 915,
+          "code": "render = new Function(settings.variable || 'obj', '_', source);"
+        }
+      }
+    ],
+    "note": "Sink moved from the call of the compiled template (line 922) to `new Function(...)` (line 915); source code text corrected."
+  },
+  "GHSA-cgc7-mwp4-3ccx": {
+    "vulnerability_location": [
+      {
+        "source": {
+          "file": "lib/joplin-renderer/htmlUtils.js",
+          "lineno": 72,
+          "code": "sanitizeHtml(html, options = null) {"
+        },
+        "sink": {
+          "file": "lib/joplin-renderer/htmlUtils.js",
+          "lineno": 131,
+          "code": "output.push(`<${name}${attrHtml}${closingSign}`);"
+        }
+      }
+    ],
+    "note": "Source moved from the disallowedTags list to the sanitizeHtml(html, options) parameter list (line 72); sink moved from parser.write to the line concatenating the unescaped tag and attributes into the HTML output (line 131)."
+  },
+  "GHSA-ff7x-qrg7-qggm": {
+    "vulnerability_location": [
+      {
+        "source": {
+          "file": "index.js",
+          "lineno": 69,
+          "code": "set(obj, path, value) {"
+        },
+        "sink": {
+          "file": "index.js",
+          "lineno": 88,
+          "code": "obj[p] = value;"
+        }
+      }
+    ],
+    "note": "Code text corrected to the shipped lines (`set(obj, path, value) {`, `obj[p] = value;`); line numbers unchanged. Note: dot-prop 4.2.1 already contains the __proto__/prototype/constructor filter."
+  },
+  "GHSA-h4hr-7fg3-h35w": {
+    "vulnerability_location": [
+      {
+        "block": {
+          "file": "components/prism-asciidoc.js",
+          "start_lineno": 4,
+          "end_lineno": 4,
+          "code": "pattern: /(^[ \\t]*)\\[(?!\\[)(?:([\"'$`])(?:(?!\\2)[^\\\\]|\\\\.)*\\2|\\[(?:[^\\]\\\\]|\\\\.)*\\]|[^\\]\\\\]|\\\\.)*\\]/m,"
+        }
+      },
+      {
+        "block": {
+          "file": "components/prism-asciidoc.js",
+          "start_lineno": 35,
+          "end_lineno": 35,
+          "code": "pattern: /^\\|={3,}(?:(?:\\r?\\n|\\r).*)*?(?:\\r?\\n|\\r)\\|={3,}$/m,"
+        }
+      },
+      {
+        "block": {
+          "file": "components/prism-asciidoc.js",
+          "start_lineno": 127,
+          "end_lineno": 127,
+          "code": "pattern: /\\b[a-z\\d][a-z\\d-]*::?(?:(?:\\S+)??\\[(?:[^\\]\\\\\"]|([\"'])(?:(?!\\1)[^\\\\]|\\\\.)*\\1|\\\\.)*\\])/,"
+        }
+      },
+      {
+        "block": {
+          "file": "components/prism-bash.js",
+          "start_lineno": 136,
+          "end_lineno": 136,
+          "code": "pattern: /(^|[^\\\\](?:\\\\\\\\)*)([\"'])(?:\\\\[\\s\\S]|\\$\\([^)]+\\)|`[^`]+`|(?!\\2)[^\\\\])*\\2/,"
+        }
+      },
+      {
+        "block": {
+          "file": "components/prism-batch.js",
+          "start_lineno": 28,
+          "end_lineno": 28,
+          "code": "pattern: /((?:^|[&(])[ \\t]*)for(?: ?\\/[a-z?](?:[ :](?:\"[^\"]*\"|\\S+))?)* \\S+ in \\([^)]+\\) do/im,"
+        }
+      },
+      {
+        "block": {
+          "file": "components/prism-batch.js",
+          "start_lineno": 41,
+          "end_lineno": 41,
+          "code": "pattern: /((?:^|[&(])[ \\t]*)if(?: ?\\/[a-z?](?:[ :](?:\"[^\"]*\"|\\S+))?)* (?:not )?(?:cmdextversion \\d+|defined \\w+|errorlevel \\d+|exist \\S+|(?:\"[^\"]*\"|\\S+)?(?:==| (?:equ|neq|lss|leq|gtr|geq) )(?:\"[^\"]*\"|\\S+))/im,"
+        }
+      },
+      {
+        "block": {
+          "file": "components/prism-batch.js",
+          "start_lineno": 62,
+          "end_lineno": 62,
+          "code": "pattern: /((?:^|[&(])[ \\t]*)set(?: ?\\/[a-z](?:[ :](?:\"[^\"]*\"|\\S+))?)* (?:[^^&)\\r\\n]|\\^(?:\\r\\n|[\\s\\S]))*/im,"
+        }
+      },
+      {
+        "block": {
+          "file": "components/prism-eiffel.js",
+          "start_lineno": 16,
+          "end_lineno": 16,
+          "code": "pattern: /\"(?:%\\s*\\n\\s*%|%.|[^%\"\\r\\n])*\"/,"
+        }
+      },
+      {
+        "block": {
+          "file": "components/prism-elm.js",
+          "start_lineno": 14,
+          "end_lineno": 14,
+          "code": "pattern: /\"(?:[^\\\\\"\\r\\n]|\\\\(?:[abfnrtv\\\\\"]|\\d+|x[0-9a-fA-F]+))*\"/,"
+        }
+      },
+      {
+        "block": {
+          "file": "components/prism-fortran.js",
+          "start_lineno": 7,
+          "end_lineno": 7,
+          "code": "pattern: /(?:\\w+_)?(['\"])(?:\\1\\1|&(?:\\r\\n?|\\n)(?:\\s*!.+(?:\\r\\n?|\\n))?|(?!\\1).)*(?:\\1|&)/,"
+        }
+      },
+      {
+        "block": {
+          "file": "components/prism-ftl.js",
+          "start_lineno": 21,
+          "end_lineno": 21,
+          "code": "pattern: RegExp(/(\"|')(?:(?!\\1|\\$\\{)[^\\\\]|\\\\.|\\$\\{(?:<expr>)*?\\})*\\1/.source.replace(/<expr>/g, function () { return FTL_EXPR; })),"
+        }
+      },
+      {
+        "block": {
+          "file": "components/prism-ftl.js",
+          "start_lineno": 25,
+          "end_lineno": 25,
+          "code": "pattern: RegExp(/((?:^|[^\\\\])(?:\\\\\\\\)*)\\$\\{(?:<expr>)*?\\}/.source.replace(/<expr>/g, function () { return FTL_EXPR; })),"
+        }
+      },
+      {
+        "block": {
+          "file": "components/prism-gherkin.js",
+          "start_lineno": 19,
+          "end_lineno": 19,
+          "code": "pattern: /((?:^|\\r?\\n|\\r)[ \\t]*)(?:Ability|Ahoy matey!|Arwedd|Aspekt|Besigheid Behoefte|Business Need|Caracteristica|Característica|Egenskab|Egenskap|Eiginleiki|Feature|Fīča|Fitur|Fonctionnalité|Fonksyonalite|Funcionalidade|Funcionalitat|Functionalitate|Funcţionalitate|Funcționalitate|Functionaliteit|Fungsi|Funkcia|Funkcija|Funkcionalitāte|Funkcionalnost|Funkcja|Funksie|Funktionalität|Funktionalitéit|Funzionalità|Hwaet|Hwæt|Jellemző|Karakteristik|laH|Lastnost|Mak|Mogucnost|Mogućnost|Moznosti|Možnosti|OH HAI|Omadus|Ominaisuus|Osobina|Özellik|perbogh|poQbogh malja'|Potrzeba biznesowa|Požadavek|Požiadavka|Pretty much|Qap|Qu'meH 'ut|Savybė|Tính năng|Trajto|Vermoë|Vlastnosť|Właściwość|Značilnost|Δυνατότητα|Λειτουργία|Могућност|Мөмкинлек|Особина|Свойство|Үзенчәлеклелек|Функционал|Функционалност|Функция|Функціонал|תכונה|خاصية|خصوصیت|صلاحیت|کاروبار کی ضرورت|وِیژگی|रूप लेख|ਖਾਸੀਅਤ|ਨਕਸ਼ ਨੁਹਾਰ|ਮੁਹਾਂਦਰਾ|గుణము|ಹೆಚ್ಚಳ|ความต้องการทางธุรกิจ|ความสามารถ|โครงหลัก|기능|フィーチャ|功能|機能):(?:[^:]+(?:\\r?\\n|\\r|$))*/,"
+        }
+      },
+      {
+        "block": {
+          "file": "components/prism-haml.js",
+          "start_lineno": 55,
+          "end_lineno": 55,
+          "code": "pattern: /((?:^|\\r?\\n|\\r)[\\t ]*)[%.#][\\w\\-#.]*[\\w\\-](?:\\([^)]+\\)|\\{(?:\\{[^}]+\\}|[^}])+\\}|\\[[^\\]]+\\])*[\\/<>]*/,"
+        }
+      },
+      {
+        "block": {
+          "file": "components/prism-haml.js",
+          "start_lineno": 62,
+          "end_lineno": 62,
+          "code": "pattern: /(^|[^#])\\{(?:\\{[^}]+\\}|[^}])+\\}/,"
+        }
+      },
+      {
+        "block": {
+          "file": "components/prism-hcl.js",
+          "start_lineno": 36,
+          "end_lineno": 36,
+          "code": "pattern: /\"(?:[^\\\\$\"]|\\\\[\\s\\S]|\\$(?:(?=\")|\\$+|[^\"${])|\\$\\{(?:[^{}\"]|\"(?:[^\\\\\"]|\\\\[\\s\\S])*\")*\\})*\"/,"
+        }
+      },
+      {
+        "block": {
+          "file": "components/prism-lisp.js",
+          "start_lineno": 117,
+          "end_lineno": 117,
+          "code": "pattern: RegExp(par + 'lambda\\\\s+\\\\((?:&?' + symbol + '\\\\s*)*\\\\)'),"
+        }
+      },
+      {
+        "block": {
+          "file": "components/prism-lua.js",
+          "start_lineno": 5,
+          "end_lineno": 5,
+          "code": "pattern: /([\"'])(?:(?!\\1)[^\\\\\\r\\n]|\\\\z(?:\\r\\n|\\s)|\\\\(?:\\r\\n|[\\s\\S]))*\\1|\\[(=*)\\[[\\s\\S]*?\\]\\2\\]/,"
+        }
+      },
+      {
+        "block": {
+          "file": "components/prism-neon.js",
+          "start_lineno": 35,
+          "end_lineno": 35,
+          "code": "pattern: /(^|[[{(=:,\\s])(?:[^#\"\\',:=[\\]{}()\\s`-]|[:-][^\"\\',=[\\]{}()\\s])(?:[^,:=\\]})(\\s]+|:(?![\\s,\\]})]|$)|[ \\t]+[^#,:=\\]})(\\s])*/,"
+        }
+      },
+      {
+        "block": {
+          "file": "components/prism-nix.js",
+          "start_lineno": 9,
+          "end_lineno": 9,
+          "code": "pattern: /(^|(?:^|(?!'').)[^\\\\])\\$\\{(?:[^}]|\\{[^}]*\\})*}/,"
+        }
+      },
+      {
+        "block": {
+          "file": "components/prism-puppet.js",
+          "start_lineno": 6,
+          "end_lineno": 6,
+          "code": "pattern: /(@\\(\"([^\"\\r\\n\\/):]+)\"(?:\\/[nrts$uL]*)?\\).*(?:\\r?\\n|\\r))(?:.*(?:\\r?\\n|\\r))*?[ \\t]*\\|?[ \\t]*-?[ \\t]*\\2/,"
+        }
+      },
+      {
+        "block": {
+          "file": "components/prism-puppet.js",
+          "start_lineno": 17,
+          "end_lineno": 17,
+          "code": "pattern: /(@\\(([^\"\\r\\n\\/):]+)(?:\\/[nrts$uL]*)?\\).*(?:\\r?\\n|\\r))(?:.*(?:\\r?\\n|\\r))*?[ \\t]*\\|?[ \\t]*-?[ \\t]*\\2/,"
+        }
+      },
+      {
+        "block": {
+          "file": "components/prism-puppet.js",
+          "start_lineno": 66,
+          "end_lineno": 66,
+          "code": "pattern: /([\"'])(?:\\$\\{(?:[^'\"}]|([\"'])(?:(?!\\2)[^\\\\]|\\\\[\\s\\S])*\\2)+\\}|(?!\\1)[^\\\\]|\\\\[\\s\\S])*\\1/,"
+        }
+      },
+      {
+        "block": {
+          "file": "components/prism-q.js",
+          "start_lineno": 18,
+          "end_lineno": 18,
+          "code": "pattern: /(^|\\r?\\n|\\r)\\/[\\t ]*(?:(?:\\r?\\n|\\r)(?:.*(?:\\r?\\n|\\r))*?(?:\\\\(?=[\\t ]*(?:\\r?\\n|\\r))|$)|\\S.*)/,"
+        }
+      },
+      {
+        "block": {
+          "file": "components/prism-rest.js",
+          "start_lineno": 4,
+          "end_lineno": 4,
+          "code": "pattern: /(\\s*)(?:\\+[=-]+)+\\+(?:\\r?\\n|\\r)(?:\\1(?:[+|].+)+[+|](?:\\r?\\n|\\r))+\\1(?:\\+[=-]+)+\\+/,"
+        }
+      },
+      {
+        "block": {
+          "file": "components/prism-rest.js",
+          "start_lineno": 11,
+          "end_lineno": 11,
+          "code": "pattern: /(\\s*)(?:=+ +)+=+(?:(?:\\r?\\n|\\r)\\1.+)+(?:\\r?\\n|\\r)\\1(?:=+ +)+=+(?=(?:\\r?\\n|\\r){2}|\\s*$)/,"
+        }
+      },
+      {
+        "block": {
+          "file": "components/prism-ruby.js",
+          "start_lineno": 97,
+          "end_lineno": 97,
+          "code": "pattern: /(\"|')(?:#\\{[^}]+\\}|\\\\(?:\\r\\n|[\\s\\S])|(?!\\1)[^\\\\\\r\\n])*\\1/,"
+        }
+      },
+      {
+        "block": {
+          "file": "components/prism-sass.js",
+          "start_lineno": 67,
+          "end_lineno": 67,
+          "code": "pattern: /([ \\t]*)\\S(?:,?[^,\\r\\n]+)*(?:,(?:\\r?\\n|\\r)\\1[ \\t]+\\S(?:,?[^,\\r\\n]+)*)*/,"
+        }
+      },
+      {
+        "block": {
+          "file": "components/prism-scss.js",
+          "start_lineno": 35,
+          "end_lineno": 35,
+          "code": "pattern: /(?:[\\w-]|\\$[-\\w]+|#\\{\\$[-\\w]+\\})+(?=\\s*:)/,"
+        }
+      },
+      {
+        "block": {
+          "file": "components/prism-shell-session.js",
+          "start_lineno": 9,
+          "end_lineno": 9,
+          "code": "/([\"'])(?:\\\\[\\s\\S]|\\$\\([^)]+\\)|`[^`]+`|(?!\\1)[^\\\\])*\\1/.source,"
+        }
+      },
+      {
+        "block": {
+          "file": "components/prism-stylus.js",
+          "start_lineno": 125,
+          "end_lineno": 125,
+          "code": "pattern: /(^[ \\t]*)(?:(?=\\S)(?:[^{}\\r\\n:()]|::?[\\w-]+(?:\\([^)\\r\\n]*\\))?|\\{[^}\\r\\n]+\\})+)(?:(?:\\r?\\n|\\r)(?:\\1(?:(?=\\S)(?:[^{}\\r\\n:()]|::?[\\w-]+(?:\\([^)\\r\\n]*\\))?|\\{[^}\\r\\n]+\\})+)))*(?:,$|\\{|(?=(?:\\r?\\n|\\r)(?:\\{|\\1[ \\t]+)))/m,"
+        }
+      },
+      {
+        "block": {
+          "file": "components/prism-swift.js",
+          "start_lineno": 4,
+          "end_lineno": 4,
+          "code": "pattern: /(\"|')(?:\\\\(?:\\((?:[^()]|\\([^)]+\\))+\\)|\\r\\n|[\\s\\S])|(?!\\1)[^\\\\\\r\\n])*\\1/,"
+        }
+      },
+      {
+        "block": {
+          "file": "components/prism-tap.js",
+          "start_lineno": 15,
+          "end_lineno": 15,
+          "code": "pattern: /(^[^\\S\\r\\n]*)---(?:\\r\\n?|\\n)(?:.*(?:\\r\\n?|\\n))*?[^\\S\\r\\n]*\\.\\.\\.$/m,"
+        }
+      },
+      {
+        "block": {
+          "file": "components/prism-textile.js",
+          "start_lineno": 80,
+          "end_lineno": 80,
+          "code": "pattern: withModifier(/^(?:(?:<MOD>|<PAR>|[<>=^~])+\\.\\s*)?(?:\\|(?:(?:<MOD>|<PAR>|[<>=^~_]|[\\\\/]\\d+)+\\.)?[^|]*)+\\|/.source, 'm'),"
+        }
+      },
+      {
+        "block": {
+          "file": "components/prism-xeora.js",
+          "start_lineno": 23,
+          "end_lineno": 23,
+          "code": "pattern: /\\$F:[-\\w.]+\\?[-\\w.]+(?:,(?:\\|?(?:[-#.^+*~]*(?:[\\w+][^$]*)|=(?:[\\S+][^$]*)|@[-#]*(?:\\w+.)[\\w+.]+)?)*)?\\$/,"
+        }
+      },
+      {
+        "block": {
+          "file": "components/prism-xeora.js",
+          "start_lineno": 43,
+          "end_lineno": 43,
+          "code": "pattern: /\\$XF:{[-\\w.]+\\?[-\\w.]+(?:,(?:\\|?(?:[-#.^+*~]*(?:[\\w+][^$]*)|=(?:[\\S+][^$]*)|@[-#]*(?:\\w+.)[\\w+.]+)?)*)?}:XF\\$/,"
+        }
+      },
+      {
+        "block": {
+          "file": "components/prism-xeora.js",
+          "start_lineno": 43,
+          "end_lineno": 43,
+          "code": "pattern: /\\$XF:{[-\\w.]+\\?[-\\w.]+(?:,(?:\\|?(?:[-#.^+*~]*(?:[\\w+][^$]*)|=(?:[\\S+][^$]*)|@[-#]*(?:\\w+.)[\\w+.]+)?)*)?}:XF\\$/,"
+        }
+      }
+    ],
+    "note": "Code placeholders replaced by each vulnerable regex line's text. Removed location 20 (prism-php.js:18 `alias: 'constant'`): the vulnerable PHP number regex fixed by the patch does not exist in prismjs 1.22.0."
+  },
+  "GHSA-h4j5-c7cj-74xg": {
+    "vulnerability_location": [
+      {
+        "block": {
+          "file": "lib/XMLHttpRequest.js",
+          "start_lineno": 531,
+          "end_lineno": 531,
+          "code": "+ (data ? \"req.write('\" + data.replace(/'/g, \"\\\\'\") + \"');\":\"\")"
+        }
+      }
+    ],
+    "note": "Block moved to line 531, where request data is concatenated into the script passed to `spawn(process.argv[0], [\"-e\", execString])`."
+  },
+  "GHSA-h6q6-9hqw-rwfv": {
+    "vulnerability_location": [
+      {
+        "block": {
+          "file": "lib/dom.js",
+          "start_lineno": 1081,
+          "end_lineno": 1081,
+          "code": "buf.push(' PUBLIC \"',pubid);"
+        }
+      },
+      {
+        "block": {
+          "file": "lib/dom.js",
+          "start_lineno": 1083,
+          "end_lineno": 1083,
+          "code": "buf.push( '\" \"',sysid);"
+        }
+      },
+      {
+        "block": {
+          "file": "lib/dom.js",
+          "start_lineno": 1085,
+          "end_lineno": 1085,
+          "code": "buf.push('\">');"
+        }
+      },
+      {
+        "block": {
+          "file": "lib/dom.js",
+          "start_lineno": 1087,
+          "end_lineno": 1087,
+          "code": "buf.push(' SYSTEM \"',sysid,'\">');"
+        }
+      },
+      {
+        "block": {
+          "file": "lib/sax.js",
+          "start_lineno": 244,
+          "end_lineno": 244,
+          "code": "el.add(attrName,value,start-1);"
+        }
+      },
+      {
+        "block": {
+          "file": "lib/sax.js",
+          "start_lineno": 253,
+          "end_lineno": 253,
+          "code": "el.add(attrName,value,start);"
+        }
+      },
+      {
+        "block": {
+          "file": "lib/sax.js",
+          "start_lineno": 309,
+          "end_lineno": 309,
+          "code": "el.add(attrName,value.replace(/&#?\\w+;/g,entityReplacer),start)"
+        }
+      },
+      {
+        "block": {
+          "file": "lib/sax.js",
+          "start_lineno": 339,
+          "end_lineno": 339,
+          "code": "el.add(attrName,value,start)"
+        }
+      },
+      {
+        "block": {
+          "file": "lib/sax.js",
+          "start_lineno": 362,
+          "end_lineno": 362,
+          "code": "el.add(attrName,attrName,start);"
+        }
+      }
+    ],
+    "note": "Location 2 code corrected to the line's actual text `buf.push('\">');` (line 1085, closing the PUBLIC id)."
+  },
+  "GHSA-hxcc-f52p-wc94": {
+    "vulnerability_location": [
+      {
+        "source": {
+          "file": "index.js",
+          "lineno": 46,
+          "code": "module.exports = function serialize(obj, options) {"
+        },
+        "sink": {
+          "file": "index.js",
+          "lineno": 196,
+          "code": "return \"new RegExp(\" + serialize(regexps[valueIndex].source) + \", \\\"\" + regexps[valueIndex].flags + \"\\\")\";"
+        }
+      }
+    ],
+    "note": "Sink moved to line 196 where the RegExp is serialized."
+  },
+  "GHSA-j32x-j8pj-pg2h": {
+    "vulnerability_location": [
+      {
+        "source": {
+          "file": "src/utils/extend.js",
+          "lineno": 23,
+          "code": "module.exports = function extend (target, ...rest) {"
+        },
+        "sink": {
+          "file": "src/utils/extend.js",
+          "lineno": 50,
+          "code": "} else if (typeof copy !== 'undefined') target[name] = copy"
+        }
+      }
+    ],
+    "note": "Sink moved from the recursive assignment (line 49) to `target[name] = copy` (line 50), the write that pollutes Object.prototype after recursion through __proto__."
+  },
+  "GHSA-jff2-qjw8-5476": {
+    "vulnerability_location": [
+      {
+        "source": {
+          "file": "lib/internet.js",
+          "lineno": 127,
+          "code": "function inetLatency(host, callback) {"
+        },
+        "sink": {
+          "file": "lib/util.js",
+          "lineno": 399,
+          "code": "const child = spawn(cmd, args, options);"
+        }
+      },
+      {
+        "source": {
+          "file": "lib/internet.js",
+          "lineno": 31,
+          "code": "function inetChecksite(url, callback) {"
+        },
+        "sink": {
+          "file": "lib/util.js",
+          "lineno": 399,
+          "code": "const child = spawn(cmd, args, options);"
+        }
+      },
+      {
+        "source": {
+          "file": "lib/processes.js",
+          "lineno": 881,
+          "code": "function processLoad(proc, callback) {"
+        },
+        "sink": {
+          "file": "lib/processes.js",
+          "lineno": 993,
+          "code": "exec('ps -axo pid,pcpu,pmem,comm | grep -i ' + procSanitized + ' | grep -v grep', { maxBuffer: 1024 * 20000 }, function (error, stdout) {"
+        }
+      },
+      {
+        "source": {
+          "file": "lib/processes.js",
+          "lineno": 881,
+          "code": "function processLoad(proc, callback) {"
+        },
+        "sink": {
+          "file": "lib/processes.js",
+          "lineno": 1026,
+          "code": "exec(cmd, { maxBuffer: 1024 * 20000 }, function (error, stdout) {"
+        }
+      },
+      {
+        "source": {
+          "file": "lib/processes.js",
+          "lineno": 90,
+          "code": "function services(srv, callback) {"
+        },
+        "sink": {
+          "file": "lib/util.js",
+          "lineno": 399,
+          "code": "const child = spawn(cmd, args, options);"
+        }
+      },
+      {
+        "source": {
+          "file": "lib/processes.js",
+          "lineno": 90,
+          "code": "function services(srv, callback) {"
+        },
+        "sink": {
+          "file": "lib/processes.js",
+          "lineno": 216,
+          "code": "exec(cmd, { maxBuffer: 1024 * 20000 }, function (error, stdout) {"
+        }
+      },
+      {
+        "source": {
+          "file": "lib/processes.js",
+          "lineno": 90,
+          "code": "function services(srv, callback) {"
+        },
+        "sink": {
+          "file": "lib/util.js",
+          "lineno": 399,
+          "code": "const child = spawn(cmd, args, options);"
+        }
+      }
+    ],
+    "note": "Locations 4 and 6: sink moved from util.execSafe('ps', args) to its child_process call `spawn(cmd, args, options)` in lib/util.js:399, as in locations 0 and 1."
+  },
+  "GHSA-jqh7-w5pr-cr56": {
+    "vulnerability_location": [
+      {
+        "source": {
+          "file": "dist/src/auth/create-enable-cookies.js",
+          "lineno": 14,
+          "code": "return function enableCookies(ctx) {"
+        },
+        "sink": {
+          "file": "dist/src/auth/create-enable-cookies.js",
+          "lineno": 21,
+          "code": "ctx.body = \"\\n<!DOCTYPE html>\\n<html lang=\\\"en\\\">\\n<head>\\n  <meta charset=\\\"utf-8\\\" />\\n  <style>\\n    \" + polaris_css_1.default + \"\\n  </style>\\n  <base target=\\\"_top\\\">\\n  <title>Redirecting\\u2026</title>\\n\\n  <script>\\n    window.apiKey = \\\"\" + apiKey + \"\\\";\\n    window.shopOrigin = \\\"https://\" + shop + \"\\\";\\n\\n    \" + itp_helper_1.default + \"\\n    \" + top_level_interaction_1.default(shop, prefix) + \"\\n  </script>\\n</head>\\n<body>\\n  <main id=\\\"TopLevelInteractionContent\\\">\\n    <div class=\\\"Polaris-Page\\\">\\n      <div class=\\\"Polaris-Page__Content\\\">\\n        <div class=\\\"Polaris-Layout\\\">\\n          <div class=\\\"Polaris-Layout__Section\\\">\\n            <div class=\\\"Polaris-Stack Polaris-Stack--vertical\\\">\\n              <div class=\\\"Polaris-Stack__Item\\\">\\n                <div class=\\\"Polaris-Card\\\">\\n                  <div class=\\\"Polaris-Card__Header\\\">\\n                    <h1 class=\\\"Polaris-Heading\\\">\" + HEADING + \"</h1>\\n                  </div>\\n                  <div class=\\\"Polaris-Card__Section\\\">\\n                    <p>\" + BODY + \"</p>\\n                  </div>\\n                  <div class=\\\"Polaris-Card__Section Polaris-Card__Section--subdued\\\">\\n                    <p>\" + FOOTER + \"</p>\\n                  </div>\\n                </div>\\n              </div>\\n              <div class=\\\"Polaris-Stack__Item\\\">\\n                <div class=\\\"Polaris-Stack Polaris-Stack--distributionTrailing\\\">\\n                  <div class=\\\"Polaris-Stack__Item\\\">\\n                    <button type=\\\"button\\\" class=\\\"Polaris-Button Polaris-Button--primary\\\" id=\\\"TopLevelInteractionButton\\\">\\n                      <span class=\\\"Polaris-Button__Content\\\"><span>\" + ACTION + \"</span></span>\\n                    </button>\\n                  </div>\\n                </div>\\n              </div>\\n            </div>\\n          </div>\\n        </div>\\n      </div>\\n    </div>\\n  </main>\\n</body>\\n</html>\";"
+        }
+      }
+    ],
+    "note": "Sink code corrected to the line's actual text (escaped \\n in a single-line string); ctx.body HTML write at line 21 kept."
+  },
+  "GHSA-jxg6-fhwc-9v9c": {
+    "vulnerability_location": [
+      {
+        "source": {
+          "file": "src/lib/crawler.js",
+          "lineno": 104,
+          "code": "isCrawler(userAgent = undefined)"
+        },
+        "sink": {
+          "file": "src/lib/crawler.js",
+          "lineno": 116,
+          "code": "var matches = this.compiledRegexList.exec(agent.trim());"
+        }
+      }
+    ],
+    "note": "File path corrected to src/lib/crawler.js."
+  },
+  "GHSA-ph32-23p8-9rw5": {
+    "vulnerability_location": [
+      {
+        "source": {
+          "file": "linux/manager.js",
+          "lineno": 1,
+          "code": "var cli = process.env.NM_CLI || 'nmcli'"
+        },
+        "sink": {
+          "file": "common.js",
+          "lineno": 9,
+          "code": "pOut = childProcess.execSync(cli, options);"
+        }
+      }
+    ],
+    "note": "Source file path corrected to linux/manager.js."
+  },
+  "GHSA-pxcc-hj8w-fmm7": {
+    "vulnerability_location": [
+      {
+        "source": {
+          "file": "dist/getPackedPackage.js",
+          "lineno": 23,
+          "code": "async function getPackedPackage(name, target, packageDir) {"
+        },
+        "sink": {
+          "file": "dist/getPackedPackage.js",
+          "lineno": 50,
+          "code": "await execa_1.default.command(packCMD, {"
+        }
+      }
+    ],
+    "note": "File path corrected to dist/getPackedPackage.js."
+  },
+  "GHSA-q4h8-7qff-gh6c": {
+    "vulnerability_location": [
+      {
+        "source": {
+          "file": "core/server/api/canary/oembed.js",
+          "lineno": 135,
+          "code": "}).then((response) => {"
+        },
+        "sink": {
+          "file": "core/server/api/canary/oembed.js",
+          "lineno": 159,
+          "code": "return externalRequest(oembedUrl, {"
+        }
+      }
+    ],
+    "note": "Version 2.38.3 has no getOembedUrlFromHTML; the fetched page arrives in the `.then((response) => {` callback (line 135), its oembed link is extracted at line 147 and requested by `externalRequest(oembedUrl, {` (line 159), the SSRF request."
+  },
+  "GHSA-qcg2-h349-vwm3": {
+    "vulnerability_location": [
+      {
+        "block": {
+          "file": "dist/react-draft-wysiwyg.js",
+          "start_lineno": 7,
+          "end_lineno": 7,
+          "code": "S.a.createElement(\"a\",{href:r,target:i},t)"
+        }
+      }
+    ],
+    "note": "Line 7 is the whole minified bundle (219k chars); code set to the excerpt of that line rendering the unsanitized link href in the Link decorator."
+  },
+  "GHSA-qxg5-2qff-p49r": {
+    "vulnerability_location": [
+      {
+        "block": {
+          "file": "src/striptags.js",
+          "start_lineno": 58,
+          "end_lineno": 188,
+          "code": "function striptags_internal(html, context) {"
+        }
+      }
+    ],
+    "note": "Code placeholder replaced by the block's first line."
+  },
+  "GHSA-r3j7-x2g5-9gx6": {
+    "vulnerability_location": [
+      {
+        "source": {
+          "file": "index.js",
+          "lineno": 31,
+          "code": "getFile(path, destination, workingDir) {"
+        },
+        "sink": {
+          "file": "index.js",
+          "lineno": 169,
+          "code": "exec(command, options, function (err, stdout, stderr) {"
+        }
+      },
+      {
+        "source": {
+          "file": "index.js",
+          "lineno": 37,
+          "code": "sendFile(path, destination) {"
+        },
+        "sink": {
+          "file": "index.js",
+          "lineno": 169,
+          "code": "exec(command, options, function (err, stdout, stderr) {"
+        }
+      },
+      {
+        "source": {
+          "file": "index.js",
+          "lineno": 48,
+          "code": "deleteFile(fileName) {"
+        },
+        "sink": {
+          "file": "index.js",
+          "lineno": 169,
+          "code": "exec(command, options, function (err, stdout, stderr) {"
+        }
+      },
+      {
+        "source": {
+          "file": "index.js",
+          "lineno": 52,
+          "code": "async listFiles(fileNamePrefix, fileNameSuffix) {"
+        },
+        "sink": {
+          "file": "index.js",
+          "lineno": 169,
+          "code": "exec(command, options, function (err, stdout, stderr) {"
+        }
+      },
+      {
+        "source": {
+          "file": "index.js",
+          "lineno": 78,
+          "code": "mkdir(remotePath, cwd) {"
+        },
+        "sink": {
+          "file": "index.js",
+          "lineno": 169,
+          "code": "exec(command, options, function (err, stdout, stderr) {"
+        }
+      },
+      {
+        "source": {
+          "file": "index.js",
+          "lineno": 86,
+          "code": "dir(remotePath, cwd) {"
+        },
+        "sink": {
+          "file": "index.js",
+          "lineno": 169,
+          "code": "exec(command, options, function (err, stdout, stderr) {"
+        }
+      }
+    ],
+    "note": "Location 0 source code corrected to `getFile(path, destination, workingDir) {`."
+  },
+  "GHSA-r578-pj6f-r4ff": {
+    "exclude": "The vulnerable single-step Person creation (POST /People with profile fields, triggering Rock auto-merge) does not exist in data-connector-rock 1.8.0: lib/index.js has no such code and createUserProfile (lib/auth/data-source.js:188) already posts only Gender/IsSystem and patches the profile afterwards, i.e. the patched behaviour."
+  },
+  "GHSA-rhwp-9vm9-547q": {
+    "vulnerability_location": [
+      {
+        "source": {
+          "file": "src/oled-exp.js",
+          "lineno": 90,
+          "code": "scroll: function (direction) {"
+        },
+        "sink": {
+          "file": "src/oled-exp.js",
+          "lineno": 91,
+          "code": "return exec(oledExecutable + ' write ' + direction);"
+        }
+      }
+    ],
+    "note": "File path corrected to src/oled-exp.js."
+  },
+  "GHSA-v756-4whv-48vc": {
+    "vulnerability_location": [
+      {
+        "source": {
+          "file": "src/messenger-node.js",
+          "lineno": 68,
+          "code": "line: color => {"
+        },
+        "sink": {
+          "file": "src/messenger-node.js",
+          "lineno": 71,
+          "code": "eval(`cl.${color}()`); // eslint-disable-line"
+        }
+      }
+    ],
+    "note": "File path corrected to src/messenger-node.js."
+  },
+  "GHSA-vc9j-fhvv-8vrf": {
+    "vulnerability_location": [
+      {
+        "source": {
+          "file": "src/serialization/sb3.js",
+          "lineno": 280,
+          "code": "const getExtensionIdForOpcode = function (opcode) {"
+        },
+        "sink": {
+          "file": "src/extension-support/extension-worker.js",
+          "lineno": 20,
+          "code": "importScripts(extension);"
+        }
+      }
+    ],
+    "note": "Source moved to the exported getExtensionIdForOpcode(opcode) parameter list (line 280); the extension ID taken from the opcode is loaded as an extension URL (loadExtensionURL -> worker), so the sink is `importScripts(extension);` in src/extension-support/extension-worker.js:20."
+  },
+  "GHSA-vh6r-g38f-q3w8": {
+    "vulnerability_location": [
+      {
+        "block": {
+          "file": "index.js",
+          "start_lineno": 116,
+          "end_lineno": 285,
+          "code": "const compare = (value, pattern, options) => {"
+        }
+      },
+      {
+        "block": {
+          "file": "index.js",
+          "start_lineno": 372,
+          "end_lineno": 446,
+          "code": "const iterate = (value, pattern, valid, cb, options) => {"
+        }
+      }
+    ],
+    "note": "Code placeholders replaced by each block's first line."
+  },
+  "GHSA-w46j-8hm6-h8mm": {
+    "vulnerability_location": [
+      {
+        "source": {
+          "file": "src/modules/legend/Legend.js",
+          "lineno": 96,
+          "code": "let text = legendFormatter(legendNames[i], { seriesIndex: i, w })"
+        },
+        "sink": {
+          "file": "src/modules/legend/Legend.js",
+          "lineno": 192,
+          "code": "elLegendText.innerHTML = Array.isArray(text) ? text.join(' ') : text"
+        }
+      },
+      {
+        "block": {
+          "file": "src/modules/tooltip/Labels.js",
+          "start_lineno": 228,
+          "end_lineno": 228,
+          "code": "ttYLabel.innerHTML = seriesName ? seriesName : ''"
+        }
+      }
+    ],
+    "note": "Location 0: the innerHTML write (line 192) is the sink; source set to the legend text read `let text = legendFormatter(legendNames[i], ...)` (line 96). Location 1: code corrected to `ttYLabel.innerHTML = seriesName ? seriesName : ''`."
+  },
+  "GHSA-whq6-mj2r-mjqc": {
+    "vulnerability_location": [
+      {
+        "source": {
+          "file": "lib/lsof.js",
+          "lineno": 3,
+          "code": "var raw = exports.raw = function(pid, fn) {"
+        },
+        "sink": {
+          "file": "lib/lsof.js",
+          "lineno": 9,
+          "code": "cp.exec('lsof -p ' + pid, function(err, d) {"
+        }
+      },
+      {
+        "source": {
+          "file": "lib/lsof.js",
+          "lineno": 36,
+          "code": "var rawTcpPort = exports.rawTcpPort = function(port, fn) {"
+        },
+        "sink": {
+          "file": "lib/lsof.js",
+          "lineno": 37,
+          "code": "cp.exec('lsof -i tcp:' + port, function(err, d) {"
+        }
+      }
+    ],
+    "note": "File path corrected to lib/lsof.js."
+  },
+  "GHSA-xmxh-g7wj-8m4m": {
+    "vulnerability_location": [
+      {
+        "source": {
+          "file": "lib/curl-transport.js",
+          "lineno": 56,
+          "code": "exports.run = function (command, cb) {"
+        },
+        "sink": {
+          "file": "lib/curl-transport.js",
+          "lineno": 57,
+          "code": "exec(\"curl \" + command, {"
+        }
+      }
+    ],
+    "note": "File path corrected to lib/curl-transport.js."
+  }
+}

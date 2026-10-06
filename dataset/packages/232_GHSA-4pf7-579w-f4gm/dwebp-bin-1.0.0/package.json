@@ -1,0 +1,59 @@
+{
+  "name": "dwebp-bin",
+  "version": "1.0.0",
+  "description": "dwebp wrapper that makes it seamlessly available as a local dependency",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/1000ch/dwebp-bin.git"
+  },
+  "bugs": {
+    "url": "https://github.com/1000ch/dwebp-bin/issues"
+  },
+  "homepage": "https://github.com/1000ch/dwebp-bin",
+  "author": {
+    "name": "Shogo Sensui",
+    "email": "shogosensui@gmail.com",
+    "url": "https://github.com/1000ch"
+  },
+  "bin": {
+    "dwebp": "cli.js"
+  },
+  "engines": {
+    "node": ">=10"
+  },
+  "scripts": {
+    "test": "xo && ava --timeout=120s",
+    "postinstall": "node lib/install.js"
+  },
+  "files": [
+    "lib",
+    "vendor/source",
+    "cli.js",
+    "index.js"
+  ],
+  "keywords": [
+    "image",
+    "img",
+    "jpg",
+    "jpeg",
+    "png",
+    "gif",
+    "webp"
+  ],
+  "xo": {
+    "space": 2
+  },
+  "dependencies": {
+    "bin-build": "^3.0.0",
+    "bin-wrapper": "^4.1.0",
+    "logalot": "^2.1.0"
+  },
+  "devDependencies": {
+    "ava": "^3.9.0",
+    "bin-check": "^4.1.0",
+    "is-png": "^2.0.0",
+    "tempy": "^0.5.0",
+    "xo": "^0.32.0"
+  }
+}

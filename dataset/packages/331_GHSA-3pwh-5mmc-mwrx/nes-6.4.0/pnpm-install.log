@@ -1,0 +1,24 @@
+$ corepack pnpm@9.15.9 install --prod --no-frozen-lockfile --reporter=append-only --config.node-linker=hoisted --ignore-workspace --ignore-scripts
+ WARN  deprecated code@4.1.0: This version has been deprecated in accordance with the hapi support policy (hapi.im/support). Please upgrade to the latest version to get the best features, bug fixes, and security patches. If you are unable to upgrade at this time, paid support is available for older versions (hapi.im/commercial).
+Progress: resolved 1, reused 0, downloaded 0, added 0
+ WARN  deprecated call@3.0.4: This version has been deprecated in accordance with the hapi support policy (hapi.im/support). Please upgrade to the latest version to get the best features, bug fixes, and security patches. If you are unable to upgrade at this time, paid support is available for older versions (hapi.im/commercial).
+ WARN  deprecated lab@11.2.2: This version has been deprecated in accordance with the hapi support policy (hapi.im/support). Please upgrade to the latest version to get the best features, bug fixes, and security patches. If you are unable to upgrade at this time, paid support is available for older versions (hapi.im/commercial).
+ WARN  deprecated babel-preset-es2015@6.24.1: 🙌  Thanks for using Babel: we recommend using babel-preset-env now: please read https://babeljs.io/env to update!
+ WARN  deprecated joi@10.6.0: This version has been deprecated in accordance with the hapi support policy (hapi.im/support). Please upgrade to the latest version to get the best features, bug fixes, and security patches. If you are unable to upgrade at this time, paid support is available for older versions (hapi.im/commercial).
+ WARN  deprecated items@2.2.1: This module has been deprecated. It's not used by modern hapi versions anymore. Please refer to https://hapi.dev for migration to latest versions.
+ WARN  deprecated boom@4.3.1: This version has been deprecated in accordance with the hapi support policy (hapi.im/support). Please upgrade to the latest version to get the best features, bug fixes, and security patches. If you are unable to upgrade at this time, paid support is available for older versions (hapi.im/commercial).
+ WARN  deprecated hapi@16.8.4: This version contains severe security issues and defects and should not be used! Please upgrade to the latest version of @hapi/hapi
+ WARN  deprecated hoek@4.3.1: This module has moved and is now available at @hapi/hoek. Please update your dependencies as this version is no longer maintained an may contain bugs and security issues.
+ WARN  deprecated cryptiles@3.2.1: This module has moved and is now available at @hapi/cryptiles. Please update your dependencies as this version is no longer maintained and may contain bugs and security issues.
+ WARN  deprecated iron@4.1.1: This module has moved and is now available at @hapi/iron. Please update your dependencies as this version is no longer maintained and may contain bugs and security issues.
+Progress: resolved 37, reused 0, downloaded 0, added 0
+Progress: resolved 156, reused 0, downloaded 0, added 0
+Progress: resolved 376, reused 0, downloaded 0, added 0
+ WARN  42 deprecated subdependencies found: @hapi/address@1.0.1, accept@2.2.3, ammo@2.1.2, b64@3.1.1, boom@5.3.3, bossy@3.0.4, bourne@1.3.3, call@4.1.2, catbox-memory@2.1.1, catbox@7.2.1, circular-json@0.3.3, content@3.1.2, core-js@2.6.12, eslint-config-hapi@10.1.0, eslint-plugin-hapi@4.1.0, eslint@3.13.1, fsevents@1.2.13, glob@7.2.3, hapi-capitalize-modules@1.1.6, hapi-for-you@1.0.0, hapi-no-var@1.0.1, hapi-scope-start@2.1.1, heavy@4.1.1, inflight@1.0.6, joi@12.1.1, mimos@3.1.1, nigel@2.1.1, no-arrowception@1.0.0, pez@2.2.2, podium@1.4.1, resolve-url@0.2.1, rimraf@2.6.3, shot@3.5.2, somever@1.1.1, source-map-resolve@0.5.3, source-map-url@0.4.1, statehood@5.1.1, subtext@5.1.3, topo@2.1.1, urix@0.1.0, vise@2.1.1, wreck@12.6.2
+
+devDependencies: skipped
+
+Packages: +14
+++++++++++++++
+Progress: resolved 399, reused 6, downloaded 7, added 14, done
+Done in 4s using pnpm v9.15.9

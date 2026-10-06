@@ -1,0 +1,16 @@
+$belong[demo/list.html]
+<ul>
+<ul id="each-list">
+<%for(var i=0; i < 6; i++){
+  print( '<li>模板循环项'+(i+1)+'</li>\n' );
+}%>
+</ul>
+</ul>
+<fieldset>
+    <lengend>请求参数</lengend>
+    <ul>
+		<%_.each(request.data, function(v,k){
+		    print( '<li>'+k+":"+v+'</li>' )
+		});%>        
+    </ul>
+</fieldset>

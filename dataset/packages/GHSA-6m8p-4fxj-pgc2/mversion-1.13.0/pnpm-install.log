@@ -1,0 +1,17 @@
+$ corepack pnpm@9.15.9 install --prod --no-frozen-lockfile --reporter=append-only --config.node-linker=hoisted --ignore-workspace --ignore-scripts
+Progress: resolved 1, reused 0, downloaded 0, added 0
+ WARN  deprecated istanbul@0.4.5: This module is no longer maintained, try this instead:
+  npm i nyc
+Visit https://istanbul.js.org/integrations for other alternatives.
+Progress: resolved 141, reused 0, downloaded 0, added 0
+Progress: resolved 223, reused 0, downloaded 0, added 0
+Progress: resolved 229, reused 0, downloaded 0, added 0
+Progress: resolved 230, reused 0, downloaded 0, added 0
+ WARN  7 deprecated subdependencies found: clone-buffer@1.0.0, glob@5.0.15, glob@7.1.2, glob@7.2.3, inflight@1.0.6, mkdirp@0.5.1, path-dirname@1.0.2
+
+devDependencies: skipped
+
+Packages: +192
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Progress: resolved 231, reused 178, downloaded 10, added 192, done
+Done in 6.1s using pnpm v9.15.9

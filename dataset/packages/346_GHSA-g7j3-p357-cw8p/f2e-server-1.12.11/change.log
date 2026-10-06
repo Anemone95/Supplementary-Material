@@ -1,0 +1,357 @@
+@since: 2014/9/21
+
+--2014/9/21
+	#修改README.md 详细描述配置文件相关配置项
+--2014/9/22 v1.0.6
+	#agent插件BUG修复 
+--2014/9/22 v1.0.7
+	#middleware增加jade支持。[不设置发布环境依赖, 需要手工安装jade] 
+--2014/9/26 v1.0.8
+	#重新整理conf.js代码, 通过简单的对象属性扩展支持多组服务器配置复用
+	#根据conf.js的所有属性名 重置hosts文件, 用于方便支持本地不同域名访问获取不同服务。[重置hosts不可恢复，有必要的话，请手工备份]
+--2014/9/28 v1.0.9
+	#修改hosts动态修改策略, 提供修改和恢复hosts文件工具。
+	#附加bash命令处理 node node-server.js explorer http://localhost:2850 [从浏览器打开URL]
+--2014/9/29 v1.1.0
+	#修改文件展示套图为小图
+	#修改中间件导致的mime-type异常
+	#修改folder中有关图标样式规则,支持动态添加gif文件支持更多扩展后缀名文件显示
+--2014/10/05 v1.1.1
+	#修复资源压缩造成的缓存失效问题
+	#增加delay参数，使得所有GET请求可以进行请求延时模拟
+	#修改前台使用的requirejs版本为官方版本[不支持.coffee后缀,故同时修改folder.coffee]
+	#使用xhcms_2014库中的frame-upload插件进行文件上传
+	#修改文件夹中关于特殊文件类型,查看图标的显示逻辑
+--2014/10/05 v1.1.6
+	☆增加underscore依赖, 模板引擎平滑过渡到underscore.js内置的template, 增加相应的demo修改
+	#upload插件修改get请求获取数据的判断, 避免并发引起判断错误
+	#修改npm版本依赖, 按照目前调试使用的最高版本进行设置。
+--2014/10/05 v1.1.6.* [开发版本]
+	#增加一个简单的javaGUI浏览器, 可编译源代码[beta]
+	#增加服务器动态配置页面(临时生效,重启恢复)[beta]
+
+--2014/10/07 v1.1.7 
+	#PSD预览使用服务端PSD.JS支持(每次预览会生成同名png文件), 去除客户端支持方案, [不设置发布环境依赖, 需要手工安装psd]
+	#修改plugin检查模式
+	#conf配置名称可能跟url相关, 不支持大小写敏感修改为完全小写
+--2014/10/07 v1.1.8
+	.BUG修复:handle.execute方法在异步事件中因闭包导致数据错乱, +new, 让所有的闭包参数对应
+--2014/10/07 v1.1.10
+	#prettify插件修改成服务端的highlight实现, 去除客户端支持方案, [不设置发布环境依赖, 需要手工安装highlight~0.2.3]
+
+--2014/10/08 v1.2.0
+	#修改模块依赖, 所有middleware插件均使用devDependencies需要使用 npm install 手工安装
+	#修改psd, prettify插件的错误提示, psd直接抛出500, prettify提示 require highlight
+
+--2014/10/08 v1.2.1
+	#添加 eslint 代码检测配置, 对所有服务端代码针对相关优化提示做了修改
+	#添加文件下载限制, 文件大小超过100MB的 提示下载失败页面
+
+--2014/10/08 v1.2.2
+	#所有依赖使用官方版本 + 扩展
+	#修改 === 号以后, 域名判断中需要转换成数字类型对比
+--2014/10/08 v1.2.4
+	#mime依赖修改
+--2014/10/11 v1.2.4.* [开发版本]
+	#修改pathname/extType转换后的相关判断规则
+	#修改agent/host传递(去掉port)
+	#引入markdown中间件,匹配 *.md路径后缀
+	#修改request运行时变量
+	#修改readme.md
+--2014/10/11 v1.2.6
+	#修改config为插件模式, 同时修复config插件功能的引起的项目输出的BUG
+	#修改README.md
+	#项目输出增加log
+	#build插件增加功能: 修改文件后删除源文件
+--2014/10/27 v1.2.7
+	#修改代理设置，不再使用formidable模块，直接原生代理，支持文件代理上传【无缓存大文件可能造成服务器崩溃】
+--2014/10/27 v1.2.7.*
+	#修复通过IP访问地址变换的问题，让每次IP获取的配置等于localhost
+	#去除modules的日志打印
+--2014/11/04 v1.2.9
+	#增加在build状态下的GET参数处理，方便在build时修改构建结果
+	#agent增加异常捕获，避免服务器代理超时崩溃
+	#支持f2e-server外部引入conf.js配置文件，附加于nodeLib/config/conf.js（更新f2e-server不重新配置文件）
+
+--2014/11/16 v.1.2.10
+	#zencoding.html 使用服务端的highlight.js
+	#eslint 更新规则
+--2014/11/16 v1.3.0
+	#在文件夹列表页面 增加f2e-server版本更新提示, 采用本地package.json 和github的package.json对比版本号是否相同为依据
+
+--2014/11/22 
+	#prettify插件增加parse方法方便调用
+--2014/11/23 v1.3.1
+	#upload插件修改: 空文件禁止提交保存到服务器, 避免崩溃
+
+--2014/11/29 v1.3.2
+	#去除zencoding插件。
+	#jQuery换用成wfQuery。 
+	#文件夹列表页面IE9下去除脚本支持。
+	#clock插件使用canvas重写, 不再支持IE9以下浏览器。
+--2014/11/30 v1.3.3
+	#修改psd插件, 开发PSD图片元素拆分功能, 将其中的元素保存, 输出layers基本信息[psd.js 内存消耗极大, 成功率有限]
+--2014/11/30 v1.3.4
+	#文件读取模式使用 createReadStream, 二进制文件直接pipe, 去除下载文件100M大小的限制
+	#nginx-http-concat 缩小范围到文件夹目录, 防止异常路径
+--2014/11/30 v1.3.5
+	#LESS版本更新, 导致中间件模块代码修改
+--2014/11/30 v1.3.6
+	#文件列表相关代码抽离成子模块
+	#整理一些请求流程中的过滤型模块到filter目录
+	#支持filter 请求处理, 配置类似agent, 可以对所有请求进行统一处理
+	#修改npm start命令
+--2014/12/24 v1.3.7
+	#过滤器提前, 可以修改url
+	#index.js是一个极简版本的文件服务器
+--2014/12/25 v1.3.8
+	#开发一个基于GoogleChrome插件的开发页面实时更新检测(后续提供更多内嵌浏览器的扩展)
+	#修改核心模块node-server用以支持实时检测文件更新
+--2014/12/25 v1.3.9
+	#修改实时更新监听插件和服务端支持【采用服务端监听有修改时再返回】
+
+--2015/01/18 v1.4.0
+	#去除极简版本的文件服务器index.js
+	#修复构建过程中, 出现出现request请求异常导致的服务器退出
+	#捕捉检测github更新中的异常退出
+	#修复config动态配置相关问题
+
+--2015/01/28 v1.4.1
+	#chrome插件库增加一个二维码插件方便移动端测试。
+	#实时更新插件，使用search参数listen进行识别，默认不启动。
+	#f2e-server版本更新提示修改。
+
+--2015/02/01 v1.4.2
+	#修改wfQuery为npm依赖
+
+--2015/02/02 v1.4.4
+	#修改代理模块 filter/agent 支持保存远程cookie到f2e-server
+	#修改代理模块配置 支持通过 origin = http://xuan.news.cn/ 代替host和port配置，并解析协议为https:时，port自动设置为443.
+	#修改代理支持 对于远程服务的302转发中的域名部分修改成本地域名
+
+--2015/02/12 v1.4.4*
+    #修改代理模块 Node.js v0.12.0 要求response.setHeader 参数的name&value均不能为undefined或null.
+
+--2015/02/20 v1.4.5
+	#增加图片压缩功能
+
+--2015/02/21 v1.4.6
+	#构建功能代理路径修改
+	#构建请求结果使用writeable stream 进行 pipe, 用以提高性能
+
+--2015/02/27 v1.4.7
+	#在代理功能上附加保存功能【即: 整站下载专用通道】
+
+--2015/03/01 v1.4.8
+	#删除文件上传相关demo
+	#增加rename(filename,isDebug)参数配置，支持构建过程中对文件进行重命名
+	#添加自动生成配置文件功能, 首次启动服务器时, 如果木有配置文件, 将按照模板生成
+
+--2015/03/01 v1.4.9
+	#模板包含添加配置支持 参考 nodeLib/conf/conf.js 
+	#模板include引用支持多级包含内容【include目标文件中含有include字段继续替换】
+	#模板包含的路径支持相对路径【/打头的路径为项目绝对路径】
+
+--2015/04/02 v1.5.0
+	#添加中间件 FreeMarker支持, 使用后缀名 "ftl"
+
+--2015/04/02 v1.5.1
+	#中间件支持文本改写功能, 通过配置 middleware.get = function(){} 实现
+	#修改多处相关链接直接关联 f2e-server.com 官网
+
+--2015/04/11 v1.5.2
+	#eslint检测修改
+	#hosts.js 工具支持linux操作系统hosts路径 "/etc/hosts"
+
+--2015/04/12 v1.5.3
+	#新增占位图插件 /placeholder.jpg [java-swing生成后二次读写]
+
+--2015/04/14 v1.5.4
+	#BUG修改, 过滤器修改, 设置过滤器有返回值时, 直接结束当前请求和操作。 
+	#staticconf 配置增加过滤器配置, 用于线上展示使用
+
+--2015/05/05 v1.5.5
+	#增加 autoprefix 支持， 默认为 false，需要在配置中开启 
+	#增加开发依赖： "npm install autoprefixer-core"
+
+--2015/05/15 v1.5.6
+	#增加 css-sprite 支持, 通过chrome插件的纯浏览器端方案实现简单的版本
+--2015/05/16 v1.5.7
+	#css-sprite 支持跨域图片合并及 css生成, 解决双字节base64转码的BUG
+--2015/05/24 v1.5.8
+	#修改默认的模板根目录配置, centOS下面存在staticConf的root配置变化的BUG， 使用这个方法临时解决
+
+--2015/05/28 v1.6.0
+	#重要功能修改：build(构建)支持子目录输出到 output 文件夹
+
+--2015/06/04 v1.6.1
+	#修改markdown引擎
+	#增加nodePPT解析引擎, 期望的文件后缀名为 `.mdppt`
+
+--2015/06/18 v1.6.7
+	#增加cdn配置， 内部同时支持 304-NotModified 需要开启配置。
+	#开发阶段文件修改自动更新cdn, 如果动态修改debug，cdn将被缓存, 建议同时修改cdn配置
+	
+--2015/06/21 v1.6.8
+	#修改linux下 build 插件的 bash 拼接错误
+	#staticconf 支持修改, 并且添加 host 约束。 弥补配置被篡改的问题
+	#welcome页面支持多级目录, 启用后 fs_mod 失效
+	#eslint检测修改
+
+--2015/06/21 v1.6.9
+	#修复问题： optipng-bin 版本 v3.0.2 API修改，导致 build 失败
+--2015/06/21 v1.7.0
+	#middleware支持sass, 后缀为：scss 
+
+--2015/06/25 v1.7.1
+	#handle.js 修改， 支持外部引入模板引擎。
+
+--2015/06/28 v1.7.2
+	#修复缓存失效问题
+	#增加gzip动态压缩
+	
+--2015/06/30 v1.7.4
+	#修复增加 gzip & cdn 带来的中间件以及构建等问题 
+
+--2015/07/05 v1.7.5
+	#autoprefixer 模块相关API修改, f2e-server增加postcss依赖并且做对应修改。
+
+--2015/07/28 v1.7.6
+	#修复filter引起的崩溃问题
+
+--2015/08/20 v1.7.7
+	#添加babel支持 配置启用为 babel: true
+
+--2015/10/18 v1.8.0
+	#修改babel依赖
+	#修改mdppt为外部依赖，去除mdppt的相关demo
+	#设置npm-cli支持【global install】: $ f2eserver start 开启
+	#修改实时刷新插件为项目配置（livereload） 默认不开启, 使用jsonp模式更靠谱的支持了全浏览器设备
+
+--2015/10/19 v1.8.2
+	#livereload 支持从 watch 换用到 chokidar
+
+--2015/10/19 v1.8.3
+	#全局模式增加hosts等命令
+	#livereload 监听事件修改，只支持change
+	
+--2015/11/01 v1.8.7
+	#修改中间件压缩参数配置
+	#修改buildFilter支持在filter内检测，保持开发发布环境统一
+	#增加liveload 可监听路径后缀支持, 所有请求均支持 listen=true 时开启监听。
+	#修改css3自动前缀最新版本依赖
+
+--2015/11/09 v1.8.8
+	#修改agent设置，支持http请求配置域名代理，端口设置: 80
+
+--2015/11/21 v1.9.0
+	#修改agent设置，默认支持原生代理配置，mutiple:true 支持多域cookie配置
+	#修改cli，start后不弹出多余的 bash/dos 窗口
+
+--2015/11/29 v1.9.3
+	#livereload增加自动构建更新功能，实时刷新配合热部署正在修改的文件。
+	#livereload 支持任何连接加 listen=true 嵌入客户端js。
+
+--2015/12/09 v1.9.4
+	#renameMap 添加特殊url在构建环节支持改名
+--2015/12/25 v1.9.5
+	#修改livereload构建中间件时候的严重BUG
+
+--2015/12/31 v1.9.6
+	#如果livereload配置成功, 在构建时候强制提醒确认。
+	#添加根据资源md5修改输出文件名称, 配置在renameMap里面，详细参见官网配置示例说明
+--2015/12/31 v1.9.7
+	#修复staticConf在folder页面的host配置问题
+	#添加 ES6, livereload(支持默认的inject) 在config配置页面的支持, 去掉folder页面路径等修改较少的配置
+	#重要修改: build构建默认不再删除源目录文件(只是覆盖同名文件)
+
+--2016/01/03 v1.9.8
+	#全局安装全面兼容Linux/unix操作系统
+	#自动生成的默认配置参数只保留 root,port,output
+	
+--2016/01/04 v1.9.9
+	#autoprefixer官方插件配置修改，进行对应修改
+
+--2016/01/09 v1.9.12
+	#修改babel依赖 5.8.34版本 不使用babel6， 方便repl模式直接调用
+
+--2016/01/11 v1.10.0
+	#重构middleware, 提供register注册插件
+	#增加全局setup方法，可以在内部增加middleware.register等插件
+	#提供babel更复杂的配置支持
+	#修改全局cli, 支持配置文件使用require
+
+--2016/01/16 v1.10.4
+	#文件上传添加启动参数配置 uploadFile: true ，不配置接收但不保存文件，解决线上运行时严重安全漏洞。
+	#修改文件上传路径配置： 默认为接收post请求页面所在的路径，仍然支持修改uploadUrl参数
+	#修改模板引擎渲染异常时，只在控制台提示错误，继续输出源码且保留压缩等操作
+
+--2016/02/01 v1.10.6
+	#图片压缩完全使用收费的 [tinify](https://tinypng.com), 配置参数 {key: '', minSize: 60*1024, filter: function(pathname){}};
+	 申请KEY的地址 [https://tinypng.com/developers](https://tinypng.com/developers);
+	#babel5依赖提升为安装依赖
+
+--2016/02/18 v1.11.0
+	#babel升级为babel6, 安装依赖 babel-core, 开发依赖 babel-preset-es2015 和 babel-preset-react
+	#autoprefixer依赖配置postcss
+
+--2016/02/18 v1.11.1
+	#配置文件支持直接检索项目根目录下的 f2e-conf.js 合并配置项
+	#babel 添加开发依赖 babel-plugin-transform-es2015-modules-amd
+	#更新免安装版本为 dedupe 模块包
+
+--2016/03/06 v1.11.2
+	#psd预览提供更多功能： 支持元素拖拽、删除，ctrl+s保存图片等功能
+
+--2016/03/06 v1.11.3
+	#psd预览页面体验修改
+	#conf.host 功能修改，区分配置host, 方便livereload，staticconf调用等等
+
+--2016/03/27 v1.11.4
+	#build修改filter和重命名分离
+	#【重要修改】 build 不再使用系统copy命令（文件夹过多时windows下系统异常），
+		完全使用node实现，文件copy则完全按照buildFilter规则输出，return false 不输出。
+	#全局f2e-conf.js配置文件支持__dirname, 并添加语法错误提示
+	#$rename配置支持通过conf.renameReg 修改默认的查找例如: renameReg: /([^"]+)\?__rename(?=")/g
+	#【重要修改】 去除默认对所有js设置babel启用，只是采用中间件模式支持 .jsx 文件编译，示例可以参考：
+		[https://github.com/shy2850/mcafe](https://github.com/shy2850/mcafe)
+
+--2016/03/30 v1.12.0
+	#修复mime返回空问题
+	#header中 Date.toGMTString() 编码不识别问题
+	#资源响应增加服务器标识
+	#静态资源服务器开启cdn
+
+--2016/04/07 v1.12.2
+	#修复构建输出丢失文件BUG【所有非文本资源都过滤了】
+	#改进构建配置，资源构建添加间隔时间（buildInterval），防止并发HTTP造成的大量失败构建
+	
+--2016/04/09 v1.12.3
+	#构建环节添加FTP上传
+	#支持扩展资源的响应头, 如: conf.headers: {"Access-Control-Allow-Origin": "*"}
+
+--2016/05/27 v1.12.4
+	#BUG: 修改tinyPNG构建环节在文件复制之后，确保文件已经存在
+
+--2016/05/28 v1.12.5
+	#BUG: 修改handle.js 的 $include替换方式改写
+	#Feature: 提供配置参数 runJsBefore: false // 可以在执行belong/include之前进行一轮模板渲染
+
+--2016/05/28 v1.12.6
+	#BUG: 修改handle.js 的 $include替换方式改写 手误（丢失了全局匹配）
+
+--2016/06/04 v1.12.7
+	#BUG: 修改handle.js 的 $include 替换方式改写, 上版本修改时丢失了多层嵌套支持
+	#CHANGE: 修改所有的console.log 为 console.trace
+
+--2016/06/08 v1.12.8
+	#Feature: js后缀文件也支持babel编译
+
+--2016/06/08 v1.12.9
+	#Feature: 代理下载支持gzip资源
+
+--2016/09/06 v1.12.10
+	#Feature: uglify 支持配置参数 `{uglify:{fromString: true, mangle: {}}}`
+
+--2016/11/03 v1.12.11
+	#BUG 修改cli 让host支持require & __dirname

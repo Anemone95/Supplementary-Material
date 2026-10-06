@@ -1,0 +1,16 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+Object.defineProperty(exports, "dataSource", {
+  enumerable: true,
+  get: function () {
+    return _dataSource2.default;
+  }
+});
+
+var _dataSource2 = _interopRequireDefault(require("./data-source"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+//# sourceMappingURL=index.js.map

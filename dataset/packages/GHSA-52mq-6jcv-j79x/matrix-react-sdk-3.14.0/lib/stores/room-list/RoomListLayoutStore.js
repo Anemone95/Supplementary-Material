@@ -1,0 +1,101 @@
+"use strict";
+
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _defineProperty2 = _interopRequireDefault(require("@babel/runtime/helpers/defineProperty"));
+
+var _ListLayout = require("./ListLayout");
+
+var _AsyncStoreWithClient = require("../AsyncStoreWithClient");
+
+var _dispatcher = _interopRequireDefault(require("../../dispatcher/dispatcher"));
+
+/*
+Copyright 2020 The Matrix.org Foundation C.I.C.
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+*/
+class RoomListLayoutStore extends _AsyncStoreWithClient.AsyncStoreWithClient
+/*:: <IState>*/
+{
+  constructor() {
+    super(_dispatcher.default);
+    (0, _defineProperty2.default)(this, "layoutMap", new Map());
+  }
+
+  static get instance()
+  /*: RoomListLayoutStore*/
+  {
+    if (!RoomListLayoutStore.internalInstance) {
+      RoomListLayoutStore.internalInstance = new RoomListLayoutStore();
+    }
+
+    return RoomListLayoutStore.internalInstance;
+  }
+
+  ensureLayoutExists(tagId
+  /*: TagID*/
+  ) {
+    if (!this.layoutMap.has(tagId)) {
+      this.layoutMap.set(tagId, new _ListLayout.ListLayout(tagId));
+    }
+  }
+
+  getLayoutFor(tagId
+  /*: TagID*/
+  )
+  /*: ListLayout*/
+  {
+    if (!this.layoutMap.has(tagId)) {
+      this.layoutMap.set(tagId, new _ListLayout.ListLayout(tagId));
+    }
+
+    return this.layoutMap.get(tagId);
+  } // Note: this primarily exists for debugging, and isn't really intended to be used by anything.
+
+
+  async resetLayouts() {
+    console.warn("Resetting layouts for room list");
+
+    for (const layout of this.layoutMap.values()) {
+      layout.reset();
+    }
+  }
+
+  async onNotReady()
+  /*: Promise<any>*/
+  {
+    // On logout, clear the map.
+    this.layoutMap.clear();
+  } // We don't need this function, but our contract says we do
+
+
+  async onAction(payload
+  /*: ActionPayload*/
+  )
+  /*: Promise<any>*/
+  {
+    return Promise.resolve();
+  }
+
+}
+
+exports.default = RoomListLayoutStore;
+(0, _defineProperty2.default)(RoomListLayoutStore, "internalInstance", void 0);
+window.mxRoomListLayoutStore = RoomListLayoutStore.instance;
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uLy4uL3NyYy9zdG9yZXMvcm9vbS1saXN0L1Jvb21MaXN0TGF5b3V0U3RvcmUudHMiXSwibmFtZXMiOlsiUm9vbUxpc3RMYXlvdXRTdG9yZSIsIkFzeW5jU3RvcmVXaXRoQ2xpZW50IiwiY29uc3RydWN0b3IiLCJkZWZhdWx0RGlzcGF0Y2hlciIsIk1hcCIsImluc3RhbmNlIiwiaW50ZXJuYWxJbnN0YW5jZSIsImVuc3VyZUxheW91dEV4aXN0cyIsInRhZ0lkIiwibGF5b3V0TWFwIiwiaGFzIiwic2V0IiwiTGlzdExheW91dCIsImdldExheW91dEZvciIsImdldCIsInJlc2V0TGF5b3V0cyIsImNvbnNvbGUiLCJ3YXJuIiwibGF5b3V0IiwidmFsdWVzIiwicmVzZXQiLCJvbk5vdFJlYWR5IiwiY2xlYXIiLCJvbkFjdGlvbiIsInBheWxvYWQiLCJQcm9taXNlIiwicmVzb2x2ZSIsIndpbmRvdyIsIm14Um9vbUxpc3RMYXlvdXRTdG9yZSJdLCJtYXBwaW5ncyI6Ijs7Ozs7Ozs7Ozs7QUFpQkE7O0FBQ0E7O0FBQ0E7O0FBbkJBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQVVlLE1BQU1BLG1CQUFOLFNBQWtDQztBQUFsQztBQUErRDtBQUsxRUMsRUFBQUEsV0FBVyxHQUFHO0FBQ1YsVUFBTUMsbUJBQU47QUFEVSxxREFGZSxJQUFJQyxHQUFKLEVBRWY7QUFFYjs7QUFFRCxhQUFrQkMsUUFBbEI7QUFBQTtBQUFrRDtBQUM5QyxRQUFJLENBQUNMLG1CQUFtQixDQUFDTSxnQkFBekIsRUFBMkM7QUFDdkNOLE1BQUFBLG1CQUFtQixDQUFDTSxnQkFBcEIsR0FBdUMsSUFBSU4sbUJBQUosRUFBdkM7QUFDSDs7QUFDRCxXQUFPQSxtQkFBbUIsQ0FBQ00sZ0JBQTNCO0FBQ0g7O0FBRU1DLEVBQUFBLGtCQUFQLENBQTBCQztBQUExQjtBQUFBLElBQXdDO0FBQ3BDLFFBQUksQ0FBQyxLQUFLQyxTQUFMLENBQWVDLEdBQWYsQ0FBbUJGLEtBQW5CLENBQUwsRUFBZ0M7QUFDNUIsV0FBS0MsU0FBTCxDQUFlRSxHQUFmLENBQW1CSCxLQUFuQixFQUEwQixJQUFJSSxzQkFBSixDQUFlSixLQUFmLENBQTFCO0FBQ0g7QUFDSjs7QUFFTUssRUFBQUEsWUFBUCxDQUFvQkw7QUFBcEI7QUFBQTtBQUFBO0FBQThDO0FBQzFDLFFBQUksQ0FBQyxLQUFLQyxTQUFMLENBQWVDLEdBQWYsQ0FBbUJGLEtBQW5CLENBQUwsRUFBZ0M7QUFDNUIsV0FBS0MsU0FBTCxDQUFlRSxHQUFmLENBQW1CSCxLQUFuQixFQUEwQixJQUFJSSxzQkFBSixDQUFlSixLQUFmLENBQTFCO0FBQ0g7O0FBQ0QsV0FBTyxLQUFLQyxTQUFMLENBQWVLLEdBQWYsQ0FBbUJOLEtBQW5CLENBQVA7QUFDSCxHQTNCeUUsQ0E2QjFFOzs7QUFDQSxRQUFhTyxZQUFiLEdBQTRCO0FBQ3hCQyxJQUFBQSxPQUFPLENBQUNDLElBQVIsQ0FBYSxpQ0FBYjs7QUFDQSxTQUFLLE1BQU1DLE1BQVgsSUFBcUIsS0FBS1QsU0FBTCxDQUFlVSxNQUFmLEVBQXJCLEVBQThDO0FBQzFDRCxNQUFBQSxNQUFNLENBQUNFLEtBQVA7QUFDSDtBQUNKOztBQUVELFFBQWdCQyxVQUFoQjtBQUFBO0FBQTJDO0FBQ3ZDO0FBQ0EsU0FBS1osU0FBTCxDQUFlYSxLQUFmO0FBQ0gsR0F4Q3lFLENBMEMxRTs7O0FBQ0EsUUFBZ0JDLFFBQWhCLENBQXlCQztBQUF6QjtBQUFBO0FBQUE7QUFBK0Q7QUFDM0QsV0FBT0MsT0FBTyxDQUFDQyxPQUFSLEVBQVA7QUFDSDs7QUE3Q3lFOzs7OEJBQXpEMUIsbUI7QUFnRHJCMkIsTUFBTSxDQUFDQyxxQkFBUCxHQUErQjVCLG1CQUFtQixDQUFDSyxRQUFuRCIsInNvdXJjZXNDb250ZW50IjpbIi8qXG5Db3B5cmlnaHQgMjAyMCBUaGUgTWF0cml4Lm9yZyBGb3VuZGF0aW9uIEMuSS5DLlxuXG5MaWNlbnNlZCB1bmRlciB0aGUgQXBhY2hlIExpY2Vuc2UsIFZlcnNpb24gMi4wICh0aGUgXCJMaWNlbnNlXCIpO1xueW91IG1heSBub3QgdXNlIHRoaXMgZmlsZSBleGNlcHQgaW4gY29tcGxpYW5jZSB3aXRoIHRoZSBMaWNlbnNlLlxuWW91IG1heSBvYnRhaW4gYSBjb3B5IG9mIHRoZSBMaWNlbnNlIGF0XG5cbiAgICBodHRwOi8vd3d3LmFwYWNoZS5vcmcvbGljZW5zZXMvTElDRU5TRS0yLjBcblxuVW5sZXNzIHJlcXVpcmVkIGJ5IGFwcGxpY2FibGUgbGF3IG9yIGFncmVlZCB0byBpbiB3cml0aW5nLCBzb2Z0d2FyZVxuZGlzdHJpYnV0ZWQgdW5kZXIgdGhlIExpY2Vuc2UgaXMgZGlzdHJpYnV0ZWQgb24gYW4gXCJBUyBJU1wiIEJBU0lTLFxuV0lUSE9VVCBXQVJSQU5USUVTIE9SIENPTkRJVElPTlMgT0YgQU5ZIEtJTkQsIGVpdGhlciBleHByZXNzIG9yIGltcGxpZWQuXG5TZWUgdGhlIExpY2Vuc2UgZm9yIHRoZSBzcGVjaWZpYyBsYW5ndWFnZSBnb3Zlcm5pbmcgcGVybWlzc2lvbnMgYW5kXG5saW1pdGF0aW9ucyB1bmRlciB0aGUgTGljZW5zZS5cbiovXG5cbmltcG9ydCB7IFRhZ0lEIH0gZnJvbSBcIi4vbW9kZWxzXCI7XG5pbXBvcnQgeyBMaXN0TGF5b3V0IH0gZnJvbSBcIi4vTGlzdExheW91dFwiO1xuaW1wb3J0IHsgQXN5bmNTdG9yZVdpdGhDbGllbnQgfSBmcm9tIFwiLi4vQXN5bmNTdG9yZVdpdGhDbGllbnRcIjtcbmltcG9ydCBkZWZhdWx0RGlzcGF0Y2hlciBmcm9tIFwiLi4vLi4vZGlzcGF0Y2hlci9kaXNwYXRjaGVyXCI7XG5pbXBvcnQgeyBBY3Rpb25QYXlsb2FkIH0gZnJvbSBcIi4uLy4uL2Rpc3BhdGNoZXIvcGF5bG9hZHNcIjtcblxuaW50ZXJmYWNlIElTdGF0ZSB7fVxuXG5leHBvcnQgZGVmYXVsdCBjbGFzcyBSb29tTGlzdExheW91dFN0b3JlIGV4dGVuZHMgQXN5bmNTdG9yZVdpdGhDbGllbnQ8SVN0YXRlPiB7XG4gICAgcHJpdmF0ZSBzdGF0aWMgaW50ZXJuYWxJbnN0YW5jZTogUm9vbUxpc3RMYXlvdXRTdG9yZTtcblxuICAgIHByaXZhdGUgcmVhZG9ubHkgbGF5b3V0TWFwID0gbmV3IE1hcDxUYWdJRCwgTGlzdExheW91dD4oKTtcblxuICAgIGNvbnN0cnVjdG9yKCkge1xuICAgICAgICBzdXBlcihkZWZhdWx0RGlzcGF0Y2hlcik7XG4gICAgfVxuXG4gICAgcHVibGljIHN0YXRpYyBnZXQgaW5zdGFuY2UoKTogUm9vbUxpc3RMYXlvdXRTdG9yZSB7XG4gICAgICAgIGlmICghUm9vbUxpc3RMYXlvdXRTdG9yZS5pbnRlcm5hbEluc3RhbmNlKSB7XG4gICAgICAgICAgICBSb29tTGlzdExheW91dFN0b3JlLmludGVybmFsSW5zdGFuY2UgPSBuZXcgUm9vbUxpc3RMYXlvdXRTdG9yZSgpO1xuICAgICAgICB9XG4gICAgICAgIHJldHVybiBSb29tTGlzdExheW91dFN0b3JlLmludGVybmFsSW5zdGFuY2U7XG4gICAgfVxuXG4gICAgcHVibGljIGVuc3VyZUxheW91dEV4aXN0cyh0YWdJZDogVGFnSUQpIHtcbiAgICAgICAgaWYgKCF0aGlzLmxheW91dE1hcC5oYXModGFnSWQpKSB7XG4gICAgICAgICAgICB0aGlzLmxheW91dE1hcC5zZXQodGFnSWQsIG5ldyBMaXN0TGF5b3V0KHRhZ0lkKSk7XG4gICAgICAgIH1cbiAgICB9XG5cbiAgICBwdWJsaWMgZ2V0TGF5b3V0Rm9yKHRhZ0lkOiBUYWdJRCk6IExpc3RMYXlvdXQge1xuICAgICAgICBpZiAoIXRoaXMubGF5b3V0TWFwLmhhcyh0YWdJZCkpIHtcbiAgICAgICAgICAgIHRoaXMubGF5b3V0TWFwLnNldCh0YWdJZCwgbmV3IExpc3RMYXlvdXQodGFnSWQpKTtcbiAgICAgICAgfVxuICAgICAgICByZXR1cm4gdGhpcy5sYXlvdXRNYXAuZ2V0KHRhZ0lkKTtcbiAgICB9XG5cbiAgICAvLyBOb3RlOiB0aGlzIHByaW1hcmlseSBleGlzdHMgZm9yIGRlYnVnZ2luZywgYW5kIGlzbid0IHJlYWxseSBpbnRlbmRlZCB0byBiZSB1c2VkIGJ5IGFueXRoaW5nLlxuICAgIHB1YmxpYyBhc3luYyByZXNldExheW91dHMoKSB7XG4gICAgICAgIGNvbnNvbGUud2FybihcIlJlc2V0dGluZyBsYXlvdXRzIGZvciByb29tIGxpc3RcIik7XG4gICAgICAgIGZvciAoY29uc3QgbGF5b3V0IG9mIHRoaXMubGF5b3V0TWFwLnZhbHVlcygpKSB7XG4gICAgICAgICAgICBsYXlvdXQucmVzZXQoKTtcbiAgICAgICAgfVxuICAgIH1cblxuICAgIHByb3RlY3RlZCBhc3luYyBvbk5vdFJlYWR5KCk6IFByb21pc2U8YW55PiB7XG4gICAgICAgIC8vIE9uIGxvZ291dCwgY2xlYXIgdGhlIG1hcC5cbiAgICAgICAgdGhpcy5sYXlvdXRNYXAuY2xlYXIoKTtcbiAgICB9XG5cbiAgICAvLyBXZSBkb24ndCBuZWVkIHRoaXMgZnVuY3Rpb24sIGJ1dCBvdXIgY29udHJhY3Qgc2F5cyB3ZSBkb1xuICAgIHByb3RlY3RlZCBhc3luYyBvbkFjdGlvbihwYXlsb2FkOiBBY3Rpb25QYXlsb2FkKTogUHJvbWlzZTxhbnk+IHtcbiAgICAgICAgcmV0dXJuIFByb21pc2UucmVzb2x2ZSgpO1xuICAgIH1cbn1cblxud2luZG93Lm14Um9vbUxpc3RMYXlvdXRTdG9yZSA9IFJvb21MaXN0TGF5b3V0U3RvcmUuaW5zdGFuY2U7XG4iXX0=

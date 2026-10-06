@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>EDISON WEB CONTROL 0421.1832</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <script src="jquery-1.12.2.min.js"></script>
+    </head>
+    <body>
+        <div>
+            <button disabled id="cmdAdvance">Advance</button>
+            <button disabled id="cmdGoBack">Go Back</button>
+        </div>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $("#cmdAdvance").removeProp("disabled").on("click", function () {
+                    var url = "MOVE";
+                    $.ajax(url, {
+                        error: function (data) {
+                            console.log("ERROR");
+                            console.log(data);
+                        },
+                        success: function (data) {
+                            console.log("SUCCESS");
+                            console.log(data);
+                        },
+                        cache: false
+                    });
+                });
+                
+                $("#cmdGoBack").removeProp("disabled").on("click", function () {
+                    var url = "BACK";
+                    $.ajax(url, {
+                        error: function (data) {
+                            console.log("ERROR");
+                            console.log(data);
+                        },
+                        success: function (data) {
+                            console.log("SUCCESS");
+                            console.log(data);
+                        },
+                        cache: false
+                    });
+                });                
+            });
+
+        </script>
+    </body>
+</html>

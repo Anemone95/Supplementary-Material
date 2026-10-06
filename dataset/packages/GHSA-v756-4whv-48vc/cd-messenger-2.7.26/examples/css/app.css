@@ -1,0 +1,13 @@
+body {
+  margin: 20px;
+  background: #242424;
+  color: white;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.green {
+  color: lightgreen;
+}

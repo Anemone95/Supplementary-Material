@@ -1,0 +1,3 @@
+#!/usr/bin/env node
+var compiler = require('../lib/compiler').compiler;
+compiler.console();

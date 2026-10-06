@@ -1,0 +1,33 @@
+// LICENSE : MIT
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+/**
+ * {タグ名:出現回数}のオブジェクトを返す
+ * @param {JSerWeek[]} weeks
+ * @returns {{string:number}}
+ */
+function countTagsByGroup(weeks) {
+    return countByGroup(weeks, function (item) {
+        var rank = {};
+        item.tags.forEach(function (tag) {
+            rank[tag] = ++rank[tag] || 1;
+        });
+        return rank;
+    });
+}
+exports.countTagsByGroup = countTagsByGroup;
+function countByGroup(weeks, countFn) {
+    var rank = {};
+    weeks.forEach(function (week) {
+        week.items.forEach(function (item) {
+            var ret = countFn(item);
+            var keys = Object.keys(ret);
+            keys.forEach(function (key) {
+                rank[key] = (rank[key] || 0) + ret[key];
+            });
+        });
+    });
+    return rank;
+}
+exports.countByGroup = countByGroup;
+//# sourceMappingURL=compute-tags.js.map

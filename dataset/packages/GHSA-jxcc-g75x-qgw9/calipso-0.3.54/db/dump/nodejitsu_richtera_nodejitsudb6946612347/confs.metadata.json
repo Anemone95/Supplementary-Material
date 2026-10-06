@@ -1,0 +1,1 @@
+{ "indexes" : [ { "v" : 1, "key" : { "_id" : 1 }, "ns" : "nodejitsu_richtera_nodejitsudb6946612347.confs", "name" : "_id_" }, { "v" : 1, "key" : { "environment" : 1 }, "unique" : true, "ns" : "nodejitsu_richtera_nodejitsudb6946612347.confs", "name" : "environment_1", "background" : true, "safe" : null } ] }

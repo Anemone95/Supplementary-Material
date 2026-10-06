@@ -1,0 +1,140 @@
+#!/usr/bin/env node
+var fs = require("fs");
+var path = require("path");
+var os = require('os');
+var connect = require('connect');
+var serveStatic = require('serve-static');
+var serveIndex = require('serve-index');
+
+var exec = require('child_process').exec;
+var spawn = require('child_process').spawn;
+var argv = require("minimist")(process.argv.slice(2), {
+  alias: {
+    'silent': 's',
+    'port': 'p',
+    'hostname': 'h',
+    'dir': 'd'
+  },
+  string: ['port', 'hostname'],
+  boolean: 'silent',
+  'default': {
+    'port': 8000,
+    'dir': process.cwd()
+  }
+});
+
+if (argv.help) {
+  console.log("Usage:");
+  console.log("  seeftl --help // print help information");
+  console.log("  seeftl // 8000 as default port, current folder as root");
+  console.log("  seeftl 8888 // 8888 as port");
+  console.log("  seeftl -p 8989 // 8989 as port");
+  console.log("  seeftl -s // don't open browser");
+  console.log("  seeftl -h localhost // localhost as hostname");
+  console.log("  seeftl -d /home // /home as root");
+  process.exit(0);
+}
+
+var openURL = function (url) {
+  switch (process.platform) {
+    case "darwin":
+      exec('open ' + url);
+      break;
+    case "win32":
+      exec('start ' + url);
+      break;
+    default:
+      spawn('xdg-open', [url]);
+    // I use `spawn` since `exec` fails on my machine (Linux i386).
+    // I heard that `exec` has memory limitation of buffer size of 512k.
+    // http://stackoverflow.com/a/16099450/222893
+    // But I am not sure if this memory limit causes the failure of `exec`.
+    // `xdg-open` is specified in freedesktop standard, so it should work on
+    // Linux, *BSD, solaris, etc.
+  }
+};
+
+/**
+ * Get ip(v4) address
+ * @return {String} the ipv4 address or 'localhost'
+ */
+var getIPAddress = function () {
+  var ifaces = os.networkInterfaces();
+  var ip = '';
+  for (var dev in ifaces) {
+    ifaces[dev].forEach(function (details) {
+      if (ip === '' && details.family === 'IPv4' && !details.internal) {
+        ip = details.address;
+        return;
+      }
+    });
+  }
+  return ip || "127.0.0.1";
+};
+
+var app = connect();
+app.use(function (req, res, next) {
+  res.setHeader("Access-Control-Allow-Origin", "*");
+
+  //增加对ftl的支持
+  if(req.url && req.url.match(/.ftl$/gi)){
+    res.setHeader("Content-Type", "text/html");
+    fs.readFile(path.join(process.cwd(), req.originalUrl+'.config'), 'utf8', function(err, config){
+      if(err){
+        console.log(err);
+        res.write('Error:'+err.code);
+        res.end();
+      }else{
+        fs.readFile(path.join(process.cwd(), req.originalUrl), 'utf8', function(err, str){
+          if(err){
+            res.write(err);
+            res.end();
+          }else{
+            //去import
+            str = str.replace(/<#\/?[^>]*>/g,'');
+            str = str.replace(/<\/#\/?[^>]*>/g,'');
+            config = JSON.parse(config);
+            for (var key in config.macro){
+              var reg = new RegExp('\<\\@\\s*'+ key +'\\s*\/>','g');
+              str = str.replace(reg,config.macro[key])
+            }
+            for (var key in config.vars){
+              var reg = new RegExp('\\$\{\\s*'+ key +'\\s*\}','g');
+              str = str.replace(reg,config.vars[key])
+            }
+            res.write(str);
+            res.end();
+          }
+        });
+      }
+    });
+  }else{
+    next();
+  }
+
+});
+
+
+
+app.use(serveStatic(argv.dir, {'index': ['index.html']}));
+app.use(serveIndex(argv.dir, {'icons': true}));
+
+
+
+// seeftl 8888
+// seeftl -p 8989
+// seeftl 8888 -s // silent
+// seeftl -h localhost
+// seeftl -d /home
+var port = argv._[0] || argv.port;
+var hostname = argv.hostname || getIPAddress();
+
+app.listen(port, function () {
+  // 忽略80端口
+  port = (port != '80' ? ':' + port : '');
+  var url = "http://" + hostname + port + '/';
+  console.log("Running at " + url);
+  if (!argv.silent) {
+    openURL(url);
+  }
+});

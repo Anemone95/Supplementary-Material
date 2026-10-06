@@ -1,0 +1,7 @@
+Chinese_Speech_Female.dat filter=lfs diff=lfs merge=lfs -text
+Chinese_Speech_Male.dat filter=lfs diff=lfs merge=lfs -text
+Chinese_Text.dat filter=lfs diff=lfs merge=lfs -text
+English_Speech_Female.dat filter=lfs diff=lfs merge=lfs -text
+English_Speech_Male.dat filter=lfs diff=lfs merge=lfs -text
+English_Text.dat filter=lfs diff=lfs merge=lfs -text
+offline_engine_tmp_license.dat filter=lfs diff=lfs merge=lfs -text

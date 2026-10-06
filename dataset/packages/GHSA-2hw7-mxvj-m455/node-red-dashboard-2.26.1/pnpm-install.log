@@ -1,0 +1,25 @@
+$ corepack pnpm@9.15.9 install --prod --no-frozen-lockfile --reporter=append-only --config.node-linker=hoisted --ignore-workspace --ignore-scripts
+ WARN  deprecated angular-aria@1.8.3: For the actively supported Angular, see https://www.npmjs.com/package/@angular/core. AngularJS support has officially ended. For extended AngularJS support options, see https://goo.gle/angularjs-path-forward.
+Progress: resolved 1, reused 0, downloaded 0, added 0
+ WARN  deprecated angular@1.8.3: For the actively supported Angular, see https://www.npmjs.com/package/@angular/core. AngularJS support has officially ended. For extended AngularJS support options, see https://goo.gle/angularjs-path-forward.
+ WARN  deprecated angular-material@1.2.5: For the actively supported Angular Material, see https://www.npmjs.com/package/@angular/material. AngularJS support has officially ended. For extended AngularJS support options, see https://goo.gle/angularjs-path-forward.
+ WARN  deprecated angular-animate@1.8.3: For the actively supported Angular, see https://www.npmjs.com/package/@angular/core. AngularJS support has officially ended. For extended AngularJS support options, see https://goo.gle/angularjs-path-forward.
+ WARN  deprecated angular-sanitize@1.8.3: For the actively supported Angular, see https://www.npmjs.com/package/@angular/core. AngularJS support has officially ended. For extended AngularJS support options, see https://goo.gle/angularjs-path-forward.
+ WARN  deprecated gulp-util@3.0.8: gulp-util is deprecated - replace it, following the guidelines at https://medium.com/gulpjs/gulp-util-ca3b1f9f9ac5
+ WARN  deprecated angular-touch@1.8.3: For the actively supported Angular, see https://www.npmjs.com/package/@angular/core. AngularJS support has officially ended. For extended AngularJS support options, see https://goo.gle/angularjs-path-forward.
+ WARN  deprecated gulp-jscs@4.1.0: JSCS is deprecated. Switch to ESLint.
+ WARN  deprecated gulp-angular-templatecache@3.0.1: The original owners are no longer maintaining this package. It is usable in its current state but will not be updated. The package will be transferred responsibly to npm.
+ WARN  deprecated angular-route@1.8.3: For the actively supported Angular, see https://www.npmjs.com/package/@angular/core. AngularJS support has officially ended. For extended AngularJS support options, see https://goo.gle/angularjs-path-forward.
+Progress: resolved 118, reused 0, downloaded 0, added 0
+Progress: resolved 300, reused 0, downloaded 0, added 0
+Progress: resolved 628, reused 0, downloaded 0, added 0
+ WARN  36 deprecated subdependencies found: CSSselect@0.4.1, CSSwhat@0.4.7, are-we-there-yet@1.1.7, clone-buffer@1.0.0, core-js@2.6.12, debug@4.1.1, default-resolution@2.0.0, fsevents@1.2.13, fstream@1.0.12, gauge@2.7.4, glob@5.0.15, glob@7.1.7, glob@7.2.3, har-validator@5.1.5, inflight@1.0.6, jscs-preset-wikimedia@1.0.1, jscs@3.0.7, lodash.template@3.6.2, lodash.template@4.18.1, minimatch@2.0.10, node-sass@4.14.1, nomnom@1.8.1, npmlog@4.1.2, osenv@0.1.5, path-dirname@1.0.2, q@1.0.1, rcloader@0.2.2, request@2.88.2, resolve-url@0.2.1, rimraf@2.7.1, source-map-resolve@0.5.3, source-map-url@0.4.1, tar@2.2.2, urix@0.1.0, uuid@2.0.3, uuid@3.4.0
+
+devDependencies: skipped
+
+Packages: +71
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Progress: resolved 807, reused 64, downloaded 0, added 69
+Progress: resolved 807, reused 64, downloaded 1, added 70
+Progress: resolved 807, reused 64, downloaded 2, added 71, done
+Done in 5.4s using pnpm v9.15.9

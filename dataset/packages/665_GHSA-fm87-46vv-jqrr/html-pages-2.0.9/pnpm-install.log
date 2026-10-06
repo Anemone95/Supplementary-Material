@@ -1,0 +1,48 @@
+$ corepack pnpm@9.15.9 install --prod --no-frozen-lockfile --reporter=append-only --config.node-linker=hoisted --ignore-workspace --ignore-scripts
+Progress: resolved 1, reused 0, downloaded 0, added 0
+ WARN  deprecated babel-eslint@8.2.1: babel-eslint is now @babel/eslint-parser. This package will no longer receive updates.
+ WARN  deprecated nsp@3.2.1: The Node Security Platform service is shutting down 9/30 - https://blog.npmjs.org/post/175511531085/the-node-security-platform-service-is-shutting
+ WARN  deprecated supertest@3.0.0: Please upgrade to supertest v7.1.3+, see release notes at https://github.com/forwardemail/supertest/releases/tag/v7.1.3 - maintenance is supported by Forward Email @ https://forwardemail.net
+ WARN  deprecated eslint-plugin-standard@5.0.0: standard 16.0.0 and eslint-config-standard 16.0.0 no longer require the eslint-plugin-standard package. You can remove it from your dependencies with 'npm rm eslint-plugin-standard'. More info here: https://github.com/standard/standard/issues/1316
+ WARN  deprecated fs-promise@2.0.3: Use mz or fs-extra^3.0 with Promise Support
+ WARN  deprecated snyk@1.69.7: A medium severity vulnerability was found in the Snyk CLI version you are using. We fixed the vulnerability in version 1.996.0. We recommend updating to the latest version. More details here: https://snyk.co/ue1NS
+Progress: resolved 94, reused 0, downloaded 0, added 0
+Progress: resolved 249, reused 0, downloaded 0, added 0
+Progress: resolved 435, reused 0, downloaded 0, added 0
+Progress: resolved 606, reused 0, downloaded 0, added 0
+Progress: resolved 815, reused 0, downloaded 0, added 0
+Progress: resolved 917, reused 0, downloaded 0, added 0
+Progress: resolved 931, reused 0, downloaded 0, added 0
+ WARN  22 deprecated subdependencies found: boom@5.3.3, circular-json@0.3.3, core-js@2.6.12, eslint@4.14.0, formidable@1.2.6, glob@7.1.1, glob@7.1.2, glob@7.2.3, hoek@4.3.1, inflight@1.0.6, json3@3.3.2, lodash.pick@4.4.0, mkdirp@0.5.1, osenv@0.1.5, rimraf@2.6.3, snyk-tree@1.0.0, superagent@3.8.3, test-value@3.0.0, trim@0.0.1, uuid@2.0.3, uuid@3.4.0, wreck@12.6.2
+
+devDependencies: skipped
+
+ WARN  Issues with peer dependencies found
+.
+├─┬ eslint-config-standard 17.1.0
+│ ├── ✕ unmet peer eslint@^8.0.1: found 4.14.0
+│ ├── ✕ unmet peer eslint-plugin-import@^2.25.2: found 2.8.0
+│ └── ✕ unmet peer eslint-plugin-promise@^6.0.0: found 3.6.0
+├─┬ eslint-plugin-standard 5.0.0
+│ └── ✕ unmet peer eslint@>=5.0.0: found 4.14.0
+├─┬ eslint-plugin-n 16.6.2
+│ ├── ✕ unmet peer eslint@>=7.0.0: found 4.14.0
+│ ├─┬ @eslint-community/eslint-utils 4.10.1
+│ │ └── ✕ unmet peer eslint@"^6.0.0 || ^7.0.0 || >=8.0.0": found 4.14.0
+│ └─┬ eslint-plugin-es-x 7.8.0
+│   ├── ✕ unmet peer eslint@>=8: found 4.14.0
+│   └─┬ eslint-compat-utils 0.5.1
+│     └── ✕ unmet peer eslint@>=6.0.0: found 4.14.0
+├─┬ stylelint-order 8.1.1
+│ └── ✕ unmet peer stylelint@"^16.18.0 || ^17.0.0": found 9.0.0
+├─┬ stylelint-scss 7.3.0
+│ └── ✕ unmet peer stylelint@"^16.8.2 || ^17.0.0": found 9.0.0
+└─┬ eslint-config-semistandard 12.0.0
+  └── ✕ unmet peer eslint-config-standard@11.0.0-beta.0: found 17.1.0
+
+Packages: +195
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Progress: resolved 953, reused 0, downloaded 0, added 0
+Progress: resolved 953, reused 172, downloaded 20, added 192
+Progress: resolved 953, reused 172, downloaded 23, added 195, done
+Done in 10.1s using pnpm v9.15.9

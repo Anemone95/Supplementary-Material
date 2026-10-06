@@ -1,0 +1,1 @@
+{"version":3,"file":"Verify.js","sourceRoot":"","sources":["../../src/types/Verify.ts"],"names":[],"mappings":"","sourcesContent":["import type { AccessTokenPayload, DPoPOptions } from \".\";\n\nexport interface SolidTokenVerifierFunction {\n  (\n    authorizationHeader: string,\n    dpop?: DPoPOptions\n  ): Promise<AccessTokenPayload>;\n}\n"]}

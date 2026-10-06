@@ -1,0 +1,32 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const path_1 = require("path");
+const fs_extra_1 = require("fs-extra");
+const logger_1 = require("../logger");
+const project_1 = require("../project");
+const util_1 = require("./util");
+const MOCK_PROJENRC = "new (require('projen').Project)({ name: 'foo' }).synth()";
+test('the "--rc" option can be used to specify projenrc location', () => {
+    const dir1 = util_1.mkdtemp();
+    const dir2 = util_1.mkdtemp();
+    const rcfile = path_1.join(dir1, 'custom-projenrc.js');
+    fs_extra_1.writeFileSync(rcfile, MOCK_PROJENRC);
+    util_1.execProjenCLI(dir2, ['--rc', rcfile]);
+    expect(util_1.directorySnapshot(dir2)).toMatchSnapshot();
+});
+test('running "projen" with no arguments will execute .projenrc.js', () => {
+    const workdir = util_1.mkdtemp();
+    const rcfile = path_1.join(workdir, '.projenrc.js');
+    fs_extra_1.writeFileSync(rcfile, MOCK_PROJENRC);
+    util_1.execProjenCLI(workdir);
+    expect(util_1.directorySnapshot(workdir)).toMatchSnapshot();
+});
+test('running "projen" for projects with a "default" task will execute it', () => {
+    const workdir = util_1.mkdtemp();
+    const project = new project_1.Project({ outdir: workdir, name: 'my-project', logging: { level: logger_1.LogLevel.OFF } });
+    project.addTask(project_1.Project.DEFAULT_TASK, { exec: 'echo "foo" > bar.txt' });
+    project.synth();
+    util_1.execProjenCLI(workdir);
+    expect(util_1.directorySnapshot(workdir)['bar.txt']).toStrictEqual('foo\n');
+});
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiY2xpLnRlc3QuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyIuLi8uLi9zcmMvX190ZXN0c19fL2NsaS50ZXN0LnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7O0FBQUEsK0JBQTRCO0FBQzVCLHVDQUF5QztBQUN6QyxzQ0FBcUM7QUFDckMsd0NBQXFDO0FBQ3JDLGlDQUFtRTtBQUVuRSxNQUFNLGFBQWEsR0FBRywwREFBMEQsQ0FBQztBQUVqRixJQUFJLENBQUMsNERBQTRELEVBQUUsR0FBRyxFQUFFO0lBQ3RFLE1BQU0sSUFBSSxHQUFHLGNBQU8sRUFBRSxDQUFDO0lBQ3ZCLE1BQU0sSUFBSSxHQUFHLGNBQU8sRUFBRSxDQUFDO0lBRXZCLE1BQU0sTUFBTSxHQUFHLFdBQUksQ0FBQyxJQUFJLEVBQUUsb0JBQW9CLENBQUMsQ0FBQztJQUNoRCx3QkFBYSxDQUFDLE1BQU0sRUFBRSxhQUFhLENBQUMsQ0FBQztJQUVyQyxvQkFBYSxDQUFDLElBQUksRUFBRSxDQUFDLE1BQU0sRUFBRSxNQUFNLENBQUMsQ0FBQyxDQUFDO0lBQ3RDLE1BQU0sQ0FBQyx3QkFBaUIsQ0FBQyxJQUFJLENBQUMsQ0FBQyxDQUFDLGVBQWUsRUFBRSxDQUFDO0FBQ3BELENBQUMsQ0FBQyxDQUFDO0FBRUgsSUFBSSxDQUFDLDhEQUE4RCxFQUFFLEdBQUcsRUFBRTtJQUN4RSxNQUFNLE9BQU8sR0FBRyxjQUFPLEVBQUUsQ0FBQztJQUMxQixNQUFNLE1BQU0sR0FBRyxXQUFJLENBQUMsT0FBTyxFQUFFLGNBQWMsQ0FBQyxDQUFDO0lBQzdDLHdCQUFhLENBQUMsTUFBTSxFQUFFLGFBQWEsQ0FBQyxDQUFDO0lBRXJDLG9CQUFhLENBQUMsT0FBTyxDQUFDLENBQUM7SUFDdkIsTUFBTSxDQUFDLHdCQUFpQixDQUFDLE9BQU8sQ0FBQyxDQUFDLENBQUMsZUFBZSxFQUFFLENBQUM7QUFDdkQsQ0FBQyxDQUFDLENBQUM7QUFFSCxJQUFJLENBQUMscUVBQXFFLEVBQUUsR0FBRyxFQUFFO0lBQy9FLE1BQU0sT0FBTyxHQUFHLGNBQU8sRUFBRSxDQUFDO0lBQzFCLE1BQU0sT0FBTyxHQUFHLElBQUksaUJBQU8sQ0FBQyxFQUFFLE1BQU0sRUFBRSxPQUFPLEVBQUUsSUFBSSxFQUFFLFlBQVksRUFBRSxPQUFPLEVBQUUsRUFBRSxLQUFLLEVBQUUsaUJBQVEsQ0FBQyxHQUFHLEVBQUUsRUFBRSxDQUFDLENBQUM7SUFDdkcsT0FBTyxDQUFDLE9BQU8sQ0FBQyxpQkFBTyxDQUFDLFlBQVksRUFBRSxFQUFFLElBQUksRUFBRSxzQkFBc0IsRUFBRSxDQUFDLENBQUM7SUFDeEUsT0FBTyxDQUFDLEtBQUssRUFBRSxDQUFDO0lBRWhCLG9CQUFhLENBQUMsT0FBTyxDQUFDLENBQUM7SUFDdkIsTUFBTSxDQUFDLHdCQUFpQixDQUFDLE9BQU8sQ0FBQyxDQUFDLFNBQVMsQ0FBQyxDQUFDLENBQUMsYUFBYSxDQUFDLE9BQU8sQ0FBQyxDQUFDO0FBQ3ZFLENBQUMsQ0FBQyxDQUFDIiwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IHsgam9pbiB9IGZyb20gJ3BhdGgnO1xuaW1wb3J0IHsgd3JpdGVGaWxlU3luYyB9IGZyb20gJ2ZzLWV4dHJhJztcbmltcG9ydCB7IExvZ0xldmVsIH0gZnJvbSAnLi4vbG9nZ2VyJztcbmltcG9ydCB7IFByb2plY3QgfSBmcm9tICcuLi9wcm9qZWN0JztcbmltcG9ydCB7IGRpcmVjdG9yeVNuYXBzaG90LCBleGVjUHJvamVuQ0xJLCBta2R0ZW1wIH0gZnJvbSAnLi91dGlsJztcblxuY29uc3QgTU9DS19QUk9KRU5SQyA9IFwibmV3IChyZXF1aXJlKCdwcm9qZW4nKS5Qcm9qZWN0KSh7IG5hbWU6ICdmb28nIH0pLnN5bnRoKClcIjtcblxudGVzdCgndGhlIFwiLS1yY1wiIG9wdGlvbiBjYW4gYmUgdXNlZCB0byBzcGVjaWZ5IHByb2plbnJjIGxvY2F0aW9uJywgKCkgPT4ge1xuICBjb25zdCBkaXIxID0gbWtkdGVtcCgpO1xuICBjb25zdCBkaXIyID0gbWtkdGVtcCgpO1xuXG4gIGNvbnN0IHJjZmlsZSA9IGpvaW4oZGlyMSwgJ2N1c3RvbS1wcm9qZW5yYy5qcycpO1xuICB3cml0ZUZpbGVTeW5jKHJjZmlsZSwgTU9DS19QUk9KRU5SQyk7XG5cbiAgZXhlY1Byb2plbkNMSShkaXIyLCBbJy0tcmMnLCByY2ZpbGVdKTtcbiAgZXhwZWN0KGRpcmVjdG9yeVNuYXBzaG90KGRpcjIpKS50b01hdGNoU25hcHNob3QoKTtcbn0pO1xuXG50ZXN0KCdydW5uaW5nIFwicHJvamVuXCIgd2l0aCBubyBhcmd1bWVudHMgd2lsbCBleGVjdXRlIC5wcm9qZW5yYy5qcycsICgpID0+IHtcbiAgY29uc3Qgd29ya2RpciA9IG1rZHRlbXAoKTtcbiAgY29uc3QgcmNmaWxlID0gam9pbih3b3JrZGlyLCAnLnByb2plbnJjLmpzJyk7XG4gIHdyaXRlRmlsZVN5bmMocmNmaWxlLCBNT0NLX1BST0pFTlJDKTtcblxuICBleGVjUHJvamVuQ0xJKHdvcmtkaXIpO1xuICBleHBlY3QoZGlyZWN0b3J5U25hcHNob3Qod29ya2RpcikpLnRvTWF0Y2hTbmFwc2hvdCgpO1xufSk7XG5cbnRlc3QoJ3J1bm5pbmcgXCJwcm9qZW5cIiBmb3IgcHJvamVjdHMgd2l0aCBhIFwiZGVmYXVsdFwiIHRhc2sgd2lsbCBleGVjdXRlIGl0JywgKCkgPT4ge1xuICBjb25zdCB3b3JrZGlyID0gbWtkdGVtcCgpO1xuICBjb25zdCBwcm9qZWN0ID0gbmV3IFByb2plY3QoeyBvdXRkaXI6IHdvcmtkaXIsIG5hbWU6ICdteS1wcm9qZWN0JywgbG9nZ2luZzogeyBsZXZlbDogTG9nTGV2ZWwuT0ZGIH0gfSk7XG4gIHByb2plY3QuYWRkVGFzayhQcm9qZWN0LkRFRkFVTFRfVEFTSywgeyBleGVjOiAnZWNobyBcImZvb1wiID4gYmFyLnR4dCcgfSk7XG4gIHByb2plY3Quc3ludGgoKTtcblxuICBleGVjUHJvamVuQ0xJKHdvcmtkaXIpO1xuICBleHBlY3QoZGlyZWN0b3J5U25hcHNob3Qod29ya2RpcilbJ2Jhci50eHQnXSkudG9TdHJpY3RFcXVhbCgnZm9vXFxuJyk7XG59KTtcbiJdfQ==

@@ -1,0 +1,14 @@
+$ corepack pnpm@9.15.9 install --prod --no-frozen-lockfile --reporter=append-only --config.node-linker=hoisted --ignore-workspace --ignore-scripts
+Progress: resolved 1, reused 0, downloaded 0, added 0
+Progress: resolved 82, reused 0, downloaded 0, added 0
+Progress: resolved 328, reused 0, downloaded 0, added 0
+Progress: resolved 376, reused 0, downloaded 0, added 0
+Progress: resolved 377, reused 0, downloaded 0, added 0
+ WARN  32 deprecated subdependencies found: babel-eslint@4.1.8, babel-plugin-constant-folding@1.0.1, babel-plugin-dead-code-elimination@1.0.2, babel-plugin-eval@1.0.1, babel-plugin-inline-environment-variables@1.0.1, babel-plugin-jscript@1.0.4, babel-plugin-member-expression-literals@1.0.1, babel-plugin-property-literals@1.0.1, babel-plugin-proto-to-assign@1.0.4, babel-plugin-react-constant-elements@1.0.3, babel-plugin-react-display-name@1.0.3, babel-plugin-remove-console@1.0.1, babel-plugin-remove-debugger@1.0.1, babel-plugin-runtime@1.0.7, babel-plugin-undefined-to-void@1.1.6, circular-json@0.3.3, core-js@1.2.7, eslint-plugin-no-empty-blocks@0.0.2, eslint@1.10.3, glob@5.0.15, glob@6.0.4, glob@7.2.3, inflight@1.0.6, lodash.omit@3.1.0, lodash.pick@3.1.0, minimatch@2.0.10, osenv@0.1.5, q@1.5.1, rimraf@2.6.3, stable@0.1.8, try-resolve@1.0.1, uuid@2.0.3
+
+devDependencies: skipped
+
+Packages: +3
++++
+Progress: resolved 378, reused 3, downloaded 0, added 3, done
+Done in 4.6s using pnpm v9.15.9

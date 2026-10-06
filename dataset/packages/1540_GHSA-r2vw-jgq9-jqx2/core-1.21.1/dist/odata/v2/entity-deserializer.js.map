@@ -1,0 +1,1 @@
+{"version":3,"file":"entity-deserializer.js","sourceRoot":"","sources":["../../../src/odata/v2/entity-deserializer.ts"],"names":[],"mappings":";AAAA,iFAAiF;;AAEjF,qEAAmE;AACnE,qEAAoD;AACpD,IAAM,YAAY,GAAG,wCAAkB,CAAC,iCAAO,CAAC,CAAC;AAEpC,QAAA,mBAAmB,GAAG,YAAY,CAAC,mBAAmB,CAAC;AACvD,QAAA,iBAAiB,GAAG,YAAY,CAAC,iBAAiB,CAAC"}

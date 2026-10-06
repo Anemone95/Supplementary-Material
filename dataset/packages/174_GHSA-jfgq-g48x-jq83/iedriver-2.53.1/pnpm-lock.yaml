@@ -1,0 +1,144 @@
+lockfileVersion: '9.0'
+
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
+
+importers:
+
+  .:
+    dependencies:
+      adm-zip:
+        specifier: 0.2.1
+        version: 0.2.1
+      kew:
+        specifier: ~0.1.7
+        version: 0.1.7
+      md5-file:
+        specifier: ^1.1.4
+        version: 1.1.10
+      mkdirp:
+        specifier: 0.3.5
+        version: 0.3.5
+      npmconf:
+        specifier: 0.0.24
+        version: 0.0.24
+      rimraf:
+        specifier: ~2.0.2
+        version: 2.0.3
+
+packages:
+
+  abbrev@1.1.1:
+    resolution: {integrity: sha512-nne9/IiQ/hzIhY6pdDnbBtz7DjPTKrY00P/zvPSm5pOFkl6xuGrGnXn/VtTNNfNtAfZ9/1RtehkszU9qcTii0Q==}
+
+  adm-zip@0.2.1:
+    resolution: {integrity: sha512-J2LiZpRxcLsJm2IwoekNa6COwzEZnMwCJ3vxz0UCw2NYUH2WFi7svuDrVccq5KpBGmzGUgFa0L0FwEmKmu/rzQ==}
+    engines: {node: '>=0.3.0'}
+
+  config-chain@1.1.13:
+    resolution: {integrity: sha512-qj+f8APARXHrM0hraqXYb2/bOVSV4PvJQlNZ/DVj0QrmNM2q2euizkeuVckQ57J+W0mRH6Hvi+k50M4Jul2VRQ==}
+
+  graceful-fs@1.1.14:
+    resolution: {integrity: sha512-JUrvoFoQbLZpOZilKTXZX2e1EV0DTnuG5vsRFNFv4mPf/mnYbwNAFw/5x0rxeyaJslIdObGSgTTsMnM/acRaVw==}
+    engines: {node: '>=0.4.0'}
+    deprecated: please upgrade to graceful-fs 4 for compatibility with current and future versions of Node.js
+
+  inherits@1.0.2:
+    resolution: {integrity: sha512-Al67oatbRSo3RV5hRqIoln6Y5yMVbJSIn4jEJNL7VCImzq/kLr7vvb6sFRJXqr8rpHc/2kJOM+y0sPKN47VdzA==}
+
+  ini@1.1.0:
+    resolution: {integrity: sha512-B6L/jfyFRcG2dqKiHggWnfby52Iy07iabE4F6srQAr/OmVKBRE5uU+B5MQ+nQ7NiYnjz93gENh1GhqHzpDgHgA==}
+    deprecated: Please update to ini >=1.3.6 to avoid a prototype pollution issue
+
+  ini@1.3.8:
+    resolution: {integrity: sha512-JV/yugV2uzW5iMRSiZAyDtQd+nxtUnjeLt0acNdw98kKLrvuRVyB80tsREOE7yvGVgalhZ6RNXCmEHkUKBKxew==}
+
+  kew@0.1.7:
+    resolution: {integrity: sha512-TQRJfHoVm4f2exuRqjcpURhzGcC4GEIPyiLquo4mBfz0JgsVg19VeyTmKp6RKSOIhHQ6F4SgEhsnUlBduGV9Yw==}
+
+  md5-file@1.1.10:
+    resolution: {integrity: sha512-1y2ul4lAUFGnoxzkCTOGdtYtxMPkpmZyAiVBWv4NjRXdaG2lj9DC6c6g9nM8rwTAPc9DHyXsgb3Xg1/kFW6TjQ==}
+
+  mkdirp@0.3.5:
+    resolution: {integrity: sha512-8OCq0De/h9ZxseqzCH8Kw/Filf5pF/vMI6+BH7Lu0jXz2pqYCjTAQRolSxRIi+Ax+oCCjlxoJMP0YQ4XlrQNHg==}
+    deprecated: Legacy versions of mkdirp are no longer supported. Please update to mkdirp 1.x. (Note that the API surface has changed to use Promises in 1.x.)
+
+  nopt@2.2.1:
+    resolution: {integrity: sha512-gIOTA/uJuhPwFqp+spY7VQ1satbnGlD+iQVZxI18K6hs8Evq4sX81Ml7BB5byP/LsbR2yBVtmvdEmhi7evJ6Aw==}
+    hasBin: true
+
+  npmconf@0.0.24:
+    resolution: {integrity: sha512-LX0bX+RmuBuEITg26i7+dx+d9cfYU+giB7eOiSkT5IwvuAzzIx02u4GXwSC3jsQMDMb/kXC57R8tybRSVYfbWw==}
+    deprecated: this package has been reintegrated into npm and is now out of date with respect to npm
+
+  once@1.1.1:
+    resolution: {integrity: sha512-frdJr++QKEg4+JylTX+NNLgSoO6M2pDNYOOXe4WGIYKKBADBI9nU3oa06y4D4FpAJ3obAsjExeBOnscYJB9Blw==}
+
+  osenv@0.0.3:
+    resolution: {integrity: sha512-VBk1bfdaO4gh3OWO8LBuDY2alp0buL8YzQ6t13xyc8PQPrnUg5AgQvINQx3UkS4dom8UGCL597q4Y2+M4TPvmw==}
+    deprecated: This package is no longer supported.
+
+  proto-list@1.2.4:
+    resolution: {integrity: sha512-vtK/94akxsTMhe0/cbfpR+syPuszcuwhqVjJq26CuNDgFGj682oRBXOP5MJpv2r7JtE8MsiepGIqvvOTBwn2vA==}
+
+  rimraf@2.0.3:
+    resolution: {integrity: sha512-uR09PSoW2+1hW0hquRqxb+Ae2h6R5ls3OAy2oNekQFtqbSJkltkhKRa+OhZKoxWsN9195Gp1vg7sELDRoJ8a3w==}
+    deprecated: Rimraf versions prior to v4 are no longer supported
+
+  semver@1.1.4:
+    resolution: {integrity: sha512-9causpLEkYDrfTz7cprleLz9dnlb0oKsKRHl33K92wJmXLhVc2dGlrQGJT/sjtLOAyuoQZl+ClI77+lnvzPSKg==}
+    hasBin: true
+
+snapshots:
+
+  abbrev@1.1.1: {}
+
+  adm-zip@0.2.1: {}
+
+  config-chain@1.1.13:
+    dependencies:
+      ini: 1.3.8
+      proto-list: 1.2.4
+
+  graceful-fs@1.1.14:
+    optional: true
+
+  inherits@1.0.2: {}
+
+  ini@1.1.0: {}
+
+  ini@1.3.8: {}
+
+  kew@0.1.7: {}
+
+  md5-file@1.1.10: {}
+
+  mkdirp@0.3.5: {}
+
+  nopt@2.2.1:
+    dependencies:
+      abbrev: 1.1.1
+
+  npmconf@0.0.24:
+    dependencies:
+      config-chain: 1.1.13
+      inherits: 1.0.2
+      ini: 1.1.0
+      mkdirp: 0.3.5
+      nopt: 2.2.1
+      once: 1.1.1
+      osenv: 0.0.3
+      semver: 1.1.4
+
+  once@1.1.1: {}
+
+  osenv@0.0.3: {}
+
+  proto-list@1.2.4: {}
+
+  rimraf@2.0.3:
+    optionalDependencies:
+      graceful-fs: 1.1.14
+
+  semver@1.1.4: {}

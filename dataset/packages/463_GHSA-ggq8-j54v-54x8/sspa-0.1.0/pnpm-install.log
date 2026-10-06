@@ -1,0 +1,7 @@
+$ corepack pnpm@9.15.9 install --prod --no-frozen-lockfile --reporter=append-only --config.node-linker=hoisted --ignore-workspace --ignore-scripts
+ WARN  Unsupported engine: wanted: {"node":"~0.8.x"} (current: {"node":"v22.5.1","pnpm":"9.15.9"})
+
+devDependencies: skipped
+
+Already up to date
+Done in 295ms using pnpm v9.15.9

@@ -1,0 +1,57 @@
+// IDS Enterprise - Uplift Theme
+//================================================== //
+
+// Standard CSS reset stuff here
+@import '../core/reset';
+@import '../core/mixins';
+
+// ids-identity token vars
+@import '../../node_modules/ids-identity/dist/theme-uplift/tokens/web/theme-uplift';
+
+// Enterprise colors
+@import '../components/colors/colorpalette';
+
+// Local vars
+@import '../core/config';
+
+// Core Controls
+@import '../core/controls';
+
+// Temporary Banner - Remove this when not beta.
+body::before {
+  background: $theme-color-status-base;
+  bottom: 12px;
+  color: $theme-color-palette-white;
+  content: 'beta';
+  font-size: 13px;
+  font-weight: 900;
+  height: 25px;
+  left: -25px;
+  line-height: 27px;
+  position: fixed;
+  text-align: center;
+  text-transform: uppercase;
+  -ms-transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+  width: 100px;
+  z-index: 1000;
+}
+
+// TODO: Move to tokens
+.icon {
+  fill: transparent;
+}
+
+// Font Size Overrides
+.header h1 {
+  font-size: 2.4rem;
+}
+
+.animated-bar {
+  height: 7px;
+}
+
+.application-menu .application-menu-header .name-xl {
+  font-size: 2.8rem;
+}

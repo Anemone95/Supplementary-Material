@@ -1,0 +1,29 @@
+{
+  "name": "access-policy",
+  "version": "3.1.0",
+  "description": "Encodes and decodes policy JSON files for use with web applications.",
+  "main": "index.js",
+  "scripts": {
+    "test": "istanbul cover _mocha",
+    "mocha": "mocha -G -w",
+    "postversion": "git push && git push --tags"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TupleAustin/access-policy.git"
+  },
+  "keywords": [
+    "JWT",
+    "policy"
+  ],
+  "author": "Tuple Labs, LLC <hello@wearetuple.co>",
+  "bugs": {
+    "url": "https://github.com/TupleAustin/access-policy/issues"
+  },
+  "homepage": "https://github.com/TupleAustin/access-policy#readme",
+  "devDependencies": {
+    "istanbul": "^0.4.0",
+    "mocha": "^2.3.3"
+  },
+  "dependencies": {}
+}

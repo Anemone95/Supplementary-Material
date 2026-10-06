@@ -1,0 +1,71 @@
+"use strict";
+
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.VisibilityProvider = void 0;
+
+var _defineProperty2 = _interopRequireDefault(require("@babel/runtime/helpers/defineProperty"));
+
+var _RoomList = require("../../../customisations/RoomList");
+
+var _VoipUserMapper = require("../../../VoipUserMapper");
+
+/*
+ * Copyright 2020 The Matrix.org Foundation C.I.C.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *         http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+class VisibilityProvider {
+  constructor() {}
+
+  static get instance()
+  /*: VisibilityProvider*/
+  {
+    if (!VisibilityProvider.internalInstance) {
+      VisibilityProvider.internalInstance = new VisibilityProvider();
+    }
+
+    return VisibilityProvider.internalInstance;
+  }
+
+  isRoomVisible(room
+  /*: Room*/
+  )
+  /*: boolean*/
+  {
+    let isVisible = true; // Returned at the end of this function
+
+    let forced = false; // When true, this function won't bother calling the customisation points
+
+    if ((0, _VoipUserMapper.voipUserMapperEnabled)() && (0, _VoipUserMapper.isVirtualRoom)(room.roomId)) {
+      isVisible = false;
+      forced = true;
+    }
+
+    const isVisibleFn = _RoomList.RoomListCustomisations.isRoomVisible;
+
+    if (!forced && isVisibleFn) {
+      isVisible = isVisibleFn(room);
+    }
+
+    return isVisible;
+  }
+
+}
+
+exports.VisibilityProvider = VisibilityProvider;
+(0, _defineProperty2.default)(VisibilityProvider, "internalInstance", void 0);
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uLy4uLy4uL3NyYy9zdG9yZXMvcm9vbS1saXN0L2ZpbHRlcnMvVmlzaWJpbGl0eVByb3ZpZGVyLnRzIl0sIm5hbWVzIjpbIlZpc2liaWxpdHlQcm92aWRlciIsImNvbnN0cnVjdG9yIiwiaW5zdGFuY2UiLCJpbnRlcm5hbEluc3RhbmNlIiwiaXNSb29tVmlzaWJsZSIsInJvb20iLCJpc1Zpc2libGUiLCJmb3JjZWQiLCJyb29tSWQiLCJpc1Zpc2libGVGbiIsIlJvb21MaXN0Q3VzdG9taXNhdGlvbnMiXSwibWFwcGluZ3MiOiI7Ozs7Ozs7Ozs7O0FBaUJBOztBQUNBOztBQWxCQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFNTyxNQUFNQSxrQkFBTixDQUF5QjtBQUdwQkMsRUFBQUEsV0FBUixHQUFzQixDQUNyQjs7QUFFRCxhQUFrQkMsUUFBbEI7QUFBQTtBQUFpRDtBQUM3QyxRQUFJLENBQUNGLGtCQUFrQixDQUFDRyxnQkFBeEIsRUFBMEM7QUFDdENILE1BQUFBLGtCQUFrQixDQUFDRyxnQkFBbkIsR0FBc0MsSUFBSUgsa0JBQUosRUFBdEM7QUFDSDs7QUFDRCxXQUFPQSxrQkFBa0IsQ0FBQ0csZ0JBQTFCO0FBQ0g7O0FBRU1DLEVBQUFBLGFBQVAsQ0FBcUJDO0FBQXJCO0FBQUE7QUFBQTtBQUEwQztBQUN0QyxRQUFJQyxTQUFTLEdBQUcsSUFBaEIsQ0FEc0MsQ0FDaEI7O0FBQ3RCLFFBQUlDLE1BQU0sR0FBRyxLQUFiLENBRnNDLENBRWxCOztBQUVwQixRQUFJLGdEQUEyQixtQ0FBY0YsSUFBSSxDQUFDRyxNQUFuQixDQUEvQixFQUEyRDtBQUN2REYsTUFBQUEsU0FBUyxHQUFHLEtBQVo7QUFDQUMsTUFBQUEsTUFBTSxHQUFHLElBQVQ7QUFDSDs7QUFFRCxVQUFNRSxXQUFXLEdBQUdDLGlDQUF1Qk4sYUFBM0M7O0FBQ0EsUUFBSSxDQUFDRyxNQUFELElBQVdFLFdBQWYsRUFBNEI7QUFDeEJILE1BQUFBLFNBQVMsR0FBR0csV0FBVyxDQUFDSixJQUFELENBQXZCO0FBQ0g7O0FBRUQsV0FBT0MsU0FBUDtBQUNIOztBQTVCMkI7Ozs4QkFBbkJOLGtCIiwic291cmNlc0NvbnRlbnQiOlsiLypcbiAqIENvcHlyaWdodCAyMDIwIFRoZSBNYXRyaXgub3JnIEZvdW5kYXRpb24gQy5JLkMuXG4gKlxuICogTGljZW5zZWQgdW5kZXIgdGhlIEFwYWNoZSBMaWNlbnNlLCBWZXJzaW9uIDIuMCAodGhlIFwiTGljZW5zZVwiKTtcbiAqIHlvdSBtYXkgbm90IHVzZSB0aGlzIGZpbGUgZXhjZXB0IGluIGNvbXBsaWFuY2Ugd2l0aCB0aGUgTGljZW5zZS5cbiAqIFlvdSBtYXkgb2J0YWluIGEgY29weSBvZiB0aGUgTGljZW5zZSBhdFxuICpcbiAqICAgICAgICAgaHR0cDovL3d3dy5hcGFjaGUub3JnL2xpY2Vuc2VzL0xJQ0VOU0UtMi4wXG4gKlxuICogVW5sZXNzIHJlcXVpcmVkIGJ5IGFwcGxpY2FibGUgbGF3IG9yIGFncmVlZCB0byBpbiB3cml0aW5nLCBzb2Z0d2FyZVxuICogZGlzdHJpYnV0ZWQgdW5kZXIgdGhlIExpY2Vuc2UgaXMgZGlzdHJpYnV0ZWQgb24gYW4gXCJBUyBJU1wiIEJBU0lTLFxuICogV0lUSE9VVCBXQVJSQU5USUVTIE9SIENPTkRJVElPTlMgT0YgQU5ZIEtJTkQsIGVpdGhlciBleHByZXNzIG9yIGltcGxpZWQuXG4gKiBTZWUgdGhlIExpY2Vuc2UgZm9yIHRoZSBzcGVjaWZpYyBsYW5ndWFnZSBnb3Zlcm5pbmcgcGVybWlzc2lvbnMgYW5kXG4gKiBsaW1pdGF0aW9ucyB1bmRlciB0aGUgTGljZW5zZS5cbiAqL1xuXG5pbXBvcnQge1Jvb219IGZyb20gXCJtYXRyaXgtanMtc2RrL3NyYy9tb2RlbHMvcm9vbVwiO1xuaW1wb3J0IHsgUm9vbUxpc3RDdXN0b21pc2F0aW9ucyB9IGZyb20gXCIuLi8uLi8uLi9jdXN0b21pc2F0aW9ucy9Sb29tTGlzdFwiO1xuaW1wb3J0IHsgaXNWaXJ0dWFsUm9vbSwgdm9pcFVzZXJNYXBwZXJFbmFibGVkIH0gZnJvbSBcIi4uLy4uLy4uL1ZvaXBVc2VyTWFwcGVyXCI7XG5cbmV4cG9ydCBjbGFzcyBWaXNpYmlsaXR5UHJvdmlkZXIge1xuICAgIHByaXZhdGUgc3RhdGljIGludGVybmFsSW5zdGFuY2U6IFZpc2liaWxpdHlQcm92aWRlcjtcblxuICAgIHByaXZhdGUgY29uc3RydWN0b3IoKSB7XG4gICAgfVxuXG4gICAgcHVibGljIHN0YXRpYyBnZXQgaW5zdGFuY2UoKTogVmlzaWJpbGl0eVByb3ZpZGVyIHtcbiAgICAgICAgaWYgKCFWaXNpYmlsaXR5UHJvdmlkZXIuaW50ZXJuYWxJbnN0YW5jZSkge1xuICAgICAgICAgICAgVmlzaWJpbGl0eVByb3ZpZGVyLmludGVybmFsSW5zdGFuY2UgPSBuZXcgVmlzaWJpbGl0eVByb3ZpZGVyKCk7XG4gICAgICAgIH1cbiAgICAgICAgcmV0dXJuIFZpc2liaWxpdHlQcm92aWRlci5pbnRlcm5hbEluc3RhbmNlO1xuICAgIH1cblxuICAgIHB1YmxpYyBpc1Jvb21WaXNpYmxlKHJvb206IFJvb20pOiBib29sZWFuIHtcbiAgICAgICAgbGV0IGlzVmlzaWJsZSA9IHRydWU7IC8vIFJldHVybmVkIGF0IHRoZSBlbmQgb2YgdGhpcyBmdW5jdGlvblxuICAgICAgICBsZXQgZm9yY2VkID0gZmFsc2U7IC8vIFdoZW4gdHJ1ZSwgdGhpcyBmdW5jdGlvbiB3b24ndCBib3RoZXIgY2FsbGluZyB0aGUgY3VzdG9taXNhdGlvbiBwb2ludHNcblxuICAgICAgICBpZiAodm9pcFVzZXJNYXBwZXJFbmFibGVkKCkgJiYgaXNWaXJ0dWFsUm9vbShyb29tLnJvb21JZCkpIHtcbiAgICAgICAgICAgIGlzVmlzaWJsZSA9IGZhbHNlO1xuICAgICAgICAgICAgZm9yY2VkID0gdHJ1ZTtcbiAgICAgICAgfVxuXG4gICAgICAgIGNvbnN0IGlzVmlzaWJsZUZuID0gUm9vbUxpc3RDdXN0b21pc2F0aW9ucy5pc1Jvb21WaXNpYmxlO1xuICAgICAgICBpZiAoIWZvcmNlZCAmJiBpc1Zpc2libGVGbikge1xuICAgICAgICAgICAgaXNWaXNpYmxlID0gaXNWaXNpYmxlRm4ocm9vbSk7XG4gICAgICAgIH1cblxuICAgICAgICByZXR1cm4gaXNWaXNpYmxlO1xuICAgIH1cbn1cbiJdfQ==

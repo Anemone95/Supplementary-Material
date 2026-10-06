@@ -1,0 +1,54 @@
+"use strict";
+
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _languageHandler = require("../../../languageHandler");
+
+var _AccessibleButton = _interopRequireDefault(require("../elements/AccessibleButton"));
+
+var _classnames = _interopRequireDefault(require("classnames"));
+
+/*
+Copyright 2019 New Vector Ltd
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+*/
+var _default = props => {
+  const className = (0, _classnames.default)({
+    'mx_JumpToBottomButton': true,
+    'mx_JumpToBottomButton_highlight': props.highlight
+  });
+  let badge;
+
+  if (props.numUnreadMessages) {
+    badge = /*#__PURE__*/React.createElement("div", {
+      className: "mx_JumpToBottomButton_badge"
+    }, props.numUnreadMessages);
+  }
+
+  return /*#__PURE__*/React.createElement("div", {
+    className: className
+  }, /*#__PURE__*/React.createElement(_AccessibleButton.default, {
+    className: "mx_JumpToBottomButton_scrollDown",
+    title: (0, _languageHandler._t)("Scroll to most recent messages"),
+    onClick: props.onScrollToBottomClick
+  }), badge);
+};
+
+exports.default = _default;
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uLy4uLy4uL3NyYy9jb21wb25lbnRzL3ZpZXdzL3Jvb21zL0p1bXBUb0JvdHRvbUJ1dHRvbi5qcyJdLCJuYW1lcyI6WyJwcm9wcyIsImNsYXNzTmFtZSIsImhpZ2hsaWdodCIsImJhZGdlIiwibnVtVW5yZWFkTWVzc2FnZXMiLCJvblNjcm9sbFRvQm90dG9tQ2xpY2siXSwibWFwcGluZ3MiOiI7Ozs7Ozs7OztBQWdCQTs7QUFDQTs7QUFDQTs7QUFsQkE7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO2VBTWdCQSxLQUFELElBQVc7QUFDdEIsUUFBTUMsU0FBUyxHQUFHLHlCQUFXO0FBQ3pCLDZCQUF5QixJQURBO0FBRXpCLHVDQUFtQ0QsS0FBSyxDQUFDRTtBQUZoQixHQUFYLENBQWxCO0FBSUEsTUFBSUMsS0FBSjs7QUFDQSxNQUFJSCxLQUFLLENBQUNJLGlCQUFWLEVBQTZCO0FBQ3pCRCxJQUFBQSxLQUFLLGdCQUFJO0FBQUssTUFBQSxTQUFTLEVBQUM7QUFBZixPQUE4Q0gsS0FBSyxDQUFDSSxpQkFBcEQsQ0FBVDtBQUNIOztBQUNELHNCQUFRO0FBQUssSUFBQSxTQUFTLEVBQUVIO0FBQWhCLGtCQUNKLG9CQUFDLHlCQUFEO0FBQWtCLElBQUEsU0FBUyxFQUFDLGtDQUE1QjtBQUNJLElBQUEsS0FBSyxFQUFFLHlCQUFHLGdDQUFILENBRFg7QUFFSSxJQUFBLE9BQU8sRUFBRUQsS0FBSyxDQUFDSztBQUZuQixJQURJLEVBS0ZGLEtBTEUsQ0FBUjtBQU9ILEMiLCJzb3VyY2VzQ29udGVudCI6WyIvKlxuQ29weXJpZ2h0IDIwMTkgTmV3IFZlY3RvciBMdGRcblxuTGljZW5zZWQgdW5kZXIgdGhlIEFwYWNoZSBMaWNlbnNlLCBWZXJzaW9uIDIuMCAodGhlIFwiTGljZW5zZVwiKTtcbnlvdSBtYXkgbm90IHVzZSB0aGlzIGZpbGUgZXhjZXB0IGluIGNvbXBsaWFuY2Ugd2l0aCB0aGUgTGljZW5zZS5cbllvdSBtYXkgb2J0YWluIGEgY29weSBvZiB0aGUgTGljZW5zZSBhdFxuXG4gICAgaHR0cDovL3d3dy5hcGFjaGUub3JnL2xpY2Vuc2VzL0xJQ0VOU0UtMi4wXG5cblVubGVzcyByZXF1aXJlZCBieSBhcHBsaWNhYmxlIGxhdyBvciBhZ3JlZWQgdG8gaW4gd3JpdGluZywgc29mdHdhcmVcbmRpc3RyaWJ1dGVkIHVuZGVyIHRoZSBMaWNlbnNlIGlzIGRpc3RyaWJ1dGVkIG9uIGFuIFwiQVMgSVNcIiBCQVNJUyxcbldJVEhPVVQgV0FSUkFOVElFUyBPUiBDT05ESVRJT05TIE9GIEFOWSBLSU5ELCBlaXRoZXIgZXhwcmVzcyBvciBpbXBsaWVkLlxuU2VlIHRoZSBMaWNlbnNlIGZvciB0aGUgc3BlY2lmaWMgbGFuZ3VhZ2UgZ292ZXJuaW5nIHBlcm1pc3Npb25zIGFuZFxubGltaXRhdGlvbnMgdW5kZXIgdGhlIExpY2Vuc2UuXG4qL1xuXG5pbXBvcnQgeyBfdCB9IGZyb20gJy4uLy4uLy4uL2xhbmd1YWdlSGFuZGxlcic7XG5pbXBvcnQgQWNjZXNzaWJsZUJ1dHRvbiBmcm9tICcuLi9lbGVtZW50cy9BY2Nlc3NpYmxlQnV0dG9uJztcbmltcG9ydCBjbGFzc05hbWVzIGZyb20gJ2NsYXNzbmFtZXMnO1xuXG5leHBvcnQgZGVmYXVsdCAocHJvcHMpID0+IHtcbiAgICBjb25zdCBjbGFzc05hbWUgPSBjbGFzc05hbWVzKHtcbiAgICAgICAgJ214X0p1bXBUb0JvdHRvbUJ1dHRvbic6IHRydWUsXG4gICAgICAgICdteF9KdW1wVG9Cb3R0b21CdXR0b25faGlnaGxpZ2h0JzogcHJvcHMuaGlnaGxpZ2h0LFxuICAgIH0pO1xuICAgIGxldCBiYWRnZTtcbiAgICBpZiAocHJvcHMubnVtVW5yZWFkTWVzc2FnZXMpIHtcbiAgICAgICAgYmFkZ2UgPSAoPGRpdiBjbGFzc05hbWU9XCJteF9KdW1wVG9Cb3R0b21CdXR0b25fYmFkZ2VcIj57cHJvcHMubnVtVW5yZWFkTWVzc2FnZXN9PC9kaXY+KTtcbiAgICB9XG4gICAgcmV0dXJuICg8ZGl2IGNsYXNzTmFtZT17Y2xhc3NOYW1lfT5cbiAgICAgICAgPEFjY2Vzc2libGVCdXR0b24gY2xhc3NOYW1lPVwibXhfSnVtcFRvQm90dG9tQnV0dG9uX3Njcm9sbERvd25cIlxuICAgICAgICAgICAgdGl0bGU9e190KFwiU2Nyb2xsIHRvIG1vc3QgcmVjZW50IG1lc3NhZ2VzXCIpfVxuICAgICAgICAgICAgb25DbGljaz17cHJvcHMub25TY3JvbGxUb0JvdHRvbUNsaWNrfT5cbiAgICAgICAgPC9BY2Nlc3NpYmxlQnV0dG9uPlxuICAgICAgICB7IGJhZGdlIH1cbiAgICA8L2Rpdj4pO1xufTtcbiJdfQ==

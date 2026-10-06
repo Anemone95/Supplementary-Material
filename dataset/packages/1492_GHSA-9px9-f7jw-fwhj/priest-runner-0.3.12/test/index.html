@@ -1,0 +1,27 @@
+<html>
+    <head>
+        <title>
+            Priest log
+        </title>
+        <style>
+            html {
+                background-color: black;
+                color: white;
+            }
+        </style>
+    </head>
+    <body>
+        <pre id ="log"></pre>
+        <script language="javascript">
+            if (location.hash) {
+                var source = new EventSource('/process/' + document.location.hash.slice(1) + '/log?format=html');
+                var log = document.getElementById('log');
+                source.addEventListener('message', function (e) {
+                    console.log(e.data);
+                    log.innerHTML += e.data;
+                    document.body.scrollTop = document.body.offsetHeight;
+                });
+            }
+        </script>
+    </body>
+</html>

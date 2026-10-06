@@ -1,0 +1,62 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.isCustomTag = isCustomTag;
+exports.RoomUpdateCause = exports.OrderedDefaultTagIDs = exports.DefaultTagID = void 0;
+
+var _enums = require("../../utils/enums");
+
+/*
+Copyright 2020 The Matrix.org Foundation C.I.C.
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+*/
+let DefaultTagID;
+exports.DefaultTagID = DefaultTagID;
+
+(function (DefaultTagID) {
+  DefaultTagID["Invite"] = "im.vector.fake.invite";
+  DefaultTagID["Untagged"] = "im.vector.fake.recent";
+  DefaultTagID["Archived"] = "im.vector.fake.archived";
+  DefaultTagID["LowPriority"] = "m.lowpriority";
+  DefaultTagID["Favourite"] = "m.favourite";
+  DefaultTagID["DM"] = "im.vector.fake.direct";
+  DefaultTagID["ServerNotice"] = "m.server_notice";
+})(DefaultTagID || (exports.DefaultTagID = DefaultTagID = {}));
+
+const OrderedDefaultTagIDs = [DefaultTagID.Invite, DefaultTagID.Favourite, DefaultTagID.DM, DefaultTagID.Untagged, DefaultTagID.LowPriority, DefaultTagID.ServerNotice, DefaultTagID.Archived];
+/*:: export type TagID = string | DefaultTagID;*/
+
+exports.OrderedDefaultTagIDs = OrderedDefaultTagIDs;
+
+function isCustomTag(tagId
+/*: TagID*/
+)
+/*: boolean*/
+{
+  return !(0, _enums.isEnumValue)(DefaultTagID, tagId);
+}
+
+let RoomUpdateCause;
+exports.RoomUpdateCause = RoomUpdateCause;
+
+(function (RoomUpdateCause) {
+  RoomUpdateCause["Timeline"] = "TIMELINE";
+  RoomUpdateCause["PossibleTagChange"] = "POSSIBLE_TAG_CHANGE";
+  RoomUpdateCause["ReadReceipt"] = "READ_RECEIPT";
+  RoomUpdateCause["NewRoom"] = "NEW_ROOM";
+  RoomUpdateCause["RoomRemoved"] = "ROOM_REMOVED";
+})(RoomUpdateCause || (exports.RoomUpdateCause = RoomUpdateCause = {}));
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uLy4uL3NyYy9zdG9yZXMvcm9vbS1saXN0L21vZGVscy50cyJdLCJuYW1lcyI6WyJEZWZhdWx0VGFnSUQiLCJPcmRlcmVkRGVmYXVsdFRhZ0lEcyIsIkludml0ZSIsIkZhdm91cml0ZSIsIkRNIiwiVW50YWdnZWQiLCJMb3dQcmlvcml0eSIsIlNlcnZlck5vdGljZSIsIkFyY2hpdmVkIiwiaXNDdXN0b21UYWciLCJ0YWdJZCIsIlJvb21VcGRhdGVDYXVzZSJdLCJtYXBwaW5ncyI6Ijs7Ozs7Ozs7QUFnQkE7O0FBaEJBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtJQUlZQSxZOzs7V0FBQUEsWTtBQUFBQSxFQUFBQSxZO0FBQUFBLEVBQUFBLFk7QUFBQUEsRUFBQUEsWTtBQUFBQSxFQUFBQSxZO0FBQUFBLEVBQUFBLFk7QUFBQUEsRUFBQUEsWTtBQUFBQSxFQUFBQSxZO0dBQUFBLFksNEJBQUFBLFk7O0FBVUwsTUFBTUMsb0JBQW9CLEdBQUcsQ0FDaENELFlBQVksQ0FBQ0UsTUFEbUIsRUFFaENGLFlBQVksQ0FBQ0csU0FGbUIsRUFHaENILFlBQVksQ0FBQ0ksRUFIbUIsRUFJaENKLFlBQVksQ0FBQ0ssUUFKbUIsRUFLaENMLFlBQVksQ0FBQ00sV0FMbUIsRUFNaENOLFlBQVksQ0FBQ08sWUFObUIsRUFPaENQLFlBQVksQ0FBQ1EsUUFQbUIsQ0FBN0I7Ozs7O0FBWUEsU0FBU0MsV0FBVCxDQUFxQkM7QUFBckI7QUFBQTtBQUFBO0FBQTRDO0FBQy9DLFNBQU8sQ0FBQyx3QkFBWVYsWUFBWixFQUEwQlUsS0FBMUIsQ0FBUjtBQUNIOztJQUVXQyxlOzs7V0FBQUEsZTtBQUFBQSxFQUFBQSxlO0FBQUFBLEVBQUFBLGU7QUFBQUEsRUFBQUEsZTtBQUFBQSxFQUFBQSxlO0FBQUFBLEVBQUFBLGU7R0FBQUEsZSwrQkFBQUEsZSIsInNvdXJjZXNDb250ZW50IjpbIi8qXG5Db3B5cmlnaHQgMjAyMCBUaGUgTWF0cml4Lm9yZyBGb3VuZGF0aW9uIEMuSS5DLlxuXG5MaWNlbnNlZCB1bmRlciB0aGUgQXBhY2hlIExpY2Vuc2UsIFZlcnNpb24gMi4wICh0aGUgXCJMaWNlbnNlXCIpO1xueW91IG1heSBub3QgdXNlIHRoaXMgZmlsZSBleGNlcHQgaW4gY29tcGxpYW5jZSB3aXRoIHRoZSBMaWNlbnNlLlxuWW91IG1heSBvYnRhaW4gYSBjb3B5IG9mIHRoZSBMaWNlbnNlIGF0XG5cbiAgICBodHRwOi8vd3d3LmFwYWNoZS5vcmcvbGljZW5zZXMvTElDRU5TRS0yLjBcblxuVW5sZXNzIHJlcXVpcmVkIGJ5IGFwcGxpY2FibGUgbGF3IG9yIGFncmVlZCB0byBpbiB3cml0aW5nLCBzb2Z0d2FyZVxuZGlzdHJpYnV0ZWQgdW5kZXIgdGhlIExpY2Vuc2UgaXMgZGlzdHJpYnV0ZWQgb24gYW4gXCJBUyBJU1wiIEJBU0lTLFxuV0lUSE9VVCBXQVJSQU5USUVTIE9SIENPTkRJVElPTlMgT0YgQU5ZIEtJTkQsIGVpdGhlciBleHByZXNzIG9yIGltcGxpZWQuXG5TZWUgdGhlIExpY2Vuc2UgZm9yIHRoZSBzcGVjaWZpYyBsYW5ndWFnZSBnb3Zlcm5pbmcgcGVybWlzc2lvbnMgYW5kXG5saW1pdGF0aW9ucyB1bmRlciB0aGUgTGljZW5zZS5cbiovXG5cbmltcG9ydCB7IGlzRW51bVZhbHVlIH0gZnJvbSBcIi4uLy4uL3V0aWxzL2VudW1zXCI7XG5cbmV4cG9ydCBlbnVtIERlZmF1bHRUYWdJRCB7XG4gICAgSW52aXRlID0gXCJpbS52ZWN0b3IuZmFrZS5pbnZpdGVcIixcbiAgICBVbnRhZ2dlZCA9IFwiaW0udmVjdG9yLmZha2UucmVjZW50XCIsIC8vIGxlZ2FjeTogdXNlZCB0byBqdXN0IGJlICdyZWNlbnQgcm9vbXMnIGJ1dCBub3cgaXQncyBhbGwgdW50YWdnZWQgcm9vbXNcbiAgICBBcmNoaXZlZCA9IFwiaW0udmVjdG9yLmZha2UuYXJjaGl2ZWRcIixcbiAgICBMb3dQcmlvcml0eSA9IFwibS5sb3dwcmlvcml0eVwiLFxuICAgIEZhdm91cml0ZSA9IFwibS5mYXZvdXJpdGVcIixcbiAgICBETSA9IFwiaW0udmVjdG9yLmZha2UuZGlyZWN0XCIsXG4gICAgU2VydmVyTm90aWNlID0gXCJtLnNlcnZlcl9ub3RpY2VcIixcbn1cblxuZXhwb3J0IGNvbnN0IE9yZGVyZWREZWZhdWx0VGFnSURzID0gW1xuICAgIERlZmF1bHRUYWdJRC5JbnZpdGUsXG4gICAgRGVmYXVsdFRhZ0lELkZhdm91cml0ZSxcbiAgICBEZWZhdWx0VGFnSUQuRE0sXG4gICAgRGVmYXVsdFRhZ0lELlVudGFnZ2VkLFxuICAgIERlZmF1bHRUYWdJRC5Mb3dQcmlvcml0eSxcbiAgICBEZWZhdWx0VGFnSUQuU2VydmVyTm90aWNlLFxuICAgIERlZmF1bHRUYWdJRC5BcmNoaXZlZCxcbl07XG5cbmV4cG9ydCB0eXBlIFRhZ0lEID0gc3RyaW5nIHwgRGVmYXVsdFRhZ0lEO1xuXG5leHBvcnQgZnVuY3Rpb24gaXNDdXN0b21UYWcodGFnSWQ6IFRhZ0lEKTogYm9vbGVhbiB7XG4gICAgcmV0dXJuICFpc0VudW1WYWx1ZShEZWZhdWx0VGFnSUQsIHRhZ0lkKTtcbn1cblxuZXhwb3J0IGVudW0gUm9vbVVwZGF0ZUNhdXNlIHtcbiAgICBUaW1lbGluZSA9IFwiVElNRUxJTkVcIixcbiAgICBQb3NzaWJsZVRhZ0NoYW5nZSA9IFwiUE9TU0lCTEVfVEFHX0NIQU5HRVwiLFxuICAgIFJlYWRSZWNlaXB0ID0gXCJSRUFEX1JFQ0VJUFRcIixcbiAgICBOZXdSb29tID0gXCJORVdfUk9PTVwiLFxuICAgIFJvb21SZW1vdmVkID0gXCJST09NX1JFTU9WRURcIixcbn1cbiJdfQ==

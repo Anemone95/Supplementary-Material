@@ -1,0 +1,34 @@
+{
+  "name": "windows-cpu",
+  "version": "0.1.4",
+  "description": "CPU monitoring utilities for Node.js apps on Windows.",
+  "homepage": "https://github.com/KyleRoss/windows-cpu",
+  "license": "MIT",
+  "main": "index.js",
+  "keywords": [
+    "cpu",
+    "process",
+    "processor",
+    "windows",
+    "win",
+    "win32",
+    "stats",
+    "module",
+    "load"
+  ],
+  "author": [
+    "Kyle Ross <kylerross1324@gmail.com>",
+    "Vishnu Bharathi <vishnubharathi04@gmail.com> (https://twitter.com/scriptnull)",
+    "SkyLined (https://github.com/SkyLined)"
+  ],
+  "bugs": "https://github.com/KyleRoss/windows-cpu/issues",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/KyleRoss/windows-cpu.git"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "mocha": "~1.14.0",
+    "should": "~2.1.0"
+  }
+}

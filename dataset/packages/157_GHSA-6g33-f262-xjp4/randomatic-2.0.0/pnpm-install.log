@@ -1,0 +1,12 @@
+$ corepack pnpm@9.15.9 install --prod --no-frozen-lockfile --reporter=append-only --config.node-linker=hoisted --ignore-workspace --ignore-scripts
+Progress: resolved 1, reused 0, downloaded 0, added 0
+ WARN  deprecated glob@7.2.3: Old versions of glob are not supported, and contain widely publicized security vulnerabilities, which have been fixed in the current version. Please update. Support for old versions may be purchased (at exorbitant rates) by contacting i@izs.me
+Progress: resolved 68, reused 0, downloaded 0, added 0
+ WARN  13 deprecated subdependencies found: clone-buffer@1.0.0, glob@7.1.1, gulp-header@1.8.12, inflight@1.0.6, json3@3.3.2, lodash.template@4.18.1, mkdirp@0.5.1, resolve-url@0.2.1, set-value@0.3.3, set-value@0.4.3, source-map-resolve@0.5.3, source-map-url@0.4.1, urix@0.1.0
+
+devDependencies: skipped
+
+Packages: +2
+++
+Progress: resolved 268, reused 2, downloaded 0, added 2, done
+Done in 2.6s using pnpm v9.15.9

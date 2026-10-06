@@ -1,0 +1,32 @@
+{
+  "name": "@commercial/subtext",
+  "description": "HTTP payload parsing",
+  "version": "5.1.0",
+  "repository": "git://github.com/hapijs/subtext",
+  "main": "lib/index.js",
+  "keywords": [
+    "http",
+    "payload",
+    "file",
+    "stream",
+    "multipart"
+  ],
+  "dependencies": {
+    "@commercial/boom": "5.x.x",
+    "@commercial/bourne": "1.x.x",
+    "@commercial/content": "3.x.x",
+    "@commercial/hoek": "4.x.x",
+    "@commercial/pez": "2.x.x",
+    "@commercial/wreck": "12.x.x"
+  },
+  "devDependencies": {
+    "code": "4.x.x",
+    "form-data": "2.1.x",
+    "lab": "14.x.x"
+  },
+  "scripts": {
+    "test": "lab -a code -t 100 -L -l",
+    "test-cov-html": "lab -a code -r html -o coverage.html -l"
+  },
+  "license": "SEE LICENSE IN LICENSE.md"
+}

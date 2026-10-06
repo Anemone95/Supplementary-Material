@@ -1,0 +1,13 @@
+import { Constructable } from '../constructable';
+import { EntityBase, EntityIdentifiable } from '../entity';
+declare type EntityBasedRequestBuilder<EntityCT extends Constructable<EntityBase>> = ReturnType<EntityCT['requestBuilder']>;
+/**
+ * @hidden
+ */
+export declare abstract class RequestBuilder<EntityT extends EntityBase> implements EntityIdentifiable<EntityT> {
+    static forEntity<EntityCT extends Constructable<EntityBase>>(entity: EntityCT): EntityBasedRequestBuilder<EntityCT>;
+    _entity: EntityT;
+    _entityConstructor: Constructable<EntityT>;
+}
+export {};
+//# sourceMappingURL=request-builder.d.ts.map

@@ -1,0 +1,24 @@
+$ corepack pnpm@9.15.9 install --prod --no-frozen-lockfile --reporter=append-only --config.node-linker=hoisted --ignore-workspace --ignore-scripts
+Progress: resolved 1, reused 0, downloaded 0, added 0
+Progress: resolved 8, reused 0, downloaded 0, added 0
+Packages are hard linked from the content-addressable store to the virtual store.
+  Content-addressable store is at: /home/wenyuan/pkg-cache/pnpm/v3
+  Virtual store is at:             node_modules/.pnpm
+ WARN  The git-hosted package fetched from "https://codeload.github.com/balderdashy/sails-postgresql/tar.gz/5a5d85d84654c1f910fbff4379cd78d40206a02d" has to be built but the build scripts were ignored.
+Progress: resolved 8, reused 0, downloaded 1, added 0
+Progress: resolved 9, reused 0, downloaded 1, added 0
+ WARN  The git-hosted package fetched from "https://codeload.github.com/balderdashy/sails-mysql/tar.gz/656b07d6f0621812f3104c9e89b2ef1dc11a6283" has to be built but the build scripts were ignored.
+Progress: resolved 44, reused 0, downloaded 2, added 0
+Progress: resolved 124, reused 0, downloaded 2, added 0
+Progress: resolved 134, reused 0, downloaded 2, added 0
+ WARN  The git-hosted package fetched from "https://codeload.github.com/balderdashy/sails-memory/tar.gz/d686d185a460786789988d6483a33cd9d744959e" has to be built but the build scripts were ignored.
+Progress: resolved 152, reused 0, downloaded 3, added 0
+Progress: resolved 195, reused 0, downloaded 3, added 0
+ WARN  16 deprecated subdependencies found: @mapbox/geojsonhint@2.0.1, deep-diff@0.3.8, glob@3.2.11, glob@3.2.3, glob@7.2.3, graceful-fs@2.0.3, inflight@1.0.6, jade@0.26.3, minimatch@0.2.14, minimatch@0.3.0, mkdirp@0.3.0, mkdirp@0.5.1, nomnom@1.8.1, rimraf@2.7.1, to-iso-string@0.0.2, trim@0.0.1
+
+devDependencies: skipped
+
+Packages: +1
++
+Progress: resolved 252, reused 1, downloaded 3, added 1, done
+Done in 10.9s using pnpm v9.15.9

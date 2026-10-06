@@ -1,0 +1,21 @@
+$ corepack pnpm@9.15.9 install --prod --no-frozen-lockfile --reporter=append-only --config.node-linker=hoisted --ignore-workspace --ignore-scripts
+Progress: resolved 1, reused 0, downloaded 0, added 0
+Progress: resolved 17, reused 0, downloaded 0, added 0
+Progress: resolved 63, reused 0, downloaded 0, added 0
+Progress: resolved 168, reused 0, downloaded 0, added 0
+Progress: resolved 259, reused 0, downloaded 0, added 0
+Progress: resolved 288, reused 0, downloaded 0, added 0
+ WARN  5 deprecated subdependencies found: glob@7.1.6, glob@7.2.3, inflight@1.0.6, rimraf@3.0.2, uuid@8.3.2
+
+devDependencies: skipped
+
+ WARN  Issues with peer dependencies found
+.
+└─┬ typedoc 0.20.37
+  └── ✕ unmet peer typescript@"3.9.x || 4.0.x || 4.1.x || 4.2.x": found 4.9.5
+
+Packages: +21
++++++++++++++++++++++
+Progress: resolved 289, reused 19, downloaded 1, added 19
+Progress: resolved 289, reused 19, downloaded 2, added 21, done
+Done in 6.8s using pnpm v9.15.9

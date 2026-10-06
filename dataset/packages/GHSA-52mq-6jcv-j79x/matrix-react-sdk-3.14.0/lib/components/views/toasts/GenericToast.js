@@ -1,0 +1,55 @@
+"use strict";
+
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireDefault(require("react"));
+
+var _FormButton = _interopRequireDefault(require("../elements/FormButton"));
+
+/*
+Copyright 2020 The Matrix.org Foundation C.I.C.
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+*/
+const GenericToast
+/*: React.FC<XOR<IPropsExtended, IProps>>*/
+= ({
+  description,
+  acceptLabel,
+  rejectLabel,
+  onAccept,
+  onReject
+}) => {
+  return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("div", {
+    className: "mx_Toast_description"
+  }, description), /*#__PURE__*/_react.default.createElement("div", {
+    className: "mx_Toast_buttons",
+    "aria-live": "off"
+  }, onReject && rejectLabel && /*#__PURE__*/_react.default.createElement(_FormButton.default, {
+    label: rejectLabel,
+    kind: "danger",
+    onClick: onReject
+  }), /*#__PURE__*/_react.default.createElement(_FormButton.default, {
+    label: acceptLabel,
+    onClick: onAccept
+  })));
+};
+
+var _default = GenericToast;
+exports.default = _default;
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uLy4uLy4uL3NyYy9jb21wb25lbnRzL3ZpZXdzL3RvYXN0cy9HZW5lcmljVG9hc3QudHN4Il0sIm5hbWVzIjpbIkdlbmVyaWNUb2FzdCIsImRlc2NyaXB0aW9uIiwiYWNjZXB0TGFiZWwiLCJyZWplY3RMYWJlbCIsIm9uQWNjZXB0Iiwib25SZWplY3QiXSwibWFwcGluZ3MiOiI7Ozs7Ozs7OztBQWdCQTs7QUFFQTs7QUFsQkE7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBbUJBLE1BQU1BO0FBQW1EO0FBQUEsRUFBRyxDQUFDO0FBQ3pEQyxFQUFBQSxXQUR5RDtBQUV6REMsRUFBQUEsV0FGeUQ7QUFHekRDLEVBQUFBLFdBSHlEO0FBSXpEQyxFQUFBQSxRQUp5RDtBQUt6REMsRUFBQUE7QUFMeUQsQ0FBRCxLQU10RDtBQUNGLHNCQUFPLHVEQUNIO0FBQUssSUFBQSxTQUFTLEVBQUM7QUFBZixLQUNNSixXQUROLENBREcsZUFJSDtBQUFLLElBQUEsU0FBUyxFQUFDLGtCQUFmO0FBQWtDLGlCQUFVO0FBQTVDLEtBQ0tJLFFBQVEsSUFBSUYsV0FBWixpQkFBMkIsNkJBQUMsbUJBQUQ7QUFBWSxJQUFBLEtBQUssRUFBRUEsV0FBbkI7QUFBZ0MsSUFBQSxJQUFJLEVBQUMsUUFBckM7QUFBOEMsSUFBQSxPQUFPLEVBQUVFO0FBQXZELElBRGhDLGVBRUksNkJBQUMsbUJBQUQ7QUFBWSxJQUFBLEtBQUssRUFBRUgsV0FBbkI7QUFBZ0MsSUFBQSxPQUFPLEVBQUVFO0FBQXpDLElBRkosQ0FKRyxDQUFQO0FBU0gsQ0FoQkQ7O2VBa0JlSixZIiwic291cmNlc0NvbnRlbnQiOlsiLypcbkNvcHlyaWdodCAyMDIwIFRoZSBNYXRyaXgub3JnIEZvdW5kYXRpb24gQy5JLkMuXG5cbkxpY2Vuc2VkIHVuZGVyIHRoZSBBcGFjaGUgTGljZW5zZSwgVmVyc2lvbiAyLjAgKHRoZSBcIkxpY2Vuc2VcIik7XG55b3UgbWF5IG5vdCB1c2UgdGhpcyBmaWxlIGV4Y2VwdCBpbiBjb21wbGlhbmNlIHdpdGggdGhlIExpY2Vuc2UuXG5Zb3UgbWF5IG9idGFpbiBhIGNvcHkgb2YgdGhlIExpY2Vuc2UgYXRcblxuaHR0cDovL3d3dy5hcGFjaGUub3JnL2xpY2Vuc2VzL0xJQ0VOU0UtMi4wXG5cblVubGVzcyByZXF1aXJlZCBieSBhcHBsaWNhYmxlIGxhdyBvciBhZ3JlZWQgdG8gaW4gd3JpdGluZywgc29mdHdhcmVcbmRpc3RyaWJ1dGVkIHVuZGVyIHRoZSBMaWNlbnNlIGlzIGRpc3RyaWJ1dGVkIG9uIGFuIFwiQVMgSVNcIiBCQVNJUyxcbldJVEhPVVQgV0FSUkFOVElFUyBPUiBDT05ESVRJT05TIE9GIEFOWSBLSU5ELCBlaXRoZXIgZXhwcmVzcyBvciBpbXBsaWVkLlxuU2VlIHRoZSBMaWNlbnNlIGZvciB0aGUgc3BlY2lmaWMgbGFuZ3VhZ2UgZ292ZXJuaW5nIHBlcm1pc3Npb25zIGFuZFxubGltaXRhdGlvbnMgdW5kZXIgdGhlIExpY2Vuc2UuXG4qL1xuXG5pbXBvcnQgUmVhY3QsIHtSZWFjdE5vZGV9IGZyb20gXCJyZWFjdFwiO1xuXG5pbXBvcnQgRm9ybUJ1dHRvbiBmcm9tIFwiLi4vZWxlbWVudHMvRm9ybUJ1dHRvblwiO1xuaW1wb3J0IHtYT1J9IGZyb20gXCIuLi8uLi8uLi9AdHlwZXMvY29tbW9uXCI7XG5cbmV4cG9ydCBpbnRlcmZhY2UgSVByb3BzIHtcbiAgICBkZXNjcmlwdGlvbjogUmVhY3ROb2RlO1xuICAgIGFjY2VwdExhYmVsOiBzdHJpbmc7XG5cbiAgICBvbkFjY2VwdCgpO1xufVxuXG5pbnRlcmZhY2UgSVByb3BzRXh0ZW5kZWQgZXh0ZW5kcyBJUHJvcHMge1xuICAgIHJlamVjdExhYmVsOiBzdHJpbmc7XG4gICAgb25SZWplY3QoKTtcbn1cblxuY29uc3QgR2VuZXJpY1RvYXN0OiBSZWFjdC5GQzxYT1I8SVByb3BzRXh0ZW5kZWQsIElQcm9wcz4+ID0gKHtcbiAgICBkZXNjcmlwdGlvbixcbiAgICBhY2NlcHRMYWJlbCxcbiAgICByZWplY3RMYWJlbCxcbiAgICBvbkFjY2VwdCxcbiAgICBvblJlamVjdCxcbn0pID0+IHtcbiAgICByZXR1cm4gPGRpdj5cbiAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJteF9Ub2FzdF9kZXNjcmlwdGlvblwiPlxuICAgICAgICAgICAgeyBkZXNjcmlwdGlvbiB9XG4gICAgICAgIDwvZGl2PlxuICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cIm14X1RvYXN0X2J1dHRvbnNcIiBhcmlhLWxpdmU9XCJvZmZcIj5cbiAgICAgICAgICAgIHtvblJlamVjdCAmJiByZWplY3RMYWJlbCAmJiA8Rm9ybUJ1dHRvbiBsYWJlbD17cmVqZWN0TGFiZWx9IGtpbmQ9XCJkYW5nZXJcIiBvbkNsaWNrPXtvblJlamVjdH0gLz4gfVxuICAgICAgICAgICAgPEZvcm1CdXR0b24gbGFiZWw9e2FjY2VwdExhYmVsfSBvbkNsaWNrPXtvbkFjY2VwdH0gLz5cbiAgICAgICAgPC9kaXY+XG4gICAgPC9kaXY+O1xufTtcblxuZXhwb3J0IGRlZmF1bHQgR2VuZXJpY1RvYXN0O1xuIl19

@@ -1,0 +1,88 @@
+import PropTypes from 'prop-types';
+import React from 'react';
+import Reflux from 'reflux';
+import { DropdownButton, MenuItem } from 'react-bootstrap';
+import { LinkContainer } from 'react-router-bootstrap';
+
+import EditDashboardModalTrigger from './EditDashboardModalTrigger';
+import PermissionsMixin from 'util/PermissionsMixin';
+
+import CombinedProvider from 'injection/CombinedProvider';
+import StoreProvider from 'injection/StoreProvider';
+
+const CurrentUserStore = StoreProvider.getStore('CurrentUser');
+const { DashboardsActions, DashboardsStore } = CombinedProvider.get('Dashboards');
+const StartpageStore = StoreProvider.getStore('Startpage');
+
+import Routes from 'routing/Routes';
+
+const Dashboard = React.createClass({
+  propTypes: {
+    dashboard: PropTypes.object,
+    permissions: PropTypes.arrayOf(PropTypes.string),
+  },
+  mixins: [PermissionsMixin, Reflux.connect(CurrentUserStore)],
+  _setStartpage() {
+    StartpageStore.set(this.state.currentUser.username, 'dashboard', this.props.dashboard.id);
+  },
+  _onDashboardDelete() {
+    if (window.confirm(`您真的想删除仪表板${this.props.dashboard.title}吗?`)) {
+      DashboardsActions.delete(this.props.dashboard);
+    }
+  },
+  _getDashboardActions() {
+    let dashboardActions;
+    const setAsStartpageMenuItem = (
+      <MenuItem onSelect={this._setStartpage} disabled={this.state.currentUser.read_only}>设置为起始页面</MenuItem>
+    );
+
+    if (this.isPermitted(this.props.permissions, [`dashboards:edit:${this.props.dashboard.id}`])) {
+      dashboardActions = (
+        <div className="stream-actions">
+          <EditDashboardModalTrigger id={this.props.dashboard.id} action="edit" title={this.props.dashboard.title}
+                                     description={this.props.dashboard.description} buttonClass="btn-info" />
+          &nbsp;
+          <DropdownButton title="More actions" pullRight id={`more-actions-dropdown-${this.props.dashboard.id}`}>
+            {setAsStartpageMenuItem}
+            <MenuItem divider />
+            <MenuItem onSelect={this._onDashboardDelete}>删除仪表板</MenuItem>
+          </DropdownButton>
+        </div>
+      );
+    } else {
+      dashboardActions = (
+        <div className="stream-actions">
+          <DropdownButton title="More actions" pullRight id={`more-actions-dropdown-${this.props.dashboard.id}`}>
+            {setAsStartpageMenuItem}
+          </DropdownButton>
+        </div>
+      );
+    }
+
+    return dashboardActions;
+  },
+  render() {
+    const createdFromContentPack = (this.props.dashboard.content_pack ?
+      <i className="fa fa-cube" title="Created from content pack" /> : null);
+
+    return (
+      <li className="stream">
+        <h2>
+          <LinkContainer to={Routes.dashboard_show(this.props.dashboard.id)}>
+            <a><span ref="dashboardTitle">{this.props.dashboard.title}</span></a>
+          </LinkContainer>
+        </h2>
+
+        <div className="stream-data">
+          {this._getDashboardActions()}
+          <div className="stream-description">
+            {createdFromContentPack}
+            <span ref="dashboardDescription">{this.props.dashboard.description}</span>
+          </div>
+        </div>
+      </li>
+    );
+  },
+});
+
+export default Dashboard;

@@ -1,0 +1,39 @@
+lockfileVersion: '9.0'
+
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
+
+importers:
+
+  .:
+    dependencies:
+      beeline:
+        specifier: ~0.2.1
+        version: 0.2.4
+      commander:
+        specifier: ~2.1.0
+        version: 2.1.0
+
+packages:
+
+  beeline@0.2.4:
+    resolution: {integrity: sha512-dZE/PM4URI+kvRNTkHEYzVHDJ4zLPPONvUdT4jh30HmSFBH8qAPzznK1Vjjvft6FtmIEHYoiogobD6HYfweeRA==}
+    engines: {node: '>= 0.3.1'}
+
+  commander@2.1.0:
+    resolution: {integrity: sha512-J2wnb6TKniXNOtoHS8TSrG9IOQluPrsmyAJ8oCUJOBmv+uLBCyPYAZkD2jFvw2DCzIXNnISIM01NIvr35TkBMQ==}
+    engines: {node: '>= 0.6.x'}
+
+  lru-cache@2.3.1:
+    resolution: {integrity: sha512-EjtmtXFUu+wXm6PW3T6RT1ekQUxobC7B5TDCU0CS0212wzpwKiXs6vLun+JI+OoWmmliWdYqnrpjrlK7W3ELdQ==}
+
+snapshots:
+
+  beeline@0.2.4:
+    dependencies:
+      lru-cache: 2.3.1
+
+  commander@2.1.0: {}
+
+  lru-cache@2.3.1: {}

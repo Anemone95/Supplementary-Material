@@ -1,0 +1,14 @@
+$ corepack pnpm@9.15.9 install --prod --no-frozen-lockfile --reporter=append-only --config.node-linker=hoisted --ignore-workspace --ignore-scripts
+Progress: resolved 1, reused 0, downloaded 0, added 0
+ WARN  deprecated superagent@3.8.3: Please upgrade to superagent v10.2.2+, see release notes at https://github.com/forwardemail/superagent/releases/tag/v10.2.2 - maintenance is supported by Forward Email @ https://forwardemail.net
+ WARN  deprecated supertest@3.4.2: Please upgrade to supertest v7.1.3+, see release notes at https://github.com/forwardemail/supertest/releases/tag/v7.1.3 - maintenance is supported by Forward Email @ https://forwardemail.net
+ WARN  deprecated debug@4.1.1: Debug versions >=3.2.0 <3.2.7 || >=4 <4.3.1 have a low-severity ReDos regression when used in a Node.js environment. It is recommended you upgrade to 3.2.7 or 4.3.1. (https://github.com/visionmedia/debug/issues/797)
+Progress: resolved 104, reused 0, downloaded 0, added 0
+ WARN  5 deprecated subdependencies found: formidable@1.2.6, glob@7.1.1, inflight@1.0.6, json3@3.3.2, mkdirp@0.5.1
+
+devDependencies: skipped
+
+Packages: +48
+++++++++++++++++++++++++++++++++++++++++++++++++
+Progress: resolved 121, reused 40, downloaded 4, added 48, done
+Done in 2.1s using pnpm v9.15.9

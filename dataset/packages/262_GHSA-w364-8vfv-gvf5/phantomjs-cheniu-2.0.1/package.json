@@ -1,0 +1,76 @@
+{
+  "name": "phantomjs-cheniu",
+  "version": "2.0.1",
+  "keywords": [
+    "phantomjs",
+    "headless",
+    "webkit"
+  ],
+  "description": "Headless WebKit with JS API",
+  "homepage": "https://github.com/Medium/phantomjs",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/Medium/phantomjs.git"
+  },
+  "licenses": [
+    {
+      "type": "Apache-2.0",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+    }
+  ],
+  "author": {
+    "name": "Dan Pupius",
+    "email": "dan@obvious.com",
+    "url": "http://pupius.co.uk"
+  },
+  "maintainers": [
+    {
+      "name": "xinyu198736",
+      "email": "xinyu198736@gmail.com"
+    }
+  ],
+  "main": "lib/phantomjs",
+  "bin": {
+    "phantomjs": "./bin/phantomjs"
+  },
+  "scripts": {
+    "install": "node install.js",
+    "test": "nodeunit --reporter=minimal test/tests.js"
+  },
+  "dependencies": {
+    "adm-zip": "0.4.4",
+    "fs-extra": "~0.18",
+    "kew": "0.4.0",
+    "npmconf": "2.1.1",
+    "progress": "1.1.8",
+    "request": "2.42.0",
+    "request-progress": "0.3.1",
+    "which": "~1.0.5"
+  },
+  "devDependencies": {
+    "nodeunit": "0.9.0"
+  },
+  "gitHead": "0d8bea7405694884717c59a286252a81c9f11d90",
+  "bugs": {
+    "url": "https://github.com/Medium/phantomjs/issues"
+  },
+  "_id": "phantomjs-cheniu@2.0.0",
+  "_shasum": "7110c7ce8c2495419824a2d49e516b0e8e2cdb7c",
+  "_from": "phantomjs-cheniu@2.0.0",
+  "_npmVersion": "2.8.3",
+  "_nodeVersion": "0.10.12",
+  "_npmUser": {
+    "name": "xinyu198736",
+    "email": "xinyu198736@gmail.com"
+  },
+  "dist": {
+    "shasum": "7110c7ce8c2495419824a2d49e516b0e8e2cdb7c",
+    "size": 13086,
+    "noattachment": false,
+    "tarball": "http://registry.npmjs.org/phantomjs-cheniu/-/phantomjs-cheniu-2.0.0.tgz"
+  },
+  "directories": {},
+  "publish_time": 1432225002140,
+  "_cnpm_publish_time": 1432225002140,
+  "_resolved": "https://registry.npmjs.org/phantomjs-cheniu/-/phantomjs-cheniu-2.0.0.tgz"
+}

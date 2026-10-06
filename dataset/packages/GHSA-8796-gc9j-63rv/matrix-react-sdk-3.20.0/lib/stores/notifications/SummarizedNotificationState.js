@@ -1,0 +1,85 @@
+"use strict";
+
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.SummarizedNotificationState = void 0;
+
+var _defineProperty2 = _interopRequireDefault(require("@babel/runtime/helpers/defineProperty"));
+
+var _NotificationColor = require("./NotificationColor");
+
+var _NotificationState = require("./NotificationState");
+
+/*
+Copyright 2020 The Matrix.org Foundation C.I.C.
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+*/
+
+/**
+ * Summarizes a number of states into a unique snapshot. To populate, call
+ * the add() function with the notification states to be included.
+ *
+ * Useful for community notification counts, global notification counts, etc.
+ */
+class SummarizedNotificationState extends _NotificationState.NotificationState {
+  constructor() {
+    super();
+    (0, _defineProperty2.default)(this, "totalStatesWithUnread", 0);
+    this._symbol = null;
+    this._count = 0;
+    this._color = _NotificationColor.NotificationColor.None;
+  }
+
+  get numUnreadStates()
+  /*: number*/
+  {
+    return this.totalStatesWithUnread;
+  }
+  /**
+   * Append a notification state to this snapshot, taking the loudest NotificationColor
+   * of the two. By default this will not adopt the symbol of the other notification
+   * state to prevent the count from being lost in typical usage.
+   * @param other The other notification state to append.
+   * @param includeSymbol If true, the notification state's symbol will be taken if one
+   * is present.
+   */
+
+
+  add(other
+  /*: NotificationState*/
+  , includeSymbol = false) {
+    if (other.symbol && includeSymbol) {
+      this._symbol = other.symbol;
+    }
+
+    if (other.count) {
+      this._count += other.count;
+    }
+
+    if (other.color > this.color) {
+      this._color = other.color;
+    }
+
+    if (other.hasUnreadCount) {
+      this.totalStatesWithUnread++;
+    }
+  }
+
+}
+
+exports.SummarizedNotificationState = SummarizedNotificationState;
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uLy4uL3NyYy9zdG9yZXMvbm90aWZpY2F0aW9ucy9TdW1tYXJpemVkTm90aWZpY2F0aW9uU3RhdGUudHMiXSwibmFtZXMiOlsiU3VtbWFyaXplZE5vdGlmaWNhdGlvblN0YXRlIiwiTm90aWZpY2F0aW9uU3RhdGUiLCJjb25zdHJ1Y3RvciIsIl9zeW1ib2wiLCJfY291bnQiLCJfY29sb3IiLCJOb3RpZmljYXRpb25Db2xvciIsIk5vbmUiLCJudW1VbnJlYWRTdGF0ZXMiLCJ0b3RhbFN0YXRlc1dpdGhVbnJlYWQiLCJhZGQiLCJvdGhlciIsImluY2x1ZGVTeW1ib2wiLCJzeW1ib2wiLCJjb3VudCIsImNvbG9yIiwiaGFzVW5yZWFkQ291bnQiXSwibWFwcGluZ3MiOiI7Ozs7Ozs7Ozs7O0FBZ0JBOztBQUNBOztBQWpCQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7O0FBS0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ08sTUFBTUEsMkJBQU4sU0FBMENDLG9DQUExQyxDQUE0RDtBQUcvREMsRUFBQUEsV0FBVyxHQUFHO0FBQ1Y7QUFEVSxpRUFGa0IsQ0FFbEI7QUFFVixTQUFLQyxPQUFMLEdBQWUsSUFBZjtBQUNBLFNBQUtDLE1BQUwsR0FBYyxDQUFkO0FBQ0EsU0FBS0MsTUFBTCxHQUFjQyxxQ0FBa0JDLElBQWhDO0FBQ0g7O0FBRUQsTUFBV0MsZUFBWDtBQUFBO0FBQXFDO0FBQ2pDLFdBQU8sS0FBS0MscUJBQVo7QUFDSDtBQUVEO0FBQ0o7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7OztBQUNXQyxFQUFBQSxHQUFQLENBQVdDO0FBQVg7QUFBQSxJQUFxQ0MsYUFBYSxHQUFHLEtBQXJELEVBQTREO0FBQ3hELFFBQUlELEtBQUssQ0FBQ0UsTUFBTixJQUFnQkQsYUFBcEIsRUFBbUM7QUFDL0IsV0FBS1QsT0FBTCxHQUFlUSxLQUFLLENBQUNFLE1BQXJCO0FBQ0g7O0FBQ0QsUUFBSUYsS0FBSyxDQUFDRyxLQUFWLEVBQWlCO0FBQ2IsV0FBS1YsTUFBTCxJQUFlTyxLQUFLLENBQUNHLEtBQXJCO0FBQ0g7O0FBQ0QsUUFBSUgsS0FBSyxDQUFDSSxLQUFOLEdBQWMsS0FBS0EsS0FBdkIsRUFBOEI7QUFDMUIsV0FBS1YsTUFBTCxHQUFjTSxLQUFLLENBQUNJLEtBQXBCO0FBQ0g7O0FBQ0QsUUFBSUosS0FBSyxDQUFDSyxjQUFWLEVBQTBCO0FBQ3RCLFdBQUtQLHFCQUFMO0FBQ0g7QUFDSjs7QUFuQzhEIiwic291cmNlc0NvbnRlbnQiOlsiLypcbkNvcHlyaWdodCAyMDIwIFRoZSBNYXRyaXgub3JnIEZvdW5kYXRpb24gQy5JLkMuXG5cbkxpY2Vuc2VkIHVuZGVyIHRoZSBBcGFjaGUgTGljZW5zZSwgVmVyc2lvbiAyLjAgKHRoZSBcIkxpY2Vuc2VcIik7XG55b3UgbWF5IG5vdCB1c2UgdGhpcyBmaWxlIGV4Y2VwdCBpbiBjb21wbGlhbmNlIHdpdGggdGhlIExpY2Vuc2UuXG5Zb3UgbWF5IG9idGFpbiBhIGNvcHkgb2YgdGhlIExpY2Vuc2UgYXRcblxuICAgIGh0dHA6Ly93d3cuYXBhY2hlLm9yZy9saWNlbnNlcy9MSUNFTlNFLTIuMFxuXG5Vbmxlc3MgcmVxdWlyZWQgYnkgYXBwbGljYWJsZSBsYXcgb3IgYWdyZWVkIHRvIGluIHdyaXRpbmcsIHNvZnR3YXJlXG5kaXN0cmlidXRlZCB1bmRlciB0aGUgTGljZW5zZSBpcyBkaXN0cmlidXRlZCBvbiBhbiBcIkFTIElTXCIgQkFTSVMsXG5XSVRIT1VUIFdBUlJBTlRJRVMgT1IgQ09ORElUSU9OUyBPRiBBTlkgS0lORCwgZWl0aGVyIGV4cHJlc3Mgb3IgaW1wbGllZC5cblNlZSB0aGUgTGljZW5zZSBmb3IgdGhlIHNwZWNpZmljIGxhbmd1YWdlIGdvdmVybmluZyBwZXJtaXNzaW9ucyBhbmRcbmxpbWl0YXRpb25zIHVuZGVyIHRoZSBMaWNlbnNlLlxuKi9cblxuaW1wb3J0IHsgTm90aWZpY2F0aW9uQ29sb3IgfSBmcm9tIFwiLi9Ob3RpZmljYXRpb25Db2xvclwiO1xuaW1wb3J0IHsgTm90aWZpY2F0aW9uU3RhdGUgfSBmcm9tIFwiLi9Ob3RpZmljYXRpb25TdGF0ZVwiO1xuXG4vKipcbiAqIFN1bW1hcml6ZXMgYSBudW1iZXIgb2Ygc3RhdGVzIGludG8gYSB1bmlxdWUgc25hcHNob3QuIFRvIHBvcHVsYXRlLCBjYWxsXG4gKiB0aGUgYWRkKCkgZnVuY3Rpb24gd2l0aCB0aGUgbm90aWZpY2F0aW9uIHN0YXRlcyB0byBiZSBpbmNsdWRlZC5cbiAqXG4gKiBVc2VmdWwgZm9yIGNvbW11bml0eSBub3RpZmljYXRpb24gY291bnRzLCBnbG9iYWwgbm90aWZpY2F0aW9uIGNvdW50cywgZXRjLlxuICovXG5leHBvcnQgY2xhc3MgU3VtbWFyaXplZE5vdGlmaWNhdGlvblN0YXRlIGV4dGVuZHMgTm90aWZpY2F0aW9uU3RhdGUge1xuICAgIHByaXZhdGUgdG90YWxTdGF0ZXNXaXRoVW5yZWFkID0gMDtcblxuICAgIGNvbnN0cnVjdG9yKCkge1xuICAgICAgICBzdXBlcigpO1xuICAgICAgICB0aGlzLl9zeW1ib2wgPSBudWxsO1xuICAgICAgICB0aGlzLl9jb3VudCA9IDA7XG4gICAgICAgIHRoaXMuX2NvbG9yID0gTm90aWZpY2F0aW9uQ29sb3IuTm9uZTtcbiAgICB9XG5cbiAgICBwdWJsaWMgZ2V0IG51bVVucmVhZFN0YXRlcygpOiBudW1iZXIge1xuICAgICAgICByZXR1cm4gdGhpcy50b3RhbFN0YXRlc1dpdGhVbnJlYWQ7XG4gICAgfVxuXG4gICAgLyoqXG4gICAgICogQXBwZW5kIGEgbm90aWZpY2F0aW9uIHN0YXRlIHRvIHRoaXMgc25hcHNob3QsIHRha2luZyB0aGUgbG91ZGVzdCBOb3RpZmljYXRpb25Db2xvclxuICAgICAqIG9mIHRoZSB0d28uIEJ5IGRlZmF1bHQgdGhpcyB3aWxsIG5vdCBhZG9wdCB0aGUgc3ltYm9sIG9mIHRoZSBvdGhlciBub3RpZmljYXRpb25cbiAgICAgKiBzdGF0ZSB0byBwcmV2ZW50IHRoZSBjb3VudCBmcm9tIGJlaW5nIGxvc3QgaW4gdHlwaWNhbCB1c2FnZS5cbiAgICAgKiBAcGFyYW0gb3RoZXIgVGhlIG90aGVyIG5vdGlmaWNhdGlvbiBzdGF0ZSB0byBhcHBlbmQuXG4gICAgICogQHBhcmFtIGluY2x1ZGVTeW1ib2wgSWYgdHJ1ZSwgdGhlIG5vdGlmaWNhdGlvbiBzdGF0ZSdzIHN5bWJvbCB3aWxsIGJlIHRha2VuIGlmIG9uZVxuICAgICAqIGlzIHByZXNlbnQuXG4gICAgICovXG4gICAgcHVibGljIGFkZChvdGhlcjogTm90aWZpY2F0aW9uU3RhdGUsIGluY2x1ZGVTeW1ib2wgPSBmYWxzZSkge1xuICAgICAgICBpZiAob3RoZXIuc3ltYm9sICYmIGluY2x1ZGVTeW1ib2wpIHtcbiAgICAgICAgICAgIHRoaXMuX3N5bWJvbCA9IG90aGVyLnN5bWJvbDtcbiAgICAgICAgfVxuICAgICAgICBpZiAob3RoZXIuY291bnQpIHtcbiAgICAgICAgICAgIHRoaXMuX2NvdW50ICs9IG90aGVyLmNvdW50O1xuICAgICAgICB9XG4gICAgICAgIGlmIChvdGhlci5jb2xvciA+IHRoaXMuY29sb3IpIHtcbiAgICAgICAgICAgIHRoaXMuX2NvbG9yID0gb3RoZXIuY29sb3I7XG4gICAgICAgIH1cbiAgICAgICAgaWYgKG90aGVyLmhhc1VucmVhZENvdW50KSB7XG4gICAgICAgICAgICB0aGlzLnRvdGFsU3RhdGVzV2l0aFVucmVhZCsrO1xuICAgICAgICB9XG4gICAgfVxufVxuIl19

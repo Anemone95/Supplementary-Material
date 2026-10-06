@@ -1,0 +1,60 @@
+"use strict";
+
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _defineProperty2 = _interopRequireDefault(require("@babel/runtime/helpers/defineProperty"));
+
+var _react = _interopRequireDefault(require("react"));
+
+var _replaceableComponent = require("../../../utils/replaceableComponent");
+
+var _classnames = _interopRequireDefault(require("classnames"));
+
+var _dec, _class, _class2, _temp;
+
+let Waveform = (
+/**
+ * A simple waveform component. This renders bars (centered vertically) for each
+ * height provided in the component properties. Updating the properties will update
+ * the rendered waveform.
+ *
+ * For CSS purposes, a mx_Waveform_bar_100pct class is added when the bar should be
+ * "filled", as a demonstration of the progress property.
+ */
+_dec = (0, _replaceableComponent.replaceableComponent)("views.voice_messages.Waveform"), _dec(_class = (_temp = _class2 = class Waveform extends _react.default.PureComponent
+/*:: <IProps, IState>*/
+{
+  constructor(props) {
+    super(props);
+  }
+
+  render() {
+    return /*#__PURE__*/_react.default.createElement("div", {
+      className: "mx_Waveform"
+    }, this.props.relHeights.map((h, i) => {
+      const progress = this.props.progress;
+      const isCompleteBar = i / this.props.relHeights.length <= progress && progress > 0;
+      const classes = (0, _classnames.default)({
+        'mx_Waveform_bar': true,
+        'mx_Waveform_bar_100pct': isCompleteBar
+      });
+      return /*#__PURE__*/_react.default.createElement("span", {
+        key: i,
+        style: {
+          height: h * 100 + '%'
+        },
+        className: classes
+      });
+    }));
+  }
+
+}, (0, _defineProperty2.default)(_class2, "defaultProps", {
+  progress: 1
+}), _temp)) || _class);
+exports.default = Waveform;
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uLy4uLy4uL3NyYy9jb21wb25lbnRzL3ZpZXdzL3ZvaWNlX21lc3NhZ2VzL1dhdmVmb3JtLnRzeCJdLCJuYW1lcyI6WyJXYXZlZm9ybSIsIlJlYWN0IiwiUHVyZUNvbXBvbmVudCIsImNvbnN0cnVjdG9yIiwicHJvcHMiLCJyZW5kZXIiLCJyZWxIZWlnaHRzIiwibWFwIiwiaCIsImkiLCJwcm9ncmVzcyIsImlzQ29tcGxldGVCYXIiLCJsZW5ndGgiLCJjbGFzc2VzIiwiaGVpZ2h0Il0sIm1hcHBpbmdzIjoiOzs7Ozs7Ozs7OztBQWdCQTs7QUFDQTs7QUFDQTs7OztJQW1CcUJBLFE7QUFUckI7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtPQUNDLGdEQUFxQiwrQkFBckIsQyxtQ0FBRCxNQUNxQkEsUUFEckIsU0FDc0NDLGVBQU1DO0FBRDVDO0FBQzBFO0FBSy9EQyxFQUFBQSxXQUFQLENBQW1CQyxLQUFuQixFQUEwQjtBQUN0QixVQUFNQSxLQUFOO0FBQ0g7O0FBRU1DLEVBQUFBLE1BQVAsR0FBZ0I7QUFDWix3QkFBTztBQUFLLE1BQUEsU0FBUyxFQUFDO0FBQWYsT0FDRixLQUFLRCxLQUFMLENBQVdFLFVBQVgsQ0FBc0JDLEdBQXRCLENBQTBCLENBQUNDLENBQUQsRUFBSUMsQ0FBSixLQUFVO0FBQ2pDLFlBQU1DLFFBQVEsR0FBRyxLQUFLTixLQUFMLENBQVdNLFFBQTVCO0FBQ0EsWUFBTUMsYUFBYSxHQUFJRixDQUFDLEdBQUcsS0FBS0wsS0FBTCxDQUFXRSxVQUFYLENBQXNCTSxNQUEzQixJQUFzQ0YsUUFBdEMsSUFBa0RBLFFBQVEsR0FBRyxDQUFuRjtBQUNBLFlBQU1HLE9BQU8sR0FBRyx5QkFBVztBQUN2QiwyQkFBbUIsSUFESTtBQUV2QixrQ0FBMEJGO0FBRkgsT0FBWCxDQUFoQjtBQUlBLDBCQUFPO0FBQU0sUUFBQSxHQUFHLEVBQUVGLENBQVg7QUFBYyxRQUFBLEtBQUssRUFBRTtBQUFDSyxVQUFBQSxNQUFNLEVBQUdOLENBQUMsR0FBRyxHQUFMLEdBQVk7QUFBckIsU0FBckI7QUFBZ0QsUUFBQSxTQUFTLEVBQUVLO0FBQTNELFFBQVA7QUFDSCxLQVJBLENBREUsQ0FBUDtBQVdIOztBQXJCcUUsQyx5REFDekM7QUFDekJILEVBQUFBLFFBQVEsRUFBRTtBQURlLEMiLCJzb3VyY2VzQ29udGVudCI6WyIvKlxuQ29weXJpZ2h0IDIwMjEgVGhlIE1hdHJpeC5vcmcgRm91bmRhdGlvbiBDLkkuQy5cblxuTGljZW5zZWQgdW5kZXIgdGhlIEFwYWNoZSBMaWNlbnNlLCBWZXJzaW9uIDIuMCAodGhlIFwiTGljZW5zZVwiKTtcbnlvdSBtYXkgbm90IHVzZSB0aGlzIGZpbGUgZXhjZXB0IGluIGNvbXBsaWFuY2Ugd2l0aCB0aGUgTGljZW5zZS5cbllvdSBtYXkgb2J0YWluIGEgY29weSBvZiB0aGUgTGljZW5zZSBhdFxuXG4gICAgaHR0cDovL3d3dy5hcGFjaGUub3JnL2xpY2Vuc2VzL0xJQ0VOU0UtMi4wXG5cblVubGVzcyByZXF1aXJlZCBieSBhcHBsaWNhYmxlIGxhdyBvciBhZ3JlZWQgdG8gaW4gd3JpdGluZywgc29mdHdhcmVcbmRpc3RyaWJ1dGVkIHVuZGVyIHRoZSBMaWNlbnNlIGlzIGRpc3RyaWJ1dGVkIG9uIGFuIFwiQVMgSVNcIiBCQVNJUyxcbldJVEhPVVQgV0FSUkFOVElFUyBPUiBDT05ESVRJT05TIE9GIEFOWSBLSU5ELCBlaXRoZXIgZXhwcmVzcyBvciBpbXBsaWVkLlxuU2VlIHRoZSBMaWNlbnNlIGZvciB0aGUgc3BlY2lmaWMgbGFuZ3VhZ2UgZ292ZXJuaW5nIHBlcm1pc3Npb25zIGFuZFxubGltaXRhdGlvbnMgdW5kZXIgdGhlIExpY2Vuc2UuXG4qL1xuXG5pbXBvcnQgUmVhY3QgZnJvbSBcInJlYWN0XCI7XG5pbXBvcnQge3JlcGxhY2VhYmxlQ29tcG9uZW50fSBmcm9tIFwiLi4vLi4vLi4vdXRpbHMvcmVwbGFjZWFibGVDb21wb25lbnRcIjtcbmltcG9ydCBjbGFzc05hbWVzIGZyb20gXCJjbGFzc25hbWVzXCI7XG5cbmludGVyZmFjZSBJUHJvcHMge1xuICAgIHJlbEhlaWdodHM6IG51bWJlcltdOyAvLyByZWxhdGl2ZSBoZWlnaHRzICgwLTEpXG4gICAgcHJvZ3Jlc3M6IG51bWJlcjsgLy8gcGVyY2VudCBjb21wbGV0ZSwgMC0xLCBkZWZhdWx0IDEwMCVcbn1cblxuaW50ZXJmYWNlIElTdGF0ZSB7XG59XG5cbi8qKlxuICogQSBzaW1wbGUgd2F2ZWZvcm0gY29tcG9uZW50LiBUaGlzIHJlbmRlcnMgYmFycyAoY2VudGVyZWQgdmVydGljYWxseSkgZm9yIGVhY2hcbiAqIGhlaWdodCBwcm92aWRlZCBpbiB0aGUgY29tcG9uZW50IHByb3BlcnRpZXMuIFVwZGF0aW5nIHRoZSBwcm9wZXJ0aWVzIHdpbGwgdXBkYXRlXG4gKiB0aGUgcmVuZGVyZWQgd2F2ZWZvcm0uXG4gKlxuICogRm9yIENTUyBwdXJwb3NlcywgYSBteF9XYXZlZm9ybV9iYXJfMTAwcGN0IGNsYXNzIGlzIGFkZGVkIHdoZW4gdGhlIGJhciBzaG91bGQgYmVcbiAqIFwiZmlsbGVkXCIsIGFzIGEgZGVtb25zdHJhdGlvbiBvZiB0aGUgcHJvZ3Jlc3MgcHJvcGVydHkuXG4gKi9cbkByZXBsYWNlYWJsZUNvbXBvbmVudChcInZpZXdzLnZvaWNlX21lc3NhZ2VzLldhdmVmb3JtXCIpXG5leHBvcnQgZGVmYXVsdCBjbGFzcyBXYXZlZm9ybSBleHRlbmRzIFJlYWN0LlB1cmVDb21wb25lbnQ8SVByb3BzLCBJU3RhdGU+IHtcbiAgICBwdWJsaWMgc3RhdGljIGRlZmF1bHRQcm9wcyA9IHtcbiAgICAgICAgcHJvZ3Jlc3M6IDEsXG4gICAgfTtcblxuICAgIHB1YmxpYyBjb25zdHJ1Y3Rvcihwcm9wcykge1xuICAgICAgICBzdXBlcihwcm9wcyk7XG4gICAgfVxuXG4gICAgcHVibGljIHJlbmRlcigpIHtcbiAgICAgICAgcmV0dXJuIDxkaXYgY2xhc3NOYW1lPSdteF9XYXZlZm9ybSc+XG4gICAgICAgICAgICB7dGhpcy5wcm9wcy5yZWxIZWlnaHRzLm1hcCgoaCwgaSkgPT4ge1xuICAgICAgICAgICAgICAgIGNvbnN0IHByb2dyZXNzID0gdGhpcy5wcm9wcy5wcm9ncmVzcztcbiAgICAgICAgICAgICAgICBjb25zdCBpc0NvbXBsZXRlQmFyID0gKGkgLyB0aGlzLnByb3BzLnJlbEhlaWdodHMubGVuZ3RoKSA8PSBwcm9ncmVzcyAmJiBwcm9ncmVzcyA+IDA7XG4gICAgICAgICAgICAgICAgY29uc3QgY2xhc3NlcyA9IGNsYXNzTmFtZXMoe1xuICAgICAgICAgICAgICAgICAgICAnbXhfV2F2ZWZvcm1fYmFyJzogdHJ1ZSxcbiAgICAgICAgICAgICAgICAgICAgJ214X1dhdmVmb3JtX2Jhcl8xMDBwY3QnOiBpc0NvbXBsZXRlQmFyLFxuICAgICAgICAgICAgICAgIH0pO1xuICAgICAgICAgICAgICAgIHJldHVybiA8c3BhbiBrZXk9e2l9IHN0eWxlPXt7aGVpZ2h0OiAoaCAqIDEwMCkgKyAnJSd9fSBjbGFzc05hbWU9e2NsYXNzZXN9IC8+O1xuICAgICAgICAgICAgfSl9XG4gICAgICAgIDwvZGl2PjtcbiAgICB9XG59XG4iXX0=

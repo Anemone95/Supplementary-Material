@@ -1,0 +1,99 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _events = require("events");
+
+var _lodash = require("lodash");
+
+/*
+Copyright 2019 New Vector Ltd
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+*/
+
+/**
+ * Fires when the middle panel has been resized (throttled).
+ * @event module:utils~ResizeNotifier#"middlePanelResized"
+ */
+
+/**
+ * Fires when the middle panel has been resized by a pixel.
+ * @event module:utils~ResizeNotifier#"middlePanelResizedNoisy"
+ */
+class ResizeNotifier extends _events.EventEmitter {
+  constructor() {
+    super(); // with default options, will call fn once at first call, and then every x ms
+    // if there was another call in that timespan
+
+    this._throttledMiddlePanel = (0, _lodash.throttle)(() => this.emit("middlePanelResized"), 200);
+    this._isResizing = false;
+  }
+
+  get isResizing() {
+    return this._isResizing;
+  }
+
+  startResizing() {
+    this._isResizing = true;
+    this.emit("isResizing", true);
+  }
+
+  stopResizing() {
+    this._isResizing = false;
+    this.emit("isResizing", false);
+  }
+
+  _noisyMiddlePanel() {
+    this.emit("middlePanelResizedNoisy");
+  }
+
+  _updateMiddlePanel() {
+    this._throttledMiddlePanel();
+
+    this._noisyMiddlePanel();
+  } // can be called in quick succession
+
+
+  notifyLeftHandleResized() {
+    // don't emit event for own region
+    this._updateMiddlePanel();
+  } // can be called in quick succession
+
+
+  notifyRightHandleResized() {
+    this._updateMiddlePanel();
+  }
+
+  notifyTimelineHeightChanged() {
+    this._updateMiddlePanel();
+  } // can be called in quick succession
+
+
+  notifyWindowResized() {
+    // no need to throttle this one,
+    // also it could make scrollbars appear for
+    // a split second when the room list manual layout is now
+    // taller than the available space
+    this.emit("leftPanelResized");
+
+    this._updateMiddlePanel();
+  }
+
+}
+
+exports.default = ResizeNotifier;
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uL3NyYy91dGlscy9SZXNpemVOb3RpZmllci5qcyJdLCJuYW1lcyI6WyJSZXNpemVOb3RpZmllciIsIkV2ZW50RW1pdHRlciIsImNvbnN0cnVjdG9yIiwiX3Rocm90dGxlZE1pZGRsZVBhbmVsIiwiZW1pdCIsIl9pc1Jlc2l6aW5nIiwiaXNSZXNpemluZyIsInN0YXJ0UmVzaXppbmciLCJzdG9wUmVzaXppbmciLCJfbm9pc3lNaWRkbGVQYW5lbCIsIl91cGRhdGVNaWRkbGVQYW5lbCIsIm5vdGlmeUxlZnRIYW5kbGVSZXNpemVkIiwibm90aWZ5UmlnaHRIYW5kbGVSZXNpemVkIiwibm90aWZ5VGltZWxpbmVIZWlnaHRDaGFuZ2VkIiwibm90aWZ5V2luZG93UmVzaXplZCJdLCJtYXBwaW5ncyI6Ijs7Ozs7OztBQXdCQTs7QUFDQTs7QUF6QkE7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBOztBQUVBO0FBQ0E7QUFDQTtBQUNBOztBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBSWUsTUFBTUEsY0FBTixTQUE2QkMsb0JBQTdCLENBQTBDO0FBQ3JEQyxFQUFBQSxXQUFXLEdBQUc7QUFDVixZQURVLENBRVY7QUFDQTs7QUFDQSxTQUFLQyxxQkFBTCxHQUE2QixzQkFBUyxNQUFNLEtBQUtDLElBQUwsQ0FBVSxvQkFBVixDQUFmLEVBQWdELEdBQWhELENBQTdCO0FBQ0EsU0FBS0MsV0FBTCxHQUFtQixLQUFuQjtBQUNIOztBQUVELE1BQUlDLFVBQUosR0FBaUI7QUFDYixXQUFPLEtBQUtELFdBQVo7QUFDSDs7QUFFREUsRUFBQUEsYUFBYSxHQUFHO0FBQ1osU0FBS0YsV0FBTCxHQUFtQixJQUFuQjtBQUNBLFNBQUtELElBQUwsQ0FBVSxZQUFWLEVBQXdCLElBQXhCO0FBQ0g7O0FBRURJLEVBQUFBLFlBQVksR0FBRztBQUNYLFNBQUtILFdBQUwsR0FBbUIsS0FBbkI7QUFDQSxTQUFLRCxJQUFMLENBQVUsWUFBVixFQUF3QixLQUF4QjtBQUNIOztBQUVESyxFQUFBQSxpQkFBaUIsR0FBRztBQUNoQixTQUFLTCxJQUFMLENBQVUseUJBQVY7QUFDSDs7QUFFRE0sRUFBQUEsa0JBQWtCLEdBQUc7QUFDakIsU0FBS1AscUJBQUw7O0FBQ0EsU0FBS00saUJBQUw7QUFDSCxHQTlCb0QsQ0FnQ3JEOzs7QUFDQUUsRUFBQUEsdUJBQXVCLEdBQUc7QUFDdEI7QUFDQSxTQUFLRCxrQkFBTDtBQUNILEdBcENvRCxDQXNDckQ7OztBQUNBRSxFQUFBQSx3QkFBd0IsR0FBRztBQUN2QixTQUFLRixrQkFBTDtBQUNIOztBQUVERyxFQUFBQSwyQkFBMkIsR0FBRztBQUMxQixTQUFLSCxrQkFBTDtBQUNILEdBN0NvRCxDQStDckQ7OztBQUNBSSxFQUFBQSxtQkFBbUIsR0FBRztBQUNsQjtBQUNBO0FBQ0E7QUFDQTtBQUNBLFNBQUtWLElBQUwsQ0FBVSxrQkFBVjs7QUFFQSxTQUFLTSxrQkFBTDtBQUNIOztBQXhEb0QiLCJzb3VyY2VzQ29udGVudCI6WyIvKlxuQ29weXJpZ2h0IDIwMTkgTmV3IFZlY3RvciBMdGRcblxuTGljZW5zZWQgdW5kZXIgdGhlIEFwYWNoZSBMaWNlbnNlLCBWZXJzaW9uIDIuMCAodGhlIFwiTGljZW5zZVwiKTtcbnlvdSBtYXkgbm90IHVzZSB0aGlzIGZpbGUgZXhjZXB0IGluIGNvbXBsaWFuY2Ugd2l0aCB0aGUgTGljZW5zZS5cbllvdSBtYXkgb2J0YWluIGEgY29weSBvZiB0aGUgTGljZW5zZSBhdFxuXG4gICAgaHR0cDovL3d3dy5hcGFjaGUub3JnL2xpY2Vuc2VzL0xJQ0VOU0UtMi4wXG5cblVubGVzcyByZXF1aXJlZCBieSBhcHBsaWNhYmxlIGxhdyBvciBhZ3JlZWQgdG8gaW4gd3JpdGluZywgc29mdHdhcmVcbmRpc3RyaWJ1dGVkIHVuZGVyIHRoZSBMaWNlbnNlIGlzIGRpc3RyaWJ1dGVkIG9uIGFuIFwiQVMgSVNcIiBCQVNJUyxcbldJVEhPVVQgV0FSUkFOVElFUyBPUiBDT05ESVRJT05TIE9GIEFOWSBLSU5ELCBlaXRoZXIgZXhwcmVzcyBvciBpbXBsaWVkLlxuU2VlIHRoZSBMaWNlbnNlIGZvciB0aGUgc3BlY2lmaWMgbGFuZ3VhZ2UgZ292ZXJuaW5nIHBlcm1pc3Npb25zIGFuZFxubGltaXRhdGlvbnMgdW5kZXIgdGhlIExpY2Vuc2UuXG4qL1xuXG4vKipcbiAqIEZpcmVzIHdoZW4gdGhlIG1pZGRsZSBwYW5lbCBoYXMgYmVlbiByZXNpemVkICh0aHJvdHRsZWQpLlxuICogQGV2ZW50IG1vZHVsZTp1dGlsc35SZXNpemVOb3RpZmllciNcIm1pZGRsZVBhbmVsUmVzaXplZFwiXG4gKi9cbi8qKlxuICogRmlyZXMgd2hlbiB0aGUgbWlkZGxlIHBhbmVsIGhhcyBiZWVuIHJlc2l6ZWQgYnkgYSBwaXhlbC5cbiAqIEBldmVudCBtb2R1bGU6dXRpbHN+UmVzaXplTm90aWZpZXIjXCJtaWRkbGVQYW5lbFJlc2l6ZWROb2lzeVwiXG4gKi9cbmltcG9ydCB7IEV2ZW50RW1pdHRlciB9IGZyb20gXCJldmVudHNcIjtcbmltcG9ydCB7IHRocm90dGxlIH0gZnJvbSBcImxvZGFzaFwiO1xuXG5leHBvcnQgZGVmYXVsdCBjbGFzcyBSZXNpemVOb3RpZmllciBleHRlbmRzIEV2ZW50RW1pdHRlciB7XG4gICAgY29uc3RydWN0b3IoKSB7XG4gICAgICAgIHN1cGVyKCk7XG4gICAgICAgIC8vIHdpdGggZGVmYXVsdCBvcHRpb25zLCB3aWxsIGNhbGwgZm4gb25jZSBhdCBmaXJzdCBjYWxsLCBhbmQgdGhlbiBldmVyeSB4IG1zXG4gICAgICAgIC8vIGlmIHRoZXJlIHdhcyBhbm90aGVyIGNhbGwgaW4gdGhhdCB0aW1lc3BhblxuICAgICAgICB0aGlzLl90aHJvdHRsZWRNaWRkbGVQYW5lbCA9IHRocm90dGxlKCgpID0+IHRoaXMuZW1pdChcIm1pZGRsZVBhbmVsUmVzaXplZFwiKSwgMjAwKTtcbiAgICAgICAgdGhpcy5faXNSZXNpemluZyA9IGZhbHNlO1xuICAgIH1cblxuICAgIGdldCBpc1Jlc2l6aW5nKCkge1xuICAgICAgICByZXR1cm4gdGhpcy5faXNSZXNpemluZztcbiAgICB9XG5cbiAgICBzdGFydFJlc2l6aW5nKCkge1xuICAgICAgICB0aGlzLl9pc1Jlc2l6aW5nID0gdHJ1ZTtcbiAgICAgICAgdGhpcy5lbWl0KFwiaXNSZXNpemluZ1wiLCB0cnVlKTtcbiAgICB9XG5cbiAgICBzdG9wUmVzaXppbmcoKSB7XG4gICAgICAgIHRoaXMuX2lzUmVzaXppbmcgPSBmYWxzZTtcbiAgICAgICAgdGhpcy5lbWl0KFwiaXNSZXNpemluZ1wiLCBmYWxzZSk7XG4gICAgfVxuXG4gICAgX25vaXN5TWlkZGxlUGFuZWwoKSB7XG4gICAgICAgIHRoaXMuZW1pdChcIm1pZGRsZVBhbmVsUmVzaXplZE5vaXN5XCIpO1xuICAgIH1cblxuICAgIF91cGRhdGVNaWRkbGVQYW5lbCgpIHtcbiAgICAgICAgdGhpcy5fdGhyb3R0bGVkTWlkZGxlUGFuZWwoKTtcbiAgICAgICAgdGhpcy5fbm9pc3lNaWRkbGVQYW5lbCgpO1xuICAgIH1cblxuICAgIC8vIGNhbiBiZSBjYWxsZWQgaW4gcXVpY2sgc3VjY2Vzc2lvblxuICAgIG5vdGlmeUxlZnRIYW5kbGVSZXNpemVkKCkge1xuICAgICAgICAvLyBkb24ndCBlbWl0IGV2ZW50IGZvciBvd24gcmVnaW9uXG4gICAgICAgIHRoaXMuX3VwZGF0ZU1pZGRsZVBhbmVsKCk7XG4gICAgfVxuXG4gICAgLy8gY2FuIGJlIGNhbGxlZCBpbiBxdWljayBzdWNjZXNzaW9uXG4gICAgbm90aWZ5UmlnaHRIYW5kbGVSZXNpemVkKCkge1xuICAgICAgICB0aGlzLl91cGRhdGVNaWRkbGVQYW5lbCgpO1xuICAgIH1cblxuICAgIG5vdGlmeVRpbWVsaW5lSGVpZ2h0Q2hhbmdlZCgpIHtcbiAgICAgICAgdGhpcy5fdXBkYXRlTWlkZGxlUGFuZWwoKTtcbiAgICB9XG5cbiAgICAvLyBjYW4gYmUgY2FsbGVkIGluIHF1aWNrIHN1Y2Nlc3Npb25cbiAgICBub3RpZnlXaW5kb3dSZXNpemVkKCkge1xuICAgICAgICAvLyBubyBuZWVkIHRvIHRocm90dGxlIHRoaXMgb25lLFxuICAgICAgICAvLyBhbHNvIGl0IGNvdWxkIG1ha2Ugc2Nyb2xsYmFycyBhcHBlYXIgZm9yXG4gICAgICAgIC8vIGEgc3BsaXQgc2Vjb25kIHdoZW4gdGhlIHJvb20gbGlzdCBtYW51YWwgbGF5b3V0IGlzIG5vd1xuICAgICAgICAvLyB0YWxsZXIgdGhhbiB0aGUgYXZhaWxhYmxlIHNwYWNlXG4gICAgICAgIHRoaXMuZW1pdChcImxlZnRQYW5lbFJlc2l6ZWRcIik7XG5cbiAgICAgICAgdGhpcy5fdXBkYXRlTWlkZGxlUGFuZWwoKTtcbiAgICB9XG59XG5cbiJdfQ==

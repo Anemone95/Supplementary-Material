@@ -1,0 +1,42 @@
+{
+  "name": "elding",
+
+  "version": "1.0.0",
+
+  "description": "Elding is a small, highly configureable, web server.",
+
+  "main": "server.js",
+
+  "bin": {
+    "elding": "server.js"
+  },
+
+  "dependencies": {
+    "marked": "^0.3.5"
+  },
+
+  "devDependencies": {
+    "minimist": "^1.2.0",
+    "nodemon": "^1.9.1"
+  },
+
+  "scripts": {
+    "test": "node test.js",
+    "start": "node server.js"
+  },
+
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@gitlab.com/jacksarick/elding.git"
+  },
+
+  "author": "Jack Sarick",
+
+  "license": "MIT",
+
+  "bugs": {
+    "url": "https://gitlab.com/jacksarick/elding/issues"
+  },
+  
+  "homepage": "https://gitlab.com/jacksarick/elding#README"
+}

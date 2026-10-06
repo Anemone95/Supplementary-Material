@@ -1,0 +1,75 @@
+"use strict";
+
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _SettingController = _interopRequireDefault(require("./SettingController"));
+
+var _SettingsStore = _interopRequireDefault(require("../SettingsStore"));
+
+/*
+Copyright 2021 The Matrix.org Foundation C.I.C.
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+*/
+
+/**
+ * Enforces that a boolean setting cannot be enabled if the incompatible setting
+ * is also enabled, to prevent cascading undefined behaviour between conflicting
+ * labs flags.
+ */
+class IncompatibleController extends _SettingController.default {
+  constructor(settingName
+  /*: string*/
+  , forcedValue = false) {
+    super();
+    this.settingName
+    /*:: */
+    = settingName
+    /*:: */
+    ;
+    this.forcedValue = forcedValue;
+  }
+
+  getValueOverride(level
+  /*: SettingLevel*/
+  , roomId
+  /*: string*/
+  , calculatedValue
+  /*: any*/
+  , calculatedAtLevel
+  /*: SettingLevel*/
+  )
+  /*: any*/
+  {
+    if (this.incompatibleSettingEnabled) {
+      return this.forcedValue;
+    }
+
+    return null; // no override
+  }
+
+  get incompatibleSettingEnabled()
+  /*: boolean*/
+  {
+    return _SettingsStore.default.getValue(this.settingName);
+  }
+
+}
+
+exports.default = IncompatibleController;
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uLy4uL3NyYy9zZXR0aW5ncy9jb250cm9sbGVycy9JbmNvbXBhdGlibGVDb250cm9sbGVyLnRzIl0sIm5hbWVzIjpbIkluY29tcGF0aWJsZUNvbnRyb2xsZXIiLCJTZXR0aW5nQ29udHJvbGxlciIsImNvbnN0cnVjdG9yIiwic2V0dGluZ05hbWUiLCJmb3JjZWRWYWx1ZSIsImdldFZhbHVlT3ZlcnJpZGUiLCJsZXZlbCIsInJvb21JZCIsImNhbGN1bGF0ZWRWYWx1ZSIsImNhbGN1bGF0ZWRBdExldmVsIiwiaW5jb21wYXRpYmxlU2V0dGluZ0VuYWJsZWQiLCJTZXR0aW5nc1N0b3JlIiwiZ2V0VmFsdWUiXSwibWFwcGluZ3MiOiI7Ozs7Ozs7OztBQWdCQTs7QUFFQTs7QUFsQkE7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBOztBQU1BO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDZSxNQUFNQSxzQkFBTixTQUFxQ0MsMEJBQXJDLENBQXVEO0FBQzNEQyxFQUFBQSxXQUFQLENBQTJCQztBQUEzQjtBQUFBLElBQXdEQyxXQUFXLEdBQUcsS0FBdEUsRUFBNkU7QUFDekU7QUFEeUUsU0FBbEREO0FBQWtEO0FBQUEsTUFBbERBO0FBQWtEO0FBQUE7QUFBQSxTQUFyQkMsV0FBcUIsR0FBckJBLFdBQXFCO0FBRTVFOztBQUVNQyxFQUFBQSxnQkFBUCxDQUNJQztBQURKO0FBQUEsSUFFSUM7QUFGSjtBQUFBLElBR0lDO0FBSEo7QUFBQSxJQUlJQztBQUpKO0FBQUE7QUFBQTtBQUtPO0FBQ0gsUUFBSSxLQUFLQywwQkFBVCxFQUFxQztBQUNqQyxhQUFPLEtBQUtOLFdBQVo7QUFDSDs7QUFDRCxXQUFPLElBQVAsQ0FKRyxDQUlVO0FBQ2hCOztBQUVELE1BQVdNLDBCQUFYO0FBQUE7QUFBaUQ7QUFDN0MsV0FBT0MsdUJBQWNDLFFBQWQsQ0FBdUIsS0FBS1QsV0FBNUIsQ0FBUDtBQUNIOztBQW5CaUUiLCJzb3VyY2VzQ29udGVudCI6WyIvKlxuQ29weXJpZ2h0IDIwMjEgVGhlIE1hdHJpeC5vcmcgRm91bmRhdGlvbiBDLkkuQy5cblxuTGljZW5zZWQgdW5kZXIgdGhlIEFwYWNoZSBMaWNlbnNlLCBWZXJzaW9uIDIuMCAodGhlIFwiTGljZW5zZVwiKTtcbnlvdSBtYXkgbm90IHVzZSB0aGlzIGZpbGUgZXhjZXB0IGluIGNvbXBsaWFuY2Ugd2l0aCB0aGUgTGljZW5zZS5cbllvdSBtYXkgb2J0YWluIGEgY29weSBvZiB0aGUgTGljZW5zZSBhdFxuXG4gICAgaHR0cDovL3d3dy5hcGFjaGUub3JnL2xpY2Vuc2VzL0xJQ0VOU0UtMi4wXG5cblVubGVzcyByZXF1aXJlZCBieSBhcHBsaWNhYmxlIGxhdyBvciBhZ3JlZWQgdG8gaW4gd3JpdGluZywgc29mdHdhcmVcbmRpc3RyaWJ1dGVkIHVuZGVyIHRoZSBMaWNlbnNlIGlzIGRpc3RyaWJ1dGVkIG9uIGFuIFwiQVMgSVNcIiBCQVNJUyxcbldJVEhPVVQgV0FSUkFOVElFUyBPUiBDT05ESVRJT05TIE9GIEFOWSBLSU5ELCBlaXRoZXIgZXhwcmVzcyBvciBpbXBsaWVkLlxuU2VlIHRoZSBMaWNlbnNlIGZvciB0aGUgc3BlY2lmaWMgbGFuZ3VhZ2UgZ292ZXJuaW5nIHBlcm1pc3Npb25zIGFuZFxubGltaXRhdGlvbnMgdW5kZXIgdGhlIExpY2Vuc2UuXG4qL1xuXG5pbXBvcnQgU2V0dGluZ0NvbnRyb2xsZXIgZnJvbSBcIi4vU2V0dGluZ0NvbnRyb2xsZXJcIjtcbmltcG9ydCB7IFNldHRpbmdMZXZlbCB9IGZyb20gXCIuLi9TZXR0aW5nTGV2ZWxcIjtcbmltcG9ydCBTZXR0aW5nc1N0b3JlIGZyb20gXCIuLi9TZXR0aW5nc1N0b3JlXCI7XG5cbi8qKlxuICogRW5mb3JjZXMgdGhhdCBhIGJvb2xlYW4gc2V0dGluZyBjYW5ub3QgYmUgZW5hYmxlZCBpZiB0aGUgaW5jb21wYXRpYmxlIHNldHRpbmdcbiAqIGlzIGFsc28gZW5hYmxlZCwgdG8gcHJldmVudCBjYXNjYWRpbmcgdW5kZWZpbmVkIGJlaGF2aW91ciBiZXR3ZWVuIGNvbmZsaWN0aW5nXG4gKiBsYWJzIGZsYWdzLlxuICovXG5leHBvcnQgZGVmYXVsdCBjbGFzcyBJbmNvbXBhdGlibGVDb250cm9sbGVyIGV4dGVuZHMgU2V0dGluZ0NvbnRyb2xsZXIge1xuICAgIHB1YmxpYyBjb25zdHJ1Y3Rvcihwcml2YXRlIHNldHRpbmdOYW1lOiBzdHJpbmcsIHByaXZhdGUgZm9yY2VkVmFsdWUgPSBmYWxzZSkge1xuICAgICAgICBzdXBlcigpO1xuICAgIH1cblxuICAgIHB1YmxpYyBnZXRWYWx1ZU92ZXJyaWRlKFxuICAgICAgICBsZXZlbDogU2V0dGluZ0xldmVsLFxuICAgICAgICByb29tSWQ6IHN0cmluZyxcbiAgICAgICAgY2FsY3VsYXRlZFZhbHVlOiBhbnksXG4gICAgICAgIGNhbGN1bGF0ZWRBdExldmVsOiBTZXR0aW5nTGV2ZWwsXG4gICAgKTogYW55IHtcbiAgICAgICAgaWYgKHRoaXMuaW5jb21wYXRpYmxlU2V0dGluZ0VuYWJsZWQpIHtcbiAgICAgICAgICAgIHJldHVybiB0aGlzLmZvcmNlZFZhbHVlO1xuICAgICAgICB9XG4gICAgICAgIHJldHVybiBudWxsOyAvLyBubyBvdmVycmlkZVxuICAgIH1cblxuICAgIHB1YmxpYyBnZXQgaW5jb21wYXRpYmxlU2V0dGluZ0VuYWJsZWQoKTogYm9vbGVhbiB7XG4gICAgICAgIHJldHVybiBTZXR0aW5nc1N0b3JlLmdldFZhbHVlKHRoaXMuc2V0dGluZ05hbWUpO1xuICAgIH1cbn1cbiJdfQ==

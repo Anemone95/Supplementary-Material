@@ -1,0 +1,21 @@
+{
+  "name": "console-io",
+  "version": "2.2.13",
+  "homepage": "https://github.com/cloudcmd/console",
+  "authors": [
+    "coderaiser <mnemonic.enemy@gmail.com>"
+  ],
+  "description": "web console",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "node_modules",
+    "modules"
+  ],
+  "dependencies": {
+    "jq-console": "~2.11.0",
+    "jquery": "~2.1.4",
+    "load": "~1.1.4",
+    "skipfirst": "~1.0.0"
+  }
+}

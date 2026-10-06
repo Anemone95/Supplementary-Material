@@ -1,0 +1,8 @@
+{
+  "author": "Samuel Lyons",
+  "name": "weather.swlyons",
+  "version": "0.1.6",
+  "description": "Gets the weather",
+  "main": "static"
+  
+}

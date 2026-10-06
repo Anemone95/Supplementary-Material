@@ -1,0 +1,37 @@
+{
+  "author": "Andrew Chalkley <andrew@chalkley.org> (http://forefront.io)",
+  "name": "wifiscanner",
+  "description": "A simple Node.js WiFi Scanner",
+  "keywords": [
+    "wifi",
+    "scanner",
+    "linux",
+    "mac",
+    "wireless",
+    "raspberry pi",
+    "beagle bone"
+  ],
+  "version": "1.0.1",
+  "engines": {
+    "node": ">=4"
+  },
+  "scripts": {
+    "test": "mocha",
+    "test:coverage": "istanbul cover node_modules/mocha/bin/_mocha"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "istanbul": "^0.4.5",
+    "mocha": "^3.1.2"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/thingsSDK/wifiscanner/raw/master/LICENCE"
+    }
+  ],
+  "main": "index.js",
+  "dependencies": {
+    "nconf": "^0.8.4"
+  }
+}

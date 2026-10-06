@@ -1,0 +1,12 @@
+$ corepack pnpm@9.15.9 install --prod --no-frozen-lockfile --reporter=append-only --config.node-linker=hoisted --ignore-workspace --ignore-scripts
+ WARN  deprecated bcrypt@0.7.5: versions < v5.0.0 do not handle NUL in passwords properly
+Progress: resolved 1, reused 0, downloaded 0, added 0
+ WARN  deprecated ldapjs@0.6.3: This package has been decomissioned. See https://github.com/ldapjs/node-ldapjs/blob/8ffd0bc9c149088a10ec4c1ec6a18450f76ad05d/README.md
+
+devDependencies: skipped
+
+Packages: +20
+++++++++++++++++++++
+Progress: resolved 20, reused 0, downloaded 0, added 0
+Progress: resolved 20, reused 4, downloaded 16, added 20, done
+Done in 2.1s using pnpm v9.15.9

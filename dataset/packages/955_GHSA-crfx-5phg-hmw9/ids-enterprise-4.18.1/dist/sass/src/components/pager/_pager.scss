@@ -1,0 +1,244 @@
+// Pager
+//================================================== //
+
+.pager-toolbar {
+  font-size: $theme-size-font-base;
+  height: 38px;
+  margin: 5px 10px;
+  max-height: 38px;
+  padding-top: 4px;
+  text-align: center;
+
+  > li {
+    cursor: pointer;
+    display: inline-block;
+    overflow: hidden;
+    vertical-align: middle;
+    width: auto;
+
+    &.pager-no:hover {
+      > a {
+        border-bottom: 1px solid $pager-text-color;
+
+        &[disabled] {
+          border-bottom: 1px solid transparent;
+        }
+      }
+    }
+
+    > a:focus {
+      border: 1px solid $pager-text-color;
+      box-shadow: $focus-box-shadow;
+    }
+
+    &.selected:hover {
+      > a {
+        border-bottom: 1px solid $pager-text-color;
+
+        &:focus {
+          border-bottom: 1px solid transparent;
+        }
+      }
+    }
+
+    &.selected > a {
+      color: $pager-selected-color;
+      font-weight: $theme-number-font-weight-bold;
+    }
+
+    > a {
+      border: 1px solid transparent;
+      border-radius: 2px;
+      color: $pager-text-color;
+      cursor: pointer;
+      display: inline-block;
+      height: 28px;
+      margin: 0 2px;
+      outline: none;
+      padding: 5px;
+      position: relative;
+      text-align: center;
+      text-decoration: none;
+      transition: all 0.2s ease;
+
+      // Disabled
+      &[disabled] {
+        box-shadow: none;
+        cursor: default;
+
+        .icon {
+          color: $pager-disabled-color;
+        }
+      }
+
+      .audible {
+        color: $theme-color-font-base;
+      }
+    }
+
+    svg {
+      pointer-events: none;
+    }
+
+  }
+
+  li:not(.selected) a:hover:not([disabled]) svg {
+    color: $pager-hover-color;
+  }
+
+  li:not(.selected) a:active:not([disabled]) svg {
+    color: $pager-hover-color;
+  }
+}
+
+// Buttons
+.pager-prev,
+.pager-first,
+.pager-last,
+.pager-next {
+  margin: 0;
+  padding: 0;
+
+  .icon {
+    color: $font-color;
+  }
+
+  a {
+    backface-visibility: hidden;  // Makes the round ripple-effect pressed state work
+    border-radius: 20px;
+    margin: 0;
+    overflow: hidden;  // Makes the round ripple-effect pressed state work
+    -moz-transform: translate3d(0, 0, 0);  // Makes the round ripple-effect pressed state work
+    -webkit-transform: translate3d(0, 0, 0);  // Makes the round ripple-effect pressed state work
+  }
+
+  .ripple-effect {
+    background-color: $tertiary-btn-ripple-color;
+  }
+}
+
+.pager-next,
+.pager-last {
+  .icon {
+    left: 1px;
+  }
+}
+
+.paginated li {
+  font-size: $theme-size-font-base;
+}
+
+// Pager for Tables
+.pager-count {
+  display: inline-block;
+  font-size: $theme-size-font-base;
+  line-height: normal;
+  vertical-align: top;
+
+  > label {
+    font-size: inherit !important;
+    line-height: inherit !important;
+    margin-bottom: 0;
+  }
+
+  input {
+    font-size: $theme-size-font-base;
+    height: 30px;
+    margin: 0 5px;
+    padding: 3px 0 !important;
+    text-align: center;
+    width: 30px;
+  }
+
+  .pager-total-pages {
+    display: inline-block;
+    text-align: left;
+  }
+
+  + li {
+    margin-left: 10px;
+  }
+}
+
+// Put some space between the "count" section and the navigation buttons
+li + .pager-count {
+  margin-left: 10px;
+}
+
+.pager-pagesize {
+  float: right;
+
+  .btn-menu {
+    height: 30px;
+
+    &:focus {
+      border-color: $theme-color-brand-primary-base;
+      box-shadow: $focus-box-shadow;
+    }
+
+    span {
+      font-size: $theme-size-font-base;
+      font-weight: $theme-number-font-weight-base;
+      line-height: 27px;
+      text-transform: none;
+    }
+
+    .icon {
+      height: 18px;
+      margin-right: -2px;
+      margin-top: 1px;
+      width: 18px;
+    }
+  }
+}
+
+.ie {
+  .pager-count {
+    input {
+      margin-top: 2px;
+      padding-top: 0;
+    }
+  }
+}
+
+// Inside Widgets
+.card,
+.widget {
+  .pager-toolbar {
+    margin: 0;
+  }
+
+  &.card .card-footer .pager-toolbar {
+    height: 30px;
+
+    > li {
+      > a {
+        height: 30px;
+        margin: 0;
+        padding: 5px 7px;
+      }
+
+      &.pager-prev,
+      &.pager-next {
+        > a {
+          height: 29px;
+          padding: 5px;
+        }
+      }
+    }
+  }
+}
+
+// RTL Styles
+html[dir='rtl'] {
+  // Pager for Tables
+  .pager-count {
+    .pager-total-pages {
+      text-align: right;
+    }
+
+    input {
+      text-align: center;
+    }
+  }
+}

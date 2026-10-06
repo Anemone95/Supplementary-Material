@@ -1,0 +1,13 @@
+$ corepack pnpm@9.15.9 install --prod --no-frozen-lockfile --reporter=append-only --config.node-linker=hoisted --ignore-workspace --ignore-scripts
+Progress: resolved 1, reused 0, downloaded 0, added 0
+Progress: resolved 133, reused 0, downloaded 0, added 0
+Progress: resolved 355, reused 0, downloaded 0, added 0
+Progress: resolved 456, reused 0, downloaded 0, added 0
+Progress: resolved 523, reused 0, downloaded 0, added 0
+ WARN  44 deprecated subdependencies found: babel-plugin-constant-folding@1.0.1, babel-plugin-dead-code-elimination@1.0.2, babel-plugin-eval@1.0.1, babel-plugin-inline-environment-variables@1.0.1, babel-plugin-jscript@1.0.4, babel-plugin-member-expression-literals@1.0.1, babel-plugin-property-literals@1.0.1, babel-plugin-proto-to-assign@1.0.4, babel-plugin-react-constant-elements@1.0.3, babel-plugin-react-display-name@1.0.3, babel-plugin-remove-console@1.0.1, babel-plugin-remove-debugger@1.0.1, babel-plugin-runtime@1.0.7, babel-plugin-undefined-to-void@1.1.6, boom@0.4.2, circular-json@0.3.3, core-js@1.2.7, core-js@2.6.12, cryptiles@0.2.2, eslint@1.9.0, eslint@2.10.2, glob@10.5.0, glob@3.2.11, glob@5.0.15, glob@7.2.3, hawk@1.1.1, hoek@0.9.1, inflight@1.0.6, jade@0.26.3, lodash.omit@3.1.0, minimatch@0.3.0, minimatch@2.0.10, mkdirp@0.3.0, mkdirp@0.5.1, node-uuid@1.4.8, q@1.5.1, request@2.40.0, rimraf@2.6.3, rimraf@2.7.1, sntp@0.2.4, stable@0.1.8, standard-format@1.6.10, to-iso-string@0.0.2, try-resolve@1.0.1
+
+devDependencies: skipped
+
+Already up to date
+Progress: resolved 537, reused 0, downloaded 0, added 0, done
+Done in 4.8s using pnpm v9.15.9

@@ -1,0 +1,21 @@
+$ corepack pnpm@9.15.9 install --prod --no-frozen-lockfile --reporter=append-only --config.node-linker=hoisted --ignore-workspace --ignore-scripts
+Progress: resolved 1, reused 0, downloaded 0, added 0
+ WARN  deprecated eslint@5.16.0: This version is no longer supported. Please see https://eslint.org/version-support for other options.
+ WARN  deprecated sequelize@4.44.4: Please update to v6 or higher! A migration guide can be found here: https://sequelize.org/v6/manual/upgrade-to-v6.html
+Progress: resolved 23, reused 0, downloaded 0, added 0
+Progress: resolved 195, reused 0, downloaded 0, added 0
+ WARN  GET https://registry.npmjs.org/regexpu-core error (ECONNRESET). Will retry in 10 seconds. 2 retries left.
+Progress: resolved 371, reused 0, downloaded 0, added 0
+Progress: resolved 570, reused 0, downloaded 0, added 0
+Progress: resolved 649, reused 0, downloaded 0, added 0
+Progress: resolved 650, reused 0, downloaded 0, added 0
+Progress: resolved 651, reused 0, downloaded 0, added 0
+Progress: resolved 652, reused 0, downloaded 0, added 0
+ WARN  31 deprecated subdependencies found: are-we-there-yet@1.1.7, core-js@2.6.12, dottie@2.0.7, fsevents@1.2.13, gauge@2.7.4, glob@10.5.0, glob@3.1.21, glob@4.5.3, glob@7.1.2, glob@7.2.3, graceful-fs@1.2.3, gulp-util@3.0.8, inflight@1.0.6, lodash.template@3.6.2, minimatch@0.2.14, minimatch@2.0.10, mkdirp@0.5.1, natives@1.1.6, node-pre-gyp@0.11.0, npmlog@4.1.2, osenv@0.1.5, resolve-url@0.2.1, rimraf@2.6.3, rimraf@2.7.1, source-map-resolve@0.5.3, source-map-url@0.4.1, tar@4.4.19, terraformer-wkt-parser@1.2.1, terraformer@1.0.12, urix@0.1.0, uuid@3.4.0
+
+devDependencies: skipped
+
+Packages: +139
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Progress: resolved 656, reused 124, downloaded 5, added 139, done
+Done in 13.5s using pnpm v9.15.9

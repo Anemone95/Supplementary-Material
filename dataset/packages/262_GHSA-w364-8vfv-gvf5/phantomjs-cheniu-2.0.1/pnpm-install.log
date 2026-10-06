@@ -1,0 +1,20 @@
+$ corepack pnpm@9.15.9 install --prod --no-frozen-lockfile --reporter=append-only --config.node-linker=hoisted --ignore-workspace --ignore-scripts
+Progress: resolved 1, reused 0, downloaded 0, added 0
+ WARN  deprecated npmconf@2.1.1: this package has been reintegrated into npm and is now out of date with respect to npm
+ WARN  deprecated request@2.42.0: request has been deprecated, see https://github.com/request/request/issues/3142
+ WARN  deprecated nodeunit@0.9.0: you are strongly encouraged to use other testing options
+Progress: resolved 124, reused 0, downloaded 0, added 0
+Progress: resolved 253, reused 0, downloaded 0, added 0
+Progress: resolved 287, reused 0, downloaded 0, added 0
+Progress: resolved 314, reused 0, downloaded 0, added 0
+Progress: resolved 316, reused 0, downloaded 0, added 0
+Progress: resolved 326, reused 0, downloaded 0, added 0
+ WARN  12 deprecated subdependencies found: boom@0.4.2, cryptiles@0.2.2, glob@7.2.3, hawk@1.1.1, hoek@0.9.1, inflight@1.0.6, natives@1.1.6, node-uuid@1.4.8, osenv@0.1.5, rimraf@2.7.1, sntp@0.2.4, uid-number@0.0.5
+
+devDependencies: skipped
+
+Packages: +70
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Progress: resolved 329, reused 64, downloaded 3, added 66
+Progress: resolved 329, reused 64, downloaded 6, added 70, done
+Done in 7.6s using pnpm v9.15.9

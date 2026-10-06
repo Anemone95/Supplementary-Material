@@ -1,0 +1,48 @@
+lockfileVersion: '9.0'
+
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
+
+importers:
+
+  .:
+    devDependencies:
+      expresso:
+        specifier: latest
+        version: 0.9.2
+      jison:
+        specifier: 0.2.11
+        version: 0.2.11
+
+packages:
+
+  expresso@0.9.2:
+    resolution: {integrity: sha512-DmI2WpITEQHMl/HUZejTByJjiSHWKwuWDpIIslDsI4ln/iZdwmnDDy7ZQ5bbdpOrjk59eQyQmdvlp2suml4ZhA==}
+    hasBin: true
+
+  jison@0.2.11:
+    resolution: {integrity: sha512-yXKOcFK/s2hvZJdHBxa8ZLQGUOv2Xe9YYy9L4cmtlmv756ohftUbyKfUHmlFlD9K3J97mG/JleQtq74aEEwx4g==}
+    engines: {node: 0.4 || 0.5}
+    hasBin: true
+
+  nomnom@0.4.3:
+    resolution: {integrity: sha512-Ehtx8wu/GZGMQedeJ+6rd0DbLtqlvmcgKPQf9vSNnapUov/InCAPEl4Y6fe5kE0Lu1I4XNaDx+BPAteHDX1wIA==}
+    deprecated: Package no longer supported. Contact support@npmjs.com for more info.
+
+  underscore@1.13.8:
+    resolution: {integrity: sha512-DXtD3ZtEQzc7M8m4cXotyHR+FAS18C64asBYY5vqZexfYryNNnDc02W4hKg3rdQuqOYas1jkseX0+nZXjTXnvQ==}
+
+snapshots:
+
+  expresso@0.9.2: {}
+
+  jison@0.2.11:
+    dependencies:
+      nomnom: 0.4.3
+
+  nomnom@0.4.3:
+    dependencies:
+      underscore: 1.13.8
+
+  underscore@1.13.8: {}

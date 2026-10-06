@@ -1,0 +1,73 @@
+<html>
+<head>
+<title> City Weather</title>
+<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+</head>
+<body>
+<form>
+Enter a Utah City: <input type="text" id="cityfield" value="">
+<br>
+Suggestions: <span> <ul id="txtHint"></ul></span>
+<br>
+<input id="button" type="button" value="Submit">
+</form>
+<p>City</p>
+<textarea id="dispcity">No City</textarea>
+<div id="weather">No weather</div>
+<script>
+function PhillipRocks(value) {
+  console.log(value);
+  $("#dispcity").text(value);
+  
+  var myurl = "https://api.wunderground.com/api/73734df3b2e69593/geolookup/conditions/q/UT/";
+  myurl+=value;
+  myurl+=".json";
+  console.log(myurl);
+  $.ajax({
+          url : myurl,
+          dataType : "jsonp",
+          success : function (x) {
+                  var everything;
+                  var location = x["location"]["city"];
+                  var temp_string = x["current_observation"]["temperature_string"];
+                  var current_weather = x["current_observation"]["weather"];
+                  everything = "<ul>";
+                  everything += "<li>Location: " + location;
+                  everything += "<li>Temperature: " + temp_string;
+                  everything += "<li>Weather: " + current_weather;
+                  everything += "</ul>";
+                  $("#weather").html(everything);
+          }
+        });
+}
+$('#txtHint').on('click','li', function() {
+	PhillipRocks($(this).data('city-name'));
+  });
+$("#cityfield").keyup(function() {
+  var myurl = "/selectCity.txt?q=";
+  myurl += $("#cityfield").val();
+  console.log(myurl);
+  $.ajax({
+	url : myurl, 
+	//dataType : "jsonp", 
+	success : function(data) {
+	    console.log("in function");
+	    var everything;
+	    everything = "";
+	    $.each(data, function(i,item) {
+		  everything += '<li data-city-name="' + data[i].city + '"> ' + data[i].city + '</li>';
+		  });
+	    $("#txtHint").html(everything);
+	} 
+  }).done( function() {
+		console.log("getJSON request succeeded!"); 
+	} )
+  console.log("end of cityfield function");
+});
+$("#button").click(function() {
+  var value = $("#cityfield").val();
+  PhillipRocks(value);
+});
+</script>
+</body>
+</html>

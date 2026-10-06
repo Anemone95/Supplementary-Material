@@ -1,0 +1,11 @@
+$ corepack pnpm@9.15.9 install --prod --no-frozen-lockfile --reporter=append-only --config.node-linker=hoisted --ignore-workspace --ignore-scripts
+ WARN  deprecated request@2.88.2: request has been deprecated, see https://github.com/request/request/issues/3142
+Progress: resolved 1, reused 0, downloaded 0, added 0
+ WARN  2 deprecated subdependencies found: har-validator@5.1.5, uuid@3.4.0
+
+devDependencies: skipped
+
+Packages: +47
++++++++++++++++++++++++++++++++++++++++++++++++
+Progress: resolved 47, reused 47, downloaded 0, added 47, done
+Done in 1.4s using pnpm v9.15.9

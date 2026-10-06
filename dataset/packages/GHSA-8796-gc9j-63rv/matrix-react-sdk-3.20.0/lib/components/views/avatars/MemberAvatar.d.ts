@@ -1,0 +1,32 @@
+import React from 'react';
+import { RoomMember } from "matrix-js-sdk/src/models/room-member";
+import BaseAvatar from "./BaseAvatar";
+import { ResizeMethod } from "../../../Avatar";
+interface IProps extends Omit<React.ComponentProps<typeof BaseAvatar>, "name" | "idName" | "url"> {
+    member: RoomMember;
+    fallbackUserId?: string;
+    width: number;
+    height: number;
+    resizeMethod?: ResizeMethod;
+    onClick?: React.MouseEventHandler;
+    viewUserOnClick?: boolean;
+    title?: string;
+}
+interface IState {
+    name: string;
+    title: string;
+    imageUrl?: string;
+}
+export default class MemberAvatar extends React.Component<IProps, IState> {
+    static defaultProps: {
+        width: number;
+        height: number;
+        resizeMethod: string;
+        viewUserOnClick: boolean;
+    };
+    constructor(props: IProps);
+    static getDerivedStateFromProps(nextProps: IProps): IState;
+    private static getState;
+    render(): JSX.Element;
+}
+export {};

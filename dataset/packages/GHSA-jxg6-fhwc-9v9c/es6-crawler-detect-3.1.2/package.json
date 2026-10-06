@@ -1,0 +1,48 @@
+{
+  "name": "es6-crawler-detect",
+  "version": "3.1.2",
+  "description": "This is an ES6 adaptation of the original PHP library CrawlerDetect, this library will help you detect bots/crawlers/spiders vie the useragent.",
+  "main": "src/index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "build": "cross-env NODE_ENV=production webpack --progress --hide-modules --config webpack.prod.js",
+    "dev": "cross-env NODE_ENV=development webpack --progress --hide-modules --config webpack.dev.js",
+    "test": "mocha test/**/*.test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JefferyHus/es6-crawler-detect.git"
+  },
+  "keywords": [
+    "es6-javascript",
+    "crawler",
+    "bots",
+    "spider",
+    "detection"
+  ],
+  "author": "Jeffery Hussin <jefferytutorials@gmail.com> (http://github.com/jefferyhus)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/JefferyHus/es6-crawler-detect/issues"
+  },
+  "homepage": "https://github.com/JefferyHus/es6-crawler-detect#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.8.3",
+    "@babel/core": "^7.8.3",
+    "@babel/plugin-proposal-class-properties": "^7.8.3",
+    "@babel/polyfill": "^7.8.3",
+    "@babel/preset-env": "^7.8.3",
+    "babel-loader": "^8.0.6",
+    "cross-env": "^6.0.3",
+    "mocha": "^7.0.0",
+    "prettier": "1.19.1",
+    "style-loader": "^1.1.2",
+    "terser-webpack-plugin": "^2.3.2",
+    "webpack": "^4.41.5",
+    "webpack-cli": "^3.3.10",
+    "webpack-merge": "^4.2.2"
+  },
+  "dependencies": {}
+}

@@ -1,0 +1,19 @@
+{
+  "author": "whauwiler",
+  "name": "citypredict.whauwiller",
+  "version": "0.1.1",
+  "description": "Runs a server that will allow for cities to be predicted based on a start string",
+  "main": "weather_server",
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/whauwiller/nodejs-city-prediction.git"
+  },
+  "keywords": [
+    "city",
+    "predict"
+  ],
+  "dependencies": {},
+  "engines": {
+    "node": "*"
+  }
+}

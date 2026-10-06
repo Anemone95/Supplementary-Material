@@ -1,0 +1,17 @@
+$ corepack pnpm@9.15.9 install --prod --no-frozen-lockfile --reporter=append-only --config.node-linker=hoisted --ignore-workspace --ignore-scripts
+Progress: resolved 1, reused 0, downloaded 0, added 0
+ WARN  deprecated supertest@3.4.2: Please upgrade to supertest v7.1.3+, see release notes at https://github.com/forwardemail/supertest/releases/tag/v7.1.3 - maintenance is supported by Forward Email @ https://forwardemail.net
+Progress: resolved 6, reused 0, downloaded 0, added 0
+Progress: resolved 7, reused 0, downloaded 0, added 0
+Progress: resolved 128, reused 0, downloaded 0, added 0
+ WARN  GET https://registry.npmjs.org/@types%2Fmime error (ECONNRESET). Will retry in 10 seconds. 2 retries left.
+Progress: resolved 130, reused 0, downloaded 0, added 0
+Progress: resolved 131, reused 0, downloaded 0, added 0
+ WARN  5 deprecated subdependencies found: formidable@1.2.6, glob@7.1.2, inflight@1.0.6, mkdirp@0.5.1, superagent@3.8.3
+
+devDependencies: skipped
+
+Packages: +2
+++
+Progress: resolved 131, reused 2, downloaded 0, added 2, done
+Done in 14.1s using pnpm v9.15.9

@@ -1,0 +1,25 @@
+1332ff372d3d8b8ae0039d6c1aed7ec1
+"use strict";Object.defineProperty(exports, "__esModule", { value: true });var _createClass = function () {function defineProperties(target, props) {for (var i = 0; i < props.length; i++) {var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);}}return function (Constructor, protoProps, staticProps) {if (protoProps) defineProperties(Constructor.prototype, protoProps);if (staticProps) defineProperties(Constructor, staticProps);return Constructor;};}();function _classCallCheck(instance, Constructor) {if (!(instance instanceof Constructor)) {throw new TypeError("Cannot call a class as a function");}}var CombinedProviderMock = function () {
+
+
+
+
+
+  function CombinedProviderMock() {var rules = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};var defaultStore = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : CombinedProviderMock.defaultStore;var defaultActions = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : CombinedProviderMock.defaultActions;_classCallCheck(this, CombinedProviderMock);
+    this.rules = rules;
+    this.store = defaultStore;
+    this.actions = defaultActions;
+  }_createClass(CombinedProviderMock, [{ key: "get", value: function get(
+
+    name) {
+      var result = this.rules[name] || {};
+      if (!result[name + "Store"]) {
+        result[name + "Store"] = this.store;
+      }
+      if (!result[name + "Actions"]) {
+        result[name + "Actions"] = this.actions;
+      }
+
+      return result;
+    } }]);return CombinedProviderMock;}();CombinedProviderMock.defaultStore = { get: function get() {return jest.fn(function () {return {};});}, listen: jest.fn() };CombinedProviderMock.defaultActions = {};var _default = CombinedProviderMock;exports.default = _default;module.exports = exports["default"];;var _temp = function () {if (typeof __REACT_HOT_LOADER__ === 'undefined') {return;}__REACT_HOT_LOADER__.register(CombinedProviderMock, "CombinedProviderMock", "/root/graylog2-server-2.4.3/graylog2-web-interface/test/helpers/mocking/CombinedProviderMock.js");__REACT_HOT_LOADER__.register(_default, "default", "/root/graylog2-server-2.4.3/graylog2-web-interface/test/helpers/mocking/CombinedProviderMock.js");}();;
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIkNvbWJpbmVkUHJvdmlkZXJNb2NrLmpzIl0sIm5hbWVzIjpbIkNvbWJpbmVkUHJvdmlkZXJNb2NrIiwicnVsZXMiLCJkZWZhdWx0U3RvcmUiLCJkZWZhdWx0QWN0aW9ucyIsInN0b3JlIiwiYWN0aW9ucyIsIm5hbWUiLCJyZXN1bHQiLCJnZXQiLCJqZXN0IiwiZm4iLCJsaXN0ZW4iXSwibWFwcGluZ3MiOiJ5d0JBQXFCQSxvQjs7Ozs7O0FBTW5CLGtDQUFnSSxLQUFwSEMsS0FBb0gsdUVBQTVHLEVBQTRHLEtBQXhHQyxZQUF3Ryx1RUFBekZGLHFCQUFxQkUsWUFBb0UsS0FBdERDLGNBQXNELHVFQUFyQ0gscUJBQXFCRyxjQUFnQjtBQUM5SCxTQUFLRixLQUFMLEdBQWFBLEtBQWI7QUFDQSxTQUFLRyxLQUFMLEdBQWFGLFlBQWI7QUFDQSxTQUFLRyxPQUFMLEdBQWVGLGNBQWY7QUFDRCxHOztBQUVHRyxRLEVBQU07QUFDUixVQUFNQyxTQUFTLEtBQUtOLEtBQUwsQ0FBV0ssSUFBWCxLQUFvQixFQUFuQztBQUNBLFVBQUksQ0FBQ0MsT0FBVUQsSUFBVixXQUFMLEVBQTZCO0FBQzNCQyxlQUFVRCxJQUFWLGNBQXlCLEtBQUtGLEtBQTlCO0FBQ0Q7QUFDRCxVQUFJLENBQUNHLE9BQVVELElBQVYsYUFBTCxFQUErQjtBQUM3QkMsZUFBVUQsSUFBVixnQkFBMkIsS0FBS0QsT0FBaEM7QUFDRDs7QUFFRCxhQUFPRSxNQUFQO0FBQ0QsSyxxQ0F0QmtCUCxvQixDQUNaRSxZLEdBQWUsRUFDcEJNLEtBQUssdUJBQU1DLEtBQUtDLEVBQUwsQ0FBUSxvQkFBTyxFQUFQLEVBQVIsQ0FBTixFQURlLEVBRXBCQyxRQUFRRixLQUFLQyxFQUFMLEVBRlksRSxDQURIVixvQixDQUtaRyxjLEdBQWlCLEUsZ0JBTExILG9CLGtMQUFBQSxvQiIsImZpbGUiOiJDb21iaW5lZFByb3ZpZGVyTW9jay5qcyIsInNvdXJjZXNDb250ZW50IjpbImV4cG9ydCBkZWZhdWx0IGNsYXNzIENvbWJpbmVkUHJvdmlkZXJNb2NrIHtcbiAgc3RhdGljIGRlZmF1bHRTdG9yZSA9IHtcbiAgICBnZXQ6ICgpID0+IGplc3QuZm4oKCkgPT4gKHt9KSksXG4gICAgbGlzdGVuOiBqZXN0LmZuKCksXG4gIH07XG4gIHN0YXRpYyBkZWZhdWx0QWN0aW9ucyA9IHt9O1xuICBjb25zdHJ1Y3RvcihydWxlcyA9IHt9LCBkZWZhdWx0U3RvcmUgPSBDb21iaW5lZFByb3ZpZGVyTW9jay5kZWZhdWx0U3RvcmUsIGRlZmF1bHRBY3Rpb25zID0gQ29tYmluZWRQcm92aWRlck1vY2suZGVmYXVsdEFjdGlvbnMpIHtcbiAgICB0aGlzLnJ1bGVzID0gcnVsZXM7XG4gICAgdGhpcy5zdG9yZSA9IGRlZmF1bHRTdG9yZTtcbiAgICB0aGlzLmFjdGlvbnMgPSBkZWZhdWx0QWN0aW9ucztcbiAgfVxuXG4gIGdldChuYW1lKSB7XG4gICAgY29uc3QgcmVzdWx0ID0gdGhpcy5ydWxlc1tuYW1lXSB8fCB7fTtcbiAgICBpZiAoIXJlc3VsdFtgJHtuYW1lfVN0b3JlYF0pIHtcbiAgICAgIHJlc3VsdFtgJHtuYW1lfVN0b3JlYF0gPSB0aGlzLnN0b3JlO1xuICAgIH1cbiAgICBpZiAoIXJlc3VsdFtgJHtuYW1lfUFjdGlvbnNgXSkge1xuICAgICAgcmVzdWx0W2Ake25hbWV9QWN0aW9uc2BdID0gdGhpcy5hY3Rpb25zO1xuICAgIH1cblxuICAgIHJldHVybiByZXN1bHQ7XG4gIH1cbn1cbiJdfQ==

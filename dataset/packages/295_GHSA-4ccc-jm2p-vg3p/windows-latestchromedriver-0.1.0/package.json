@@ -1,0 +1,16 @@
+{
+  "name": "windows-latestchromedriver",
+  "repository": {
+    "type" : "git",
+    "url" : "https://github.com/ISNTI0/Windows_LatestChromedriver.git"
+  },
+  "license" : "Unlicense",
+  "version": "0.1.0",
+  "scripts": {
+    "postinstall": "node ./download.js"
+  },
+  "dependencies": {
+    "unzip":"*",
+    "request":"*"
+  }
+}

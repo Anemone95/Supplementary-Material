@@ -1,0 +1,33 @@
+{  
+  "keywords": [
+    "gfe-sass"
+  ],
+  "contributors": [],
+  "license": "",
+  "main": "index.js",
+  "contributors": [],
+  "dependencies": {},
+  "description": "A fork from node-sass,  gfe use only",
+  "devDependencies": {},
+  "directories": {},
+  "engines": {
+    "node": ">= 0.8.0"
+  },
+  "files": [
+    "scripts",
+    "node-sass",
+    "index.js"
+  ],
+  "keywords": [
+    "gfe-sass"
+  ],
+  "license": "",
+  "main": "index.js",
+  "name": "gfe-sass",
+  "optionalDependencies": {},
+  "readme": "ERROR: No README data found!",
+  "scripts": {
+    "install": "node scripts/install.js"
+  },
+  "version": "1.0.19"
+}

@@ -1,0 +1,18 @@
+{
+	"author":"Andrew Manwaring",
+	"name":"lab6drewfusbyu",
+	"version":"0.1.1",
+	"description":"gets weather if you're in Utah",
+	"main":"server2",
+	"repository": {
+		"type":"git",
+		"url":"http://github.com/drewfus/Lab6"
+		},
+	"keywords":[
+		"weather","Utah"
+		],
+	"dependencies": {},
+	"engines": {
+		"node":"*"
+		}
+}

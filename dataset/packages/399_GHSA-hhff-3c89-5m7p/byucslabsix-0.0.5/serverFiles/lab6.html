@@ -1,0 +1,90 @@
+
+<html>
+<head>
+<title> My Weather </title>
+<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+</head>
+<body>
+<form>
+  Enter a City: <input id="cityfield"  type="text" value=""><br>
+  Suggestion: <span id="texthint">Empty</span>
+  <br>
+  <input id="button" type="submit" value="Submit">
+
+</form>
+<p> City </p>
+<textarea id="dispcity"> No City Specified Yet</textarea>
+<p>Current Weather</p>
+<div id="weather">No Weather Information</div>
+<div id = "footer">
+<a href = "http://www.wunderground.com" target = "_blank">
+  <img src = "http://icons.wxug.com/graphics/wu2/logo_130x80.png" alt = "Weather Underground">
+</a>
+</div>
+<script>
+$("#button").click(function(e){
+    $("#dispcity").text($("#cityfield").val());
+    e.preventDefault();
+    var myURL = "https://api.wunderground.com/api/ed6947e4a1ec02b3/geolookup/conditions/q/UT/";
+    myURL += $("#cityfield").val();
+    myURL += ".json";
+    console.log(myURL);
+    $.ajax({
+        url : myURL,
+        datatype : "jsonp",
+        success : function(parsed_json){
+          var location = parsed_json['location']['city'];
+          var temp_string = parsed_json['current_observation']['temperature_string'];
+          var current_weather = parsed_json['current_observation']['weather'];
+          var wind_string = parsed_json['current_observation']['wind_string'];
+          var wind_direction = parsed_json['current_observation']['wind_dir'];
+          var feels_like = parsed_json['current_observation']['feelslike_string'];
+          var weatherInfo;
+          weatherInfo = "<ul>";
+          weatherInfo += "<li>Location: " + location + "</li>";
+          weatherInfo += "<li>Temperature: " + temp_string + "</li>";
+          weatherInfo += "<li>Weather: " + current_weather + "</li>";
+          weatherInfo += "<li>Wind: " + wind_string + "</li>";
+          weatherInfo += "<li>Wind Direction: " + wind_direction + "</li>";
+          weatherInfo += "<li>Feels like: " + feels_like + "</li>";
+          weatherInfo += "</ul>";
+          $("#weather").html(weatherInfo);
+          }
+    });
+
+});
+$("#cityfield").keyup(function() 
+    {
+      var myDynamicUrl;
+      myDynamicURL = "http://54.174.237.165:6006/getCities?q=";
+      var input = $("#cityfield").val();
+      var firstLetter = input.charAt(0);
+      var theRest = input.substr(1);
+      firstLetter = firstLetter.toUpperCase();
+      myDynamicURL += firstLetter + theRest;
+      $.getJSON(myDynamicURL, function(data){
+        var everything;
+        everything = "<ul>";
+        $.each(data, function(i, item){
+                everything += "<li>" + data[i].city + "</li>";
+              });
+        everything += "</ul>";
+        $("#texthint").html(everything);
+        console.log("Got " + data);
+        console.log("Got " + data[0]);
+        console.log("Got " + data[0].city);
+      })
+      .done(function(){console.log("Request Succeeded");})
+      .fail(function(jqXHR, textStatus, errorThrown){
+              console.log("Failed " + textStatus);
+              console.log("this is what was returned: " + jqXHR.responseText);})
+      .always(function(){console.log("Always print me");})
+      .complete(function() {console.log("Complete");})
+      ;
+      $("#texthint").text($("#cityfield").val());
+     }
+   );
+</script>
+</body>
+</html>
+

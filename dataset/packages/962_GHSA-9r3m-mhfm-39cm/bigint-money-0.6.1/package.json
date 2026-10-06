@@ -1,0 +1,42 @@
+{
+  "name": "bigint-money",
+  "version": "0.6.1",
+  "description": "A Money class for high precision calculations using the ESnext bigint type.",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "make test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/evert/bigint-money.git"
+  },
+  "keywords": [
+    "money",
+    "finance",
+    "fixed-point",
+    "currency",
+    "bigint"
+  ],
+  "author": "Evert Pot",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/evert/bigint-money/issues"
+  },
+  "homepage": "https://github.com/evert/bigint-money#readme",
+  "devDependencies": {
+    "@types/chai": "^4.1.7",
+    "@types/mocha": "^5.2.6",
+    "@types/node": "^11.9.5",
+    "chai": "^4.2.0",
+    "mocha": "^5.2.0",
+    "nyc": "^13.3.0",
+    "ts-node": "^8.0.2",
+    "tslint": "^5.13.0",
+    "typescript": "^3.3.3333"
+  },
+  "nyc": {
+    "extension": [
+      ".ts"
+    ]
+  }
+}

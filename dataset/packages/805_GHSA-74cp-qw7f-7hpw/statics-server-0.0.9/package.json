@@ -1,0 +1,23 @@
+{
+  "name": "statics-server",
+  "version": "0.0.9",
+  "description": "This is another static server",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin": {
+    "statics-server": "./index.js"
+  },
+  "keywords": [
+    "static-server",
+    "statics-server",
+    "static server",
+    "static",
+    "server",
+    "dir",
+    "file"
+  ],
+  "author": "song",
+  "license": "ISC"
+}

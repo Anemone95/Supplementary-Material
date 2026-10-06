@@ -1,0 +1,57 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.RoomListCustomisations = void 0;
+
+/*
+ * Copyright 2020 The Matrix.org Foundation C.I.C.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *         http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+// Populate this file with the details of your customisations when copying it.
+
+/**
+ * Determines if a room is visible in the room list or not. By default,
+ * all rooms are visible. Where special handling is performed by Element,
+ * those rooms will not be able to override their visibility in the room
+ * list - Element will make the decision without calling this function.
+ *
+ * This function should be as fast as possible to avoid slowing down the
+ * client.
+ * @param {Room} room The room to check the visibility of.
+ * @returns {boolean} True if the room should be visible, false otherwise.
+ */
+function isRoomVisible(room
+/*: Room*/
+)
+/*: boolean*/
+{
+  return true;
+} // This interface summarises all available customisation points and also marks
+// them all as optional. This allows customisers to only define and export the
+// customisations they need while still maintaining type safety.
+
+/*:: export interface IRoomListCustomisations {
+    isRoomVisible?: typeof isRoomVisible;
+}*/
+
+
+// A real customisation module will define and export one or more of the
+// customisation points that make up the interface above.
+const RoomListCustomisations
+/*: IRoomListCustomisations*/
+= {};
+exports.RoomListCustomisations = RoomListCustomisations;
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uL3NyYy9jdXN0b21pc2F0aW9ucy9Sb29tTGlzdC50cyJdLCJuYW1lcyI6WyJpc1Jvb21WaXNpYmxlIiwicm9vbSIsIlJvb21MaXN0Q3VzdG9taXNhdGlvbnMiXSwibWFwcGluZ3MiOiI7Ozs7Ozs7QUFBQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFJQTs7QUFFQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0EsU0FBU0EsYUFBVCxDQUF1QkM7QUFBdkI7QUFBQTtBQUFBO0FBQTRDO0FBQ3hDLFNBQU8sSUFBUDtBQUNILEMsQ0FFRDtBQUNBO0FBQ0E7OztBQXJDQTtBQUNBOzs7QUF5Q0E7QUFDQTtBQUNPLE1BQU1DO0FBQStDO0FBQUEsRUFBRyxFQUF4RCIsInNvdXJjZXNDb250ZW50IjpbIi8qXG4gKiBDb3B5cmlnaHQgMjAyMCBUaGUgTWF0cml4Lm9yZyBGb3VuZGF0aW9uIEMuSS5DLlxuICpcbiAqIExpY2Vuc2VkIHVuZGVyIHRoZSBBcGFjaGUgTGljZW5zZSwgVmVyc2lvbiAyLjAgKHRoZSBcIkxpY2Vuc2VcIik7XG4gKiB5b3UgbWF5IG5vdCB1c2UgdGhpcyBmaWxlIGV4Y2VwdCBpbiBjb21wbGlhbmNlIHdpdGggdGhlIExpY2Vuc2UuXG4gKiBZb3UgbWF5IG9idGFpbiBhIGNvcHkgb2YgdGhlIExpY2Vuc2UgYXRcbiAqXG4gKiAgICAgICAgIGh0dHA6Ly93d3cuYXBhY2hlLm9yZy9saWNlbnNlcy9MSUNFTlNFLTIuMFxuICpcbiAqIFVubGVzcyByZXF1aXJlZCBieSBhcHBsaWNhYmxlIGxhdyBvciBhZ3JlZWQgdG8gaW4gd3JpdGluZywgc29mdHdhcmVcbiAqIGRpc3RyaWJ1dGVkIHVuZGVyIHRoZSBMaWNlbnNlIGlzIGRpc3RyaWJ1dGVkIG9uIGFuIFwiQVMgSVNcIiBCQVNJUyxcbiAqIFdJVEhPVVQgV0FSUkFOVElFUyBPUiBDT05ESVRJT05TIE9GIEFOWSBLSU5ELCBlaXRoZXIgZXhwcmVzcyBvciBpbXBsaWVkLlxuICogU2VlIHRoZSBMaWNlbnNlIGZvciB0aGUgc3BlY2lmaWMgbGFuZ3VhZ2UgZ292ZXJuaW5nIHBlcm1pc3Npb25zIGFuZFxuICogbGltaXRhdGlvbnMgdW5kZXIgdGhlIExpY2Vuc2UuXG4gKi9cblxuaW1wb3J0IHsgUm9vbSB9IGZyb20gXCJtYXRyaXgtanMtc2RrL3NyYy9tb2RlbHMvcm9vbVwiO1xuXG4vLyBQb3B1bGF0ZSB0aGlzIGZpbGUgd2l0aCB0aGUgZGV0YWlscyBvZiB5b3VyIGN1c3RvbWlzYXRpb25zIHdoZW4gY29weWluZyBpdC5cblxuLyoqXG4gKiBEZXRlcm1pbmVzIGlmIGEgcm9vbSBpcyB2aXNpYmxlIGluIHRoZSByb29tIGxpc3Qgb3Igbm90LiBCeSBkZWZhdWx0LFxuICogYWxsIHJvb21zIGFyZSB2aXNpYmxlLiBXaGVyZSBzcGVjaWFsIGhhbmRsaW5nIGlzIHBlcmZvcm1lZCBieSBFbGVtZW50LFxuICogdGhvc2Ugcm9vbXMgd2lsbCBub3QgYmUgYWJsZSB0byBvdmVycmlkZSB0aGVpciB2aXNpYmlsaXR5IGluIHRoZSByb29tXG4gKiBsaXN0IC0gRWxlbWVudCB3aWxsIG1ha2UgdGhlIGRlY2lzaW9uIHdpdGhvdXQgY2FsbGluZyB0aGlzIGZ1bmN0aW9uLlxuICpcbiAqIFRoaXMgZnVuY3Rpb24gc2hvdWxkIGJlIGFzIGZhc3QgYXMgcG9zc2libGUgdG8gYXZvaWQgc2xvd2luZyBkb3duIHRoZVxuICogY2xpZW50LlxuICogQHBhcmFtIHtSb29tfSByb29tIFRoZSByb29tIHRvIGNoZWNrIHRoZSB2aXNpYmlsaXR5IG9mLlxuICogQHJldHVybnMge2Jvb2xlYW59IFRydWUgaWYgdGhlIHJvb20gc2hvdWxkIGJlIHZpc2libGUsIGZhbHNlIG90aGVyd2lzZS5cbiAqL1xuZnVuY3Rpb24gaXNSb29tVmlzaWJsZShyb29tOiBSb29tKTogYm9vbGVhbiB7XG4gICAgcmV0dXJuIHRydWU7XG59XG5cbi8vIFRoaXMgaW50ZXJmYWNlIHN1bW1hcmlzZXMgYWxsIGF2YWlsYWJsZSBjdXN0b21pc2F0aW9uIHBvaW50cyBhbmQgYWxzbyBtYXJrc1xuLy8gdGhlbSBhbGwgYXMgb3B0aW9uYWwuIFRoaXMgYWxsb3dzIGN1c3RvbWlzZXJzIHRvIG9ubHkgZGVmaW5lIGFuZCBleHBvcnQgdGhlXG4vLyBjdXN0b21pc2F0aW9ucyB0aGV5IG5lZWQgd2hpbGUgc3RpbGwgbWFpbnRhaW5pbmcgdHlwZSBzYWZldHkuXG5leHBvcnQgaW50ZXJmYWNlIElSb29tTGlzdEN1c3RvbWlzYXRpb25zIHtcbiAgICBpc1Jvb21WaXNpYmxlPzogdHlwZW9mIGlzUm9vbVZpc2libGU7XG59XG5cbi8vIEEgcmVhbCBjdXN0b21pc2F0aW9uIG1vZHVsZSB3aWxsIGRlZmluZSBhbmQgZXhwb3J0IG9uZSBvciBtb3JlIG9mIHRoZVxuLy8gY3VzdG9taXNhdGlvbiBwb2ludHMgdGhhdCBtYWtlIHVwIHRoZSBpbnRlcmZhY2UgYWJvdmUuXG5leHBvcnQgY29uc3QgUm9vbUxpc3RDdXN0b21pc2F0aW9uczogSVJvb21MaXN0Q3VzdG9taXNhdGlvbnMgPSB7fTtcbiJdfQ==

@@ -1,0 +1,17 @@
+$ corepack pnpm@9.15.9 install --prod --no-frozen-lockfile --reporter=append-only --config.node-linker=hoisted --ignore-workspace --ignore-scripts
+ WARN  deprecated boom@3.2.2: This version has been deprecated in accordance with the hapi support policy (hapi.im/support). Please upgrade to the latest version to get the best features, bug fixes, and security patches. If you are unable to upgrade at this time, paid support is available for older versions (hapi.im/commercial).
+Progress: resolved 1, reused 0, downloaded 0, added 0
+ WARN  deprecated hoek@4.3.1: This module has moved and is now available at @hapi/hoek. Please update your dependencies as this version is no longer maintained an may contain bugs and security issues.
+ WARN  deprecated lab@10.9.0: This version has been deprecated in accordance with the hapi support policy (hapi.im/support). Please upgrade to the latest version to get the best features, bug fixes, and security patches. If you are unable to upgrade at this time, paid support is available for older versions (hapi.im/commercial).
+ WARN  deprecated code@2.3.0: This version has been deprecated in accordance with the hapi support policy (hapi.im/support). Please upgrade to the latest version to get the best features, bug fixes, and security patches. If you are unable to upgrade at this time, paid support is available for older versions (hapi.im/commercial).
+Progress: resolved 7, reused 0, downloaded 0, added 0
+Progress: resolved 112, reused 0, downloaded 0, added 0
+ WARN  16 deprecated subdependencies found: bossy@3.0.4, circular-json@0.3.3, eslint-config-hapi@9.1.0, eslint-plugin-hapi@4.1.0, eslint@3.0.1, glob@7.2.3, hapi-capitalize-modules@1.1.6, hapi-for-you@1.0.0, hapi-no-var@1.0.1, hapi-scope-start@2.1.1, inflight@1.0.6, items@2.2.1, joi@10.6.0, no-arrowception@1.0.0, rimraf@2.6.3, topo@2.1.1
+
+devDependencies: skipped
+
+Packages: +2
+++
+Progress: resolved 171, reused 1, downloaded 0, added 1
+Progress: resolved 171, reused 1, downloaded 1, added 2, done
+Done in 3.4s using pnpm v9.15.9

@@ -1,0 +1,41 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.containsEmoji = void 0;
+
+/*
+ Copyright 2020 Nurjin Jafar
+ Copyright 2020 Nordeck IT + Consulting GmbH.
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+ http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+ */
+
+/**
+ * Checks a message if it contains one of the provided emojis
+ * @param  {Object} content The message
+ * @param  {Array<string>} emojis The list of emojis to check for
+ */
+const containsEmoji = (content
+/*: { msgtype: string, body: string }*/
+, emojis
+/*: Array<string>*/
+) =>
+/*: boolean*/
+{
+  return emojis.some(emoji => content.body && content.body.includes(emoji));
+};
+
+exports.containsEmoji = containsEmoji;
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uL3NyYy9lZmZlY3RzL3V0aWxzLnRzIl0sIm5hbWVzIjpbImNvbnRhaW5zRW1vamkiLCJjb250ZW50IiwiZW1vamlzIiwic29tZSIsImVtb2ppIiwiYm9keSIsImluY2x1ZGVzIl0sIm1hcHBpbmdzIjoiOzs7Ozs7O0FBQUE7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7O0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNPLE1BQU1BLGFBQWEsR0FBRyxDQUFDQztBQUFEO0FBQUEsRUFBNkNDO0FBQTdDO0FBQUE7QUFBQTtBQUFnRjtBQUN6RyxTQUFPQSxNQUFNLENBQUNDLElBQVAsQ0FBYUMsS0FBRCxJQUFXSCxPQUFPLENBQUNJLElBQVIsSUFBZ0JKLE9BQU8sQ0FBQ0ksSUFBUixDQUFhQyxRQUFiLENBQXNCRixLQUF0QixDQUF2QyxDQUFQO0FBQ0gsQ0FGTSIsInNvdXJjZXNDb250ZW50IjpbIi8qXG4gQ29weXJpZ2h0IDIwMjAgTnVyamluIEphZmFyXG4gQ29weXJpZ2h0IDIwMjAgTm9yZGVjayBJVCArIENvbnN1bHRpbmcgR21iSC5cblxuIExpY2Vuc2VkIHVuZGVyIHRoZSBBcGFjaGUgTGljZW5zZSwgVmVyc2lvbiAyLjAgKHRoZSBcIkxpY2Vuc2VcIik7XG4geW91IG1heSBub3QgdXNlIHRoaXMgZmlsZSBleGNlcHQgaW4gY29tcGxpYW5jZSB3aXRoIHRoZSBMaWNlbnNlLlxuIFlvdSBtYXkgb2J0YWluIGEgY29weSBvZiB0aGUgTGljZW5zZSBhdFxuXG4gaHR0cDovL3d3dy5hcGFjaGUub3JnL2xpY2Vuc2VzL0xJQ0VOU0UtMi4wXG5cbiBVbmxlc3MgcmVxdWlyZWQgYnkgYXBwbGljYWJsZSBsYXcgb3IgYWdyZWVkIHRvIGluIHdyaXRpbmcsIHNvZnR3YXJlXG4gZGlzdHJpYnV0ZWQgdW5kZXIgdGhlIExpY2Vuc2UgaXMgZGlzdHJpYnV0ZWQgb24gYW4gXCJBUyBJU1wiIEJBU0lTLFxuIFdJVEhPVVQgV0FSUkFOVElFUyBPUiBDT05ESVRJT05TIE9GIEFOWSBLSU5ELCBlaXRoZXIgZXhwcmVzcyBvciBpbXBsaWVkLlxuIFNlZSB0aGUgTGljZW5zZSBmb3IgdGhlIHNwZWNpZmljIGxhbmd1YWdlIGdvdmVybmluZyBwZXJtaXNzaW9ucyBhbmRcbiBsaW1pdGF0aW9ucyB1bmRlciB0aGUgTGljZW5zZS5cbiAqL1xuLyoqXG4gKiBDaGVja3MgYSBtZXNzYWdlIGlmIGl0IGNvbnRhaW5zIG9uZSBvZiB0aGUgcHJvdmlkZWQgZW1vamlzXG4gKiBAcGFyYW0gIHtPYmplY3R9IGNvbnRlbnQgVGhlIG1lc3NhZ2VcbiAqIEBwYXJhbSAge0FycmF5PHN0cmluZz59IGVtb2ppcyBUaGUgbGlzdCBvZiBlbW9qaXMgdG8gY2hlY2sgZm9yXG4gKi9cbmV4cG9ydCBjb25zdCBjb250YWluc0Vtb2ppID0gKGNvbnRlbnQ6IHsgbXNndHlwZTogc3RyaW5nLCBib2R5OiBzdHJpbmcgfSwgZW1vamlzOiBBcnJheTxzdHJpbmc+KTogYm9vbGVhbiA9PiB7XG4gICAgcmV0dXJuIGVtb2ppcy5zb21lKChlbW9qaSkgPT4gY29udGVudC5ib2R5ICYmIGNvbnRlbnQuYm9keS5pbmNsdWRlcyhlbW9qaSkpO1xufVxuIl19

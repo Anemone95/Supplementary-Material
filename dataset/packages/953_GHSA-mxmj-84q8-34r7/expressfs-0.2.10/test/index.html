@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+  <head>
+    <link rel="stylesheet" href="qunit-1.12.0.css" type="text/css"/>
+    <script type="text/javascript" src="jquery.min.js"></script>
+    <script type="text/javascript" src="qunit-1.12.0.js"></script>
+    <script type="text/javascript" src="../expressfs.browser.js"></script>
+    <script type="text/javascript" src="test.js"></script>
+    <script type="text/javascript">
+    </script>
+  </head>
+  <body>
+    <h1 id="qunit-header">QUnit example</h1>
+    <h2 id="qunit-banner"></h2>
+    <h2 id="qunit-userAgent"></h2>
+    <ol id="qunit-tests">
+    </ol>
+  </body>
+</html>
+<script id="downloadDir" type="text">bar.txt this is a test
+  hi mom
+ 
+empty 
+foo.txt hello world
+ 
+</script>
+<script id="downloadDirExtension" type="text">bar.space hi world
+ 
+</script>
+
+<script id="dirStats" type="text">hi.txt
+ mtime 1381788625000
+ size 0.0MB
+ bytes 12
+ age 0.0D
+ freshness 412S
+ timeSinceLastChange 0.0D
+ oneliner 12 1381788625000
+nested
+ foo.txt
+  mtime 1381788721000
+  size 0.0MB
+  bytes 0
+  age 0.0D
+  freshness 316S
+  timeSinceLastChange 0.0D
+  oneliner 0 1381788721000
+</script>

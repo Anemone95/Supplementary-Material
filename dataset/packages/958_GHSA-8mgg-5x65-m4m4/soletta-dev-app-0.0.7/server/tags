@@ -1,0 +1,26 @@
+!_TAG_FILE_SORTED	2	/0=unsorted, 1=sorted, 2=foldcase/
+current_user	/media/bottazzini/projects/soletta-dev-app/server/tools.js	/^    this.current_user = function (req) {$/;"	m	language:JavaScript	class:module.exports
+env_file	/media/bottazzini/projects/soletta-dev-app/server/tools.js	/^    this.env_file = function(user) {$/;"	m	language:JavaScript	class:module.exports
+execOnServer	/media/bottazzini/projects/soletta-dev-app/server/tools.js	/^    this.execOnServer = function(command, callback) {$/;"	f	language:JavaScript
+express	/media/bottazzini/projects/soletta-dev-app/server/routes.js	/^    var express = require('express');$/;"	v	language:JavaScript
+fs	/media/bottazzini/projects/soletta-dev-app/server/routes.js	/^    var fs = require('fs');$/;"	v	language:JavaScript
+generateHiddenPath	/media/bottazzini/projects/soletta-dev-app/server/tools.js	/^    this.generateHiddenPath = function(path) {$/;"	f	language:JavaScript
+getConfigureFile	/media/bottazzini/projects/soletta-dev-app/server/tools.js	/^    this.getConfigureFile = function(user, conf_path, callback) {$/;"	f	language:JavaScript
+getPathSystemdFormatted	/media/bottazzini/projects/soletta-dev-app/server/tools.js	/^    this.getPathSystemdFormatted = function(current_user, callback) {$/;"	f	language:JavaScript
+getRepoName	/media/bottazzini/projects/soletta-dev-app/server/tools.js	/^    this.getRepoName = function(repo_url) {$/;"	f	language:JavaScript
+getServer	/media/bottazzini/projects/soletta-dev-app/server/tools.js	/^    this.getServer = function(server, name) {$/;"	f	language:JavaScript
+getServerName	/media/bottazzini/projects/soletta-dev-app/server/tools.js	/^    this.getServerName = function(repo_url) {$/;"	f	language:JavaScript
+home_dir	/media/bottazzini/projects/soletta-dev-app/server/tools.js	/^    this.home_dir = function(user) {$/;"	m	language:JavaScript	class:module.exports
+isInsideRepo	/media/bottazzini/projects/soletta-dev-app/server/tools.js	/^    this.isInsideRepo = function(repo_url) {$/;"	f	language:JavaScript
+jConf	/media/bottazzini/projects/soletta-dev-app/server/routes.js	/^    var jConf = getConfigurationJson();$/;"	v	language:JavaScript
+module.exports	/media/bottazzini/projects/soletta-dev-app/server/tools.js	/^\/\/ This file is part of the Soletta Project$/;"	c	language:JavaScript
+parseJournaldToJSON	/media/bottazzini/projects/soletta-dev-app/server/tools.js	/^    this.parseJournaldToJSON = function(user, output) {$/;"	f	language:JavaScript
+path	/media/bottazzini/projects/soletta-dev-app/server/routes.js	/^    var path = require('path');$/;"	v	language:JavaScript
+processNode	/media/bottazzini/projects/soletta-dev-app/server/tools.js	/^    this.processNode = function(_p, f) {$/;"	m	language:JavaScript	class:module.exports
+processReq	/media/bottazzini/projects/soletta-dev-app/server/tools.js	/^    this.processReq = function(_p, res) {$/;"	m	language:JavaScript	class:module.exports
+router	/media/bottazzini/projects/soletta-dev-app/server/routes.js	/^    var router = express.Router();$/;"	v	language:JavaScript
+runningFBPName	/media/bottazzini/projects/soletta-dev-app/server/routes.js	/^    var runningFBPName;$/;"	v	language:JavaScript
+scripts_dir	/media/bottazzini/projects/soletta-dev-app/server/tools.js	/^    this.scripts_dir = function() {$/;"	m	language:JavaScript	class:module.exports
+svg_dir	/media/bottazzini/projects/soletta-dev-app/server/tools.js	/^    this.svg_dir = function() {$/;"	m	language:JavaScript	class:module.exports
+tmp_dir	/media/bottazzini/projects/soletta-dev-app/server/tools.js	/^    this.tmp_dir = function(user) {$/;"	m	language:JavaScript	class:module.exports
+writeFile	/media/bottazzini/projects/soletta-dev-app/server/tools.js	/^    this.writeFile = function(path, body) {$/;"	f	language:JavaScript

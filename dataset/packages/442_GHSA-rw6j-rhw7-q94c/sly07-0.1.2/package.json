@@ -1,0 +1,15 @@
+{
+  "author": "Mike Sly",
+  "name": "sly07",
+  "version": "0.1.2",
+  "description": "Censors words out of text",
+  "main": "static",
+"repository": {
+  "type": "git",
+  "url": "https://github.com/sly07/Lab5/blob/master/"
+},
+  "dependencies": {},
+  "engines": {
+	"node": "*"
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "name": "mversion",
+  "version": "1.13.0",
+  "description": "A cross packaging manager module version handler/bumper",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha tests/*_test.js -R spec",
+    "coverage": "istanbul cover node_modules/.bin/_mocha tests/*_test.js -- -u exports -R spec"
+  },
+  "repository": "https://github.com/mikaelbr/mversion",
+  "keywords": [
+    "semver",
+    "bower",
+    "npm",
+    "version"
+  ],
+  "author": "Mikael Brevik (@mikaelbrevik)",
+  "license": "MIT",
+  "bin": {
+    "mversion": "./bin/version"
+  },
+  "dependencies": {
+    "chalk": "^2.4.2",
+    "cli-usage": "^0.1.8",
+    "contra": "^1.9.4",
+    "minimatch": "^3.0.4",
+    "minimist": "^1.2.0",
+    "rc": "^1.2.8",
+    "semver": "^5.6.0",
+    "through2": "^3.0.0",
+    "update-notifier": "^2.5.0",
+    "vinyl-fs": "^3.0.3"
+  },
+  "devDependencies": {
+    "istanbul": "^0.4.5",
+    "mocha": "^5.2.0",
+    "vinyl": "^2.2.0"
+  }
+}

@@ -1,0 +1,13 @@
+$ corepack pnpm@9.15.9 install --prod --no-frozen-lockfile --reporter=append-only --config.node-linker=hoisted --ignore-workspace --ignore-scripts
+Progress: resolved 1, reused 0, downloaded 0, added 0
+Progress: resolved 92, reused 0, downloaded 0, added 0
+Progress: resolved 323, reused 0, downloaded 0, added 0
+Progress: resolved 591, reused 0, downloaded 0, added 0
+ WARN  41 deprecated subdependencies found: babel-plugin-constant-folding@1.0.1, babel-plugin-dead-code-elimination@1.0.2, babel-plugin-eval@1.0.1, babel-plugin-inline-environment-variables@1.0.1, babel-plugin-jscript@1.0.4, babel-plugin-member-expression-literals@1.0.1, babel-plugin-property-literals@1.0.1, babel-plugin-proto-to-assign@1.0.4, babel-plugin-react-constant-elements@1.0.3, babel-plugin-react-display-name@1.0.3, babel-plugin-remove-console@1.0.1, babel-plugin-remove-debugger@1.0.1, babel-plugin-runtime@1.0.7, babel-plugin-undefined-to-void@1.1.6, coffee-script@1.10.0, core-js@1.2.7, fsevents@1.2.13, glob@5.0.15, glob@6.0.4, glob@7.0.6, glob@7.1.7, glob@7.2.3, har-validator@5.1.5, inflight@1.0.6, jscs-preset-wikimedia@1.0.1, jscs@2.11.0, minimatch@2.0.10, nomnom@1.8.1, phantomjs-prebuilt@2.1.16, q@1.5.1, request@2.88.2, resolve-url@0.2.1, rimraf@2.2.8, rimraf@2.7.1, source-map-resolve@0.5.3, source-map-url@0.4.1, stable@0.1.8, try-resolve@1.0.1, urix@0.1.0, uuid@2.0.3, uuid@3.4.0
+
+devDependencies: skipped
+
+Packages: +1
++
+Progress: resolved 623, reused 1, downloaded 0, added 1, done
+Done in 3.7s using pnpm v9.15.9

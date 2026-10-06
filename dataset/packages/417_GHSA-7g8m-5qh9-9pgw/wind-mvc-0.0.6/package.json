@@ -1,0 +1,25 @@
+{
+  "name": "wind-mvc",
+  "version": "0.0.6",
+  "description": "it's a simple framework of mvc",
+  "main": "app.js",
+  "directories": {
+    "doc": "doc",
+    "test": "test"
+  },
+  "dependencies": {},
+  "devDependencies": {},
+  "scripts": {
+    "test": "app.js"
+  },
+  "repository": "https://registry.npmjs.org/wind-mvc",
+  "keywords": [
+    "mvc"
+  ],
+  "author": "wind-hao",
+  "license": "BSD",
+  "dependencies": {
+	"formidable": "1.0.14"
+  },
+  "readmeFilename": "Readme.md"
+}

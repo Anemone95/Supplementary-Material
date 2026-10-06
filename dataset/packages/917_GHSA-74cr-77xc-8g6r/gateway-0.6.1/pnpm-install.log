@@ -1,0 +1,18 @@
+$ corepack pnpm@9.15.9 install --prod --no-frozen-lockfile --reporter=append-only --config.node-linker=hoisted --ignore-workspace --ignore-scripts
+ WARN  deprecated apollo-server-caching@0.4.0: This package is part of the legacy caching implementation used by Apollo Server v2 and v3, and is no longer maintained. We recommend you switch to the newer Keyv-based implementation (which is compatible with all versions of Apollo Server). See https://www.apollographql.com/docs/apollo-server/v3/performance/cache-backends#legacy-caching-implementation for more details.
+Progress: resolved 1, reused 0, downloaded 0, added 0
+ WARN  deprecated apollo-server-env@2.4.0: The `apollo-server-env` package is part of Apollo Server v2 and v3, which are now end-of-life (as of October 22nd 2023 and October 22nd 2024, respectively). This package's functionality is now found in the `@apollo/utils.fetcher` package. See https://www.apollographql.com/docs/apollo-server/previous-versions/ for more details.
+ WARN  deprecated apollo-server-core@2.6.1: The `apollo-server-core` package is part of Apollo Server v2 and v3, which are now end-of-life (as of October 22nd 2023 and October 22nd 2024, respectively). This package's functionality is now found in the `@apollo/server` package. See https://www.apollographql.com/docs/apollo-server/previous-versions/ for more details.
+ WARN  deprecated graphql@14.7.0: No longer supported; please update to a newer version. Details: https://github.com/graphql/graphql-js#version-support
+ WARN  deprecated @apollo/federation@0.6.0: The @apollo/federation package is deprecated and will reach end-of-life September 22, 2023. It contains outdated utilities for both running subgraphs and composing supergraph schemas. Please migrate to the appropriate package for your use case (@apollo/subgraph or @apollo/composition). For more details, see our announcement blog post (https://www.apollographql.com/blog/announcement/backend/announcing-the-end-of-life-schedule-for-apollo-gateway-v0-x/) and documentation (https://www.apollographql.com/docs/federation/federation-2/backward-compatibility/#is-official-support-ending-for-apollogateway-v0x).
+Progress: resolved 44, reused 0, downloaded 0, added 0
+Progress: resolved 167, reused 0, downloaded 0, added 0
+ WARN  9 deprecated subdependencies found: apollo-cache-control@0.7.1, apollo-datasource@0.5.0, apollo-server-errors@2.3.0, apollo-server-plugin-base@0.5.1, apollo-tracing@0.7.1, graphql-extensions@0.7.1, graphql-tools@4.0.8, subscriptions-transport-ws@0.9.19, uuid@3.4.0
+
+devDependencies: skipped
+
+Packages: +196
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Progress: resolved 196, reused 186, downloaded 9, added 195
+Progress: resolved 196, reused 186, downloaded 10, added 196, done
+Done in 3.8s using pnpm v9.15.9

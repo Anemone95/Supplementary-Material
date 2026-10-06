@@ -1,0 +1,32 @@
+#!/usr/bin/env node
+
+const program = require('commander')
+const pack = require('../package')
+const createServer = require('../lib/create-server')
+const utils = require('../lib/utils')
+let file = 'index.html'
+const defaultPort = 4000
+
+program.on('--help', function () {
+    console.log('  Examples:')
+    console.log('')
+    console.log('    $ knight file.html -p 4001')
+    console.log('')
+})
+
+program
+    .version(pack.version)
+    .description(pack.description)
+    .action(function (fileArg) {
+        if (fileArg) file = fileArg
+    })
+
+program
+    .usage('[path] [options]')
+    .option('-p, --port [port]', '[port] to use, defaults to 4000')
+    .parse(process.argv)
+
+// default port: 4000
+const port = program.port && utils.isNumber(program.port) ? program.port : defaultPort
+
+createServer(file, port)

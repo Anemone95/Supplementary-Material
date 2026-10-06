@@ -1,0 +1,110 @@
+lockfileVersion: '9.0'
+
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
+
+importers:
+
+  .:
+    dependencies:
+      basic:
+        specifier: 0.0.3
+        version: 0.0.3
+      debug:
+        specifier: 4.1.1
+        version: 4.1.1
+      mkdirp:
+        specifier: 0.5.0
+        version: 0.5.0
+      pushover-giting:
+        specifier: 0.0.x
+        version: 0.0.3
+
+packages:
+
+  basic@0.0.3:
+    resolution: {integrity: sha512-DOZLehhehnsFkdjEdtHy/iX0Kpi5aXf5rb8QrvJDV2vH5DddEETUvGbHDZ6qizGR9Xq+YjntFmbUd//kSHnqIQ==}
+    engines: {node: '>=0.8'}
+
+  debug@4.1.1:
+    resolution: {integrity: sha512-pYAIzeRo8J6KPEaJ0VWOh5Pzkbw/RetuzehGM7QRRX5he4fPHx2rdKMB256ehJCkX+XRQm16eZLqLNS8RSZXZw==}
+    deprecated: Debug versions >=3.2.0 <3.2.7 || >=4 <4.3.1 have a low-severity ReDos regression when used in a Node.js environment. It is recommended you upgrade to 3.2.7 or 4.3.1. (https://github.com/visionmedia/debug/issues/797)
+    peerDependencies:
+      supports-color: '*'
+    peerDependenciesMeta:
+      supports-color:
+        optional: true
+
+  duplex-pipe@0.0.2:
+    resolution: {integrity: sha512-abdvgdCVt/LibrvIBLygjb0dMN5cXgV9nJxOQsZZuXQs4KNEX/5T5lkCw9BUcWlZVCPmvtqiNYhkkqTousxOMg==}
+
+  git-side-band-message@0.0.3:
+    resolution: {integrity: sha512-4Rq4xm1+zqCkmuHxRbGdA5ActF7F4UfgK8uI0B7ZfSkByZfikRuF7mqHlvqmycvqos7jpXNkgsZK7DThLLHG3w==}
+
+  http-duplex@0.0.2:
+    resolution: {integrity: sha512-1s4DBzvdHgjCJBunFpOKpa5AgIgtAxaXwrV1GmVJweGTJKsEgwvpbeCXuGqAgmpj/pElqEadKsMLb5B32FVPfg==}
+
+  inherits@1.0.2:
+    resolution: {integrity: sha512-Al67oatbRSo3RV5hRqIoln6Y5yMVbJSIn4jEJNL7VCImzq/kLr7vvb6sFRJXqr8rpHc/2kJOM+y0sPKN47VdzA==}
+
+  minimist@0.0.8:
+    resolution: {integrity: sha512-miQKw5Hv4NS1Psg2517mV4e4dYNaO3++hjAvLOAzKqZ61rH8NS1SK+vbfBWZ5PY/Me/bEWhUwqMghEW5Fb9T7Q==}
+
+  mkdirp@0.3.5:
+    resolution: {integrity: sha512-8OCq0De/h9ZxseqzCH8Kw/Filf5pF/vMI6+BH7Lu0jXz2pqYCjTAQRolSxRIi+Ax+oCCjlxoJMP0YQ4XlrQNHg==}
+    deprecated: Legacy versions of mkdirp are no longer supported. Please update to mkdirp 1.x. (Note that the API surface has changed to use Promises in 1.x.)
+
+  mkdirp@0.5.0:
+    resolution: {integrity: sha512-xjjNGy+ry1lhtIKcr2PT6ok3aszhQfgrUDp4OZLHacgRgFmF6XR9XCOJVcXlVGQonIqXcK1DvqgKKQOPWYGSfw==}
+    deprecated: Legacy versions of mkdirp are no longer supported. Please update to mkdirp 1.x. (Note that the API surface has changed to use Promises in 1.x.)
+    hasBin: true
+
+  ms@2.1.3:
+    resolution: {integrity: sha512-6FlzubTLZG3J2a/NVCAleEhjzq5oxgHyaCU9yYXvcLsvoVaHJq/s5xXI6/XXP6tz7R9xAOtHnSO/tXtF3WRTlA==}
+
+  pushover-giting@0.0.3:
+    resolution: {integrity: sha512-8pa3frnxpW9VqKfekKmuxEIL7GYmzm6wfA9ocO4r+x+epxdFJXEd3smW7Z3wFNElVqUsltT0R6Z2iazqGO9kgA==}
+    engines: {node: '>=0.4.0'}
+
+  through@2.2.7:
+    resolution: {integrity: sha512-JIR0m0ybkmTcR8URann+HbwKmodP+OE8UCbsifQDYMLD5J3em1Cdn3MYPpbEd5elGDwmP98T+WbqP/tvzA5Mjg==}
+
+snapshots:
+
+  basic@0.0.3: {}
+
+  debug@4.1.1:
+    dependencies:
+      ms: 2.1.3
+
+  duplex-pipe@0.0.2: {}
+
+  git-side-band-message@0.0.3: {}
+
+  http-duplex@0.0.2:
+    dependencies:
+      duplex-pipe: 0.0.2
+      inherits: 1.0.2
+
+  inherits@1.0.2: {}
+
+  minimist@0.0.8: {}
+
+  mkdirp@0.3.5: {}
+
+  mkdirp@0.5.0:
+    dependencies:
+      minimist: 0.0.8
+
+  ms@2.1.3: {}
+
+  pushover-giting@0.0.3:
+    dependencies:
+      git-side-band-message: 0.0.3
+      http-duplex: 0.0.2
+      inherits: 1.0.2
+      mkdirp: 0.3.5
+      through: 2.2.7
+
+  through@2.2.7: {}

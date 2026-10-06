@@ -1,0 +1,28 @@
+{
+  "name": "nw-with-arm",
+  "version": "0.12.2",
+  "description": "NW Installer including ARM-Build",
+  "homepage": "https://github.com/toni89/nw-with-arm#readme",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/toni89/nw-with-arm.git"
+  },
+  "scripts": {
+    "postinstall": "node scripts/install.js"
+  },
+  "author": {
+    "name": "Anton Hammerschmidt"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "download": "^4.4.3",
+    "semver": "^4.3.0",
+    "emptydir": "^0.0.0"
+  },
+  "files": [
+    "lib",
+    "bin",
+    "scripts",
+    "index.js"
+  ]
+}

@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../src/campuses/index.js"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;;;;;AAAA;;AACA;;AAEA","sourcesContent":["import resolver from './resolver';\nimport dataSource from './data-source';\n\nexport { campusSchema as schema } from '@apollosproject/data-schema';\nexport { resolver, dataSource };\n"],"file":"index.js"}

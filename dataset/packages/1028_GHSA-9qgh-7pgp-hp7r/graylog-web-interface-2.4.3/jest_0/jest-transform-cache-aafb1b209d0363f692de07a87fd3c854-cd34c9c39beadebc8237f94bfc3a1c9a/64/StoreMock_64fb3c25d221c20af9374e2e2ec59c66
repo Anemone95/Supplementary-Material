@@ -1,0 +1,8 @@
+15f4c11add5d3b5c4743cd74d2f63b4f
+"use strict";Object.defineProperty(exports, "__esModule", { value: true });var _default = function _default() {
+  var store = {};
+  Array.from(arguments).forEach(function (method) {store[method] = jest.fn();});
+
+  return store;
+};exports.default = _default;module.exports = exports["default"];;var _temp = function () {if (typeof __REACT_HOT_LOADER__ === 'undefined') {return;}__REACT_HOT_LOADER__.register(_default, "default", "/root/graylog2-server-2.4.3/graylog2-web-interface/test/helpers/mocking/StoreMock.js");}();;
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIlN0b3JlTW9jay5qcyJdLCJuYW1lcyI6WyJzdG9yZSIsIkFycmF5IiwiZnJvbSIsImFyZ3VtZW50cyIsImZvckVhY2giLCJtZXRob2QiLCJqZXN0IiwiZm4iXSwibWFwcGluZ3MiOiIwRkFBZSxvQkFBVztBQUN4QixNQUFNQSxRQUFRLEVBQWQ7QUFDQUMsUUFBTUMsSUFBTixDQUFXQyxTQUFYLEVBQXNCQyxPQUF0QixDQUE4QixVQUFDQyxNQUFELEVBQVksQ0FBRUwsTUFBTUssTUFBTixJQUFnQkMsS0FBS0MsRUFBTCxFQUFoQixDQUE0QixDQUF4RTs7QUFFQSxTQUFPUCxLQUFQO0FBQ0QsQyIsImZpbGUiOiJTdG9yZU1vY2suanMiLCJzb3VyY2VzQ29udGVudCI6WyJleHBvcnQgZGVmYXVsdCBmdW5jdGlvbigpIHtcbiAgY29uc3Qgc3RvcmUgPSB7fTtcbiAgQXJyYXkuZnJvbShhcmd1bWVudHMpLmZvckVhY2goKG1ldGhvZCkgPT4geyBzdG9yZVttZXRob2RdID0gamVzdC5mbigpOyB9KTtcblxuICByZXR1cm4gc3RvcmU7XG59XG4iXX0=

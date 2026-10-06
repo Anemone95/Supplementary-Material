@@ -1,0 +1,13 @@
+$ corepack pnpm@9.15.9 install --prod --no-frozen-lockfile --reporter=append-only --config.node-linker=hoisted --ignore-workspace --ignore-scripts
+Progress: resolved 1, reused 0, downloaded 0, added 0
+ WARN  deprecated coffee-script@1.12.7: CoffeeScript on NPM has moved to "coffeescript" (no hyphen)
+ WARN  deprecated mocha@1.9.0: Mocha v1.x is no longer supported.
+ WARN  deprecated sinon@1.6.0: 16.1.1
+Progress: resolved 245, reused 0, downloaded 0, added 0
+ WARN  29 deprecated subdependencies found: buster-core@0.6.4, clone-buffer@1.0.0, core-js@2.6.12, glob@3.1.21, glob@3.2.11, glob@4.5.3, glob@5.0.15, glob@7.2.3, graceful-fs@1.2.3, gulp-util@3.0.8, inflight@1.0.6, istanbul@0.4.5, jade@0.26.3, lodash.template@2.4.1, lodash.template@3.6.2, minimatch@0.2.14, minimatch@0.3.0, minimatch@2.0.10, mkdirp@0.3.0, mkdirp@0.3.3, mkdirp@0.5.1, natives@1.1.6, resolve-url@0.2.1, rimraf@2.6.3, source-map-resolve@0.5.3, source-map-url@0.4.1, to-iso-string@0.0.2, urix@0.1.0, uuid@3.4.0
+
+devDependencies: skipped
+
+Already up to date
+Progress: resolved 523, reused 0, downloaded 0, added 0, done
+Done in 2.2s using pnpm v9.15.9

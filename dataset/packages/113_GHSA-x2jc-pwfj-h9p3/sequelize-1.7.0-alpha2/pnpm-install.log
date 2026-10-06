@@ -1,0 +1,14 @@
+$ corepack pnpm@9.15.9 install --prod --no-frozen-lockfile --reporter=append-only --config.node-linker=hoisted --ignore-workspace --ignore-scripts
+Progress: resolved 1, reused 0, downloaded 0, added 0
+ WARN  deprecated dottie@0.0.6-1: Package no longer supported. Contact Support at https://www.npmjs.com/support for more info.
+ WARN  deprecated jasmine-node@1.5.0: jasmine-node 1.x & 2.x are deprecated, with known vulnerability in jasmine-growl-reporter pre-2.0.0
+ WARN  deprecated lingo@0.0.5: This project is abandoned
+ WARN  deprecated buster@0.6.13: No longer maintained
+ ERR_PNPM_FETCH_404  GET https://github.com/substack/socket.io-client/tarball/master: Not Found - 404
+
+This error happened while installing the dependencies of buster@0.6.13
+ at buster-server-cli@0.2.3
+ at phantom@0.3.5
+ at dnode@0.9.12
+
+No authorization header was set for the request.

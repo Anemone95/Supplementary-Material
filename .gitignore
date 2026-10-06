@@ -1,0 +1,4 @@
+node_modules/
+# iOS binaries that react-native-baidu-voice-synthesizer marks for Git LFS (one is over GitHub's 100 MB limit); not analyzed
+dataset/packages/302_GHSA-8hj4-w233-g35q/react-native-baidu-voice-synthesizer-1.0.0/ios/BDSSpeechSynthesizer_SDK/libetts_device_simulator.a
+dataset/packages/302_GHSA-8hj4-w233-g35q/react-native-baidu-voice-synthesizer-1.0.0/ios/OfflineTTSDatFiles/*.dat

@@ -1,0 +1,25 @@
+#js--content .CodeMirror.CodeMirror-fullscreen {
+  height: auto;
+}
+
+#js--content .CodeMirror-fullscreen {
+  margin-top: 40px;
+}
+
+#js--content .CodeMirror {
+  border: 1px solid #ccc;
+  height: 600px;
+  border-radius: 4px;
+  line-height: 1.6;
+}
+
+#js--content .CodeMirror .CodeMirror-gutter-wrapper {
+  position: absolute;
+}
+
+#js--content .CodeMirror-focused {
+  border-color: rgba(82,168,236,0.8);
+  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,0.075),0 0 8px rgba(82,168,236,0.6);
+  -moz-box-shadow: inset 0 1px 1px rgba(0,0,0,0.075),0 0 8px rgba(82,168,236,0.6);
+  box-shadow: inset 0 1px 1px rgba(0,0,0,0.075),0 0 8px rgba(82,168,236,0.6);
+}

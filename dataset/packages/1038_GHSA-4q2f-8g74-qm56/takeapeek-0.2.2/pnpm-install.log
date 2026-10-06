@@ -1,0 +1,15 @@
+$ corepack pnpm@9.15.9 install --prod --no-frozen-lockfile --reporter=append-only --config.node-linker=hoisted --ignore-workspace --ignore-scripts
+Progress: resolved 1, reused 0, downloaded 0, added 0
+Progress: resolved 10, reused 0, downloaded 0, added 0
+Progress: resolved 33, reused 0, downloaded 0, added 0
+Progress: resolved 137, reused 0, downloaded 0, added 0
+Progress: resolved 139, reused 0, downloaded 0, added 0
+ WARN  3 deprecated subdependencies found: glob@5.0.15, glob@7.2.3, inflight@1.0.6
+
+devDependencies: skipped
+
+Packages: +98
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Progress: resolved 140, reused 97, downloaded 0, added 97
+Progress: resolved 140, reused 97, downloaded 1, added 98, done
+Done in 5.6s using pnpm v9.15.9

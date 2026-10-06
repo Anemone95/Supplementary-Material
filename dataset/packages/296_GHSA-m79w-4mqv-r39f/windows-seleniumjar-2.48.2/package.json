@@ -1,0 +1,15 @@
+{
+  "name": "windows-seleniumjar",
+  "repository": {
+    "type" : "git",
+    "url" : "https://github.com/ISNTI0/Windows_SeleniumJar.git"
+  },
+  "license" : "Unlicense",
+  "version": "2.48.2",
+  "scripts": {
+    "postinstall": "node ./download.js"
+  },
+  "dependencies": {
+    "request":"*"
+  }
+}

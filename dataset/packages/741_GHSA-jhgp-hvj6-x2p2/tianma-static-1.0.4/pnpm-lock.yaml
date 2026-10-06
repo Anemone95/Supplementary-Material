@@ -1,0 +1,435 @@
+lockfileVersion: '9.0'
+
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
+
+importers:
+
+  .:
+    dependencies:
+      co-fs:
+        specifier: ~1.2.0
+        version: 1.2.0
+    devDependencies:
+      mocha:
+        specifier: ~2.2.5
+        version: 2.2.5
+      supertest:
+        specifier: ^0.15.0
+        version: 0.15.0
+      tianma:
+        specifier: ~1.0.0
+        version: 1.0.0
+
+packages:
+
+  accepts@1.0.7:
+    resolution: {integrity: sha512-iq8ew2zitUlNcUca0wye3fYwQ6sSPItDo38oC0R+XA5KTzeXRN+GF7NjOXs3dVItj4J+gQVdpq4/qbnMb1hMHw==}
+    engines: {node: '>= 0.8.0'}
+
+  async@0.9.2:
+    resolution: {integrity: sha512-l6ToIJIotphWahxxHyzK9bnLR6kM4jJIIgLShZeqLY7iboHoGkdgFl7W2/Ivi4SkMJYGKqW8vSuk0uKUj6qsSw==}
+
+  bl@0.9.4:
+    resolution: {integrity: sha512-4isX0sidWA1yZWImUEMQBsxHHsI5bsgG7QbBpcWckROSJmTxLCdW9wJXAGsEPLO+kV9J8SAaoecVqcBPyRKPrQ==}
+
+  co-from-stream@0.0.0:
+    resolution: {integrity: sha512-w1GOkQmvYMWr5B3VsjyS/gxXd5YLhy4wcC1YxwajoGgMFJQLSsuzTxb6o9SiK+TMKN+DRJpsj4MN0CeOKSDAQA==}
+
+  co-fs@1.2.0:
+    resolution: {integrity: sha512-a7pWQjGecVliQyvP5ZU3vMz+7D1S23jiScOiH+AWW269wdN6JjvDmjEOyfGnJH9+DBQZKkPc/QVfqBgVOwjhng==}
+
+  co-read@0.0.1:
+    resolution: {integrity: sha512-OLceyyztHxwNtjuS2NjQ3QlczQIwOIW+n18DXAk89ej0wDso3exNvNrB7A3AiTVvFNEFe8LdqETIvRhtpkvLeA==}
+
+  combined-stream@0.0.7:
+    resolution: {integrity: sha512-qfexlmLp9MyrkajQVyjEDb0Vj+KhRgR/rxLiVhaihlT+ZkX0lReqtH6Ack40CvMDERR4b5eFp3CreskpBs1Pig==}
+    engines: {node: '>= 0.8'}
+
+  commander@0.6.1:
+    resolution: {integrity: sha512-0fLycpl1UMTGX257hRsu/arL/cUbcvQM4zMKwvLvzXtfdezIV4yotPS2dYtknF+NmEfWSoCEF6+hj9XLm/6hEw==}
+    engines: {node: '>= 0.4.x'}
+
+  commander@2.3.0:
+    resolution: {integrity: sha512-CD452fnk0jQyk3NfnK+KkR/hUPoHt5pVaKHogtyyv3N0U4QfAal9W0/rXLOg/vVZgQKa7jdtXypKs1YAip11uQ==}
+    engines: {node: '>= 0.6.x'}
+
+  component-emitter@1.1.2:
+    resolution: {integrity: sha512-YhIbp3PJiznERfjlIkK0ue4obZxt2S60+0W8z24ZymOHT8sHloOqWOqZRU2eN5OlY8U08VFsP02letcu26FilA==}
+
+  cookie@0.1.2:
+    resolution: {integrity: sha512-+mHmWbhevLwkiBf7QcbZXHr0v4ZQQ/OgHk3fsQHrsMMiGzuvAmU/YMUR+ZfrO/BLAGIWFfx2Z7Oyso0tZR/wiA==}
+
+  cookiejar@2.0.1:
+    resolution: {integrity: sha512-Txnl7P7okmx/FyZNRAjPyHMKISV2ADNbd+xITouEVyl2jUczrU4tJT40KcfQL/ifCo0kqqLgD49QlNofAAmBKQ==}
+
+  core-util-is@1.0.3:
+    resolution: {integrity: sha512-ZQBvi1DcpJ4GDqanjucZ2Hj3wEO5pZDS89BWbkcrvdxksJorwUDDZamX9ldFkp9aw2lmBDLgkObEA4DWNJ9FYQ==}
+
+  debug@2.0.0:
+    resolution: {integrity: sha512-jRxFR0Fb657ikmm6IjHY32v/Nqp9Ndcx4LBISXPfpguNaHh5JJnb+x37qalKPTu4fxMFnVBIyEGi72mmvl0BCw==}
+    peerDependencies:
+      supports-color: '*'
+    peerDependenciesMeta:
+      supports-color:
+        optional: true
+
+  debug@2.6.9:
+    resolution: {integrity: sha512-bC7ElrdJaJnPbAP+1EotYvqZsb3ecl5wi6Bfi6BJTUcNowp6cvspg0jXznRTKDjm/E7AdgFBVeAPVMNcKGsHMA==}
+    peerDependencies:
+      supports-color: '*'
+    peerDependenciesMeta:
+      supports-color:
+        optional: true
+
+  delayed-stream@0.0.5:
+    resolution: {integrity: sha512-v+7uBd1pqe5YtgPacIIbZ8HuHeLFVNe4mUEyFDXL6KiqzEykjbw+5mXZXpGFgNVasdL4jWKgaKIXrEHiynN1LA==}
+    engines: {node: '>=0.4.0'}
+
+  diff@1.4.0:
+    resolution: {integrity: sha512-VzVc42hMZbYU9Sx/ltb7KYuQ6pqAw+cbFWVy4XKdkuEL2CFaRLGEnISPs7YdzaUGpi+CpIqvRmu7hPQ4T7EQ5w==}
+    engines: {node: '>=0.3.1'}
+
+  escape-string-regexp@1.0.2:
+    resolution: {integrity: sha512-cQpUid7bdTUnFin8S7BnNdOk+/eDqQmKgCANSyd/jAhrKEvxUvr9VQ8XZzXiOtest8NLfk3FSBZzwvemZNQ6Vg==}
+    engines: {node: '>=0.8.0'}
+
+  extend@1.2.1:
+    resolution: {integrity: sha512-2/JwIYRpMBDSjbQjUUppNSrmc719crhFaWIdT+TRSVA8gE+6HEobQWqJ6VkPt/H8twS7h/0WWs7veh8wmp98Ng==}
+
+  form-data@0.1.3:
+    resolution: {integrity: sha512-khpfkwI/RQybQdwruvz89OCmcXiFZstZ88llcc552BrzvOhqIOHC6YCRJ44GLK7BRFBEMGH9zJ2zMy0nz27Y9w==}
+    engines: {node: '>= 0.8'}
+
+  formidable@1.0.14:
+    resolution: {integrity: sha512-aOskFHEfYwkSKSzGui5jhQ+uyLo2NTwpzhndggz2YZHlv0HkAi+zG5ZEBCL3GTvqLyr/FzX9Mvx9DueCmu2HzQ==}
+    engines: {node: '>=0.8.0'}
+    deprecated: 'Please upgrade to latest, formidable@v2 or formidable@v3! Check these notes: https://bit.ly/2ZEqIau'
+
+  glob@3.2.3:
+    resolution: {integrity: sha512-WPaLsMHD1lYEqAmIQI6VOJSPwuBdGShDWnj1yUo0vQqEO809R8W3LM9OVU13CnnDhyv/EiNwOtxEW74SmrzS6w==}
+    deprecated: Old versions of glob are not supported, and contain widely publicized security vulnerabilities, which have been fixed in the current version. Please update. Support for old versions may be purchased (at exorbitant rates) by contacting i@izs.me
+
+  graceful-fs@2.0.3:
+    resolution: {integrity: sha512-hcj/NTUWv+C3MbqrVb9F+aH6lvTwEHJdx2foBxlrVq5h6zE8Bfu4pv4CAAqbDcZrw/9Ak5lsRXlY9Ao8/F0Tuw==}
+    engines: {node: '>=0.4.0'}
+    deprecated: please upgrade to graceful-fs 4 for compatibility with current and future versions of Node.js
+
+  growl@1.8.1:
+    resolution: {integrity: sha512-Hq61svqhXHBTY80KsuLrItJ9A0YP1PSeiS4hhi77NcPQf+F+yagOSkhuhZdND7NfAcpHm495FKUTmRcygzF0OA==}
+
+  inherits@2.0.4:
+    resolution: {integrity: sha512-k/vGaX4/Yla3WzyMCvTQOXYeIHvqOKtnqBduzTHpzpQZzAskKMhZ2K+EnBiSM9zGSoIFeMpXKxa4dYeZIQqewQ==}
+
+  isarray@0.0.1:
+    resolution: {integrity: sha512-D2S+3GLxWH+uhrNEcoh/fnmYeP8E8/zHl644d/jdA0g2uyXvy3sb0qxotE+ne0LtccHknQzWwZEzhak7oJ0COQ==}
+
+  jade@0.26.3:
+    resolution: {integrity: sha512-mkk3vzUHFjzKjpCXeu+IjXeZD+QOTjUUdubgmHtHTDwvAO2ZTkMTTVrapts5CWz3JvJryh/4KWZpjeZrCepZ3A==}
+    deprecated: Jade has been renamed to pug, please install the latest version of pug instead of jade
+    hasBin: true
+
+  lru-cache@2.7.3:
+    resolution: {integrity: sha512-WpibWJ60c3AgAz8a2iYErDrcT2C7OmKnsWhIcHOjkUHFjkXncJhtLxNSqUmxRxRunpb5I8Vprd7aNSd2NtksJQ==}
+
+  media-typer@0.2.0:
+    resolution: {integrity: sha512-TSggxYk75oP4tae7JkT8InpcFGUP4340zg1dOWjcu9qcphaDKtXEuNUv3OD4vJ+gVTvIDK797W0uYeNm8qqsDg==}
+    engines: {node: '>= 0.8.0'}
+
+  methods@1.0.1:
+    resolution: {integrity: sha512-2403MfnVypWSNIEpmQ26/ObZ5kSUx37E8NHRvriw0+I8Sne7k0HGuLGCk0OrCqURh4UIygD0cSsYq+Ll+kzNqA==}
+
+  methods@1.1.2:
+    resolution: {integrity: sha512-iclAHeNqNm68zFtnZ0e+1L2yUIdvzNoauKU4WBA3VvH/vPFieF7qfRlwUZU+DA9P9bPXIS90ulxoUoCH23sV2w==}
+    engines: {node: '>= 0.6'}
+
+  milu@1.1.2:
+    resolution: {integrity: sha512-s5AzQbyi8YxSMvpBYAL0OWRSbVQ7z8U3V0RVVlz8ATPFlxvFxO7U6MPC1wE+wtSAs6ebdQGBwMQg9DPRejLVjA==}
+
+  mime-types@1.0.2:
+    resolution: {integrity: sha512-echfutj/t5SoTL4WZpqjA1DCud1XO0WQF3/GJ48YBmc4ZMhCK77QA6Z/w6VTQERLKuJ4drze3kw2TUT8xZXVNw==}
+    engines: {node: '>= 0.8.0'}
+
+  mime@1.2.11:
+    resolution: {integrity: sha512-Ysa2F/nqTNGHhhm9MV8ure4+Hc+Y8AWiqUdHxsO7xu8zc92ND9f3kpALHjaP026Ft17UfxrMt95c50PLUeynBw==}
+
+  mini-co@1.0.0:
+    resolution: {integrity: sha512-C3yhTlPXspPIR/58i68DAvq71+JkD3Ui5mFb/vSuc7gzYLabGVmYMDNCeCX60D+oy3qIPRlCvEcOYEBeZI3YOQ==}
+
+  mini-util@1.1.0:
+    resolution: {integrity: sha512-H2JHOtl0cggm/03t8zHClD2atapikDR2naIlguGe54WH39U/+pcHqjQKMU8kl0bXoDSgT73hv81g+rEkItYykg==}
+
+  minimatch@0.2.14:
+    resolution: {integrity: sha512-zZ+Jy8lVWlvqqeM8iZB7w7KmQkoJn8djM585z88rywrEbzoqawVa9FR5p2hwD+y74nfuKOjmNvi9gtWJNLqHvA==}
+    deprecated: Please update to minimatch 3.0.2 or higher to avoid a RegExp DoS issue
+
+  minimist@0.0.8:
+    resolution: {integrity: sha512-miQKw5Hv4NS1Psg2517mV4e4dYNaO3++hjAvLOAzKqZ61rH8NS1SK+vbfBWZ5PY/Me/bEWhUwqMghEW5Fb9T7Q==}
+
+  mkdirp@0.3.0:
+    resolution: {integrity: sha512-OHsdUcVAQ6pOtg5JYWpCBo9W/GySVuwvP9hueRMW7UqshC0tbfzLv8wjySTPm3tfUZ/21CE9E1pJagOA91Pxew==}
+    deprecated: Legacy versions of mkdirp are no longer supported. Please update to mkdirp 1.x. (Note that the API surface has changed to use Promises in 1.x.)
+
+  mkdirp@0.5.0:
+    resolution: {integrity: sha512-xjjNGy+ry1lhtIKcr2PT6ok3aszhQfgrUDp4OZLHacgRgFmF6XR9XCOJVcXlVGQonIqXcK1DvqgKKQOPWYGSfw==}
+    deprecated: Legacy versions of mkdirp are no longer supported. Please update to mkdirp 1.x. (Note that the API surface has changed to use Promises in 1.x.)
+    hasBin: true
+
+  mocha@2.2.5:
+    resolution: {integrity: sha512-/JI0IQyGSDVKJGOPQlOn0PwZ2S0htOHS95N65Pxm+AIRNzbc1tJnTD5+heey+eyz+AmCxwgpajHhatfmMzYyzQ==}
+    engines: {node: '>= 0.8.x'}
+    deprecated: Mocha v2.2.x is no longer supported.
+    hasBin: true
+
+  ms@0.6.2:
+    resolution: {integrity: sha512-/pc3eh7TWorTtbvXg8je4GvrvEqCfH7PA3P7iW01yL2E53FKixzgMBaQi0NOPbMJqY34cBSvR0tZtmlTkdUG4A==}
+
+  ms@2.0.0:
+    resolution: {integrity: sha512-Tpp60P6IUJDTuOq/5Z8cdskzJujfwqfOTkrwIwj7IRISpnkJnT6SyJ4PCPnGMoFjC9ddhal5KVIYtAt97ix05A==}
+
+  negotiator@0.4.7:
+    resolution: {integrity: sha512-ujxWwyRfZ6udAgHGECQC3JDO9e6UAsuItfUMcqA0Xf2OLNQTveFVFx+fHGIJ5p0MJaJrZyGQqPwzuN0NxJzEKA==}
+
+  qs@1.2.0:
+    resolution: {integrity: sha512-XUf0O7rlGjbH+n7uqyT+xn362fmoPe4ehtHL6VK1nbSgQ7CqG0ZZLr1nU2EyXlRq++YphPdQ/5scjIWNMSPnhg==}
+
+  readable-stream@1.0.27-1:
+    resolution: {integrity: sha512-uQE31HGhpMrqZwtDjRliOs2aC3XBi+DdkhLs+Xa0dvVD5eDiZr3+k8rKVZcyTzxosgtMw7B/twQsK3P1KTZeVg==}
+
+  readable-stream@1.0.34:
+    resolution: {integrity: sha512-ok1qVCJuRkNmvebYikljxJA/UEsKwLl2nI1OmaqAu4/UE+h0wKCHok4XkL/gvi39OacXvw59RJUOFUkDib2rHg==}
+
+  reduce-component@1.0.1:
+    resolution: {integrity: sha512-y0wyCcdQul3hI3xHfIs0vg/jSbboQc/YTOAqaxjFG7At+XSexduuOqBVL9SmOLSwa/ldkbzVzdwuk9s2EKTAZg==}
+
+  sigmund@1.0.1:
+    resolution: {integrity: sha512-fCvEXfh6NWpm+YSuY2bpXb/VIihqWA6hLsgboC+0nl71Q7N7o2eaCW8mJa/NLvQhs6jpd3VZV4UiUQlV6+lc8g==}
+
+  string_decoder@0.10.31:
+    resolution: {integrity: sha512-ev2QzSzWPYmy9GuqfIVildA4OdcGLeFZQrq5ys6RtiuF+RQQiZWr8TZNyAcuVXyQRYfEO+MsoB/1BuQVhOJuoQ==}
+
+  superagent@0.21.0:
+    resolution: {integrity: sha512-bUmNwlVzM/CNKgLnXiTU/89jUR7SIuZTShJpCNY6wH0eOF/UBMhrQNy9qFW0QmGZJkeLE/LnMjd8CgD+Og4kBA==}
+    engines: {node: '>= 0.8'}
+    deprecated: Please upgrade to superagent v10.2.2+, see release notes at https://github.com/forwardemail/superagent/releases/tag/v10.2.2 - maintenance is supported by Forward Email @ https://forwardemail.net
+
+  supertest@0.15.0:
+    resolution: {integrity: sha512-vsdfVq3TzNt1sYWonvAO8ChG3azYeL2eKV6hY7tJrhHIVie7RSohbL4Nf2DCZ1/colXbF4Jsi1kVfa0lBv0Cpw==}
+    deprecated: Please upgrade to supertest v7.1.3+, see release notes at https://github.com/forwardemail/supertest/releases/tag/v7.1.3 - maintenance is supported by Forward Email @ https://forwardemail.net
+
+  supports-color@1.2.1:
+    resolution: {integrity: sha512-MNpF4lwJXGrsw6ZnDWZKDAtUqjJXR9QmFshDsbWzLimdzVRuxT3dWxPXnPYRSXnncQsIGTyZGNPDKQ8R8dNYcg==}
+    engines: {node: '>=0.8.0'}
+    hasBin: true
+
+  thunkify@0.0.1:
+    resolution: {integrity: sha512-PlJsf0UYJw6Z4bdCYljva3x5tI1y8Imc7hsaVauy099I0dg5bFF6Y0FL7C1Dn7n3vIumN9GNuEgzsQbzucYJrA==}
+
+  tianma@1.0.0:
+    resolution: {integrity: sha512-X+sGxJNvACPrZ05kJVbHx6kjte5fNq4p9w5iJkWulkTm0L863UPL1R5sErh0yOsCaw0ON/dVZ/C0k2bPQ5aRfA==}
+    engines: {node: '>=0.10.0'}
+
+  type-is@1.3.2:
+    resolution: {integrity: sha512-sdIhnvhWEyIP2DKjj1o9tL31m8vFxDfLPD56KXz2absqY5AF2QYkJC7Wrw2fkzsZA9mv+PCtgyB7EqYOgR+r3Q==}
+    engines: {node: '>= 0.8'}
+
+snapshots:
+
+  accepts@1.0.7:
+    dependencies:
+      mime-types: 1.0.2
+      negotiator: 0.4.7
+
+  async@0.9.2: {}
+
+  bl@0.9.4:
+    dependencies:
+      readable-stream: 1.0.34
+
+  co-from-stream@0.0.0:
+    dependencies:
+      co-read: 0.0.1
+
+  co-fs@1.2.0:
+    dependencies:
+      co-from-stream: 0.0.0
+      thunkify: 0.0.1
+
+  co-read@0.0.1: {}
+
+  combined-stream@0.0.7:
+    dependencies:
+      delayed-stream: 0.0.5
+
+  commander@0.6.1: {}
+
+  commander@2.3.0: {}
+
+  component-emitter@1.1.2: {}
+
+  cookie@0.1.2: {}
+
+  cookiejar@2.0.1: {}
+
+  core-util-is@1.0.3: {}
+
+  debug@2.0.0(supports-color@1.2.1):
+    dependencies:
+      ms: 0.6.2
+    optionalDependencies:
+      supports-color: 1.2.1
+
+  debug@2.6.9:
+    dependencies:
+      ms: 2.0.0
+
+  delayed-stream@0.0.5: {}
+
+  diff@1.4.0: {}
+
+  escape-string-regexp@1.0.2: {}
+
+  extend@1.2.1: {}
+
+  form-data@0.1.3:
+    dependencies:
+      async: 0.9.2
+      combined-stream: 0.0.7
+      mime: 1.2.11
+
+  formidable@1.0.14: {}
+
+  glob@3.2.3:
+    dependencies:
+      graceful-fs: 2.0.3
+      inherits: 2.0.4
+      minimatch: 0.2.14
+
+  graceful-fs@2.0.3: {}
+
+  growl@1.8.1: {}
+
+  inherits@2.0.4: {}
+
+  isarray@0.0.1: {}
+
+  jade@0.26.3:
+    dependencies:
+      commander: 0.6.1
+      mkdirp: 0.3.0
+
+  lru-cache@2.7.3: {}
+
+  media-typer@0.2.0: {}
+
+  methods@1.0.1: {}
+
+  methods@1.1.2: {}
+
+  milu@1.1.2:
+    dependencies:
+      mini-co: 1.0.0
+
+  mime-types@1.0.2: {}
+
+  mime@1.2.11: {}
+
+  mini-co@1.0.0: {}
+
+  mini-util@1.1.0: {}
+
+  minimatch@0.2.14:
+    dependencies:
+      lru-cache: 2.7.3
+      sigmund: 1.0.1
+
+  minimist@0.0.8: {}
+
+  mkdirp@0.3.0: {}
+
+  mkdirp@0.5.0:
+    dependencies:
+      minimist: 0.0.8
+
+  mocha@2.2.5:
+    dependencies:
+      commander: 2.3.0
+      debug: 2.0.0(supports-color@1.2.1)
+      diff: 1.4.0
+      escape-string-regexp: 1.0.2
+      glob: 3.2.3
+      growl: 1.8.1
+      jade: 0.26.3
+      mkdirp: 0.5.0
+      supports-color: 1.2.1
+
+  ms@0.6.2: {}
+
+  ms@2.0.0: {}
+
+  negotiator@0.4.7: {}
+
+  qs@1.2.0: {}
+
+  readable-stream@1.0.27-1:
+    dependencies:
+      core-util-is: 1.0.3
+      inherits: 2.0.4
+      isarray: 0.0.1
+      string_decoder: 0.10.31
+
+  readable-stream@1.0.34:
+    dependencies:
+      core-util-is: 1.0.3
+      inherits: 2.0.4
+      isarray: 0.0.1
+      string_decoder: 0.10.31
+
+  reduce-component@1.0.1: {}
+
+  sigmund@1.0.1: {}
+
+  string_decoder@0.10.31: {}
+
+  superagent@0.21.0:
+    dependencies:
+      component-emitter: 1.1.2
+      cookiejar: 2.0.1
+      debug: 2.6.9
+      extend: 1.2.1
+      form-data: 0.1.3
+      formidable: 1.0.14
+      methods: 1.0.1
+      mime: 1.2.11
+      qs: 1.2.0
+      readable-stream: 1.0.27-1
+      reduce-component: 1.0.1
+    transitivePeerDependencies:
+      - supports-color
+
+  supertest@0.15.0:
+    dependencies:
+      methods: 1.1.2
+      superagent: 0.21.0
+    transitivePeerDependencies:
+      - supports-color
+
+  supports-color@1.2.1: {}
+
+  thunkify@0.0.1: {}
+
+  tianma@1.0.0:
+    dependencies:
+      accepts: 1.0.7
+      bl: 0.9.4
+      cookie: 0.1.2
+      milu: 1.1.2
+      mime-types: 1.0.2
+      mini-util: 1.1.0
+      type-is: 1.3.2
+
+  type-is@1.3.2:
+    dependencies:
+      media-typer: 0.2.0
+      mime-types: 1.0.2

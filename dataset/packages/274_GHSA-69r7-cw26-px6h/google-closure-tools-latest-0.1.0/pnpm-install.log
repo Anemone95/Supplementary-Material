@@ -1,0 +1,9 @@
+$ corepack pnpm@9.15.9 install --prod --no-frozen-lockfile --reporter=append-only --config.node-linker=hoisted --ignore-workspace --ignore-scripts
+ ERR_PNPM_NO_MATCHING_VERSION  No matching version found for fs@0.0.1
+
+This error happened while installing a direct dependency of /home/wenyuan/work/jelly-benchmarks/packages/Supplementary-Material/dataset/packages/274_GHSA-69r7-cw26-px6h/google-closure-tools-latest-0.1.0
+
+The latest release of fs is "0.0.1-security".
+
+If you need the full list of all 3 published versions run "$ pnpm view fs versions".
+Progress: resolved 1, reused 0, downloaded 0, added 0

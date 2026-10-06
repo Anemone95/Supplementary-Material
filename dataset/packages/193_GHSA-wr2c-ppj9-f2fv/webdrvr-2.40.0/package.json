@@ -1,0 +1,49 @@
+{
+  "name": "webdrvr",
+  "version": "2.40.0",
+  "keywords": [
+    "webdriver",
+    "selenium",
+    "testing",
+    "automation",
+    "chromedriver",
+    "iedriver",
+    "phantomjs",
+    "ghostdriver"
+  ],
+  "description": "NPM wrapper for Selenium Webdriver including Chromedriver / IEDriver / IOSDriver / Ghostdriver",
+  "homepage": "https://github.com/uxebu/webdrvr",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/uxebu/webdrvr.git"
+  },
+  "main": "lib/index.js",
+  "bin": {
+    "webdrvr": "./bin/webdrvr"
+  },
+  "author": {
+    "name": "Tobias von Klipstein",
+    "email": "tk@uxebu.com"
+  },
+  "license": "MIT",
+  "scripts": {
+    "install": "node install.js",
+    "test": "jasmine-node test"
+  },
+  "dependencies": {
+    "adm-zip": "~0.4.3",
+    "kew": "~0.1.7",
+    "mkdirp": "~0.3.5",
+    "npmconf": "~0.1.2",
+    "phantomjs": "~1.9.1-2",
+    "tmp": "~0.0.20",
+    "follow-redirects": "0.0.3"
+  },
+  "devDependencies": {
+    "jasmine-node": "~1.11.0",
+    "selenium-webdriver": "~2.40.0"
+  },
+  "engines": {
+    "node": ">=0.10"
+  }
+}
